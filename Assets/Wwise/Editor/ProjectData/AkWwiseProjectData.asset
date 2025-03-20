@@ -66,8 +66,22 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 4fc03994a5b8304c97b3b9eeaaa06dce
     GuidInternal: 
-    m_lastTime: -8584592049625477293
-    List: []
+    m_lastTime: -8584592025510264294
+    List:
+    - name: Main_Soundbank
+      guid: 9c681a67bb0edc438ca06ea413cbc6e5
+      id: 2228651116
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4fc03994a5b8304c97b3b9eeaaa06dce
+      - ElementName: Main_Soundbank
+        ObjectType: 7
+        guid: 9c681a67bb0edc438ca06ea413cbc6e5
+      Path: SoundBanks\Default Work Unit\Main_Soundbank
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -80,8 +94,25 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 9af2c816ffb907449ffb634b024404d9
     GuidInternal: 
-    m_lastTime: -8584592049626864190
-    List: []
+    m_lastTime: -8584592025510169212
+    List:
+    - name: Play_music_test
+      guid: 3fb4cc7a3e24d24891473c839a2ea299
+      id: 3608471722
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 9af2c816ffb907449ffb634b024404d9
+      - ElementName: Play_music_test
+        ObjectType: 3
+        guid: 3fb4cc7a3e24d24891473c839a2ea299
+      Path: Events\Default Work Unit\Play_music_test
+      maxAttenuation: 0
+      maxDuration: 289.45334
+      minDuration: 289.45334
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -139,7 +170,7 @@ MonoBehaviour:
     m_lastTime: -8584592049624815612
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000070000000b0000000c000000
+  ExpandedWaapiItemIds: 030000000400000005000000060000000700000008000000090000000b0000000c000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

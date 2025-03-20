@@ -1,0 +1,47 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2228651116",
+    "Type": "User",
+    "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
+    "Language": "SFX",
+    "Hash": "{293041B6-5F2A-5E2C-A2C8-FDFCE5D9408D}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
+    "ShortName": "Main_Soundbank",
+    "Path": "Main_Soundbank.bnk",
+    "Media": [
+     {
+      "Id": "810601428",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Jon Hopkins - Immunity - 01 We Disappear.wav",
+      "CachePath": "16/{16A6958A-1692-320C-D65E-BE2E51ABD2A3}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3608471722",
+      "Name": "Play_music_test",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_music_test",
+      "GUID": "{7ACCB43F-243E-48D2-9147-3C839A2EA299}",
+      "DurationType": "OneShot",
+      "DurationMin": "289.45334",
+      "DurationMax": "289.45334",
+      "MediaRefs": [
+       {
+        "Id": "810601428"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{8217A364-F15F-4EC5-D3FA-FBAA2FC42B3A}"
+ }
+}
