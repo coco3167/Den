@@ -37,4 +37,9 @@ public class MouseManager : MonoBehaviour
     {
         return (otherPos - rawWorldMousePosition).sqrMagnitude;
     }
+
+    public Vector3 GetRawWorldMousePosition()
+    {
+        return rawWorldMousePosition;
+    }
 }

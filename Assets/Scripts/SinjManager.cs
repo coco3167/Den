@@ -21,6 +21,7 @@ public class SinjManager : MonoBehaviour
         for (int loop = 0; loop < sinjCount; loop++)
         {
             sinjs.Add(Instantiate(sinjPrefab, transform).GetComponent<Sinj>());
+            sinjs[loop].Init();
         }
     }
 
@@ -28,7 +29,7 @@ public class SinjManager : MonoBehaviour
     {
         foreach (Sinj sinj in sinjs)
         {
-            sinj.ReactToMouseDistance(mouseManager.ObjectDistanceToMouse(sinj.transform.position));
+            sinj.ReactToMouseDistance(mouseManager.ObjectDistanceToMouse(sinj.transform.position), mouseManager.GetRawWorldMousePosition());
         }
     }
 }
