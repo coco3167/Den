@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{5297F478-D7F2-4743-8571-5BCF10DFD541}" SchemaVersion="123">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{5297F478-D7F2-4743-8571-5BCF10DFD541}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{5297F478-D7F2-4743-8571-5BCF10DFD541}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="test" ID="{5999E4B1-32E3-499A-B1B2-6B06FCEA2980}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="MainMusic_Play" ID="{7ACCB43F-243E-48D2-9147-3C839A2EA299}" WorkUnitID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="MainMusic_Stop" ID="{FF5C76DF-4CC9-42A6-B5C7-61402A1B17F4}" WorkUnitID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

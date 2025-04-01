@@ -1,6 +1,14 @@
 Event	ID	Name			Wwise Object Path	Notes
-	3608471722	Play_music_test			\Default Work Unit\Play_music_test	
+	795638160	MainMusic_Play			\Default Work Unit\MainMusic_Play	
+	3439190578	MainMusic_Stop			\Default Work Unit\MainMusic_Stop	
 
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	810601428	Jon Hopkins - Immunity - 01 We Disappear	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den_WwiseIntegrationTemp2\Den_WwiseProject\.cache\16\{16A6958A-1692-320C-D65E-BE2E51ABD2A3}.wem		\Interactive Music Hierarchy\Default Work Unit\music_test\Jon Hopkins - Immunity - 01 We Disappear		51059664
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	85412153	Ambience			\Default Work Unit\Master Audio Bus\Ambience	
+	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
+	1551306167	UI			\Default Work Unit\Master Audio Bus\UI	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
+
+Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
+	810601428	Jon Hopkins - Immunity - 01 We Disappear	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\68\{680E0FBA-936D-4BBB-FF10-62CA24AFF96D}.wem	810601428.wem	\Interactive Music Hierarchy\Default Work Unit\music_test\Jon Hopkins - Immunity - 01 We Disappear	
 

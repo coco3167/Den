@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum WwiseSwitchMood
+public enum WwiseMoodState
 {
     Curiosity,
     Fear,
     Anger,
-    MNeutral,
+    Neutral,
     None
 }
 public enum WwiseAudioState
@@ -16,12 +16,7 @@ public enum WwiseAudioState
     Mono,
     None
 }
-public enum WwiseMusicState
-{
-    LevelStart,
-    LevelPauseMenu,
-    None
-}
+
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
@@ -31,24 +26,26 @@ public class AudioManager : MonoBehaviour
     [Header("Startup Soundbanks")]
     [SerializeField] private List<AK.Wwise.Bank> Soundbanks;
 
-    [Header("Game Switch Variables")]
-    [SerializeField] private AK.Wwise.Switch Mood_Curiosity;
-    [SerializeField] private AK.Wwise.Switch Mood_Fear;
-    [SerializeField] private AK.Wwise.Switch Mood_Anger;
-    [SerializeField] private AK.Wwise.Switch Mood_Neutral;
-    [SerializeField] private AK.Wwise.Switch Mood_None;
+    [Header("Game State Mood Variables")]
+    [SerializeField] private AK.Wwise.State Mood_Curiosity;
+    [SerializeField] private AK.Wwise.State Mood_Fear;
+    [SerializeField] private AK.Wwise.State Mood_Anger;
+    [SerializeField] private AK.Wwise.State Mood_Neutral;
+    [SerializeField] private AK.Wwise.State Mood_None;
 
-    [Header("Game State Variables")]
+    private WwiseMoodState currentMoodState;
+
+    [Header("Audio State Variables")]
     [SerializeField] private AK.Wwise.State Audio_StereoHeadphones;
     [SerializeField] private AK.Wwise.State Audio_StereoSpeakers;
     [SerializeField] private AK.Wwise.State Audio_Mono;
     [SerializeField] private AK.Wwise.State Audio_None;
 
-    [Header("Music State Variables")]
-    [SerializeField] private AK.Wwise.State Music_LevelStart;
-    [SerializeField] private AK.Wwise.State Music_LevelPauseMenu;
-    [SerializeField] private AK.Wwise.State Music_None;
+    private WwiseAudioState currentAudioState;
 
+    [Header("Wwise Music Events")]
+    [SerializeField] private AK.Wwise.Event MainMusic_Play;
+    [SerializeField] private AK.Wwise.Event MainMusic_Stop;
 
     private void Awake()
     {
@@ -58,14 +55,12 @@ public class AudioManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        SetWwiseAudioState(WwiseAudioState.StereoHeadphones);
+        SetWwiseMoodState(WwiseMoodState.Neutral);
 
+        MainMusic_Play.Post(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     void Initialize()
     {
@@ -84,6 +79,10 @@ public class AudioManager : MonoBehaviour
         {
             LoadSoundbanks();
         }
+
+        SetWwiseMoodState(WwiseMoodState.None);
+        SetWwiseAudioState(WwiseAudioState.None);
+
         bIsInitialized = true;
     }
 
@@ -101,25 +100,64 @@ public class AudioManager : MonoBehaviour
             Debug.LogError("Soundbanks list is empty ! Are the banks assigned to the AudioManager?");
     }
 
-    void SetWwiseSwitchmood(WwiseSwitchMood switchMood)
+    public void SetWwiseMoodState(WwiseMoodState stateMood)
     {
-        switch (switchMood)
+        if (stateMood == currentMoodState)
         {
-            case WwiseSwitchMood.Curiosity:
+            Debug.Log("Mood is already set to " + stateMood);
+            return;
+        }
+
+        switch (stateMood)
+        {
+            case WwiseMoodState.Curiosity:
                 Mood_Curiosity.SetValue();
                 break;
-            case WwiseSwitchMood.Fear:
+            case WwiseMoodState.Fear:
                 Mood_Fear.SetValue();
                 break;
-            case WwiseSwitchMood.Anger:
+            case WwiseMoodState.Anger:
                 Mood_Anger.SetValue();
                 break;
-            case WwiseSwitchMood.MNeutral:
+            default:
+            case WwiseMoodState.Neutral:
                 Mood_Neutral.SetValue();
                 break;
-            case WwiseSwitchMood.None:
+            case WwiseMoodState.None:
                 Mood_None.SetValue();
                 break;
         }
+
+        Debug.Log("Mood has been set to " + stateMood);
+        currentMoodState = stateMood;
+    }
+
+    public void SetWwiseAudioState(WwiseAudioState audioState)
+    {
+        if (audioState == currentAudioState)
+        {
+            Debug.Log("Mood is already set to " + audioState);
+            return;
+        }
+
+        switch (audioState)
+        {
+            default:
+            case WwiseAudioState.StereoHeadphones:
+                Audio_StereoHeadphones.SetValue();
+                break;
+            case WwiseAudioState.StereoSpeakers:
+                Audio_StereoSpeakers.SetValue();
+                break;
+            case WwiseAudioState.Mono:
+                Audio_Mono.SetValue();
+                break;
+            case WwiseAudioState.None:
+                Audio_None.SetValue();
+                break;
+        }
+
+        Debug.Log("Audio state has been set to " + audioState);
+        currentAudioState = audioState;
     }
 }

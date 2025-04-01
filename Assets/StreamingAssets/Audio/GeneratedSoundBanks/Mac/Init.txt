@@ -1,5 +1,24 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	1413831690	Den_Audio_Mix			\Default Work Unit\Den_Audio_Mix	
+	3144458380	DEN_Mood			\Default Work Unit\DEN_Mood	
+
+State	ID	Name	State Group			Notes
+	731087069	Stereo_Headphones	Den_Audio_Mix			
+	748895195	None	Den_Audio_Mix			
+	2075786003	Mono_Mix	Den_Audio_Mix			
+	2744632766	Stereo_Speakers	Den_Audio_Mix			
+	670611050	Neutral	DEN_Mood			
+	748895195	None	DEN_Mood			
+	954941502	Anger	DEN_Mood			
+	1808619223	Curiousity	DEN_Mood			
+	3133847859	Fear	DEN_Mood			
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	85412153	Ambience			\Default Work Unit\Master Audio Bus\Ambience	
+	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
+	1551306167	UI			\Default Work Unit\Master Audio Bus\UI	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

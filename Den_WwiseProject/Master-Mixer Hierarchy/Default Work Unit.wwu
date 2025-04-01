@@ -9,6 +9,32 @@
 							<ObjectRef Name="System" ID="{C142E1D2-F511-452A-A935-13BE58498245}" WorkUnitID="{0337694D-80CD-4E8F-9491-C4742292E371}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="Music" ID="{4C0AAA7A-5063-49AA-B2EE-5337426DC76A}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="13"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+						<Bus Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+						<Bus Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="9"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+						<Bus Name="UI" ID="{536025B3-BD32-439B-A84E-2880E4EAE4C4}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="19"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

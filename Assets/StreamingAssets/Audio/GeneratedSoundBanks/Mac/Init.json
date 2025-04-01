@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{89C218AE-9E0B-8562-B379-0ABAC724E516}",
+    "Hash": "{E3682BF2-A09C-3838-FA88-83F5EE49738F}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -36,14 +36,125 @@
     },
     "Busses": [
      {
+      "Id": "85412153",
+      "Name": "Ambience",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Ambience",
+      "GUID": "{F664A27B-9528-433E-BB7B-EDA25DD34C03}",
+      "Color": "4"
+     },
+     {
+      "Id": "393239870",
+      "Name": "SFX",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX",
+      "GUID": "{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}",
+      "Color": "9"
+     },
+     {
+      "Id": "1551306167",
+      "Name": "UI",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\UI",
+      "GUID": "{536025B3-BD32-439B-A84E-2880E4EAE4C4}",
+      "Color": "19"
+     },
+     {
       "Id": "3803692087",
       "Name": "Master Audio Bus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     },
+     {
+      "Id": "3991942870",
+      "Name": "Music",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Music",
+      "GUID": "{4C0AAA7A-5063-49AA-B2EE-5337426DC76A}",
+      "Color": "13"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1413831690",
+      "Name": "Den_Audio_Mix",
+      "ObjectPath": "\\States\\Default Work Unit\\Den_Audio_Mix",
+      "GUID": "{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}",
+      "Color": "3",
+      "States": [
+       {
+        "Id": "731087069",
+        "Name": "Stereo_Headphones",
+        "ObjectPath": "\\States\\Default Work Unit\\Den_Audio_Mix\\Stereo_Headphones",
+        "GUID": "{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}",
+        "Color": "3"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Den_Audio_Mix\\None",
+        "GUID": "{9194538F-49FF-48E6-851D-9C54A6070545}",
+        "Color": "3"
+       },
+       {
+        "Id": "2075786003",
+        "Name": "Mono_Mix",
+        "ObjectPath": "\\States\\Default Work Unit\\Den_Audio_Mix\\Mono_Mix",
+        "GUID": "{180B6345-227B-45E9-BD3F-732A9DE1F93C}",
+        "Color": "3"
+       },
+       {
+        "Id": "2744632766",
+        "Name": "Stereo_Speakers",
+        "ObjectPath": "\\States\\Default Work Unit\\Den_Audio_Mix\\Stereo_Speakers",
+        "GUID": "{047D45B0-AF72-4DAF-B465-792165DD80A5}",
+        "Color": "3"
+       }
+      ]
+     },
+     {
+      "Id": "3144458380",
+      "Name": "DEN_Mood",
+      "ObjectPath": "\\States\\Default Work Unit\\DEN_Mood",
+      "GUID": "{0479447C-0867-4F59-A8A4-199CAE84ECB5}",
+      "Color": "3",
+      "States": [
+       {
+        "Id": "670611050",
+        "Name": "Neutral",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_Mood\\Neutral",
+        "GUID": "{88D8C9E8-142E-4396-BDE2-129CA516E641}",
+        "Color": "3"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_Mood\\None",
+        "GUID": "{2F3B824F-DD6D-4C55-B51A-EDD7577FA06E}",
+        "Color": "3"
+       },
+       {
+        "Id": "954941502",
+        "Name": "Anger",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_Mood\\Anger",
+        "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+        "Color": "3"
+       },
+       {
+        "Id": "1808619223",
+        "Name": "Curiousity",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_Mood\\Curiousity",
+        "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+        "Color": "3"
+       },
+       {
+        "Id": "3133847859",
+        "Name": "Fear",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_Mood\\Fear",
+        "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+        "Color": "3"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{5E4F3FF4-90D1-8930-D6A3-DF3FA7033B6D}"
+  "FileHash": "{0E81E21B-AD87-2066-4828-34C0DEAA8409}"
  }
 }

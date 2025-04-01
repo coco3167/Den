@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{293041B6-5F2A-5E2C-A2C8-FDFCE5D9408D}",
+    "Hash": "{96D5F93B-24CB-F6FB-2B28-625DFF851EC1}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -18,17 +18,18 @@
      {
       "Id": "810601428",
       "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
+      "Streaming": "true",
+      "Location": "Loose",
       "ShortName": "Jon Hopkins - Immunity - 01 We Disappear.wav",
-      "CachePath": "16/{16A6958A-1692-320C-D65E-BE2E51ABD2A3}.wem"
+      "Path": "Media/810601428.wem",
+      "CachePath": "68/{680E0FBA-936D-4BBB-FF10-62CA24AFF96D}.wem"
      }
     ],
     "Events": [
      {
-      "Id": "3608471722",
-      "Name": "Play_music_test",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_music_test",
+      "Id": "795638160",
+      "Name": "MainMusic_Play",
+      "ObjectPath": "\\Events\\Default Work Unit\\MainMusic_Play",
       "GUID": "{7ACCB43F-243E-48D2-9147-3C839A2EA299}",
       "DurationType": "OneShot",
       "DurationMin": "289.45334",
@@ -38,10 +39,61 @@
         "Id": "810601428"
        }
       ]
+     },
+     {
+      "Id": "3439190578",
+      "Name": "MainMusic_Stop",
+      "ObjectPath": "\\Events\\Default Work Unit\\MainMusic_Stop",
+      "GUID": "{FF5C76DF-4CC9-42A6-B5C7-61402A1B17F4}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "MediaRefs": [
+       {
+        "Id": "810601428"
+       }
+      ]
+     }
+    ],
+    "Busses": [
+     {
+      "Id": "85412153",
+      "Name": "Ambience",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Ambience",
+      "GUID": "{F664A27B-9528-433E-BB7B-EDA25DD34C03}",
+      "Color": "4"
+     },
+     {
+      "Id": "393239870",
+      "Name": "SFX",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX",
+      "GUID": "{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}",
+      "Color": "9"
+     },
+     {
+      "Id": "1551306167",
+      "Name": "UI",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\UI",
+      "GUID": "{536025B3-BD32-439B-A84E-2880E4EAE4C4}",
+      "Color": "19"
+     },
+     {
+      "Id": "3803692087",
+      "Name": "Master Audio Bus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
+      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     },
+     {
+      "Id": "3991942870",
+      "Name": "Music",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Music",
+      "GUID": "{4C0AAA7A-5063-49AA-B2EE-5337426DC76A}",
+      "Color": "13"
      }
     ]
    }
   ],
-  "FileHash": "{45564A8B-8652-791E-E6F4-933A48C61DDD}"
+  "FileHash": "{83D7661F-DE8B-1E1D-D866-910F982D385A}"
  }
 }

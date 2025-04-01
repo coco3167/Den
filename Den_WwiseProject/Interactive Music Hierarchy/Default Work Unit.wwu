@@ -12,12 +12,23 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+							<ObjectRef Name="Music" ID="{4C0AAA7A-5063-49AA-B2EE-5337426DC76A}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<MusicTrack Name="Jon Hopkins - Immunity - 01 We Disappear" ID="{AB081D53-BECC-4547-B466-19D1DAEC751E}" ShortID="324666963">
+							<PropertyList>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideConversion" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="MusicConversionSettings" ID="{2B826872-5AF0-476D-B010-27C79E8FA78F}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 								</Reference>
@@ -89,6 +100,7 @@
 						</ObjectList>
 					</ObjectLists>
 				</MusicSegment>
+				<WorkUnit Name="Music" ID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</InteractiveMusic>
