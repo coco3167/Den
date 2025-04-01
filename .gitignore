@@ -102,9 +102,21 @@ crashlytics-build.properties
 [Bb]in/
 [Oo]bj/
 _UpgradeReport_Files/
+[Pp]ackages/
 
 Thumbs.db
 Desktop.ini
 .DS_Store
 .idea
 Build.zip
+
+# GITIGNORE template for Wwise Project
+
+.backup*
+.cache*
+*.akd
+*.prof
+*.validationcache
+*.wsettings
+AkWwiseProjectData.asset
+IncrementalSoundBankData.xml
