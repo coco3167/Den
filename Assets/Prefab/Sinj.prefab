@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417cc6eccf086bf4bab3a2739668c893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToReact: 2
+  behaviors:
+  - {fileID: 11400000, guid: c58adc636ea720d448c0945c3c358a27, type: 2}
 --- !u!195 &1897331158705664951
 NavMeshAgent:
   m_ObjectHideFlags: 0

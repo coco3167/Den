@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9107b413e4d79934c95487f3cce5c98a, type: 3}
+  m_Name: FleeOnMouseClose
+  m_EditorClassIdentifier: 
+  <SinjStimuli>k__BackingField:
+  - rid: 4494924969825009726
+  <SinjReactions>k__BackingField:
+  - rid: 4494924969825009727
+  references:
+    version: 2
+    RefIds:
+    - rid: 4494924969825009726
+      type: {class: SinjBehavior/MousePositionStimulus, ns: , asm: Assembly-CSharp}
+      data:
+        <Distance>k__BackingField: 2
+    - rid: 4494924969825009727
+      type: {class: SinjBehavior/FleeReaction, ns: , asm: Assembly-CSharp}
+      data:
+        <Distance>k__BackingField: 2
