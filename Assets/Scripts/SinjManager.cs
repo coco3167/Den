@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using DebugHUD;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class SinjManager : MonoBehaviour
+public class SinjManager : MonoBehaviour, IDebugDisplayAble
 {
     [Header("Sinjs")]
     [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject sinjPrefab;
@@ -14,6 +15,8 @@ public class SinjManager : MonoBehaviour
     
     [Header("Mouse Input")]
     [SerializeField] private MouseManager mouseManager;
+    
+    private List<DebugParameter> debugParameters = new();
 
     private void Awake()
     {
@@ -23,6 +26,11 @@ public class SinjManager : MonoBehaviour
             sinjs.Add(Instantiate(sinjPrefab, transform).GetComponent<Sinj>());
             sinjs[loop].Init(mouseManager);
         }
+        
+        DebugParameter debugParameter = new DebugParameter();
+        debugParameter.Name = "Health";
+        debugParameter.Value = 0;
+        debugParameters.Add(debugParameter);
     }
 
     private void Update()
@@ -31,5 +39,15 @@ public class SinjManager : MonoBehaviour
         {
             sinj.HandleStimuli();
         }
+    }
+
+    public int GetParameterCount()
+    {
+        return debugParameters.Count;
+    }
+
+    public DebugParameter GetParameter(int index)
+    {
+        return debugParameters[index];
     }
 }
