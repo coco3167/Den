@@ -6,6 +6,506 @@
 				<Property Name="Color" Type="int16" Value="13"/>
 				<Property Name="OverrideColor" Type="bool" Value="True"/>
 			</PropertyList>
+			<ChildrenList>
+				<MusicSwitchContainer Name="Den_Music_Test" ID="{C0EC9950-884D-4CF1-A6B8-995105C8069B}" ShortID="71483550">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<Custom>
+								<Conversion Name="Conversion Settings (Custom)" ID="{449D9CD3-3426-42F6-AFE0-CCD021E9AC4D}">
+									<PropertyList>
+										<Property Name="Channels" Type="int32">
+											<ValueList>
+												<Value Platform="Mac">4</Value>
+												<Value Platform="Windows">4</Value>
+											</ValueList>
+										</Property>
+										<Property Name="LRMix" Type="Real64">
+											<ValueList>
+												<Value Platform="Mac">0</Value>
+												<Value Platform="Windows">0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="MaxSampleRate" Type="int32">
+											<ValueList>
+												<Value Platform="Mac">48000</Value>
+												<Value Platform="Windows">48000</Value>
+											</ValueList>
+										</Property>
+										<Property Name="MinSampleRate" Type="int32">
+											<ValueList>
+												<Value Platform="Mac">0</Value>
+												<Value Platform="Windows">0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="SampleRate" Type="int32">
+											<ValueList>
+												<Value Platform="Mac">2</Value>
+												<Value Platform="Windows">2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ConversionPluginInfoList>
+										<ConversionPluginInfo Platform="Mac">
+											<ConversionPlugin Name="" ID="{110EA5E4-4E62-4427-B351-6FC76BD0132B}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
+										</ConversionPluginInfo>
+										<ConversionPluginInfo Platform="Windows">
+											<ConversionPlugin Name="" ID="{9867F52D-D6A5-49F9-BEB0-0A4AAAADF21F}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
+										</ConversionPluginInfo>
+									</ConversionPluginInfoList>
+								</Conversion>
+							</Custom>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Music" ID="{4C0AAA7A-5063-49AA-B2EE-5337426DC76A}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+						<Reference Name="TransitionRoot">
+							<Custom>
+								<MusicTransition Name="Root" ID="{9BC6A097-2E45-4D64-B542-2F86E666462C}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{AB240E49-50C9-4FF1-BB3A-3B8EBBFBDE6C}">
+											<PropertyList>
+												<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</Custom>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="GoGo Penguin - v2_0 (Deluxe Edition) - 02 Garden Dog Barbecue" ID="{BFDAF89E-1A2B-4D31-A53D-3C4A2D9612AB}" ShortID="827860250">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="224706.666666667"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="GoGo Penguin - v2_0 (Deluxe Edition) - 02 Garden Dog Barbecue" ID="{FF5C7AC6-5810-46EF-A0D9-F11CF7A8FEEB}" ShortID="276407467">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{7A372EFC-2305-47CE-AECB-8ABBD4425DFF}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="GoGo Penguin - v2_0 (Deluxe Edition) - 02 Garden Dog Barbecue" ID="{3B058105-9922-4C9D-8155-FD5EFB246CEF}">
+											<Language>SFX</Language>
+											<AudioFile>GoGo Penguin - v2.0 (Deluxe Edition) - 02 Garden Dog Barbecue.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1022640677"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{FB4A8F53-916C-4800-9DF4-58250434D2F3}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="GoGo Penguin - v2_0 (Deluxe Edition) - 02 Garden Dog Barbecue" ID="{584C2221-45E2-47DE-9F69-28F4F6A53E0E}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="224706.666666667"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="GoGo Penguin - v2_0 (Deluxe Edition) - 02 Garden Dog Barbecue" ID="{3B058105-9922-4C9D-8155-FD5EFB246CEF}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{CD20CE1A-1364-49D4-A53B-20DC94CA362F}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{79AD5A3C-C75B-4075-93B9-866ACBACFF4C}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="224706.666666667"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+						<MusicSegment Name="GoGo Penguin - v2_0 (Deluxe Edition) - 03 Kamaloka" ID="{F8478E3E-DE17-4817-B966-E7337E22C9B2}" ShortID="311591009">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="320960"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="GoGo Penguin - v2_0 (Deluxe Edition) - 03 Kamaloka" ID="{6D86D775-D2F8-4687-95A0-E40BD21F33C7}" ShortID="189028446">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{4C9CDBBE-1C0D-4A35-B751-316D58EEF925}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="GoGo Penguin - v2_0 (Deluxe Edition) - 03 Kamaloka" ID="{0DE89EEB-1AE5-4CD3-A8BD-D21B42B56CBA}">
+											<Language>SFX</Language>
+											<AudioFile>GoGo Penguin - v2.0 (Deluxe Edition) - 03 Kamaloka.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="773927328"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{D56ECC63-4BA9-4CCB-86EA-EFD456F56BEF}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="GoGo Penguin - v2_0 (Deluxe Edition) - 03 Kamaloka" ID="{90B6E4BF-C65C-420B-96FE-7119A00E2A30}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="320960"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="GoGo Penguin - v2_0 (Deluxe Edition) - 03 Kamaloka" ID="{0DE89EEB-1AE5-4CD3-A8BD-D21B42B56CBA}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{651F7967-506A-483E-B34F-76FC13A9B926}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{E4634B01-1878-4E6F-AD1F-62ED70F58AA3}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="320960"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+						<MusicSegment Name="GoGo Penguin - v2_0 (Deluxe Edition) - 04 Fort" ID="{FA48CD9E-CB6B-49CE-98F0-17A7DBCC7321}" ShortID="465897795">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="197360"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="GoGo Penguin - v2_0 (Deluxe Edition) - 04 Fort" ID="{4EBEE88A-BBE8-4D1F-A660-B8A8A968B266}" ShortID="795818262">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{A3D814DA-3953-408E-8082-4DFBF0251245}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="GoGo Penguin - v2_0 (Deluxe Edition) - 04 Fort" ID="{C95DC105-9721-4059-AB0B-505DC408997E}">
+											<Language>SFX</Language>
+											<AudioFile>GoGo Penguin - v2.0 (Deluxe Edition) - 04 Fort.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="860968032"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{1C30F693-E100-4965-B91F-CFD8DE411EA8}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="GoGo Penguin - v2_0 (Deluxe Edition) - 04 Fort" ID="{4FB6FF0C-4494-4607-A0D6-59968E2D485D}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="197360"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="GoGo Penguin - v2_0 (Deluxe Edition) - 04 Fort" ID="{C95DC105-9721-4059-AB0B-505DC408997E}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{E6FBC93D-F19B-4AA4-9D09-39AE7D54EDF8}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{D7188780-6BE0-4BFF-9DEB-4AA3E25A2CDE}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="197360"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+						<MusicSegment Name="GoGo Penguin - v2_0 (Deluxe Edition) - 05 One Percent" ID="{A5AD4F80-0A5D-4A0C-9CBC-11B044CB4F41}" ShortID="30307954">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="335573.333333333"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="GoGo Penguin - v2_0 (Deluxe Edition) - 05 One Percent" ID="{40F1CB4A-2E8B-4A01-B0C9-DBC9DE2B44E3}" ShortID="781595435">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{238B4820-C177-4E38-AF31-AFA0A8F48051}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="GoGo Penguin - v2_0 (Deluxe Edition) - 05 One Percent" ID="{71EB25B4-D3D5-4143-AE43-1A11D0EA4337}">
+											<Language>SFX</Language>
+											<AudioFile>GoGo Penguin - v2.0 (Deluxe Edition) - 05 One Percent.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="503881063"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{2B677913-EEC9-44EA-BEEF-1D9260392A81}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="GoGo Penguin - v2_0 (Deluxe Edition) - 05 One Percent" ID="{C5FAD842-0EFB-482B-B0CA-DDDE69EB7848}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="335573.333333333"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="GoGo Penguin - v2_0 (Deluxe Edition) - 05 One Percent" ID="{71EB25B4-D3D5-4143-AE43-1A11D0EA4337}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{1A5B46AE-7B86-4E25-A886-12FD3083B380}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{57BD9D23-D7EF-4AD6-A5AA-9848DFF9B2F9}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="335573.333333333"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Arguments">
+							<Reference>
+								<ObjectRef Name="DEN_State_Mood" ID="{0479447C-0867-4F59-A8A4-199CAE84ECB5}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+							</Reference>
+						</ObjectList>
+						<ObjectList Name="Entries">
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{C9DCFDD8-58E7-43C2-8AA7-FF324D1E9000}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="GoGo Penguin - v2_0 (Deluxe Edition) - 02 Garden Dog Barbecue" ID="{BFDAF89E-1A2B-4D31-A53D-3C4A2D9612AB}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{A937BA0E-16C6-43B2-9995-515C755AC305}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="GoGo Penguin - v2_0 (Deluxe Edition) - 03 Kamaloka" ID="{F8478E3E-DE17-4817-B966-E7337E22C9B2}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{374B822A-0C05-4FA5-B896-1E91942CE8E2}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="GoGo Penguin - v2_0 (Deluxe Edition) - 04 Fort" ID="{FA48CD9E-CB6B-49CE-98F0-17A7DBCC7321}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="DEN_ST_Mood_Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{1DA2EDCD-E935-4768-B70C-BAD8F8CD27C2}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="GoGo Penguin - v2_0 (Deluxe Edition) - 05 One Percent" ID="{A5AD4F80-0A5D-4A0C-9CBC-11B044CB4F41}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</MusicSwitchContainer>
+			</ChildrenList>
 		</WorkUnit>
 	</InteractiveMusic>
 </WwiseDocument>

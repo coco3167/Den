@@ -3,29 +3,29 @@
 	<States>
 		<WorkUnit Name="Default Work Unit" ID="{730ED2B4-D229-46B4-A895-D5B036688D70}" PersistMode="Standalone">
 			<ChildrenList>
-				<StateGroup Name="DEN_Mood" ID="{0479447C-0867-4F59-A8A4-199CAE84ECB5}">
+				<StateGroup Name="DEN_State_Mood" ID="{0479447C-0867-4F59-A8A4-199CAE84ECB5}">
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="3"/>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
 						<State Name="None" ID="{2F3B824F-DD6D-4C55-B51A-EDD7577FA06E}"/>
-						<State Name="Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}"/>
-						<State Name="Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}"/>
-						<State Name="Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}"/>
-						<State Name="Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
+						<State Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}"/>
+						<State Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}"/>
+						<State Name="DEN_ST_Mood_Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}"/>
+						<State Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
 					</ChildrenList>
 				</StateGroup>
-				<StateGroup Name="DEN_Audio_Mix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}">
+				<StateGroup Name="DEN_State_Audio_Mix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}">
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="3"/>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
 						<State Name="None" ID="{9194538F-49FF-48E6-851D-9C54A6070545}"/>
-						<State Name="Stereo_Headphones" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
-						<State Name="Stereo_Speakers" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
-						<State Name="Mono_Mix" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+						<State Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
+						<State Name="DEN_ST_Audio_Mix_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
+						<State Name="DEN_ST_Audio_Mix_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>

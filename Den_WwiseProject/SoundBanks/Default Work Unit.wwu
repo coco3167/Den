@@ -5,8 +5,10 @@
 			<ChildrenList>
 				<SoundBank Name="Main_Soundbank" ID="{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Play_DEN_Amb_Test" ID="{0A0BD5D1-7399-4070-A466-45EDA771A82F}" WorkUnitID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}" Origin="Manual" Filter="1"/>
 						<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Default Work Unit" ID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}" WorkUnitID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DEN_Crea_Test" ID="{487C9555-F2F1-4225-A3C6-AE32B05F2726}" WorkUnitID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}" Origin="Manual" Filter="1"/>
+						<ObjectRef Name="Play_Den_Music_Test" ID="{B7E7182D-0AFC-467E-9F8F-1E5755AE6E83}" WorkUnitID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}" Origin="Manual" Filter="1"/>
 						<ObjectRef Name="Default Work Unit" ID="{9FEFE5BD-45AC-47D0-96E5-CB49AF202AEA}" WorkUnitID="{9FEFE5BD-45AC-47D0-96E5-CB49AF202AEA}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Default Work Unit" ID="{84EC7DD3-F7A9-49CB-8428-9F82BAB57915}" WorkUnitID="{84EC7DD3-F7A9-49CB-8428-9F82BAB57915}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>

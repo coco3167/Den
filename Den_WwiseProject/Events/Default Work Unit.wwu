@@ -3,26 +3,34 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="MainMusic_Play" ID="{7ACCB43F-243E-48D2-9147-3C839A2EA299}">
+				<Event Name="Play_DEN_Crea_Test" ID="{487C9555-F2F1-4225-A3C6-AE32B05F2726}">
 					<ChildrenList>
-						<Action Name="" ID="{0667A71F-1C9F-4909-A942-8D576A3ECBDA}" ShortID="1001731118">
+						<Action Name="" ID="{2E93DC2B-F20B-49BE-9DD9-393E9B18D62E}" ShortID="94935358">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="music_test" ID="{57F3EF2F-67F1-4576-95BB-BEBF4D0B2B84}" WorkUnitID="{84EC7DD3-F7A9-49CB-8428-9F82BAB57915}"/>
+									<ObjectRef Name="DEN_Crea_Test" ID="{56EA353A-0F69-443C-8299-5815B172F524}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="MainMusic_Stop" ID="{FF5C76DF-4CC9-42A6-B5C7-61402A1B17F4}">
+				<Event Name="Play_DEN_Amb_Test" ID="{0A0BD5D1-7399-4070-A466-45EDA771A82F}">
 					<ChildrenList>
-						<Action Name="" ID="{52EF9F3D-FA78-496A-9F25-3F066444DB39}" ShortID="836622331">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
+						<Action Name="" ID="{E91FE96F-034A-46C1-B19E-317271251457}" ShortID="940245873">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="music_test" ID="{57F3EF2F-67F1-4576-95BB-BEBF4D0B2B84}" WorkUnitID="{84EC7DD3-F7A9-49CB-8428-9F82BAB57915}"/>
+									<ObjectRef Name="DEN_Amb_Test" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Den_Music_Test" ID="{B7E7182D-0AFC-467E-9F8F-1E5755AE6E83}">
+					<ChildrenList>
+						<Action Name="" ID="{24FF6E35-CF85-4B29-967F-F5ACB6370D53}" ShortID="963150017">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Den_Music_Test" ID="{C0EC9950-884D-4CF1-A6B8-995105C8069B}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

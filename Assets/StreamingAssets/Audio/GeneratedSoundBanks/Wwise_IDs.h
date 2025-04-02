@@ -13,40 +13,93 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID MAINMUSIC_PLAY = 795638160U;
-        static const AkUniqueID MAINMUSIC_STOP = 3439190578U;
+        static const AkUniqueID PLAY_DEN_AMB_TEST = 2516003365U;
+        static const AkUniqueID PLAY_DEN_CREA_TEST = 2134952826U;
+        static const AkUniqueID PLAY_DEN_MUSIC_TEST = 1174350178U;
     } // namespace EVENTS
 
     namespace STATES
     {
-        namespace DEN_AUDIO_MIX
+        namespace DEN_STATE_AUDIO_MIX
         {
-            static const AkUniqueID GROUP = 1413831690U;
+            static const AkUniqueID GROUP = 1852625376U;
 
             namespace STATE
             {
-                static const AkUniqueID MONO_MIX = 2075786003U;
+                static const AkUniqueID DEN_ST_AUDIO_MIX_MONO = 2408252910U;
+                static const AkUniqueID DEN_ST_AUDIO_MIX_STEREOHP = 1541385743U;
+                static const AkUniqueID DEN_ST_AUDIO_MIX_STEREOSP = 1960826282U;
                 static const AkUniqueID NONE = 748895195U;
-                static const AkUniqueID STEREO_HEADPHONES = 731087069U;
-                static const AkUniqueID STEREO_SPEAKERS = 2744632766U;
             } // namespace STATE
-        } // namespace DEN_AUDIO_MIX
+        } // namespace DEN_STATE_AUDIO_MIX
 
-        namespace DEN_MOOD
+        namespace DEN_STATE_MOOD
         {
-            static const AkUniqueID GROUP = 3144458380U;
+            static const AkUniqueID GROUP = 3079765046U;
 
             namespace STATE
             {
-                static const AkUniqueID ANGER = 954941502U;
-                static const AkUniqueID CURIOUSITY = 1808619223U;
-                static const AkUniqueID FEAR = 3133847859U;
-                static const AkUniqueID NEUTRAL = 670611050U;
+                static const AkUniqueID DEN_ST_MOOD_ANGER = 999913598U;
+                static const AkUniqueID DEN_ST_MOOD_CURIOUSITY = 2378539543U;
+                static const AkUniqueID DEN_ST_MOOD_FEAR = 1511253875U;
+                static const AkUniqueID DEN_ST_MOOD_NEUTRAL = 3523856042U;
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
-        } // namespace DEN_MOOD
+        } // namespace DEN_STATE_MOOD
 
     } // namespace STATES
+
+    namespace SWITCHES
+    {
+        namespace DEN_SW_ANGERSTEPS
+        {
+            static const AkUniqueID GROUP = 3664495308U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DEN_SW_AS_0 = 3467041815U;
+                static const AkUniqueID DEN_SW_AS_1 = 3467041814U;
+                static const AkUniqueID DEN_SW_AS_2 = 3467041813U;
+                static const AkUniqueID DEN_SW_AS_3 = 3467041812U;
+            } // namespace SWITCH
+        } // namespace DEN_SW_ANGERSTEPS
+
+        namespace DEN_SW_CURIOSITYSTEPS
+        {
+            static const AkUniqueID GROUP = 3152036582U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DEN_SW_CS_0 = 4081255473U;
+                static const AkUniqueID DEN_SW_CS_1 = 4081255472U;
+                static const AkUniqueID DEN_SW_CS_2 = 4081255475U;
+                static const AkUniqueID DEN_SW_CS_3 = 4081255474U;
+            } // namespace SWITCH
+        } // namespace DEN_SW_CURIOSITYSTEPS
+
+        namespace DEN_SW_FEARSTEPS
+        {
+            static const AkUniqueID GROUP = 1947237033U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DEN_SW_FS_0 = 3562904914U;
+                static const AkUniqueID DEN_SW_FS_1 = 3562904915U;
+                static const AkUniqueID DEN_SW_FS_2 = 3562904912U;
+                static const AkUniqueID DEN_SW_FS_3 = 3562904913U;
+            } // namespace SWITCH
+        } // namespace DEN_SW_FEARSTEPS
+
+    } // namespace SWITCHES
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID DEN_GP_ANGERVALUE = 722514783U;
+        static const AkUniqueID DEN_GP_CURIOSITYVALUE = 2578001617U;
+        static const AkUniqueID DEN_GP_FEARVALUE = 4122714024U;
+        static const AkUniqueID DEN_GP_INTENSITYVALUE = 973587621U;
+        static const AkUniqueID DEN_GP_TENSIONVALUE = 3189323882U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {

@@ -6,6 +6,227 @@
 				<Property Name="Color" Type="int16" Value="9"/>
 				<Property Name="OverrideColor" Type="bool" Value="True"/>
 			</PropertyList>
+			<ChildrenList>
+				<SwitchContainer Name="DEN_Crea_Test" ID="{56EA353A-0F69-443C-8299-5815B172F524}" ShortID="110485877">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<Custom>
+								<Conversion Name="Conversion Settings (Custom)" ID="{6816F255-7D19-4E60-A3B0-63921726D656}">
+									<PropertyList>
+										<Property Name="Channels" Type="int32">
+											<ValueList>
+												<Value Platform="Mac">4</Value>
+												<Value Platform="Windows">4</Value>
+											</ValueList>
+										</Property>
+										<Property Name="LRMix" Type="Real64">
+											<ValueList>
+												<Value Platform="Mac">0</Value>
+												<Value Platform="Windows">0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="MaxSampleRate" Type="int32">
+											<ValueList>
+												<Value Platform="Mac">48000</Value>
+												<Value Platform="Windows">48000</Value>
+											</ValueList>
+										</Property>
+										<Property Name="MinSampleRate" Type="int32">
+											<ValueList>
+												<Value Platform="Mac">0</Value>
+												<Value Platform="Windows">0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="SampleRate" Type="int32">
+											<ValueList>
+												<Value Platform="Mac">2</Value>
+												<Value Platform="Windows">2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ConversionPluginInfoList>
+										<ConversionPluginInfo Platform="Mac">
+											<ConversionPlugin Name="" ID="{4EBADD2D-ECF6-4680-BB02-23E84263889A}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
+										</ConversionPluginInfo>
+										<ConversionPluginInfo Platform="Windows">
+											<ConversionPlugin Name="" ID="{D84B315E-753E-43F2-B286-9C90F05B181F}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
+										</ConversionPluginInfo>
+									</ConversionPluginInfoList>
+								</Conversion>
+							</Custom>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="None" ID="{2F3B824F-DD6D-4C55-B51A-EDD7577FA06E}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="DEN_State_Mood" ID="{0479447C-0867-4F59-A8A4-199CAE84ECB5}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="GLTCH_SFX_Oscillator1b" ID="{130A148F-2D32-4087-B1D9-BA5CA861A4B3}" ShortID="244889108">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GLTCH_SFX_Oscillator1b" ID="{F0FCF4A7-C1A6-44CA-A7C7-7F29707A3385}">
+									<Language>SFX</Language>
+									<AudioFile>GLTCH_SFX_Oscillator1b.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="243069560"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GLTCH_SFX_Oscillator1b" ID="{F0FCF4A7-C1A6-44CA-A7C7-7F29707A3385}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GLTCH_SFX_Oscillator2b" ID="{F03251BC-94F5-40A8-B366-99BF428790D9}" ShortID="697239956">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GLTCH_SFX_Oscillator2b" ID="{8781406D-A1BB-4437-8F92-0EADBF5A4362}">
+									<Language>SFX</Language>
+									<AudioFile>GLTCH_SFX_Oscillator2b.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="315653344"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GLTCH_SFX_Oscillator2b" ID="{8781406D-A1BB-4437-8F92-0EADBF5A4362}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GLTCH_SFX_Oscillator3b" ID="{1560023A-CDA3-4A08-AEA6-607C384363DF}" ShortID="118922315">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GLTCH_SFX_Oscillator3b" ID="{A522D256-9197-435E-BA01-2E6166BAA38B}">
+									<Language>SFX</Language>
+									<AudioFile>GLTCH_SFX_Oscillator3b.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1047146111"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GLTCH_SFX_Oscillator3b" ID="{A522D256-9197-435E-BA01-2E6166BAA38B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GLTCH_SFX_Oscillator4b" ID="{CF52BEA8-5755-4ADF-9E6F-6F59FAF8FDA0}" ShortID="376308672">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GLTCH_SFX_Oscillator4b" ID="{C1B514A9-A16A-49D1-A412-75ADB8F17953}">
+									<Language>SFX</Language>
+									<AudioFile>GLTCH_SFX_Oscillator4b.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="707822741"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GLTCH_SFX_Oscillator4b" ID="{C1B514A9-A16A-49D1-A412-75ADB8F17953}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="GLTCH_SFX_Oscillator3b" ID="{1560023A-CDA3-4A08-AEA6-607C384363DF}"/>
+								<PropertyList>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>0.2</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="GLTCH_SFX_Oscillator1b" ID="{130A148F-2D32-4087-B1D9-BA5CA861A4B3}"/>
+								<PropertyList>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>0.2</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="GLTCH_SFX_Oscillator4b" ID="{CF52BEA8-5755-4ADF-9E6F-6F59FAF8FDA0}"/>
+								<PropertyList>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>0.2</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="GLTCH_SFX_Oscillator2b" ID="{F03251BC-94F5-40A8-B366-99BF428790D9}"/>
+								<PropertyList>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>0.2</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_Mood_Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}"/>
+								<ItemList>
+									<ItemRef Name="GLTCH_SFX_Oscillator4b" ID="{CF52BEA8-5755-4ADF-9E6F-6F59FAF8FDA0}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}"/>
+								<ItemList>
+									<ItemRef Name="GLTCH_SFX_Oscillator3b" ID="{1560023A-CDA3-4A08-AEA6-607C384363DF}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
+								<ItemList>
+									<ItemRef Name="GLTCH_SFX_Oscillator2b" ID="{F03251BC-94F5-40A8-B366-99BF428790D9}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}"/>
+								<ItemList>
+									<ItemRef Name="GLTCH_SFX_Oscillator1b" ID="{130A148F-2D32-4087-B1D9-BA5CA861A4B3}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>
