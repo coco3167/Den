@@ -10,38 +10,331 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{293041B6-5F2A-5E2C-A2C8-FDFCE5D9408D}",
+    "Hash": "{36F412C9-72B6-FF22-02AE-EE0AF521DEA8}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
     "Media": [
      {
-      "Id": "810601428",
+      "Id": "12402362",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Jon Hopkins - Immunity - 01 We Disappear.wav",
-      "CachePath": "16/{16A6958A-1692-320C-D65E-BE2E51ABD2A3}.wem"
+      "ShortName": "AndroidHickup.wav",
+      "CachePath": "0E/{0E4ABB82-B7E5-61B4-2967-05086F44C354}.wem"
+     },
+     {
+      "Id": "243069560",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GLTCH_SFX_Oscillator1b.wav",
+      "CachePath": "41/{41F3ADCB-9635-4687-625D-B444D1A27630}.wem"
+     },
+     {
+      "Id": "251968704",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "AmishDrugLord.wav",
+      "CachePath": "A3/{A3681722-2D29-7B61-FD3F-EC97E6E68BA3}.wem"
+     },
+     {
+      "Id": "293549323",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "AlternateDialTone.wav",
+      "CachePath": "29/{29D1C5F9-C72E-5E42-DF09-84A406A0AC86}.wem"
+     },
+     {
+      "Id": "315653344",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GLTCH_SFX_Oscillator2b.wav",
+      "CachePath": "CB/{CBCE8972-A5C8-979C-F344-5E2EA6DC2F18}.wem"
+     },
+     {
+      "Id": "503881063",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GoGo Penguin - v2.0 (Deluxe Edition) - 05 One Percent.wav",
+      "CachePath": "53/{53808057-3ED9-F343-A8BA-1608867C81E0}.wem"
+     },
+     {
+      "Id": "630795401",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "AluminumTigerClaw.wav",
+      "CachePath": "78/{78F30704-1B6E-7825-8EB6-7A30FF510C99}.wem"
+     },
+     {
+      "Id": "707822741",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GLTCH_SFX_Oscillator4b.wav",
+      "CachePath": "B5/{B5896C0F-6524-F06B-FE87-29ED369E470A}.wem"
+     },
+     {
+      "Id": "773927328",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GoGo Penguin - v2.0 (Deluxe Edition) - 03 Kamaloka.wav",
+      "CachePath": "4B/{4BB193D1-E988-D231-0260-4F024140AECD}.wem"
+     },
+     {
+      "Id": "860968032",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GoGo Penguin - v2.0 (Deluxe Edition) - 04 Fort.wav",
+      "CachePath": "BB/{BB75EC41-ABE1-86F7-4CAD-F1F2AF22272C}.wem"
+     },
+     {
+      "Id": "1022640677",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GoGo Penguin - v2.0 (Deluxe Edition) - 02 Garden Dog Barbecue.wav",
+      "CachePath": "7A/{7ABC5E12-3273-6BB4-E6F8-805251123926}.wem"
+     },
+     {
+      "Id": "1047146111",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GLTCH_SFX_Oscillator3b.wav",
+      "CachePath": "EC/{ECC10E95-5CCC-832E-BBAA-C2F6787E2A80}.wem"
      }
     ],
     "Events": [
      {
-      "Id": "3608471722",
-      "Name": "Play_music_test",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_music_test",
-      "GUID": "{7ACCB43F-243E-48D2-9147-3C839A2EA299}",
-      "DurationType": "OneShot",
-      "DurationMin": "289.45334",
-      "DurationMax": "289.45334",
-      "MediaRefs": [
+      "Id": "2516003365",
+      "Name": "Play_DEN_Amb_Test",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_DEN_Amb_Test",
+      "GUID": "{0A0BD5D1-7399-4070-A466-45EDA771A82F}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
        {
-        "Id": "810601428"
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "12402362"
+         },
+         {
+          "Id": "251968704"
+         },
+         {
+          "Id": "293549323"
+         },
+         {
+          "Id": "630795401"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "2134952826",
+      "Name": "Play_DEN_Crea_Test",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_DEN_Crea_Test",
+      "GUID": "{487C9555-F2F1-4225-A3C6-AE32B05F2726}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.8859272",
+      "DurationMax": "5.80499",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "707822741"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "1047146111"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "315653344"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "3523856042",
+         "GUID": "{88D8C9E8-142E-4396-BDE2-129CA516E641}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "243069560"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "1174350178",
+      "Name": "Play_Den_Music_Test",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Den_Music_Test",
+      "GUID": "{B7E7182D-0AFC-467E-9F8F-1E5755AE6E83}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "1022640677"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "773927328"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "860968032"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "3523856042",
+         "GUID": "{88D8C9E8-142E-4396-BDE2-129CA516E641}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "503881063"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "722514783",
+      "Name": "DEN_GP_AngerValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_AngerValue",
+      "GUID": "{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}",
+      "Color": "14"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "3079765046",
+      "Name": "DEN_State_Mood",
+      "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood",
+      "GUID": "{0479447C-0867-4F59-A8A4-199CAE84ECB5}",
+      "Color": "3",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood\\None",
+        "GUID": "{2F3B824F-DD6D-4C55-B51A-EDD7577FA06E}",
+        "Color": "3"
+       },
+       {
+        "Id": "999913598",
+        "Name": "DEN_ST_Mood_Anger",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood\\DEN_ST_Mood_Anger",
+        "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+        "Color": "3"
+       },
+       {
+        "Id": "1511253875",
+        "Name": "DEN_ST_Mood_Fear",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood\\DEN_ST_Mood_Fear",
+        "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+        "Color": "3"
+       },
+       {
+        "Id": "2378539543",
+        "Name": "DEN_ST_Mood_Curiousity",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood\\DEN_ST_Mood_Curiousity",
+        "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+        "Color": "3"
+       },
+       {
+        "Id": "3523856042",
+        "Name": "DEN_ST_Mood_Neutral",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood\\DEN_ST_Mood_Neutral",
+        "GUID": "{88D8C9E8-142E-4396-BDE2-129CA516E641}",
+        "Color": "3"
        }
       ]
      }
     ]
    }
   ],
-  "FileHash": "{8217A364-F15F-4EC5-D3FA-FBAA2FC42B3A}"
+  "FileHash": "{F9280D5F-B962-CBAC-3872-DE4AD43FA691}"
  }
 }

@@ -242,7 +242,7 @@ public class WwiseEventReference : WwiseObjectReference
 #endif
 			
 			IsInUserDefinedSoundBank = !soundBankRef.IsValid;
-			UnityEditor.EditorUtility.SetDirty(this);
+            UnityEditor.EditorUtility.SetDirty(this);
 			if (IsAutoBankLoaded)
 			{
 				UnloadAutoBank();
