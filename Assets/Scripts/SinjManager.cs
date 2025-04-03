@@ -27,10 +27,9 @@ public class SinjManager : MonoBehaviour, IDebugDisplayAble
             sinjs[loop].Init(mouseManager);
         }
         
-        DebugParameter debugParameter = new DebugParameter();
-        debugParameter.Name = "Health";
-        debugParameter.Value = 0;
-        debugParameters.Add(debugParameter);
+        debugParameters.Add(new DebugParameter("Health", 0));
+        
+        GameManager.OnGameReady();
     }
 
     private void Update()

@@ -1,13 +1,16 @@
 using System.Collections.Generic;
+using DebugHUD;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Sinj : MonoBehaviour
+public class Sinj : MonoBehaviour, IDebugDisplayAble
 {
     [SerializeField] private List<SinjBehavior> behaviors;
     
     private NavMeshAgent m_navMeshAgent;
     private MouseManager m_mouseManager;
+    
+    private List<DebugParameter> m_debugParameters = new();
     
     // Fleeing
     private bool m_fleeing;
@@ -16,6 +19,7 @@ public class Sinj : MonoBehaviour
     private void Awake()
     {
         m_navMeshAgent = GetComponent<NavMeshAgent>();
+        m_debugParameters.Add(new DebugParameter("Health", 0));
     }
 
     private void OnDrawGizmos()
@@ -70,5 +74,15 @@ public class Sinj : MonoBehaviour
                 }
             }
         }
+    }
+
+    public int GetParameterCount()
+    {
+        return m_debugParameters.Count;
+    }
+
+    public DebugParameter GetParameter(int index)
+    {
+        return m_debugParameters[index];
     }
 }

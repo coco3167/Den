@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,9 +8,10 @@ namespace DebugHUD
     public class DebugDisplay : MonoBehaviour
     {
         [SerializeField] private GameObject parameterPrefab;
-        [SerializeField] private GameObject parentDisplayable;
+        [SerializeField] private Transform content;
+        [SerializeField] private DebugCategory category;
         
-        private List<ParameterVisualisation> parameters = new();
+        private List<ParameterVisualisation> m_parameters = new();
         
         private int m_index = 0;
         private List<IDebugDisplayAble> m_displayAbles = new();
@@ -17,28 +19,57 @@ namespace DebugHUD
 
         private void Awake()
         {
-            
-            SetupParameters();
+            GameManager.GameReady += Init;
         }
 
         private void Update()
         {
+            if(m_currentDisplayAble == null)
+                return;
             DisplayParameters();
         }
         
+        private void Init(object sender, EventArgs eventArgs)
+        {
+            SetupDisplayAbles();
+            if(m_displayAbles.Count == 0)
+                return;
+            SetupParameters();
+        }
+
+        private void SetupDisplayAbles()
+        {
+            m_displayAbles.Clear();
+            MonoBehaviour[] displayAbles = {};
+            switch (category)
+            {
+                case DebugCategory.SinjManager:
+                    displayAbles = FindObjectsByType<SinjManager>(FindObjectsSortMode.None);
+                    break;
+                
+                case DebugCategory.Sinj: 
+                    displayAbles = FindObjectsByType<Sinj>(FindObjectsSortMode.None);
+                    break;
+            }
+            
+            foreach (MonoBehaviour sinjManager in displayAbles)
+                m_displayAbles.Add(sinjManager.GetComponent<IDebugDisplayAble>());
+            
+            Debug.Log(m_displayAbles.Count);
+        }
         private void SetupParameters()
         {
             m_currentDisplayAble = m_displayAbles[m_index];
-            for (int loop = 0; loop < m_currentDisplayAble.GetParameterCount() - parameters.Count; loop++)
+            for (int loop = 0; loop < m_currentDisplayAble.GetParameterCount() - m_parameters.Count; loop++)
             {
-                ParameterVisualisation parameter = Instantiate(parameterPrefab, transform).GetComponent<ParameterVisualisation>();
-                parameters.Add(parameter);
+                ParameterVisualisation parameter = Instantiate(parameterPrefab, content).GetComponent<ParameterVisualisation>();
+                m_parameters.Add(parameter);
             }
 
-            for (int loop = 0; loop < parameters.Count - m_currentDisplayAble.GetParameterCount(); loop++)
+            for (int loop = 0; loop < m_parameters.Count - m_currentDisplayAble.GetParameterCount(); loop++)
             {
-                ParameterVisualisation parameter = parameters.Last();
-                parameters.Remove(parameter);
+                ParameterVisualisation parameter = m_parameters.Last();
+                m_parameters.Remove(parameter);
                 Destroy(parameter.gameObject);
             }
         }
@@ -48,7 +79,7 @@ namespace DebugHUD
             for (int loop = 0; loop < m_currentDisplayAble.GetParameterCount(); loop++)
             {
                 DebugParameter parameter = m_currentDisplayAble.GetParameter(loop);
-                ParameterVisualisation parameterVisualisation = parameters[loop];
+                ParameterVisualisation parameterVisualisation = m_parameters[loop];
                 
                 parameterVisualisation.Display(parameter);
             }
@@ -59,11 +90,23 @@ namespace DebugHUD
     {
         public string Name;
         public float Value;
+
+        public DebugParameter(string name, float value)
+        {
+            Name = name;
+            Value = value;
+        }
     }
 
     public interface IDebugDisplayAble
     {
         public int GetParameterCount();
         public DebugParameter GetParameter(int index);
+    }
+
+    enum DebugCategory
+    {
+        SinjManager,
+        Sinj
     }
 }
