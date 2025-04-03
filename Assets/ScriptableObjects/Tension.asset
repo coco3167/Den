@@ -10,20 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9107b413e4d79934c95487f3cce5c98a, type: 3}
-  m_Name: FleeOnMouseClose
+  m_Name: Tension
   m_EditorClassIdentifier: 
   <SinjStimuli>k__BackingField:
-  - rid: 281592702847680578
+  - rid: 281592704904200192
+  - rid: 281592704904200193
   <SinjReactions>k__BackingField:
-  - rid: 281592704904200195
+  - rid: 281592704904200194
   references:
     version: 2
     RefIds:
-    - rid: 281592702847680578
+    - rid: 281592704904200192
       type: {class: SinjBehavior/MousePositionStimulus, ns: Sinj, asm: Assembly-CSharp}
       data:
-        distance: 5
-    - rid: 281592704904200195
-      type: {class: SinjBehavior/FleeReaction, ns: Sinj, asm: Assembly-CSharp}
+        distance: 6
+    - rid: 281592704904200193
+      type: {class: SinjBehavior/MouseVelocityStimulus, ns: Sinj, asm: Assembly-CSharp}
       data:
-        distance: 4
+        velocity: 20
+    - rid: 281592704904200194
+      type: {class: SinjBehavior/TensionReaction, ns: Sinj, asm: Assembly-CSharp}
+      data:
+        amount: 200

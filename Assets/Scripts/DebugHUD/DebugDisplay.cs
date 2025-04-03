@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Sinj;
 using UnityEngine;
 
 namespace DebugHUD
@@ -48,14 +49,12 @@ namespace DebugHUD
                     break;
                 
                 case DebugCategory.Sinj: 
-                    displayAbles = FindObjectsByType<Sinj>(FindObjectsSortMode.None);
+                    displayAbles = FindObjectsByType<SinjAgent>(FindObjectsSortMode.None);
                     break;
             }
             
             foreach (MonoBehaviour sinjManager in displayAbles)
                 m_displayAbles.Add(sinjManager.GetComponent<IDebugDisplayAble>());
-            
-            Debug.Log(m_displayAbles.Count);
         }
         private void SetupParameters()
         {
@@ -86,14 +85,19 @@ namespace DebugHUD
         }
     }
 
-    public struct DebugParameter
+    public class DebugParameter
     {
         public string Name;
-        public float Value;
+        public string Value;
 
-        public DebugParameter(string name, float value)
+        public DebugParameter(string name, string value)
         {
             Name = name;
+            Value = value;
+        }
+
+        public void UpdateValue(string value)
+        {
             Value = value;
         }
     }
