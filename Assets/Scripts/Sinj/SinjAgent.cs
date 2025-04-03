@@ -9,11 +9,7 @@ namespace Sinj
     public class SinjAgent : MonoBehaviour, IDebugDisplayAble
     {
         [SerializeField] private List<SinjBehavior> behaviors;
-        
-        [Header("Tension")]
         [SerializeField, ReadOnly] private float tension;
-        [SerializeField] private float tensionMax;
-        [SerializeField] private float tensionDecrease;
     
         private NavMeshAgent m_navMeshAgent;
         private MouseManager m_mouseManager;
@@ -35,14 +31,7 @@ namespace Sinj
             if(m_fleeing)
                 Gizmos.DrawRay(transform.position, m_fleeingTarget);
         }
-
-        private void Update()
-        {
-            tension -= Time.deltaTime * tensionDecrease;
-            tension = Mathf.Clamp(tension, 0, tensionMax);
-            m_debugParameters[0].UpdateValue(((int)tension).ToString());
-        }
-
+        
         public void Init(MouseManager mouseManager)
         {
             m_mouseManager = mouseManager;
@@ -72,6 +61,12 @@ namespace Sinj
             }
         }
 
+        public void UpdateTension(float value)
+        {
+            tension = value;
+            m_debugParameters[0].UpdateValue(((int)tension).ToString());
+        }
+
         #region Getter
         public float DistanceToMouse()
         {
@@ -81,6 +76,11 @@ namespace Sinj
         public float MouseVelocity()
         {
             return m_mouseManager.MouseVelocity();
+        }
+
+        public float GetTension()
+        {
+            return tension;
         }
         #endregion
 
