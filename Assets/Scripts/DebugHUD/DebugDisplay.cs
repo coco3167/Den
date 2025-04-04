@@ -59,13 +59,16 @@ namespace DebugHUD
         private void SetupParameters()
         {
             m_currentDisplayAble = m_displayAbles[m_index];
-            for (int loop = 0; loop < m_currentDisplayAble.GetParameterCount() - m_parameters.Count; loop++)
+            int parameterToInstantiate = m_currentDisplayAble.GetParameterCount() - m_parameters.Count;
+            int parameterToRemove = m_parameters.Count - m_currentDisplayAble.GetParameterCount();
+            
+            for (int loop = 0; loop < parameterToInstantiate; loop++)
             {
                 ParameterVisualisation parameter = Instantiate(parameterPrefab, content).GetComponent<ParameterVisualisation>();
                 m_parameters.Add(parameter);
             }
 
-            for (int loop = 0; loop < m_parameters.Count - m_currentDisplayAble.GetParameterCount(); loop++)
+            for (int loop = 0; loop < parameterToRemove; loop++)
             {
                 ParameterVisualisation parameter = m_parameters.Last();
                 m_parameters.Remove(parameter);

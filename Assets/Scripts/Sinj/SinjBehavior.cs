@@ -12,36 +12,89 @@ namespace Sinj
         [field : SerializeReference] public List<SinjStimulus> SinjStimuli { get; private set; }
         [field : SerializeReference] public List<SinjReaction> SinjReactions { get; private set; }
 
-        // Sinj Simuli
+        private enum Comparison
+        {
+            Inferior,
+            Superior,
+            Equal
+        }
+
+        #region Stimuli
         [Serializable]
         public abstract class SinjStimulus
         {
-            public abstract bool IsApplying(Sinj.SinjAgent agent);
+            public abstract bool IsApplying(SinjAgent agent);
         }
 
         [Serializable]
         public class MousePositionStimulus : SinjStimulus
         {
-            [field: SerializeField] private float distance;
+            [SerializeField] private float distance;
+            [SerializeField] private Comparison comparison;
 
             public override bool IsApplying(SinjAgent agent)
             {
-                return agent.DistanceToMouse() < Mathf.Pow(distance, 2);
+                float distanceToMouse = agent.DistanceToMouse();
+                float realDistance = Mathf.Pow(distance, 2);
+                switch (comparison)
+                {
+                    case Comparison.Inferior:
+                        return distanceToMouse < realDistance;
+                    case Comparison.Superior:
+                        return distanceToMouse > realDistance;
+                    case Comparison.Equal:
+                        return Mathf.Abs(distanceToMouse-realDistance) <= Mathf.Epsilon;
+                }
+                return false;
             }
         }
 
         [Serializable]
         public class MouseVelocityStimulus : SinjStimulus
         {
-            [field: SerializeField] private float velocity;
+            [SerializeField] private float velocity;
+            [SerializeField] private Comparison comparison;
             
             public override bool IsApplying(SinjAgent agent)
             {
-                return agent.MouseVelocity() >= velocity;
+                float mouseVelocity = agent.MouseVelocity();
+                switch (comparison)
+                {
+                    case Comparison.Inferior:
+                        return mouseVelocity < velocity;
+                    case Comparison.Superior:
+                        return mouseVelocity > velocity;
+                    case Comparison.Equal:
+                        return Mathf.Abs(mouseVelocity-velocity) <= Mathf.Epsilon;
+                }
+                return false;
             }
         }
-        
-        // Sinj Reaction
+
+        [Serializable]
+        public class TensionAmount : SinjStimulus
+        {
+            [SerializeField] private float tension;
+            [SerializeField] private Comparison comparison;
+
+            public override bool IsApplying(SinjAgent agent)
+            {
+                float agentTension = agent.GetEmotion(Emotions.Tension);
+                switch (comparison)
+                {
+                    case Comparison.Inferior:
+                        return agentTension < tension;
+                    case Comparison.Superior:
+                        return agentTension > tension;
+                    case Comparison.Equal:
+                        return Mathf.Abs(agentTension - tension) <= Mathf.Epsilon;
+                }
+                return false;
+            }
+        }
+        #endregion
+
+        #region Reaction
         [Serializable]
         public abstract class SinjReaction
         {
@@ -66,8 +119,42 @@ namespace Sinj
             
             public override void ApplyReaction(SinjAgent agent)
             {
-                agent.AddTension(amount);
+                agent.AddEmotion(amount, Emotions.Tension);
             }
         }
+
+        [Serializable]
+        public class CuriosityReaction : SinjReaction
+        {
+            [SerializeField] private float amount;
+
+            public override void ApplyReaction(SinjAgent agent)
+            {
+                agent.AddEmotion(amount, Emotions.Curiosity);
+            }
+        }
+        
+        [Serializable]
+        public class AgressionReaction : SinjReaction
+        {
+            [SerializeField] private float amount;
+
+            public override void ApplyReaction(SinjAgent agent)
+            {
+                agent.AddEmotion(amount, Emotions.Agression);
+            }
+        }
+        
+        [Serializable]
+        public class FearReaction : SinjReaction
+        {
+            [SerializeField] private float amount;
+
+            public override void ApplyReaction(SinjAgent agent)
+            {
+                agent.AddEmotion(amount, Emotions.Fear);
+            }
+        }
+        #endregion
     }
 }

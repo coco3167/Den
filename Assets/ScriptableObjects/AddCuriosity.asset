@@ -10,25 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9107b413e4d79934c95487f3cce5c98a, type: 3}
-  m_Name: Tension
+  m_Name: AddCuriosity
   m_EditorClassIdentifier: 
   <SinjStimuli>k__BackingField:
-  - rid: 281592704904200192
-  - rid: 281592704904200193
+  - rid: 5803845897152102644
+  - rid: 5803845897152102645
+  - rid: 5803845897152102648
   <SinjReactions>k__BackingField:
-  - rid: 281592704904200194
+  - rid: 5803845897152102647
   references:
     version: 2
     RefIds:
-    - rid: 281592704904200192
+    - rid: 5803845897152102644
       type: {class: SinjBehavior/MousePositionStimulus, ns: Sinj, asm: Assembly-CSharp}
       data:
-        distance: 6
-    - rid: 281592704904200193
+        distance: 4
+        comparison: 0
+    - rid: 5803845897152102645
       type: {class: SinjBehavior/MouseVelocityStimulus, ns: Sinj, asm: Assembly-CSharp}
       data:
-        velocity: 20
-    - rid: 281592704904200194
-      type: {class: SinjBehavior/TensionReaction, ns: Sinj, asm: Assembly-CSharp}
+        velocity: 10
+        comparison: 0
+    - rid: 5803845897152102647
+      type: {class: SinjBehavior/CuriosityReaction, ns: Sinj, asm: Assembly-CSharp}
       data:
-        amount: 200
+        amount: 50
+    - rid: 5803845897152102648
+      type: {class: SinjBehavior/MouseVelocityStimulus, ns: Sinj, asm: Assembly-CSharp}
+      data:
+        velocity: 5
+        comparison: 1

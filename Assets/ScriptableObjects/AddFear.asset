@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9107b413e4d79934c95487f3cce5c98a, type: 3}
+  m_Name: AddFear
+  m_EditorClassIdentifier: 
+  <SinjStimuli>k__BackingField:
+  - rid: 5803845897152102644
+  - rid: 5803845897152102650
+  - rid: 5803845897152102648
+  <SinjReactions>k__BackingField:
+  - rid: 5803845897152102651
+  references:
+    version: 2
+    RefIds:
+    - rid: 5803845897152102644
+      type: {class: SinjBehavior/MousePositionStimulus, ns: Sinj, asm: Assembly-CSharp}
+      data:
+        distance: 4
+        comparison: 0
+    - rid: 5803845897152102648
+      type: {class: SinjBehavior/MouseVelocityStimulus, ns: Sinj, asm: Assembly-CSharp}
+      data:
+        velocity: 10
+        comparison: 1
+    - rid: 5803845897152102650
+      type: {class: SinjBehavior/TensionAmount, ns: Sinj, asm: Assembly-CSharp}
+      data:
+        tension: 50
+        comparison: 0
+    - rid: 5803845897152102651
+      type: {class: SinjBehavior/FearReaction, ns: Sinj, asm: Assembly-CSharp}
+      data:
+        amount: 50

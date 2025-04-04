@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using DebugHUD;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -9,7 +11,7 @@ namespace Sinj
     public class SinjAgent : MonoBehaviour, IDebugDisplayAble
     {
         [SerializeField] private List<SinjBehavior> behaviors;
-        [SerializeField, ReadOnly] private float tension;
+        [SerializeField, ReadOnly] private SerializedDictionary<Emotions, float> emotions;
     
         private NavMeshAgent m_navMeshAgent;
         private MouseManager m_mouseManager;
@@ -23,7 +25,6 @@ namespace Sinj
         private void Awake()
         {
             m_navMeshAgent = GetComponent<NavMeshAgent>();
-            m_debugParameters.Add(new DebugParameter("Tension", "0"));
         }
 
         private void OnDrawGizmos()
@@ -35,6 +36,13 @@ namespace Sinj
         public void Init(MouseManager mouseManager)
         {
             m_mouseManager = mouseManager;
+            for (int loop = 0; loop < Enum.GetNames(typeof(Emotions)).Length; loop++)
+            {
+                Emotions emotion = (Emotions)loop;
+                emotions.Add(emotion, 0f);
+                m_debugParameters.Add(new DebugParameter(emotion.ToString(), "0"));
+                Debug.Log(m_debugParameters.Count);
+            }
         }
 
         public void HandleBehaviors()
@@ -61,10 +69,11 @@ namespace Sinj
             }
         }
 
-        public void UpdateTension(float value)
+        public void UpdateEmotion(float value, Emotions emotion)
         {
-            tension = value;
-            m_debugParameters[0].UpdateValue(((int)tension).ToString());
+            int index = (int)emotion;
+            emotions[emotion] = value;
+            m_debugParameters[index].UpdateValue(((int)value).ToString());
         }
 
         #region Getter
@@ -78,9 +87,9 @@ namespace Sinj
             return m_mouseManager.MouseVelocity();
         }
 
-        public float GetTension()
+        public float GetEmotion(Emotions emotion)
         {
-            return tension;
+            return emotions[emotion];
         }
         #endregion
 
@@ -92,9 +101,9 @@ namespace Sinj
             m_navMeshAgent.SetDestination(transform.position + m_fleeingTarget);
         }
 
-        public void AddTension(float amount)
+        public void AddEmotion(float amount, Emotions emotion)
         {
-            tension += amount*Time.deltaTime;
+            emotions[emotion] += amount*Time.deltaTime;
         }
         #endregion
 
@@ -109,6 +118,12 @@ namespace Sinj
             return m_debugParameters[index];
         }
         #endregion
-        
+    }
+    public enum Emotions
+    {
+        Tension,
+        Curiosity,
+        Agression,
+        Fear,
     }
 }

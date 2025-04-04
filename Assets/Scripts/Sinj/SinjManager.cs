@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using DebugHUD;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -11,10 +12,11 @@ namespace Sinj
         [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject sinjPrefab;
         [SerializeField, Range(1,10)] private int sinjCount;
         [SerializeField, ReadOnly] private List<SinjAgent> sinjs = new();
-        
-        [Header("Tension")]
-        [SerializeField] private float tensionMax = 100;
-        [SerializeField] private float tensionDecrease = 10;
+
+        [Header("Emotions")]
+        [SerializeField] private SerializedDictionary<Emotions, float> emotionsMin;
+        [SerializeField] private SerializedDictionary<Emotions, float> emotionsMax;
+        [SerializeField] private SerializedDictionary<Emotions, float> emotionsDecrease;
 
         [Header("Navigation")]
         [SerializeField] private EnvironmentManager environmentManager;
@@ -43,16 +45,23 @@ namespace Sinj
             foreach (SinjAgent sinj in sinjs)
             {
                 sinj.HandleBehaviors();
-                ClampTension(sinj);
+                sinj.UpdateEmotion(ClampEmotion(sinj, Emotions.Tension), Emotions.Tension);
+                sinj.UpdateEmotion(ClampEmotion(sinj, Emotions.Curiosity), Emotions.Curiosity);
+                sinj.UpdateEmotion(ClampEmotion(sinj, Emotions.Agression), Emotions.Agression);
+                sinj.UpdateEmotion(ClampEmotion(sinj, Emotions.Fear),Emotions.Fear);
             }
         }
 
-        private void ClampTension(SinjAgent sinj)
+        private float ClampEmotion(SinjAgent agent, Emotions emotion)
         {
-            float tension = sinj.GetTension();
-            tension -= Time.deltaTime * tensionDecrease;
-            tension = Mathf.Clamp(tension, 0, tensionMax);
-            sinj.UpdateTension(tension);
+            float value = agent.GetEmotion(emotion);
+            float emotionDecrease = emotionsDecrease[emotion];
+            float emotionMax = emotionsMax[emotion];
+            float emotionMin = emotionsMin[emotion];
+            
+            value -= Time.deltaTime * emotionDecrease;
+            value = Mathf.Clamp(value, emotionMin, emotionMax);
+            return value;
         }
 
         #region Debug
