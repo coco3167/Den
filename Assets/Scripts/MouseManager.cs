@@ -10,9 +10,8 @@ public class MouseManager : MonoBehaviour
     private Camera m_cam;
     private Ray m_mouseRay;
     
-    private Vector2 m_oldRawMousePosition;
+    private Vector2 m_oldRawPosition;
     private float m_velocity;
-    private bool m_moved;
     
 
     private void Awake()
@@ -22,33 +21,30 @@ public class MouseManager : MonoBehaviour
 
     private void Update()
     {
-        if (m_moved)
-            m_moved = false;
-        else
-            m_velocity = 0;
+        m_velocity /=   Mathf.Pow(100, Time.deltaTime);
+        Debug.Log(m_velocity);
     }
 
     private void OnMouseMoved(InputValue value)
     {
-        m_oldRawMousePosition = rawPosition;
+        m_oldRawPosition = rawPosition;
         rawPosition = value.Get<Vector2>();
         m_mouseRay = m_cam.ScreenPointToRay(rawPosition);
         
-        m_velocity = (m_oldRawMousePosition - rawPosition).magnitude;
+        m_velocity = (m_oldRawPosition - rawPosition).magnitude;
         
         if (Physics.Raycast(m_mouseRay, out RaycastHit hit))
         {
             rawWorldPosition = hit.point;
         }
-        
-        m_moved = true;
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(rawWorldPosition, 0.2f);
         Gizmos.DrawRay(m_mouseRay);
+        Gizmos.DrawRay(m_oldRawPosition, m_oldRawPosition + rawPosition);
     }
 
     public float ObjectDistanceToMouse(Vector3 otherPos)
