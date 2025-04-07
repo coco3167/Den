@@ -46,7 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417cc6eccf086bf4bab3a2739668c893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToReact: 2
+  behaviors:
+  - {fileID: 11400000, guid: 6e7e12b5cc0a15b4187530191b0757dc, type: 2}
+  - {fileID: 11400000, guid: dfbefd6285658804799d997953a3c90d, type: 2}
+  - {fileID: 11400000, guid: d63d5c2704b0b2b42be671164d3c6153, type: 2}
+  - {fileID: 11400000, guid: f027435e375ff4f43943d246f86238c3, type: 2}
+  emotions:
+    _serializedList: []
 --- !u!195 &1897331158705664951
 NavMeshAgent:
   m_ObjectHideFlags: 0
