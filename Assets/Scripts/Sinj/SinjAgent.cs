@@ -41,7 +41,6 @@ namespace Sinj
                 Emotions emotion = (Emotions)loop;
                 emotions.Add(emotion, 0f);
                 m_debugParameters.Add(new DebugParameter(emotion.ToString(), "0"));
-                Debug.Log(m_debugParameters.Count);
             }
         }
 
