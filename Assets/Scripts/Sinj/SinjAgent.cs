@@ -5,13 +5,23 @@ using DebugHUD;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Sinj
 {
     public class SinjAgent : MonoBehaviour, IDebugDisplayAble
     {
-        [SerializeField] private List<SinjBehavior> behaviors;
+        [Header("Behaviors")]
+        [SerializeField] private List<SinjActiveBehavior> activeBehaviors;
+        [SerializeField] private List<SinjPassivBehavior> passiveBehaviors;
+        
+        [Header("Emotions")]
         [SerializeField, ReadOnly] private SerializedDictionary<Emotions, float> emotions;
+        
+        // TODO déterminer si j'ai besoin de séparer active et passive states
+        [Header("States")]
+        [SerializeField, ReadOnly] private ActiveState activeState = ActiveState.None;
+        [SerializeField, ReadOnly] private PassiveState passiveState = PassiveState.None;
     
         private NavMeshAgent m_navMeshAgent;
         private MouseManager m_mouseManager;
@@ -19,7 +29,6 @@ namespace Sinj
         private readonly List<DebugParameter> m_debugParameters = new();
     
         // Fleeing
-        private bool m_fleeing;
         private Vector3 m_fleeingTarget;
 
         private void Awake()
@@ -29,10 +38,23 @@ namespace Sinj
 
         private void OnDrawGizmos()
         {
-            if(m_fleeing)
+            if(activeState == ActiveState.Fleeing)
                 Gizmos.DrawRay(transform.position, m_fleeingTarget);
         }
-        
+
+        private void FixedUpdate()
+        {
+            if (activeState != ActiveState.None)
+            {
+                if (activeState == ActiveState.Fleeing)
+                    if(m_navMeshAgent.remainingDistance <= m_navMeshAgent.stoppingDistance)
+                        activeState = ActiveState.None;
+            }
+            else
+                if(passiveState == PassiveState.Resting)
+                    Debug.Log("Resting");
+        }
+
         public void Init(MouseManager mouseManager)
         {
             m_mouseManager = mouseManager;
@@ -42,30 +64,29 @@ namespace Sinj
                 emotions.Add(emotion, 0f);
                 m_debugParameters.Add(new DebugParameter(emotion.ToString(), "0"));
             }
+            
+            m_debugParameters.Add(new DebugParameter("Active State", activeState.ToString()));
+            m_debugParameters.Add(new DebugParameter("Passive State", passiveState.ToString()));
         }
 
         public void HandleBehaviors()
         {
-            foreach (SinjBehavior behavior in behaviors)
+            foreach (SinjActiveBehavior behavior in activeBehaviors)
             {
-                bool reactToStimuli = true;
-                foreach (SinjBehavior.SinjStimulus stimulus in behavior.SinjStimuli)
-                {
-                    if (!stimulus.IsApplying(this))
-                    {
-                        reactToStimuli = false;
-                        break;
-                    }
-                }
-
-                if (!reactToStimuli)
+                if (!behavior.IsApplying(this))
                     continue;
-
-                foreach (SinjBehavior.SinjReaction reaction in behavior.SinjReactions)
-                {
-                    reaction.ApplyReaction(this);
-                }
+                behavior.ApplyReaction(this);
             }
+
+            if (activeState == ActiveState.None)
+            {
+                int index = Random.Range(0, passiveBehaviors.Count);
+                passiveBehaviors[index].ApplyReaction(this);
+            }
+            
+            // TODO dégeulasse a refacto
+            m_debugParameters[4].Value = activeState.ToString();
+            m_debugParameters[5].Value = passiveState.ToString();
         }
 
         public void UpdateEmotion(float value, Emotions emotion)
@@ -97,12 +118,18 @@ namespace Sinj
         {
             Vector3 directionToFlee = (transform.position - m_mouseManager.GetRawWorldMousePosition()).normalized;
             m_fleeingTarget = distanceToFlee * directionToFlee;
+            activeState = ActiveState.Fleeing;
             m_navMeshAgent.SetDestination(transform.position + m_fleeingTarget);
         }
 
         public void AddEmotion(float amount, Emotions emotion)
         {
             emotions[emotion] += amount*Time.deltaTime;
+        }
+
+        public void Rest()
+        {
+            passiveState = PassiveState.Resting;
         }
         #endregion
 
@@ -117,7 +144,22 @@ namespace Sinj
             return m_debugParameters[index];
         }
         #endregion
+
+        #region States
+        private enum ActiveState
+        {
+            None,
+            Fleeing,
+        }
+
+        private enum PassiveState
+        {
+            None,
+            Resting,
+        }
+        #endregion
     }
+
     public enum Emotions
     {
         Tension,

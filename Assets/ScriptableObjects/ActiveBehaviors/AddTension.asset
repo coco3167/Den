@@ -13,24 +13,24 @@ MonoBehaviour:
   m_Name: AddTension
   m_EditorClassIdentifier: 
   <SinjStimuli>k__BackingField:
-  - rid: 281592704904200192
-  - rid: 281592704904200193
+  - rid: 281592812629655621
+  - rid: 281592812629655622
   <SinjReactions>k__BackingField:
-  - rid: 281592704904200194
+  - rid: 281592812629655623
   references:
     version: 2
     RefIds:
-    - rid: 281592704904200192
-      type: {class: SinjBehavior/MousePositionStimulus, ns: Sinj, asm: Assembly-CSharp}
+    - rid: 281592812629655621
+      type: {class: SinjActiveBehavior/MousePositionStimulus, ns: Sinj, asm: Assembly-CSharp}
       data:
         distance: 6
         comparison: 0
-    - rid: 281592704904200193
-      type: {class: SinjBehavior/MouseVelocityStimulus, ns: Sinj, asm: Assembly-CSharp}
+    - rid: 281592812629655622
+      type: {class: SinjActiveBehavior/MouseVelocityStimulus, ns: Sinj, asm: Assembly-CSharp}
       data:
-        velocity: 20
+        velocity: 2
         comparison: 1
-    - rid: 281592704904200194
-      type: {class: SinjBehavior/TensionReaction, ns: Sinj, asm: Assembly-CSharp}
+    - rid: 281592812629655623
+      type: {class: SinjActiveBehavior/TensionReaction, ns: Sinj, asm: Assembly-CSharp}
       data:
-        amount: 100
+        amount: 30
