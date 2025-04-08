@@ -44,7 +44,7 @@ public class SinjIndiv : MonoBehaviour
 
 
         influText.text = "influencability = " + influencability;
-        curioText.text = "curio = " + curio;
+        curioText.text = "curio = " + Mathf.Round(curio*100)/100;
     }
 
     void Flee(Vector3 cursorPos)
