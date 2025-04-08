@@ -1061,9 +1061,10 @@
 										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
-												<Value>1</Value>
+												<Value>5</Value>
 											</ValueList>
 										</Property>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 										<Property Name="UseMaxSoundPerInstance" Type="bool">
 											<ValueList>
 												<Value>True</Value>
@@ -1151,9 +1152,34 @@
 												<ActiveSource Name="Den_Crea_v2_8" ID="{61A5FCCF-201A-4E2B-8E01-D3F8AECC9A1C}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<Sound Name="Den_Crea_v2_9" ID="{4C1EAA44-B10F-4115-9BDD-BFE4F40FAD59}" ShortID="861600858">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Den_Crea_v2_9" ID="{E94164E4-0092-4D7C-A38B-EF56395DDBEB}">
+													<Language>SFX</Language>
+													<AudioFile>Den_Crea_v2_9.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="689291440"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Den_Crea_v2_9" ID="{E94164E4-0092-4D7C-A38B-EF56395DDBEB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Den_Crea_v2_9" ID="{4C1EAA44-B10F-4115-9BDD-BFE4F40FAD59}"/>
+											</GroupingBehavior>
 											<GroupingBehavior>
 												<ItemRef Name="Den_Crea_v2_7" ID="{3EED9D45-F5BF-4BA4-B379-8FB1019A299A}"/>
 											</GroupingBehavior>
@@ -1175,6 +1201,12 @@
 												<SwitchRef Name="DEN_SW_AS_2" ID="{774E5938-7788-4C31-9767-E461F2C0797F}"/>
 												<ItemList>
 													<ItemRef Name="Den_Crea_v2_7" ID="{3EED9D45-F5BF-4BA4-B379-8FB1019A299A}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}"/>
+												<ItemList>
+													<ItemRef Name="Den_Crea_v2_9" ID="{4C1EAA44-B10F-4115-9BDD-BFE4F40FAD59}"/>
 												</ItemList>
 											</Grouping>
 											<Grouping>

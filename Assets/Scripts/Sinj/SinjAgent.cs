@@ -74,6 +74,7 @@ namespace Sinj
             int index = (int)emotion;
             emotions[emotion] = value;
             m_debugParameters[index].UpdateValue(((int)value).ToString());
+
         }
 
         #region Getter
@@ -125,5 +126,6 @@ namespace Sinj
         Curiosity,
         Agression,
         Fear,
+        Neutral,
     }
 }

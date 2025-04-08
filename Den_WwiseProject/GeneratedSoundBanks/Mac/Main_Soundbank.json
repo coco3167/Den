@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{F721135D-A868-AB1A-2397-B9738822B2EF}",
+    "Hash": "{B6C7A565-3460-2A1D-5F0C-126CD9F62B4E}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -184,6 +184,14 @@
       "CachePath": "78/{78F30704-1B6E-7825-8EB6-7A30FF510C99}.wem"
      },
      {
+      "Id": "689291440",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Den_Crea_v2_9.wav",
+      "CachePath": "74/{74F37F52-8737-2106-EBA8-3C337B862658}.wem"
+     },
+     {
       "Id": "717918867",
       "Language": "SFX",
       "Streaming": "false",
@@ -304,9 +312,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_MoodSteps\\Play_DEN_Crea_AngerSteps",
       "GUID": "{71F461C5-5DA7-4B54-B3CE-05E935C63EF7}",
       "Color": "10",
-      "DurationType": "OneShot",
-      "DurationMin": "0.7979271",
-      "DurationMax": "1.8333437",
+      "DurationType": "Infinite",
       "SwitchContainers": [
        {
         "SwitchValue": {
@@ -333,6 +339,21 @@
         "MediaRefs": [
          {
           "Id": "923599935"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3664495308",
+         "Id": "3467041815",
+         "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+         "Color": "2",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "689291440"
          }
         ]
        },
@@ -870,6 +891,6 @@
     ]
    }
   ],
-  "FileHash": "{CB095CB1-9984-8521-6637-3FE24E491D89}"
+  "FileHash": "{B9FD85B3-E2E9-FAE4-B097-0123E1FFB36B}"
  }
 }
