@@ -12,31 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9107b413e4d79934c95487f3cce5c98a, type: 3}
   m_Name: AddFear
   m_EditorClassIdentifier: 
-  <SinjStimuli>k__BackingField:
-  - rid: 281592812629655621
-  - rid: 281592812629655622
-  - rid: 281592812629655625
-  <SinjReactions>k__BackingField:
-  - rid: 281592812629655627
+  SinjStimuli:
+  - rid: 281592817506320456
+  - rid: 281592817506320457
+  - rid: 281592817506320458
+  SinjReactions:
+  - rid: 281592817506320459
   references:
     version: 2
     RefIds:
-    - rid: 281592812629655621
+    - rid: 281592817506320456
       type: {class: SinjActiveBehavior/MousePositionStimulus, ns: Sinj, asm: Assembly-CSharp}
       data:
-        distance: 5
+        distance: 4
         comparison: 0
-    - rid: 281592812629655622
+    - rid: 281592817506320457
       type: {class: SinjActiveBehavior/MouseVelocityStimulus, ns: Sinj, asm: Assembly-CSharp}
       data:
         velocity: 2
         comparison: 1
-    - rid: 281592812629655625
+    - rid: 281592817506320458
       type: {class: SinjActiveBehavior/TensionAmount, ns: Sinj, asm: Assembly-CSharp}
       data:
         tension: 50
         comparison: 0
-    - rid: 281592812629655627
+    - rid: 281592817506320459
       type: {class: SinjActiveBehavior/FearReaction, ns: Sinj, asm: Assembly-CSharp}
       data:
         amount: 20

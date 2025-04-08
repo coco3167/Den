@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Timers;
 using AYellowpaper.SerializedCollections;
 using DebugHUD;
 using Sirenix.OdinInspector;
@@ -19,9 +20,12 @@ namespace Sinj
         [SerializeField, ReadOnly] private SerializedDictionary<Emotions, float> emotions;
         
         // TODO déterminer si j'ai besoin de séparer active et passive states
+        // TODO faire une classe StateMachine
         [Header("States")]
         [SerializeField, ReadOnly] private ActiveState activeState = ActiveState.None;
         [SerializeField, ReadOnly] private PassiveState passiveState = PassiveState.None;
+
+        private Timer m_restTimer;
     
         private NavMeshAgent m_navMeshAgent;
         private MouseManager m_mouseManager;
@@ -33,6 +37,14 @@ namespace Sinj
 
         private void Awake()
         {
+            m_restTimer = new Timer(1000);
+            m_restTimer.Enabled = false;
+            m_restTimer.AutoReset = false;
+            m_restTimer.Elapsed += (_, _) =>
+            {
+                Debug.Log("reset");
+                ResetState();
+            };
             m_navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
@@ -44,15 +56,13 @@ namespace Sinj
 
         private void FixedUpdate()
         {
-            if (activeState != ActiveState.None)
-            {
-                if (activeState == ActiveState.Fleeing)
-                    if(m_navMeshAgent.remainingDistance <= m_navMeshAgent.stoppingDistance)
-                        activeState = ActiveState.None;
-            }
-            else
-                if(passiveState == PassiveState.Resting)
-                    Debug.Log("Resting");
+            if (activeState == ActiveState.Fleeing)
+                if(m_navMeshAgent.remainingDistance <= m_navMeshAgent.stoppingDistance)
+                    ResetState();
+            
+            if(passiveState == PassiveState.Walking)
+                if(m_navMeshAgent.remainingDistance <= m_navMeshAgent.stoppingDistance)
+                    ResetState();
         }
 
         public void Init(MouseManager mouseManager)
@@ -78,7 +88,7 @@ namespace Sinj
                 behavior.ApplyReaction(this);
             }
 
-            if (activeState == ActiveState.None)
+            if (activeState == ActiveState.None && passiveState == PassiveState.None)
             {
                 int index = Random.Range(0, passiveBehaviors.Count);
                 passiveBehaviors[index].ApplyReaction(this);
@@ -87,6 +97,12 @@ namespace Sinj
             // TODO dégeulasse a refacto
             m_debugParameters[4].Value = activeState.ToString();
             m_debugParameters[5].Value = passiveState.ToString();
+        }
+
+        private void ResetState()
+        {
+            activeState = ActiveState.None;
+            passiveState = PassiveState.None;
         }
 
         public void UpdateEmotion(float value, Emotions emotion)
@@ -127,9 +143,21 @@ namespace Sinj
             emotions[emotion] += amount*Time.deltaTime;
         }
 
-        public void Rest()
+        public void Rest(float minTime, float maxTime)
         {
+            m_restTimer.Interval = Random.Range(minTime, maxTime) * 1000;
+            m_restTimer.Start();
             passiveState = PassiveState.Resting;
+        }
+
+        public void Walk(float distance)
+        {
+            Vector3 destination;
+            do
+            {
+                destination = transform.position + Random.insideUnitSphere * distance;
+            } while (!m_navMeshAgent.SetDestination(destination));
+            passiveState = PassiveState.Walking;
         }
         #endregion
 
@@ -156,6 +184,7 @@ namespace Sinj
         {
             None,
             Resting,
+            Walking,
         }
         #endregion
     }

@@ -10,10 +10,7 @@ public class MouseManager : MonoBehaviour
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        
-        #if UNITY_EDITOR
         Mouse.current.WarpCursorPosition(Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f))); 
-        #endif
     }
 
     private void OnMouseMoved(InputValue value)
