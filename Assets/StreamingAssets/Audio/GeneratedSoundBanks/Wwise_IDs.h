@@ -14,7 +14,11 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_DEN_AMB_TEST = 2516003365U;
-        static const AkUniqueID PLAY_DEN_CREA_TEST = 2134952826U;
+        static const AkUniqueID PLAY_DEN_CREA_ANGERSTEPS = 2814436364U;
+        static const AkUniqueID PLAY_DEN_CREA_CURIOUSSTEPS = 3724550301U;
+        static const AkUniqueID PLAY_DEN_CREA_FEARSTEPS = 3029527017U;
+        static const AkUniqueID PLAY_DEN_CREA_MOODBARKS = 3049617852U;
+        static const AkUniqueID PLAY_DEN_CREA_NEUTRALBARK = 1250462805U;
         static const AkUniqueID PLAY_DEN_MUSIC_TEST = 1174350178U;
     } // namespace EVENTS
 
@@ -110,6 +114,7 @@ namespace AK
     namespace BUSSES
     {
         static const AkUniqueID AMBIENCE = 85412153U;
+        static const AkUniqueID FX = 1802970371U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID SFX = 393239870U;

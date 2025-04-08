@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}" SchemaVersion="123" RootDocumentID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}" ParentDocumentID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}">
+	<Events>
+		<WorkUnit Name="DEN_Events_Amb" ID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}" OwnerID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}" PersistMode="Nested">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="4"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<Event Name="Play_DEN_Amb_Test" ID="{0A0BD5D1-7399-4070-A466-45EDA771A82F}">
+					<ChildrenList>
+						<Action Name="" ID="{E91FE96F-034A-46C1-B19E-317271251457}" ShortID="940245873">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_Amb_Test" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

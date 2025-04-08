@@ -36,6 +36,17 @@
 						</Bus>
 					</ChildrenList>
 				</Bus>
+				<Bus Name="FX" ID="{78DE1303-D0D2-4C23-8BAF-D886E06EABEB}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="16"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{C142E1D2-F511-452A-A935-13BE58498245}" WorkUnitID="{0337694D-80CD-4E8F-9491-C4742292E371}"/>
+						</Reference>
+					</ReferenceList>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>
