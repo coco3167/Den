@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{B6C7A565-3460-2A1D-5F0C-126CD9F62B4E}",
+    "Hash": "{ADB05430-96E4-156F-8C29-ED7A502B6891}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -312,7 +312,9 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_MoodSteps\\Play_DEN_Crea_AngerSteps",
       "GUID": "{71F461C5-5DA7-4B54-B3CE-05E935C63EF7}",
       "Color": "10",
-      "DurationType": "Infinite",
+      "DurationType": "OneShot",
+      "DurationMin": "0.7979271",
+      "DurationMax": "1.8333437",
       "SwitchContainers": [
        {
         "SwitchValue": {
@@ -891,6 +893,6 @@
     ]
    }
   ],
-  "FileHash": "{B9FD85B3-E2E9-FAE4-B097-0123E1FFB36B}"
+  "FileHash": "{23AFBE13-EEEA-D09F-45DD-AFBAA64344A2}"
  }
 }

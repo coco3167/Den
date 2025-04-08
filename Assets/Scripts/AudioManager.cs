@@ -114,6 +114,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayCuriousStep;
     [SerializeField] private AK.Wwise.Event PlayFearStep;
 
+    [SerializeField] private GameObject BarkerTest;
+
     private void Awake()
     {
         Initialize();
@@ -128,23 +130,23 @@ public class AudioManager : MonoBehaviour
         //AmbienceTest.Post(gameObject);
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            SetWwiseMoodState(WwiseMoodState.NeutralState);
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             SetWwiseMoodState(WwiseMoodState.CuriosityState);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SetWwiseMoodState(WwiseMoodState.FearState);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
             SetWwiseMoodState(WwiseMoodState.AngerState);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            SetWwiseMoodState(WwiseMoodState.NeutralState);
+            SetWwiseMoodState(WwiseMoodState.FearState);
         }
     }
 
@@ -253,25 +255,28 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Curiosity switch is already set to " + switchState);
             return;
         }
+
+        int amount = 0;
         switch (switchState)
         {
             case WwiseCuriositySwitch.Curiosity_0:
                 Mood_Curiosity_0.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Curiosity, this.gameObject, 0);
+                amount = 0;
                 break;
             case WwiseCuriositySwitch.Curiosity_1:
                 Mood_Curiosity_1.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Curiosity, this.gameObject, 25);
+                amount = 25;
                 break;
             case WwiseCuriositySwitch.Curiosity_2:
                 Mood_Curiosity_2.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Curiosity, this.gameObject, 50);
+                amount = 50;
                 break;
             case WwiseCuriositySwitch.Curiosity_3:
                 Mood_Curiosity_3.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Curiosity, this.gameObject, 75);
+                amount = 75;
                 break;
         }
+        SetWwiseEmotionRTPC(Sinj.Emotions.Curiosity, this.gameObject, amount, ref Anger_Value, ref currentAngerValue);
         Debug.Log("Curiosity switch has been set to " + switchState);
         currentCuriositySwitch = switchState;
     }
@@ -282,25 +287,28 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Fear switch is already set to " + switchState);
             return;
         }
+
+        int amount = 0;
         switch (switchState)
         {
             case WwiseFearSwitch.Fear_0:
                 Mood_Fear_0.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Fear, this.gameObject, 0);
+                amount = 0;
                 break;
             case WwiseFearSwitch.Fear_1:
                 Mood_Fear_1.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Fear, this.gameObject, 25);
+                amount = 25;
                 break;
             case WwiseFearSwitch.Fear_2:
                 Mood_Fear_2.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Fear, this.gameObject, 50);
+                amount = 50;
                 break;
             case WwiseFearSwitch.Fear_3:
                 Mood_Fear_3.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Fear, this.gameObject, 75);
+                amount = 75;
                 break;
         }
+        SetWwiseEmotionRTPC(Sinj.Emotions.Fear, this.gameObject, amount, ref Anger_Value, ref currentAngerValue);
         Debug.Log("Fear switch has been set to " + switchState);
         currentFearSwitch = switchState;
     }
@@ -311,55 +319,49 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Anger switch is already set to " + switchState);
             return;
         }
+
+        int amount = 0;
         switch (switchState)
         {
             case WwiseAngerSwitch.Anger_0:
                 Mood_Anger_0.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, 0);
+                amount = 0;
                 break;
             case WwiseAngerSwitch.Anger_1:
                 Mood_Anger_1.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, 25);
+                amount = 25;
                 break;
             case WwiseAngerSwitch.Anger_2:
                 Mood_Anger_2.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, 50);
+                amount = 50;
                 break;
             case WwiseAngerSwitch.Anger_3:
                 Mood_Anger_3.SetValue(gameObject);
-                SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, 75);
+                amount = 75;
                 break;
         }
+        SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, amount, ref Anger_Value, ref currentAngerValue);
+
         Debug.Log("Anger switch has been set to " + switchState);
         currentAngerSwitch = switchState;
     }
 
-    public void SetWwiseEmotionRTPC(Sinj.Emotions emotion, GameObject target, float value)
+    public void SetWwiseEmotionRTPC(Sinj.Emotions emotion, GameObject target, float value, ref RTPC emotionRTPC, ref float currentEmotionValue)
     {
-        float currentEmotionValue = 0;
         string emotionName = "";
-        AK.Wwise.RTPC emotionRTPC = null;
 
         switch(emotion)
         {
             case Sinj.Emotions.Curiosity:
-                emotionRTPC = Curiosity_Value;
-                currentEmotionValue = currentCuriosityValue;
                 emotionName = "Curiosity";
                 break;
             case Sinj.Emotions.Fear:
-                emotionRTPC = Fear_Value;
-                currentEmotionValue = currentFearValue;
                 emotionName = "Fear";
                 break;
             case Sinj.Emotions.Agression:
-                emotionRTPC = Anger_Value;
-                currentEmotionValue = currentAngerValue;
                 emotionName = "Anger";
                 break;
             case Sinj.Emotions.Tension:
-                emotionRTPC = Tension_Value;
-                currentEmotionValue = currentTensionValue;
                 emotionName = "Tension";
                 break;
         }

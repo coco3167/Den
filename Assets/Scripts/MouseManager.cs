@@ -22,7 +22,7 @@ public class MouseManager : MonoBehaviour
     private void Update()
     {
         m_velocity /=   Mathf.Pow(100, Time.deltaTime);
-        Debug.Log(m_velocity);
+        //Debug.Log(m_velocity);
     }
 
     private void OnMouseMoved(InputValue value)

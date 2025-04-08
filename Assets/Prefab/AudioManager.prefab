@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 692194201349089044}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5089703929871445020
@@ -69,7 +70,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7eac85fed8593046a75dc0160450b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Soundbanks: []
+  Soundbanks:
+  - idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 514d21d18341d6743a040eca6a2f6e8f, type: 2}
   Mood_Curiosity:
     idInternal: 0
     valueGuidInternal: 
@@ -254,3 +258,86 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 8b113d92fb16beb45a012168821213c2, type: 2}
+  BarkerTest: {fileID: 6390681636642090929}
+--- !u!1 &6390681636642090929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 692194201349089044}
+  - component: {fileID: 3786736935927452777}
+  m_Layer: 0
+  m_Name: BarkerTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &692194201349089044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6390681636642090929}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8098472380902549966}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3786736935927452777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6390681636642090929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3dde156a3265a45be7618e416d457f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moodEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b8c5981e92b81ad4dbcc3c5f4848afb6, type: 2}
+  MinInterval: 1
+  MaxInterval: 2
+  neutralEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: dbf38947144cc3940ad86d28118b9aee, type: 2}
+  intervalBetweenSequences: 10
+  minDelayBetweenEvents: 0.3
+  maxDelayBetweenEvents: 0.7
+  Curiosity_Value:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9a1cb5dc0083a22458cdaf90627b697a, type: 2}
+  Fear_Value:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e5b09747b70d7de4cac169465b7f6a33, type: 2}
+  Anger_Value:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 35c38d7a5533b6343ace9721e9148676, type: 2}
+  Intensity_Value:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d61adac8f687fd94c96c3d4f110c6ba9, type: 2}
+  Tension_Value:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 79b94eab0001c46408b5ffde236b7587, type: 2}
+  currentCuriosityValue: 0
+  currentFearValue: 0
+  currentAngerValue: 0
+  currentIntensityValue: 0
+  currentTensionValue: 0
