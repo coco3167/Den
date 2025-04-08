@@ -112,7 +112,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &6521624656204892207
 GameObject:
@@ -162,6 +162,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseRigidBody: {fileID: 1653717615395514633}
   mouseSensitivity: 2
+  terrainLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &4573577013578510746
 MonoBehaviour:
   m_ObjectHideFlags: 0
