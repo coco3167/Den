@@ -1,5 +1,7 @@
 using System;
+using System.Timers;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Sinj
 {
@@ -10,11 +12,30 @@ namespace Sinj
         [Serializable]
         public class RestReaction : SinjReaction
         {
-            [SerializeField, Range(.5f,5)] private float minTime = .5f, maxTime = 5f; 
+            [SerializeField, Range(.5f,5)] private float minTime = .5f, maxTime = 5f;
+
+            private Timer m_timer;
+            private bool m_isFinished;
             public override void ApplyReaction(SinjAgent agent)
             {
-                Debug.Log(minTime);
+                m_isFinished = false;
+                
+                m_timer = new Timer(Random.Range(minTime, maxTime) * 1000);
+                m_timer.AutoReset = false;
+                Debug.Log("timer started");
+                m_timer.Elapsed += (_, _) =>
+                {
+                    m_isFinished = true;
+                    m_timer.Stop();
+                    Debug.Log("timer ended");
+                };
+                m_timer.Start();
                 agent.Rest(minTime, maxTime);
+            }
+
+            public override bool IsFinished(SinjAgent agent)
+            {
+                return m_isFinished;
             }
         }
         
@@ -25,6 +46,11 @@ namespace Sinj
             public override void ApplyReaction(SinjAgent agent)
             {
                 agent.Walk(distance);
+            }
+
+            public override bool IsFinished(SinjAgent agent)
+            {
+                return agent.IsCloseToDestination();
             }
         }
         #endregion

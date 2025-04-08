@@ -40,7 +40,7 @@ namespace Sinj
             GameManager.OnGameReady();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             foreach (SinjAgent sinj in sinjs)
             {

@@ -92,6 +92,11 @@ namespace Sinj
             {
                 agent.FleeReaction(distance);
             }
+
+            public override bool IsFinished(SinjAgent agent)
+            {
+                return agent.IsCloseToDestination();
+            }
         }
         
         [Serializable]
@@ -102,6 +107,11 @@ namespace Sinj
             public override void ApplyReaction(SinjAgent agent)
             {
                 agent.AddEmotion(amount, Emotions.Tension);
+            }
+
+            public override bool IsFinished(SinjAgent agent)
+            {
+                return true;
             }
         }
 
@@ -114,6 +124,11 @@ namespace Sinj
             {
                 agent.AddEmotion(amount, Emotions.Curiosity);
             }
+
+            public override bool IsFinished(SinjAgent agent)
+            {
+                return true;
+            }
         }
         
         [Serializable]
@@ -125,6 +140,11 @@ namespace Sinj
             {
                 agent.AddEmotion(amount, Emotions.Agression);
             }
+
+            public override bool IsFinished(SinjAgent agent)
+            {
+                return true;
+            }
         }
         
         [Serializable]
@@ -135,6 +155,11 @@ namespace Sinj
             public override void ApplyReaction(SinjAgent agent)
             {
                 agent.AddEmotion(amount, Emotions.Fear);
+            }
+
+            public override bool IsFinished(SinjAgent agent)
+            {
+                return true;
             }
         }
         #endregion
