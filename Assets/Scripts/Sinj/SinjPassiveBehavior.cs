@@ -22,12 +22,10 @@ namespace Sinj
                 
                 m_timer = new Timer(Random.Range(minTime, maxTime) * 1000);
                 m_timer.AutoReset = false;
-                Debug.Log("timer started");
                 m_timer.Elapsed += (_, _) =>
                 {
                     m_isFinished = true;
                     m_timer.Stop();
-                    Debug.Log("timer ended");
                 };
                 m_timer.Start();
                 agent.Rest(minTime, maxTime);

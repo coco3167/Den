@@ -145,5 +145,6 @@ namespace Sinj
         Curiosity,
         Agression,
         Fear,
+        Intensity
     }
 }
