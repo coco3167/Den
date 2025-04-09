@@ -74,137 +74,195 @@ MonoBehaviour:
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 514d21d18341d6743a040eca6a2f6e8f, type: 2}
-  Mood_Curiosity:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 69523ab05f64d4d4e9e467654dfdecae, type: 2}
-  Mood_Fear:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 840ca4bf8e9ec3a4ab03c61a731da8d1, type: 2}
-  Mood_Anger:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 768940f3772428a4a9097c3d87329e13, type: 2}
-  Mood_Neutral:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: bde80c7f3a9b6774e8f0966ae8763f36, type: 2}
-  Mood_None:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 130e180532d85a74ba5f6242c11f65e4, type: 2}
+  gameStateMoodVisualization:
+    _serializedList:
+    - Key: 0
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 69523ab05f64d4d4e9e467654dfdecae, type: 2}
+    - Key: 1
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 840ca4bf8e9ec3a4ab03c61a731da8d1, type: 2}
+    - Key: 2
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 768940f3772428a4a9097c3d87329e13, type: 2}
+    - Key: 3
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: bde80c7f3a9b6774e8f0966ae8763f36, type: 2}
+    - Key: 4
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 130e180532d85a74ba5f6242c11f65e4, type: 2}
   currentMoodState: 3
-  Audio_StereoHeadphones:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: aaf2c871acb05c044940181361e5e60c, type: 2}
-  Audio_StereoSpeakers:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 8fd492319b8049849a1c8d64cd2ccb9f, type: 2}
-  Audio_Mono:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 58d9cc3b6f4ba9142acecc1810b7ed92, type: 2}
-  Audio_None:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 815acc27b28e83a42952b125468b5cb9, type: 2}
+  audioState:
+    _serializedList:
+    - Key: 0
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: aaf2c871acb05c044940181361e5e60c, type: 2}
+    - Key: 1
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 8fd492319b8049849a1c8d64cd2ccb9f, type: 2}
+    - Key: 2
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 58d9cc3b6f4ba9142acecc1810b7ed92, type: 2}
+    - Key: 3
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 815acc27b28e83a42952b125468b5cb9, type: 2}
   currentAudioState: 0
-  Mood_Curiosity_0:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: bb3f82d4a1ca15f4fbfcdd2284e5ce7f, type: 2}
-  Mood_Curiosity_1:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: cc2c24d2fc7436e498710fd5c8a7f3d3, type: 2}
-  Mood_Curiosity_2:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: afad88a8952a91a4489810656f5f3c40, type: 2}
-  Mood_Curiosity_3:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 68a8270200cec854aa4d5e81e3cdf1b5, type: 2}
-  Mood_Fear_0:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: de140176e73c6de439254d33412c2233, type: 2}
-  Mood_Fear_1:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 5313930ff6732df44b50137664d42648, type: 2}
-  Mood_Fear_2:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: f19c693108fad24428896bb768ddcfeb, type: 2}
-  Mood_Fear_3:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: aba34f44d0f4be645b5395cd7562f931, type: 2}
-  Mood_Anger_0:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: aad95a1ff1bfcd54ca47c505239323b2, type: 2}
-  Mood_Anger_1:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: f446cf74c8280874d8e210f2f45bc2b6, type: 2}
-  Mood_Anger_2:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 14a9bd4abfd236a4892391a4a02943bd, type: 2}
-  Mood_Anger_3:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: a4b27cbcdec8c3b48a7c8c0fcea31328, type: 2}
+  moodCuriosity:
+    _serializedList:
+    - Key: 0
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: bb3f82d4a1ca15f4fbfcdd2284e5ce7f, type: 2}
+    - Key: 1
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: cc2c24d2fc7436e498710fd5c8a7f3d3, type: 2}
+    - Key: 2
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: afad88a8952a91a4489810656f5f3c40, type: 2}
+    - Key: 3
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 68a8270200cec854aa4d5e81e3cdf1b5, type: 2}
+  moodFear:
+    _serializedList:
+    - Key: 0
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: de140176e73c6de439254d33412c2233, type: 2}
+    - Key: 1
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 5313930ff6732df44b50137664d42648, type: 2}
+    - Key: 2
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: f19c693108fad24428896bb768ddcfeb, type: 2}
+    - Key: 3
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: aba34f44d0f4be645b5395cd7562f931, type: 2}
+  moodAnger:
+    _serializedList:
+    - Key: 0
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: aad95a1ff1bfcd54ca47c505239323b2, type: 2}
+    - Key: 1
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: f446cf74c8280874d8e210f2f45bc2b6, type: 2}
+    - Key: 2
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 14a9bd4abfd236a4892391a4a02943bd, type: 2}
+    - Key: 3
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: a4b27cbcdec8c3b48a7c8c0fcea31328, type: 2}
   currentCuriositySwitch: 0
   currentFearSwitch: 0
   currentAngerSwitch: 0
+  gameParameters:
+    _serializedList:
+    - Key: 0
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 9a1cb5dc0083a22458cdaf90627b697a, type: 2}
+    - Key: 1
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: e5b09747b70d7de4cac169465b7f6a33, type: 2}
+    - Key: 2
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 35c38d7a5533b6343ace9721e9148676, type: 2}
+    - Key: 3
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: d61adac8f687fd94c96c3d4f110c6ba9, type: 2}
+    - Key: 4
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 79b94eab0001c46408b5ffde236b7587, type: 2}
   Curiosity_Value:
     idInternal: 0
     valueGuidInternal: 
@@ -225,6 +283,8 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 79b94eab0001c46408b5ffde236b7587, type: 2}
+  currentGameParametersValues:
+    _serializedList: []
   currentCuriosityValue: 0
   currentFearValue: 0
   currentAngerValue: 0
@@ -316,28 +376,7 @@ MonoBehaviour:
   intervalBetweenSequences: 10
   minDelayBetweenEvents: 0.3
   maxDelayBetweenEvents: 0.7
-  Curiosity_Value:
+  moodStepsEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 9a1cb5dc0083a22458cdaf90627b697a, type: 2}
-  Fear_Value:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: e5b09747b70d7de4cac169465b7f6a33, type: 2}
-  Anger_Value:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 35c38d7a5533b6343ace9721e9148676, type: 2}
-  Intensity_Value:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d61adac8f687fd94c96c3d4f110c6ba9, type: 2}
-  Tension_Value:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 79b94eab0001c46408b5ffde236b7587, type: 2}
-  currentCuriosityValue: 0
-  currentFearValue: 0
-  currentAngerValue: 0
-  currentIntensityValue: 0
-  currentTensionValue: 0
+    WwiseObjectReference: {fileID: 0}

@@ -18,24 +18,6 @@ public class WwisePostEventRandom : MonoBehaviour
     [Header("Mood Steps Barks")]
     [SerializeField] private AK.Wwise.Event moodStepsEvent;
 
-    [Header("Wwise Game Parameters")]
-    [SerializeField] private AK.Wwise.RTPC Curiosity_Value;
-    [SerializeField] private AK.Wwise.RTPC Fear_Value;
-    [SerializeField] private AK.Wwise.RTPC Anger_Value;
-    [SerializeField] private AK.Wwise.RTPC Intensity_Value;
-    [SerializeField] private AK.Wwise.RTPC Tension_Value;
-
-    [Range(0, 100)]
-    public float currentCuriosityValue;
-    [Range(0, 100)]
-    public float currentFearValue;
-    [Range(0, 100)]
-    public float currentAngerValue;
-    [Range(0, 100)]
-    public float currentIntensityValue;
-    [Range(0, 100)]
-    public float currentTensionValue;
-
     private bool isBarking = false; // Indicates if an event is currently being posted  
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created  
@@ -46,30 +28,22 @@ public class WwisePostEventRandom : MonoBehaviour
     }
     void Update()
     {
+        int value = -1;
+        
         if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            //SetWwiseMoodState(WwiseMoodState.CuriosityState);
-            AudioManager.Instance.SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, 0, ref Anger_Value, ref currentAngerValue);
-            PostMoodStepEvent();
-        }
+            value = 0;
         if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            //SetWwiseMoodState(WwiseMoodState.FearState);
-            AudioManager.Instance.SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, 25, ref Anger_Value, ref currentAngerValue);
-            PostMoodStepEvent();
-        }
+            value = 25;
         if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            //SetWwiseMoodState(WwiseMoodState.AngerState);
-            AudioManager.Instance.SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, 50, ref Anger_Value, ref currentAngerValue);
-            PostMoodStepEvent();
-        }
+            value = 50;
         if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            //SetWwiseMoodState(WwiseMoodState.NeutralState);
-            AudioManager.Instance.SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, 75, ref Anger_Value, ref currentAngerValue);
-            PostMoodStepEvent();
-        }
+            value = 75;
+        
+        if(value == -1)
+            return;
+        
+        AudioManager.Instance.SetWwiseEmotionRTPC(Sinj.Emotions.Agression, gameObject, value);
+        PostMoodStepEvent();
     }
     // Coroutine to post the event at random intervals  
     private IEnumerator PostEventRandomly()
