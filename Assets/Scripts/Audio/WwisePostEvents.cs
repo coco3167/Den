@@ -4,6 +4,9 @@ using System.Collections;
 
 public class WwisePostEvents : MonoBehaviour
 {
+    public static WwisePostEvents instance;
+
+
     [Header("Random Mood Barks")]
     [SerializeField] private AK.Wwise.Event randomMoodEvent;
 
@@ -18,9 +21,24 @@ public class WwisePostEvents : MonoBehaviour
     [SerializeField] private AK.Wwise.Event curiousStepsEvent;
     [SerializeField] private AK.Wwise.Event fearStepsEvent;
 
-
-    private bool isBarking = false; // Indicates if an event is currently being posted  
-
+    void Initialize()
+    {
+        //Singleton logic
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Debug.Log("Destroying duplicate AudioManager");
+            Destroy(this);
+        }
+    }
+    private void Awake()
+    {
+        Initialize();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created  
     void Start()
     {
@@ -44,18 +62,25 @@ public class WwisePostEvents : MonoBehaviour
         if (value == -1)
             return;
 
-        AudioManager.Instance.SetWwiseEmotionRTPC(Sinj.Emotions.Agression, gameObject, value);
-        PostMoodStepEvent();
+        // Set the RTPC value
+        AudioManager.Instance.SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, value);
+
+        // Ensure the event is posted correctly
+        if (angerStepsEvent != null)
+        {
+            PostMoodStepEvent(angerStepsEvent);
+            Debug.Log("beep");
+        }
+        else
+        {
+            Debug.LogWarning("angerStepsEvent is not assigned in the inspector.");
+        }
     }
 
     // Posts the mood event
     private void PostRandomMoodEvent()
     {
-        if (!isBarking)
-        {
-            isBarking = true;
-            randomMoodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
-        }
+        randomMoodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
     }
 
     private IEnumerator TriggerOKBarkSequence()
@@ -64,15 +89,11 @@ public class WwisePostEvents : MonoBehaviour
         {
             yield return new WaitForSeconds(intervalBetweenSequences);
 
-            if (!isBarking)
+            for (int i = 0; i < 5; i++) // Trigger event 5 times in a row  
             {
-                isBarking = true;
-                for (int i = 0; i < 5; i++) // Trigger event 5 times in a row  
-                {
-                    neutralEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
-                    float delay = Random.Range(minDelayBetweenEvents, maxDelayBetweenEvents);
-                    yield return new WaitForSeconds(delay);
-                }
+                neutralEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+                float delay = Random.Range(minDelayBetweenEvents, maxDelayBetweenEvents);
+                yield return new WaitForSeconds(delay);
             }
         }
     }
@@ -80,20 +101,11 @@ public class WwisePostEvents : MonoBehaviour
     // Callback to reset isBarking when the event ends  
     private void OnEventEnd(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
     {
-        if (in_type == AkCallbackType.AK_EndOfEvent)
-        {
-            isBarking = false;
-        }
+        // No longer resetting isBarking as it has been removed
     }
 
-    public void PostMoodStepEvent()
+    public void PostMoodStepEvent(AK.Wwise.Event moodEvent)
     {
-        if (!isBarking)
-        {
-            isBarking = true;
-            angerStepsEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
-            curiousStepsEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
-            fearStepsEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
-        }
+        moodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
     }
 }

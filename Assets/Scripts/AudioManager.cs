@@ -69,6 +69,8 @@ public class AudioManager : MonoBehaviour
     [Title("Audio State Variables")] [ReadOnly, SerializeField, HideLabel] private bool audioStateSeparator;
     [SerializeField] private SerializedDictionary<WwiseAudioState, State> audioState;
     [SerializeField, ReadOnly] private WwiseAudioState currentAudioState;
+    [Title("Mono State Toggle")]
+    [SerializeField, ToggleLeft] private bool enableMonoState = false;
 
     [Title("Wwise Mood Switches")] [ReadOnly, SerializeField, HideLabel] private bool moodSwitchSeparator;
     [SerializeField] private SerializedDictionary<WwiseCuriositySwitch, Switch> moodCuriosity;
@@ -110,7 +112,12 @@ public class AudioManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones, audioState, ref currentAudioState);
+        if (enableMonoState)
+        {
+            WwiseStateManager.SetWwiseAudioState(WwiseAudioState.Mono, audioState, ref currentAudioState);
+        }
+        else
+            WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones, audioState, ref currentAudioState);
         WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState, gameStateMoodVisualization, ref currentMoodState);
 
         //AmbienceTest.Post(gameObject);
@@ -234,5 +241,4 @@ public class AudioManager : MonoBehaviour
                 return WwiseEmotionStateRTPC.Intensity;
         }
     }
-
 }

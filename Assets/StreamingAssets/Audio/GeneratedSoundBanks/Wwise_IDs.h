@@ -102,6 +102,7 @@ namespace AK
         static const AkUniqueID DEN_GP_CURIOSITYVALUE = 2578001617U;
         static const AkUniqueID DEN_GP_FEARVALUE = 4122714024U;
         static const AkUniqueID DEN_GP_INTENSITYVALUE = 973587621U;
+        static const AkUniqueID DEN_GP_MONO = 1386681402U;
         static const AkUniqueID DEN_GP_TENSIONVALUE = 3189323882U;
     } // namespace GAME_PARAMETERS
 
