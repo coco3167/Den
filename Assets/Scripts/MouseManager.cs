@@ -14,11 +14,6 @@ public class MouseManager : MonoBehaviour
         Mouse.current.WarpCursorPosition(Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f))); 
     }
 
-    private void FixedUpdate()
-    {
-        Debug.Log("fixed update");
-    }
-
     private void OnMouseMoved(InputValue value)
     {
         if(!Application.isFocused)
@@ -36,8 +31,6 @@ public class MouseManager : MonoBehaviour
         mousePos.y = hit.point.y;
         
         mouseRigidBody.MovePosition(mousePos);
-        
-        Debug.Log("mouse moved", this);
     }
 
     public float ObjectDistanceToMouse(Vector3 otherPos)

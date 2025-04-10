@@ -17,6 +17,10 @@ namespace Sinj
         
         [Header("Emotions")]
         [SerializeField, ReadOnly] private SerializedDictionary<Emotions, float> emotions;
+
+        [Title("Animation")]
+        [SerializeField] private Animator animator;
+        [SerializeField, Range(0, 3.5f)] private float walkingSpeed, runningSpeed;
         
         private StateMachine m_stateMachine = new();
     
@@ -46,6 +50,14 @@ namespace Sinj
             m_debugParameters.Add(new DebugParameter("Current State", "Null"));
         }
 
+        private void FixedUpdate()
+        {
+            animator.SetBool("Walking", m_navMeshAgent.velocity.magnitude >= walkingSpeed);
+            animator.SetBool("Running", m_navMeshAgent.velocity.magnitude >= runningSpeed);
+            
+            transform.localScale = new Vector3(m_navMeshAgent.velocity.x > 0 ? 1f : -1f, 1f, 1f);
+        }
+
         public void HandleBehaviors()
         {
             foreach (SinjActiveBehavior behavior in activeBehaviors)
@@ -71,7 +83,7 @@ namespace Sinj
         {
             int index = (int)emotion;
             emotions[emotion] = value;
-            m_debugParameters[index].UpdateValue(((int)value).ToString());
+            m_debugParameters[index].UpdateValue((int)value + "/100");
         }
 
         #region Getter
