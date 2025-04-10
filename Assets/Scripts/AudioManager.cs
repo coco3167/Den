@@ -237,8 +237,10 @@ public class AudioManager : MonoBehaviour
                 return WwiseEmotionStateRTPC.Anger;
             case Sinj.Emotions.Tension:
                 return WwiseEmotionStateRTPC.Tension;
-            default:
+            case Sinj.Emotions.Intensity:
                 return WwiseEmotionStateRTPC.Intensity;
+            default:
+                return WwiseEmotionStateRTPC.Tension;
         }
     }
 }
