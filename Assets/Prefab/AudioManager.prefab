@@ -74,6 +74,7 @@ MonoBehaviour:
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 514d21d18341d6743a040eca6a2f6e8f, type: 2}
+  stateMoodSeparator: 0
   gameStateMoodVisualization:
     _serializedList:
     - Key: 0
@@ -112,6 +113,7 @@ MonoBehaviour:
         groupGuidInternal: 
         WwiseObjectReference: {fileID: 11400000, guid: 130e180532d85a74ba5f6242c11f65e4, type: 2}
   currentMoodState: 3
+  audioStateSeparator: 0
   audioState:
     _serializedList:
     - Key: 0
@@ -143,6 +145,7 @@ MonoBehaviour:
         groupGuidInternal: 
         WwiseObjectReference: {fileID: 11400000, guid: 815acc27b28e83a42952b125468b5cb9, type: 2}
   currentAudioState: 0
+  moodSwitchSeparator: 0
   moodCuriosity:
     _serializedList:
     - Key: 0
@@ -236,6 +239,7 @@ MonoBehaviour:
   currentCuriositySwitch: 0
   currentFearSwitch: 0
   currentAngerSwitch: 0
+  parametersSeparators: 0
   gameParameters:
     _serializedList:
     - Key: 0
@@ -263,33 +267,8 @@ MonoBehaviour:
         idInternal: 0
         valueGuidInternal: 
         WwiseObjectReference: {fileID: 11400000, guid: 79b94eab0001c46408b5ffde236b7587, type: 2}
-  Curiosity_Value:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 9a1cb5dc0083a22458cdaf90627b697a, type: 2}
-  Fear_Value:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: e5b09747b70d7de4cac169465b7f6a33, type: 2}
-  Anger_Value:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 35c38d7a5533b6343ace9721e9148676, type: 2}
-  Intensity_Value:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d61adac8f687fd94c96c3d4f110c6ba9, type: 2}
-  Tension_Value:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 79b94eab0001c46408b5ffde236b7587, type: 2}
   currentGameParametersValues:
     _serializedList: []
-  currentCuriosityValue: 0
-  currentFearValue: 0
-  currentAngerValue: 0
-  currentIntensityValue: 0
-  currentTensionValue: 0
   AmbienceTest:
     idInternal: 0
     valueGuidInternal: 
@@ -363,20 +342,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3dde156a3265a45be7618e416d457f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moodEvent:
+  randomMoodEvent:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: b8c5981e92b81ad4dbcc3c5f4848afb6, type: 2}
-  MinInterval: 1
-  MaxInterval: 2
   neutralEvent:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: dbf38947144cc3940ad86d28118b9aee, type: 2}
-  intervalBetweenSequences: 10
-  minDelayBetweenEvents: 0.3
-  maxDelayBetweenEvents: 0.7
-  moodStepsEvent:
+  intervalBetweenSequences: 15
+  minDelayBetweenEvents: 0.35
+  maxDelayBetweenEvents: 0.65
+  angerStepsEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 896406ad5f4781f419922a3003712c4b, type: 2}
+  curiousStepsEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0caf9e95ca2d33c4e8bbcafb9a63fee0, type: 2}
+  fearStepsEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8b113d92fb16beb45a012168821213c2, type: 2}

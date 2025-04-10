@@ -6,7 +6,7 @@
 				<SoundcasterSession Name="test" ID="{5999E4B1-32E3-499A-B1B2-6B06FCEA2980}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="Play_DEN_Crea_MoodBarks" ID="{EB698F03-9FE8-4841-A1D2-C73292F4E919}" WorkUnitID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}"/>
+							<ObjectRef Name="Play_DEN_Crea_RandomBarks" ID="{EB698F03-9FE8-4841-A1D2-C73292F4E919}" WorkUnitID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}"/>
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
@@ -50,11 +50,11 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="None" ID="{9194538F-49FF-48E6-851D-9C54A6070545}"/>
-						<CurrentStateRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}"/>
+						<CurrentStateRef Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="DEN_SW_FS_3" ID="{DBFC477C-508F-456D-9097-86A9C4AD6174}"/>
-						<CurrentSwitchRef Name="DEN_SW_CS_3" ID="{0CE9736F-F798-44B3-8D3C-F002B7124776}"/>
+						<CurrentSwitchRef Name="DEN_SW_FS_0" ID="{F4E026D3-7E71-460E-836C-75047A2F9C7E}"/>
+						<CurrentSwitchRef Name="DEN_SW_CS_0" ID="{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}"/>
 						<CurrentSwitchRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>

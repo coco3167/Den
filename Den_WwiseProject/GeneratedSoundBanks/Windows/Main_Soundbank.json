@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{ADB05430-96E4-156F-8C29-ED7A502B6891}",
+    "Hash": "{193691AB-7400-88D6-F474-E067134C4932}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -272,6 +272,55 @@
       "CachePath": "1C/{1CDF0BED-6537-C7ED-2B1D-221D8C1DAA4C}.wem"
      }
     ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "366759944",
+       "Name": "Silence",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\DEN_Crea_Barks\\DEN_Crea_RandomBark\\DEN_Crea_Silence_03\\Silence",
+       "GUID": "{CB4F08AD-E27C-40E4-A591-9328C5DFD27B}",
+       "Color": "9",
+       "LibName": "Wwise Silence",
+       "LibId": "6619138"
+      },
+      {
+       "Id": "477040918",
+       "Name": "Silence",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\DEN_Crea_Barks\\DEN_Crea_RandomBark\\DEN_Crea_Silence_01\\Silence",
+       "GUID": "{BCBD63E2-BB9E-43F6-8768-15751E300D00}",
+       "Color": "9",
+       "LibName": "Wwise Silence",
+       "LibId": "6619138"
+      },
+      {
+       "Id": "637508632",
+       "Name": "Silence",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\DEN_Crea_Barks\\DEN_Crea_RandomBark\\DEN_Crea_Silence_02\\Silence",
+       "GUID": "{32138AB6-A953-4539-A693-D5580928D944}",
+       "Color": "9",
+       "LibName": "Wwise Silence",
+       "LibId": "6619138"
+      },
+      {
+       "Id": "741440797",
+       "Name": "Silence",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\DEN_Crea_Barks\\DEN_Crea_RandomBark\\DEN_Crea_Silence_04\\Silence",
+       "GUID": "{4E5851D1-F722-4035-B8F6-1E216BB3111C}",
+       "Color": "9",
+       "LibName": "Wwise Silence",
+       "LibId": "6619138"
+      },
+      {
+       "Id": "1060543156",
+       "Name": "Silence",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\DEN_Crea_Barks\\DEN_Crea_RandomBark\\DEN_Crea_Silence_05\\Silence",
+       "GUID": "{D10E39B6-5821-4AB7-B5C0-B706694DB8B6}",
+       "Color": "9",
+       "LibName": "Wwise Silence",
+       "LibId": "6619138"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "2516003365",
@@ -484,14 +533,58 @@
       ]
      },
      {
-      "Id": "3049617852",
-      "Name": "Play_DEN_Crea_MoodBarks",
-      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_CreaBarks\\Play_DEN_Crea_MoodBarks",
-      "GUID": "{EB698F03-9FE8-4841-A1D2-C73292F4E919}",
+      "Id": "1250462805",
+      "Name": "Play_DEN_Crea_NeutralBark",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_CreaBarks\\Play_DEN_Crea_NeutralBark",
+      "GUID": "{73097EC1-2D30-4D63-86C8-CE27D665D93A}",
       "Color": "10",
       "DurationType": "OneShot",
       "DurationMin": "1.4323021",
-      "DurationMax": "1.8333437",
+      "DurationMax": "1.4323021",
+      "MediaRefs": [
+       {
+        "Id": "52209026"
+       },
+       {
+        "Id": "104161470"
+       },
+       {
+        "Id": "229765407"
+       },
+       {
+        "Id": "341457068"
+       },
+       {
+        "Id": "591244343"
+       }
+      ]
+     },
+     {
+      "Id": "3621090860",
+      "Name": "Play_DEN_Crea_RandomBarks",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_CreaBarks\\Play_DEN_Crea_RandomBarks",
+      "GUID": "{EB698F03-9FE8-4841-A1D2-C73292F4E919}",
+      "Color": "10",
+      "DurationType": "Infinite",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "366759944"
+        },
+        {
+         "Id": "477040918"
+        },
+        {
+         "Id": "637508632"
+        },
+        {
+         "Id": "741440797"
+        },
+        {
+         "Id": "1060543156"
+        }
+       ]
+      },
       "SwitchContainers": [
        {
         "SwitchValue": {
@@ -596,33 +689,6 @@
           "Id": "591244343"
          }
         ]
-       }
-      ]
-     },
-     {
-      "Id": "1250462805",
-      "Name": "Play_DEN_Crea_NeutralBark",
-      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_CreaBarks\\Play_DEN_Crea_NeutralBark",
-      "GUID": "{73097EC1-2D30-4D63-86C8-CE27D665D93A}",
-      "Color": "10",
-      "DurationType": "OneShot",
-      "DurationMin": "1.4323021",
-      "DurationMax": "1.4323021",
-      "MediaRefs": [
-       {
-        "Id": "52209026"
-       },
-       {
-        "Id": "104161470"
-       },
-       {
-        "Id": "229765407"
-       },
-       {
-        "Id": "341457068"
-       },
-       {
-        "Id": "591244343"
        }
       ]
      },
@@ -893,6 +959,6 @@
     ]
    }
   ],
-  "FileHash": "{FF5564DB-EEFB-6456-D23F-047037342ADC}"
+  "FileHash": "{D5A23D79-39C5-FC9E-D664-4005AEB1E370}"
  }
 }

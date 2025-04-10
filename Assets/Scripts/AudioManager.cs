@@ -93,8 +93,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayCuriousStep;
     [SerializeField] private AK.Wwise.Event PlayFearStep;
 
-    [SerializeField] private GameObject BarkerTest;
-
     private void Awake()
     {
         Initialize();
@@ -112,8 +110,8 @@ public class AudioManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SetWwiseAudioState(WwiseAudioState.StereoHeadphones);
-        SetWwiseMoodState(WwiseMoodState.NeutralState);
+        WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones, audioState, ref currentAudioState);
+        WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState, gameStateMoodVisualization, ref currentMoodState);
 
         //AmbienceTest.Post(gameObject);
     }
@@ -122,19 +120,19 @@ public class AudioManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            SetWwiseMoodState(WwiseMoodState.NeutralState);
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.CuriosityState, gameStateMoodVisualization, ref currentMoodState);
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            SetWwiseMoodState(WwiseMoodState.CuriosityState);
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState, gameStateMoodVisualization, ref currentMoodState);
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            SetWwiseMoodState(WwiseMoodState.AngerState);
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.FearState, gameStateMoodVisualization, ref currentMoodState);
         }
         else if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            SetWwiseMoodState(WwiseMoodState.FearState);
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.AngerState, gameStateMoodVisualization, ref currentMoodState);
         }
     }
 
@@ -156,8 +154,8 @@ public class AudioManager : MonoBehaviour
             LoadSoundbanks();
         }
 
-        SetWwiseMoodState(WwiseMoodState.NoneState);
-        SetWwiseAudioState(WwiseAudioState.None);
+        WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NoneState, gameStateMoodVisualization, ref currentMoodState);
+        WwiseStateManager.SetWwiseAudioState(WwiseAudioState.None, audioState, ref currentAudioState);
 
         bIsInitialized = true;
     }
@@ -175,79 +173,27 @@ public class AudioManager : MonoBehaviour
         else
             Debug.LogError("Soundbanks list is empty ! Are the banks assigned to the AudioManager?");
     }
-
-    public void SetWwiseMoodState(WwiseMoodState stateMood)
+    public void UnloadSoundbanks(List<string> bankNames)
     {
-        if (stateMood == currentMoodState)
+        if (bankNames == null || bankNames.Count == 0)
         {
-            Debug.Log("Mood is already set to " + stateMood);
+            Debug.LogError("Bank names list is empty or null! Please provide valid bank names to unload.");
             return;
         }
 
-        gameStateMoodVisualization[stateMood].SetValue();
-
-        Debug.Log("Mood has been set to " + stateMood);
-        currentMoodState = stateMood;
-    }
-    public void SetWwiseAudioState(WwiseAudioState newAudioState)
-    {
-        if (newAudioState == currentAudioState)
+        foreach (string bankName in bankNames)
         {
-            Debug.Log("Mood is already set to " + audioState);
-            return;
+            Bank bankToUnload = Soundbanks.Find(bank => bank.Name == bankName);
+            if (bankToUnload != null)
+            {
+                bankToUnload.Unload();
+                Debug.Log($"Soundbank '{bankName}' has been unloaded.");
+            }
+            else
+            {
+                Debug.LogWarning($"Soundbank '{bankName}' not found in the assigned Soundbanks list.");
+            }
         }
-        
-        audioState[newAudioState].SetValue();
-        
-        Debug.Log("Audio state has been set to " + newAudioState);
-        currentAudioState = newAudioState;
-    }
-
-    public void SetWwiseCuriositySwitch(WwiseCuriositySwitch switchState)
-    {
-        if (switchState == currentCuriositySwitch)
-        {
-            Debug.Log("Curiosity switch is already set to " + switchState);
-            return;
-        }
-        
-        moodCuriosity[switchState].SetValue(gameObject);
-        int amount = (int)switchState * 25;
-        
-        SetWwiseEmotionRTPC(Sinj.Emotions.Curiosity, gameObject, amount);
-        Debug.Log("Curiosity switch has been set to " + switchState);
-        currentCuriositySwitch = switchState;
-    }
-    public void SetWwiseFearSwitch(WwiseFearSwitch switchState)
-    {
-        if (switchState == currentFearSwitch)
-        {
-            Debug.Log("Fear switch is already set to " + switchState);
-            return;
-        }
-        
-        moodFear[switchState].SetValue(gameObject);
-        int amount = (int)switchState * 25;
-        
-        SetWwiseEmotionRTPC(Sinj.Emotions.Fear, gameObject, amount);
-        Debug.Log("Fear switch has been set to " + switchState);
-        currentFearSwitch = switchState;
-    }
-    public void SetWwiseAngerSwitch(WwiseAngerSwitch switchState)
-    {
-        if (switchState == currentAngerSwitch)
-        {
-            Debug.Log("Anger switch is already set to " + switchState);
-            return;
-        }
-        
-        moodAnger[switchState].SetValue(gameObject);
-        int amount = (int)switchState * 25;
-        
-        SetWwiseEmotionRTPC(Sinj.Emotions.Agression, gameObject, amount);
-        
-        Debug.Log("Anger switch has been set to " + switchState);
-        currentAngerSwitch = switchState;
     }
 
     public void SetWwiseEmotionRTPC(Sinj.Emotions emotion, GameObject target, float value)
@@ -272,7 +218,6 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Anger value has been set to " + value);
         currentGameParametersValues[emotionStateRtpc] = value;
     }
-
     private WwiseEmotionStateRTPC TranslateSinjAgentEmotionToAudioManagerEmotion(Sinj.Emotions emotion)
     {
         switch(emotion)

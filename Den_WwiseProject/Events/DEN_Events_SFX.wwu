@@ -46,7 +46,7 @@
 				</Folder>
 				<Folder Name="DEN_EV_SFX_CreaBarks" ID="{7614FD2E-C40C-41C7-B407-41B8F1FC00F7}" ShortID="65630369">
 					<ChildrenList>
-						<Event Name="Play_DEN_Crea_MoodBarks" ID="{EB698F03-9FE8-4841-A1D2-C73292F4E919}">
+						<Event Name="Play_DEN_Crea_RandomBarks" ID="{EB698F03-9FE8-4841-A1D2-C73292F4E919}">
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="10"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
@@ -55,7 +55,7 @@
 								<Action Name="" ID="{A4DE289C-A447-4052-AFB9-188D2FEB0E85}" ShortID="263396885">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="DEN_Crea_MoodBarks" ID="{56EA353A-0F69-443C-8299-5815B172F524}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+											<ObjectRef Name="DEN_Crea_RandomBark" ID="{81026FEB-42F9-4A11-959C-B88721CF884B}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

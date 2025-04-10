@@ -17,8 +17,8 @@ namespace AK
         static const AkUniqueID PLAY_DEN_CREA_ANGERSTEPS = 2814436364U;
         static const AkUniqueID PLAY_DEN_CREA_CURIOUSSTEPS = 3724550301U;
         static const AkUniqueID PLAY_DEN_CREA_FEARSTEPS = 3029527017U;
-        static const AkUniqueID PLAY_DEN_CREA_MOODBARKS = 3049617852U;
         static const AkUniqueID PLAY_DEN_CREA_NEUTRALBARK = 1250462805U;
+        static const AkUniqueID PLAY_DEN_CREA_RANDOMBARKS = 3621090860U;
         static const AkUniqueID PLAY_DEN_MUSIC_TEST = 1174350178U;
     } // namespace EVENTS
 
