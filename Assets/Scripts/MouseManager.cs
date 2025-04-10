@@ -1,64 +1,53 @@
-using Unity.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MouseManager : MonoBehaviour
 {
-    [SerializeField, ReadOnly] private Vector2 rawPosition;
-    [SerializeField, ReadOnly] private Vector3 rawWorldPosition;
+    [SerializeField] private Rigidbody mouseRigidBody;
+    [SerializeField] private float mouseSensitivity = 1f;
+    [SerializeField] private LayerMask terrainLayerMask;
     
-    private Camera m_cam;
-    private Ray m_mouseRay;
-    
-    private Vector2 m_oldRawPosition;
-    private float m_velocity;
-    
-
     private void Awake()
     {
-        m_cam = Camera.main;
+        Cursor.lockState = CursorLockMode.Locked;
+        Mouse.current.WarpCursorPosition(Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f))); 
     }
 
-    private void Update()
-    {
-        m_velocity /=   Mathf.Pow(100, Time.deltaTime);
-        //Debug.Log(m_velocity);
-    }
 
     private void OnMouseMoved(InputValue value)
     {
-        m_oldRawPosition = rawPosition;
-        rawPosition = value.Get<Vector2>();
-        m_mouseRay = m_cam.ScreenPointToRay(rawPosition);
+        if(!Application.isFocused)
+            return;
         
-        m_velocity = (m_oldRawPosition - rawPosition).magnitude;
+        Vector2 mouseDelta = value.Get<Vector2>() * mouseSensitivity * 0.01f;
+        Vector3 mousePos = mouseRigidBody.position + new Vector3(mouseDelta.x, 0.0f, mouseDelta.y);
         
-        if (Physics.Raycast(m_mouseRay, out RaycastHit hit))
-        {
-            rawWorldPosition = hit.point;
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(rawWorldPosition, 0.2f);
-        Gizmos.DrawRay(m_mouseRay);
-        Gizmos.DrawRay(m_oldRawPosition, m_oldRawPosition + rawPosition);
+        // Keep the mouse on the ground
+        Physics.Raycast(mousePos + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 100, terrainLayerMask);
+        if(hit.collider == null)
+            Physics.Raycast(mousePos + Vector3.down * 10f, Vector3.up, out hit, 100, terrainLayerMask);
+        if(hit.collider == null)
+            return;
+        mousePos.y = hit.point.y;
+        
+        mouseRigidBody.MovePosition(mousePos);
+        
+        Debug.Log("mouse moved", this);
     }
 
     public float ObjectDistanceToMouse(Vector3 otherPos)
     {
-        return (otherPos - rawWorldPosition).sqrMagnitude;
+        return (otherPos - mouseRigidBody.position).sqrMagnitude;
     }
 
     public Vector3 GetRawWorldMousePosition()
     {
-        return rawWorldPosition;
+        return mouseRigidBody.position;
     }
 
     public float MouseVelocity()
     {
-        return m_velocity;
+        return mouseRigidBody.linearVelocity.magnitude;
     }
 }

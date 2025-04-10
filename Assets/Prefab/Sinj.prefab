@@ -46,13 +46,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417cc6eccf086bf4bab3a2739668c893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviors:
+  activeBehaviors:
+  - {fileID: 11400000, guid: 7d3cddbad6f14854b8fa9012fb56ed48, type: 2}
+  - {fileID: 11400000, guid: ee5b76dbf31bda04f83c52ccec3abae1, type: 2}
+  - {fileID: 11400000, guid: f2e89625156a5bc45a319eb2483ae64e, type: 2}
   - {fileID: 11400000, guid: 6e7e12b5cc0a15b4187530191b0757dc, type: 2}
-  - {fileID: 11400000, guid: dfbefd6285658804799d997953a3c90d, type: 2}
-  - {fileID: 11400000, guid: d63d5c2704b0b2b42be671164d3c6153, type: 2}
-  - {fileID: 11400000, guid: f027435e375ff4f43943d246f86238c3, type: 2}
+  - {fileID: 11400000, guid: b9b7c05f16388c144a887bca99705f69, type: 2}
+  passiveBehaviors:
+  - {fileID: 11400000, guid: 6d5488fbe72aa6a409cc4778b1b26408, type: 2}
+  - {fileID: 11400000, guid: ebbdd255285e11c4c9067d053e68593f, type: 2}
   emotions:
     _serializedList: []
+  activeState: 0
+  passiveState: 0
 --- !u!195 &1897331158705664951
 NavMeshAgent:
   m_ObjectHideFlags: 0

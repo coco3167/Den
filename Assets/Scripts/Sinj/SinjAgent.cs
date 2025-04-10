@@ -5,13 +5,20 @@ using DebugHUD;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Sinj
 {
     public class SinjAgent : MonoBehaviour, IDebugDisplayAble
     {
-        [SerializeField] private List<SinjBehavior> behaviors;
+        [Header("Behaviors")]
+        [SerializeField] private List<SinjActiveBehavior> activeBehaviors;
+        [SerializeField] private List<SinjPassivBehavior> passiveBehaviors;
+        
+        [Header("Emotions")]
         [SerializeField, ReadOnly] private SerializedDictionary<Emotions, float> emotions;
+        
+        private StateMachine m_stateMachine = new();
     
         private NavMeshAgent m_navMeshAgent;
         private MouseManager m_mouseManager;
@@ -19,7 +26,6 @@ namespace Sinj
         private readonly List<DebugParameter> m_debugParameters = new();
     
         // Fleeing
-        private bool m_fleeing;
         private Vector3 m_fleeingTarget;
 
         private void Awake()
@@ -27,12 +33,6 @@ namespace Sinj
             m_navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
-        private void OnDrawGizmos()
-        {
-            if(m_fleeing)
-                Gizmos.DrawRay(transform.position, m_fleeingTarget);
-        }
-        
         public void Init(MouseManager mouseManager)
         {
             m_mouseManager = mouseManager;
@@ -41,32 +41,30 @@ namespace Sinj
                 Emotions emotion = (Emotions)loop;
                 emotions.Add(emotion, 0f);
                 m_debugParameters.Add(new DebugParameter(emotion.ToString(), "0"));
-                Debug.Log(m_debugParameters.Count);
             }
+            
+            m_debugParameters.Add(new DebugParameter("Current State", "Null"));
         }
 
         public void HandleBehaviors()
         {
-            foreach (SinjBehavior behavior in behaviors)
+            foreach (SinjActiveBehavior behavior in activeBehaviors)
             {
-                bool reactToStimuli = true;
-                foreach (SinjBehavior.SinjStimulus stimulus in behavior.SinjStimuli)
-                {
-                    if (!stimulus.IsApplying(this))
-                    {
-                        reactToStimuli = false;
-                        break;
-                    }
-                }
-
-                if (!reactToStimuli)
+                if (!behavior.IsApplying(this))
                     continue;
-
-                foreach (SinjBehavior.SinjReaction reaction in behavior.SinjReactions)
-                {
-                    reaction.ApplyReaction(this);
-                }
+                behavior.ApplyReaction(this);
             }
+            
+            if (m_stateMachine.HasBehavior() && m_stateMachine.CurrentBehavior.IsFinished(this))
+                    m_stateMachine.ResetBehavior();
+
+            if (!m_stateMachine.HasBehavior())
+            {
+                m_stateMachine.ChoosePassivBehavior(passiveBehaviors);
+                m_stateMachine.CurrentBehavior.ApplyReaction(this);
+            }
+
+            m_debugParameters[4].Value = m_stateMachine.CurrentBehavior.ToString();
         }
 
         public void UpdateEmotion(float value, Emotions emotion)
@@ -95,6 +93,16 @@ namespace Sinj
         #endregion
 
         #region Reactions
+        public void AddEmotion(float amount, Emotions emotion)
+        {
+            emotions[emotion] += amount*Time.deltaTime;
+        }
+
+        public void ChangeBehavior(SinjBehavior behavior)
+        {
+            m_stateMachine.ChangeBehavior(behavior);
+        }
+        
         public void FleeReaction(float distanceToFlee)
         {
             Vector3 directionToFlee = (transform.position - m_mouseManager.GetRawWorldMousePosition()).normalized;
@@ -102,9 +110,20 @@ namespace Sinj
             m_navMeshAgent.SetDestination(transform.position + m_fleeingTarget);
         }
 
-        public void AddEmotion(float amount, Emotions emotion)
+        public void Rest(float minTime, float maxTime) {}
+
+        public void Walk(float distance)
         {
-            emotions[emotion] += amount*Time.deltaTime;
+            Vector3 destination;
+            do
+            {
+                destination = transform.position + Random.insideUnitSphere * distance;
+            } while (!m_navMeshAgent.SetDestination(destination));
+        }
+        
+        public bool IsCloseToDestination()
+        {
+            return m_navMeshAgent.remainingDistance <= m_navMeshAgent.stoppingDistance;
         }
         #endregion
 
@@ -120,12 +139,13 @@ namespace Sinj
         }
         #endregion
     }
+
     public enum Emotions
     {
         Tension,
         Curiosity,
         Agression,
         Fear,
-        Neutral,
+        Intensity
     }
 }

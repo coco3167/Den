@@ -1,160 +1,74 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
 
 namespace Sinj
 {
-    [MovedFrom(false, null, null, "SinjBehavior")]
-    [CreateAssetMenu(fileName = "SinjBehavior", menuName = "SinjBehavior")]
-    public class SinjBehavior : ScriptableObject
+    public abstract class SinjBehavior : ScriptableObject
     {
-        [field : SerializeReference] public List<SinjStimulus> SinjStimuli { get; private set; }
-        [field : SerializeReference] public List<SinjReaction> SinjReactions { get; private set; }
-
-        private enum Comparison
-        {
-            Inferior,
-            Superior,
-            Equal
-        }
-
-        #region Stimuli
         [Serializable]
         public abstract class SinjStimulus
         {
             public abstract bool IsApplying(SinjAgent agent);
         }
-
-        [Serializable]
-        public class MousePositionStimulus : SinjStimulus
-        {
-            [SerializeField] private float distance;
-            [SerializeField] private Comparison comparison;
-
-            public override bool IsApplying(SinjAgent agent)
-            {
-                float distanceToMouse = agent.DistanceToMouse();
-                float realDistance = Mathf.Pow(distance, 2);
-                switch (comparison)
-                {
-                    case Comparison.Inferior:
-                        return distanceToMouse < realDistance;
-                    case Comparison.Superior:
-                        return distanceToMouse > realDistance;
-                    case Comparison.Equal:
-                        return Mathf.Abs(distanceToMouse-realDistance) <= Mathf.Epsilon;
-                }
-                return false;
-            }
-        }
-
-        [Serializable]
-        public class MouseVelocityStimulus : SinjStimulus
-        {
-            [SerializeField] private float velocity;
-            [SerializeField] private Comparison comparison;
-            
-            public override bool IsApplying(SinjAgent agent)
-            {
-                float mouseVelocity = agent.MouseVelocity();
-                switch (comparison)
-                {
-                    case Comparison.Inferior:
-                        return mouseVelocity < velocity;
-                    case Comparison.Superior:
-                        return mouseVelocity > velocity;
-                    case Comparison.Equal:
-                        return Mathf.Abs(mouseVelocity-velocity) <= Mathf.Epsilon;
-                }
-                return false;
-            }
-        }
-
-        [Serializable]
-        public class TensionAmount : SinjStimulus
-        {
-            [SerializeField] private float tension;
-            [SerializeField] private Comparison comparison;
-
-            public override bool IsApplying(SinjAgent agent)
-            {
-                float agentTension = agent.GetEmotion(Emotions.Tension);
-                switch (comparison)
-                {
-                    case Comparison.Inferior:
-                        return agentTension < tension;
-                    case Comparison.Superior:
-                        return agentTension > tension;
-                    case Comparison.Equal:
-                        return Mathf.Abs(agentTension - tension) <= Mathf.Epsilon;
-                }
-                return false;
-            }
-        }
-        #endregion
-
-        #region Reaction
+        
         [Serializable]
         public abstract class SinjReaction
         {
             public abstract void ApplyReaction(SinjAgent agent);
-        }
-
-        [Serializable]
-        public class FleeReaction : SinjReaction
-        {
-            [field: SerializeField] private float distance;
             
-            public override void ApplyReaction(SinjAgent agent)
-            {
-                agent.FleeReaction(distance);
-            }
+            public abstract bool IsFinished(SinjAgent agent);
         }
+
+        [SerializeField] private bool instantenous = false;
+        [SerializeReference] private List<SinjStimulus> SinjStimuli;
+        [SerializeReference] private List<SinjReaction> SinjReactions;
         
-        [Serializable]
-        public class TensionReaction : SinjReaction
+        public bool IsApplying(SinjAgent agent)
         {
-            [field: SerializeField] private float amount;
+            bool result = true;
+            foreach (SinjStimulus sinjStimulus in SinjStimuli)
+            {
+                if(sinjStimulus.IsApplying(agent))
+                    continue;
+                result = false;
+                break;
+            }
             
-            public override void ApplyReaction(SinjAgent agent)
-            {
-                agent.AddEmotion(amount, Emotions.Tension);
-            }
+            return result;
         }
 
-        [Serializable]
-        public class CuriosityReaction : SinjReaction
+        public void ApplyReaction(SinjAgent agent)
         {
-            [SerializeField] private float amount;
-
-            public override void ApplyReaction(SinjAgent agent)
+            if(!instantenous)
+                agent.ChangeBehavior(this);
+            
+            foreach (SinjReaction sinjReaction in SinjReactions)
             {
-                agent.AddEmotion(amount, Emotions.Curiosity);
+                sinjReaction.ApplyReaction(agent);
             }
         }
-        
-        [Serializable]
-        public class AgressionReaction : SinjReaction
+
+        public bool IsFinished(SinjAgent agent)
         {
-            [SerializeField] private float amount;
-
-            public override void ApplyReaction(SinjAgent agent)
+            if (instantenous)
+                return true;
+            
+            bool result = true;
+            foreach (SinjReaction sinjReaction in SinjReactions)
             {
-                agent.AddEmotion(amount, Emotions.Agression);
+                if(sinjReaction.IsFinished(agent))
+                    continue;
+                result = false;
+                break;
             }
+            
+            return result;
         }
-        
-        [Serializable]
-        public class FearReaction : SinjReaction
+
+        public override string ToString()
         {
-            [SerializeField] private float amount;
-
-            public override void ApplyReaction(SinjAgent agent)
-            {
-                agent.AddEmotion(amount, Emotions.Fear);
-            }
+            return name;
         }
-        #endregion
     }
 }
