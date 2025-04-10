@@ -1,45 +1,50 @@
-using Unity.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MouseManager : MonoBehaviour
 {
-    [SerializeField, ReadOnly] private Vector2 rawMousePosition;
-    [SerializeField, ReadOnly] private Vector3 rawWorldMousePosition;
+    [SerializeField] private Rigidbody mouseRigidBody;
+    [SerializeField] private float mouseSensitivity = 1f;
+    [SerializeField] private LayerMask terrainLayerMask;
     
-    private Camera m_cam;
-    private Ray m_mouseRay;
-    
-
     private void Awake()
     {
-        m_cam = Camera.main;
+        Cursor.lockState = CursorLockMode.Locked;
+        Mouse.current.WarpCursorPosition(Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f))); 
     }
 
     private void OnMouseMoved(InputValue value)
     {
-        rawMousePosition = value.Get<Vector2>();
-        m_mouseRay = m_cam.ScreenPointToRay(rawMousePosition);
-        if (Physics.Raycast(m_mouseRay, out RaycastHit hit))
-        {
-            rawWorldMousePosition = hit.point;
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(rawWorldMousePosition, 0.2f);
-        Gizmos.DrawRay(m_mouseRay);
+        if(!Application.isFocused)
+            return;
+        
+        Vector2 mouseDelta = value.Get<Vector2>() * mouseSensitivity * 0.01f;
+        Vector3 mousePos = mouseRigidBody.position + new Vector3(mouseDelta.x, 0.0f, mouseDelta.y);
+        
+        // Keep the mouse on the ground
+        Physics.Raycast(mousePos + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 100, terrainLayerMask);
+        if(hit.collider == null)
+            Physics.Raycast(mousePos + Vector3.down * 10f, Vector3.up, out hit, 100, terrainLayerMask);
+        if(hit.collider == null)
+            return;
+        mousePos.y = hit.point.y;
+        
+        mouseRigidBody.MovePosition(mousePos);
     }
 
     public float ObjectDistanceToMouse(Vector3 otherPos)
     {
-        return (otherPos - rawWorldMousePosition).sqrMagnitude;
+        return (otherPos - mouseRigidBody.position).sqrMagnitude;
     }
 
     public Vector3 GetRawWorldMousePosition()
     {
-        return rawWorldMousePosition;
+        return mouseRigidBody.position;
+    }
+
+    public float MouseVelocity()
+    {
+        return mouseRigidBody.linearVelocity.magnitude;
     }
 }
