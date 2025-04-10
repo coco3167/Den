@@ -32,8 +32,6 @@ public class MouseManager : MonoBehaviour
         mousePos.y = hit.point.y;
         
         mouseRigidBody.MovePosition(mousePos);
-        
-        Debug.Log("mouse moved", this);
     }
 
     public float ObjectDistanceToMouse(Vector3 otherPos)

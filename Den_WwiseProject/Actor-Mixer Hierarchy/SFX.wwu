@@ -340,6 +340,9 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="Den_Crea_v2_6" ID="{2C20DED6-9ED7-42B3-8346-1EF998962F74}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>Den_Crea_v2_6.wav</AudioFile>
 													<MediaIDList>
@@ -406,6 +409,9 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="Den_Crea_v2_9" ID="{E94164E4-0092-4D7C-A38B-EF56395DDBEB}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>Den_Crea_v2_9.wav</AudioFile>
 													<MediaIDList>
@@ -721,24 +727,6 @@
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
-							</ChildrenList>
-						</ActorMixer>
-						<RandomSequenceContainer Name="DEN_Crea_RandomBark" ID="{81026FEB-42F9-4A11-959C-B88721CF884B}" ShortID="991215839">
-							<PropertyList>
-								<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
-								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
 								<SwitchContainer Name="DEN_Crea_MoodBarks" ID="{56EA353A-0F69-443C-8299-5815B172F524}" ShortID="110485877">
 									<PropertyList>
 										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
@@ -1453,113 +1441,8 @@
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
-								<Sound Name="DEN_Crea_Silence_01" ID="{DC80607D-756C-45A2-B4CB-B82BEC9019EF}" ShortID="699812250">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<SourcePlugin Name="Silence" ID="{BCBD63E2-BB9E-43F6-8768-15751E300D00}" ShortID="477040918" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
-											<PropertyList>
-												<Property Name="LengthMax" Type="Real32" Value="5"/>
-											</PropertyList>
-											<Language>SFX</Language>
-										</SourcePlugin>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Silence" ID="{BCBD63E2-BB9E-43F6-8768-15751E300D00}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="DEN_Crea_Silence_02" ID="{7145B8E9-71C8-4AAD-92F7-59CEFF6D6065}" ShortID="258284431">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<SourcePlugin Name="Silence" ID="{32138AB6-A953-4539-A693-D5580928D944}" ShortID="637508632" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
-											<PropertyList>
-												<Property Name="LengthMax" Type="Real32" Value="4"/>
-											</PropertyList>
-											<Language>SFX</Language>
-										</SourcePlugin>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Silence" ID="{32138AB6-A953-4539-A693-D5580928D944}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="DEN_Crea_Silence_03" ID="{4BD8B8DA-C2D8-4DF4-9997-6BA41C58A2C6}" ShortID="631347389">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<SourcePlugin Name="Silence" ID="{CB4F08AD-E27C-40E4-A591-9328C5DFD27B}" ShortID="366759944" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
-											<PropertyList>
-												<Property Name="LengthMax" Type="Real32" Value="3.5"/>
-											</PropertyList>
-											<Language>SFX</Language>
-										</SourcePlugin>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Silence" ID="{CB4F08AD-E27C-40E4-A591-9328C5DFD27B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="DEN_Crea_Silence_04" ID="{9F1CDBB3-C090-4864-A104-FE5DCE2E5E7B}" ShortID="1060558074">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<SourcePlugin Name="Silence" ID="{4E5851D1-F722-4035-B8F6-1E216BB3111C}" ShortID="741440797" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
-											<PropertyList>
-												<Property Name="LengthMax" Type="Real32" Value="4.5"/>
-											</PropertyList>
-											<Language>SFX</Language>
-										</SourcePlugin>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Silence" ID="{4E5851D1-F722-4035-B8F6-1E216BB3111C}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="DEN_Crea_Silence_05" ID="{8C991ED4-B4F6-4467-8BBB-9DF1002F6F78}" ShortID="61978597">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<SourcePlugin Name="Silence" ID="{D10E39B6-5821-4AB7-B5C0-B706694DB8B6}" ShortID="1060543156" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
-											<PropertyList>
-												<Property Name="LengthMax" Type="Real32" Value="5.5"/>
-											</PropertyList>
-											<Language>SFX</Language>
-										</SourcePlugin>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Silence" ID="{D10E39B6-5821-4AB7-B5C0-B706694DB8B6}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 							</ChildrenList>
-						</RandomSequenceContainer>
+						</ActorMixer>
 					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>

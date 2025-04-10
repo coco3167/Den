@@ -42,8 +42,7 @@ public class WwisePostEvents : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created  
     void Start()
     {
-        PostRandomMoodEvent();
-        StartCoroutine(TriggerOKBarkSequence());
+        //StartCoroutine(TriggerOKBarkSequence());
     }
 
     void Update()
@@ -78,7 +77,7 @@ public class WwisePostEvents : MonoBehaviour
     }
 
     // Posts the mood event
-    private void PostRandomMoodEvent()
+    public void PostRandomMoodEvent()
     {
         randomMoodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
     }

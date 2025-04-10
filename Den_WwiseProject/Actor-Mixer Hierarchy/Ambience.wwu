@@ -92,182 +92,7 @@
 									<ObjectRef Name="DEN_SW_AngerSteps" ID="{432BE505-1DAF-4C27-9B4A-0D9E9A9F2276}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="AluminumTigerClaw" ID="{62EB3191-F9BF-4529-A1D7-023371AD7886}" ShortID="865868459">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="AluminumTigerClaw" ID="{D9BA89BB-C62E-4CB1-96D3-4EB17543E1F2}">
-											<Language>SFX</Language>
-											<AudioFile>AluminumTigerClaw.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="630795401"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="AluminumTigerClaw" ID="{D9BA89BB-C62E-4CB1-96D3-4EB17543E1F2}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="AlternateDialTone" ID="{FF3B70D2-B452-40F9-88A5-F7AF3016E248}" ShortID="128320888">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="AlternateDialTone" ID="{CC543A8F-C85D-45FD-A378-18B3DF437F15}">
-											<Language>SFX</Language>
-											<AudioFile>AlternateDialTone.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="293549323"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="AlternateDialTone" ID="{CC543A8F-C85D-45FD-A378-18B3DF437F15}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="AmishDrugLord" ID="{4F7F9680-F4CA-447E-8804-EF510DB8B225}" ShortID="39273554">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="AmishDrugLord" ID="{8CE67177-B632-4CA9-8A79-BD700AABE0D7}">
-											<Language>SFX</Language>
-											<AudioFile>AmishDrugLord.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="251968704"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="AmishDrugLord" ID="{8CE67177-B632-4CA9-8A79-BD700AABE0D7}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="AndroidHickup" ID="{0D962944-F910-4D46-A602-B7F293BA10D2}" ShortID="426878158">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="AndroidHickup" ID="{7EB5402F-7686-413D-97F0-762CA3487FDB}">
-											<Language>SFX</Language>
-											<AudioFile>AndroidHickup.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="12402362"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="AndroidHickup" ID="{7EB5402F-7686-413D-97F0-762CA3487FDB}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-							<GroupingInfo>
-								<GroupingBehaviorList>
-									<GroupingBehavior>
-										<ItemRef Name="AndroidHickup" ID="{0D962944-F910-4D46-A602-B7F293BA10D2}"/>
-										<PropertyList>
-											<Property Name="ContinuePlay" Type="bool" Value="True"/>
-											<Property Name="FadeOutTime" Type="Real64">
-												<ValueList>
-													<Value>0.2</Value>
-												</ValueList>
-											</Property>
-										</PropertyList>
-									</GroupingBehavior>
-									<GroupingBehavior>
-										<ItemRef Name="AmishDrugLord" ID="{4F7F9680-F4CA-447E-8804-EF510DB8B225}"/>
-										<PropertyList>
-											<Property Name="ContinuePlay" Type="bool" Value="True"/>
-											<Property Name="FadeOutTime" Type="Real64">
-												<ValueList>
-													<Value>0.2</Value>
-												</ValueList>
-											</Property>
-										</PropertyList>
-									</GroupingBehavior>
-									<GroupingBehavior>
-										<ItemRef Name="AluminumTigerClaw" ID="{62EB3191-F9BF-4529-A1D7-023371AD7886}"/>
-										<PropertyList>
-											<Property Name="ContinuePlay" Type="bool" Value="True"/>
-											<Property Name="FadeOutTime" Type="Real64">
-												<ValueList>
-													<Value>0.2</Value>
-												</ValueList>
-											</Property>
-										</PropertyList>
-									</GroupingBehavior>
-									<GroupingBehavior>
-										<ItemRef Name="AlternateDialTone" ID="{FF3B70D2-B452-40F9-88A5-F7AF3016E248}"/>
-										<PropertyList>
-											<Property Name="ContinuePlay" Type="bool" Value="True"/>
-											<Property Name="FadeOutTime" Type="Real64">
-												<ValueList>
-													<Value>0.2</Value>
-												</ValueList>
-											</Property>
-										</PropertyList>
-									</GroupingBehavior>
-								</GroupingBehaviorList>
-								<GroupingList>
-									<Grouping>
-										<SwitchRef Name="DEN_SW_AS_1" ID="{0E92D334-2514-41A5-A7AA-F330ADDE3C84}"/>
-										<ItemList>
-											<ItemRef Name="AlternateDialTone" ID="{FF3B70D2-B452-40F9-88A5-F7AF3016E248}"/>
-										</ItemList>
-									</Grouping>
-									<Grouping>
-										<SwitchRef Name="DEN_SW_AS_2" ID="{774E5938-7788-4C31-9767-E461F2C0797F}"/>
-										<ItemList>
-											<ItemRef Name="AmishDrugLord" ID="{4F7F9680-F4CA-447E-8804-EF510DB8B225}"/>
-										</ItemList>
-									</Grouping>
-									<Grouping>
-										<SwitchRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}"/>
-										<ItemList>
-											<ItemRef Name="AluminumTigerClaw" ID="{62EB3191-F9BF-4529-A1D7-023371AD7886}"/>
-										</ItemList>
-									</Grouping>
-									<Grouping>
-										<SwitchRef Name="DEN_SW_AS_3" ID="{ED30EBA1-3775-4F29-A08C-6663D19FAA6B}"/>
-										<ItemList>
-											<ItemRef Name="AndroidHickup" ID="{0D962944-F910-4D46-A602-B7F293BA10D2}"/>
-										</ItemList>
-									</Grouping>
-								</GroupingList>
-							</GroupingInfo>
+							<GroupingInfo/>
 						</SwitchContainer>
 						<BlendContainer Name="DEN_Amb_TestBlend_Ang" ID="{B77620AE-79F2-4C24-AEA8-B7C2C9F1ABA9}" ShortID="636863991">
 							<PropertyList>
@@ -281,108 +106,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="AlternateDialTone" ID="{01B5719F-989E-4DE7-94FD-415BF1B9CD06}" ShortID="743804123">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="AlternateDialTone" ID="{B1110056-CB99-4986-B236-CA50BD236388}">
-											<Language>SFX</Language>
-											<AudioFile>AlternateDialTone.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="293549323"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="AlternateDialTone" ID="{B1110056-CB99-4986-B236-CA50BD236388}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="AluminumTigerClaw" ID="{5E6A3BF2-BAC0-4F81-919E-BBD06E6666D2}" ShortID="548600740">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="AluminumTigerClaw" ID="{595B3476-9A6C-447E-A32B-8C50F3EBD140}">
-											<Language>SFX</Language>
-											<AudioFile>AluminumTigerClaw.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="630795401"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="AluminumTigerClaw" ID="{595B3476-9A6C-447E-A32B-8C50F3EBD140}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="AmishDrugLord" ID="{03BBAC46-D033-4106-A224-F88F60CBE44A}" ShortID="681982357">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="AmishDrugLord" ID="{62F925C6-BE04-4D84-8829-41C7798E19B1}">
-											<Language>SFX</Language>
-											<AudioFile>AmishDrugLord.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="251968704"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="AmishDrugLord" ID="{62F925C6-BE04-4D84-8829-41C7798E19B1}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="AndroidHickup" ID="{6CB576C2-9D4E-4886-B8FC-FB1E4F784E34}" ShortID="616271862">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="AndroidHickup" ID="{D3DDE1BC-370F-41C4-93A6-7FEC4F2A9944}">
-											<Language>SFX</Language>
-											<AudioFile>AndroidHickup.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="12402362"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="AndroidHickup" ID="{D3DDE1BC-370F-41C4-93A6-7FEC4F2A9944}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
 							<BlendTrackList>
 								<BlendTrack Name="New Blend Track" ID="{D5CB3C22-F973-4443-B2D6-378ABA46BCF3}" ShortID="383785615">
 									<PropertyList>
@@ -393,17 +116,6 @@
 											<ObjectRef Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
 										</Reference>
 									</ReferenceList>
-									<BlendTrackAssocList>
-										<BlendTrackAssoc>
-											<ItemRef Name="AlternateDialTone" ID="{01B5719F-989E-4DE7-94FD-415BF1B9CD06}"/>
-											<CrossfadingInfo>
-												<LeftEdgePos>0</LeftEdgePos>
-												<LeftFadingMode>Automatic</LeftFadingMode>
-												<RightEdgePos>100</RightEdgePos>
-												<RightFadingMode>Automatic</RightFadingMode>
-											</CrossfadingInfo>
-										</BlendTrackAssoc>
-									</BlendTrackAssocList>
 								</BlendTrack>
 								<BlendTrack Name="New Blend Track_01" ID="{DF9D7920-D641-4B00-B15F-6CED70C434EF}" ShortID="533921158">
 									<PropertyList>
@@ -414,18 +126,6 @@
 											<ObjectRef Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
 										</Reference>
 									</ReferenceList>
-									<BlendTrackAssocList>
-										<BlendTrackAssoc>
-											<ItemRef Name="AluminumTigerClaw" ID="{5E6A3BF2-BAC0-4F81-919E-BBD06E6666D2}"/>
-											<CrossfadingInfo>
-												<LeftEdgePos>25</LeftEdgePos>
-												<LeftFadingMode>Manual</LeftFadingMode>
-												<LeftFadingPos>26</LeftFadingPos>
-												<RightEdgePos>100</RightEdgePos>
-												<RightFadingMode>Automatic</RightFadingMode>
-											</CrossfadingInfo>
-										</BlendTrackAssoc>
-									</BlendTrackAssocList>
 								</BlendTrack>
 								<BlendTrack Name="New Blend Track_02" ID="{5B5767E1-7E4B-4C62-8694-A7343FBBB3A0}" ShortID="991487935">
 									<PropertyList>
@@ -436,18 +136,6 @@
 											<ObjectRef Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
 										</Reference>
 									</ReferenceList>
-									<BlendTrackAssocList>
-										<BlendTrackAssoc>
-											<ItemRef Name="AmishDrugLord" ID="{03BBAC46-D033-4106-A224-F88F60CBE44A}"/>
-											<CrossfadingInfo>
-												<LeftEdgePos>50</LeftEdgePos>
-												<LeftFadingMode>Manual</LeftFadingMode>
-												<LeftFadingPos>51</LeftFadingPos>
-												<RightEdgePos>100</RightEdgePos>
-												<RightFadingMode>Automatic</RightFadingMode>
-											</CrossfadingInfo>
-										</BlendTrackAssoc>
-									</BlendTrackAssocList>
 								</BlendTrack>
 								<BlendTrack Name="New Blend Track_03" ID="{D078EE62-C1D8-407F-AC8F-18BE62DBB340}" ShortID="69552655">
 									<PropertyList>
@@ -458,18 +146,6 @@
 											<ObjectRef Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
 										</Reference>
 									</ReferenceList>
-									<BlendTrackAssocList>
-										<BlendTrackAssoc>
-											<ItemRef Name="AndroidHickup" ID="{6CB576C2-9D4E-4886-B8FC-FB1E4F784E34}"/>
-											<CrossfadingInfo>
-												<LeftEdgePos>75</LeftEdgePos>
-												<LeftFadingMode>Manual</LeftFadingMode>
-												<LeftFadingPos>76</LeftFadingPos>
-												<RightEdgePos>100</RightEdgePos>
-												<RightFadingMode>Automatic</RightFadingMode>
-											</CrossfadingInfo>
-										</BlendTrackAssoc>
-									</BlendTrackAssocList>
 								</BlendTrack>
 							</BlendTrackList>
 						</BlendContainer>
