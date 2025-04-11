@@ -35,6 +35,7 @@ namespace Sinj
         private void Awake()
         {
             m_navMeshAgent = GetComponent<NavMeshAgent>();
+            gameObject.AddComponent<AkGameObj>();
         }
 
         public void Init(MouseManager mouseManager)
@@ -44,6 +45,8 @@ namespace Sinj
             {
                 Emotions emotion = (Emotions)loop;
                 emotions.Add(emotion, 0f);
+                if(emotion == Emotions.Intensity)
+                    continue;
                 m_debugParameters.Add(new DebugParameter(emotion.ToString(), "0"));
             }
             
@@ -135,6 +138,11 @@ namespace Sinj
         public bool IsCloseToDestination()
         {
             return m_navMeshAgent.remainingDistance <= m_navMeshAgent.stoppingDistance;
+        }
+
+        public void PlaySound(AK.Wwise.Event eventToPlay)
+        {
+            eventToPlay.Post(gameObject);
         }
         #endregion
 

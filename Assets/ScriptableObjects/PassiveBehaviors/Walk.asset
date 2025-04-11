@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43111cb4a5b9afd479d6e4cd58c47b3a, type: 3}
   m_Name: Walk
   m_EditorClassIdentifier: 
+  instantenous: 0
   SinjStimuli: []
   SinjReactions:
   - rid: 281592818473369600
@@ -22,3 +23,7 @@ MonoBehaviour:
       type: {class: SinjPassivBehavior/WalkReaction, ns: Sinj, asm: Assembly-CSharp}
       data:
         distance: 5
+        neutralBark:
+          idInternal: 0
+          valueGuidInternal: 
+          WwiseObjectReference: {fileID: 11400000, guid: dbf38947144cc3940ad86d28118b9aee, type: 2}
