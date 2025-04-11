@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{E8C73C05-9AC5-A17E-EA11-491BBCB2A45E}",
+    "Hash": "{60DDF688-A34E-FECB-3E36-78666B2A2EFF}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -36,14 +36,284 @@
     },
     "Busses": [
      {
+      "Id": "85412153",
+      "Name": "Ambience",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Ambience",
+      "GUID": "{F664A27B-9528-433E-BB7B-EDA25DD34C03}",
+      "Color": "4"
+     },
+     {
+      "Id": "393239870",
+      "Name": "SFX",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX",
+      "GUID": "{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}",
+      "Color": "9"
+     },
+     {
+      "Id": "1551306167",
+      "Name": "UI",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\UI",
+      "GUID": "{536025B3-BD32-439B-A84E-2880E4EAE4C4}",
+      "Color": "19"
+     },
+     {
       "Id": "3803692087",
       "Name": "Master Audio Bus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     },
+     {
+      "Id": "3991942870",
+      "Name": "Music",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Music",
+      "GUID": "{4C0AAA7A-5063-49AA-B2EE-5337426DC76A}",
+      "Color": "13"
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "722514783",
+      "Name": "DEN_GP_AngerValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_AngerValue",
+      "GUID": "{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}",
+      "Color": "14"
+     },
+     {
+      "Id": "973587621",
+      "Name": "DEN_GP_IntensityValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_IntensityValue",
+      "GUID": "{06A92236-B1E4-4B96-B6E9-D34C84BD2715}",
+      "Color": "14"
+     },
+     {
+      "Id": "2578001617",
+      "Name": "DEN_GP_CuriosityValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_CuriosityValue",
+      "GUID": "{4C8EF3DA-5ED7-423F-8B0C-F48F58CE5ABD}",
+      "Color": "14"
+     },
+     {
+      "Id": "3189323882",
+      "Name": "DEN_GP_TensionValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_TensionValue",
+      "GUID": "{2BACC983-9E6E-4BBE-8C8E-A1621790A002}",
+      "Color": "14"
+     },
+     {
+      "Id": "4122714024",
+      "Name": "DEN_GP_FearValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_FearValue",
+      "GUID": "{5DDCEF5F-D8C4-40D7-BD7E-8336CBE14C7F}",
+      "Color": "14"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1852625376",
+      "Name": "DEN_State_Audio_Mix",
+      "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Audio_Mix",
+      "GUID": "{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}",
+      "Color": "3",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Audio_Mix\\None",
+        "GUID": "{9194538F-49FF-48E6-851D-9C54A6070545}",
+        "Color": "3"
+       },
+       {
+        "Id": "1541385743",
+        "Name": "DEN_ST_Audio_Mix_StereoHP",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Audio_Mix\\DEN_ST_Audio_Mix_StereoHP",
+        "GUID": "{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}",
+        "Color": "3"
+       },
+       {
+        "Id": "1960826282",
+        "Name": "DEN_ST_Audio_Mix_StereoSP",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Audio_Mix\\DEN_ST_Audio_Mix_StereoSP",
+        "GUID": "{047D45B0-AF72-4DAF-B465-792165DD80A5}",
+        "Color": "3"
+       },
+       {
+        "Id": "2408252910",
+        "Name": "DEN_ST_Audio_Mix_Mono",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Audio_Mix\\DEN_ST_Audio_Mix_Mono",
+        "GUID": "{180B6345-227B-45E9-BD3F-732A9DE1F93C}",
+        "Color": "3"
+       }
+      ]
+     },
+     {
+      "Id": "3079765046",
+      "Name": "DEN_State_Mood",
+      "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood",
+      "GUID": "{0479447C-0867-4F59-A8A4-199CAE84ECB5}",
+      "Color": "3",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood\\None",
+        "GUID": "{2F3B824F-DD6D-4C55-B51A-EDD7577FA06E}",
+        "Color": "3"
+       },
+       {
+        "Id": "999913598",
+        "Name": "DEN_ST_Mood_Anger",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood\\DEN_ST_Mood_Anger",
+        "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+        "Color": "3"
+       },
+       {
+        "Id": "1511253875",
+        "Name": "DEN_ST_Mood_Fear",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood\\DEN_ST_Mood_Fear",
+        "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+        "Color": "3"
+       },
+       {
+        "Id": "2378539543",
+        "Name": "DEN_ST_Mood_Curiousity",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood\\DEN_ST_Mood_Curiousity",
+        "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+        "Color": "3"
+       },
+       {
+        "Id": "3523856042",
+        "Name": "DEN_ST_Mood_Neutral",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood\\DEN_ST_Mood_Neutral",
+        "GUID": "{88D8C9E8-142E-4396-BDE2-129CA516E641}",
+        "Color": "3"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "1947237033",
+      "Name": "DEN_SW_FearSteps",
+      "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_FearSteps",
+      "GUID": "{3C40F149-74D8-42D4-8C5C-2D9D26AB6164}",
+      "Color": "2",
+      "GameParameterRef": {
+       "Id": "4122714024"
+      },
+      "Switches": [
+       {
+        "Id": "3562904912",
+        "Name": "DEN_SW_FS_2",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_FearSteps\\DEN_SW_FS_2",
+        "GUID": "{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}",
+        "Color": "2"
+       },
+       {
+        "Id": "3562904913",
+        "Name": "DEN_SW_FS_3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_FearSteps\\DEN_SW_FS_3",
+        "GUID": "{DBFC477C-508F-456D-9097-86A9C4AD6174}",
+        "Color": "2"
+       },
+       {
+        "Id": "3562904914",
+        "Name": "DEN_SW_FS_0",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_FearSteps\\DEN_SW_FS_0",
+        "GUID": "{F4E026D3-7E71-460E-836C-75047A2F9C7E}",
+        "Color": "2"
+       },
+       {
+        "Id": "3562904915",
+        "Name": "DEN_SW_FS_1",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_FearSteps\\DEN_SW_FS_1",
+        "GUID": "{32933CAB-CC4B-4F19-A29A-B748581979F0}",
+        "Color": "2"
+       }
+      ]
+     },
+     {
+      "Id": "3152036582",
+      "Name": "DEN_SW_CuriositySteps",
+      "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_CuriositySteps",
+      "GUID": "{9D12713B-97CC-4C24-AE18-F75724EF566C}",
+      "Color": "2",
+      "GameParameterRef": {
+       "Id": "2578001617"
+      },
+      "Switches": [
+       {
+        "Id": "4081255472",
+        "Name": "DEN_SW_CS_1",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_CuriositySteps\\DEN_SW_CS_1",
+        "GUID": "{2515C69B-0223-4BD9-94FE-AC12B38F3A17}",
+        "Color": "2"
+       },
+       {
+        "Id": "4081255473",
+        "Name": "DEN_SW_CS_0",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_CuriositySteps\\DEN_SW_CS_0",
+        "GUID": "{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}",
+        "Color": "2"
+       },
+       {
+        "Id": "4081255474",
+        "Name": "DEN_SW_CS_3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_CuriositySteps\\DEN_SW_CS_3",
+        "GUID": "{0CE9736F-F798-44B3-8D3C-F002B7124776}",
+        "Color": "2"
+       },
+       {
+        "Id": "4081255475",
+        "Name": "DEN_SW_CS_2",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_CuriositySteps\\DEN_SW_CS_2",
+        "GUID": "{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}",
+        "Color": "2"
+       }
+      ]
+     },
+     {
+      "Id": "3664495308",
+      "Name": "DEN_SW_AngerSteps",
+      "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_AngerSteps",
+      "GUID": "{432BE505-1DAF-4C27-9B4A-0D9E9A9F2276}",
+      "Color": "2",
+      "GameParameterRef": {
+       "Id": "722514783"
+      },
+      "Switches": [
+       {
+        "Id": "3467041812",
+        "Name": "DEN_SW_AS_3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_AngerSteps\\DEN_SW_AS_3",
+        "GUID": "{ED30EBA1-3775-4F29-A08C-6663D19FAA6B}",
+        "Color": "2"
+       },
+       {
+        "Id": "3467041813",
+        "Name": "DEN_SW_AS_2",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_AngerSteps\\DEN_SW_AS_2",
+        "GUID": "{774E5938-7788-4C31-9767-E461F2C0797F}",
+        "Color": "2"
+       },
+       {
+        "Id": "3467041814",
+        "Name": "DEN_SW_AS_1",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_AngerSteps\\DEN_SW_AS_1",
+        "GUID": "{0E92D334-2514-41A5-A7AA-F330ADDE3C84}",
+        "Color": "2"
+       },
+       {
+        "Id": "3467041815",
+        "Name": "DEN_SW_AS_0",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_AngerSteps\\DEN_SW_AS_0",
+        "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+        "Color": "2"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{083FA84C-1BA2-467B-89B3-2D3302056CEE}"
+  "FileHash": "{D9DC0710-0CAF-7D4D-8F4A-98B4F0F38AB1}"
  }
 }

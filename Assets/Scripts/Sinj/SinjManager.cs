@@ -97,9 +97,7 @@ namespace Sinj
 
             value /= 100;
             emotionsJaugeValues[emotion] += curve.Evaluate(value)*Time.deltaTime;
-            
         }
-
         #region Debug
         private void UpdateDebugValues()
         {

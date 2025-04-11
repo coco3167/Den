@@ -3,17 +3,9 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Play_music_test" ID="{7ACCB43F-243E-48D2-9147-3C839A2EA299}">
-					<ChildrenList>
-						<Action Name="" ID="{0667A71F-1C9F-4909-A942-8D576A3ECBDA}" ShortID="1001731118">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="music_test" ID="{57F3EF2F-67F1-4576-95BB-BEBF4D0B2B84}" WorkUnitID="{84EC7DD3-F7A9-49CB-8428-9F82BAB57915}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
+				<WorkUnit Name="DEN_Events_Amb" ID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}" PersistMode="Reference"/>
+				<WorkUnit Name="DEN_Events_SFX" ID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}" PersistMode="Reference"/>
+				<WorkUnit Name="DEN_Events_Music" ID="{FFE357D2-BBD9-4B4F-96C8-E8B7959DEA32}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

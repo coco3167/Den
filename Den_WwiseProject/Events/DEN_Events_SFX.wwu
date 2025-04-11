@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}" SchemaVersion="123" RootDocumentID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}" ParentDocumentID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}">
+	<Events>
+		<WorkUnit Name="DEN_Events_SFX" ID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}" OwnerID="{16C8F29A-B9FF-4407-9FFB-634B024404D9}" PersistMode="Nested">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="10"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<Folder Name="DEN_EV_SFX_MoodSteps" ID="{0986CE92-C3B0-4F70-A30A-6D6C858188D3}" ShortID="486856179">
+					<ChildrenList>
+						<Event Name="Play_DEN_Crea_AngerSteps" ID="{71F461C5-5DA7-4B54-B3CE-05E935C63EF7}">
+							<ChildrenList>
+								<Action Name="" ID="{3B4CD8E3-04BE-480B-9E1A-999AD7EE3999}" ShortID="242149620">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Crea_AngerSteps" ID="{3D425154-49DB-4B2D-9398-63225111DB5B}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_Crea_CuriousSteps" ID="{C3F48521-4A80-4ED6-8FDF-880B43DE2FE4}">
+							<ChildrenList>
+								<Action Name="" ID="{36FC861E-5F14-46A9-BD02-79636EB7D3A1}" ShortID="1033281623">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Crea_CuriousSteps" ID="{F6CB7CE0-EE81-4CD5-8BC9-EA3A528D6411}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_Crea_FearSteps" ID="{8140DBB3-857C-4591-85B1-46E91C8C3841}">
+							<ChildrenList>
+								<Action Name="" ID="{6F904C69-EB43-43FA-B3E5-0959F1DB321C}" ShortID="977016341">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Crea_FearSteps" ID="{6357B35C-E62F-47CA-9882-FAA419097A12}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="DEN_EV_SFX_CreaBarks" ID="{7614FD2E-C40C-41C7-B407-41B8F1FC00F7}" ShortID="65630369">
+					<ChildrenList>
+						<Event Name="Play_DEN_Crea_RandomBarks" ID="{EB698F03-9FE8-4841-A1D2-C73292F4E919}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{A4DE289C-A447-4052-AFB9-188D2FEB0E85}" ShortID="263396885">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Crea_MoodBarks" ID="{56EA353A-0F69-443C-8299-5815B172F524}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_Crea_NeutralBark" ID="{73097EC1-2D30-4D63-86C8-CE27D665D93A}">
+							<ChildrenList>
+								<Action Name="" ID="{08580E76-6EDC-406A-8A42-97178B906272}" ShortID="690205415">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Crea_NeutralBark" ID="{426BC6A2-BDFC-4A37-BAD1-CAAFCA79B3C7}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
