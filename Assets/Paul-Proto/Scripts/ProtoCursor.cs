@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Cursor : MonoBehaviour
+public class ProtoCursor : MonoBehaviour
 {
     public Camera mainCamera; // Assign your main camera in the Inspector
     public float fixedY = 1f; // Set this to whatever height you want
