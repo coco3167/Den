@@ -204,8 +204,14 @@ MonoBehaviour:
   emotions:
     _serializedList: []
   animator: {fileID: 8590812493357759101}
-  walkingSpeed: 0.1
+  walkingSpeed: 0
   runningSpeed: 2.5
+  calmAgent:
+    <maxSpeed>k__BackingField: 2
+    <acceleration>k__BackingField: 5
+  runningAgent:
+    <maxSpeed>k__BackingField: 5
+    <acceleration>k__BackingField: 10
 --- !u!1 &8260463823515064882
 GameObject:
   m_ObjectHideFlags: 0
