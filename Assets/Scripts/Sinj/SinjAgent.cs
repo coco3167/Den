@@ -17,6 +17,7 @@ namespace Sinj
         
         [Header("Emotions")]
         [SerializeField, ReadOnly] private SerializedDictionary<Emotions, float> emotions;
+        [SerializeField] private SerializedDictionary<Emotions, float> emotionsDisplayCap;
 
         [Title("Animation")]
         [SerializeField] private Animator animator;
@@ -59,6 +60,10 @@ namespace Sinj
         {
             animator.SetBool("Walking", m_navMeshAgent.velocity.magnitude > 0);
             animator.SetBool("Running", m_navMeshAgent.velocity.magnitude > runningSpeed);
+            
+            animator.SetBool("Curious", emotions[Emotions.Curiosity] >= emotionsDisplayCap[Emotions.Curiosity]);
+            animator.SetBool("Aggression", emotions[Emotions.Agression] >= emotionsDisplayCap[Emotions.Agression]);
+            animator.SetBool("Fear", emotions[Emotions.Fear] >= emotionsDisplayCap[Emotions.Fear]);
             
             transform.localScale = new Vector3(m_navMeshAgent.velocity.x > 0 ? 1f : -1f, 1f, 1f);
         }
