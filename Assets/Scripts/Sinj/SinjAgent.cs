@@ -28,8 +28,9 @@ namespace Sinj
     
         private NavMeshAgent m_navMeshAgent;
         private MouseManager m_mouseManager;
-
+        
         private readonly List<DebugParameter> m_debugParameters = new();
+        private static int _avoidanceValue;
     
         // Fleeing
         private Vector3 m_fleeingTarget;
@@ -52,6 +53,8 @@ namespace Sinj
                     continue;
                 m_debugParameters.Add(new DebugParameter(emotion.ToString(), "0"));
             }
+
+            m_navMeshAgent.avoidancePriority = _avoidanceValue++;
             
             m_debugParameters.Add(new DebugParameter("Current State", "Null"));
         }
@@ -141,7 +144,8 @@ namespace Sinj
             Vector3 destination;
             do
             {
-                destination = transform.position + Random.insideUnitSphere * distance;
+                Vector2 randomPoint = Random.insideUnitCircle;
+                destination = transform.position + new Vector3(randomPoint.x, 0, randomPoint.y) * distance;
             } while (!m_navMeshAgent.SetDestination(destination));
         }
         

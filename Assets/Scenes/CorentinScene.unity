@@ -356,12 +356,20 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a3496d490acd87341aa707fce0291b99, type: 2}
     - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: sinjCount
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: mouseManager
       value: 
       objectReference: {fileID: 1353841251}
+    - target: {fileID: 4387186766017722496, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: palliersEvents.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387186766017722496, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: palliersEvents.Array.data[0].WwiseObjectReference
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6521624656204892207, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: m_Name
       value: GameManager
