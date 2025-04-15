@@ -264,6 +264,36 @@
       ]
      },
      {
+      "Id": "2393674518",
+      "Name": "DEN_SW_ReactionMood",
+      "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_ReactionMood",
+      "GUID": "{8284E59B-0C92-42F4-8530-AD5ACEF70AA1}",
+      "Color": "2",
+      "Switches": [
+       {
+        "Id": "550223305",
+        "Name": "DEN_SW_RM_Anger",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_ReactionMood\\DEN_SW_RM_Anger",
+        "GUID": "{E32256AC-91DE-4072-AA6F-342EDD7CF565}",
+        "Color": "2"
+       },
+       {
+        "Id": "798839706",
+        "Name": "DEN_SW_RM_Curious",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_ReactionMood\\DEN_SW_RM_Curious",
+        "GUID": "{475A8F43-0DFC-4384-A3F3-584267D6995D}",
+        "Color": "2"
+       },
+       {
+        "Id": "4041152746",
+        "Name": "DEN_SW_RM_Fear",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_ReactionMood\\DEN_SW_RM_Fear",
+        "GUID": "{FBD20FA9-0A2A-4E0B-A22A-88862FEF4CAF}",
+        "Color": "2"
+       }
+      ]
+     },
+     {
       "Id": "3152036582",
       "Name": "DEN_SW_CuriositySteps",
       "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_CuriositySteps",
@@ -346,6 +376,6 @@
     ]
    }
   ],
-  "FileHash": "{3CDF1648-9974-E8F5-4531-A4FB05643467}"
+  "FileHash": "{07EC5A92-52FC-2503-0492-19BF2965FC35}"
  }
 }

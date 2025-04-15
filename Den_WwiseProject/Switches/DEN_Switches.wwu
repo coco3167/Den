@@ -150,6 +150,13 @@
 						</Curve>
 					</SwitchOnRTPC>
 				</SwitchGroup>
+				<SwitchGroup Name="DEN_SW_ReactionMood" ID="{8284E59B-0C92-42F4-8530-AD5ACEF70AA1}">
+					<ChildrenList>
+						<Switch Name="DEN_SW_RM_Anger" ID="{E32256AC-91DE-4072-AA6F-342EDD7CF565}"/>
+						<Switch Name="DEN_SW_RM_Curious" ID="{475A8F43-0DFC-4384-A3F3-584267D6995D}"/>
+						<Switch Name="DEN_SW_RM_Fear" ID="{FBD20FA9-0A2A-4E0B-A22A-88862FEF4CAF}"/>
+					</ChildrenList>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>

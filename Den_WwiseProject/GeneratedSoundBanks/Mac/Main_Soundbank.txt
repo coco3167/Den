@@ -1,17 +1,16 @@
 Event	ID	Name			Wwise Object Path	Notes
-	231948563	Play_DEN_Crea_RB_Fear			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_ReactionBarks\Play_DEN_Crea_RB_Fear	
-	1141265601	Play_DEN_Crea_RB_Curious			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_ReactionBarks\Play_DEN_Crea_RB_Curious	
 	1174350178	Play_Den_Music_Test			\Default Work Unit\DEN_Events_Music\Play_Den_Music_Test	
 	1250462805	Play_DEN_Crea_NeutralBark			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_CreaBarks\Play_DEN_Crea_NeutralBark	
 	2516003365	Play_DEN_Amb_Test			\Default Work Unit\DEN_Events_Amb\Play_DEN_Amb_Test	
 	2814436364	Play_DEN_Crea_AngerSteps			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_MoodSteps\Play_DEN_Crea_AngerSteps	
 	3029527017	Play_DEN_Crea_FearSteps			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_MoodSteps\Play_DEN_Crea_FearSteps	
+	3282886900	Play_DEN_Crea_ReactionBarks			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_ReactionBarks\Play_DEN_Crea_ReactionBarks	
 	3621090860	Play_DEN_Crea_RandomBarks			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_CreaBarks\Play_DEN_Crea_RandomBarks	
 	3724550301	Play_DEN_Crea_CuriousSteps			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_MoodSteps\Play_DEN_Crea_CuriousSteps	
-	3903286686	Play_DEN_Crea_RB_Anger			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_ReactionBarks\Play_DEN_Crea_RB_Anger	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	1947237033	DEN_SW_FearSteps			\Default Work Unit\DEN_Switches\DEN_SW_FearSteps	
+	2393674518	DEN_SW_ReactionMood			\Default Work Unit\DEN_Switches\DEN_SW_ReactionMood	
 	3152036582	DEN_SW_CuriositySteps			\Default Work Unit\DEN_Switches\DEN_SW_CuriositySteps	
 	3664495308	DEN_SW_AngerSteps			\Default Work Unit\DEN_Switches\DEN_SW_AngerSteps	
 
@@ -20,6 +19,9 @@ Switch	ID	Name	Switch Group			Notes
 	3562904913	DEN_SW_FS_3	DEN_SW_FearSteps			
 	3562904914	DEN_SW_FS_0	DEN_SW_FearSteps			
 	3562904915	DEN_SW_FS_1	DEN_SW_FearSteps			
+	550223305	DEN_SW_RM_Anger	DEN_SW_ReactionMood			
+	798839706	DEN_SW_RM_Curious	DEN_SW_ReactionMood			
+	4041152746	DEN_SW_RM_Fear	DEN_SW_ReactionMood			
 	4081255472	DEN_SW_CS_1	DEN_SW_CuriositySteps			
 	4081255473	DEN_SW_CS_0	DEN_SW_CuriositySteps			
 	4081255474	DEN_SW_CS_3	DEN_SW_CuriositySteps			

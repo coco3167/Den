@@ -1,34 +1,30 @@
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using AK.Wwise;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 public static class WwiseSwitchManager
 {
-    public static void SetWwiseSwitch<TSwitch>(TSwitch switchState, GameObject targetObject, SerializedDictionary<TSwitch, Switch> moodSwitches, ref TSwitch currentSwitch, Sinj.Emotions emotion)
-        where TSwitch : System.Enum
+    static WwiseReactionMoodSwitch currentReactionMoodSwitch = WwiseReactionMoodSwitch.None;
+
+    public static void SetWwiseSwitch(WwiseReactionMoodSwitch switchReactionMood, GameObject targetGameObject)
     {
-        if (switchState.Equals(currentSwitch))
+        if (switchReactionMood == currentReactionMoodSwitch)
         {
-            Debug.Log($"{typeof(TSwitch).Name} switch is already set to {switchState}");
+            UnityEngine.Debug.Log("Mood is already set to " + switchReactionMood);
             return;
         }
 
-        if (!moodSwitches.ContainsKey(switchState))
+        if (!AudioManager.Instance.switchReactionMood.ContainsKey(switchReactionMood))
         {
-            Debug.LogError($"Switch state {switchState} not found in mood switches.");
+            UnityEngine.Debug.LogError($"Mood state {switchReactionMood} not found in the dictionary.");
             return;
         }
 
-        // Set the switch value on the target object
-        moodSwitches[switchState].SetValue(targetObject);
+        AudioManager.Instance.switchReactionMood[switchReactionMood].SetValue(targetGameObject);
 
-        // Calculate the RTPC value
-        int amount = System.Convert.ToInt32(switchState) * 25;
-
-        // Set the RTPC value using the AudioManager
-        AudioManager.Instance.SetWwiseEmotionRTPC(emotion, targetObject, amount);
-
-        Debug.Log($"{typeof(TSwitch).Name} switch has been set to {switchState}");
-        currentSwitch = switchState;
+        UnityEngine.Debug.Log("Mood has been set to " + switchReactionMood);
+        currentReactionMoodSwitch = switchReactionMood;
     }
 }

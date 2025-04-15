@@ -1427,6 +1427,9 @@
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="DEN_SW_ReactionMood" ID="{8284E59B-0C92-42F4-8530-AD5ACEF70AA1}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+								</Reference>
 							</ReferenceList>
 							<ChildrenList>
 								<RandomSequenceContainer Name="DEN_Crea_RB_Anger" ID="{F7042B61-12A5-4593-B8D2-902F2004CD2C}" ShortID="906265007">
@@ -1762,6 +1765,26 @@
 										<ItemRef Name="DEN_Crea_RB_Fear" ID="{6CCD3F63-5BA8-4EC4-81B7-546417F8E97D}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="DEN_SW_RM_Curious" ID="{475A8F43-0DFC-4384-A3F3-584267D6995D}"/>
+										<ItemList>
+											<ItemRef Name="DEN_Crea_RB_Curious" ID="{8FB56826-0B57-49EA-8CA6-A778794E6AC5}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="DEN_SW_RM_Fear" ID="{FBD20FA9-0A2A-4E0B-A22A-88862FEF4CAF}"/>
+										<ItemList>
+											<ItemRef Name="DEN_Crea_RB_Fear" ID="{6CCD3F63-5BA8-4EC4-81B7-546417F8E97D}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="DEN_SW_RM_Anger" ID="{E32256AC-91DE-4072-AA6F-342EDD7CF565}"/>
+										<ItemList>
+											<ItemRef Name="DEN_Crea_RB_Anger" ID="{F7042B61-12A5-4593-B8D2-902F2004CD2C}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
 					</ChildrenList>

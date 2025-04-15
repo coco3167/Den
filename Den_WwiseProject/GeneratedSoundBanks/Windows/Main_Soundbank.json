@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{5A1A38E3-5741-4A14-8B9C-D8903CF6FAE5}",
+    "Hash": "{E2BECEDD-1302-7991-0363-E89DC4EE3BB4}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -640,72 +640,81 @@
       ]
      },
      {
-      "Id": "3903286686",
-      "Name": "Play_DEN_Crea_RB_Anger",
-      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_ReactionBarks\\Play_DEN_Crea_RB_Anger",
-      "GUID": "{06C74B0C-050D-4A68-A37F-9DF5D65FABD5}",
-      "Color": "10",
-      "DurationType": "OneShot",
-      "DurationMin": "1.8333437",
-      "DurationMax": "1.9466667",
-      "MediaRefs": [
-       {
-        "Id": "687121723"
-       },
-       {
-        "Id": "722382847"
-       },
-       {
-        "Id": "861356114"
-       }
-      ]
-     },
-     {
-      "Id": "1141265601",
-      "Name": "Play_DEN_Crea_RB_Curious",
-      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_ReactionBarks\\Play_DEN_Crea_RB_Curious",
-      "GUID": "{E88F1F4F-56D8-43A2-91D9-08E0EE083A29}",
-      "Color": "10",
-      "DurationType": "OneShot",
-      "DurationMin": "1.8333437",
-      "DurationMax": "1.8333437",
-      "MediaRefs": [
-       {
-        "Id": "91104507"
-       },
-       {
-        "Id": "204851898"
-       },
-       {
-        "Id": "929683782"
-       }
-      ],
-      "PluginRefs": {
-       "Custom": [
-        {
-         "Id": "664198730"
-        }
-       ]
-      }
-     },
-     {
-      "Id": "231948563",
-      "Name": "Play_DEN_Crea_RB_Fear",
-      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_ReactionBarks\\Play_DEN_Crea_RB_Fear",
-      "GUID": "{283BEC44-A091-4DEB-A36A-D0A07C1D5332}",
+      "Id": "3282886900",
+      "Name": "Play_DEN_Crea_ReactionBarks",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_ReactionBarks\\Play_DEN_Crea_ReactionBarks",
+      "GUID": "{5B8EDBFC-4A78-4C63-A552-7DF7618F3432}",
       "Color": "10",
       "DurationType": "OneShot",
       "DurationMin": "1.6041771",
-      "DurationMax": "1.6041771",
-      "MediaRefs": [
+      "DurationMax": "1.9466667",
+      "SwitchContainers": [
        {
-        "Id": "384519567"
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2393674518",
+         "Id": "798839706",
+         "GUID": "{475A8F43-0DFC-4384-A3F3-584267D6995D}",
+         "Color": "2"
+        },
+        "MediaRefs": [
+         {
+          "Id": "91104507"
+         },
+         {
+          "Id": "204851898"
+         },
+         {
+          "Id": "929683782"
+         }
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "664198730"
+          }
+         ]
+        }
        },
        {
-        "Id": "856628942"
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2393674518",
+         "Id": "4041152746",
+         "GUID": "{FBD20FA9-0A2A-4E0B-A22A-88862FEF4CAF}",
+         "Color": "2"
+        },
+        "MediaRefs": [
+         {
+          "Id": "384519567"
+         },
+         {
+          "Id": "856628942"
+         },
+         {
+          "Id": "1020077990"
+         }
+        ]
        },
        {
-        "Id": "1020077990"
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2393674518",
+         "Id": "550223305",
+         "GUID": "{E32256AC-91DE-4072-AA6F-342EDD7CF565}",
+         "Color": "2"
+        },
+        "MediaRefs": [
+         {
+          "Id": "687121723"
+         },
+         {
+          "Id": "722382847"
+         },
+         {
+          "Id": "861356114"
+         }
+        ]
        }
       ]
      },
@@ -836,6 +845,36 @@
       ]
      },
      {
+      "Id": "2393674518",
+      "Name": "DEN_SW_ReactionMood",
+      "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_ReactionMood",
+      "GUID": "{8284E59B-0C92-42F4-8530-AD5ACEF70AA1}",
+      "Color": "2",
+      "Switches": [
+       {
+        "Id": "550223305",
+        "Name": "DEN_SW_RM_Anger",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_ReactionMood\\DEN_SW_RM_Anger",
+        "GUID": "{E32256AC-91DE-4072-AA6F-342EDD7CF565}",
+        "Color": "2"
+       },
+       {
+        "Id": "798839706",
+        "Name": "DEN_SW_RM_Curious",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_ReactionMood\\DEN_SW_RM_Curious",
+        "GUID": "{475A8F43-0DFC-4384-A3F3-584267D6995D}",
+        "Color": "2"
+       },
+       {
+        "Id": "4041152746",
+        "Name": "DEN_SW_RM_Fear",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_ReactionMood\\DEN_SW_RM_Fear",
+        "GUID": "{FBD20FA9-0A2A-4E0B-A22A-88862FEF4CAF}",
+        "Color": "2"
+       }
+      ]
+     },
+     {
       "Id": "3152036582",
       "Name": "DEN_SW_CuriositySteps",
       "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_CuriositySteps",
@@ -918,6 +957,6 @@
     ]
    }
   ],
-  "FileHash": "{23F9A9D0-5252-D4F1-C513-F219E5ABE1C0}"
+  "FileHash": "{EE1ADAB0-81D9-C466-F95A-D51FFA43073C}"
  }
 }

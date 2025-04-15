@@ -167,7 +167,7 @@ namespace Sinj
         {
             public override void ApplyReaction(SinjAgent agent)
             {
-                WwisePostEvents.instance.PostAggroReaction();
+                WwisePostEvents.instance.PostReactionMoodEvent(WwiseReactionMoodSwitch.FearSwitch);
             }
 
             public override bool IsFinished(SinjAgent agent)
