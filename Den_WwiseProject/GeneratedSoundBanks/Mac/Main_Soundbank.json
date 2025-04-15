@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{B6AD87F4-42BA-EA66-0D0F-50F54EC18ED5}",
+    "Hash": "{0A679E96-4E57-C8C2-38AF-4F495A94F59F}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -22,14 +22,6 @@
       "Location": "Memory",
       "ShortName": "Den_Crea_v2_8.wav",
       "CachePath": "B5/{B569CD44-CC05-FA02-4F16-E99D7E199683}.wem"
-     },
-     {
-      "Id": "52209026",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DEN_Momo_Bark_v3_3.wav",
-      "CachePath": "CB/{CB261784-73CD-D1CB-700F-4DF54A6402E7}.wem"
      },
      {
       "Id": "91104507",
@@ -56,14 +48,6 @@
       "CachePath": "7F/{7F80CC18-E388-AE5B-5B3B-E73CAAB529BB}.wem"
      },
      {
-      "Id": "104161470",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DEN_Momo_Bark_v3_1.wav",
-      "CachePath": "4C/{4C986534-FA07-3792-1E31-CAD873B97A6D}.wem"
-     },
-     {
       "Id": "184895006",
       "Language": "SFX",
       "Streaming": "false",
@@ -88,14 +72,6 @@
       "CachePath": "BC/{BCCA8E6E-73FE-6DDD-5E8D-DCB1FDF5EE98}.wem"
      },
      {
-      "Id": "229765407",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DEN_Momo_Bark_v3_2.wav",
-      "CachePath": "F8/{F874E9B5-EEC8-FE35-A541-15C8C622DD2A}.wem"
-     },
-     {
       "Id": "269177123",
       "Language": "SFX",
       "Streaming": "false",
@@ -118,14 +94,6 @@
       "Location": "Memory",
       "ShortName": "DEN_Momo_Curious_4.wav",
       "CachePath": "60/{60C5B3CA-F55B-5053-4D17-319A352FEC50}.wem"
-     },
-     {
-      "Id": "341457068",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DEN_Momo_Bark_v3_5.wav",
-      "CachePath": "F3/{F320273D-DE4E-8192-5917-D4EEEACDDBE1}.wem"
      },
      {
       "Id": "344966637",
@@ -165,15 +133,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DEN_Momo_WorriedReaction_1.wav",
-      "CachePath": "B2/{B2184E0D-3784-4B4F-3DA3-2B228C6B66E3}.wem"
-     },
-     {
-      "Id": "591244343",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DEN_Momo_Bark_v3_4.wav",
-      "CachePath": "A2/{A2333FB7-DBE8-F18E-47CC-067F5A30D93F}.wem"
+      "CachePath": "5D/{5D90854A-3EB7-D032-94E7-7ACDAD32DFED}.wem"
      },
      {
       "Id": "607860170",
@@ -198,14 +158,6 @@
       "Location": "Memory",
       "ShortName": "DEN_Momo_AggroReaction_3.wav",
       "CachePath": "6C/{6C8159BB-2DDA-1514-1F15-37602F2B2347}.wem"
-     },
-     {
-      "Id": "689291440",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Den_Crea_v2_9.wav",
-      "CachePath": "74/{74F37F52-8737-2106-EBA8-3C337B862658}.wem"
      },
      {
       "Id": "713462562",
@@ -253,7 +205,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DEN_Momo_WorriedReaction_3.wav",
-      "CachePath": "5E/{5EE1471E-E922-D989-73AD-FFA55EBEDFA3}.wem"
+      "CachePath": "97/{97019892-0C46-8CA5-31AA-A6B6BD36052B}.wem"
      },
      {
       "Id": "861356114",
@@ -309,7 +261,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DEN_Momo_WorriedReaction_2.wav",
-      "CachePath": "F8/{F81DCB18-BC35-9EFD-2383-019827EA58AB}.wem"
+      "CachePath": "F3/{F34094EC-994A-BC21-7014-AC4DDD507AA2}.wem"
      },
      {
       "Id": "1037715869",
@@ -320,6 +272,18 @@
       "CachePath": "1C/{1CDF0BED-6537-C7ED-2B1D-221D8C1DAA4C}.wem"
      }
     ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "664198730",
+       "Name": "Pitch Shifter (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\DEN_Crea_Barks\\DEN_Crea_ReactionBarks\\DEN_Crea_RB_Curious\\[Effect Slot [0]: (Pitch Shifter)]\\Pitch Shifter (Custom)",
+       "GUID": "{3CBE2C33-EBED-46F6-AC6A-2C71E9E63FBE}",
+       "LibName": "Wwise Pitch Shifter",
+       "LibId": "8912899"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "2516003365",
@@ -365,21 +329,6 @@
         "MediaRefs": [
          {
           "Id": "923599935"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "3664495308",
-         "Id": "3467041815",
-         "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
-         "Color": "2",
-         "Default": "true"
-        },
-        "MediaRefs": [
-         {
-          "Id": "689291440"
          }
         ]
        },
@@ -621,32 +570,6 @@
           "Id": "1037715869"
          }
         ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "3079765046",
-         "Id": "3523856042",
-         "GUID": "{88D8C9E8-142E-4396-BDE2-129CA516E641}",
-         "Color": "3"
-        },
-        "MediaRefs": [
-         {
-          "Id": "52209026"
-         },
-         {
-          "Id": "104161470"
-         },
-         {
-          "Id": "229765407"
-         },
-         {
-          "Id": "341457068"
-         },
-         {
-          "Id": "591244343"
-         }
-        ]
        }
       ]
      },
@@ -690,7 +613,14 @@
        {
         "Id": "929683782"
        }
-      ]
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "664198730"
+        }
+       ]
+      }
      },
      {
       "Id": "231948563",
@@ -922,6 +852,6 @@
     ]
    }
   ],
-  "FileHash": "{E1EA1C75-3EE6-4D9D-2E4D-71D1D63B5390}"
+  "FileHash": "{1AD178B8-E61A-21A8-A717-1BFADE62263A}"
  }
 }

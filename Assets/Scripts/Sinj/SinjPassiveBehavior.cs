@@ -41,7 +41,6 @@ namespace Sinj
         public class WalkReaction : SinjReaction
         {
             [SerializeField] private float distance;
-            [SerializeField] private AK.Wwise.Event neutralBark;
             public override void ApplyReaction(SinjAgent agent)
             {
                 agent.Walk(distance);
@@ -51,7 +50,7 @@ namespace Sinj
             {
                 if (agent.IsCloseToDestination())
                 {
-                    agent.PlaySound(neutralBark);
+                    WwisePostEvents.instance.PostRandomMoodEvent();
                     return true;
                 }
                 return false;

@@ -291,6 +291,20 @@
 							</ObjectLists>
 						</RandomSequenceContainer>
 						<ActorMixer Name="DEN_Crea_MoodSteps" ID="{83D6518C-DAF9-4A65-A9B6-EDF65C921986}" ShortID="1052131099">
+							<PropertyList>
+								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -305,7 +319,7 @@
 										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
-												<Value>5</Value>
+												<Value>1</Value>
 											</ValueList>
 										</Property>
 										<Property Name="UseMaxSoundPerInstance" Type="bool">
@@ -398,37 +412,9 @@
 												<ActiveSource Name="Den_Crea_v2_8" ID="{61A5FCCF-201A-4E2B-8E01-D3F8AECC9A1C}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="Den_Crea_v2_9" ID="{4C1EAA44-B10F-4115-9BDD-BFE4F40FAD59}" ShortID="861600858">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Den_Crea_v2_9" ID="{E94164E4-0092-4D7C-A38B-EF56395DDBEB}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Den_Crea_v2_9.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="689291440"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Den_Crea_v2_9" ID="{E94164E4-0092-4D7C-A38B-EF56395DDBEB}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupingBehaviorList>
-											<GroupingBehavior>
-												<ItemRef Name="Den_Crea_v2_9" ID="{4C1EAA44-B10F-4115-9BDD-BFE4F40FAD59}"/>
-											</GroupingBehavior>
 											<GroupingBehavior>
 												<ItemRef Name="Den_Crea_v2_7" ID="{3EED9D45-F5BF-4BA4-B379-8FB1019A299A}"/>
 											</GroupingBehavior>
@@ -450,12 +436,6 @@
 												<SwitchRef Name="DEN_SW_AS_2" ID="{774E5938-7788-4C31-9767-E461F2C0797F}"/>
 												<ItemList>
 													<ItemRef Name="Den_Crea_v2_7" ID="{3EED9D45-F5BF-4BA4-B379-8FB1019A299A}"/>
-												</ItemList>
-											</Grouping>
-											<Grouping>
-												<SwitchRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}"/>
-												<ItemList>
-													<ItemRef Name="Den_Crea_v2_9" ID="{4C1EAA44-B10F-4115-9BDD-BFE4F40FAD59}"/>
 												</ItemList>
 											</Grouping>
 											<Grouping>
@@ -762,7 +742,18 @@
 								<RandomSequenceContainer Name="DEN_Crea_CuriousBark" ID="{38CBD364-36B2-49E5-B1E1-BA232E4CDC08}" ShortID="128644760">
 									<PropertyList>
 										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -888,7 +879,18 @@
 								<RandomSequenceContainer Name="DEN_Crea_WorriedBark" ID="{4929F902-E477-4F6A-950F-A008070E4D51}" ShortID="810436969">
 									<PropertyList>
 										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1014,7 +1016,18 @@
 								<RandomSequenceContainer Name="DEN_Crea_AggroBark" ID="{8351E88B-B819-42B8-B2BB-D876DBBA7B18}" ShortID="429407631">
 									<PropertyList>
 										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1137,92 +1150,38 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="DEN_Crea_NeutralBark" ID="{1DB80794-9F98-4B0D-917E-65F7F64F97C9}" ShortID="720282671">
+								<RandomSequenceContainer Name="DEN_Crea_NeutralBark" ID="{5A10EDF5-9BB4-4AA5-B307-61A0D9BA2ACD}" ShortID="825502843">
 									<PropertyList>
 										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
-										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
-											<Custom>
-												<Conversion Name="Conversion Settings (Custom)" ID="{45985468-8058-47FC-8FA7-9B8DB3E3A8C0}">
-													<PropertyList>
-														<Property Name="Channels" Type="int32">
-															<ValueList>
-																<Value Platform="Mac">4</Value>
-																<Value Platform="Windows">4</Value>
-															</ValueList>
-														</Property>
-														<Property Name="LRMix" Type="Real64">
-															<ValueList>
-																<Value Platform="Mac">0</Value>
-																<Value Platform="Windows">0</Value>
-															</ValueList>
-														</Property>
-														<Property Name="MaxSampleRate" Type="int32">
-															<ValueList>
-																<Value Platform="Mac">48000</Value>
-																<Value Platform="Windows">48000</Value>
-															</ValueList>
-														</Property>
-														<Property Name="MinSampleRate" Type="int32">
-															<ValueList>
-																<Value Platform="Mac">0</Value>
-																<Value Platform="Windows">0</Value>
-															</ValueList>
-														</Property>
-														<Property Name="SampleRate" Type="int32">
-															<ValueList>
-																<Value Platform="Mac">2</Value>
-																<Value Platform="Windows">2</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ConversionPluginInfoList>
-														<ConversionPluginInfo Platform="Mac">
-															<ConversionPlugin Name="" ID="{4CFC2CAA-51AC-44A4-B666-BCA051B4F821}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
-														</ConversionPluginInfo>
-														<ConversionPluginInfo Platform="Windows">
-															<ConversionPlugin Name="" ID="{62CBDB53-F5D6-48D5-833A-94AC9D1656BC}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
-														</ConversionPluginInfo>
-													</ConversionPluginInfoList>
-												</Conversion>
-											</Custom>
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_Momo_Bark_v3_1" ID="{852A3032-3DAB-4013-A631-15FEEA239224}" ShortID="821959455">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Bark_v3_1" ID="{EFAFE88A-F4F6-4184-99BA-DF89BD504DB6}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Bark_v3_1.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="104161470"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Bark_v3_1" ID="{EFAFE88A-F4F6-4184-99BA-DF89BD504DB6}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
 										<Sound Name="DEN_Momo_Bark_v3_2" ID="{06303F73-F92C-4E90-93E4-5BE0C337722D}" ShortID="293567888">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+													<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -1238,26 +1197,26 @@
 												<ActiveSource Name="DEN_Momo_Bark_v3_2" ID="{1A4905D3-3ABA-499F-A5C5-651B0E16CA9D}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Bark_v3_3" ID="{817A064C-2895-4AD5-ACD0-C6CD56642355}" ShortID="488438532">
+										<Sound Name="DEN_Momo_Bark_v3_1" ID="{852A3032-3DAB-4013-A631-15FEEA239224}" ShortID="821959455">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+													<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Bark_v3_3" ID="{F2740AA0-371A-4F58-B36B-4DBCF2B603E1}">
+												<AudioFileSource Name="DEN_Momo_Bark_v3_1" ID="{EFAFE88A-F4F6-4184-99BA-DF89BD504DB6}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Bark_v3_3.wav</AudioFile>
+													<AudioFile>DEN_Momo_Bark_v3_1.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="52209026"/>
+														<MediaID ID="104161470"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Bark_v3_3" ID="{F2740AA0-371A-4F58-B36B-4DBCF2B603E1}" Platform="Linked"/>
+												<ActiveSource Name="DEN_Momo_Bark_v3_1" ID="{EFAFE88A-F4F6-4184-99BA-DF89BD504DB6}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="DEN_Momo_Bark_v3_4" ID="{779AE642-7A41-403B-A7D1-3276C73BA3B0}" ShortID="1070663954">
@@ -1266,7 +1225,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+													<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -1288,7 +1247,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+													<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -1304,26 +1263,29 @@
 												<ActiveSource Name="DEN_Momo_Bark_v3_5" ID="{DDCDED85-8EC4-441C-A34F-B8D108FB76AE}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<Sound Name="DEN_Momo_Bark_v3_3" ID="{817A064C-2895-4AD5-ACD0-C6CD56642355}" ShortID="488438532">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_Momo_Bark_v3_3" ID="{F2740AA0-371A-4F58-B36B-4DBCF2B603E1}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_Momo_Bark_v3_3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="52209026"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_Momo_Bark_v3_3" ID="{F2740AA0-371A-4F58-B36B-4DBCF2B603E1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
-									<ObjectLists>
-										<ObjectList Name="Playlist">
-											<Reference>
-												<ObjectRef Name="DEN_Momo_Bark_v3_1" ID="{852A3032-3DAB-4013-A631-15FEEA239224}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
-											</Reference>
-											<Reference>
-												<ObjectRef Name="DEN_Momo_Bark_v3_2" ID="{06303F73-F92C-4E90-93E4-5BE0C337722D}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
-											</Reference>
-											<Reference>
-												<ObjectRef Name="DEN_Momo_Bark_v3_3" ID="{817A064C-2895-4AD5-ACD0-C6CD56642355}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
-											</Reference>
-											<Reference>
-												<ObjectRef Name="DEN_Momo_Bark_v3_4" ID="{779AE642-7A41-403B-A7D1-3276C73BA3B0}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
-											</Reference>
-											<Reference>
-												<ObjectRef Name="DEN_Momo_Bark_v3_5" ID="{2453A31C-F899-4D1C-86AE-1596B929B008}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
-											</Reference>
-										</ObjectList>
-									</ObjectLists>
 								</RandomSequenceContainer>
 							</ChildrenList>
 							<ObjectLists>
@@ -1412,7 +1374,7 @@
 										<ItemRef Name="DEN_Crea_AggroBark" ID="{8351E88B-B819-42B8-B2BB-D876DBBA7B18}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
-										<ItemRef Name="DEN_Crea_NeutralBark" ID="{1DB80794-9F98-4B0D-917E-65F7F64F97C9}"/>
+										<ItemRef Name="DEN_Crea_NeutralBark" ID="{5A10EDF5-9BB4-4AA5-B307-61A0D9BA2ACD}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
 								<GroupingList>
@@ -1434,16 +1396,24 @@
 											<ItemRef Name="DEN_Crea_AggroBark" ID="{8351E88B-B819-42B8-B2BB-D876DBBA7B18}"/>
 										</ItemList>
 									</Grouping>
-									<Grouping>
-										<SwitchRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}"/>
-										<ItemList>
-											<ItemRef Name="DEN_Crea_NeutralBark" ID="{1DB80794-9F98-4B0D-917E-65F7F64F97C9}"/>
-										</ItemList>
-									</Grouping>
 								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
 						<SwitchContainer Name="DEN_Crea_ReactionBarks" ID="{0BDB5C4C-0A0A-4C18-80B6-C5FCBFADFBD3}" ShortID="199720328">
+							<PropertyList>
+								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1455,6 +1425,17 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="DEN_Crea_RB_Anger" ID="{F7042B61-12A5-4593-B8D2-902F2004CD2C}" ShortID="906265007">
 									<PropertyList>
+										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -1540,7 +1521,18 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="DEN_Crea_RB_Curious" ID="{8FB56826-0B57-49EA-8CA6-A778794E6AC5}" ShortID="577265543">
 									<PropertyList>
+										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -1631,11 +1623,7 @@
 														<ReferenceList>
 															<Reference Name="Effect">
 																<Custom>
-																	<Effect Name="Pitch Shifter (Custom)" ID="{3CBE2C33-EBED-46F6-AC6A-2C71E9E63FBE}" ShortID="664198730" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
-																		<PropertyList>
-																			<Property Name="Pitch" Type="Real32" Value="-600"/>
-																		</PropertyList>
-																	</Effect>
+																	<Effect Name="Pitch Shifter (Custom)" ID="{3CBE2C33-EBED-46F6-AC6A-2C71E9E63FBE}" ShortID="664198730" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3"/>
 																</Custom>
 															</Reference>
 														</ReferenceList>
@@ -1647,6 +1635,17 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="DEN_Crea_RB_Fear" ID="{6CCD3F63-5BA8-4EC4-81B7-546417F8E97D}" ShortID="467728193">
 									<PropertyList>
+										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>

@@ -4,6 +4,13 @@
   "BasePlatform": "Mac",
   "PluginLibs": [
    {
+    "LibName": "Wwise Pitch Shifter",
+    "LibId": "8912899",
+    "Type": "Effect",
+    "DLL": "AkPitchShifter",
+    "StaticLib": "AkPitchShifterFX"
+   },
+   {
     "LibName": "System",
     "LibId": "11403271",
     "Type": "AudioDevice"
@@ -21,6 +28,6 @@
     "StaticLib": "AkChannelRouterFX"
    }
   ],
-  "FileHash": "{BC480219-00B1-9C0E-8E9F-99EAEFAA1FA2}"
+  "FileHash": "{C040FF3E-866F-0980-0A76-77F81EB1DF5B}"
  }
 }

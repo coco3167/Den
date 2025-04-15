@@ -9,6 +9,8 @@ public class WwisePostEvents : MonoBehaviour
 
     [Header("Random Mood Barks")]
     [SerializeField] private AK.Wwise.Event randomMoodEvent;
+    private bool canTriggerEvent = true;
+    [SerializeField] private float eventCooldown = 3f;
 
     [Header("Random Neutral Bark Sequence")]
     [SerializeField] private AK.Wwise.Event neutralEvent;
@@ -53,10 +55,21 @@ public class WwisePostEvents : MonoBehaviour
         }
     }
 
-    // Posts the mood event
     public void PostRandomMoodEvent()
     {
+        if (!canTriggerEvent) return; // Prevent triggering if cooldown is active
+
         randomMoodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+
+        // Start cooldown
+        StartCoroutine(RandomMoodCooldownCoroutine());
+    }
+
+    private IEnumerator RandomMoodCooldownCoroutine()
+    {
+        canTriggerEvent = false; // Disable event triggering
+        yield return new WaitForSeconds(eventCooldown); // Wait for cooldown duration
+        canTriggerEvent = true; // Re-enable event triggering
     }
 
     private IEnumerator TriggerOKBarkSequence()
@@ -64,6 +77,12 @@ public class WwisePostEvents : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(intervalBetweenSequences);
+
+            // Wait until the randomMoodEvent is not playing
+            while (!canTriggerEvent)
+            {
+                yield return null; // Wait for the next frame
+            }
 
             for (int i = 0; i < 5; i++) // Trigger event 5 times in a row  
             {
