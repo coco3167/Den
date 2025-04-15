@@ -162,6 +162,21 @@ namespace Sinj
                 return true;
             }
         }
+
+        public class BarkReaction : SinjReaction
+        {
+            [SerializeField] private AK.Wwise.Event barkEvent;
+
+            public override void ApplyReaction(SinjAgent agent)
+            {
+                agent.PlaySound(barkEvent);
+            }
+
+            public override bool IsFinished(SinjAgent agent)
+            {
+                return true;
+            }
+        }
         #endregion
     }
 }
