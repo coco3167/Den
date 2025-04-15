@@ -165,11 +165,9 @@ namespace Sinj
 
         public class BarkReaction : SinjReaction
         {
-            [SerializeField] private AK.Wwise.Event barkEvent;
-
             public override void ApplyReaction(SinjAgent agent)
             {
-                agent.PlaySound(barkEvent);
+                WwisePostEvents.instance.PostAggroReaction();
             }
 
             public override bool IsFinished(SinjAgent agent)

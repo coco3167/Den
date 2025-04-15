@@ -1396,6 +1396,12 @@
 											<ItemRef Name="DEN_Crea_AggroBark" ID="{8351E88B-B819-42B8-B2BB-D876DBBA7B18}"/>
 										</ItemList>
 									</Grouping>
+									<Grouping>
+										<SwitchRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}"/>
+										<ItemList>
+											<ItemRef Name="DEN_Crea_NeutralBark" ID="{5A10EDF5-9BB4-4AA5-B307-61A0D9BA2ACD}"/>
+										</ItemList>
+									</Grouping>
 								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>

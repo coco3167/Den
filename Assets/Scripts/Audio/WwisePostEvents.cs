@@ -13,7 +13,7 @@ public class WwisePostEvents : MonoBehaviour
     [SerializeField] private float eventCooldown = 3f;
 
     [Header("Random Neutral Bark Sequence")]
-    [SerializeField] private AK.Wwise.Event neutralEvent;
+    [SerializeField] private AK.Wwise.Event okEvent;
     [SerializeField] private float intervalBetweenSequences = 10f; // Time between each sequence  
     [SerializeField] private float minDelayBetweenEvents = 0.1f; // Minimum delay between events in a sequence  
     [SerializeField] private float maxDelayBetweenEvents = 0.5f; // Maximum delay between events in a sequence  
@@ -22,6 +22,12 @@ public class WwisePostEvents : MonoBehaviour
     [SerializeField] private AK.Wwise.Event angerStepsEvent;
     [SerializeField] private AK.Wwise.Event curiousStepsEvent;
     [SerializeField] private AK.Wwise.Event fearStepsEvent;
+
+    [Header("Reaction Barks")]
+    [SerializeField] private AK.Wwise.Event aggroReaction;
+    [SerializeField] private AK.Wwise.Event curiousReaction;
+    [SerializeField] private AK.Wwise.Event fearReaction;
+
 
     void Initialize()
     {
@@ -86,7 +92,7 @@ public class WwisePostEvents : MonoBehaviour
 
             for (int i = 0; i < 5; i++) // Trigger event 5 times in a row  
             {
-                neutralEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+                okEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
                 float delay = Random.Range(minDelayBetweenEvents, maxDelayBetweenEvents);
                 yield return new WaitForSeconds(delay);
             }
@@ -102,5 +108,34 @@ public class WwisePostEvents : MonoBehaviour
     public void PostMoodStepEvent(AK.Wwise.Event moodEvent)
     {
         moodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+    }
+
+    public void PostAggroReaction()
+    {
+        StopAllEvents();
+        aggroReaction.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+    }
+    public void PostCuriousReaction()
+    {
+        StopAllEvents();
+        curiousReaction.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+    }
+    public void PostFearReaction()
+    {
+        StopAllEvents();
+        fearReaction.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+    }
+
+    public void StopAllEvents()
+    {
+        // Stop all events on this GameObject
+        randomMoodEvent.Stop(this.gameObject);
+        okEvent.Stop(this.gameObject);
+        angerStepsEvent.Stop(this.gameObject);
+        curiousStepsEvent.Stop(this.gameObject);
+        fearStepsEvent.Stop(this.gameObject);
+        aggroReaction.Stop(this.gameObject);
+        curiousReaction.Stop(this.gameObject);
+        fearReaction.Stop(this.gameObject);
     }
 }
