@@ -20,7 +20,7 @@ namespace DebugHUD
 
         private void Awake()
         {
-            GameManager.GameReady += Init;
+            GameManager.Instance.GameReady += Init;
         }
 
         private void Update()

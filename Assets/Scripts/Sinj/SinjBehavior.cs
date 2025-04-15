@@ -49,6 +49,7 @@ namespace Sinj
             }
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         public bool IsFinished(SinjAgent agent)
         {
             if (instantenous)
