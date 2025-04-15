@@ -10,7 +10,13 @@ public class GameManager : MonoBehaviour
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
     
     [Title("Pallier")]
-    [SerializeField] private Dictionary<Emotions, AK.Wwise.Event> palliersEvents = new();
+    private Dictionary<Emotions, WwiseMoodState> pallierMoodState = new()
+    {
+        { Emotions.Curiosity, WwiseMoodState.CuriosityState },
+        { Emotions.Agression, WwiseMoodState.AngerState },
+        { Emotions.Fear, WwiseMoodState.FearState },
+
+    };
     private Dictionary<Emotions, int> m_currentPallier = new()
     {
         { Emotions.Curiosity , 0},
@@ -46,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     public void HandlePallier(Emotions emotion, int value)
     {
-        if (m_currentPallier[emotion] + IntervalPallier >= value)
+        if (m_currentPallier[emotion] + IntervalPallier < value)
         {
             PallierReached(emotion);
         }
@@ -57,7 +63,7 @@ public class GameManager : MonoBehaviour
     {
         m_currentPallier[emotion] += IntervalPallier;
         int currentPallierValue = m_currentPallier[emotion];
-        palliersEvents[emotion].Post(gameObject);
+        WwiseStateManager.SetWwiseMoodState(pallierMoodState[emotion]);
         
         if(currentPallierValue == 100)
             OnGameEnded();
