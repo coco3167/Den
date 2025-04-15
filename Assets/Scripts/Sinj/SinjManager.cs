@@ -9,12 +9,12 @@ namespace Sinj
 {
     public class SinjManager : MonoBehaviour, IDebugDisplayAble
     {
-        [Header("Sinjs")]
+        [Title("Sinjs")]
         [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject sinjPrefab;
         [SerializeField, Range(1,10)] private int sinjCount;
         [SerializeField, ReadOnly] private List<SinjAgent> sinjs = new();
 
-        [Header("Emotions")]
+        [Title("Emotions")]
         [SerializeField, ReadOnly] private SerializedDictionary<Emotions, float> emotionsJaugeValues = new();
         [SerializeField] private SerializedDictionary<Emotions, float> emotionsMin;
         [SerializeField] private SerializedDictionary<Emotions, float> emotionsMax;
@@ -22,15 +22,17 @@ namespace Sinj
         [SerializeField, Tooltip("Used to know how many emotion/second is given to SinjManager")]
         private SerializedDictionary<Emotions, AnimationCurve> emotionsTransmissionCurve;
 
-        [Header("Navigation")]
+
+        [Title("Navigation")]
         [SerializeField] private EnvironmentManager environmentManager;
     
-        [Header("Mouse Input")]
+        [Title("Mouse Input")]
         [SerializeField] private MouseManager mouseManager;
     
         private readonly List<DebugParameter> m_debugParameters = new();
         private float m_intensity;
 
+        
         private void Awake()
         {
             sinjs.Clear();
@@ -48,7 +50,7 @@ namespace Sinj
                 emotionsJaugeValues.Add(emotion, 0);
                 m_debugParameters.Add(new DebugParameter(emotion.ToString(), "0"));
             }
-            GameManager.OnGameReady();
+            GameManager.Instance.OnGameReady();
         }
 
         private void FixedUpdate()
@@ -97,7 +99,11 @@ namespace Sinj
 
             value /= 100;
             emotionsJaugeValues[emotion] += curve.Evaluate(value)*Time.deltaTime;
+
+            GameManager.Instance.HandlePallier(emotion, (int)emotionsJaugeValues[emotion]);
         }
+
+        
         #region Debug
         private void UpdateDebugValues()
         {
