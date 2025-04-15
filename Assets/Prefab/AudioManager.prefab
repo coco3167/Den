@@ -240,6 +240,32 @@ MonoBehaviour:
   currentCuriositySwitch: 0
   currentFearSwitch: 0
   currentAngerSwitch: 0
+  switchReactionMoodSeparator: 0
+  switchReactionMood:
+    _serializedList:
+    - Key: 0
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 54b14b782bd45c44f995da4e490c7449, type: 2}
+    - Key: 1
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: fc74a6eb012be6e489ce0c7f73205e62, type: 2}
+    - Key: 2
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: cb803d4831e92d64495d6dad4e120e05, type: 2}
+  currentSwitchReactionMood: 0
+  currentReactionMoodSwitch: 0
   parametersSeparators: 0
   gameParameters:
     _serializedList:
@@ -366,15 +392,25 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 8b113d92fb16beb45a012168821213c2, type: 2}
-  aggroReaction:
+  angerMoodSwitch:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 782bc50c87e686f4fb192d3983a8d567, type: 2}
-  curiousReaction:
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  curiousMoodSwitch:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 249b808681a3b7f4a84a5fd26ed6f6db, type: 2}
-  fearReaction:
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  fearMoodSwitch:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: f40652274c2d49440aa396b01e0c05dc, type: 2}
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  reactionMoodEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}

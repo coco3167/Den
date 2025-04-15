@@ -24,9 +24,7 @@ public class WwisePostEvents : MonoBehaviour
     [SerializeField] private AK.Wwise.Event fearStepsEvent;
 
     [Header("Reaction Barks")]
-    [SerializeField] private AK.Wwise.Event aggroReaction;
-    [SerializeField] private AK.Wwise.Event curiousReaction;
-    [SerializeField] private AK.Wwise.Event fearReaction;
+    [SerializeField] private AK.Wwise.Event reactionMoodEvent;
 
 
     void Initialize()
@@ -110,20 +108,11 @@ public class WwisePostEvents : MonoBehaviour
         moodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
     }
 
-    public void PostAggroReaction()
+    public void PostReactionMoodEvent(WwiseReactionMoodSwitch moodSwitch)
     {
         StopAllEvents();
-        aggroReaction.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
-    }
-    public void PostCuriousReaction()
-    {
-        StopAllEvents();
-        curiousReaction.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
-    }
-    public void PostFearReaction()
-    {
-        StopAllEvents();
-        fearReaction.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+        WwiseSwitchManager.SetWwiseSwitch(moodSwitch, this.gameObject);
+        reactionMoodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
     }
 
     public void StopAllEvents()
@@ -134,8 +123,6 @@ public class WwisePostEvents : MonoBehaviour
         angerStepsEvent.Stop(this.gameObject);
         curiousStepsEvent.Stop(this.gameObject);
         fearStepsEvent.Stop(this.gameObject);
-        aggroReaction.Stop(this.gameObject);
-        curiousReaction.Stop(this.gameObject);
-        fearReaction.Stop(this.gameObject);
+        reactionMoodEvent.Stop(this.gameObject);
     }
 }

@@ -19,9 +19,7 @@ namespace AK
         static const AkUniqueID PLAY_DEN_CREA_FEARSTEPS = 3029527017U;
         static const AkUniqueID PLAY_DEN_CREA_NEUTRALBARK = 1250462805U;
         static const AkUniqueID PLAY_DEN_CREA_RANDOMBARKS = 3621090860U;
-        static const AkUniqueID PLAY_DEN_CREA_RB_ANGER = 3903286686U;
-        static const AkUniqueID PLAY_DEN_CREA_RB_CURIOUS = 1141265601U;
-        static const AkUniqueID PLAY_DEN_CREA_RB_FEAR = 231948563U;
+        static const AkUniqueID PLAY_DEN_CREA_REACTIONBARKS = 3282886900U;
         static const AkUniqueID PLAY_DEN_MUSIC_TEST = 1174350178U;
     } // namespace EVENTS
 
@@ -96,6 +94,18 @@ namespace AK
                 static const AkUniqueID DEN_SW_FS_3 = 3562904913U;
             } // namespace SWITCH
         } // namespace DEN_SW_FEARSTEPS
+
+        namespace DEN_SW_REACTIONMOOD
+        {
+            static const AkUniqueID GROUP = 2393674518U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DEN_SW_RM_ANGER = 550223305U;
+                static const AkUniqueID DEN_SW_RM_CURIOUS = 798839706U;
+                static const AkUniqueID DEN_SW_RM_FEAR = 4041152746U;
+            } // namespace SWITCH
+        } // namespace DEN_SW_REACTIONMOOD
 
     } // namespace SWITCHES
 

@@ -50,6 +50,13 @@ public enum WwiseAngerSwitch
     Anger_2,
     Anger_3,
 }
+public enum WwiseReactionMoodSwitch
+{
+    CuriositySwitch,
+    FearSwitch,
+    AngerSwitch,
+    None,
+}
 
 [RequireComponent(typeof(AkGameObj))]
 public class AudioManager : MonoBehaviour
@@ -80,6 +87,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField, ReadOnly] private WwiseCuriositySwitch currentCuriositySwitch;
     [SerializeField, ReadOnly] private WwiseFearSwitch currentFearSwitch;
     [SerializeField, ReadOnly] private WwiseAngerSwitch currentAngerSwitch;
+
+    [Title("Game State Mood Variables")][ReadOnly, SerializeField, HideLabel] private bool switchReactionMoodSeparator;
+    [SerializeField] public SerializedDictionary<WwiseReactionMoodSwitch, Switch> switchReactionMood;
+    [SerializeField, ReadOnly] private WwiseReactionMoodSwitch currentSwitchReactionMood;
 
     [Title("Wwise Game Parameters")] [ReadOnly, SerializeField, HideLabel] private bool parametersSeparators;
     [SerializeField] private SerializedDictionary<WwiseEmotionStateRTPC, RTPC> gameParameters;
