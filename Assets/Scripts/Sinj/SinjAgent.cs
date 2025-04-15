@@ -17,10 +17,12 @@ namespace Sinj
         
         [Header("Emotions")]
         [SerializeField, ReadOnly] private SerializedDictionary<Emotions, float> emotions;
+        [SerializeField] private SerializedDictionary<Emotions, float> emotionsDisplayCap;
 
         [Title("Animation")]
         [SerializeField] private Animator animator;
-        [SerializeField, Range(0, 3.5f)] private float walkingSpeed, runningSpeed;
+        [SerializeField, Range(0, 3.5f)] private float runningSpeed;
+        [SerializeField] private NavMeshAgentParameters calmAgent, runningAgent;
         
         private StateMachine m_stateMachine = new();
     
@@ -36,6 +38,7 @@ namespace Sinj
         {
             m_navMeshAgent = GetComponent<NavMeshAgent>();
             gameObject.AddComponent<AkGameObj>();
+            SetCalmAgent();
         }
 
         public void Init(MouseManager mouseManager)
@@ -55,8 +58,12 @@ namespace Sinj
 
         private void FixedUpdate()
         {
-            animator.SetBool("Walking", m_navMeshAgent.velocity.magnitude >= walkingSpeed);
-            animator.SetBool("Running", m_navMeshAgent.velocity.magnitude >= runningSpeed);
+            animator.SetBool("Walking", m_navMeshAgent.velocity.magnitude > 0);
+            animator.SetBool("Running", m_navMeshAgent.velocity.magnitude > runningSpeed);
+            
+            animator.SetBool("Curious", emotions[Emotions.Curiosity] >= emotionsDisplayCap[Emotions.Curiosity]);
+            animator.SetBool("Aggression", emotions[Emotions.Agression] >= emotionsDisplayCap[Emotions.Agression]);
+            animator.SetBool("Fear", emotions[Emotions.Fear] >= emotionsDisplayCap[Emotions.Fear]);
             
             transform.localScale = new Vector3(m_navMeshAgent.velocity.x > 0 ? 1f : -1f, 1f, 1f);
         }
@@ -75,6 +82,7 @@ namespace Sinj
 
             if (!m_stateMachine.HasBehavior())
             {
+                SetCalmAgent();
                 m_stateMachine.ChoosePassivBehavior(passiveBehaviors);
                 m_stateMachine.CurrentBehavior.ApplyReaction(this);
             }
@@ -88,6 +96,7 @@ namespace Sinj
             emotions[emotion] = value;
             m_debugParameters[index].UpdateValue(((int)value).ToString());
         }
+        
 
         #region Getter
         public float DistanceToMouse()
@@ -122,6 +131,7 @@ namespace Sinj
             Vector3 directionToFlee = (transform.position - m_mouseManager.GetRawWorldMousePosition()).normalized;
             m_fleeingTarget = distanceToFlee * directionToFlee;
             m_navMeshAgent.SetDestination(transform.position + m_fleeingTarget);
+            SetRunningAgent();
         }
 
         public void Rest(float minTime, float maxTime) {}
@@ -146,6 +156,27 @@ namespace Sinj
         }
         #endregion
 
+        #region AgentParameters
+        private void SetCalmAgent()
+        {
+            m_navMeshAgent.speed = calmAgent.maxSpeed;
+            m_navMeshAgent.acceleration = calmAgent.acceleration;
+        }
+
+        private void SetRunningAgent()
+        {
+            m_navMeshAgent.speed = runningAgent.maxSpeed;
+            m_navMeshAgent.acceleration = runningAgent.acceleration;
+        }
+        
+        [Serializable]
+        private struct NavMeshAgentParameters
+        {
+            [field: SerializeField] public float maxSpeed { get; private set; }
+            [field: SerializeField] public float acceleration { get; private set; }
+        }
+        #endregion
+
         #region Debug
         public int GetParameterCount()
         {
@@ -157,6 +188,8 @@ namespace Sinj
             return m_debugParameters[index];
         }
         #endregion
+
+        
     }
 
     public enum Emotions
