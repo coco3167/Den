@@ -127,11 +127,11 @@ public class AudioManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.CuriosityState, gameStateMoodVisualization, ref currentMoodState);
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState, gameStateMoodVisualization, ref currentMoodState);
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState, gameStateMoodVisualization, ref currentMoodState);
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.CuriosityState, gameStateMoodVisualization, ref currentMoodState);
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {

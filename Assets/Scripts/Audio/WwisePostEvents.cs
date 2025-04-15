@@ -42,37 +42,14 @@ public class WwisePostEvents : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created  
     void Start()
     {
-        //StartCoroutine(TriggerOKBarkSequence());
+        StartCoroutine(TriggerOKBarkSequence());
     }
 
     void Update()
     {
-        int value = -1;
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            value = 0;
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            value = 25;
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            value = 50;
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-            value = 75;
-
-        if (value == -1)
-            return;
-
-        // Set the RTPC value
-        AudioManager.Instance.SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, value);
-
-        // Ensure the event is posted correctly
-        if (angerStepsEvent != null)
         {
-            PostMoodStepEvent(angerStepsEvent);
-            Debug.Log("beep");
-        }
-        else
-        {
-            Debug.LogWarning("angerStepsEvent is not assigned in the inspector.");
+            PostRandomMoodEvent();
         }
     }
 
