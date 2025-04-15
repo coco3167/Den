@@ -5,10 +5,10 @@ using AK.Wwise;
 
 public static class WwiseStateManager
 {
+    static WwiseMoodState currentMoodState = WwiseMoodState.NoneState;
+    static WwiseAudioState currentAudioState = WwiseAudioState.None;
     public static void SetWwiseMoodState(
-        WwiseMoodState stateMood,
-        SerializedDictionary<WwiseMoodState, State> gameStateMoodVisualization,
-        ref WwiseMoodState currentMoodState)
+        WwiseMoodState stateMood)
     {
         if (stateMood == currentMoodState)
         {
@@ -16,22 +16,20 @@ public static class WwiseStateManager
             return;
         }
 
-        if (!gameStateMoodVisualization.ContainsKey(stateMood))
+        if (!AudioManager.Instance.gameStateMoodVisualization.ContainsKey(stateMood))
         {
             Debug.LogError($"Mood state {stateMood} not found in the dictionary.");
             return;
         }
 
-        gameStateMoodVisualization[stateMood].SetValue();
+        AudioManager.Instance.gameStateMoodVisualization[stateMood].SetValue();
 
         Debug.Log("Mood has been set to " + stateMood);
         currentMoodState = stateMood;
     }
 
     public static void SetWwiseAudioState(
-        WwiseAudioState newAudioState,
-        SerializedDictionary<WwiseAudioState, State> audioState,
-        ref WwiseAudioState currentAudioState)
+        WwiseAudioState newAudioState)
     {
         if (newAudioState == currentAudioState)
         {
@@ -39,13 +37,13 @@ public static class WwiseStateManager
             return;
         }
 
-        if (!audioState.ContainsKey(newAudioState))
+        if (!AudioManager.Instance.audioState.ContainsKey(newAudioState))
         {
             Debug.LogError($"Audio state {newAudioState} not found in the dictionary.");
             return;
         }
 
-        audioState[newAudioState].SetValue();
+        AudioManager.Instance.audioState[newAudioState].SetValue();
 
         Debug.Log("Audio state has been set to " + newAudioState);
         currentAudioState = newAudioState;

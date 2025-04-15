@@ -63,11 +63,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private List<Bank> Soundbanks;
 
     [Title("Game State Mood Variables")] [ReadOnly, SerializeField, HideLabel] private bool stateMoodSeparator;
-    [SerializeField] private SerializedDictionary<WwiseMoodState, State> gameStateMoodVisualization;
+    [SerializeField] public SerializedDictionary<WwiseMoodState, State> gameStateMoodVisualization;
     [SerializeField, ReadOnly] private WwiseMoodState currentMoodState;
 
     [Title("Audio State Variables")] [ReadOnly, SerializeField, HideLabel] private bool audioStateSeparator;
-    [SerializeField] private SerializedDictionary<WwiseAudioState, State> audioState;
+    [SerializeField] public SerializedDictionary<WwiseAudioState, State> audioState;
     [SerializeField, ReadOnly] private WwiseAudioState currentAudioState;
     [Title("Mono State Toggle")]
     [SerializeField, ToggleLeft] private bool enableMonoState = false;
@@ -114,11 +114,11 @@ public class AudioManager : MonoBehaviour
     {
         if (enableMonoState)
         {
-            WwiseStateManager.SetWwiseAudioState(WwiseAudioState.Mono, audioState, ref currentAudioState);
+            WwiseStateManager.SetWwiseAudioState(WwiseAudioState.Mono);
         }
         else
-            WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones, audioState, ref currentAudioState);
-        WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState, gameStateMoodVisualization, ref currentMoodState);
+            WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones);
+        WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
 
         //AmbienceTest.Post(gameObject);
     }
@@ -127,19 +127,19 @@ public class AudioManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState, gameStateMoodVisualization, ref currentMoodState);
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.CuriosityState, gameStateMoodVisualization, ref currentMoodState);
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.CuriosityState);
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.FearState, gameStateMoodVisualization, ref currentMoodState);
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.FearState);
         }
         else if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.AngerState, gameStateMoodVisualization, ref currentMoodState);
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.AngerState);
         }
     }
 
@@ -161,8 +161,8 @@ public class AudioManager : MonoBehaviour
             LoadSoundbanks();
         }
 
-        WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NoneState, gameStateMoodVisualization, ref currentMoodState);
-        WwiseStateManager.SetWwiseAudioState(WwiseAudioState.None, audioState, ref currentAudioState);
+        WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NoneState);
+        WwiseStateManager.SetWwiseAudioState(WwiseAudioState.None);
 
         bIsInitialized = true;
     }
