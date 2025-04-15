@@ -162,6 +162,19 @@ namespace Sinj
                 return true;
             }
         }
+
+        public class BarkReaction : SinjReaction
+        {
+            public override void ApplyReaction(SinjAgent agent)
+            {
+                WwisePostEvents.instance.PostAggroReaction();
+            }
+
+            public override bool IsFinished(SinjAgent agent)
+            {
+                return true;
+            }
+        }
         #endregion
     }
 }

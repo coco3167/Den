@@ -9,9 +9,11 @@ public class WwisePostEvents : MonoBehaviour
 
     [Header("Random Mood Barks")]
     [SerializeField] private AK.Wwise.Event randomMoodEvent;
+    private bool canTriggerEvent = true;
+    [SerializeField] private float eventCooldown = 3f;
 
     [Header("Random Neutral Bark Sequence")]
-    [SerializeField] private AK.Wwise.Event neutralEvent;
+    [SerializeField] private AK.Wwise.Event okEvent;
     [SerializeField] private float intervalBetweenSequences = 10f; // Time between each sequence  
     [SerializeField] private float minDelayBetweenEvents = 0.1f; // Minimum delay between events in a sequence  
     [SerializeField] private float maxDelayBetweenEvents = 0.5f; // Maximum delay between events in a sequence  
@@ -20,6 +22,12 @@ public class WwisePostEvents : MonoBehaviour
     [SerializeField] private AK.Wwise.Event angerStepsEvent;
     [SerializeField] private AK.Wwise.Event curiousStepsEvent;
     [SerializeField] private AK.Wwise.Event fearStepsEvent;
+
+    [Header("Reaction Barks")]
+    [SerializeField] private AK.Wwise.Event aggroReaction;
+    [SerializeField] private AK.Wwise.Event curiousReaction;
+    [SerializeField] private AK.Wwise.Event fearReaction;
+
 
     void Initialize()
     {
@@ -42,44 +50,32 @@ public class WwisePostEvents : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created  
     void Start()
     {
-        //StartCoroutine(TriggerOKBarkSequence());
+        StartCoroutine(TriggerOKBarkSequence());
     }
 
     void Update()
     {
-        int value = -1;
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            value = 0;
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            value = 25;
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            value = 50;
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-            value = 75;
-
-        if (value == -1)
-            return;
-
-        // Set the RTPC value
-        AudioManager.Instance.SetWwiseEmotionRTPC(Sinj.Emotions.Agression, this.gameObject, value);
-
-        // Ensure the event is posted correctly
-        if (angerStepsEvent != null)
         {
-            PostMoodStepEvent(angerStepsEvent);
-            Debug.Log("beep");
-        }
-        else
-        {
-            Debug.LogWarning("angerStepsEvent is not assigned in the inspector.");
+            PostRandomMoodEvent();
         }
     }
 
-    // Posts the mood event
     public void PostRandomMoodEvent()
     {
+        if (!canTriggerEvent) return; // Prevent triggering if cooldown is active
+
         randomMoodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+
+        // Start cooldown
+        StartCoroutine(RandomMoodCooldownCoroutine());
+    }
+
+    private IEnumerator RandomMoodCooldownCoroutine()
+    {
+        canTriggerEvent = false; // Disable event triggering
+        yield return new WaitForSeconds(eventCooldown); // Wait for cooldown duration
+        canTriggerEvent = true; // Re-enable event triggering
     }
 
     private IEnumerator TriggerOKBarkSequence()
@@ -88,9 +84,15 @@ public class WwisePostEvents : MonoBehaviour
         {
             yield return new WaitForSeconds(intervalBetweenSequences);
 
+            // Wait until the randomMoodEvent is not playing
+            while (!canTriggerEvent)
+            {
+                yield return null; // Wait for the next frame
+            }
+
             for (int i = 0; i < 5; i++) // Trigger event 5 times in a row  
             {
-                neutralEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+                okEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
                 float delay = Random.Range(minDelayBetweenEvents, maxDelayBetweenEvents);
                 yield return new WaitForSeconds(delay);
             }
@@ -106,5 +108,34 @@ public class WwisePostEvents : MonoBehaviour
     public void PostMoodStepEvent(AK.Wwise.Event moodEvent)
     {
         moodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+    }
+
+    public void PostAggroReaction()
+    {
+        StopAllEvents();
+        aggroReaction.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+    }
+    public void PostCuriousReaction()
+    {
+        StopAllEvents();
+        curiousReaction.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+    }
+    public void PostFearReaction()
+    {
+        StopAllEvents();
+        fearReaction.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+    }
+
+    public void StopAllEvents()
+    {
+        // Stop all events on this GameObject
+        randomMoodEvent.Stop(this.gameObject);
+        okEvent.Stop(this.gameObject);
+        angerStepsEvent.Stop(this.gameObject);
+        curiousStepsEvent.Stop(this.gameObject);
+        fearStepsEvent.Stop(this.gameObject);
+        aggroReaction.Stop(this.gameObject);
+        curiousReaction.Stop(this.gameObject);
+        fearReaction.Stop(this.gameObject);
     }
 }

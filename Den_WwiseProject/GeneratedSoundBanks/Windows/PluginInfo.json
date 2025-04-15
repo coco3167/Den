@@ -4,6 +4,13 @@
   "BasePlatform": "Windows",
   "PluginLibs": [
    {
+    "LibName": "Wwise Pitch Shifter",
+    "LibId": "8912899",
+    "Type": "Effect",
+    "DLL": "AkPitchShifter",
+    "StaticLib": "AkPitchShifterFX"
+   },
+   {
     "LibName": "System",
     "LibId": "11403271",
     "Type": "AudioDevice"
@@ -21,6 +28,6 @@
     "StaticLib": "AkChannelRouterFX"
    }
   ],
-  "FileHash": "{D8FF2143-5928-7231-79C3-9E7C04E43690}"
+  "FileHash": "{30F4E581-752F-E6A4-3BA8-EB88DA72CCA8}"
  }
 }

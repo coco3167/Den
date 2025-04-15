@@ -346,7 +346,8 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: b8c5981e92b81ad4dbcc3c5f4848afb6, type: 2}
-  neutralEvent:
+  eventCooldown: 2
+  okEvent:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: dbf38947144cc3940ad86d28118b9aee, type: 2}
@@ -365,3 +366,15 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 8b113d92fb16beb45a012168821213c2, type: 2}
+  aggroReaction:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 782bc50c87e686f4fb192d3983a8d567, type: 2}
+  curiousReaction:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 249b808681a3b7f4a84a5fd26ed6f6db, type: 2}
+  fearReaction:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: f40652274c2d49440aa396b01e0c05dc, type: 2}
