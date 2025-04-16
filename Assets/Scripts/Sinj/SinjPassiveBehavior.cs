@@ -50,7 +50,16 @@ namespace Sinj
             {
                 if (agent.IsCloseToDestination())
                 {
+                    //TEMP réduction du rate de bark (test)
+                    // float random = Random.Range(0,3);
+                    // if (random >= 2)
+                    // {
+                    //     WwisePostEvents.instance.PostRandomMoodEvent();
+                    // }
+
                     WwisePostEvents.instance.PostRandomMoodEvent();
+                    
+                    
                     return true;
                 }
                 return false;
