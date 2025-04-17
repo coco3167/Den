@@ -168,6 +168,7 @@ namespace Sinj
             public override void ApplyReaction(SinjAgent agent)
             {
                 WwisePostEvents.instance.PostReactionMoodEvent(WwiseReactionMoodSwitch.FearSwitch);
+                //Début fuite
             }
 
             public override bool IsFinished(SinjAgent agent)
