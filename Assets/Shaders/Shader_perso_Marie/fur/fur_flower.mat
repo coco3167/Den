@@ -29,6 +29,10 @@ Material:
         m_Scale: {x: 2.6, y: -2.32}
         m_Offset: {x: 0, y: 0}
     - _FurMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FurMask:
         m_Texture: {fileID: 2800000, guid: 283f81c6ed29adc4cbcef322373315b9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -38,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutout: 0.696
+    - _AlphaCutout: 0
     - _FurScale: 10
     - _NormalScale: 1
     - _ShellAmount: 50

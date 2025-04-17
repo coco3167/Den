@@ -6,6 +6,8 @@
 #include "./Param.hlsl"
 #include "../Common/Common.hlsl"
 
+TEXTURE2D(_FurMask); SAMPLER(sampler_FurMask);
+
 struct Attributes
 {
     float4 positionOS : POSITION;
@@ -83,6 +85,8 @@ inline float3 TransformHClipToWorld(float4 positionCS)
     return mul(UNITY_MATRIX_I_VP, positionCS).xyz;
 }
 
+//TEXTURE2D("FurMask");
+
 float4 frag(Varyings input) : SV_Target
 {
     float2 furUv = input.uv / _BaseMap_ST.xy * _FurScale;
@@ -124,6 +128,8 @@ float4 frag(Varyings input) : SV_Target
     color.rgb += _AmbientColor;
     color.rgb = MixFog(color.rgb, inputData.fogCoord);
 
+    float4 colorSample = SAMPLE_TEXTURE2D(_FurMask, sampler_FurMask, input.uv);
+    color.a = colorSample.r;
     return color;
 }
 

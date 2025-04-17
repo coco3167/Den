@@ -12,6 +12,7 @@ Properties
 
     [Header(Fur)][Space]
     _FurMap("Fur", 2D) = "white" {}
+    _FurMask("FurMask", 2D) = "white" {}
     [Normal] _NormalMap("Normal", 2D) = "bump" {}
     _NormalScale("Normal Scale", Range(0.0, 2.0)) = 1.0
     [IntRange] _ShellAmount("Shell Amount", Range(1, 50)) = 14
@@ -33,14 +34,16 @@ SubShader
 {
     Tags
     {
-        "RenderType" = "Opaque"
+       "RenderType"="Transparent" 
+       "Queue"="Transparent"
         "RenderPipeline" = "UniversalPipeline"
-        "UniversalMaterialType" = "Lit"
+        //"UniversalMaterialType" = "Lit"
         "IgnoreProjector" = "True"
+        
     }
 
     LOD 100
-
+    Blend SrcAlpha OneMinusSrcAlpha
     ZWrite On
     Cull Back
 
