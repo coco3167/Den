@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
-using UnityEngine;
 using AK.Wwise;
 using AYellowpaper.SerializedCollections;
+using Sirenix.OdinInspector;
+using UnityEngine;
 
 public enum WwiseMoodState
 {
@@ -29,7 +29,7 @@ public enum WwiseEmotionStateRTPC
     Tension
 }
 
-public enum WwiseCuriositySwitch 
+public enum WwiseCuriositySwitch
 {
     Curiosity_0,
     Curiosity_1,
@@ -69,17 +69,17 @@ public class AudioManager : MonoBehaviour
     [Title("Startup Soundbanks")]
     [SerializeField] private List<Bank> Soundbanks;
 
-    [Title("Game State Mood Variables")] [ReadOnly, SerializeField, HideLabel] private bool stateMoodSeparator;
+    [Title("Game State Mood Variables")][ReadOnly, SerializeField, HideLabel] private bool stateMoodSeparator;
     [SerializeField] public SerializedDictionary<WwiseMoodState, State> gameStateMoodVisualization;
     [SerializeField, ReadOnly] private WwiseMoodState currentMoodState;
 
-    [Title("Audio State Variables")] [ReadOnly, SerializeField, HideLabel] private bool audioStateSeparator;
+    [Title("Audio State Variables")][ReadOnly, SerializeField, HideLabel] private bool audioStateSeparator;
     [SerializeField] public SerializedDictionary<WwiseAudioState, State> audioState;
     [SerializeField, ReadOnly] private WwiseAudioState currentAudioState;
     [Title("Mono State Toggle")]
     [SerializeField, ToggleLeft] private bool enableMonoState = false;
 
-    [Title("Wwise Mood Switches")] [ReadOnly, SerializeField, HideLabel] private bool moodSwitchSeparator;
+    [Title("Wwise Mood Switches")][ReadOnly, SerializeField, HideLabel] private bool moodSwitchSeparator;
     [SerializeField] private SerializedDictionary<WwiseCuriositySwitch, Switch> moodCuriosity;
     [SerializeField] private SerializedDictionary<WwiseFearSwitch, Switch> moodFear;
     [SerializeField] private SerializedDictionary<WwiseAngerSwitch, Switch> moodAnger;
@@ -90,9 +90,9 @@ public class AudioManager : MonoBehaviour
 
     [Title("Game State Mood Variables")][ReadOnly, SerializeField, HideLabel] private bool switchReactionMoodSeparator;
     [SerializeField] public SerializedDictionary<WwiseReactionMoodSwitch, Switch> switchReactionMood;
-    [SerializeField, ReadOnly] private WwiseReactionMoodSwitch currentSwitchReactionMood;
+    [SerializeField, ReadOnly] public WwiseReactionMoodSwitch currentSwitchReactionMood;
 
-    [Title("Wwise Game Parameters")] [ReadOnly, SerializeField, HideLabel] private bool parametersSeparators;
+    [Title("Wwise Game Parameters")][ReadOnly, SerializeField, HideLabel] private bool parametersSeparators;
     [SerializeField] private SerializedDictionary<WwiseEmotionStateRTPC, RTPC> gameParameters;
 
     [SerializeField, ReadOnly] private SerializedDictionary<WwiseEmotionStateRTPC, float> currentGameParametersValues;
@@ -116,7 +116,7 @@ public class AudioManager : MonoBehaviour
             {WwiseEmotionStateRTPC.Anger, 0f},
             {WwiseEmotionStateRTPC.Intensity, 0f},
             {WwiseEmotionStateRTPC.Tension, 0f},
-        
+
         };
     }
 
@@ -218,7 +218,7 @@ public class AudioManager : MonoBehaviour
     {
         WwiseEmotionStateRTPC emotionStateRtpc = TranslateSinjAgentEmotionToAudioManagerEmotion(emotion);
         RTPC emotionRTPC = gameParameters[emotionStateRtpc];
-        
+
         if (Mathf.Approximately(value, currentGameParametersValues[emotionStateRtpc]))
         {
             Debug.Log($"{emotionStateRtpc.ToString()} value is already set to {value}");
@@ -238,7 +238,7 @@ public class AudioManager : MonoBehaviour
     }
     private WwiseEmotionStateRTPC TranslateSinjAgentEmotionToAudioManagerEmotion(Sinj.Emotions emotion)
     {
-        switch(emotion)
+        switch (emotion)
         {
             case Sinj.Emotions.Curiosity:
                 return WwiseEmotionStateRTPC.Curiosity;
