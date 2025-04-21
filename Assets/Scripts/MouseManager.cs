@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,11 @@ public class MouseManager : MonoBehaviour
     [SerializeField] private Rigidbody mouseRigidBody;
     [SerializeField] private float mouseSensitivity = 1f;
     [SerializeField] private LayerMask terrainLayerMask;
+
+    [SerializeField, ReadOnly] private Vector2 deltaSum;
+
+    private bool m_wasUpdated;
+    private Vector2 m_lastMouseDelta;
     
     private void Awake()
     {
@@ -14,12 +20,26 @@ public class MouseManager : MonoBehaviour
         Mouse.current.WarpCursorPosition(Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f))); 
     }
 
+    private void Update()
+    {
+        m_wasUpdated = true;
+    }
+
     private void OnMouseMoved(InputValue value)
     {
+        if (!m_wasUpdated)
+        {
+            m_lastMouseDelta = value.Get<Vector2>();
+            return;
+        }
+        
+        m_wasUpdated = false;
+
         if(!Application.isFocused)
             return;
         
-        Vector2 mouseDelta = value.Get<Vector2>() * mouseSensitivity * 0.01f;
+        deltaSum += m_lastMouseDelta;
+        Vector2 mouseDelta = m_lastMouseDelta * mouseSensitivity * 0.01f;
         Vector3 mousePos = mouseRigidBody.position + new Vector3(mouseDelta.x, 0.0f, mouseDelta.y);
         
         // Keep the mouse on the ground
