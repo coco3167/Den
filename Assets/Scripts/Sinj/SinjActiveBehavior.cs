@@ -163,11 +163,13 @@ namespace Sinj
             }
         }
 
+        [Serializable]
         public class BarkReaction : SinjReaction
         {
+            [SerializeField] private WwiseReactionMoodSwitch reactionMood;
             public override void ApplyReaction(SinjAgent agent)
             {
-                WwisePostEvents.instance.PostReactionMoodEvent(WwiseReactionMoodSwitch.None);
+                WwisePostEvents.instance.PostReactionMoodEvent(reactionMood);
                 //Début fuite
             }
 

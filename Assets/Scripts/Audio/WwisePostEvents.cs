@@ -109,8 +109,6 @@ public class WwisePostEvents : MonoBehaviour
 
     public void PostReactionMoodEvent(WwiseReactionMoodSwitch moodSwitch)
     {
-        //StopAllEvents();
-        moodSwitch = AudioManager.Instance.currentSwitchReactionMood;
         WwiseSwitchManager.SetWwiseSwitch(moodSwitch, this.gameObject);
         reactionMoodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
     }

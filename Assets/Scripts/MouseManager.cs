@@ -27,7 +27,8 @@ public class MouseManager : MonoBehaviour
 
     private void OnMouseMoved(InputValue value)
     {
-        if (!m_wasUpdated)
+        Vector2 tmpMouseDelta = value.Get<Vector2>();
+        if (tmpMouseDelta.magnitude > 0f)
         {
             m_lastMouseDelta = value.Get<Vector2>();
             return;
