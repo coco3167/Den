@@ -299,7 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a3496d490acd87341aa707fce0291b99, type: 2}
     - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: sinjCount
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: mouseManager
@@ -540,6 +540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3786736935927452777, guid: 4ee617aaf9c401d48acb7d839caa0ee7, type: 3}
+      propertyPath: reactionMoodEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e0a551d38372564daadacf8f3bd8271, type: 2}
     - target: {fileID: 8098472380902549966, guid: 4ee617aaf9c401d48acb7d839caa0ee7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

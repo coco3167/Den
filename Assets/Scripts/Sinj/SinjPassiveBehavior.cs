@@ -1,5 +1,6 @@
 using System;
 using System.Timers;
+using Audio;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -57,7 +58,7 @@ namespace Sinj
                     //     WwisePostEvents.instance.PostRandomMoodEvent();
                     // }
 
-                    WwisePostEvents.instance.PostRandomMoodEvent();
+                    WwisePostEvents.Instance.PostRandomMoodEvent();
                     
                     
                     return true;
