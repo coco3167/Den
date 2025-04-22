@@ -109,11 +109,11 @@ namespace Audio
             moodEvent.Post(gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
         }
 
-        public void PostReactionMoodEvent(WwiseReactionMoodSwitch moodSwitch)
+        public void PostReactionMoodEvent(WwiseReactionMoodSwitch moodSwitch, GameObject target)
         {
             StopAllEvents();
-            WwiseSwitchManager.SetWwiseSwitch(moodSwitch, gameObject);
-            reactionMoodEvent.Post(gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+            WwiseSwitchManager.SetWwiseSwitch(moodSwitch, target);
+            reactionMoodEvent.Post(target, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
         }
 
         private void StopAllEvents()
