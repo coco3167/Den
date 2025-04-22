@@ -31,7 +31,7 @@ namespace Sinj
                     case Comparison.Superior:
                         return distanceToMouse > realDistance;
                     case Comparison.Equal:
-                        return Mathf.Abs(distanceToMouse-realDistance) <= Mathf.Epsilon;
+                        return Mathf.Abs(distanceToMouse - realDistance) <= Mathf.Epsilon;
                 }
                 return false;
             }
@@ -42,7 +42,7 @@ namespace Sinj
         {
             [SerializeField] private float velocity;
             [SerializeField] private Comparison comparison;
-            
+
             public override bool IsApplying(SinjAgent agent)
             {
                 float mouseVelocity = agent.MouseVelocity();
@@ -53,7 +53,7 @@ namespace Sinj
                     case Comparison.Superior:
                         return mouseVelocity > velocity;
                     case Comparison.Equal:
-                        return Mathf.Abs(mouseVelocity-velocity) <= Mathf.Epsilon;
+                        return Mathf.Abs(mouseVelocity - velocity) <= Mathf.Epsilon;
                 }
                 return false;
             }
@@ -87,7 +87,7 @@ namespace Sinj
         public class FleeReaction : SinjReaction
         {
             [field: SerializeField] private float distance;
-            
+
             public override void ApplyReaction(SinjAgent agent)
             {
                 agent.FleeReaction(distance);
@@ -98,12 +98,12 @@ namespace Sinj
                 return agent.IsCloseToDestination();
             }
         }
-        
+
         [Serializable]
         public class TensionReaction : SinjReaction
         {
             [field: SerializeField] private float amount;
-            
+
             public override void ApplyReaction(SinjAgent agent)
             {
                 agent.AddEmotion(amount, Emotions.Tension);
@@ -130,7 +130,7 @@ namespace Sinj
                 return true;
             }
         }
-        
+
         [Serializable]
         public class AgressionReaction : SinjReaction
         {
@@ -146,7 +146,7 @@ namespace Sinj
                 return true;
             }
         }
-        
+
         [Serializable]
         public class FearReaction : SinjReaction
         {
@@ -163,11 +163,13 @@ namespace Sinj
             }
         }
 
+        [Serializable]
         public class BarkReaction : SinjReaction
         {
+            [SerializeField] private WwiseReactionMoodSwitch reactionMood;
             public override void ApplyReaction(SinjAgent agent)
             {
-                WwisePostEvents.instance.PostReactionMoodEvent(WwiseReactionMoodSwitch.FearSwitch);
+                WwisePostEvents.instance.PostReactionMoodEvent(reactionMood);
                 //Début fuite
             }
 

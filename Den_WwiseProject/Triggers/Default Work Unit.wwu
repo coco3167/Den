@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{B103DDF7-861B-459D-A6B4-1E96D8FD348C}" SchemaVersion="123">
 	<Triggers>
-		<WorkUnit Name="Default Work Unit" ID="{B103DDF7-861B-459D-A6B4-1E96D8FD348C}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{B103DDF7-861B-459D-A6B4-1E96D8FD348C}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="14"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<Trigger Name="DEN_TR_AngerStep_01" ID="{85BA9688-B4DD-43FD-BEF1-F33E5334D394}"/>
+				<Trigger Name="DEN_TR_CuriousStep_01" ID="{3DA69738-6590-47AD-BC08-D324B87B80E8}"/>
+				<Trigger Name="DEN_TR_AngerStep_02" ID="{A6C71FCC-B29E-4C5F-84A1-AFE838EFEB6D}"/>
+				<Trigger Name="DEN_TR_AngerStep_03" ID="{C9DC6F6A-49BD-469C-B63B-89DD57DA231D}"/>
+				<Trigger Name="DEN_TR_CuriousStep_02" ID="{0CE8E713-7570-4C86-9071-5C40DAC64400}"/>
+				<Trigger Name="DEN_TR_CuriousStep_03" ID="{8C53BC61-A06A-4F72-BAB2-1A9A5C003A35}"/>
+				<Trigger Name="DEN_TR_FearStep_01" ID="{7492D910-D925-4D87-A967-263982DD04BD}"/>
+				<Trigger Name="DEN_TR_FearStep_02" ID="{CBAE53CB-A677-4876-AE40-A1CF50892C9B}"/>
+				<Trigger Name="DEN_TR_FearStep_03" ID="{B97FF663-29A8-406F-BD14-113833307A02}"/>
+			</ChildrenList>
+		</WorkUnit>
 	</Triggers>
 </WwiseDocument>

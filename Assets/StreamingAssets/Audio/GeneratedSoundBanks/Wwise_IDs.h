@@ -119,6 +119,19 @@ namespace AK
         static const AkUniqueID DEN_GP_TENSIONVALUE = 3189323882U;
     } // namespace GAME_PARAMETERS
 
+    namespace TRIGGERS
+    {
+        static const AkUniqueID DEN_TR_ANGERSTEP_01 = 2123502977U;
+        static const AkUniqueID DEN_TR_ANGERSTEP_02 = 2123502978U;
+        static const AkUniqueID DEN_TR_ANGERSTEP_03 = 2123502979U;
+        static const AkUniqueID DEN_TR_CURIOUSSTEP_01 = 102155032U;
+        static const AkUniqueID DEN_TR_CURIOUSSTEP_02 = 102155035U;
+        static const AkUniqueID DEN_TR_CURIOUSSTEP_03 = 102155034U;
+        static const AkUniqueID DEN_TR_FEARSTEP_01 = 2550257292U;
+        static const AkUniqueID DEN_TR_FEARSTEP_02 = 2550257295U;
+        static const AkUniqueID DEN_TR_FEARSTEP_03 = 2550257294U;
+    } // namespace TRIGGERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;

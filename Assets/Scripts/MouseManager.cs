@@ -19,7 +19,6 @@ public class MouseManager : MonoBehaviour
     private void OnMouseMoved(InputValue value)
     {
         Vector2 tmpMouseDelta = value.Get<Vector2>();
-        Debug.Log(tmpMouseDelta);
         if (tmpMouseDelta.magnitude > 0f)
         {
             deltaSum += tmpMouseDelta;

@@ -17,7 +17,6 @@ MonoBehaviour:
   - rid: 281592812629655630
   SinjReactions:
   - rid: 281592812629655631
-  - rid: 281592978946916425
   references:
     version: 2
     RefIds:
@@ -30,10 +29,3 @@ MonoBehaviour:
       type: {class: SinjActiveBehavior/FleeReaction, ns: Sinj, asm: Assembly-CSharp}
       data:
         distance: 4
-    - rid: 281592978946916425
-      type: {class: SinjActiveBehavior/BarkReaction, ns: Sinj, asm: Assembly-CSharp}
-      data:
-        barkEvent:
-          idInternal: 0
-          valueGuidInternal: 
-          WwiseObjectReference: {fileID: 0}
