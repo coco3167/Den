@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{26EFB630-AB7A-E035-37E5-91828A5ADE97}",
+    "Hash": "{64950F0A-61DA-DBC0-1C80-D8875149F986}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -64,12 +64,30 @@
       "CachePath": "4C/{4C986534-FA07-3792-1E31-CAD873B97A6D}.wem"
      },
      {
+      "Id": "139089741",
+      "Language": "SFX",
+      "Streaming": "true",
+      "Location": "Loose",
+      "ShortName": "DEN_AMB_Neutral_03.wav",
+      "Path": "Media/139089741.wem",
+      "CachePath": "5C/{5CDD6A22-54EF-743D-C09A-DC7C9FDC3FB6}.wem"
+     },
+     {
       "Id": "184895006",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DEN_Momo_OkBark_2.wav",
       "CachePath": "37/{373E648F-0B43-432F-BBA5-185B30A9D916}.wem"
+     },
+     {
+      "Id": "189032292",
+      "Language": "SFX",
+      "Streaming": "true",
+      "Location": "Loose",
+      "ShortName": "DEN_AMB_Neutral_02.wav",
+      "Path": "Media/189032292.wem",
+      "CachePath": "28/{283034B8-6E31-C007-B91F-AE35CCD4A6E4}.wem"
      },
      {
       "Id": "203985488",
@@ -94,6 +112,15 @@
       "Location": "Memory",
       "ShortName": "DEN_Momo_Bark_v3_2.wav",
       "CachePath": "F8/{F874E9B5-EEC8-FE35-A541-15C8C622DD2A}.wem"
+     },
+     {
+      "Id": "261266447",
+      "Language": "SFX",
+      "Streaming": "true",
+      "Location": "Loose",
+      "ShortName": "DEN_AMB_Neutral_04.wav",
+      "Path": "Media/261266447.wem",
+      "CachePath": "AD/{AD5D9871-7EF7-CDBD-8DC9-A0FB81CCB6EF}.wem"
      },
      {
       "Id": "269177123",
@@ -310,6 +337,15 @@
       "Location": "Memory",
       "ShortName": "DEN_Momo_Aggro_4.wav",
       "CachePath": "1C/{1CDF0BED-6537-C7ED-2B1D-221D8C1DAA4C}.wem"
+     },
+     {
+      "Id": "1068937982",
+      "Language": "SFX",
+      "Streaming": "true",
+      "Location": "Loose",
+      "ShortName": "DEN_AMB_Neutral_01.wav",
+      "Path": "Media/1068937982.wem",
+      "CachePath": "22/{2226C7AB-45F4-BCDB-0E53-FE3E5594C9D0}.wem"
      }
     ],
     "Plugins": {
@@ -326,12 +362,79 @@
     },
     "Events": [
      {
-      "Id": "2516003365",
-      "Name": "Play_DEN_Amb_Test",
-      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Amb\\Play_DEN_Amb_Test",
+      "Id": "1394160082",
+      "Name": "Play_DEN_Amb",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Amb\\Play_DEN_Amb",
       "GUID": "{0A0BD5D1-7399-4070-A466-45EDA771A82F}",
       "Color": "4",
-      "DurationType": "Infinite"
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "139089741"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "139089741"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "139089741"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "3523856042",
+         "GUID": "{88D8C9E8-142E-4396-BDE2-129CA516E641}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "139089741"
+         },
+         {
+          "Id": "189032292"
+         },
+         {
+          "Id": "261266447"
+         },
+         {
+          "Id": "1068937982"
+         }
+        ]
+       }
+      ]
      },
      {
       "Id": "2814436364",
@@ -957,6 +1060,6 @@
     ]
    }
   ],
-  "FileHash": "{53292F0F-DAE3-FBDA-4ED2-4BD21BD3BC0D}"
+  "FileHash": "{BBDD1646-C258-C89B-2044-7147619CE446}"
  }
 }

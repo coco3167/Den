@@ -1,7 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	1174350178	Play_Den_Music_Test			\Default Work Unit\DEN_Events_Music\Play_Den_Music_Test	
 	1250462805	Play_DEN_Crea_NeutralBark			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_CreaBarks\Play_DEN_Crea_NeutralBark	
-	2516003365	Play_DEN_Amb_Test			\Default Work Unit\DEN_Events_Amb\Play_DEN_Amb_Test	
+	1394160082	Play_DEN_Amb			\Default Work Unit\DEN_Events_Amb\Play_DEN_Amb	
 	2814436364	Play_DEN_Crea_AngerSteps			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_MoodSteps\Play_DEN_Crea_AngerSteps	
 	3029527017	Play_DEN_Crea_FearSteps			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_MoodSteps\Play_DEN_Crea_FearSteps	
 	3282886900	Play_DEN_Crea_ReactionBarks			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_ReactionBarks\Play_DEN_Crea_ReactionBarks	
@@ -88,4 +88,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	929683782	DEN_Momo_CuriousReaction_2	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\09\{09527668-AC2B-B2FB-8F46-B66F3ECD24EA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_ReactionBarks\DEN_Crea_RB_Curious\DEN_Momo_CuriousReaction_2		352096
 	1020077990	DEN_Momo_WorriedReaction_2	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\F3\{F34094EC-994A-BC21-7014-AC4DDD507AA2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_ReactionBarks\DEN_Crea_RB_Fear\DEN_Momo_WorriedReaction_2		308096
 	1037715869	DEN_Momo_Aggro_4	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\1C\{1CDF0BED-6537-C7ED-2B1D-221D8C1DAA4C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_AggroBark\DEN_Momo_Aggro_4		352096
+
+Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
+	139089741	DEN_AMB_Neutral_03	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\5C\{5CDD6A22-54EF-743D-C09A-DC7C9FDC3FB6}.wem	139089741.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_Amb\DEN_Amb_SwitchGroup\DEN_Amb_Fear\DEN_AMB_Neutral_03	
+	189032292	DEN_AMB_Neutral_02	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\28\{283034B8-6E31-C007-B91F-AE35CCD4A6E4}.wem	189032292.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_Amb\DEN_Amb_SwitchGroup\DEN_Amb_Neutral\DEN_AMB_Neutral_02	
+	261266447	DEN_AMB_Neutral_04	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\AD\{AD5D9871-7EF7-CDBD-8DC9-A0FB81CCB6EF}.wem	261266447.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_Amb\DEN_Amb_SwitchGroup\DEN_Amb_Neutral\DEN_AMB_Neutral_04	
+	1068937982	DEN_AMB_Neutral_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\22\{2226C7AB-45F4-BCDB-0E53-FE3E5594C9D0}.wem	1068937982.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_Amb\DEN_Amb_SwitchGroup\DEN_Amb_Neutral\DEN_AMB_Neutral_01	
 

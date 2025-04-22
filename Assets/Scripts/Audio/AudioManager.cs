@@ -107,6 +107,8 @@ namespace Audio
         [SerializeField] private AK.Wwise.Event PlayAngerStep;
         [SerializeField] private AK.Wwise.Event PlayCuriousStep;
         [SerializeField] private AK.Wwise.Event PlayFearStep;
+        [SerializeField] private AK.Wwise.Event PlayAmbience;
+
 
         private void Awake()
         {
@@ -118,7 +120,6 @@ namespace Audio
                 {WwiseEmotionStateRTPC.Anger, 0f},
                 {WwiseEmotionStateRTPC.Intensity, 0f},
                 {WwiseEmotionStateRTPC.Tension, 0f},
-        
             };
         }
 
@@ -133,7 +134,7 @@ namespace Audio
                 WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones);
             WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
 
-            //AmbienceTest.Post(gameObject);
+            PlayAmbience.Post(this.gameObject);
         }
 
         private void Update()

@@ -7,12 +7,12 @@
 				<Property Name="OverrideColor" Type="bool" Value="True"/>
 			</PropertyList>
 			<ChildrenList>
-				<Event Name="Play_DEN_Amb_Test" ID="{0A0BD5D1-7399-4070-A466-45EDA771A82F}">
+				<Event Name="Play_DEN_Amb" ID="{0A0BD5D1-7399-4070-A466-45EDA771A82F}">
 					<ChildrenList>
 						<Action Name="" ID="{E91FE96F-034A-46C1-B19E-317271251457}" ShortID="940245873">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="DEN_Amb_Test" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+									<ObjectRef Name="DEN_Amb_SwitchGroup" ID="{0E9CD7E4-56E4-4FAE-8243-79EAE6D3183F}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
