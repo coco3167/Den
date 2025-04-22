@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43111cb4a5b9afd479d6e4cd58c47b3a, type: 3}
   m_Name: Rest
   m_EditorClassIdentifier: 
+  instantenous: 0
   SinjStimuli: []
   SinjReactions:
   - rid: 281592812629655629
@@ -21,4 +22,5 @@ MonoBehaviour:
     - rid: 281592812629655629
       type: {class: SinjPassivBehavior/RestReaction, ns: Sinj, asm: Assembly-CSharp}
       data:
-        description: Resting
+        minTime: 0.5
+        maxTime: 5
