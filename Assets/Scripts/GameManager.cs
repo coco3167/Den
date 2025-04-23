@@ -10,15 +10,15 @@ public class GameManager : MonoBehaviour
     [SerializeField, ChildGameObjectsOnly] private EnvironmentManager environmentManager;
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
     
-    [Title("Pallier")]
-    private Dictionary<Emotions, WwiseMoodState> pallierMoodState = new()
+    // Palier
+    private readonly Dictionary<Emotions, WwiseMoodState> m_palierMoodState = new()
     {
         { Emotions.Curiosity, WwiseMoodState.CuriosityState },
         { Emotions.Agression, WwiseMoodState.AngerState },
         { Emotions.Fear, WwiseMoodState.FearState },
 
     };
-    private Dictionary<Emotions, int> m_currentPallier = new()
+    private readonly Dictionary<Emotions, int> m_currentPalier = new()
     {
         { Emotions.Curiosity , 0},
         { Emotions.Agression, 0},
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void HandlePallier(Emotions emotion, int value)
     {
-        if (m_currentPallier[emotion] + IntervalPallier < value)
+        if (m_currentPalier[emotion] + IntervalPallier < value)
         {
             PallierReached(emotion);
         }
@@ -62,11 +62,11 @@ public class GameManager : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private void PallierReached(Emotions emotion)
     {
-        m_currentPallier[emotion] += IntervalPallier;
-        int currentPallierValue = m_currentPallier[emotion];
-        WwiseStateManager.SetWwiseMoodState(pallierMoodState[emotion]);
+        m_currentPalier[emotion] += IntervalPallier;
+        int currentPalierValue = m_currentPalier[emotion];
+        WwiseStateManager.SetWwiseMoodState(m_palierMoodState[emotion]);
         
-        if(currentPallierValue == 100)
+        if(currentPalierValue == 100)
             OnGameEnded();
     }
 }
