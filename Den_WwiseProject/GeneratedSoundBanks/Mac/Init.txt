@@ -1,6 +1,7 @@
 Switch Group	ID	Name			Wwise Object Path	Notes
 	1947237033	DEN_SW_FearSteps			\Default Work Unit\DEN_Switches\DEN_SW_FearSteps	
 	3152036582	DEN_SW_CuriositySteps			\Default Work Unit\DEN_Switches\DEN_SW_CuriositySteps	
+	3572877288	DEN_SW_NeutralSteps			\Default Work Unit\DEN_Switches\DEN_SW_NeutralSteps	
 	3664495308	DEN_SW_AngerSteps			\Default Work Unit\DEN_Switches\DEN_SW_AngerSteps	
 
 Switch	ID	Name	Switch Group			Notes
@@ -12,16 +13,23 @@ Switch	ID	Name	Switch Group			Notes
 	4081255473	DEN_SW_CS_0	DEN_SW_CuriositySteps			
 	4081255474	DEN_SW_CS_3	DEN_SW_CuriositySteps			
 	4081255475	DEN_SW_CS_2	DEN_SW_CuriositySteps			
+	2067990488	DEN_SW_NS_2	DEN_SW_NeutralSteps			
+	2067990489	DEN_SW_NS_3	DEN_SW_NeutralSteps			
+	2067990490	DEN_SW_NS_0	DEN_SW_NeutralSteps			
+	2067990491	DEN_SW_NS_1	DEN_SW_NeutralSteps			
 	3467041812	DEN_SW_AS_3	DEN_SW_AngerSteps			
 	3467041813	DEN_SW_AS_2	DEN_SW_AngerSteps			
 	3467041814	DEN_SW_AS_1	DEN_SW_AngerSteps			
 	3467041815	DEN_SW_AS_0	DEN_SW_AngerSteps			
 
 State Group	ID	Name			Wwise Object Path	Notes
+	1560129083	DEN_State_Ambience			\Default Work Unit\DEN_State_Ambience	
 	1852625376	DEN_State_Audio_Mix			\Default Work Unit\DEN_State_Audio_Mix	
 	3079765046	DEN_State_Mood			\Default Work Unit\DEN_State_Mood	
 
 State	ID	Name	State Group			Notes
+	748895195	None	DEN_State_Ambience			
+	3026507386	DEN_ST_Amb_Playing	DEN_State_Ambience			
 	748895195	None	DEN_State_Audio_Mix			
 	1541385743	DEN_ST_Audio_Mix_StereoHP	DEN_State_Audio_Mix			
 	1960826282	DEN_ST_Audio_Mix_StereoSP	DEN_State_Audio_Mix			

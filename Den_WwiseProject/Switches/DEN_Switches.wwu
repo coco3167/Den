@@ -157,6 +157,52 @@
 						<Switch Name="DEN_SW_RM_Fear" ID="{FBD20FA9-0A2A-4E0B-A22A-88862FEF4CAF}"/>
 					</ChildrenList>
 				</SwitchGroup>
+				<SwitchGroup Name="DEN_SW_NeutralSteps" ID="{10EE25D8-01EB-4384-8CB1-D2E7B680A10C}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="DEN_SW_NS_0" ID="{03457382-9719-4330-8344-2FCD059F9C1B}"/>
+						<Switch Name="DEN_SW_NS_1" ID="{E9468732-B17D-4E74-961B-259F1B1E4DB2}"/>
+						<Switch Name="DEN_SW_NS_2" ID="{FEB495EF-FC28-46F5-B4B8-1259621F84E9}"/>
+						<Switch Name="DEN_SW_NS_3" ID="{EE307804-A00D-4AD6-9F13-99AB80F6703E}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}"/>
+						<Curve Name="" ID="{0B79CA0C-1F67-4843-B9EB-4AA415F88283}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>1</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>25</XPos>
+									<YPos>2</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>50</XPos>
+									<YPos>3</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>75</XPos>
+									<YPos>4</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>100</XPos>
+									<YPos>4</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>

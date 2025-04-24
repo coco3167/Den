@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{51DBA4B3-6699-EC76-F35C-071AA58A9D26}",
+    "Hash": "{F1686F79-51FB-6A87-2435-AA814424C7F5}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -118,6 +118,13 @@
       "Color": "14"
      },
      {
+      "Id": "1734226615",
+      "Name": "DEN_GP_NeutralValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_NeutralValue",
+      "GUID": "{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}",
+      "Color": "14"
+     },
+     {
       "Id": "2578001617",
       "Name": "DEN_GP_CuriosityValue",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_CuriosityValue",
@@ -132,6 +139,13 @@
       "Color": "14"
      },
      {
+      "Id": "3482592633",
+      "Name": "DEN_GP_VolumeMomo",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_VolumeMomo",
+      "GUID": "{2505558E-72AF-4D60-B6F5-EB4362BF0912}",
+      "Color": "14"
+     },
+     {
       "Id": "4122714024",
       "Name": "DEN_GP_FearValue",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_FearValue",
@@ -140,6 +154,29 @@
      }
     ],
     "StateGroups": [
+     {
+      "Id": "1560129083",
+      "Name": "DEN_State_Ambience",
+      "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Ambience",
+      "GUID": "{C20EEE3E-9096-4FE4-8A6D-5A8967A55802}",
+      "Color": "3",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Ambience\\None",
+        "GUID": "{2F3EDCAB-EAFB-4B41-B6AB-6349BECE76CB}",
+        "Color": "3"
+       },
+       {
+        "Id": "3026507386",
+        "Name": "DEN_ST_Amb_Playing",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Ambience\\DEN_ST_Amb_Playing",
+        "GUID": "{591B604F-ED42-451A-9D6A-DB7A0655879F}",
+        "Color": "3"
+       }
+      ]
+     },
      {
       "Id": "1852625376",
       "Name": "DEN_State_Audio_Mix",
@@ -334,6 +371,46 @@
       ]
      },
      {
+      "Id": "3572877288",
+      "Name": "DEN_SW_NeutralSteps",
+      "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_NeutralSteps",
+      "GUID": "{10EE25D8-01EB-4384-8CB1-D2E7B680A10C}",
+      "Color": "2",
+      "GameParameterRef": {
+       "Id": "1734226615"
+      },
+      "Switches": [
+       {
+        "Id": "2067990488",
+        "Name": "DEN_SW_NS_2",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_NeutralSteps\\DEN_SW_NS_2",
+        "GUID": "{FEB495EF-FC28-46F5-B4B8-1259621F84E9}",
+        "Color": "2"
+       },
+       {
+        "Id": "2067990489",
+        "Name": "DEN_SW_NS_3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_NeutralSteps\\DEN_SW_NS_3",
+        "GUID": "{EE307804-A00D-4AD6-9F13-99AB80F6703E}",
+        "Color": "2"
+       },
+       {
+        "Id": "2067990490",
+        "Name": "DEN_SW_NS_0",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_NeutralSteps\\DEN_SW_NS_0",
+        "GUID": "{03457382-9719-4330-8344-2FCD059F9C1B}",
+        "Color": "2"
+       },
+       {
+        "Id": "2067990491",
+        "Name": "DEN_SW_NS_1",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_NeutralSteps\\DEN_SW_NS_1",
+        "GUID": "{E9468732-B17D-4E74-961B-259F1B1E4DB2}",
+        "Color": "2"
+       }
+      ]
+     },
+     {
       "Id": "3664495308",
       "Name": "DEN_SW_AngerSteps",
       "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_AngerSteps",
@@ -376,6 +453,6 @@
     ]
    }
   ],
-  "FileHash": "{E18D0A89-3557-832F-693F-FA7A70C25DB5}"
+  "FileHash": "{7310E580-9FBD-47A7-EE0D-56FD70B944C1}"
  }
 }
