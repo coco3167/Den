@@ -163,7 +163,7 @@ namespace Sinj
             [SerializeField] private WwiseReactionMoodSwitch reactionMood;
             public override void ApplyReaction(SinjAgent agent)
             {
-                WwisePostEvents.instance.PostReactionMoodEvent(reactionMood);
+                WwisePostEvents.Instance.PostReactionMoodEvent(reactionMood);
                 //Début fuite
             }
 
