@@ -7,6 +7,13 @@ namespace Sinj
     [CreateAssetMenu(fileName = "SinjActiveBehavior", menuName = "SinjBehavior/ActiveBehavior", order = 0)]
     public class SinjActiveBehavior : SinjBehavior
     {
+        private enum Comparison
+        {
+            Inferior,
+            Superior,
+            Equal
+        }
+
         #region Stimuli
         [Serializable]
         public class MousePositionStimulus : SinjStimulus
@@ -158,13 +165,12 @@ namespace Sinj
         }
 
         [Serializable]
-        public class BarkReaction : SinjReaction
+        public class AudioReaction : SinjReaction
         {
-            [SerializeField] private WwiseReactionMoodSwitch reactionMood;
+            [SerializeField] private AK.Wwise.Event wwiseEvent;
             public override void ApplyReaction(SinjAgent agent)
             {
-                WwisePostEvents.Instance.PostReactionMoodEvent(reactionMood);
-                //Début fuite
+                wwiseEvent.Post(agent.gameObject);
             }
 
             public override bool IsFinished(SinjAgent agent)

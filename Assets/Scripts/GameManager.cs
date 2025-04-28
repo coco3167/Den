@@ -4,11 +4,15 @@ using Audio;
 using Sinj;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField, ChildGameObjectsOnly] private EnvironmentManager environmentManager;
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
+
+    [SerializeField] private UnityEvent<Emotions> pallierReached;
     
     // Palier
     private readonly Dictionary<Emotions, WwiseMoodState> m_palierMoodState = new()
@@ -35,6 +39,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            pallierReached.AddListener(OnPallierReached);
             return;
         }
         
@@ -55,12 +60,12 @@ public class GameManager : MonoBehaviour
     {
         if (m_currentPalier[emotion] + IntervalPallier < value)
         {
-            PallierReached(emotion);
+            pallierReached.Invoke(emotion);
         }
     }
     
     // ReSharper disable Unity.PerformanceAnalysis
-    private void PallierReached(Emotions emotion)
+    private void OnPallierReached(Emotions emotion)
     {
         m_currentPalier[emotion] += IntervalPallier;
         int currentPalierValue = m_currentPalier[emotion];
