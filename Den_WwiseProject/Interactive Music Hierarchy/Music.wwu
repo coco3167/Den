@@ -7,7 +7,7 @@
 				<Property Name="OverrideColor" Type="bool" Value="True"/>
 			</PropertyList>
 			<ChildrenList>
-				<MusicSwitchContainer Name="Den_Music_Test" ID="{C0EC9950-884D-4CF1-A6B8-995105C8069B}" ShortID="71483550">
+				<MusicSwitchContainer Name="DEN_Music_End" ID="{C0EC9950-884D-4CF1-A6B8-995105C8069B}" ShortID="71483550">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<Custom>
@@ -87,7 +87,6 @@
 							<Reference>
 								<Local>
 									<MultiSwitchEntry Name="" ID="{C9DCFDD8-58E7-43C2-8AA7-FF324D1E9000}">
-										<ReferenceList/>
 										<ObjectLists>
 											<ObjectList Name="EntryPath">
 												<Reference>
@@ -101,7 +100,6 @@
 							<Reference>
 								<Local>
 									<MultiSwitchEntry Name="" ID="{A937BA0E-16C6-43B2-9995-515C755AC305}">
-										<ReferenceList/>
 										<ObjectLists>
 											<ObjectList Name="EntryPath">
 												<Reference>
@@ -115,7 +113,6 @@
 							<Reference>
 								<Local>
 									<MultiSwitchEntry Name="" ID="{374B822A-0C05-4FA5-B896-1E91942CE8E2}">
-										<ReferenceList/>
 										<ObjectLists>
 											<ObjectList Name="EntryPath">
 												<Reference>
@@ -129,7 +126,6 @@
 							<Reference>
 								<Local>
 									<MultiSwitchEntry Name="" ID="{1DA2EDCD-E935-4768-B70C-BAD8F8CD27C2}">
-										<ReferenceList/>
 										<ObjectLists>
 											<ObjectList Name="EntryPath">
 												<Reference>
@@ -143,6 +139,36 @@
 						</ObjectList>
 					</ObjectLists>
 				</MusicSwitchContainer>
+				<MusicPlaylistContainer Name="DEN_Music_Start" ID="{702210DF-B77A-40D4-BAE9-52D600339161}" ShortID="383183233">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+						<Reference Name="PlaylistRoot">
+							<Custom>
+								<MusicPlaylistItem Name="" ID="{227D8B29-EE4A-457F-A75D-28CD167192BC}" ShortID="27607257"/>
+							</Custom>
+						</Reference>
+						<Reference Name="TransitionRoot">
+							<Custom>
+								<MusicTransition Name="Root" ID="{69964187-9AF5-409A-ACA3-27FC6AEA70F9}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{3FAB9B3D-0A33-444D-B82C-A934BFB20DE0}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</Custom>
+						</Reference>
+					</ReferenceList>
+				</MusicPlaylistContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</InteractiveMusic>

@@ -14,12 +14,14 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_DEN_AMB = 1394160082U;
+        static const AkUniqueID PLAY_DEN_BUSHENTER = 1088048986U;
         static const AkUniqueID PLAY_DEN_CREA_ANGERSTEPS = 2814436364U;
         static const AkUniqueID PLAY_DEN_CREA_CURIOUSSTEPS = 3724550301U;
         static const AkUniqueID PLAY_DEN_CREA_FEARSTEPS = 3029527017U;
         static const AkUniqueID PLAY_DEN_CREA_NEUTRALBARK = 1250462805U;
         static const AkUniqueID PLAY_DEN_CREA_RANDOMBARKS = 3621090860U;
         static const AkUniqueID PLAY_DEN_CREA_REACTIONBARKS = 3282886900U;
+        static const AkUniqueID PLAY_DEN_CURSOR = 2777527908U;
         static const AkUniqueID PLAY_DEN_MUSIC_TEST = 1174350178U;
         static const AkUniqueID SET_DEN_AMB_ANGER1 = 1566837199U;
         static const AkUniqueID SET_DEN_AMB_ANGER2 = 1566837196U;
@@ -147,6 +149,7 @@ namespace AK
     {
         static const AkUniqueID DEN_GP_ANGERVALUE = 722514783U;
         static const AkUniqueID DEN_GP_CURIOSITYVALUE = 2578001617U;
+        static const AkUniqueID DEN_GP_CURSORVOLUME = 2230858223U;
         static const AkUniqueID DEN_GP_FEARVALUE = 4122714024U;
         static const AkUniqueID DEN_GP_INTENSITYVALUE = 973587621U;
         static const AkUniqueID DEN_GP_MONO = 1386681402U;

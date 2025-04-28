@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	1088048986	Play_DEN_BushEnter			\Default Work Unit\DEN_Events_SFX\Play_DEN_BushEnter	
 	1174350178	Play_Den_Music_Test			\Default Work Unit\DEN_Events_Music\Play_Den_Music_Test	
 	1250462805	Play_DEN_Crea_NeutralBark			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_CreaBarks\Play_DEN_Crea_NeutralBark	
 	1268512804	Set_DEN_AMB_Curious3			\Default Work Unit\DEN_Events_Amb\DEN_Set_Events\Set_DEN_AMB_Curious3	
@@ -8,6 +9,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1566837196	Set_DEN_AMB_Anger2			\Default Work Unit\DEN_Events_Amb\DEN_Set_Events\Set_DEN_AMB_Anger2	
 	1566837197	Set_DEN_AMB_Anger3			\Default Work Unit\DEN_Events_Amb\DEN_Set_Events\Set_DEN_AMB_Anger3	
 	1566837199	Set_DEN_AMB_Anger1			\Default Work Unit\DEN_Events_Amb\DEN_Set_Events\Set_DEN_AMB_Anger1	
+	2777527908	Play_DEN_Cursor			\Default Work Unit\DEN_Events_SFX\Play_DEN_Cursor	
 	2814436364	Play_DEN_Crea_AngerSteps			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_MoodSteps\Play_DEN_Crea_AngerSteps	
 	3029527017	Play_DEN_Crea_FearSteps			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_MoodSteps\Play_DEN_Crea_FearSteps	
 	3282886900	Play_DEN_Crea_ReactionBarks			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_ReactionBarks\Play_DEN_Crea_ReactionBarks	
@@ -57,24 +59,37 @@ State	ID	Name	State Group			Notes
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	722514783	DEN_GP_AngerValue			\Default Work Unit\DEN_GameParameters\DEN_GP_AngerValue	
 	1734226615	DEN_GP_NeutralValue			\Default Work Unit\DEN_GameParameters\DEN_GP_NeutralValue	
+	2230858223	DEN_GP_CursorVolume			\Default Work Unit\DEN_GameParameters\DEN_GP_CursorVolume	
 	2578001617	DEN_GP_CuriosityValue			\Default Work Unit\DEN_GameParameters\DEN_GP_CuriosityValue	
 	3189323882	DEN_GP_TensionValue			\Default Work Unit\DEN_GameParameters\DEN_GP_TensionValue	
 	4122714024	DEN_GP_FearValue			\Default Work Unit\DEN_GameParameters\DEN_GP_FearValue	
 
+Modulator Envelope	ID	Name			Wwise Object Path	Notes
+	1067662635	Modulator Envelope (Custom)				
+
 Effect plug-ins	ID	Name	Type				Notes
+	344211889	Parametric EQ (Custom)	Wwise Parametric EQ			
 	664198730	Pitch Shifter (Custom)	Wwise Pitch Shifter			
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	93678317	Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_Cursor\DEN_Cursor_Synth\Synth One	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	26191170	Den_Crea_v2_8	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\B5\{B569CD44-CC05-FA02-4F16-E99D7E199683}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodSteps\DEN_Crea_FearSteps\Den_Crea_v2_8		352096
+	35213749	DEN_SFX_TwigBreak_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\D7\{D793E24E-A351-3053-BD02-F77D6854407E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_SFX_TwigBreak_01		133404
 	52209026	DEN_Momo_Bark_v3_3	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\CB\{CB261784-73CD-D1CB-700F-4DF54A6402E7}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_NeutralBark\DEN_Momo_Bark_v3_3		275096
 	91104507	DEN_Momo_CuriousReaction_1	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\80\{8032A1B7-E582-72FD-A667-9CF108BE8D0C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_ReactionBarks\DEN_Crea_RB_Curious\DEN_Momo_CuriousReaction_1		352096
 	95687391	DEN_Momo_Aggro_2	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\81\{81FB7110-1AC6-62C4-505B-4BFB6A1C3B16}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_AggroBark\DEN_Momo_Aggro_2		352096
 	101395926	DEN_Momo_Worried_5	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\7F\{7F80CC18-E388-AE5B-5B3B-E73CAAB529BB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_WorriedBark\DEN_Momo_Worried_5		352096
 	104161470	DEN_Momo_Bark_v3_1	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\4C\{4C986534-FA07-3792-1E31-CAD873B97A6D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_NeutralBark\DEN_Momo_Bark_v3_1		275096
+	115660716	DEN_SFX_BushEnter_04	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\59\{5934F122-81AF-E6A5-0A89-ECA8B9BC6E50}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_BushEnter\DEN_SFX_BushEnter_04		163296
 	184895006	DEN_Momo_OkBark_2	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\37\{373E648F-0B43-432F-BBA5-185B30A9D916}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_NeutralBark\DEN_Momo_OkBark_2		330096
 	203985488	Den_Crea_v2_6	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\EB\{EBB8E993-21DD-89B0-5C4C-FCB8466EE609}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodSteps\DEN_Crea_AngerSteps\Den_Crea_v2_6		330096
 	204851898	DEN_Momo_CuriousReaction_3	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\BC\{BCCA8E6E-73FE-6DDD-5E8D-DCB1FDF5EE98}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_ReactionBarks\DEN_Crea_RB_Curious\DEN_Momo_CuriousReaction_3		352096
+	221872259	DEN_SFX_BushEnter_03	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\72\{72CB98DF-94DD-0696-971A-3FF31CB8936C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_BushEnter\DEN_SFX_BushEnter_03		163296
 	229765407	DEN_Momo_Bark_v3_2	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\F8\{F874E9B5-EEC8-FE35-A541-15C8C622DD2A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_NeutralBark\DEN_Momo_Bark_v3_2		275096
+	248974932	DEN_SFX_TwigBreak_06	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\92\{92F38559-0150-ACDC-C3B3-99A93AD23729}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_SFX_TwigBreak_06		88748
+	254524032	DEN_SFX_BushEnter_05	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\06\{0623AD95-C0EE-5272-B411-9F5905305ECD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_BushEnter\DEN_SFX_BushEnter_05		163296
 	269177123	DEN_Momo_Curious_1	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\04\{04733D1D-495D-95D0-85B9-89E5555348CE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_CuriousBark\DEN_Momo_Curious_1		275096
 	273847295	DEN_Momo_Worried_2	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\11\{11C22F9C-3F1F-2325-F1AD-F464746BAAF3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_WorriedBark\DEN_Momo_Worried_2		352096
 	330068990	DEN_Momo_Curious_4	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\60\{60C5B3CA-F55B-5053-4D17-319A352FEC50}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_CuriousBark\DEN_Momo_Curious_4		286096
@@ -82,19 +97,30 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	344966637	DEN_Momo_Worried_4	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\80\{804A0B4C-8819-3FFD-14C3-69CB78406D39}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_WorriedBark\DEN_Momo_Worried_4		352096
 	361296482	DEN_Momo_Worried_3	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\DB\{DB148164-6E9C-5F75-2475-10EDF7C07BCF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_WorriedBark\DEN_Momo_Worried_3		352096
 	363626620	DEN_Momo_Worried_1	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\5C\{5CD2F1C0-580A-6156-52A2-ADB4003C4F32}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_WorriedBark\DEN_Momo_Worried_1		352096
+	364140952	DEN_SFX_BushEnter_02	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\9C\{9CC59B2F-7F95-AB2E-B677-B4496B66C19A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_BushEnter\DEN_SFX_BushEnter_02		163296
+	365461901	DEN_SFX_TwigBreak_05	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\3E\{3E53AE43-717C-3679-8019-43EF6D342903}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_SFX_TwigBreak_05		119996
 	380663690	DEN_Momo_OkBark_1	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\81\{8171209A-70E9-7F3F-37C1-5AE42A6D8A6A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_NeutralBark\DEN_Momo_OkBark_1		329360
 	384519567	DEN_Momo_WorriedReaction_1	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\5D\{5D90854A-3EB7-D032-94E7-7ACDAD32DFED}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_ReactionBarks\DEN_Crea_RB_Fear\DEN_Momo_WorriedReaction_1		308096
+	430392812	DEN_SFX_TwigBreak_07	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\FD\{FD3ADD1F-2F6B-DA81-40AC-9BE3079FFEE3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_SFX_TwigBreak_07		150140
+	542584419	DEN_SFX_TwigBreak_08	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\8F\{8FE4808A-DC47-DA83-1191-74266721F3AD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_SFX_TwigBreak_08		178604
+	584427654	DEN_SFX_BirdFlap_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\D5\{D5B775E0-FCE8-E033-3182-F024EEC4C490}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_POR_TB_Birds\DEN_SFX_BirdFlap_01		393472
 	591244343	DEN_Momo_Bark_v3_4	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\A2\{A2333FB7-DBE8-F18E-47CC-067F5A30D93F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_NeutralBark\DEN_Momo_Bark_v3_4		275096
 	607860170	DEN_Momo_Aggro_5	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\8C\{8C1075C8-F08D-3425-AF4B-C40B5D0E319D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_AggroBark\DEN_Momo_Aggro_5		352096
+	609478152	DEN_SFX_TwigBreak_03	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\8E\{8E2121CA-30DC-5DAD-32F7-C9CAF1076C46}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_SFX_TwigBreak_03		103568
+	682368646	DEN_SFX_TwigBreak_02	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\9D\{9DE18A83-E42C-6DB9-9A09-1A153E78DAC8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_SFX_TwigBreak_02		128128
 	685101456	DEN_Momo_OkBark_4	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\98\{98A2C6B4-C903-6DC5-6AE3-B69534DC779F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_NeutralBark\DEN_Momo_OkBark_4		330096
 	687121723	DEN_Momo_AggroReaction_3	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\AD\{ADD02BBE-87EF-7318-C8A9-7267A7CA25BA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_ReactionBarks\DEN_Crea_RB_Anger\DEN_Momo_AggroReaction_3		355624
 	713462562	DEN_Momo_OkBark_3	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\0B\{0B80D15E-48A8-2568-4826-110CF7E070A6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_NeutralBark\DEN_Momo_OkBark_3		330096
 	717918867	DEN_Momo_Aggro_1	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\B6\{B606AEC7-B4A1-AA5D-42D6-CFDD40BDB526}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_AggroBark\DEN_Momo_Aggro_1		352096
 	722382847	DEN_Momo_AggroReaction_2	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\09\{0987D811-64A9-BA4F-ACEE-11EEF0586153}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_ReactionBarks\DEN_Crea_RB_Anger\DEN_Momo_AggroReaction_2		288876
 	732856154	DEN_Momo_Aggro_3	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\FA\{FABFAE52-2FFF-E1C5-BF54-1B3252F1DB2F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_AggroBark\DEN_Momo_Aggro_3		352096
+	734944575	DEN_SFX_BushEnter_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\BB\{BBA60BD5-648D-8EF2-339D-096EAF04549F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_BushEnter\DEN_SFX_BushEnter_01		163296
+	747530569	DEN_SFX_TwigBreak_04	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\57\{57E15D53-AC9A-5F3B-BBC5-6853897E231D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_SFX_TwigBreak_04		153116
+	788133295	DEN_SFX_BirdFlap_03	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\94\{9472E1F4-9031-33BD-A433-FA0AE8BF5AF0}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_POR_TB_Birds\DEN_SFX_BirdFlap_03		544148
 	796339457	DEN_Momo_Curious_3	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\3D\{3D02A953-537C-0CA5-B9A5-7A7566CE0573}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_CuriousBark\DEN_Momo_Curious_3		275096
 	856628942	DEN_Momo_WorriedReaction_3	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\97\{97019892-0C46-8CA5-31AA-A6B6BD36052B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_ReactionBarks\DEN_Crea_RB_Fear\DEN_Momo_WorriedReaction_3		308096
 	861356114	DEN_Momo_AggroReaction_1	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\85\{8534ABD1-2822-F977-86D8-D8DAB80B464B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_ReactionBarks\DEN_Crea_RB_Anger\DEN_Momo_AggroReaction_1		299804
+	893594946	DEN_SFX_BirdFlap_02	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\23\{232B4B7A-CC98-CA43-806F-322E7BF6A1D4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_POR_TB_Birds\DEN_SFX_BirdFlap_02		290372
 	893622595	DEN_Momo_Curious_5	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\46\{466ECF5A-EAEB-C56C-4361-C108EC088B52}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_CuriousBark\DEN_Momo_Curious_5		286096
 	909867133	DEN_Momo_Curious_2	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\03\{038604B6-116B-EFC5-5ECC-0AD51BE9DF76}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_CuriousBark\DEN_Momo_Curious_2		275096
 	909878689	DEN_Momo_OkBark_5	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\F5\{F57FA643-75CC-8147-F9D6-EE044EB7D1DE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_NeutralBark\DEN_Momo_OkBark_5		330096

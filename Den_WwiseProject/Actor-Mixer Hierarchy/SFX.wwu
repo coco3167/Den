@@ -1807,6 +1807,606 @@
 						</SwitchContainer>
 					</ChildrenList>
 				</ActorMixer>
+				<ActorMixer Name="DEN_Portals" ID="{13456E35-9D1D-48C9-9AF7-6EDD75499FFC}" ShortID="727508847">
+					<PropertyList>
+						<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>2</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="DEN_POR_BushEnter" ID="{DC48B22C-C329-406E-8DCE-0432BBBC9CAA}" ShortID="690473223">
+							<PropertyList>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverridePriority" Type="bool" Value="True"/>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_SFX_BushEnter_01" ID="{F5E76B3A-0D6B-467B-A75D-B1D201C42ACE}" ShortID="90031501">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_BushEnter_01" ID="{445F41F6-FEC9-479B-9B6F-C7AD8F38893C}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_BushEnter_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="734944575"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_BushEnter_01" ID="{445F41F6-FEC9-479B-9B6F-C7AD8F38893C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_BushEnter_02" ID="{541326D7-E3CB-4279-985B-B5E76814876A}" ShortID="1031803241">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_BushEnter_02" ID="{AB9D7DCD-FE83-4EBC-B65E-0BBF4D8404AE}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_BushEnter_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="364140952"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_BushEnter_02" ID="{AB9D7DCD-FE83-4EBC-B65E-0BBF4D8404AE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_BushEnter_03" ID="{45DBF71A-4792-4D9A-83F9-6BD8061895FF}" ShortID="686054547">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_BushEnter_03" ID="{425ADC63-5291-414B-9BEF-AB51DA08EE09}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_BushEnter_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="221872259"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_BushEnter_03" ID="{425ADC63-5291-414B-9BEF-AB51DA08EE09}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_BushEnter_04" ID="{44C3A71C-361E-451A-89BD-F6744417C760}" ShortID="210212105">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_BushEnter_04" ID="{DA0A9526-0F8C-48AA-B56E-75E036C9E356}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_BushEnter_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="115660716"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_BushEnter_04" ID="{DA0A9526-0F8C-48AA-B56E-75E036C9E356}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_BushEnter_05" ID="{DDD7D629-CBAA-4F5F-A32F-887EABB60B54}" ShortID="576405547">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_BushEnter_05" ID="{F79BF2B1-D41E-44F5-846C-7432B01D3E40}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_BushEnter_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="254524032"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_BushEnter_05" ID="{F79BF2B1-D41E-44F5-846C-7432B01D3E40}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="DEN_POR_TwigBirds" ID="{B2BA2C14-9992-40B8-8633-A5E56D1ADA16}" ShortID="1005610663">
+							<PropertyList>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverridePriority" Type="bool" Value="True"/>
+								<Property Name="Priority" Type="int16">
+									<ValueList>
+										<Value>40</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_SFX_TwigBreak_01" ID="{5B6F8308-12FB-4442-A7DF-7A78A0DEA4B2}" ShortID="481114794">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_01" ID="{D933A798-D5E2-474F-A3B6-CC83E341770B}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="35213749"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_01" ID="{D933A798-D5E2-474F-A3B6-CC83E341770B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_02" ID="{07A31BE9-355F-4A8A-B5FE-1149829C1C1D}" ShortID="704545878">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_02" ID="{01793164-F558-4204-B521-44305C05040F}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="682368646"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_02" ID="{01793164-F558-4204-B521-44305C05040F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_03" ID="{528491D9-D451-4262-9A69-E7730B77C761}" ShortID="990960887">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_03" ID="{E911EB1F-BC3F-4D35-B3BB-D9B2F5E87261}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="609478152"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_03" ID="{E911EB1F-BC3F-4D35-B3BB-D9B2F5E87261}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_04" ID="{8D319C52-3E39-4939-8E72-EEC67CAF1692}" ShortID="497632367">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_04" ID="{22717E05-DA14-403D-8479-36F37F762819}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="747530569"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_04" ID="{22717E05-DA14-403D-8479-36F37F762819}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_05" ID="{C4F77513-E6C5-4308-8507-029C7B4E5600}" ShortID="445034326">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_05" ID="{F2EFB7F2-B2AE-4EB3-942E-3DA2ED4910F9}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="365461901"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_05" ID="{F2EFB7F2-B2AE-4EB3-942E-3DA2ED4910F9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_06" ID="{A7DF23C7-F005-4555-B797-45B967CE6362}" ShortID="661136695">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_06" ID="{6904789B-559E-40B6-91C6-BC2B2AD958FA}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_06.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="248974932"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_06" ID="{6904789B-559E-40B6-91C6-BC2B2AD958FA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_07" ID="{85642848-C4A3-4926-9BD2-164503969C18}" ShortID="139334222">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_07" ID="{03B3F149-3472-47A5-88F1-5A39B55CB5A5}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_07.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="430392812"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_07" ID="{03B3F149-3472-47A5-88F1-5A39B55CB5A5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_08" ID="{65DA6A1D-BBF3-4C7B-B54B-AAA1A2FFFEC4}" ShortID="673066735">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_08" ID="{0986B0A7-EB38-413C-93E8-6F3DEDE14444}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_08.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="542584419"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_08" ID="{0986B0A7-EB38-413C-93E8-6F3DEDE14444}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<RandomSequenceContainer Name="DEN_POR_TB_Birds" ID="{4D0F4A6B-165C-4D84-9F39-9015DDCB86C2}" ShortID="845582085">
+									<PropertyList>
+										<Property Name="3DPosition" Type="int16" Value="1"/>
+										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="50"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_SFX_BirdFlap_02" ID="{1057A25D-CF3B-44DA-8F2E-E71BB8ED9E3C}" ShortID="11701143">
+											<PropertyList>
+												<Property Name="Priority" Type="int16">
+													<ValueList>
+														<Value>40</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_SFX_BirdFlap_02" ID="{AB942F1D-54BF-47B6-A73D-A6E0EF398AB4}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_SFX_BirdFlap_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="893594946"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_SFX_BirdFlap_02" ID="{AB942F1D-54BF-47B6-A73D-A6E0EF398AB4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_SFX_BirdFlap_01" ID="{F0118525-7C18-4823-853C-71CE06461ECA}" ShortID="549420109">
+											<PropertyList>
+												<Property Name="Priority" Type="int16">
+													<ValueList>
+														<Value>40</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_SFX_BirdFlap_01" ID="{3B819070-770E-41F7-BC37-48B747C7D283}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_SFX_BirdFlap_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="584427654"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_SFX_BirdFlap_01" ID="{3B819070-770E-41F7-BC37-48B747C7D283}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_SFX_BirdFlap_03" ID="{746A988A-CF47-4A2E-9119-671FF9BA4EEB}" ShortID="141275878">
+											<PropertyList>
+												<Property Name="Priority" Type="int16">
+													<ValueList>
+														<Value>40</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_SFX_BirdFlap_03" ID="{8371A9B8-58AA-4BDE-A746-E3F4CCE418D7}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_SFX_BirdFlap_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="788133295"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_SFX_BirdFlap_03" ID="{8371A9B8-58AA-4BDE-A746-E3F4CCE418D7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<PositioningInfo>
+										<Position Name="" ID="{33C7A550-1F74-4DC6-84EE-C1042E78E7DC}">
+											<PropertyList>
+												<Property Name="NewPathForEachSound" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismRandomOrSequence" Type="int16" Value="1"/>
+											</PropertyList>
+											<ChildrenList>
+												<Path2D Name="DEN_POR_TB_Birds_Path" ID="{D0AD5052-B8A8-481F-8B41-171E37A785D5}">
+													<PropertyList>
+														<Property Name="Duration" Type="Uint32" Value="2000"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>43.90243</XPos>
+															<YPos>0.21645</YPos>
+															<Flags>12</Flags>
+															<Time>0</Time>
+														</Point>
+														<Point>
+															<XPos>-0.22173</XPos>
+															<YPos>22.07792</YPos>
+															<Flags>0</Flags>
+															<Time>666</Time>
+														</Point>
+														<Point>
+															<XPos>-47.2283813747228</XPos>
+															<YPos>22.9437229437229</YPos>
+															<Flags>0</Flags>
+															<Time>1333</Time>
+														</Point>
+														<Point>
+															<XPos>-70.28825</XPos>
+															<YPos>-1.2987</YPos>
+															<Flags>0</Flags>
+															<Time>2000</Time>
+														</Point>
+													</PointList>
+												</Path2D>
+												<Path2D Name="DEN_POR_TB_Birds_Path_01" ID="{211C7764-318E-4026-A989-340430850919}">
+													<PropertyList>
+														<Property Name="Duration" Type="Uint32" Value="2000"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>-51.88471</XPos>
+															<YPos>-0.21645</YPos>
+															<Flags>12</Flags>
+															<Time>0</Time>
+														</Point>
+														<Point>
+															<XPos>-20.6208425720621</XPos>
+															<YPos>28.5714285714286</YPos>
+															<Flags>0</Flags>
+															<Time>666</Time>
+														</Point>
+														<Point>
+															<XPos>33.9246119733925</XPos>
+															<YPos>32.4675324675325</YPos>
+															<Flags>0</Flags>
+															<Time>1333</Time>
+														</Point>
+														<Point>
+															<XPos>67.1840354767184</XPos>
+															<YPos>4.32900432900433</YPos>
+															<Flags>0</Flags>
+															<Time>2000</Time>
+														</Point>
+													</PointList>
+												</Path2D>
+												<Path2D Name="DEN_POR_TB_Birds_Path_02" ID="{C1C8BC29-96FF-49A6-AB82-58D7FE8A71BF}">
+													<PropertyList>
+														<Property Name="Duration" Type="Uint32" Value="2000"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>-0.44347</XPos>
+															<YPos>-0.21645</YPos>
+															<Flags>12</Flags>
+															<Time>0</Time>
+														</Point>
+														<Point>
+															<XPos>24.1685144124169</XPos>
+															<YPos>6.06060606060606</YPos>
+															<Flags>0</Flags>
+															<Time>666</Time>
+														</Point>
+														<Point>
+															<XPos>77.3835920177384</XPos>
+															<YPos>5.62770562770562</YPos>
+															<Flags>0</Flags>
+															<Time>1333</Time>
+														</Point>
+														<Point>
+															<XPos>93.7915742793792</XPos>
+															<YPos>-10.3896103896104</YPos>
+															<Flags>0</Flags>
+															<Time>2000</Time>
+														</Point>
+													</PointList>
+												</Path2D>
+												<Path2D Name="DEN_POR_TB_Birds_Path_03" ID="{394509AB-A7E4-4653-A9FC-404015DE5DB5}">
+													<PropertyList>
+														<Property Name="Duration" Type="Uint32" Value="2000"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>0.88691</XPos>
+															<YPos>0.21645</YPos>
+															<Flags>12</Flags>
+															<Time>0</Time>
+														</Point>
+														<Point>
+															<XPos>-33.03769</XPos>
+															<YPos>24.24242</YPos>
+															<Flags>0</Flags>
+															<Time>666</Time>
+														</Point>
+														<Point>
+															<XPos>-79.15743</XPos>
+															<YPos>19.04762</YPos>
+															<Flags>0</Flags>
+															<Time>1333</Time>
+														</Point>
+														<Point>
+															<XPos>-96.4523281596452</XPos>
+															<YPos>-6.49350649350649</YPos>
+															<Flags>0</Flags>
+															<Time>2000</Time>
+														</Point>
+													</PointList>
+												</Path2D>
+											</ChildrenList>
+										</Position>
+									</PositioningInfo>
+								</RandomSequenceContainer>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

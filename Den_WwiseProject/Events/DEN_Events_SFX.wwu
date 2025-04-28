@@ -89,6 +89,35 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_DEN_BushEnter" ID="{688C57BA-C181-40AD-B85F-D4D8F97EBC7B}">
+					<ChildrenList>
+						<Action Name="" ID="{768C8DC6-0FE6-4786-9AED-D9AD01ACF33F}" ShortID="406767909">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_POR_BushEnter" ID="{DC48B22C-C329-406E-8DCE-0432BBBC9CAA}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{7E0489F0-AC2B-46CB-A898-D4DD0743A8FE}" ShortID="268176798">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_POR_TwigBirds" ID="{B2BA2C14-9992-40B8-8633-A5E56D1ADA16}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DEN_Cursor" ID="{A06766B9-9417-4EAE-9CC3-BC3EC067FCAA}">
+					<ChildrenList>
+						<Action Name="" ID="{3EADC25E-60F8-4770-A31D-519EE1EAE81E}" ShortID="185590391">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_Cursor_Synth" ID="{FE587BA1-B9E3-4E78-A3A2-BCFA92813262}" WorkUnitID="{F034C3AE-AAFD-4836-9290-B69802A4DEDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
