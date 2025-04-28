@@ -165,13 +165,12 @@ namespace Sinj
         }
 
         [Serializable]
-        public class BarkReaction : SinjReaction
+        public class AudioReaction : SinjReaction
         {
-            [SerializeField] private WwiseReactionMoodSwitch reactionMood;
+            [SerializeField] private AK.Wwise.Event wwiseEvent;
             public override void ApplyReaction(SinjAgent agent)
             {
-                WwisePostEvents.Instance.PostReactionMoodEvent(reactionMood, agent.gameObject);
-                //Début fuite
+                wwiseEvent.Post(agent.gameObject);
             }
 
             public override bool IsFinished(SinjAgent agent)

@@ -4,21 +4,25 @@ using Audio;
 using Sinj;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField, ChildGameObjectsOnly] private EnvironmentManager environmentManager;
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
+
+    [SerializeField] private UnityEvent<Emotions> pallierReached;
     
-    [Title("Pallier")]
-    private Dictionary<Emotions, WwiseMoodState> pallierMoodState = new()
+    // Palier
+    private readonly Dictionary<Emotions, WwiseMoodState> m_palierMoodState = new()
     {
         { Emotions.Curiosity, WwiseMoodState.CuriosityState },
         { Emotions.Agression, WwiseMoodState.AngerState },
         { Emotions.Fear, WwiseMoodState.FearState },
 
     };
-    private Dictionary<Emotions, int> m_currentPallier = new()
+    private readonly Dictionary<Emotions, int> m_currentPalier = new()
     {
         { Emotions.Curiosity , 0},
         { Emotions.Agression, 0},
@@ -35,6 +39,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            pallierReached.AddListener(OnPallierReached);
             return;
         }
         
@@ -53,20 +58,20 @@ public class GameManager : MonoBehaviour
 
     public void HandlePallier(Emotions emotion, int value)
     {
-        if (m_currentPallier[emotion] + IntervalPallier < value)
+        if (m_currentPalier[emotion] + IntervalPallier < value)
         {
-            PallierReached(emotion);
+            pallierReached.Invoke(emotion);
         }
     }
     
     // ReSharper disable Unity.PerformanceAnalysis
-    private void PallierReached(Emotions emotion)
+    private void OnPallierReached(Emotions emotion)
     {
-        m_currentPallier[emotion] += IntervalPallier;
-        int currentPallierValue = m_currentPallier[emotion];
-        WwiseStateManager.SetWwiseMoodState(pallierMoodState[emotion]);
+        m_currentPalier[emotion] += IntervalPallier;
+        int currentPalierValue = m_currentPalier[emotion];
+        WwiseStateManager.SetWwiseMoodState(m_palierMoodState[emotion]);
         
-        if(currentPallierValue == 100)
+        if(currentPalierValue == 100)
             OnGameEnded();
     }
 }
