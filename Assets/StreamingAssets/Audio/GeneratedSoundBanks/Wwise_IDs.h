@@ -13,7 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID PLAY_DEN_AMB_TEST = 2516003365U;
+        static const AkUniqueID PLAY_DEN_AMB = 1394160082U;
         static const AkUniqueID PLAY_DEN_CREA_ANGERSTEPS = 2814436364U;
         static const AkUniqueID PLAY_DEN_CREA_CURIOUSSTEPS = 3724550301U;
         static const AkUniqueID PLAY_DEN_CREA_FEARSTEPS = 3029527017U;

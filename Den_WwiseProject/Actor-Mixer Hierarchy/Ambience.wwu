@@ -7,56 +7,13 @@
 				<Property Name="OverrideColor" Type="bool" Value="True"/>
 			</PropertyList>
 			<ChildrenList>
-				<SwitchContainer Name="DEN_Amb_Test" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" ShortID="964794751">
+				<SwitchContainer Name="DEN_Amb" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" ShortID="964794751">
 					<PropertyList>
 						<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
-							<Custom>
-								<Conversion Name="Conversion Settings (Custom)" ID="{70FA5262-B400-44F2-909F-3CB0B9CD57A5}">
-									<PropertyList>
-										<Property Name="Channels" Type="int32">
-											<ValueList>
-												<Value Platform="Mac">4</Value>
-												<Value Platform="Windows">4</Value>
-											</ValueList>
-										</Property>
-										<Property Name="LRMix" Type="Real64">
-											<ValueList>
-												<Value Platform="Mac">0</Value>
-												<Value Platform="Windows">0</Value>
-											</ValueList>
-										</Property>
-										<Property Name="MaxSampleRate" Type="int32">
-											<ValueList>
-												<Value Platform="Mac">48000</Value>
-												<Value Platform="Windows">48000</Value>
-											</ValueList>
-										</Property>
-										<Property Name="MinSampleRate" Type="int32">
-											<ValueList>
-												<Value Platform="Mac">0</Value>
-												<Value Platform="Windows">0</Value>
-											</ValueList>
-										</Property>
-										<Property Name="SampleRate" Type="int32">
-											<ValueList>
-												<Value Platform="Mac">2</Value>
-												<Value Platform="Windows">2</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ConversionPluginInfoList>
-										<ConversionPluginInfo Platform="Mac">
-											<ConversionPlugin Name="" ID="{C8C18772-6214-4BB7-A2E3-F37D658009F1}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
-										</ConversionPluginInfo>
-										<ConversionPluginInfo Platform="Windows">
-											<ConversionPlugin Name="" ID="{9818B99E-26BF-4C7F-9E55-F37C82A2748E}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
-										</ConversionPluginInfo>
-									</ConversionPluginInfoList>
-								</Conversion>
-							</Custom>
+							<ObjectRef Name="AmbienceConversionSettings" ID="{34A3134F-FEBD-4C1D-BEAF-524D3ABDA36F}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 						</Reference>
 						<Reference Name="DefaultSwitchOrState">
 							<ObjectRef Name="None" ID="{2F3B824F-DD6D-4C55-B51A-EDD7577FA06E}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
@@ -70,12 +27,21 @@
 					</ReferenceList>
 					<ChildrenList>
 						<SwitchContainer Name="DEN_Amb_SwitchGroup" ID="{0E9CD7E4-56E4-4FAE-8243-79EAE6D3183F}" ShortID="1030250815">
+							<PropertyList>
+								<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="None" ID="{2F3B824F-DD6D-4C55-B51A-EDD7577FA06E}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="DEN_State_Mood" ID="{0479447C-0867-4F59-A8A4-199CAE84ECB5}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -134,16 +100,61 @@
 											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_AMB_Neutral_03" ID="{D2286F7F-180B-4BEA-9D22-4FACC9B66571}" ShortID="850724831">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="IsStreamingEnabled" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-16</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_AMB_Neutral_03" ID="{21D6AE9C-C89A-4391-9446-EBA00DF55131}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_AMB_Neutral_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="139089741"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_AMB_Neutral_03" ID="{21D6AE9C-C89A-4391-9446-EBA00DF55131}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
 									<BlendTrackList>
 										<BlendTrack Name="Aggro 1" ID="{D5CB3C22-F973-4443-B2D6-378ABA46BCF3}" ShortID="383785615">
-											<PropertyList>
-												<Property Name="EnableCrossFading" Type="bool" Value="True"/>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="LayerCrossFadeControlInput">
 													<ObjectRef Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
 												</Reference>
 											</ReferenceList>
+											<BlendTrackAssocList>
+												<BlendTrackAssoc>
+													<ItemRef Name="DEN_AMB_Neutral_03" ID="{D2286F7F-180B-4BEA-9D22-4FACC9B66571}"/>
+													<CrossfadingInfo>
+														<LeftEdgePos>0</LeftEdgePos>
+														<LeftFadingMode>Automatic</LeftFadingMode>
+														<RightEdgePos>100</RightEdgePos>
+														<RightFadingMode>Automatic</RightFadingMode>
+													</CrossfadingInfo>
+												</BlendTrackAssoc>
+											</BlendTrackAssocList>
 										</BlendTrack>
 										<BlendTrack Name="Aggro 2" ID="{DF9D7920-D641-4B00-B15F-6CED70C434EF}" ShortID="533921158">
 											<PropertyList>
@@ -232,6 +243,43 @@
 											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_AMB_Neutral_03" ID="{A01BFD51-F7C6-4420-B318-2C83BEAFE372}" ShortID="965681928">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="IsStreamingEnabled" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-16</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_AMB_Neutral_03" ID="{4E60ECB6-8795-4B6C-8401-6FFF61A92660}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_AMB_Neutral_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="139089741"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_AMB_Neutral_03" ID="{4E60ECB6-8795-4B6C-8401-6FFF61A92660}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
 									<BlendTrackList>
 										<BlendTrack Name="Curious 1" ID="{816C8E37-2E8D-47B9-AEC5-069C3C755963}" ShortID="921171552">
 											<PropertyList>
@@ -242,6 +290,17 @@
 													<ObjectRef Name="DEN_GP_CuriosityValue" ID="{4C8EF3DA-5ED7-423F-8B0C-F48F58CE5ABD}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
 												</Reference>
 											</ReferenceList>
+											<BlendTrackAssocList>
+												<BlendTrackAssoc>
+													<ItemRef Name="DEN_AMB_Neutral_03" ID="{A01BFD51-F7C6-4420-B318-2C83BEAFE372}"/>
+													<CrossfadingInfo>
+														<LeftEdgePos>0</LeftEdgePos>
+														<LeftFadingMode>Automatic</LeftFadingMode>
+														<RightEdgePos>100</RightEdgePos>
+														<RightFadingMode>Automatic</RightFadingMode>
+													</CrossfadingInfo>
+												</BlendTrackAssoc>
+											</BlendTrackAssocList>
 										</BlendTrack>
 										<BlendTrack Name="Curious 2" ID="{80C496F5-3B87-4F9D-9F45-06296717C749}" ShortID="802334770">
 											<PropertyList>
@@ -330,6 +389,43 @@
 											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_AMB_Neutral_03" ID="{C59FE1AA-C988-4C05-A06F-DF55B621657A}" ShortID="914713944">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="IsStreamingEnabled" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-16</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_AMB_Neutral_03" ID="{8BD63007-EEB6-4310-B61F-09A45B234331}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_AMB_Neutral_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="139089741"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_AMB_Neutral_03" ID="{8BD63007-EEB6-4310-B61F-09A45B234331}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
 									<BlendTrackList>
 										<BlendTrack Name="New Blend Track" ID="{75A0547F-3A81-4E97-9DC0-6FD0B60D6AC8}" ShortID="814847393">
 											<PropertyList>
@@ -340,6 +436,17 @@
 													<ObjectRef Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
 												</Reference>
 											</ReferenceList>
+											<BlendTrackAssocList>
+												<BlendTrackAssoc>
+													<ItemRef Name="DEN_AMB_Neutral_03" ID="{C59FE1AA-C988-4C05-A06F-DF55B621657A}"/>
+													<CrossfadingInfo>
+														<LeftEdgePos>0</LeftEdgePos>
+														<LeftFadingMode>Automatic</LeftFadingMode>
+														<RightEdgePos>100</RightEdgePos>
+														<RightFadingMode>Automatic</RightFadingMode>
+													</CrossfadingInfo>
+												</BlendTrackAssoc>
+											</BlendTrackAssocList>
 										</BlendTrack>
 										<BlendTrack Name="New Blend Track_01" ID="{0B4E8A2D-AF98-4566-B1A4-628D84DA16C3}" ShortID="653846671">
 											<PropertyList>
@@ -428,16 +535,189 @@
 											<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_AMB_Neutral_01" ID="{A7E61457-F668-4614-BE62-91EC37F35BD7}" ShortID="328576862">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="IsStreamingEnabled" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_AMB_Neutral_01" ID="{89B32AD3-5DAB-441A-BCAD-023DAC2B2FE0}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_AMB_Neutral_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1068937982"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_AMB_Neutral_01" ID="{89B32AD3-5DAB-441A-BCAD-023DAC2B2FE0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_AMB_Neutral_02" ID="{879F1F2C-BEEF-4DF4-91A6-B8DD6E9242D7}" ShortID="567601076">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="IsStreamingEnabled" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_AMB_Neutral_02" ID="{38CAECBA-2860-41E6-A1EC-90C58AC0AAE7}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_AMB_Neutral_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="189032292"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_AMB_Neutral_02" ID="{38CAECBA-2860-41E6-A1EC-90C58AC0AAE7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_AMB_Neutral_03" ID="{F50F022B-1E87-4211-B3D0-66E2D8BCC681}" ShortID="484815581">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="IsStreamingEnabled" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-16</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_AMB_Neutral_03" ID="{16B72264-CEB1-4E0B-8452-DDFB6969EE61}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_AMB_Neutral_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="139089741"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_AMB_Neutral_03" ID="{16B72264-CEB1-4E0B-8452-DDFB6969EE61}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_AMB_Neutral_04" ID="{C243B52F-BAB7-4B02-AEC3-12B3006C281F}" ShortID="672849478">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="IsStreamingEnabled" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_AMB_Neutral_04" ID="{CEDB03F5-A76B-45AD-B4CD-E487D556E1A1}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_AMB_Neutral_04.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="261266447"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_AMB_Neutral_04" ID="{CEDB03F5-A76B-45AD-B4CD-E487D556E1A1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
 									<BlendTrackList>
 										<BlendTrack Name="Neutral" ID="{6E1BC3A0-3DDC-4739-8FB3-7A50A8B46479}" ShortID="1043613176">
-											<PropertyList>
-												<Property Name="EnableCrossFading" Type="bool" Value="True"/>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="LayerCrossFadeControlInput">
 													<ObjectRef Name="DEN_GP_TensionValue" ID="{2BACC983-9E6E-4BBE-8C8E-A1621790A002}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
 												</Reference>
 											</ReferenceList>
+											<BlendTrackAssocList>
+												<BlendTrackAssoc>
+													<ItemRef Name="DEN_AMB_Neutral_01" ID="{A7E61457-F668-4614-BE62-91EC37F35BD7}"/>
+													<CrossfadingInfo>
+														<LeftEdgePos>0</LeftEdgePos>
+														<LeftFadingMode>Automatic</LeftFadingMode>
+														<RightEdgePos>50.00025</RightEdgePos>
+														<RightFadingMode>Manual</RightFadingMode>
+														<RightFadingPos>50.00025</RightFadingPos>
+													</CrossfadingInfo>
+												</BlendTrackAssoc>
+												<BlendTrackAssoc>
+													<ItemRef Name="DEN_AMB_Neutral_03" ID="{F50F022B-1E87-4211-B3D0-66E2D8BCC681}"/>
+													<CrossfadingInfo>
+														<LeftEdgePos>40.00025</LeftEdgePos>
+														<LeftFadingMode>Automatic</LeftFadingMode>
+														<RightEdgePos>60.00025</RightEdgePos>
+														<RightFadingMode>Automatic</RightFadingMode>
+													</CrossfadingInfo>
+												</BlendTrackAssoc>
+												<BlendTrackAssoc>
+													<ItemRef Name="DEN_AMB_Neutral_02" ID="{879F1F2C-BEEF-4DF4-91A6-B8DD6E9242D7}"/>
+													<CrossfadingInfo>
+														<LeftEdgePos>65.000375</LeftEdgePos>
+														<LeftFadingMode>Automatic</LeftFadingMode>
+														<RightEdgePos>82.5004375</RightEdgePos>
+														<RightFadingMode>Automatic</RightFadingMode>
+													</CrossfadingInfo>
+												</BlendTrackAssoc>
+												<BlendTrackAssoc>
+													<ItemRef Name="DEN_AMB_Neutral_04" ID="{C243B52F-BAB7-4B02-AEC3-12B3006C281F}"/>
+													<CrossfadingInfo>
+														<LeftEdgePos>73.75065625</LeftEdgePos>
+														<LeftFadingMode>Automatic</LeftFadingMode>
+														<RightEdgePos>91.25021875</RightEdgePos>
+														<RightFadingMode>Automatic</RightFadingMode>
+													</CrossfadingInfo>
+												</BlendTrackAssoc>
+											</BlendTrackAssocList>
 										</BlendTrack>
 									</BlendTrackList>
 								</BlendContainer>
@@ -449,6 +729,18 @@
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="DEN_Amb_Neutral" ID="{9B7C2336-284F-4B07-B17B-493A40D2D8F9}"/>
+										<PropertyList>
+											<Property Name="FadeInTime" Type="Real64">
+												<ValueList>
+													<Value>3</Value>
+												</ValueList>
+											</Property>
+											<Property Name="FadeOutTime" Type="Real64">
+												<ValueList>
+													<Value>3</Value>
+												</ValueList>
+											</Property>
+										</PropertyList>
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="DEN_Amb_Curious" ID="{5BAECB89-89A5-4CEB-A0BE-A8C545A7A422}"/>
@@ -457,6 +749,32 @@
 										<ItemRef Name="DEN_Amb_Aggro" ID="{B77620AE-79F2-4C24-AEA8-B7C2C9F1ABA9}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="DEN_ST_Mood_Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}"/>
+										<ItemList>
+											<ItemRef Name="DEN_Amb_Fear" ID="{D5ECFF06-D650-4CCA-9BC4-C355EA93BCF6}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}"/>
+										<ItemList>
+											<ItemRef Name="DEN_Amb_Curious" ID="{5BAECB89-89A5-4CEB-A0BE-A8C545A7A422}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
+										<ItemList>
+											<ItemRef Name="DEN_Amb_Aggro" ID="{B77620AE-79F2-4C24-AEA8-B7C2C9F1ABA9}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}"/>
+										<ItemList>
+											<ItemRef Name="DEN_Amb_Neutral" ID="{9B7C2336-284F-4B07-B17B-493A40D2D8F9}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
 					</ChildrenList>
