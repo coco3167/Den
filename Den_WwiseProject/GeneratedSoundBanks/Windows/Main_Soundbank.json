@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{70D5C6BB-2B9F-FF5A-720B-DD6B4CE53B8C}",
+    "Hash": "{C29FE494-BD45-1305-B9B6-D338A32577D3}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -30,6 +30,14 @@
       "Location": "Memory",
       "ShortName": "DEN_SFX_TwigBreak_01.wav",
       "CachePath": "D7/{D793E24E-A351-3053-BD02-F77D6854407E}.wem"
+     },
+     {
+      "Id": "72635150",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_StingerCurious_02.wav",
+      "CachePath": "9F/{9FEECB4F-10B6-4B57-CFA6-50DBAC22F00B}.wem"
      },
      {
       "Id": "93371706",
@@ -81,6 +89,14 @@
       "CachePath": "31/{31FAB8E1-2ABC-3F5D-E3F4-D22A1A995CEF}.wem"
      },
      {
+      "Id": "187854125",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_StingerFear_01.wav",
+      "CachePath": "5B/{5BB6C0A7-4DB0-6A60-3D0D-3B06301B9B27}.wem"
+     },
+     {
       "Id": "188821654",
       "Language": "SFX",
       "Streaming": "false",
@@ -128,6 +144,14 @@
       "Location": "Memory",
       "ShortName": "Momo_Worried_2.wav",
       "CachePath": "AF/{AF406615-92A2-B7F6-84F4-A8414E0D6EE9}.wem"
+     },
+     {
+      "Id": "227242811",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_StingerFear_03.wav",
+      "CachePath": "A1/{A1D408FC-1919-C4AE-6203-03476445E76A}.wem"
      },
      {
       "Id": "247489652",
@@ -180,12 +204,28 @@
       "CachePath": "00/{00034671-2B4B-A643-9101-B7CFB659157D}.wem"
      },
      {
+      "Id": "271366596",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_StingerAnger_02.wav",
+      "CachePath": "99/{99F784B5-D40C-FE83-58B7-B95AD69F9E51}.wem"
+     },
+     {
       "Id": "306006355",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Momo_Worried_3.wav",
       "CachePath": "7D/{7DA74E5B-8E7F-5E41-9897-65AC22B6724D}.wem"
+     },
+     {
+      "Id": "352618498",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_StingerFear_02.wav",
+      "CachePath": "9C/{9C1B1A00-14E3-B3D0-2476-440E046B1B6B}.wem"
      },
      {
       "Id": "358244410",
@@ -278,6 +318,30 @@
       "CachePath": "8E/{8EDF3B41-493C-9463-902B-8601DD465D9D}.wem"
      },
      {
+      "Id": "502492109",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_StingerAnger_03.wav",
+      "CachePath": "9E/{9E8181DE-8D54-852C-E480-0A2FB71D5BD1}.wem"
+     },
+     {
+      "Id": "520509391",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_StingerCurious_01.wav",
+      "CachePath": "3F/{3FA8749D-7B88-DF96-A27A-279C6DC25C3A}.wem"
+     },
+     {
+      "Id": "522845458",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_StingerCurious_03.wav",
+      "CachePath": "02/{02342BC5-9408-A9F3-B55A-A981EAA68CDF}.wem"
+     },
+     {
       "Id": "542584419",
       "Language": "SFX",
       "Streaming": "false",
@@ -326,6 +390,14 @@
       "Location": "Memory",
       "ShortName": "Momo_OK_4.wav",
       "CachePath": "55/{55B83D76-9127-5288-77F2-974FD35C9E0C}.wem"
+     },
+     {
+      "Id": "618592782",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_StingerAnger_01.wav",
+      "CachePath": "54/{543C3167-0242-5C87-BB15-0FF0E3883548}.wem"
      },
      {
       "Id": "622318384",
@@ -680,6 +752,16 @@
           ]
          }
         ]
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "1560129083",
+        "Id": "3026507386",
+        "Name": "DEN_ST_Amb_Playing",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Ambience\\DEN_ST_Amb_Playing",
+        "GUID": "{591B604F-ED42-451A-9D6A-DB7A0655879F}",
+        "Color": "3"
        }
       ]
      },
@@ -1161,15 +1243,348 @@
       "DurationType": "Infinite"
      },
      {
+      "Id": "198938308",
+      "Name": "Play_DEN_Stinger",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\Play_DEN_Stinger",
+      "GUID": "{4F9C075E-F583-4EF9-9C4A-3D605EAE0B52}",
+      "Color": "10",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904915",
+           "GUID": "{32933CAB-CC4B-4F19-A29A-B748581979F0}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "352618498"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904914",
+           "GUID": "{F4E026D3-7E71-460E-836C-75047A2F9C7E}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "187854125"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904912",
+           "GUID": "{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "227242811"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255473",
+           "GUID": "{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "520509391"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255472",
+           "GUID": "{2515C69B-0223-4BD9-94FE-AC12B38F3A17}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "72635150"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255475",
+           "GUID": "{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "522845458"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041814",
+           "GUID": "{0E92D334-2514-41A5-A7AA-F330ADDE3C84}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "271366596"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041813",
+           "GUID": "{774E5938-7788-4C31-9767-E461F2C0797F}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "502492109"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041815",
+           "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "618592782"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
       "Id": "1566837199",
       "Name": "Set_DEN_AMB_Anger1",
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Amb\\DEN_Set_Events\\Set_DEN_AMB_Anger1",
       "GUID": "{F325B204-5816-4930-BB93-25C7EADDC152}",
       "Color": "4",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904915",
+           "GUID": "{32933CAB-CC4B-4F19-A29A-B748581979F0}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "352618498"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904914",
+           "GUID": "{F4E026D3-7E71-460E-836C-75047A2F9C7E}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "187854125"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904912",
+           "GUID": "{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "227242811"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255473",
+           "GUID": "{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "520509391"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255472",
+           "GUID": "{2515C69B-0223-4BD9-94FE-AC12B38F3A17}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "72635150"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255475",
+           "GUID": "{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "522845458"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041814",
+           "GUID": "{0E92D334-2514-41A5-A7AA-F330ADDE3C84}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "271366596"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041813",
+           "GUID": "{774E5938-7788-4C31-9767-E461F2C0797F}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "502492109"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041815",
+           "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "618592782"
+           }
+          ]
+         }
+        ]
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "3079765046",
@@ -1187,10 +1602,171 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Amb\\DEN_Set_Events\\Set_DEN_AMB_Anger2",
       "GUID": "{775EF318-EB6D-4B54-8EEB-DC8FC6B4228C}",
       "Color": "4",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904915",
+           "GUID": "{32933CAB-CC4B-4F19-A29A-B748581979F0}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "352618498"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904914",
+           "GUID": "{F4E026D3-7E71-460E-836C-75047A2F9C7E}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "187854125"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904912",
+           "GUID": "{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "227242811"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255473",
+           "GUID": "{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "520509391"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255472",
+           "GUID": "{2515C69B-0223-4BD9-94FE-AC12B38F3A17}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "72635150"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255475",
+           "GUID": "{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "522845458"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041814",
+           "GUID": "{0E92D334-2514-41A5-A7AA-F330ADDE3C84}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "271366596"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041813",
+           "GUID": "{774E5938-7788-4C31-9767-E461F2C0797F}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "502492109"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041815",
+           "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "618592782"
+           }
+          ]
+         }
+        ]
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "3079765046",
@@ -1208,10 +1784,171 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Amb\\DEN_Set_Events\\Set_DEN_AMB_Anger3",
       "GUID": "{7900FE67-207E-4AC3-8F1A-0DE60F0114D5}",
       "Color": "4",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904915",
+           "GUID": "{32933CAB-CC4B-4F19-A29A-B748581979F0}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "352618498"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904914",
+           "GUID": "{F4E026D3-7E71-460E-836C-75047A2F9C7E}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "187854125"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904912",
+           "GUID": "{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "227242811"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255473",
+           "GUID": "{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "520509391"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255472",
+           "GUID": "{2515C69B-0223-4BD9-94FE-AC12B38F3A17}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "72635150"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255475",
+           "GUID": "{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "522845458"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041814",
+           "GUID": "{0E92D334-2514-41A5-A7AA-F330ADDE3C84}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "271366596"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041813",
+           "GUID": "{774E5938-7788-4C31-9767-E461F2C0797F}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "502492109"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041815",
+           "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "618592782"
+           }
+          ]
+         }
+        ]
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "3079765046",
@@ -1229,10 +1966,171 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Amb\\DEN_Set_Events\\Set_DEN_AMB_Curious1",
       "GUID": "{6C3DD368-3FEF-4216-A593-BC9E683AA5CF}",
       "Color": "4",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904915",
+           "GUID": "{32933CAB-CC4B-4F19-A29A-B748581979F0}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "352618498"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904914",
+           "GUID": "{F4E026D3-7E71-460E-836C-75047A2F9C7E}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "187854125"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904912",
+           "GUID": "{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "227242811"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255473",
+           "GUID": "{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "520509391"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255472",
+           "GUID": "{2515C69B-0223-4BD9-94FE-AC12B38F3A17}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "72635150"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255475",
+           "GUID": "{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "522845458"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041814",
+           "GUID": "{0E92D334-2514-41A5-A7AA-F330ADDE3C84}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "271366596"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041813",
+           "GUID": "{774E5938-7788-4C31-9767-E461F2C0797F}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "502492109"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041815",
+           "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "618592782"
+           }
+          ]
+         }
+        ]
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "3079765046",
@@ -1250,10 +2148,171 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Amb\\DEN_Set_Events\\Set_DEN_AMB_Curious2",
       "GUID": "{0F9FDD0B-A9B3-4F2D-90B6-CD84D6EC4BEF}",
       "Color": "4",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904915",
+           "GUID": "{32933CAB-CC4B-4F19-A29A-B748581979F0}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "352618498"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904914",
+           "GUID": "{F4E026D3-7E71-460E-836C-75047A2F9C7E}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "187854125"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904912",
+           "GUID": "{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "227242811"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255473",
+           "GUID": "{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "520509391"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255472",
+           "GUID": "{2515C69B-0223-4BD9-94FE-AC12B38F3A17}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "72635150"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255475",
+           "GUID": "{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "522845458"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041814",
+           "GUID": "{0E92D334-2514-41A5-A7AA-F330ADDE3C84}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "271366596"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041813",
+           "GUID": "{774E5938-7788-4C31-9767-E461F2C0797F}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "502492109"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041815",
+           "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "618592782"
+           }
+          ]
+         }
+        ]
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "3079765046",
@@ -1271,10 +2330,171 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Amb\\DEN_Set_Events\\Set_DEN_AMB_Curious3",
       "GUID": "{A317E185-8737-4926-B468-9A0D5103E087}",
       "Color": "4",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904915",
+           "GUID": "{32933CAB-CC4B-4F19-A29A-B748581979F0}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "352618498"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904914",
+           "GUID": "{F4E026D3-7E71-460E-836C-75047A2F9C7E}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "187854125"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904912",
+           "GUID": "{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "227242811"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255473",
+           "GUID": "{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "520509391"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255472",
+           "GUID": "{2515C69B-0223-4BD9-94FE-AC12B38F3A17}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "72635150"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255475",
+           "GUID": "{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "522845458"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041814",
+           "GUID": "{0E92D334-2514-41A5-A7AA-F330ADDE3C84}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "271366596"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041813",
+           "GUID": "{774E5938-7788-4C31-9767-E461F2C0797F}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "502492109"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041815",
+           "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "618592782"
+           }
+          ]
+         }
+        ]
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "3079765046",
@@ -1292,10 +2512,171 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Amb\\DEN_Set_Events\\Set_DEN_AMB_Fear1",
       "GUID": "{1F2AB577-3F45-487F-8B4A-3700DD231F21}",
       "Color": "4",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904915",
+           "GUID": "{32933CAB-CC4B-4F19-A29A-B748581979F0}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "352618498"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904914",
+           "GUID": "{F4E026D3-7E71-460E-836C-75047A2F9C7E}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "187854125"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904912",
+           "GUID": "{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "227242811"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255473",
+           "GUID": "{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "520509391"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255472",
+           "GUID": "{2515C69B-0223-4BD9-94FE-AC12B38F3A17}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "72635150"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255475",
+           "GUID": "{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "522845458"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041814",
+           "GUID": "{0E92D334-2514-41A5-A7AA-F330ADDE3C84}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "271366596"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041813",
+           "GUID": "{774E5938-7788-4C31-9767-E461F2C0797F}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "502492109"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041815",
+           "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "618592782"
+           }
+          ]
+         }
+        ]
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "3079765046",
@@ -1313,10 +2694,171 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Amb\\DEN_Set_Events\\Set_DEN_AMB_Fear2",
       "GUID": "{1A10847D-7E97-4F4E-8FBE-BC15238CA4EC}",
       "Color": "4",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904915",
+           "GUID": "{32933CAB-CC4B-4F19-A29A-B748581979F0}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "352618498"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904914",
+           "GUID": "{F4E026D3-7E71-460E-836C-75047A2F9C7E}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "187854125"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904912",
+           "GUID": "{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "227242811"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255473",
+           "GUID": "{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "520509391"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255472",
+           "GUID": "{2515C69B-0223-4BD9-94FE-AC12B38F3A17}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "72635150"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255475",
+           "GUID": "{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "522845458"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041814",
+           "GUID": "{0E92D334-2514-41A5-A7AA-F330ADDE3C84}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "271366596"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041813",
+           "GUID": "{774E5938-7788-4C31-9767-E461F2C0797F}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "502492109"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041815",
+           "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "618592782"
+           }
+          ]
+         }
+        ]
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "3079765046",
@@ -1334,10 +2876,171 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Amb\\DEN_Set_Events\\Set_DEN_AMB_Fear3",
       "GUID": "{4B7E51E9-AC10-4E6C-87EE-6DF7DFBC938B}",
       "Color": "4",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "1511253875",
+         "GUID": "{507F0D05-9ADC-49F3-9139-4B1ECFA45933}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904915",
+           "GUID": "{32933CAB-CC4B-4F19-A29A-B748581979F0}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "352618498"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904914",
+           "GUID": "{F4E026D3-7E71-460E-836C-75047A2F9C7E}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "187854125"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "1947237033",
+           "Id": "3562904912",
+           "GUID": "{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "227242811"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "2378539543",
+         "GUID": "{F29A8F1D-3C50-4323-AA17-159FA662951A}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255473",
+           "GUID": "{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "520509391"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255472",
+           "GUID": "{2515C69B-0223-4BD9-94FE-AC12B38F3A17}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "72635150"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3152036582",
+           "Id": "4081255475",
+           "GUID": "{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "522845458"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3079765046",
+         "Id": "999913598",
+         "GUID": "{2A2FD39A-9F32-4A31-AAD6-183105542CB1}",
+         "Color": "3"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041814",
+           "GUID": "{0E92D334-2514-41A5-A7AA-F330ADDE3C84}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "271366596"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041813",
+           "GUID": "{774E5938-7788-4C31-9767-E461F2C0797F}",
+           "Color": "2"
+          },
+          "MediaRefs": [
+           {
+            "Id": "502492109"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "Switch",
+           "GroupId": "3664495308",
+           "Id": "3467041815",
+           "GUID": "{2F3FCC38-F2B0-472A-B029-A505491A4689}",
+           "Color": "2",
+           "Default": "true"
+          },
+          "MediaRefs": [
+           {
+            "Id": "618592782"
+           }
+          ]
+         }
+        ]
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "3079765046",
@@ -1638,6 +3341,6 @@
     ]
    }
   ],
-  "FileHash": "{E2152095-A0F7-0696-6312-8DBB0FA8306B}"
+  "FileHash": "{4744EDF2-1BBC-92EF-7352-DBF46ED1B000}"
  }
 }
