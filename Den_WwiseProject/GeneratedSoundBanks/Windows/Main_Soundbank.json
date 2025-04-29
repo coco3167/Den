@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{C29FE494-BD45-1305-B9B6-D338A32577D3}",
+    "Hash": "{3690BF78-1A3B-5247-EDE7-EC1E3D47A20C}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -202,6 +202,14 @@
       "ShortName": "DEN_AMB_Neutral_04.wav",
       "Path": "Media/261266447.wem",
       "CachePath": "00/{00034671-2B4B-A643-9101-B7CFB659157D}.wem"
+     },
+     {
+      "Id": "269184436",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_music_1.wav",
+      "CachePath": "DA/{DA93C997-2A2E-BC3B-2D35-259EA4784E90}.wem"
      },
      {
       "Id": "271366596",
@@ -1233,6 +1241,21 @@
         }
        ]
       }
+     },
+     {
+      "Id": "486039834",
+      "Name": "Play_DEN_Music_Start",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Music\\Play_DEN_Music_Start",
+      "GUID": "{D6EDDFA1-D9EE-4D87-9052-09F3956F1301}",
+      "Color": "13",
+      "DurationType": "OneShot",
+      "DurationMin": "14.311717",
+      "DurationMax": "14.311717",
+      "MediaRefs": [
+       {
+        "Id": "269184436"
+       }
+      ]
      },
      {
       "Id": "1174350178",
@@ -3341,6 +3364,6 @@
     ]
    }
   ],
-  "FileHash": "{4744EDF2-1BBC-92EF-7352-DBF46ED1B000}"
+  "FileHash": "{28A6AAC5-E10A-24C0-945A-24858248D2E8}"
  }
 }
