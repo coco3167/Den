@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, ChildGameObjectsOnly] private EnvironmentManager environmentManager;
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
 
-    [SerializeField] private UnityEvent<Emotions> pallierReached;
+    [SerializeField] private UnityEvent<Emotions, int> pallierReached;
     
     // Palier
     private readonly Dictionary<Emotions, WwiseMoodState> m_palierMoodState = new()
@@ -60,18 +60,17 @@ public class GameManager : MonoBehaviour
     {
         if (m_currentPalier[emotion] + IntervalPallier < value)
         {
-            pallierReached.Invoke(emotion);
+            pallierReached.Invoke(emotion, m_currentPalier[emotion] + IntervalPallier);
         }
     }
     
     // ReSharper disable Unity.PerformanceAnalysis
-    private void OnPallierReached(Emotions emotion)
+    private void OnPallierReached(Emotions emotion, int nextPallier)
     {
-        m_currentPalier[emotion] += IntervalPallier;
-        int currentPalierValue = m_currentPalier[emotion];
-        WwiseStateManager.SetWwiseMoodState(m_palierMoodState[emotion]);
+        m_currentPalier[emotion] = nextPallier;
+        //WwiseStateManager.SetWwiseMoodState(m_palierMoodState[emotion]);
         
-        if(currentPalierValue == 100)
+        if(m_currentPalier[emotion] == 100)
             OnGameEnded();
     }
 }
