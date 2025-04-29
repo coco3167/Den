@@ -108,6 +108,8 @@ namespace Audio
         [SerializeField] private AK.Wwise.Event PlayCuriousStep;
         [SerializeField] private AK.Wwise.Event PlayFearStep;
         [SerializeField] private AK.Wwise.Event PlayAmbience;
+        [SerializeField] private AK.Wwise.Event ResetAmbience;
+
 
 
         private void Awake()
@@ -121,6 +123,8 @@ namespace Audio
                 {WwiseEmotionStateRTPC.Intensity, 0f},
                 {WwiseEmotionStateRTPC.Tension, 0f},
             };
+
+            ResetAmbience.Post(this.gameObject);
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -134,7 +138,7 @@ namespace Audio
                 WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones);
             WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
 
-            PlayAmbience.Post(this.gameObject);
+            StartAmbience();
         }
 
         private void Update()
@@ -217,6 +221,10 @@ namespace Audio
             }
         }
 
+        private void StartAmbience()
+        {
+            PlayAmbience.Post(this.gameObject);
+        }
         public void SetWwiseEmotionRTPC(Sinj.Emotions emotion, GameObject target, float value)
         {
             WwiseEmotionStateRTPC emotionStateRtpc = TranslateSinjAgentEmotionToAudioManagerEmotion(emotion);

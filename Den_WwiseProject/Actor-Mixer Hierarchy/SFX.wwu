@@ -1780,10 +1780,17 @@
 				</ActorMixer>
 				<ActorMixer Name="DEN_Portals" ID="{13456E35-9D1D-48C9-9AF7-6EDD75499FFC}" ShortID="727508847">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
 						<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 						<Property Name="MaxSoundPerInstance" Type="int16">
 							<ValueList>
 								<Value>2</Value>
+							</ValueList>
+						</Property>
+						<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="50"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -2376,6 +2383,484 @@
 								</RandomSequenceContainer>
 							</ChildrenList>
 						</RandomSequenceContainer>
+					</ChildrenList>
+				</ActorMixer>
+				<ActorMixer Name="DEN_Stingers" ID="{DA036210-F729-4B1E-A8E7-44BFCB419C66}" ShortID="18197144">
+					<PropertyList>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<SwitchContainer Name="DEN_STI_Mood" ID="{CCD902E3-7036-48E8-98D2-FBBA7101FB35}" ShortID="328749626">
+							<PropertyList>
+								<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="DEN_State_Mood" ID="{0479447C-0867-4F59-A8A4-199CAE84ECB5}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SwitchContainer Name="DEN_STI_Mood_Anger" ID="{E21F51FE-DBDA-4B60-B3E5-02644DBD214B}" ShortID="1033625505">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="DEN_SW_AngerSteps" ID="{432BE505-1DAF-4C27-9B4A-0D9E9A9F2276}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_StingerAnger_01" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}" ShortID="458537793">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerAnger_01" ID="{00035DA7-D8C7-40AB-8C89-6B44F7CC0B8C}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.235384624737959"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerAnger_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="618592782"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerAnger_01" ID="{00035DA7-D8C7-40AB-8C89-6B44F7CC0B8C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerAnger_02" ID="{9A5B90D7-0360-4EC4-9A59-BE5805136EA4}" ShortID="860407037">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerAnger_02" ID="{4DC6EEB0-41BA-478E-AE73-24592F864809}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.283845337996116"/>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerAnger_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="271366596"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerAnger_02" ID="{4DC6EEB0-41BA-478E-AE73-24592F864809}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerAnger_03" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}" ShortID="762027477">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerAnger_03" ID="{51B31D58-227A-4471-A68E-2BB92EFBFA93}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.228461547539784"/>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerAnger_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="502492109"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerAnger_03" ID="{51B31D58-227A-4471-A68E-2BB92EFBFA93}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerAnger_01" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerAnger_03" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerAnger_02" ID="{9A5B90D7-0360-4EC4-9A59-BE5805136EA4}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_AS_1" ID="{0E92D334-2514-41A5-A7AA-F330ADDE3C84}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerAnger_02" ID="{9A5B90D7-0360-4EC4-9A59-BE5805136EA4}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_AS_2" ID="{774E5938-7788-4C31-9767-E461F2C0797F}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerAnger_03" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerAnger_01" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="DEN_STI_Mood_Fear" ID="{BB073935-4333-4371-BA8F-D2A63382CE46}" ShortID="527230388">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="DEN_SW_FS_0" ID="{F4E026D3-7E71-460E-836C-75047A2F9C7E}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="DEN_SW_FearSteps" ID="{3C40F149-74D8-42D4-8C5C-2D9D26AB6164}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}" ShortID="381200462">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerFear_01" ID="{6286B69C-7088-4E04-8F4D-2EA2F463BBEA}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.344999241828918"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.46729756724529"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerFear_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="187854125"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerFear_01" ID="{6286B69C-7088-4E04-8F4D-2EA2F463BBEA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerFear_02" ID="{7F5232FC-5B4F-4461-B237-EE6177A9F361}" ShortID="958045482">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerFear_02" ID="{AEFB6EF6-D378-4604-A085-153C153345EA}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.442306720293485"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.45845143283942"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerFear_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="352618498"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerFear_02" ID="{AEFB6EF6-D378-4604-A085-153C153345EA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}" ShortID="873690321">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerFear_03" ID="{1487C5EA-6A15-487C-B6F4-EEC5ED0378C2}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.318461531859177"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.47615384872143"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerFear_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="227242811"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerFear_03" ID="{1487C5EA-6A15-487C-B6F4-EEC5ED0378C2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerFear_02" ID="{7F5232FC-5B4F-4461-B237-EE6177A9F361}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_FS_1" ID="{32933CAB-CC4B-4F19-A29A-B748581979F0}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerFear_02" ID="{7F5232FC-5B4F-4461-B237-EE6177A9F361}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_FS_0" ID="{F4E026D3-7E71-460E-836C-75047A2F9C7E}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_FS_2" ID="{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="DEN_STI_Mood_Curious" ID="{3FF9D409-040C-405D-8C87-46F1870DBE1D}" ShortID="1000915220">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="DEN_SW_CS_0" ID="{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="DEN_SW_CuriositySteps" ID="{9D12713B-97CC-4C24-AE18-F75724EF566C}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_StingerCurious_01" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}" ShortID="657992209">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerCurious_01" ID="{C749B86C-B80C-4A1B-99E7-FC086EB1F720}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.205960523623687"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.01518230890005"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerCurious_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="520509391"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerCurious_01" ID="{C749B86C-B80C-4A1B-99E7-FC086EB1F720}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerCurious_02" ID="{9AF52CD6-317E-4663-9839-78C2070F3CCA}" ShortID="952566419">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerCurious_02" ID="{5754F416-B46B-4FC8-8B69-4F7300F91408}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.21403845181832"/>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerCurious_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="72635150"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerCurious_02" ID="{5754F416-B46B-4FC8-8B69-4F7300F91408}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerCurious_03" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}" ShortID="937408931">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerCurious_03" ID="{D013B869-1207-4789-9AF8-3F016CAAFFA7}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.104999482631683"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerCurious_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="522845458"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerCurious_03" ID="{D013B869-1207-4789-9AF8-3F016CAAFFA7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerCurious_03" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerCurious_02" ID="{9AF52CD6-317E-4663-9839-78C2070F3CCA}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerCurious_01" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_CS_0" ID="{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerCurious_01" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_CS_1" ID="{2515C69B-0223-4BD9-94FE-AC12B38F3A17}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerCurious_02" ID="{9AF52CD6-317E-4663-9839-78C2070F3CCA}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_CS_2" ID="{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerCurious_03" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="DEN_STI_Mood_Curious" ID="{3FF9D409-040C-405D-8C87-46F1870DBE1D}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="DEN_STI_Mood_Fear" ID="{BB073935-4333-4371-BA8F-D2A63382CE46}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="DEN_STI_Mood_Anger" ID="{E21F51FE-DBDA-4B60-B3E5-02644DBD214B}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="DEN_ST_Mood_Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}"/>
+										<ItemList>
+											<ItemRef Name="DEN_STI_Mood_Fear" ID="{BB073935-4333-4371-BA8F-D2A63382CE46}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}"/>
+										<ItemList>
+											<ItemRef Name="DEN_STI_Mood_Curious" ID="{3FF9D409-040C-405D-8C87-46F1870DBE1D}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
+										<ItemList>
+											<ItemRef Name="DEN_STI_Mood_Anger" ID="{E21F51FE-DBDA-4B60-B3E5-02644DBD214B}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
 					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
