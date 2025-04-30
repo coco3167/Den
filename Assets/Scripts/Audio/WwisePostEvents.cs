@@ -24,8 +24,6 @@ namespace Audio
         [SerializeField] private AK.Wwise.Event curiousStepsEvent;
         [SerializeField] private AK.Wwise.Event fearStepsEvent;
 
-        [Header("Reaction Barks")]
-        [SerializeField] private AK.Wwise.Event reactionMoodEvent;
 
 
         void Initialize()
@@ -97,13 +95,6 @@ namespace Audio
             moodEvent.Post(gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
         }
 
-        public void PostReactionMoodEvent(WwiseReactionMoodSwitch moodSwitch, GameObject target)
-        {
-            //StopAllEvents();
-            WwiseSwitchManager.SetWwiseSwitch(moodSwitch, target);
-            reactionMoodEvent.Post(target, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
-        }
-
         private void StopAllEvents()
         {
             // Stop all events on this GameObject
@@ -112,7 +103,6 @@ namespace Audio
             angerStepsEvent.Stop(gameObject);
             curiousStepsEvent.Stop(gameObject);
             fearStepsEvent.Stop(gameObject);
-            reactionMoodEvent.Stop(gameObject);
         }
     }
 }

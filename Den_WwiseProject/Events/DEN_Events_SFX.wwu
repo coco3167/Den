@@ -76,12 +76,34 @@
 				</Folder>
 				<Folder Name="DEN_EV_SFX_ReactionBarks" ID="{C7713AAF-31E6-41B7-9F7F-98943F77CCC3}" ShortID="124386736">
 					<ChildrenList>
-						<Event Name="Play_DEN_Crea_ReactionBarks" ID="{5B8EDBFC-4A78-4C63-A552-7DF7618F3432}">
+						<Event Name="Play_DEN_Crea_RB_Anger" ID="{5B8EDBFC-4A78-4C63-A552-7DF7618F3432}">
 							<ChildrenList>
 								<Action Name="" ID="{3D1DEC79-F674-4A61-8A1E-D9EA91AFA872}" ShortID="306821777">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="DEN_Crea_ReactionBarks" ID="{0BDB5C4C-0A0A-4C18-80B6-C5FCBFADFBD3}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+											<ObjectRef Name="DEN_Crea_RB_Anger" ID="{F7042B61-12A5-4593-B8D2-902F2004CD2C}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_Crea_RB_Fear" ID="{E162367F-28B3-49ED-88D4-392F222C8B0E}">
+							<ChildrenList>
+								<Action Name="" ID="{3ED3F94C-A0B9-4685-BAD6-8CAE644CB971}" ShortID="745934073">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Crea_RB_Fear" ID="{6CCD3F63-5BA8-4EC4-81B7-546417F8E97D}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_Crea_RB_Curious" ID="{90CFE2C7-1A23-4CF2-963E-094D1E28AC03}">
+							<ChildrenList>
+								<Action Name="" ID="{8FC66BBD-C074-4217-973B-679D851C36C7}" ShortID="1020055102">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Crea_RB_Curious" ID="{8FB56826-0B57-49EA-8CA6-A778794E6AC5}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
