@@ -24,6 +24,7 @@ namespace AK
         static const AkUniqueID PLAY_DEN_CURSOR = 2777527908U;
         static const AkUniqueID PLAY_DEN_MUSIC_START = 486039834U;
         static const AkUniqueID PLAY_DEN_MUSIC_TEST = 1174350178U;
+        static const AkUniqueID PLAY_DEN_STARTGAME = 3010429372U;
         static const AkUniqueID PLAY_DEN_STINGER = 198938308U;
         static const AkUniqueID SET_DEN_AMB_ANGER1 = 1566837199U;
         static const AkUniqueID SET_DEN_AMB_ANGER2 = 1566837196U;

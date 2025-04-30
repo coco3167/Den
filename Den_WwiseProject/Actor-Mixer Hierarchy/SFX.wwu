@@ -9,7 +9,8 @@
 			<ChildrenList>
 				<ActorMixer Name="DEN_Crea_Barks" ID="{38DEF866-7ECC-4343-9C9E-C1F4A2ADC874}" ShortID="951328945">
 					<PropertyList>
-						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.25"/>
 						<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
 						<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 						<Property Name="MaxSoundPerInstance" Type="int16">
@@ -58,11 +59,6 @@
 									</ValueList>
 								</Property>
 								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-								<Property Name="UseMaxSoundPerInstance" Type="bool">
-									<ValueList>
-										<Value>True</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -332,11 +328,6 @@
 								<Property Name="Priority" Type="int16">
 									<ValueList>
 										<Value>40</Value>
-									</ValueList>
-								</Property>
-								<Property Name="UseMaxSoundPerInstance" Type="bool">
-									<ValueList>
-										<Value>True</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -757,11 +748,6 @@
 								<Property Name="Priority" Type="int16">
 									<ValueList>
 										<Value>30</Value>
-									</ValueList>
-								</Property>
-								<Property Name="UseMaxSoundPerInstance" Type="bool">
-									<ValueList>
-										<Value>True</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1432,11 +1418,6 @@
 									</ValueList>
 								</Property>
 								<Property Name="OverridePriority" Type="bool" Value="True"/>
-								<Property Name="UseMaxSoundPerInstance" Type="bool">
-									<ValueList>
-										<Value>True</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1777,6 +1758,9 @@
 							</GroupingInfo>
 						</SwitchContainer>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{8D6B07CC-C490-4D28-82B5-858D153F44B9}"/>
+					</PositioningInfo>
 				</ActorMixer>
 				<ActorMixer Name="DEN_Portals" ID="{13456E35-9D1D-48C9-9AF7-6EDD75499FFC}" ShortID="727508847">
 					<PropertyList>

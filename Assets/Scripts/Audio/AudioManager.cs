@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AK.Wwise;
 using AYellowpaper.SerializedCollections;
+using Sinj;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -100,17 +101,18 @@ namespace Audio
         [SerializeField, ReadOnly] private SerializedDictionary<WwiseEmotionStateRTPC, float> currentGameParametersValues;
 
         [Title("Wwise Events")]
-        [SerializeField] private AK.Wwise.Event AmbienceTest;
-        [SerializeField] private AK.Wwise.Event MusicTest;
-        [SerializeField] private AK.Wwise.Event PlayNeutrakBarks;
-        [SerializeField] private AK.Wwise.Event PlayMoodBarks;
-        [SerializeField] private AK.Wwise.Event PlayAngerStep;
-        [SerializeField] private AK.Wwise.Event PlayCuriousStep;
-        [SerializeField] private AK.Wwise.Event PlayFearStep;
+        [SerializeField] private AK.Wwise.Event PlayIntroMusic;
         [SerializeField] private AK.Wwise.Event PlayAmbience;
         [SerializeField] private AK.Wwise.Event ResetAmbience;
-
-
+        [SerializeField] private AK.Wwise.Event PlayAngerStep1;
+        [SerializeField] private AK.Wwise.Event PlayAngerStep2;
+        [SerializeField] private AK.Wwise.Event PlayAngerStep3;
+        [SerializeField] private AK.Wwise.Event PlayFearStep1;
+        [SerializeField] private AK.Wwise.Event PlayFearStep2;
+        [SerializeField] private AK.Wwise.Event PlayFearStep3;
+        [SerializeField] private AK.Wwise.Event PlayCuriosityStep1;
+        [SerializeField] private AK.Wwise.Event PlayCuriosityStep2;
+        [SerializeField] private AK.Wwise.Event PlayCuriosityStep3;
 
         private void Awake()
         {
@@ -158,6 +160,55 @@ namespace Audio
             else if (Input.GetKeyDown(KeyCode.Keypad4))
             {
                 WwiseStateManager.SetWwiseMoodState(WwiseMoodState.AngerState);
+            }
+        }
+
+        public void PlayEmotionSteps(Emotions emotion, int pallierReached)
+        {
+            switch (emotion)
+            {
+                case Emotions.Curiosity:
+                    switch (pallierReached)
+                    {
+                        case 1:
+                            PlayCuriosityStep1.Post(this.gameObject);
+                            break;
+                        case 2:
+                            PlayCuriosityStep2.Post(this.gameObject);
+                            break;
+                        case 3:
+                            PlayCuriosityStep3.Post(this.gameObject);
+                            break;
+                    }
+                    break;
+                case Emotions.Fear:
+                    switch (pallierReached)
+                    {
+                        case 1:
+                            PlayFearStep1.Post(this.gameObject);
+                            break;
+                        case 2:
+                            PlayFearStep2.Post(this.gameObject);
+                            break;
+                        case 3:
+                            PlayFearStep3.Post(this.gameObject);
+                            break;
+                    }
+                    break;
+                case Emotions.Agression:
+                    switch (pallierReached)
+                    {
+                        case 1:
+                            PlayAngerStep1.Post(this.gameObject);
+                            break;
+                        case 2:
+                            PlayAngerStep2.Post(this.gameObject);
+                            break;
+                        case 3:
+                            PlayAngerStep3.Post(this.gameObject);
+                            break;
+                    }
+                    break;
             }
         }
 
