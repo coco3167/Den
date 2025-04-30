@@ -1,3 +1,4 @@
+using Options;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -5,7 +6,6 @@ using UnityEngine.InputSystem;
 public class MouseManager : MonoBehaviour
 {
     [SerializeField] private Rigidbody mouseRigidBody;
-    [SerializeField] private float mouseSensitivity = 1f;
     [SerializeField] private LayerMask terrainLayerMask;
 
     [SerializeField, ReadOnly] private Vector2 deltaSum;
@@ -29,7 +29,7 @@ public class MouseManager : MonoBehaviour
             return;
         
         
-        Vector2 mouseDelta = deltaSum * mouseSensitivity * 0.01f;
+        Vector2 mouseDelta = deltaSum * GameParameters.MouseSensitivity * 0.1f;
         Vector3 mousePos = mouseRigidBody.position + new Vector3(mouseDelta.x, 0.0f, mouseDelta.y);
         deltaSum = Vector2.zero;
         

@@ -8,6 +8,8 @@ namespace Options
     public class CategoryButton : MonoBehaviour
     {
         private static List<CategoryButton> _categoryButtons = new();
+
+        [SerializeField] private Color m_unselected, m_selected;
         
         private Button m_button;
         private Canvas m_canvas;

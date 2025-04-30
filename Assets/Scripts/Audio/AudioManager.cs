@@ -60,6 +60,13 @@ namespace Audio
         None,
     }
 
+    public enum VolumeType
+    {
+        Music,
+        SFX,
+        Ambiance,
+    }
+
     [RequireComponent(typeof(AkGameObj))]
     public class AudioManager : MonoBehaviour
     {
@@ -256,6 +263,11 @@ namespace Audio
                 default:
                     return WwiseEmotionStateRTPC.Tension;
             }
+        }
+
+        public void ChangeAudioVolume(VolumeType volumeType, float value)
+        {
+            //TODO Jules implement here volume change depending on volumeType (use switch)
         }
     }
 }
