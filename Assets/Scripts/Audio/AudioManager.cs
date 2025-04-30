@@ -165,6 +165,7 @@ namespace Audio
 
         public void PlayEmotionSteps(Emotions emotion, int pallierReached)
         {
+            pallierReached /= GameManager.IntervalPallier;
             switch (emotion)
             {
                 case Emotions.Curiosity:

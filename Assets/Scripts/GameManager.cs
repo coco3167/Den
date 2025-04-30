@@ -5,7 +5,6 @@ using Sinj;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,7 +27,7 @@ public class GameManager : MonoBehaviour
         { Emotions.Agression, 0},
         { Emotions.Fear , 0},
     };
-    private const int IntervalPallier = 25;
+    public const int IntervalPallier = 25;
     
     public event EventHandler GameReady, GameEnded;
     
