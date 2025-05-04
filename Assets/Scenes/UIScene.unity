@@ -693,6 +693,22 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6048609199769994691, guid: b0fa4c310d6b893488a062d1e2193a6d, type: 3}
+      propertyPath: optionInputAction.m_Name
+      value: Option Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048609199769994691, guid: b0fa4c310d6b893488a062d1e2193a6d, type: 3}
+      propertyPath: optionInputAction.m_SingletonActionBindings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048609199769994691, guid: b0fa4c310d6b893488a062d1e2193a6d, type: 3}
+      propertyPath: optionInputAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 3ef0c650-c4f3-4188-9261-592b43d689a3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048609199769994691, guid: b0fa4c310d6b893488a062d1e2193a6d, type: 3}
+      propertyPath: optionInputAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Option Input
+      objectReference: {fileID: 0}
     - target: {fileID: 6146916034794971791, guid: b0fa4c310d6b893488a062d1e2193a6d, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -703,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6172773622374171562, guid: b0fa4c310d6b893488a062d1e2193a6d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00060272444
+      value: 0.000013052202
       objectReference: {fileID: 0}
     - target: {fileID: 6783658058465503760, guid: b0fa4c310d6b893488a062d1e2193a6d, type: 3}
       propertyPath: m_AnchorMax.y

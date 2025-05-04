@@ -551,12 +551,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4387186766017722496, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: mouseManager
+      value: 
+      objectReference: {fileID: 1353841251}
+    - target: {fileID: 4387186766017722496, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: otherMovements.m_Name
+      value: Other Movements
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387186766017722496, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: palliersEvents.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4387186766017722496, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: palliersEvents.Array.data[0].WwiseObjectReference
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387186766017722496, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: otherMovements.m_SingletonActionBindings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387186766017722496, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: otherMovements.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 6a6d864e-0e7a-4562-ace9-fb54685e5ec8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387186766017722496, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: otherMovements.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Other Movements
       objectReference: {fileID: 0}
     - target: {fileID: 6521624656204892207, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: m_Name

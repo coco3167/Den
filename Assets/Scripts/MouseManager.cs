@@ -1,5 +1,4 @@
-using Options;
-using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +7,9 @@ public class MouseManager : MonoBehaviour
     [SerializeField] private Rigidbody mouseRigidBody;
     [SerializeField] private LayerMask terrainLayerMask;
 
-    [SerializeField, ReadOnly] private Vector2 deltaSum;
+    private Vector2 m_OtherMoveValue;
+    private bool m_isOtherMoving;
+
     
     private void Awake()
     {
@@ -16,32 +17,40 @@ public class MouseManager : MonoBehaviour
         Mouse.current.WarpCursorPosition(Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f))); 
     }
 
-    private void OnMouseMoved(InputValue value)
+    private void FixedUpdate()
     {
-        Vector2 tmpMouseDelta = value.Get<Vector2>();
-        if (tmpMouseDelta.magnitude > 0f)
-        {
-            deltaSum += tmpMouseDelta;
-            return;
-        }
-        
-        if(!Application.isFocused)
-            return;
-        
-        
-        Vector2 mouseDelta = deltaSum * GameParameters.MouseSensitivity * 0.1f;
-        Vector3 mousePos = mouseRigidBody.position + new Vector3(mouseDelta.x, 0.0f, mouseDelta.y);
-        deltaSum = Vector2.zero;
-        
-        // Keep the mouse on the ground
-        Physics.Raycast(mousePos + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 100, terrainLayerMask);
+        if(m_isOtherMoving)
+            MoveRigidBody(m_OtherMoveValue);
+    }
+
+    public void OnMouseMoved(Vector2 value)
+    {
+        value *= Options.GameParameters.MouseSensitivity;
+        MoveRigidBody(value);
+    }
+
+    public void OnOtherMoveStart(Vector2 value)
+    {
+        m_OtherMoveValue = value * Options.GameParameters.JoystickSensitivity;
+        m_isOtherMoving = true;
+    }
+
+    public void OnOtherMoveEnd()
+    {
+        m_isOtherMoving = false;
+    }
+
+    private void MoveRigidBody(Vector2 movement)
+    {
+        Vector3 newPos = mouseRigidBody.position + new Vector3(movement.x, 0.0f, movement.y);
+        Physics.Raycast(newPos + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 100, terrainLayerMask);
         if(hit.collider == null)
-            Physics.Raycast(mousePos + Vector3.down * 10f, Vector3.up, out hit, 100, terrainLayerMask);
+            Physics.Raycast(newPos + Vector3.down * 10f, Vector3.up, out hit, 100, terrainLayerMask);
         if(hit.collider == null)
             return;
-        mousePos.y = hit.point.y;
+        newPos.y = hit.point.y;
         
-        mouseRigidBody.MovePosition(mousePos);
+        mouseRigidBody.MovePosition(newPos);
     }
 
     public float ObjectDistanceToMouse(Vector3 otherPos)

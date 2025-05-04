@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace Options
 {
@@ -27,7 +28,6 @@ namespace Options
         [Title("GameObject to Hide")] 
         [SerializeField, ChildGameObjectsOnly] private List<GameObject> gameObjectsToHide;
 
-        private bool m_isShowed = true;
         
         private void Awake()
         {
@@ -35,26 +35,25 @@ namespace Options
             controlesButton.AddButtonListener(controlesCategory.Show);
             graphicsButton.AddButtonListener(graphicsCategory.Show);
             audioButton.AddButtonListener(audioCategory.Show);
+
+            if (GameManager.Instance == null)
+                return;
             
-            ShowOptions();
+            GameManager.Instance.GamePaused += OnPaused;
+            ShowOptions(false);
         }
 
-        private void Update()
+        private void OnPaused(object obj, GameManager.GamePausedEventArgs e)
         {
-            // TODO refactor cette dégeulasserie
-            if (Input.GetKeyUp(KeyCode.Escape))
-            {
-                ShowOptions();
-            }
+            ShowOptions(e.IsPaused);
         }
 
-        public void ShowOptions()
+        private void ShowOptions(bool isPaused)
         {
-            m_isShowed = !m_isShowed;
             
-            gameObjectsToHide.ForEach(x => x.SetActive(m_isShowed));
+            gameObjectsToHide.ForEach(x => x.SetActive(isPaused));
             
-            if(m_isShowed)
+            if(isPaused)
                 EventSystem.current.SetSelectedGameObject(generalButton.gameObject);
         }
     }
