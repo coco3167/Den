@@ -5,6 +5,7 @@ using Sinj;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             pallierReached.AddListener(OnPallierReached);
+            SceneManager.LoadScene(1, LoadSceneMode.Additive);
             return;
         }
         

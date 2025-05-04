@@ -1,4 +1,5 @@
 using Audio;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ namespace Options.Categories
     public class AudioOptions : MonoBehaviour
     {
         [SerializeField] private Slider musicSlider, sfxSlider, ambianceSlider;
-        [SerializeField] private Dropdown monoDropdown;
+        [SerializeField] private TMP_Dropdown monoDropdown;
 
         private void Awake()
         {

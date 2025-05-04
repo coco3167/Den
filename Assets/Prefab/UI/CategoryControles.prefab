@@ -117,6 +117,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
+--- !u!114 &139186647519402682 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1114116907696655218, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
+  m_PrefabInstance: {fileID: 1051694863572734408}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1100484442357365270 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 134521043033713630, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
@@ -265,11 +276,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2043056260848296268, guid: 2be175c0f5b3fe2499906627bbe00dde, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000014662743
+      value: 0.075227976
       objectReference: {fileID: 0}
     - target: {fileID: 3599826165295740183, guid: 2be175c0f5b3fe2499906627bbe00dde, type: 3}
       propertyPath: m_Size
-      value: 1
+      value: 0.9997193
       objectReference: {fileID: 0}
     - target: {fileID: 4047324440073597437, guid: 2be175c0f5b3fe2499906627bbe00dde, type: 3}
       propertyPath: m_Color.b
@@ -416,4 +427,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: {fileID: 5510085588892296565}
-  joystickSensitivity: {fileID: 0}
+  joystickSensitivity: {fileID: 139186647519402682}
