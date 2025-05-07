@@ -295,22 +295,26 @@ MonoBehaviour:
         WwiseObjectReference: {fileID: 11400000, guid: 79b94eab0001c46408b5ffde236b7587, type: 2}
   currentGameParametersValues:
     _serializedList: []
-  AmbienceTest:
+  MasterVolume:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ecf2f99de5873804fbc1c348f27903bd, type: 2}
+  MusicVolume:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 343d12ac6cb13514d84b71e76302aa68, type: 2}
+  SFXVolume:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d1a4247f1f18ae34c9cb1e4939ecce85, type: 2}
+  AmbienceVolume:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8c49829f05c98d3438fa98ccf83937f6, type: 2}
+  PlayIntroMusic:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 69662cf3960be6a47a804d92ab978e45, type: 2}
-  MusicTest:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 5c92213f296821a48809456d43f766e5, type: 2}
-  PlayNeutrakBarks:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: dbf38947144cc3940ad86d28118b9aee, type: 2}
-  PlayMoodBarks:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: b8c5981e92b81ad4dbcc3c5f4848afb6, type: 2}
   PlayAmbience:
     idInternal: 0
     valueGuidInternal: 
@@ -319,10 +323,6 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 4b81af0ddbfb11842b699651269301a5, type: 2}
-  PlayIntroMusic:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 69662cf3960be6a47a804d92ab978e45, type: 2}
   PlayAngerStep1:
     idInternal: 0
     valueGuidInternal: 
@@ -427,7 +427,3 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 8b113d92fb16beb45a012168821213c2, type: 2}
-  reactionMoodEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 7e0a551d38372564daadacf8f3bd8271, type: 2}

@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	170047161	GameSyncs			\Default Work Unit\DEN_Events_Global\GameSyncs	
 	198938308	Play_DEN_Stinger			\Default Work Unit\DEN_Events_SFX\Play_DEN_Stinger	
 	231948563	Play_DEN_Crea_RB_Fear			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_ReactionBarks\Play_DEN_Crea_RB_Fear	
 	486039834	Play_DEN_Music_Start			\Default Work Unit\DEN_Events_Music\Play_DEN_Music_Start	
@@ -62,12 +63,12 @@ State	ID	Name	State Group			Notes
 	3523856042	DEN_ST_Mood_Neutral	DEN_State_Mood			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	722514783	DEN_GP_AngerValue			\Default Work Unit\DEN_GameParameters\DEN_GP_AngerValue	
-	1734226615	DEN_GP_NeutralValue			\Default Work Unit\DEN_GameParameters\DEN_GP_NeutralValue	
+	722514783	DEN_GP_AngerValue			\Default Work Unit\DEN_GameParameters\DEN_GP_Values\DEN_GP_AngerValue	
+	1734226615	DEN_GP_NeutralValue			\Default Work Unit\DEN_GameParameters\DEN_GP_Values\DEN_GP_NeutralValue	
 	2230858223	DEN_GP_CursorVolume			\Default Work Unit\DEN_GameParameters\DEN_GP_CursorVolume	
-	2578001617	DEN_GP_CuriosityValue			\Default Work Unit\DEN_GameParameters\DEN_GP_CuriosityValue	
-	3189323882	DEN_GP_TensionValue			\Default Work Unit\DEN_GameParameters\DEN_GP_TensionValue	
-	4122714024	DEN_GP_FearValue			\Default Work Unit\DEN_GameParameters\DEN_GP_FearValue	
+	2578001617	DEN_GP_CuriosityValue			\Default Work Unit\DEN_GameParameters\DEN_GP_Values\DEN_GP_CuriosityValue	
+	3189323882	DEN_GP_TensionValue			\Default Work Unit\DEN_GameParameters\DEN_GP_Values\DEN_GP_TensionValue	
+	4122714024	DEN_GP_FearValue			\Default Work Unit\DEN_GameParameters\DEN_GP_Values\DEN_GP_FearValue	
 
 Modulator Envelope	ID	Name			Wwise Object Path	Notes
 	1067662635	Modulator Envelope (Custom)				

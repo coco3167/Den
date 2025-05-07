@@ -54,6 +54,65 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="GameSyncs" ID="{941045A8-5065-4DEA-851C-C25EE47C2A9E}">
+					<ChildrenList>
+						<Action Name="" ID="{308F06AD-5C39-4881-AFE9-554EE1B55207}" ShortID="809877820">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="GameParameterValue" Type="Real64" Value="0.8"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_GP_UIV_Master" ID="{45D1C17B-870C-4C82-AB66-60B890113C5C}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{74485C17-5DA4-45A3-BA48-15862C3A2947}" ShortID="534659558">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="GameParameterValue" Type="Real64" Value="0.8"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_GP_UIV_Music" ID="{0298F746-9F33-479D-B898-265FC8DB1F75}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{EC09E1A4-CE6E-48EE-8B85-0377C2F8C02C}" ShortID="105878949">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="GameParameterValue" Type="Real64" Value="0.8"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_GP_UIV_Ambience" ID="{B59131F9-E6C2-42E4-96DC-D7E9A4395CE2}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{54512FE1-AB38-4E7E-917A-6955197FEC13}" ShortID="819803850">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="GameParameterValue" Type="Real64" Value="0.8"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_GP_UIV_SFX" ID="{96A063C2-FFFC-4CD0-B0D1-72244BF9CE4B}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{DF49F342-3DF9-44AF-BB1F-64AE9B4BEAD7}" ShortID="219942049">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="GameParameterValue" Type="Real64" Value="0.8"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_GP_VolumeMomo" ID="{2505558E-72AF-4D60-B6F5-EB4362BF0912}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

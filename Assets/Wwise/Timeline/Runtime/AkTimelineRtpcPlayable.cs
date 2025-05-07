@@ -42,7 +42,7 @@ public class AkTimelineRtpcPlayableBehaviour : UnityEngine.Playables.PlayableBeh
 			gameObject = obj;
 
 		if (setGlobally)
-			RTPC.SetGlobalValue(value);
+			RTPC.GetGlobalValue(value);
 		else if (gameObject)
 			RTPC.SetValue(gameObject, value);
 	}

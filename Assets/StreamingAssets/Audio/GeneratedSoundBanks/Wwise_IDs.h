@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID GAMESYNCS = 170047161U;
         static const AkUniqueID PLAY_DEN_AMB = 1394160082U;
         static const AkUniqueID PLAY_DEN_BUSHENTER = 1088048986U;
         static const AkUniqueID PLAY_DEN_CREA_ANGERSTEPS = 2814436364U;
@@ -160,6 +161,10 @@ namespace AK
         static const AkUniqueID DEN_GP_MONO = 1386681402U;
         static const AkUniqueID DEN_GP_NEUTRALVALUE = 1734226615U;
         static const AkUniqueID DEN_GP_TENSIONVALUE = 3189323882U;
+        static const AkUniqueID DEN_GP_UIV_AMBIENCE = 2280064220U;
+        static const AkUniqueID DEN_GP_UIV_MASTER = 2421685046U;
+        static const AkUniqueID DEN_GP_UIV_MUSIC = 3976517781U;
+        static const AkUniqueID DEN_GP_UIV_SFX = 307573345U;
         static const AkUniqueID DEN_GP_VOLUMEMOMO = 3482592633U;
     } // namespace GAME_PARAMETERS
 

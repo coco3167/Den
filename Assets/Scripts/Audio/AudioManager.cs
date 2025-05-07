@@ -4,6 +4,7 @@ using AYellowpaper.SerializedCollections;
 using Sinj;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Audio
 {
@@ -61,13 +62,6 @@ namespace Audio
         None,
     }
 
-    public enum VolumeType
-    {
-        Music,
-        SFX,
-        Ambiance,
-    }
-
     [RequireComponent(typeof(AkGameObj))]
     public class AudioManager : MonoBehaviour
     {
@@ -85,9 +79,9 @@ namespace Audio
 
         [Title("Audio State Variables")] [ReadOnly, SerializeField, HideLabel] private bool audioStateSeparator;
         [SerializeField] public SerializedDictionary<WwiseAudioState, State> audioState;
-        [SerializeField, ReadOnly] private WwiseAudioState currentAudioState;
-        [Title("Mono State Toggle")]
-        [SerializeField, ToggleLeft] private bool enableMonoState = false;
+        [SerializeField, ReadOnly] public WwiseAudioState currentAudioState;
+        public WwiseAudioState CurrentAudioState => currentAudioState;
+        public int CurrentAudioStateIndex => (int)currentAudioState;
 
         [Title("Wwise Mood Switches")] [ReadOnly, SerializeField, HideLabel] private bool moodSwitchSeparator;
         [SerializeField] private SerializedDictionary<WwiseCuriositySwitch, Switch> moodCuriosity;
@@ -104,8 +98,13 @@ namespace Audio
 
         [Title("Wwise Game Parameters")] [ReadOnly, SerializeField, HideLabel] private bool parametersSeparators;
         [SerializeField] private SerializedDictionary<WwiseEmotionStateRTPC, RTPC> gameParameters;
-
         [SerializeField, ReadOnly] private SerializedDictionary<WwiseEmotionStateRTPC, float> currentGameParametersValues;
+
+        [Title("Wwise Volume Paramters")]
+        [SerializeField] public  AK.Wwise.RTPC MasterVolume;
+        [SerializeField] public  AK.Wwise.RTPC MusicVolume;
+        [SerializeField] public  AK.Wwise.RTPC SFXVolume;
+        [SerializeField] public  AK.Wwise.RTPC AmbienceVolume;
 
         [Title("Wwise Events")]
         [SerializeField] private AK.Wwise.Event PlayIntroMusic;
@@ -139,13 +138,8 @@ namespace Audio
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            if (enableMonoState)
-            {
-                WwiseStateManager.SetWwiseAudioState(WwiseAudioState.Mono);
-            }
-            else
-                WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones);
             WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
+            WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones);
 
             StartAmbience();
         }
@@ -169,10 +163,57 @@ namespace Audio
                 WwiseStateManager.SetWwiseMoodState(WwiseMoodState.AngerState);
             }
         }
+        public void PlayEmotionSteps(Emotions emotion, int pallierReached)
+        {
+            pallierReached /= GameManager.IntervalPallier;
+            switch (emotion)
+            {
+                case Emotions.Curiosity:
+                    switch (pallierReached)
+                    {
+                        case 1:
+                            PlayCuriosityStep1.Post(this.gameObject);
+                            break;
+                        case 2:
+                            PlayCuriosityStep2.Post(this.gameObject);
+                            break;
+                        case 3:
+                            PlayCuriosityStep3.Post(this.gameObject);
+                            break;
+                    }
+                    break;
+                case Emotions.Fear:
+                    switch (pallierReached)
+                    {
+                        case 1:
+                            PlayFearStep1.Post(this.gameObject);
+                            break;
+                        case 2:
+                            PlayFearStep2.Post(this.gameObject);
+                            break;
+                        case 3:
+                            PlayFearStep3.Post(this.gameObject);
+                            break;
+                    }
+                    break;
+                case Emotions.Agression:
+                    switch (pallierReached)
+                    {
+                        case 1:
+                            PlayAngerStep1.Post(this.gameObject);
+                            break;
+                        case 2:
+                            PlayAngerStep2.Post(this.gameObject);
+                            break;
+                        case 3:
+                            PlayAngerStep3.Post(this.gameObject);
+                            break;
+                    }
+                    break;
+            }
+        }
 
-
-
-        void Initialize()
+        private void Initialize()
         {
             //Singleton logic
             if (Instance == null)
@@ -196,7 +237,7 @@ namespace Audio
             bIsInitialized = true;
         }
 
-        void LoadSoundbanks()
+        private void LoadSoundbanks()
         {
             if (Soundbanks.Count > 0)
             {
@@ -236,6 +277,7 @@ namespace Audio
         {
             PlayAmbience.Post(this.gameObject);
         }
+
         public void SetWwiseEmotionRTPC(Sinj.Emotions emotion, GameObject target, float value)
         {
             WwiseEmotionStateRTPC emotionStateRtpc = TranslateSinjAgentEmotionToAudioManagerEmotion(emotion);
@@ -277,9 +319,9 @@ namespace Audio
             }
         }
 
-        public void ChangeAudioVolume(VolumeType volumeType, float value)
+        public static void SetGlobalRTPCValue(RTPC rtpc, float value)
         {
-            //TODO Jules implement here volume change depending on volumeType (use switch)
+            rtpc.SetGlobalValue(rtpc.Name, value);
         }
     }
 }

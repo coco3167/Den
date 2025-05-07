@@ -88,8 +88,16 @@
 							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="DEN_GP_UIV_Ambience" ID="{B59131F9-E6C2-42E4-96DC-D7E9A4395CE2}"/>
+							<Value>0.8</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}"/>
 							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DEN_GP_UIV_Music" ID="{0298F746-9F33-479D-B898-265FC8DB1F75}"/>
+							<Value>0.8</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_IntensityValue" ID="{06A92236-B1E4-4B96-B6E9-D34C84BD2715}"/>
@@ -98,6 +106,14 @@
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_TensionValue" ID="{2BACC983-9E6E-4BBE-8C8E-A1621790A002}"/>
 							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DEN_GP_UIV_Master" ID="{45D1C17B-870C-4C82-AB66-60B890113C5C}"/>
+							<Value>0.8</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DEN_GP_UIV_SFX" ID="{96A063C2-FFFC-4CD0-B0D1-72244BF9CE4B}"/>
+							<Value>0.8</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_VolumeMomo" ID="{2505558E-72AF-4D60-B6F5-EB4362BF0912}"/>
@@ -114,11 +130,11 @@
 						<CurrentStateRef Name="DEN_ST_Amb_Playing" ID="{591B604F-ED42-451A-9D6A-DB7A0655879F}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="DEN_SW_FS_0" ID="{F4E026D3-7E71-460E-836C-75047A2F9C7E}"/>
-						<CurrentSwitchRef Name="DEN_SW_RM_Fear" ID="{FBD20FA9-0A2A-4E0B-A22A-88862FEF4CAF}"/>
+						<CurrentSwitchRef Name="DEN_SW_FS_3" ID="{DBFC477C-508F-456D-9097-86A9C4AD6174}"/>
+						<CurrentSwitchRef Name="DEN_SW_RM_Anger" ID="{E32256AC-91DE-4072-AA6F-342EDD7CF565}"/>
 						<CurrentSwitchRef Name="DEN_SW_NS_3" ID="{EE307804-A00D-4AD6-9F13-99AB80F6703E}"/>
-						<CurrentSwitchRef Name="DEN_SW_CS_0" ID="{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}"/>
-						<CurrentSwitchRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}"/>
+						<CurrentSwitchRef Name="DEN_SW_CS_3" ID="{0CE9736F-F798-44B3-8D3C-F002B7124776}"/>
+						<CurrentSwitchRef Name="DEN_SW_AS_1" ID="{0E92D334-2514-41A5-A7AA-F330ADDE3C84}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>

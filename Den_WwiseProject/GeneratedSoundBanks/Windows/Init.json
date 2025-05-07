@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{39BBC390-D91D-A437-2D75-6D54E82212CB}",
+    "Hash": "{A66D2EB9-F0D0-403F-6952-53F96A0656EE}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -97,16 +97,23 @@
     ],
     "GameParameters": [
      {
+      "Id": "307573345",
+      "Name": "DEN_GP_UIV_SFX",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_UIVolumes\\DEN_GP_UIV_SFX",
+      "GUID": "{96A063C2-FFFC-4CD0-B0D1-72244BF9CE4B}",
+      "Color": "14"
+     },
+     {
       "Id": "722514783",
       "Name": "DEN_GP_AngerValue",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_AngerValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_AngerValue",
       "GUID": "{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}",
       "Color": "14"
      },
      {
       "Id": "973587621",
       "Name": "DEN_GP_IntensityValue",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_IntensityValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_IntensityValue",
       "GUID": "{06A92236-B1E4-4B96-B6E9-D34C84BD2715}",
       "Color": "14"
      },
@@ -120,7 +127,7 @@
      {
       "Id": "1734226615",
       "Name": "DEN_GP_NeutralValue",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_NeutralValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_NeutralValue",
       "GUID": "{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}",
       "Color": "14"
      },
@@ -132,16 +139,30 @@
       "Color": "14"
      },
      {
+      "Id": "2280064220",
+      "Name": "DEN_GP_UIV_Ambience",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_UIVolumes\\DEN_GP_UIV_Ambience",
+      "GUID": "{B59131F9-E6C2-42E4-96DC-D7E9A4395CE2}",
+      "Color": "14"
+     },
+     {
+      "Id": "2421685046",
+      "Name": "DEN_GP_UIV_Master",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_UIVolumes\\DEN_GP_UIV_Master",
+      "GUID": "{45D1C17B-870C-4C82-AB66-60B890113C5C}",
+      "Color": "14"
+     },
+     {
       "Id": "2578001617",
       "Name": "DEN_GP_CuriosityValue",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_CuriosityValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_CuriosityValue",
       "GUID": "{4C8EF3DA-5ED7-423F-8B0C-F48F58CE5ABD}",
       "Color": "14"
      },
      {
       "Id": "3189323882",
       "Name": "DEN_GP_TensionValue",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_TensionValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_TensionValue",
       "GUID": "{2BACC983-9E6E-4BBE-8C8E-A1621790A002}",
       "Color": "14"
      },
@@ -153,9 +174,16 @@
       "Color": "14"
      },
      {
+      "Id": "3976517781",
+      "Name": "DEN_GP_UIV_Music",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_UIVolumes\\DEN_GP_UIV_Music",
+      "GUID": "{0298F746-9F33-479D-B898-265FC8DB1F75}",
+      "Color": "14"
+     },
+     {
       "Id": "4122714024",
       "Name": "DEN_GP_FearValue",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_FearValue",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_FearValue",
       "GUID": "{5DDCEF5F-D8C4-40D7-BD7E-8336CBE14C7F}",
       "Color": "14"
      }
@@ -460,6 +488,6 @@
     ]
    }
   ],
-  "FileHash": "{39F7A5BC-D5F5-F5E7-3F6D-17CE61809893}"
+  "FileHash": "{6500B700-85E2-19C6-81C4-793FD51F3AB2}"
  }
 }
