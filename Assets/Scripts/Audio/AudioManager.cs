@@ -163,55 +163,7 @@ namespace Audio
             }
         }
 
-        public void PlayEmotionSteps(Emotions emotion, int pallierReached)
-        {
-            pallierReached /= GameManager.IntervalPallier;
-            switch (emotion)
-            {
-                case Emotions.Curiosity:
-                    switch (pallierReached)
-                    {
-                        case 1:
-                            PlayCuriosityStep1.Post(this.gameObject);
-                            break;
-                        case 2:
-                            PlayCuriosityStep2.Post(this.gameObject);
-                            break;
-                        case 3:
-                            PlayCuriosityStep3.Post(this.gameObject);
-                            break;
-                    }
-                    break;
-                case Emotions.Fear:
-                    switch (pallierReached)
-                    {
-                        case 1:
-                            PlayFearStep1.Post(this.gameObject);
-                            break;
-                        case 2:
-                            PlayFearStep2.Post(this.gameObject);
-                            break;
-                        case 3:
-                            PlayFearStep3.Post(this.gameObject);
-                            break;
-                    }
-                    break;
-                case Emotions.Agression:
-                    switch (pallierReached)
-                    {
-                        case 1:
-                            PlayAngerStep1.Post(this.gameObject);
-                            break;
-                        case 2:
-                            PlayAngerStep2.Post(this.gameObject);
-                            break;
-                        case 3:
-                            PlayAngerStep3.Post(this.gameObject);
-                            break;
-                    }
-                    break;
-            }
-        }
+
 
         void Initialize()
         {
