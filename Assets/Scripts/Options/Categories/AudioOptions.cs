@@ -60,7 +60,7 @@
             // 1) Hook up the dropdown listener *first*
             mixDropdown.onValueChanged.AddListener(OnAudioStateSelected);
 
-            // 2) Make sure your dropdown has one option per enum value
+            // 2) Make sure the dropdown has one option per enum value
             mixDropdown.ClearOptions();
             var options = new List<string>();
             foreach (WwiseAudioState state in System.Enum.GetValues(typeof(WwiseAudioState)))
