@@ -9,6 +9,16 @@
 			<ChildrenList>
 				<Event Name="Play_DEN_StartGame" ID="{9C1A62E2-799B-42CE-99CF-BAD6A8746FC6}">
 					<ChildrenList>
+						<Action Name="" ID="{6A30F993-28AD-4AE1-9673-3AB60FD09962}" ShortID="176390031">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{169A1050-BD10-4CA8-8755-6B67FC0B0322}" ShortID="732998611">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="41"/>
@@ -38,6 +48,17 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Set_DEN_AMB_Reset" ID="{0DFC7C07-73DF-4BFE-85C8-AE49D614F797}" WorkUnitID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{9F9F7B0A-8417-467C-86D8-956628DACA5D}" ShortID="663070461">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+								<Property Name="Delay" Type="Real64" Value="10"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_ST_Amb_Playing" ID="{591B604F-ED42-451A-9D6A-DB7A0655879F}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
