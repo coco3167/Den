@@ -7,12 +7,6 @@ namespace Sinj
     [CreateAssetMenu(fileName = "SinjActiveBehavior", menuName = "SinjBehavior/ActiveBehavior", order = 0)]
     public class SinjActiveBehavior : SinjBehavior
     {
-        private enum Comparison
-        {
-            Inferior,
-            Superior,
-            Equal
-        }
 
         #region Stimuli
         [Serializable]
