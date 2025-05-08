@@ -68,7 +68,7 @@ namespace Sinj
             animator.SetBool("Agression", emotions[Emotions.Agression] >= emotionsDisplayCap[Emotions.Agression]);
             animator.SetBool("Fear", emotions[Emotions.Fear] >= emotionsDisplayCap[Emotions.Fear]);
             
-            transform.localScale = new Vector3(m_navMeshAgent.velocity.x > 0 ? 1f : -1f, 1f, 1f);
+            transform.localScale = new Vector3(m_navMeshAgent.velocity.x > 0 ? -1f : 1f, 1f, 1f);
         }
 
         public void HandleBehaviors()

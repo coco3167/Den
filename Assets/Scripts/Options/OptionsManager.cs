@@ -35,12 +35,13 @@ namespace Options
             controlesButton.AddButtonListener(controlesCategory.Show);
             graphicsButton.AddButtonListener(graphicsCategory.Show);
             audioButton.AddButtonListener(audioCategory.Show);
-
+            
+            ShowOptions(false);
+            
             if (GameManager.Instance == null)
                 return;
-            
+
             GameManager.Instance.GamePaused += OnPaused;
-            ShowOptions(false);
         }
 
         private void OnPaused(object obj, GameManager.GamePausedEventArgs e)

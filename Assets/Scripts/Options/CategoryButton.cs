@@ -26,6 +26,8 @@ namespace Options
 
         public void AddButtonListener(UnityAction callAction)
         {
+            if(!m_button)
+                m_button = GetComponent<Button>();
             m_button.onClick.AddListener(callAction);
         }
 
