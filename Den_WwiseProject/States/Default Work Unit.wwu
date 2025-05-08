@@ -2,6 +2,10 @@
 <WwiseDocument Type="WorkUnit" ID="{730ED2B4-D229-46B4-A895-D5B036688D70}" SchemaVersion="123">
 	<States>
 		<WorkUnit Name="Default Work Unit" ID="{730ED2B4-D229-46B4-A895-D5B036688D70}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="3"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
 			<ChildrenList>
 				<StateGroup Name="DEN_State_Mood" ID="{0479447C-0867-4F59-A8A4-199CAE84ECB5}">
 					<PropertyList>
@@ -26,6 +30,12 @@
 						<State Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
 						<State Name="DEN_ST_Audio_Mix_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
 						<State Name="DEN_ST_Audio_Mix_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="DEN_State_Ambience" ID="{C20EEE3E-9096-4FE4-8A6D-5A8967A55802}">
+					<ChildrenList>
+						<State Name="None" ID="{2F3EDCAB-EAFB-4B41-B6AB-6349BECE76CB}"/>
+						<State Name="DEN_ST_Amb_Playing" ID="{591B604F-ED42-451A-9D6A-DB7A0655879F}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>

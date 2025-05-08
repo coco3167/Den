@@ -13,18 +13,47 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID GAMESYNCS = 170047161U;
         static const AkUniqueID PLAY_DEN_AMB = 1394160082U;
+        static const AkUniqueID PLAY_DEN_BUSHENTER = 1088048986U;
         static const AkUniqueID PLAY_DEN_CREA_ANGERSTEPS = 2814436364U;
         static const AkUniqueID PLAY_DEN_CREA_CURIOUSSTEPS = 3724550301U;
         static const AkUniqueID PLAY_DEN_CREA_FEARSTEPS = 3029527017U;
         static const AkUniqueID PLAY_DEN_CREA_NEUTRALBARK = 1250462805U;
         static const AkUniqueID PLAY_DEN_CREA_RANDOMBARKS = 3621090860U;
-        static const AkUniqueID PLAY_DEN_CREA_REACTIONBARKS = 3282886900U;
+        static const AkUniqueID PLAY_DEN_CREA_RB_ANGER = 3903286686U;
+        static const AkUniqueID PLAY_DEN_CREA_RB_CURIOUS = 1141265601U;
+        static const AkUniqueID PLAY_DEN_CREA_RB_FEAR = 231948563U;
+        static const AkUniqueID PLAY_DEN_CURSOR = 2777527908U;
+        static const AkUniqueID PLAY_DEN_MUSIC_START = 486039834U;
         static const AkUniqueID PLAY_DEN_MUSIC_TEST = 1174350178U;
+        static const AkUniqueID PLAY_DEN_STARTGAME = 3010429372U;
+        static const AkUniqueID PLAY_DEN_STINGER = 198938308U;
+        static const AkUniqueID SET_DEN_AMB_ANGER1 = 1566837199U;
+        static const AkUniqueID SET_DEN_AMB_ANGER2 = 1566837196U;
+        static const AkUniqueID SET_DEN_AMB_ANGER3 = 1566837197U;
+        static const AkUniqueID SET_DEN_AMB_CURIOUS1 = 1268512806U;
+        static const AkUniqueID SET_DEN_AMB_CURIOUS2 = 1268512805U;
+        static const AkUniqueID SET_DEN_AMB_CURIOUS3 = 1268512804U;
+        static const AkUniqueID SET_DEN_AMB_FEAR1 = 3699036620U;
+        static const AkUniqueID SET_DEN_AMB_FEAR2 = 3699036623U;
+        static const AkUniqueID SET_DEN_AMB_FEAR3 = 3699036622U;
+        static const AkUniqueID SET_DEN_AMB_RESET = 4204191990U;
     } // namespace EVENTS
 
     namespace STATES
     {
+        namespace DEN_STATE_AMBIENCE
+        {
+            static const AkUniqueID GROUP = 1560129083U;
+
+            namespace STATE
+            {
+                static const AkUniqueID DEN_ST_AMB_PLAYING = 3026507386U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace DEN_STATE_AMBIENCE
+
         namespace DEN_STATE_AUDIO_MIX
         {
             static const AkUniqueID GROUP = 1852625376U;
@@ -95,6 +124,19 @@ namespace AK
             } // namespace SWITCH
         } // namespace DEN_SW_FEARSTEPS
 
+        namespace DEN_SW_NEUTRALSTEPS
+        {
+            static const AkUniqueID GROUP = 3572877288U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DEN_SW_NS_0 = 2067990490U;
+                static const AkUniqueID DEN_SW_NS_1 = 2067990491U;
+                static const AkUniqueID DEN_SW_NS_2 = 2067990488U;
+                static const AkUniqueID DEN_SW_NS_3 = 2067990489U;
+            } // namespace SWITCH
+        } // namespace DEN_SW_NEUTRALSTEPS
+
         namespace DEN_SW_REACTIONMOOD
         {
             static const AkUniqueID GROUP = 2393674518U;
@@ -113,10 +155,17 @@ namespace AK
     {
         static const AkUniqueID DEN_GP_ANGERVALUE = 722514783U;
         static const AkUniqueID DEN_GP_CURIOSITYVALUE = 2578001617U;
+        static const AkUniqueID DEN_GP_CURSORVOLUME = 2230858223U;
         static const AkUniqueID DEN_GP_FEARVALUE = 4122714024U;
         static const AkUniqueID DEN_GP_INTENSITYVALUE = 973587621U;
         static const AkUniqueID DEN_GP_MONO = 1386681402U;
+        static const AkUniqueID DEN_GP_NEUTRALVALUE = 1734226615U;
         static const AkUniqueID DEN_GP_TENSIONVALUE = 3189323882U;
+        static const AkUniqueID DEN_GP_UIV_AMBIENCE = 2280064220U;
+        static const AkUniqueID DEN_GP_UIV_MASTER = 2421685046U;
+        static const AkUniqueID DEN_GP_UIV_MUSIC = 3976517781U;
+        static const AkUniqueID DEN_GP_UIV_SFX = 307573345U;
+        static const AkUniqueID DEN_GP_VOLUMEMOMO = 3482592633U;
     } // namespace GAME_PARAMETERS
 
     namespace TRIGGERS

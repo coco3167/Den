@@ -4,11 +4,25 @@
   "BasePlatform": "Mac",
   "PluginLibs": [
    {
+    "LibName": "Wwise Parametric EQ",
+    "LibId": "6881283",
+    "Type": "Effect",
+    "DLL": "AkParametricEQ",
+    "StaticLib": "AkParametricEQFX"
+   },
+   {
     "LibName": "Wwise Pitch Shifter",
     "LibId": "8912899",
     "Type": "Effect",
     "DLL": "AkPitchShifter",
     "StaticLib": "AkPitchShifterFX"
+   },
+   {
+    "LibName": "Wwise Synth One",
+    "LibId": "9699330",
+    "Type": "Source",
+    "DLL": "AkSynthOne",
+    "StaticLib": "AkSynthOneSource"
    },
    {
     "LibName": "System",
@@ -28,6 +42,6 @@
     "StaticLib": "AkChannelRouterFX"
    }
   ],
-  "FileHash": "{C040FF3E-866F-0980-0A76-77F81EB1DF5B}"
+  "FileHash": "{62350588-81AA-738C-A3D8-17F41D539C70}"
  }
 }
