@@ -19,7 +19,6 @@ MonoBehaviour:
   - rid: 281592817506320386
   SinjReactions:
   - rid: 281592817506320387
-  - rid: 281593135101902923
   references:
     version: 2
     RefIds:
@@ -42,7 +41,3 @@ MonoBehaviour:
       type: {class: SinjActiveBehavior/AgressionReaction, ns: Sinj, asm: Assembly-CSharp}
       data:
         amount: 200
-    - rid: 281593135101902923
-      type: {class: SinjActiveBehavior/BarkReaction, ns: Sinj, asm: Assembly-CSharp}
-      data:
-        reactionMood: 2

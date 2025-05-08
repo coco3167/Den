@@ -50,7 +50,6 @@ namespace Options
 
         private void ShowOptions(bool isPaused)
         {
-            
             gameObjectsToHide.ForEach(x => x.SetActive(isPaused));
             
             if(isPaused)
