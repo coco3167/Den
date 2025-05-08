@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class Billboard : MonoBehaviour
+namespace Sprites
 {
-    private void Awake()
+    public class Billboard : MonoBehaviour
     {
-        transform.LookAt(Camera.main.transform.position, Vector3.forward);
+        private void Update()
+        {
+            transform.LookAt(GameManager.Instance.GetCamera().transform.position, Vector3.up);
+        }
     }
 }

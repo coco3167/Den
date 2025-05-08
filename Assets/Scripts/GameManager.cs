@@ -5,10 +5,11 @@ using Sinj;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
+    
+    [SerializeField, ChildGameObjectsOnly] private Camera mainCamera;
     [SerializeField, ChildGameObjectsOnly] private EnvironmentManager environmentManager;
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
 
@@ -33,17 +34,16 @@ public class GameManager : MonoBehaviour
     public event EventHandler GameReady, GameEnded;
     
     public static GameManager Instance;
-
+    
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null)
         {
-            Instance = this;
-            pallierReached.AddListener(OnPallierReached);
+            Destroy(gameObject);
             return;
         }
-        
-        Destroy(gameObject);
+        Instance = this;
+        pallierReached.AddListener(OnPallierReached);
     }
     
     public void OnGameReady()
@@ -62,6 +62,11 @@ public class GameManager : MonoBehaviour
         {
             pallierReached.Invoke(emotion);
         }
+    }
+
+    public Camera GetCamera()
+    {
+        return mainCamera;
     }
     
     // ReSharper disable Unity.PerformanceAnalysis

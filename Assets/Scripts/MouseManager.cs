@@ -9,11 +9,17 @@ public class MouseManager : MonoBehaviour
     [SerializeField] private LayerMask terrainLayerMask;
 
     [SerializeField, ReadOnly] private Vector2 deltaSum;
+
+    private Camera m_camera;
     
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Mouse.current.WarpCursorPosition(Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f))); 
+        GameManager.Instance.GameReady += delegate
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            m_camera = GameManager.Instance.GetCamera();
+            Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
+        };
     }
 
     private void OnMouseMoved(InputValue value)
@@ -30,7 +36,7 @@ public class MouseManager : MonoBehaviour
         
         
         Vector2 mouseDelta = deltaSum * mouseSensitivity * 0.01f;
-        Vector3 mousePos = mouseRigidBody.position + new Vector3(mouseDelta.x, 0.0f, mouseDelta.y);
+        Vector3 mousePos = mouseRigidBody.position + m_camera.transform.TransformDirection(new Vector3(mouseDelta.x, 0.0f, mouseDelta.y));
         deltaSum = Vector2.zero;
         
         // Keep the mouse on the ground

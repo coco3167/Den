@@ -46,8 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ea31ed4bb21e340b58140b114331f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 3387363561274592155}
   environmentManager: {fileID: 1403750815339824577}
   sinjManager: {fileID: 2581851118876373522}
+  pallierReached:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2960937896097798440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,6 +201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d991f8bef777943abadc62855fff60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &3387363561274592155 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1280739566556841645, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
+  m_PrefabInstance: {fileID: 4522824518937824566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6928091716874163739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6836968198750542637, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
