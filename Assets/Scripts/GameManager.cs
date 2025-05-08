@@ -5,14 +5,18 @@ using Sinj;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     
     [SerializeField, ChildGameObjectsOnly] private Camera mainCamera;
+    
     [SerializeField, ChildGameObjectsOnly] private EnvironmentManager environmentManager;
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
-
+    [SerializeField] private MouseManager mouseManager;
+    
     [SerializeField] private UnityEvent<Emotions> pallierReached;
     
     // Palier
@@ -30,8 +34,11 @@ public class GameManager : MonoBehaviour
         { Emotions.Fear , 0},
     };
     private const int IntervalPallier = 25;
-    
+
+    // Events
     public event EventHandler GameReady, GameEnded;
+    public event EventHandler<GamePausedEventArgs> GamePaused;
+    private GamePausedEventArgs m_pausedEventArgs;
     
     public static GameManager Instance;
     
@@ -44,6 +51,10 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         pallierReached.AddListener(OnPallierReached);
+        Instance = this;
+        pallierReached.AddListener(OnPallierReached);
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        m_pausedEventArgs = new GamePausedEventArgs();
     }
     
     public void OnGameReady()
@@ -64,6 +75,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void OnMouseMoved(InputAction.CallbackContext callbackContext)
+    {
+        if(m_pausedEventArgs.IsPaused)
+            return;
+        mouseManager.OnMouseMoved(callbackContext.ReadValue<Vector2>());
+    }
+
+    public void OnOtherMoved(InputAction.CallbackContext callbackContext)
+    {
+        if(m_pausedEventArgs.IsPaused)
+            return;
+        
+        if(callbackContext.performed)
+            mouseManager.OnOtherMoveStart(callbackContext.ReadValue<Vector2>());
+        else if(callbackContext.canceled)
+            mouseManager.OnOtherMoveEnd();
+    }
+
+    public void OnPause(InputAction.CallbackContext callbackContext)
+    {
+        m_pausedEventArgs.IsPaused = !m_pausedEventArgs.IsPaused;
+        Cursor.lockState = m_pausedEventArgs.IsPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        Time.timeScale = m_pausedEventArgs.IsPaused ? 0 : 1;
+        GamePaused?.Invoke(this, m_pausedEventArgs);
+    }
+
     public Camera GetCamera()
     {
         return mainCamera;
@@ -79,4 +116,12 @@ public class GameManager : MonoBehaviour
         if(currentPalierValue == 100)
             OnGameEnded();
     }
+
+    #region EventArgs
+    public class GamePausedEventArgs : EventArgs
+    {
+        public bool IsPaused;
+    }
+    #endregion
+    
 }
