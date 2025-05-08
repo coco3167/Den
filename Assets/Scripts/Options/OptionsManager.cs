@@ -51,9 +51,12 @@ namespace Options
         private void ShowOptions(bool isPaused)
         {
             gameObjectsToHide.ForEach(x => x.SetActive(isPaused));
-            
-            if(isPaused)
+
+            if (isPaused)
+            {
+                generalButton.ClickOnButton();
                 EventSystem.current.SetSelectedGameObject(generalButton.gameObject);
+            }
         }
     }
 }

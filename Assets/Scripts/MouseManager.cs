@@ -49,7 +49,7 @@ public class MouseManager : MonoBehaviour
 
     private void MoveRigidBody(Vector2 movement)
     {
-        Vector3 newPos = mouseRigidBody.position + m_camera.transform.TransformDirection(new Vector3(movement.x, 0.0f, movement.y));
+        Vector3 newPos = mouseRigidBody.position + m_camera.transform.TransformDirection(new Vector3(movement.x, 0.0f, movement.y)) * Time.deltaTime;
         Physics.Raycast(newPos + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 100, terrainLayerMask);
         if(!hit.collider)
             Physics.Raycast(newPos + Vector3.down * 10f, Vector3.up, out hit, 100, terrainLayerMask);

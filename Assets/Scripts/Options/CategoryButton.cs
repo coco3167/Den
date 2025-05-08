@@ -29,6 +29,11 @@ namespace Options
             m_button.onClick.AddListener(callAction);
         }
 
+        public void ClickOnButton()
+        {
+            m_button.onClick.Invoke();
+        }
+
         private void HideOtherCategoryButtons()
         {
             foreach (CategoryButton button in _categoryButtons)

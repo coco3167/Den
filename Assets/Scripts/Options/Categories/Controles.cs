@@ -12,6 +12,9 @@ namespace Options.Categories
         {
             mouseSensitivity.onValueChanged.AddListener(OnMouseSensitivityChanged);
             joystickSensitivity.onValueChanged.AddListener(OnJoystickSensitivityChanged);
+
+            GameParameters.MouseSensitivity = mouseSensitivity.value;
+            GameParameters.JoystickSensitivity = joystickSensitivity.value;
         }
 
         private void OnMouseSensitivityChanged(float value)
