@@ -88,7 +88,7 @@ namespace Sinj
         public class FleeReaction : SinjReaction
         {
             [field: SerializeField] private float distance;
-
+            
             public override void ApplyReaction(SinjAgent agent)
             {
                 agent.FleeReaction(distance);

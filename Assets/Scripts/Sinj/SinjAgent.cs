@@ -73,24 +73,26 @@ namespace Sinj
 
         public void HandleBehaviors()
         {
-            foreach (SinjActiveBehavior behavior in activeBehaviors)
+            m_stateMachine.ResetBehavior(this);
+            if (!m_stateMachine.HasBehavior(true))
             {
-                if (!behavior.IsApplying(this))
-                    continue;
-                behavior.ApplyReaction(this);
+                foreach (SinjActiveBehavior behavior in activeBehaviors)
+                {
+                    if (!behavior.IsApplying(this))
+                        continue;
+                    behavior.ApplyReaction(this);
+                }
+                
+                if (!m_stateMachine.HasBehavior())
+                {
+                    SetCalmAgent();
+                    m_stateMachine.ChoosePassivBehavior(passiveBehaviors);
+                    m_stateMachine.CurrentBehavior.ApplyReaction(this);
+                }
             }
             
-            if (m_stateMachine.HasBehavior() && m_stateMachine.CurrentBehavior.IsFinished(this))
-                    m_stateMachine.ResetBehavior();
 
-            if (!m_stateMachine.HasBehavior())
-            {
-                SetCalmAgent();
-                m_stateMachine.ChoosePassivBehavior(passiveBehaviors);
-                m_stateMachine.CurrentBehavior.ApplyReaction(this);
-            }
-
-            m_debugParameters[4].Value = m_stateMachine.CurrentBehavior.ToString();
+            m_debugParameters[4].Value = m_stateMachine.ToString();
         }
 
         public void UpdateEmotion(float value, Emotions emotion)
@@ -151,7 +153,19 @@ namespace Sinj
         
         public bool IsCloseToDestination()
         {
-            return m_navMeshAgent.remainingDistance <= m_navMeshAgent.stoppingDistance;
+            bool finished = m_navMeshAgent.remainingDistance <= m_navMeshAgent.stoppingDistance;
+            
+            if (finished)
+            {
+                if (emotions[Emotions.Curiosity] >= emotionsDisplayCap[Emotions.Curiosity])
+                    animator.SetTrigger("EndCuriosityFlee");
+
+                if (emotions[Emotions.Agression] >= emotionsDisplayCap[Emotions.Agression])
+                    animator.SetTrigger("EndAgressionFlee");
+                
+                return true;
+            }
+            return false;
         }
 
         public void PlaySound(AK.Wwise.Event eventToPlay)
@@ -171,6 +185,7 @@ namespace Sinj
         {
             m_navMeshAgent.speed = runningAgent.maxSpeed;
             m_navMeshAgent.acceleration = runningAgent.acceleration;
+            animator.SetTrigger("Flee");
         }
         
         [Serializable]
