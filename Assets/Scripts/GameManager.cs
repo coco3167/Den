@@ -10,15 +10,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    
+
     [SerializeField, ChildGameObjectsOnly] private Camera mainCamera;
-    
+
     [SerializeField, ChildGameObjectsOnly] private EnvironmentManager environmentManager;
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
     [SerializeField] private MouseManager mouseManager;
-    
+
     [SerializeField] private UnityEvent<Emotions, int> pallierReached;
-    
+
     // Palier
     private readonly Dictionary<Emotions, WwiseMoodState> m_palierMoodState = new()
     {
@@ -34,13 +34,13 @@ public class GameManager : MonoBehaviour
         { Emotions.Fear , 0},
     };
     public const int IntervalPallier = 25;
-    
+
     public event EventHandler GameReady, GameEnded;
     public event EventHandler<GamePausedEventArgs> GamePaused;
     private GamePausedEventArgs m_pausedEventArgs;
-    
+
     public static GameManager Instance;
-    
+
     private void Awake()
     {
         if (Instance != null)
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
         m_pausedEventArgs = new GamePausedEventArgs();
     }
-    
+
     public void OnGameReady()
     {
         GameReady?.Invoke(null, EventArgs.Empty);
@@ -76,19 +76,19 @@ public class GameManager : MonoBehaviour
 
     public void OnMouseMoved(InputAction.CallbackContext callbackContext)
     {
-        if(m_pausedEventArgs.IsPaused)
+        if (m_pausedEventArgs.IsPaused)
             return;
         mouseManager.OnMouseMoved(callbackContext.ReadValue<Vector2>());
     }
 
     public void OnOtherMoved(InputAction.CallbackContext callbackContext)
     {
-        if(m_pausedEventArgs.IsPaused)
+        if (m_pausedEventArgs.IsPaused)
             return;
-        
-        if(callbackContext.performed)
+
+        if (callbackContext.performed)
             mouseManager.OnOtherMoveStart(callbackContext.ReadValue<Vector2>());
-        else if(callbackContext.canceled)
+        else if (callbackContext.canceled)
             mouseManager.OnOtherMoveEnd();
     }
 
@@ -104,14 +104,14 @@ public class GameManager : MonoBehaviour
     {
         return mainCamera;
     }
-    
+
     // ReSharper disable Unity.PerformanceAnalysis
     private void OnPallierReached(Emotions emotion, int nextPallier)
     {
         m_currentPalier[emotion] = nextPallier;
         //WwiseStateManager.SetWwiseMoodState(m_palierMoodState[emotion]);
-        
-        if(m_currentPalier[emotion] == 100)
+
+        if (m_currentPalier[emotion] == 100)
             OnGameEnded();
     }
 
@@ -121,5 +121,5 @@ public class GameManager : MonoBehaviour
         public bool IsPaused;
     }
     #endregion
-    
+
 }

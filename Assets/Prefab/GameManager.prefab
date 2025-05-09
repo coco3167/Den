@@ -54,7 +54,19 @@ MonoBehaviour:
   mouseManager: {fileID: 7460971846164452987}
   pallierReached:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Audio.AudioManager, Assembly-CSharp
+        m_MethodName: PlayEmotionSteps
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &806879179260966156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +204,7 @@ PrefabInstance:
     - target: {fileID: 775690876167187258, guid: 102b9e843805211418420d99704bcb15, type: 3}
       propertyPath: mouseManager
       value: 
-      objectReference: {fileID: 7460971846164452987}
+      objectReference: {fileID: 0}
     - target: {fileID: 775690876167187258, guid: 102b9e843805211418420d99704bcb15, type: 3}
       propertyPath: environmentManager
       value: 
