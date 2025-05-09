@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a3496d490acd87341aa707fce0291b99, type: 2}
     - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: sinjCount
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: mouseManager
@@ -210,6 +210,10 @@ PrefabInstance:
       propertyPath: m_NavMeshData
       value: 
       objectReference: {fileID: 23800000, guid: 7bd2121af6f20d14181e983c02f9b337, type: 2}
+    - target: {fileID: 8644262623078892037, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2676457169690422559, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
