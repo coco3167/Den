@@ -53,7 +53,7 @@ public class MouseManager : MonoBehaviour
         Physics.Raycast(newPos + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 100, terrainLayerMask);
         if(!hit.collider)
             return;
-        newPos.y = hit.point.y;
+        newPos.y = hit.point.y + mouseRigidBody.transform.localScale.y/2;
         
         mouseRigidBody.MovePosition(newPos);
     }

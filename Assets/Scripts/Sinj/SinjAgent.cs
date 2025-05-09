@@ -31,12 +31,15 @@ namespace Sinj
         
         private readonly List<DebugParameter> m_debugParameters = new();
         private static int _avoidanceValue;
+
+        private float m_scale;
     
         // Fleeing
         private Vector3 m_fleeingTarget;
 
         private void Awake()
         {
+            m_scale = transform.localScale.x;
             m_navMeshAgent = GetComponent<NavMeshAgent>();
             gameObject.AddComponent<AkGameObj>();
             SetCalmAgent();
@@ -68,7 +71,7 @@ namespace Sinj
             animator.SetBool("Agression", emotions[Emotions.Agression] >= emotionsDisplayCap[Emotions.Agression]);
             animator.SetBool("Fear", emotions[Emotions.Fear] >= emotionsDisplayCap[Emotions.Fear]);
             
-            transform.localScale = new Vector3(m_navMeshAgent.velocity.x > 0 ? -1f : 1f, 1f, 1f);
+            transform.localScale = new Vector3(m_navMeshAgent.velocity.x > 0 ? -1f : 1f, 1f, 1f) * m_scale;
         }
 
         public void HandleBehaviors()
@@ -147,7 +150,7 @@ namespace Sinj
             do
             {
                 Vector2 randomPoint = Random.insideUnitCircle;
-                destination = transform.position + new Vector3(randomPoint.x, 0, randomPoint.y) * distance;
+                destination = Vector3.zero + new Vector3(randomPoint.x, 0, randomPoint.y) * distance;
             } while (!m_navMeshAgent.SetDestination(destination));
         }
         
