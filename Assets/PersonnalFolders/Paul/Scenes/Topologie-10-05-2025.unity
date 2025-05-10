@@ -19703,8 +19703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22c0087fe37e8246bf9e8ab8205ae7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  daySlider: 0
-  currentDayStep: 
+  daySlider: 0.933
+  currentDayStep: evening
   skyMat: {fileID: 2100000, guid: 20b37ff25a167e74caf1faa51525bfb2, type: 2}
   morningMat: {fileID: 2100000, guid: fcb934c4734131a4a9c026689cd1e6eb, type: 2}
   dayMat: {fileID: 2100000, guid: de0e3232d075890459768e26f31f43ad, type: 2}
@@ -19712,9 +19712,12 @@ MonoBehaviour:
   sunLight: {fileID: 1305400155}
   startXRotation: 5.55
   endXRotation: 341.14
+  morningSunCol: {r: 0.8867924, g: 0.43067384, b: 0.3722855, a: 1}
+  daySunCol: {r: 1, g: 0.86274517, b: 0.7490196, a: 1}
+  eveningSunCol: {r: 0, g: 0, b: 0, a: 0}
   morningRayCol: {r: 1, g: 0, b: 0, a: 0.57254905}
-  dayRayCol: {r: 0.9150943, g: 0.85935414, b: 0.43596473, a: 0.4745098}
-  eveningRayCol: {r: 0.6232645, g: 0.8135902, b: 0.8867924, a: 0}
+  dayRayCol: {r: 0.62060815, g: 0.6320754, b: 0.25938946, a: 0.4745098}
+  eveningRayCol: {r: 0, g: 0, b: 0, a: 0}
   godRays:
   - {fileID: 27380453}
   - {fileID: 294746363}

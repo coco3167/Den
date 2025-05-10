@@ -23,6 +23,9 @@ public class LightingManager : MonoBehaviour
     public float startXRotation;
     public float endXRotation;
     private Vector3 originRotation;
+    public Color morningSunCol;
+    public Color daySunCol;
+    public Color eveningSunCol;
 
     [Header("God Rays")]
     public Color morningRayCol;
@@ -48,6 +51,7 @@ public class LightingManager : MonoBehaviour
             currentDayStep = "morning";
             
             SetFXCol(eveningRayCol, morningRayCol);
+            sunLight.color = SetIntermediateCol(eveningSunCol, morningSunCol);
         }
         else if (daySlider < 0.75f)
         {
@@ -56,6 +60,7 @@ public class LightingManager : MonoBehaviour
             currentDayStep = "day";
 
             SetFXCol(morningRayCol, dayRayCol);
+            sunLight.color = SetIntermediateCol(morningSunCol, daySunCol);
         }
         else
         {
@@ -64,6 +69,7 @@ public class LightingManager : MonoBehaviour
             currentDayStep = "evening";
             
             SetFXCol(dayRayCol, eveningRayCol);
+            sunLight.color = SetIntermediateCol(daySunCol, eveningSunCol);
         }
 
         sunLight.transform.eulerAngles = new Vector3(Mathf.Lerp(startXRotation,endXRotation,daySlider), originRotation.y, originRotation.z);
