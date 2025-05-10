@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class Proc_Cry : MonoBehaviour
+public class Proc_MAIN : MonoBehaviour
 {
     [Range (0,1)]
     public float getUpAmount;
