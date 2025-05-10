@@ -91,7 +91,7 @@ public class AkRTPCPlayableBehaviour : UnityEngine.Playables.PlayableBehaviour
 			}
 
 			if (setRTPCGlobally || rtpcObject == null)
-				parameter.SetGlobalValue(RTPCValue);
+				parameter.GetGlobalValue(RTPCValue);
 			else
 				parameter.SetValue(rtpcObject, RTPCValue);
 		}

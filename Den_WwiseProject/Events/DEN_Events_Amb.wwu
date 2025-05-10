@@ -7,17 +7,495 @@
 				<Property Name="OverrideColor" Type="bool" Value="True"/>
 			</PropertyList>
 			<ChildrenList>
-				<Event Name="Play_DEN_Amb_Test" ID="{0A0BD5D1-7399-4070-A466-45EDA771A82F}">
+				<Event Name="Play_DEN_Amb" ID="{0A0BD5D1-7399-4070-A466-45EDA771A82F}">
 					<ChildrenList>
 						<Action Name="" ID="{E91FE96F-034A-46C1-B19E-317271251457}" ShortID="940245873">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="4"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="DEN_Amb_Test" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+									<ObjectRef Name="DEN_Amb" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{8B0E0A22-93EA-43D8-B460-E0A86D7BEEE5}" ShortID="271099733">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_ST_Amb_Playing" ID="{591B604F-ED42-451A-9D6A-DB7A0655879F}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="DEN_Set_Events" ID="{03D1DA48-9FA3-4BB4-9A9F-754287400266}" ShortID="27274274">
+					<ChildrenList>
+						<Event Name="Set_DEN_AMB_Curious3" ID="{A317E185-8737-4926-B468-9A0D5103E087}">
+							<ChildrenList>
+								<Action Name="" ID="{3857F0DD-2D2C-43EF-ABEE-59D094DC0806}" ShortID="234073076">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{651FF92B-6772-430F-9F92-2C8675A06E23}" ShortID="583672363">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="75"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{6ED24B93-0999-4986-8B1F-CCBE3969D55B}" ShortID="489656508">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="75"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_CuriosityValue" ID="{4C8EF3DA-5ED7-423F-8B0C-F48F58CE5ABD}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{1F277171-EA21-4886-A659-6587BD9DF032}" ShortID="838329241">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood" ID="{CCD902E3-7036-48E8-98D2-FBBA7101FB35}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_AMB_Fear3" ID="{4B7E51E9-AC10-4E6C-87EE-6DF7DFBC938B}">
+							<ChildrenList>
+								<Action Name="" ID="{D7864994-8B16-4A5B-B1F8-B046ECB320D6}" ShortID="983216357">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_Mood_Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{6F70D9C7-C8E8-47D6-99E1-D51658026E2C}" ShortID="738521305">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="100"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{935956A6-4BD8-4708-90E2-74D1060FC0C1}" ShortID="658244837">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="75"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_FearValue" ID="{5DDCEF5F-D8C4-40D7-BD7E-8336CBE14C7F}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{223797D8-C8ED-4CCC-A2DE-26135B7100F0}" ShortID="481253519">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood" ID="{CCD902E3-7036-48E8-98D2-FBBA7101FB35}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_AMB_Curious2" ID="{0F9FDD0B-A9B3-4F2D-90B6-CD84D6EC4BEF}">
+							<ChildrenList>
+								<Action Name="" ID="{52293D22-73DF-4325-B097-2C03083F046D}" ShortID="930997281">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{0BDF7836-1825-425C-84DA-75D2A69ABF17}" ShortID="695692744">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="50"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{38BC8CC7-F6DD-4359-A33D-A7BC872FD0ED}" ShortID="976344654">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="50"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_CuriosityValue" ID="{4C8EF3DA-5ED7-423F-8B0C-F48F58CE5ABD}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7CB78C49-4AB1-4070-91EA-14DD1B050A33}" ShortID="863788106">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood" ID="{CCD902E3-7036-48E8-98D2-FBBA7101FB35}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_AMB_Reset" ID="{0DFC7C07-73DF-4BFE-85C8-AE49D614F797}">
+							<ChildrenList>
+								<Action Name="" ID="{840D0616-236A-4837-92D1-E6ABFD8AA9EE}" ShortID="762576792">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{DC3D2B75-C84B-4D32-B3B0-64F6C769961B}" ShortID="745936774">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{80954FBC-0574-4E9D-9382-C38194E452D2}" ShortID="162817061">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{FD07571E-9A96-402C-901A-A7D6157AD147}" ShortID="736358130">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_CuriosityValue" ID="{4C8EF3DA-5ED7-423F-8B0C-F48F58CE5ABD}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{2F4E4D17-98B4-4848-A0FF-7941B908A3E4}" ShortID="11246771">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_FearValue" ID="{5DDCEF5F-D8C4-40D7-BD7E-8336CBE14C7F}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{99031D14-865C-40A8-9ECF-365BC8DF97F1}" ShortID="116159095">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_IntensityValue" ID="{06A92236-B1E4-4B96-B6E9-D34C84BD2715}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{510CDF68-DD22-4250-9CA5-A01507878576}" ShortID="184239192">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_TensionValue" ID="{2BACC983-9E6E-4BBE-8C8E-A1621790A002}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_AMB_Curious1" ID="{6C3DD368-3FEF-4216-A593-BC9E683AA5CF}">
+							<ChildrenList>
+								<Action Name="" ID="{444291AF-A175-4C59-8FBB-516F494F07C4}" ShortID="313323528">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{5BE46AF2-309C-431B-B4C6-6F42C5EE52FC}" ShortID="675425020">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="25"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{12FCCED8-AC96-4CE6-90C9-74B29F01FDB3}" ShortID="633164883">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="25"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_CuriosityValue" ID="{4C8EF3DA-5ED7-423F-8B0C-F48F58CE5ABD}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{35AC6B4D-6861-46FA-B0E0-44E8395D96B1}" ShortID="149258375">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood" ID="{CCD902E3-7036-48E8-98D2-FBBA7101FB35}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_AMB_Fear2" ID="{1A10847D-7E97-4F4E-8FBE-BC15238CA4EC}">
+							<ChildrenList>
+								<Action Name="" ID="{214F609D-9C42-4DC2-A014-3A49309BDCCE}" ShortID="589328489">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_Mood_Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{AAE98BA3-F1B6-415A-A719-60756CD965AB}" ShortID="157461278">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="50"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{301DFB50-9F7F-45A9-AC3F-F8F76CE8DBAD}" ShortID="1059228012">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="50"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_FearValue" ID="{5DDCEF5F-D8C4-40D7-BD7E-8336CBE14C7F}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{37FEA94E-5C2B-4DE6-B20F-5B4EF88ACA64}" ShortID="311916646">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood" ID="{CCD902E3-7036-48E8-98D2-FBBA7101FB35}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_AMB_Anger3" ID="{7900FE67-207E-4AC3-8F1A-0DE60F0114D5}">
+							<ChildrenList>
+								<Action Name="" ID="{5C62F6D9-39E8-4DB3-8C18-F4D846670FAE}" ShortID="24821395">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{EE49BF4F-85D6-477C-96D6-11CE8E18D36A}" ShortID="871836799">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="75"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{8E1C4E99-0E92-4F90-87BC-4C81BB3E5BA6}" ShortID="682975393">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="75"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{2BD22668-F31C-4247-9CD8-42D252165653}" ShortID="1029281521">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood" ID="{CCD902E3-7036-48E8-98D2-FBBA7101FB35}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_AMB_Anger2" ID="{775EF318-EB6D-4B54-8EEB-DC8FC6B4228C}">
+							<ChildrenList>
+								<Action Name="" ID="{89E7382F-8652-4590-BFCE-5E57D9148193}" ShortID="823322234">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{148CA15F-4E65-4BCD-A62A-036D42C72B56}" ShortID="256623552">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="50"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{584D2F2F-D717-41A7-9CD6-0649E40FFB89}" ShortID="76969034">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="50"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{15FB3F6A-6E40-4E40-9654-E44BB5C3FC41}" ShortID="490363105">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood" ID="{CCD902E3-7036-48E8-98D2-FBBA7101FB35}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_AMB_Anger1" ID="{F325B204-5816-4930-BB93-25C7EADDC152}">
+							<ChildrenList>
+								<Action Name="" ID="{F351B261-F0A3-44EC-A255-7C0D245AB3E6}" ShortID="140802676">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{1A6A28D6-09A5-4208-A731-ACF33D5E30EA}" ShortID="573818072">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="25"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{D3C21E43-635D-4D94-A2A8-A905E32297EC}" ShortID="563035223">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="25"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7D840B82-79C0-4521-B0A9-E2E6A83236A6}" ShortID="53821839">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood" ID="{CCD902E3-7036-48E8-98D2-FBBA7101FB35}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_AMB_Fear1" ID="{1F2AB577-3F45-487F-8B4A-3700DD231F21}">
+							<ChildrenList>
+								<Action Name="" ID="{5FB42437-BDC1-49E1-A714-5EAE8A0F8BE0}" ShortID="68842201">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_Mood_Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{74194C10-3739-482B-A12E-CF38681773BB}" ShortID="886508575">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="25"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{6EBC415C-83C0-43C1-9884-7AA311412436}" ShortID="635691786">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="25"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_GP_FearValue" ID="{5DDCEF5F-D8C4-40D7-BD7E-8336CBE14C7F}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{DFA7FC43-A8C1-4F87-B0E9-4E99DFA2D1CB}" ShortID="724180029">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood" ID="{CCD902E3-7036-48E8-98D2-FBBA7101FB35}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

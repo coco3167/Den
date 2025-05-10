@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5635725121037363291
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: fur_shell2
+  m_Shader: {fileID: 4800000, guid: 589ea0397284e0e42b1985a0455d66b2, type: 3}
+  m_Parent: {fileID: 2100000, guid: fbcf267a5adbc7a428dc8a79b532ed20, type: 2}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: ced9c9eab18f12e419adb8a056197f96, type: 3}
+        m_Scale: {x: 1, y: -3.98}
+        m_Offset: {x: 2.57, y: -2.71}
+    - _FurMap:
+        m_Texture: {fileID: 2800000, guid: d647d704640df914fb36caf1797903f8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FurMask:
+        m_Texture: {fileID: 2800000, guid: 084784318ba434d44bfd4b40b76db16d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 1bc933a2400b8ac429d417116c9df2ed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutout: 0.207
+    - _FurScale: 4.98
+    - _Metallic: 0.228
+    - _NormalScale: 2
+    - _Occlusion: 0.543
+    - _RimLightIntensity: 1
+    - _RimLightPower: 1
+    - _ShadowExtraBias: -0.465
+    - _ShellAmount: 23
+    - _ShellStep: 0.00552
+    - _Smoothness: 0.352
+    m_Colors:
+    - _AmbientColor: {r: 0.21242426, g: 0.12677999, b: 0.3490566, a: 1}
+    - _BaseColor: {r: 0.7761206, g: 0.44459772, b: 0.9716981, a: 1}
+    - _WindFreq: {r: 0.5, g: 0.7, b: 0.9, a: 1}
+    - _WindMove: {r: 1, g: 10, b: 1, a: 12.25}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

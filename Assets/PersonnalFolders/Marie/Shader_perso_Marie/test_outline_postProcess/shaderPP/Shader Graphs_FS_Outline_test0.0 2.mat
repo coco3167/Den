@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_FS_Outline_test0.0 2
+  m_Shader: {fileID: -6465566751694194690, guid: 128a703297fb6cd42902b39c94ee1f04, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _OVERLAY
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_da406df4085b49b9b9f5da02c4f1bcf1_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 5aad19fabfe697c4c86aec9b21dad9ba, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Normal_Threshold: 9.85
+    - _OVERLAY: 1
+    - _color_Threshold: 0.1
+    m_Colors:
+    - _Outline_Color: {r: 0.35082126, g: 0.36862746, b: 0, a: 0}
+    - _outline_color2: {r: 0.38679248, g: 0, b: 0.38679248, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

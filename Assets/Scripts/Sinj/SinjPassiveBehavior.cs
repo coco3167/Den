@@ -13,14 +13,14 @@ namespace Sinj
         [Serializable]
         public class RestReaction : SinjReaction
         {
-            [SerializeField, Range(.5f,5)] private float minTime = .5f, maxTime = 5f;
+            [SerializeField, Range(.5f, 5)] private float minTime = .5f, maxTime = 5f;
 
             private Timer m_timer;
             private bool m_isFinished;
             public override void ApplyReaction(SinjAgent agent)
             {
                 m_isFinished = false;
-                
+
                 m_timer = new Timer(Random.Range(minTime, maxTime) * 1000);
                 m_timer.AutoReset = false;
                 m_timer.Elapsed += (_, _) =>
@@ -37,7 +37,7 @@ namespace Sinj
                 return m_isFinished;
             }
         }
-        
+
         [Serializable]
         public class WalkReaction : SinjReaction
         {
@@ -59,8 +59,8 @@ namespace Sinj
                     // }
 
                     WwisePostEvents.Instance.PostRandomMoodEvent();
-                    
-                    
+
+
                     return true;
                 }
                 return false;

@@ -6,20 +6,6 @@ namespace Sinj
 {
     public abstract class SinjBehavior : ScriptableObject
     {
-        [Serializable]
-        public abstract class SinjStimulus
-        {
-            public abstract bool IsApplying(SinjAgent agent);
-        }
-        
-        [Serializable]
-        public abstract class SinjReaction
-        {
-            public abstract void ApplyReaction(SinjAgent agent);
-            
-            public abstract bool IsFinished(SinjAgent agent);
-        }
-
         [SerializeField] private bool instantenous = false;
         [SerializeReference] private List<SinjStimulus> SinjStimuli;
         [SerializeReference] private List<SinjReaction> SinjReactions;
@@ -71,5 +57,28 @@ namespace Sinj
         {
             return name;
         }
+
+        #region SubClassDefinition
+        [Serializable]
+        public abstract class SinjStimulus
+        {
+            public abstract bool IsApplying(SinjAgent agent);
+        }
+        
+        [Serializable]
+        public abstract class SinjReaction
+        {
+            public abstract void ApplyReaction(SinjAgent agent);
+            
+            public abstract bool IsFinished(SinjAgent agent);
+        }
+        
+        protected enum Comparison
+        {
+            Inferior,
+            Superior,
+            Equal
+        }
+        #endregion
     }
 }
