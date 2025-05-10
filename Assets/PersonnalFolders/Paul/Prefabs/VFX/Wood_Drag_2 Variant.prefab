@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1919572985735287023, guid: cfdc2552e921c264ea3064cf771e33aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.605
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1919572985735287023, guid: cfdc2552e921c264ea3064cf771e33aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.777
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1919572985735287023, guid: cfdc2552e921c264ea3064cf771e33aa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.881
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1919572985735287023, guid: cfdc2552e921c264ea3064cf771e33aa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -55,10 +55,26 @@ PrefabInstance:
     - target: {fileID: 3372241817305372238, guid: cfdc2552e921c264ea3064cf771e33aa, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 3279c611e1f069e46894f2d45d6b0821, type: 2}
     - target: {fileID: 7023101293722056768, guid: cfdc2552e921c264ea3064cf771e33aa, type: 3}
       propertyPath: RotationModule.enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7023101293722056768, guid: cfdc2552e921c264ea3064cf771e33aa, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7023101293722056768, guid: cfdc2552e921c264ea3064cf771e33aa, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7023101293722056768, guid: cfdc2552e921c264ea3064cf771e33aa, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7023101293722056768, guid: cfdc2552e921c264ea3064cf771e33aa, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.minScalar
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
