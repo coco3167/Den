@@ -56,7 +56,7 @@ namespace AK.Wwise
 			return value;
 		}
 
-		public void SetGlobalValue(float value)
+		public void SetGlobalValue(string rtpcName, float value)
 		{
 			if (IsValid())
 			{
@@ -65,7 +65,7 @@ namespace AK.Wwise
 			}
 		}
 
-		public float GetGlobalValue()
+		public float GetGlobalValue(float value)
 		{
 			return GetValue(null);
 		}

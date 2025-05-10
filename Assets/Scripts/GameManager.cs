@@ -4,43 +4,58 @@ using Audio;
 using Sinj;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    [SerializeField, ChildGameObjectsOnly] private Camera mainCamera;
+
     [SerializeField, ChildGameObjectsOnly] private EnvironmentManager environmentManager;
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
-    
-    [Title("Pallier")]
-    private Dictionary<Emotions, WwiseMoodState> pallierMoodState = new()
+    [SerializeField] private MouseManager mouseManager;
+
+    [SerializeField] private UnityEvent<Emotions, int> pallierReached;
+
+    // Palier
+    private readonly Dictionary<Emotions, WwiseMoodState> m_palierMoodState = new()
     {
         { Emotions.Curiosity, WwiseMoodState.CuriosityState },
         { Emotions.Agression, WwiseMoodState.AngerState },
         { Emotions.Fear, WwiseMoodState.FearState },
 
     };
-    private Dictionary<Emotions, int> m_currentPallier = new()
+    private readonly Dictionary<Emotions, int> m_currentPalier = new()
     {
         { Emotions.Curiosity , 0},
         { Emotions.Agression, 0},
         { Emotions.Fear , 0},
     };
-    private const int IntervalPallier = 25;
-    
+    public const int IntervalPallier = 25;
+
     public event EventHandler GameReady, GameEnded;
-    
+    public event EventHandler<GamePausedEventArgs> GamePaused;
+    private GamePausedEventArgs m_pausedEventArgs;
+
     public static GameManager Instance;
 
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null)
         {
-            Instance = this;
+            Destroy(gameObject);
             return;
         }
-        
-        Destroy(gameObject);
+        Instance = this;
+        pallierReached.AddListener(OnPallierReached);
+        Instance = this;
+        pallierReached.AddListener(OnPallierReached);
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        m_pausedEventArgs = new GamePausedEventArgs();
     }
-    
+
     public void OnGameReady()
     {
         GameReady?.Invoke(null, EventArgs.Empty);
@@ -53,20 +68,58 @@ public class GameManager : MonoBehaviour
 
     public void HandlePallier(Emotions emotion, int value)
     {
-        if (m_currentPallier[emotion] + IntervalPallier < value)
+        if (m_currentPalier[emotion] + IntervalPallier < value)
         {
-            PallierReached(emotion);
+            pallierReached.Invoke(emotion, m_currentPalier[emotion] + IntervalPallier);
         }
     }
-    
-    // ReSharper disable Unity.PerformanceAnalysis
-    private void PallierReached(Emotions emotion)
+
+    public void OnMouseMoved(InputAction.CallbackContext callbackContext)
     {
-        m_currentPallier[emotion] += IntervalPallier;
-        int currentPallierValue = m_currentPallier[emotion];
-        WwiseStateManager.SetWwiseMoodState(pallierMoodState[emotion]);
-        
-        if(currentPallierValue == 100)
+        if (m_pausedEventArgs.IsPaused)
+            return;
+        mouseManager.OnMouseMoved(callbackContext.ReadValue<Vector2>());
+    }
+
+    public void OnOtherMoved(InputAction.CallbackContext callbackContext)
+    {
+        if (m_pausedEventArgs.IsPaused)
+            return;
+
+        if (callbackContext.performed)
+            mouseManager.OnOtherMoveStart(callbackContext.ReadValue<Vector2>());
+        else if (callbackContext.canceled)
+            mouseManager.OnOtherMoveEnd();
+    }
+
+    public void OnPause(InputAction.CallbackContext callbackContext)
+    {
+        m_pausedEventArgs.IsPaused = !m_pausedEventArgs.IsPaused;
+        Cursor.lockState = m_pausedEventArgs.IsPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        Time.timeScale = m_pausedEventArgs.IsPaused ? 0 : 1;
+        GamePaused?.Invoke(this, m_pausedEventArgs);
+    }
+
+    public Camera GetCamera()
+    {
+        return mainCamera;
+    }
+
+    // ReSharper disable Unity.PerformanceAnalysis
+    private void OnPallierReached(Emotions emotion, int nextPallier)
+    {
+        m_currentPalier[emotion] = nextPallier;
+        //WwiseStateManager.SetWwiseMoodState(m_palierMoodState[emotion]);
+
+        if (m_currentPalier[emotion] == 100)
             OnGameEnded();
     }
+
+    #region EventArgs
+    public class GamePausedEventArgs : EventArgs
+    {
+        public bool IsPaused;
+    }
+    #endregion
+
 }

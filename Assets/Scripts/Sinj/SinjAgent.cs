@@ -31,12 +31,15 @@ namespace Sinj
         
         private readonly List<DebugParameter> m_debugParameters = new();
         private static int _avoidanceValue;
+
+        private float m_scale;
     
         // Fleeing
         private Vector3 m_fleeingTarget;
 
         private void Awake()
         {
+            m_scale = transform.localScale.x;
             m_navMeshAgent = GetComponent<NavMeshAgent>();
             gameObject.AddComponent<AkGameObj>();
             SetCalmAgent();
@@ -68,29 +71,31 @@ namespace Sinj
             animator.SetBool("Agression", emotions[Emotions.Agression] >= emotionsDisplayCap[Emotions.Agression]);
             animator.SetBool("Fear", emotions[Emotions.Fear] >= emotionsDisplayCap[Emotions.Fear]);
             
-            transform.localScale = new Vector3(m_navMeshAgent.velocity.x > 0 ? 1f : -1f, 1f, 1f);
+            transform.localScale = new Vector3(m_navMeshAgent.velocity.x > 0 ? -1f : 1f, 1f, 1f) * m_scale;
         }
 
         public void HandleBehaviors()
         {
-            foreach (SinjActiveBehavior behavior in activeBehaviors)
+            m_stateMachine.ResetBehavior(this);
+            if (!m_stateMachine.HasBehavior(true))
             {
-                if (!behavior.IsApplying(this))
-                    continue;
-                behavior.ApplyReaction(this);
+                foreach (SinjActiveBehavior behavior in activeBehaviors)
+                {
+                    if (!behavior.IsApplying(this))
+                        continue;
+                    behavior.ApplyReaction(this);
+                }
+                
+                if (!m_stateMachine.HasBehavior())
+                {
+                    SetCalmAgent();
+                    m_stateMachine.ChoosePassivBehavior(passiveBehaviors);
+                    m_stateMachine.CurrentBehavior.ApplyReaction(this);
+                }
             }
             
-            if (m_stateMachine.HasBehavior() && m_stateMachine.CurrentBehavior.IsFinished(this))
-                    m_stateMachine.ResetBehavior();
 
-            if (!m_stateMachine.HasBehavior())
-            {
-                SetCalmAgent();
-                m_stateMachine.ChoosePassivBehavior(passiveBehaviors);
-                m_stateMachine.CurrentBehavior.ApplyReaction(this);
-            }
-
-            m_debugParameters[4].Value = m_stateMachine.CurrentBehavior.ToString();
+            m_debugParameters[4].Value = m_stateMachine.ToString();
         }
 
         public void UpdateEmotion(float value, Emotions emotion)
@@ -145,13 +150,25 @@ namespace Sinj
             do
             {
                 Vector2 randomPoint = Random.insideUnitCircle;
-                destination = transform.position + new Vector3(randomPoint.x, 0, randomPoint.y) * distance;
+                destination = Vector3.zero + new Vector3(randomPoint.x, 0, randomPoint.y) * distance;
             } while (!m_navMeshAgent.SetDestination(destination));
         }
         
         public bool IsCloseToDestination()
         {
-            return m_navMeshAgent.remainingDistance <= m_navMeshAgent.stoppingDistance;
+            bool finished = m_navMeshAgent.remainingDistance <= m_navMeshAgent.stoppingDistance;
+            
+            if (finished)
+            {
+                if (emotions[Emotions.Curiosity] >= emotionsDisplayCap[Emotions.Curiosity])
+                    animator.SetTrigger("EndCuriosityFlee");
+
+                if (emotions[Emotions.Agression] >= emotionsDisplayCap[Emotions.Agression])
+                    animator.SetTrigger("EndAgressionFlee");
+                
+                return true;
+            }
+            return false;
         }
 
         public void PlaySound(AK.Wwise.Event eventToPlay)
@@ -171,6 +188,7 @@ namespace Sinj
         {
             m_navMeshAgent.speed = runningAgent.maxSpeed;
             m_navMeshAgent.acceleration = runningAgent.acceleration;
+            animator.SetTrigger("Flee");
         }
         
         [Serializable]

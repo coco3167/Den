@@ -8,23 +8,25 @@ namespace Sinj
     {
         public SinjBehavior CurrentBehavior { get; private set; }
 
-        public StateMachine()
+        public void ResetBehavior(SinjAgent agent)
         {
-            ResetBehavior();
+            if(CurrentBehavior  && CurrentBehavior.IsFinished(agent))
+                CurrentBehavior = null;
         }
 
-        public void ResetBehavior()
+        public bool HasBehavior(bool active = false)
         {
-            CurrentBehavior = null;
-        }
-
-        public bool HasBehavior()
-        {
-            return CurrentBehavior;
+            return active ? CurrentBehavior is SinjActiveBehavior : CurrentBehavior;
         }
 
         public void ChangeBehavior(SinjBehavior behavior)
         {
+            if (CurrentBehavior == behavior)
+            {
+                Debug.Log(behavior);
+                return;
+            }
+
             CurrentBehavior = behavior;
         }
 
@@ -32,6 +34,13 @@ namespace Sinj
         {
             int index = Random.Range(0, passivBehaviors.Count);
             CurrentBehavior = passivBehaviors[index];
+        }
+
+        public override string ToString()
+        {
+            if (CurrentBehavior)
+                return CurrentBehavior.ToString();
+            return "None";
         }
     }
 }

@@ -9,16 +9,32 @@
 			<ChildrenList>
 				<ActorMixer Name="DEN_Crea_Barks" ID="{38DEF866-7ECC-4343-9C9E-C1F4A2ADC874}" ShortID="951328945">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.25"/>
+						<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
 						<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 						<Property Name="MaxSoundPerInstance" Type="int16">
 							<ValueList>
 								<Value>1</Value>
 							</ValueList>
 						</Property>
+						<Property Name="Priority" Type="int16">
+							<ValueList>
+								<Value>80</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="MomoAttenuation" ID="{456558F9-8359-46CD-97CB-AB6C6EE86E99}" WorkUnitID="{4D8EE58E-8CFA-4860-A69D-33BF5CF8C67A}"/>
+						</Reference>
 						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+							<ObjectRef Name="MomoConverstionSettings" ID="{2DB4720B-FF05-4826-8D23-747221FFD0DA}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
@@ -28,8 +44,8 @@
 						<RandomSequenceContainer Name="DEN_Crea_NeutralBark" ID="{426BC6A2-BDFC-4A37-BAD1-CAAFCA79B3C7}" ShortID="630615674">
 							<PropertyList>
 								<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
-								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
 										<Value>5</Value>
@@ -43,11 +59,6 @@
 									</ValueList>
 								</Property>
 								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-								<Property Name="UseMaxSoundPerInstance" Type="bool">
-									<ValueList>
-										<Value>True</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -101,7 +112,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="DEN_Momo_OkBark_1" ID="{6D1E103B-24FF-49D4-BA72-0ADBA3ED8E07}" ShortID="947701454">
+								<Sound Name="Momo_OK_1" ID="{448D9CCA-91B1-46E3-96FC-E087C20382B8}" ShortID="309525163">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -111,19 +122,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="DEN_Momo_OkBark_1" ID="{07BC19CF-0282-424F-9F8F-F4592051FF21}">
+										<AudioFileSource Name="Momo_OK_1" ID="{47A4706C-4A8C-466D-A118-655A708E0C76}">
 											<Language>SFX</Language>
-											<AudioFile>DEN_Momo_OkBark_1.wav</AudioFile>
+											<AudioFile>Momo_OK_1.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="380663690"/>
+												<MediaID ID="188821654"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="DEN_Momo_OkBark_1" ID="{07BC19CF-0282-424F-9F8F-F4592051FF21}" Platform="Linked"/>
+										<ActiveSource Name="Momo_OK_1" ID="{47A4706C-4A8C-466D-A118-655A708E0C76}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="DEN_Momo_OkBark_2" ID="{AEDA2C0B-3988-4545-B92B-BB07A5F52C1A}" ShortID="371286911">
+								<Sound Name="Momo_OK_2" ID="{1A997B21-2CB0-47BC-A8B1-732DF451F204}" ShortID="234407800">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -133,19 +144,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="DEN_Momo_OkBark_2" ID="{9F480F67-B944-42ED-8912-0C950DFA2BF7}">
+										<AudioFileSource Name="Momo_OK_2" ID="{6CB56C0B-803D-4253-91D7-C496228C8129}">
 											<Language>SFX</Language>
-											<AudioFile>DEN_Momo_OkBark_2.wav</AudioFile>
+											<AudioFile>Momo_OK_2.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="184895006"/>
+												<MediaID ID="911292341"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="DEN_Momo_OkBark_2" ID="{9F480F67-B944-42ED-8912-0C950DFA2BF7}" Platform="Linked"/>
+										<ActiveSource Name="Momo_OK_2" ID="{6CB56C0B-803D-4253-91D7-C496228C8129}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="DEN_Momo_OkBark_3" ID="{842F7C9C-BDE2-48E0-B952-4636E7F9E2DE}" ShortID="934289024">
+								<Sound Name="Momo_OK_3" ID="{1C8A564D-DC1A-4933-8079-3FA939DBBBAD}" ShortID="218622758">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -155,19 +166,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="DEN_Momo_OkBark_3" ID="{A85D0EE2-6490-4316-A5EF-CEC2E7ABE3EA}">
+										<AudioFileSource Name="Momo_OK_3" ID="{0158BD95-89B2-4293-933F-458586A40B77}">
 											<Language>SFX</Language>
-											<AudioFile>DEN_Momo_OkBark_3.wav</AudioFile>
+											<AudioFile>Momo_OK_3.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="713462562"/>
+												<MediaID ID="873285084"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="DEN_Momo_OkBark_3" ID="{A85D0EE2-6490-4316-A5EF-CEC2E7ABE3EA}" Platform="Linked"/>
+										<ActiveSource Name="Momo_OK_3" ID="{0158BD95-89B2-4293-933F-458586A40B77}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="DEN_Momo_OkBark_4" ID="{072332F8-B8DC-4032-9BC8-3238597B42CF}" ShortID="231524491">
+								<Sound Name="Momo_OK_4" ID="{E5F7C854-7D5E-4BBC-8141-E40837AD0F64}" ShortID="514965364">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -177,19 +188,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="DEN_Momo_OkBark_4" ID="{D982360C-6A88-4934-9A55-7BDC3AB56E45}">
+										<AudioFileSource Name="Momo_OK_4" ID="{813D85FA-8996-4532-B8E9-E60FF94CDF55}">
 											<Language>SFX</Language>
-											<AudioFile>DEN_Momo_OkBark_4.wav</AudioFile>
+											<AudioFile>Momo_OK_4.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="685101456"/>
+												<MediaID ID="616686422"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="DEN_Momo_OkBark_4" ID="{D982360C-6A88-4934-9A55-7BDC3AB56E45}" Platform="Linked"/>
+										<ActiveSource Name="Momo_OK_4" ID="{813D85FA-8996-4532-B8E9-E60FF94CDF55}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="DEN_Momo_OkBark_5" ID="{6D9A967D-C62E-4BEE-8BF3-B23A0B076022}" ShortID="907959323">
+								<Sound Name="Momo_OK_5" ID="{1329F4C4-7037-44DE-B319-1A0A5F0D1873}" ShortID="1021130263">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -199,35 +210,35 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="DEN_Momo_OkBark_5" ID="{DF88C45F-C3B2-489C-B1CA-E5D1A5CABA93}">
+										<AudioFileSource Name="Momo_OK_5" ID="{9276AA1F-B075-41CB-92BE-FFD3B21A5A54}">
 											<Language>SFX</Language>
-											<AudioFile>DEN_Momo_OkBark_5.wav</AudioFile>
+											<AudioFile>Momo_OK_5.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="909878689"/>
+												<MediaID ID="980938806"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="DEN_Momo_OkBark_5" ID="{DF88C45F-C3B2-489C-B1CA-E5D1A5CABA93}" Platform="Linked"/>
+										<ActiveSource Name="Momo_OK_5" ID="{9276AA1F-B075-41CB-92BE-FFD3B21A5A54}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
 							<ObjectLists>
 								<ObjectList Name="Playlist">
 									<Reference>
-										<ObjectRef Name="DEN_Momo_OkBark_1" ID="{6D1E103B-24FF-49D4-BA72-0ADBA3ED8E07}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										<ObjectRef Name="Momo_OK_1" ID="{448D9CCA-91B1-46E3-96FC-E087C20382B8}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
 									</Reference>
 									<Reference>
-										<ObjectRef Name="DEN_Momo_OkBark_2" ID="{AEDA2C0B-3988-4545-B92B-BB07A5F52C1A}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										<ObjectRef Name="Momo_OK_2" ID="{1A997B21-2CB0-47BC-A8B1-732DF451F204}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
 									</Reference>
 									<Reference>
-										<ObjectRef Name="DEN_Momo_OkBark_3" ID="{842F7C9C-BDE2-48E0-B952-4636E7F9E2DE}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										<ObjectRef Name="Momo_OK_3" ID="{1C8A564D-DC1A-4933-8079-3FA939DBBBAD}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
 									</Reference>
 									<Reference>
-										<ObjectRef Name="DEN_Momo_OkBark_4" ID="{072332F8-B8DC-4032-9BC8-3238597B42CF}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										<ObjectRef Name="Momo_OK_4" ID="{E5F7C854-7D5E-4BBC-8141-E40837AD0F64}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
 									</Reference>
 									<Reference>
-										<ObjectRef Name="DEN_Momo_OkBark_5" ID="{6D9A967D-C62E-4BEE-8BF3-B23A0B076022}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										<ObjectRef Name="Momo_OK_5" ID="{1329F4C4-7037-44DE-B319-1A0A5F0D1873}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
 									</Reference>
 								</ObjectList>
 								<ObjectList Name="RTPC">
@@ -306,8 +317,8 @@
 						</RandomSequenceContainer>
 						<ActorMixer Name="DEN_Crea_MoodSteps" ID="{83D6518C-DAF9-4A65-A9B6-EDF65C921986}" ShortID="1052131099">
 							<PropertyList>
-								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
 										<Value>5</Value>
@@ -317,11 +328,6 @@
 								<Property Name="Priority" Type="int16">
 									<ValueList>
 										<Value>40</Value>
-									</ValueList>
-								</Property>
-								<Property Name="UseMaxSoundPerInstance" Type="bool">
-									<ValueList>
-										<Value>True</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -731,8 +737,8 @@
 						</ActorMixer>
 						<SwitchContainer Name="DEN_Crea_MoodBarks" ID="{56EA353A-0F69-443C-8299-5815B172F524}" ShortID="110485877">
 							<PropertyList>
-								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
 										<Value>5</Value>
@@ -742,11 +748,6 @@
 								<Property Name="Priority" Type="int16">
 									<ValueList>
 										<Value>30</Value>
-									</ValueList>
-								</Property>
-								<Property Name="UseMaxSoundPerInstance" Type="bool">
-									<ValueList>
-										<Value>True</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -768,18 +769,12 @@
 								<RandomSequenceContainer Name="DEN_Crea_CuriousBark" ID="{38CBD364-36B2-49E5-B1E1-BA232E4CDC08}" ShortID="128644760">
 									<PropertyList>
 										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
-										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
 												<Value>1</Value>
 											</ValueList>
 										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-										<Property Name="UseMaxSoundPerInstance" Type="bool">
-											<ValueList>
-												<Value>True</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -790,7 +785,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_Momo_Curious_1" ID="{C9AD458E-0D42-42E2-920A-7F41DEB33846}" ShortID="108589279">
+										<Sound Name="Momo_Curious_1" ID="{0DB48BCA-FE7A-47A1-A0D4-E9CB46ECEDEB}" ShortID="35865828">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -800,19 +795,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Curious_1" ID="{286C939C-31D3-4538-A773-B0BE938FB3A1}">
+												<AudioFileSource Name="Momo_Curious_1" ID="{EBA23B3E-50D8-4F5A-8CD1-DCE09A7A96CE}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Curious_1.wav</AudioFile>
+													<AudioFile>Momo_Curious_1.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="269177123"/>
+														<MediaID ID="358244410"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Curious_1" ID="{286C939C-31D3-4538-A773-B0BE938FB3A1}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Curious_1" ID="{EBA23B3E-50D8-4F5A-8CD1-DCE09A7A96CE}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Curious_2" ID="{8184A328-AF73-4E15-87E7-D988D3AC854F}" ShortID="980747775">
+										<Sound Name="Momo_Curious_2" ID="{ABA38182-6BCE-41E4-9A7A-9620A113DA66}" ShortID="375382172">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -822,19 +817,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Curious_2" ID="{AB15D2E2-3711-4414-A4E2-E414E40AB032}">
+												<AudioFileSource Name="Momo_Curious_2" ID="{C25B8BEE-B7D6-4F7A-9B05-8B058C62307F}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Curious_2.wav</AudioFile>
+													<AudioFile>Momo_Curious_2.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="909867133"/>
+														<MediaID ID="250134912"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Curious_2" ID="{AB15D2E2-3711-4414-A4E2-E414E40AB032}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Curious_2" ID="{C25B8BEE-B7D6-4F7A-9B05-8B058C62307F}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Curious_3" ID="{461B1BFC-F2D7-4F14-9CC7-D093D9A24353}" ShortID="909750642">
+										<Sound Name="Momo_Curious_3" ID="{CD3DE5C2-9146-40C4-9308-096DE4886F8F}" ShortID="490396171">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -844,19 +839,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Curious_3" ID="{15E7F5CE-564A-42CF-B439-076437B67A69}">
+												<AudioFileSource Name="Momo_Curious_3" ID="{C24E0107-3CEB-4653-84BD-C23986003313}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Curious_3.wav</AudioFile>
+													<AudioFile>Momo_Curious_3.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="796339457"/>
+														<MediaID ID="941680155"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Curious_3" ID="{15E7F5CE-564A-42CF-B439-076437B67A69}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Curious_3" ID="{C24E0107-3CEB-4653-84BD-C23986003313}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Curious_4" ID="{5F99747B-A790-47A6-8C30-7F9C4E7C64EC}" ShortID="309664624">
+										<Sound Name="Momo_Curious_4" ID="{E03F2FB8-7E59-4FFA-AFB3-DFB6E2CB60C5}" ShortID="228924471">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -866,19 +861,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Curious_4" ID="{E322FA4C-DF12-4D36-A90E-BAB388D209AF}">
+												<AudioFileSource Name="Momo_Curious_4" ID="{E11CEF49-6EB8-4362-A3B3-24E3459D29C2}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Curious_4.wav</AudioFile>
+													<AudioFile>Momo_Curious_4.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="330068990"/>
+														<MediaID ID="933971637"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Curious_4" ID="{E322FA4C-DF12-4D36-A90E-BAB388D209AF}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Curious_4" ID="{E11CEF49-6EB8-4362-A3B3-24E3459D29C2}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Curious_5" ID="{F791439C-1A97-44E8-900B-2C567D4A01DD}" ShortID="819327723">
+										<Sound Name="Momo_Curious_5" ID="{CB806D77-0093-4A8B-A790-D2814A83776D}" ShortID="1004665344">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -888,16 +883,16 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Curious_5" ID="{4899C022-EA75-4DAE-9C1C-5D19FA6DC48E}">
+												<AudioFileSource Name="Momo_Curious_5" ID="{7741E2E8-B138-4141-99C4-4A6C1610990C}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Curious_5.wav</AudioFile>
+													<AudioFile>Momo_Curious_5.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="893622595"/>
+														<MediaID ID="1008562838"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Curious_5" ID="{4899C022-EA75-4DAE-9C1C-5D19FA6DC48E}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Curious_5" ID="{7741E2E8-B138-4141-99C4-4A6C1610990C}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -905,18 +900,12 @@
 								<RandomSequenceContainer Name="DEN_Crea_WorriedBark" ID="{4929F902-E477-4F6A-950F-A008070E4D51}" ShortID="810436969">
 									<PropertyList>
 										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
-										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
 												<Value>1</Value>
 											</ValueList>
 										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-										<Property Name="UseMaxSoundPerInstance" Type="bool">
-											<ValueList>
-												<Value>True</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -927,7 +916,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_Momo_Worried_1" ID="{9D22344E-E511-4713-82B1-4CFEB8AB7127}" ShortID="51974888">
+										<Sound Name="Momo_Worried_1" ID="{BB9C8DCB-73B6-4585-BB93-D8211734788E}" ShortID="16090293">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -937,19 +926,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Worried_1" ID="{72129222-8D49-44B9-B7F5-79FE60DCD595}">
+												<AudioFileSource Name="Momo_Worried_1" ID="{A6E6E4C1-2EC2-494C-ABDC-F33DC5C412C4}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Worried_1.wav</AudioFile>
+													<AudioFile>Momo_Worried_1.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="363626620"/>
+														<MediaID ID="360950623"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Worried_1" ID="{72129222-8D49-44B9-B7F5-79FE60DCD595}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Worried_1" ID="{A6E6E4C1-2EC2-494C-ABDC-F33DC5C412C4}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Worried_2" ID="{42A91405-D5CA-4818-990E-0A07066321CB}" ShortID="291635644">
+										<Sound Name="Momo_Worried_2" ID="{6607F2C8-14BF-4B9A-A3F5-DAC8E0F746BA}" ShortID="969760987">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -959,19 +948,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Worried_2" ID="{775BC7FC-14AD-44DB-9AA6-D9946338DD25}">
+												<AudioFileSource Name="Momo_Worried_2" ID="{E916204D-6946-43C2-BB00-A2EBD19F7741}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Worried_2.wav</AudioFile>
+													<AudioFile>Momo_Worried_2.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="273847295"/>
+														<MediaID ID="221939224"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Worried_2" ID="{775BC7FC-14AD-44DB-9AA6-D9946338DD25}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Worried_2" ID="{E916204D-6946-43C2-BB00-A2EBD19F7741}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Worried_3" ID="{49565493-D2BA-4079-BCAD-6C2E87C5CD6A}" ShortID="468018385">
+										<Sound Name="Momo_Worried_3" ID="{1C167393-6EE2-46FF-A829-0E3DAA1EC726}" ShortID="756266752">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -981,19 +970,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Worried_3" ID="{207FEAC3-45C7-40A6-929E-919F269F90D1}">
+												<AudioFileSource Name="Momo_Worried_3" ID="{6700F953-5404-4F28-8DD0-A992A696FA10}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Worried_3.wav</AudioFile>
+													<AudioFile>Momo_Worried_3.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="361296482"/>
+														<MediaID ID="306006355"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Worried_3" ID="{207FEAC3-45C7-40A6-929E-919F269F90D1}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Worried_3" ID="{6700F953-5404-4F28-8DD0-A992A696FA10}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Worried_4" ID="{6A100071-CEAE-434E-8F0C-99455D6CA01E}" ShortID="628879259">
+										<Sound Name="Momo_Worried_4" ID="{59679C3C-9C76-4C4C-A6BA-D589119FEECC}" ShortID="271018889">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1003,19 +992,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Worried_4" ID="{80278367-590F-4AA4-8349-D806DEEA174C}">
+												<AudioFileSource Name="Momo_Worried_4" ID="{15B53F48-D61B-483C-8DCE-01E9509A1327}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Worried_4.wav</AudioFile>
+													<AudioFile>Momo_Worried_4.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="344966637"/>
+														<MediaID ID="758279794"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Worried_4" ID="{80278367-590F-4AA4-8349-D806DEEA174C}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Worried_4" ID="{15B53F48-D61B-483C-8DCE-01E9509A1327}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Worried_5" ID="{090EA797-A2A6-4499-969E-37243CBCB8DF}" ShortID="1035511005">
+										<Sound Name="Momo_Worried_5" ID="{1C60ADA8-9F98-477A-AAAE-41BC3FAE0FAE}" ShortID="1055316169">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1025,16 +1014,16 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Worried_5" ID="{24CB9FB0-58F5-4A47-BB74-B900A6D601FF}">
+												<AudioFileSource Name="Momo_Worried_5" ID="{2DE3D1EA-7542-4C2D-82C3-049F666EB7A2}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Worried_5.wav</AudioFile>
+													<AudioFile>Momo_Worried_5.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="101395926"/>
+														<MediaID ID="201146509"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Worried_5" ID="{24CB9FB0-58F5-4A47-BB74-B900A6D601FF}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Worried_5" ID="{2DE3D1EA-7542-4C2D-82C3-049F666EB7A2}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -1042,18 +1031,12 @@
 								<RandomSequenceContainer Name="DEN_Crea_AggroBark" ID="{8351E88B-B819-42B8-B2BB-D876DBBA7B18}" ShortID="429407631">
 									<PropertyList>
 										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
-										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
 												<Value>1</Value>
 											</ValueList>
 										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-										<Property Name="UseMaxSoundPerInstance" Type="bool">
-											<ValueList>
-												<Value>True</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1064,7 +1047,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_Momo_Aggro_1" ID="{282B13CA-3630-4728-8570-4A80EF79FE27}" ShortID="455603508">
+										<Sound Name="Momo_Agro_1" ID="{DC987247-2966-4589-A368-9BF1FDFCEBDA}" ShortID="358447954">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1074,19 +1057,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Aggro_1" ID="{6844B86C-5FFA-4B7F-8E76-99BB2993718F}">
+												<AudioFileSource Name="Momo_Agro_1" ID="{5294611F-8C58-4617-AC2D-C230BB11BC72}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Aggro_1.wav</AudioFile>
+													<AudioFile>Momo_Agro_1.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="717918867"/>
+														<MediaID ID="186665919"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Aggro_1" ID="{6844B86C-5FFA-4B7F-8E76-99BB2993718F}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Agro_1" ID="{5294611F-8C58-4617-AC2D-C230BB11BC72}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Aggro_2" ID="{E378CA08-8290-4BD5-A675-78596A05E75A}" ShortID="524517865">
+										<Sound Name="Momo_Agro_2" ID="{E6186DC5-7B72-4FD3-AC26-2C4C331B5681}" ShortID="773446987">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1096,19 +1079,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Aggro_2" ID="{42A336E1-FD64-4FDA-8623-7C701AEF9A6A}">
+												<AudioFileSource Name="Momo_Agro_2" ID="{9DD96660-56C7-4F23-9325-E902B6EF53AC}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Aggro_2.wav</AudioFile>
+													<AudioFile>Momo_Agro_2.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="95687391"/>
+														<MediaID ID="484010214"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Aggro_2" ID="{42A336E1-FD64-4FDA-8623-7C701AEF9A6A}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Agro_2" ID="{9DD96660-56C7-4F23-9325-E902B6EF53AC}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Aggro_3" ID="{0F99DABC-E426-4ED9-AE6D-A484D80536DC}" ShortID="695326530">
+										<Sound Name="Momo_Agro_3" ID="{0709B6A6-045D-490A-8F37-0FA46EDE102C}" ShortID="1040347682">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1118,19 +1101,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Aggro_3" ID="{61D8ECFB-24D9-4E9E-93EC-E07D3BEFEDAC}">
+												<AudioFileSource Name="Momo_Agro_3" ID="{9F1A8730-B92A-49E2-8AA0-28A4C126E959}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Aggro_3.wav</AudioFile>
+													<AudioFile>Momo_Agro_3.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="732856154"/>
+														<MediaID ID="911715249"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Aggro_3" ID="{61D8ECFB-24D9-4E9E-93EC-E07D3BEFEDAC}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Agro_3" ID="{9F1A8730-B92A-49E2-8AA0-28A4C126E959}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Aggro_4" ID="{A5ACFA1F-1C53-42A7-A545-53A19E2449FA}" ShortID="266691623">
+										<Sound Name="Momo_Agro_4" ID="{6E0E0377-DA80-429D-B4F9-F67B22F9112D}" ShortID="628571617">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1140,19 +1123,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Aggro_4" ID="{B6C7DFE6-E84E-4D88-B457-3931B4E7AA6E}">
+												<AudioFileSource Name="Momo_Agro_4" ID="{1397FC25-38C5-4E16-ACBB-73656E2BBCA6}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Aggro_4.wav</AudioFile>
+													<AudioFile>Momo_Agro_4.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="1037715869"/>
+														<MediaID ID="151850655"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Aggro_4" ID="{B6C7DFE6-E84E-4D88-B457-3931B4E7AA6E}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Agro_4" ID="{1397FC25-38C5-4E16-ACBB-73656E2BBCA6}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Aggro_5" ID="{005F2830-F23A-47C4-BE21-DD7C5C262C6D}" ShortID="647810243">
+										<Sound Name="Momo_Agro_5" ID="{2535203E-6FDF-4761-A1C8-BA0DFD3DEF4A}" ShortID="584532498">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1162,16 +1145,16 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Aggro_5" ID="{2B4932D1-D98E-44FB-9EAF-DE8049E8A71C}">
+												<AudioFileSource Name="Momo_Agro_5" ID="{30AF4D88-EC51-4050-9676-209E23213E8B}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Aggro_5.wav</AudioFile>
+													<AudioFile>Momo_Agro_5.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="607860170"/>
+														<MediaID ID="984376535"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Aggro_5" ID="{2B4932D1-D98E-44FB-9EAF-DE8049E8A71C}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Agro_5" ID="{30AF4D88-EC51-4050-9676-209E23213E8B}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -1179,18 +1162,12 @@
 								<RandomSequenceContainer Name="DEN_Crea_NeutralBark" ID="{5A10EDF5-9BB4-4AA5-B307-61A0D9BA2ACD}" ShortID="825502843">
 									<PropertyList>
 										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
-										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
 												<Value>1</Value>
 											</ValueList>
 										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-										<Property Name="UseMaxSoundPerInstance" Type="bool">
-											<ValueList>
-												<Value>True</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1201,114 +1178,114 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_Momo_Bark_v3_2" ID="{06303F73-F92C-4E90-93E4-5BE0C337722D}" ShortID="293567888">
+										<Sound Name="Momo_Neutral_1" ID="{E782A6AB-06B2-4ACD-85AF-5312B75D8376}" ShortID="482024871">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Bark_v3_2" ID="{1A4905D3-3ABA-499F-A5C5-651B0E16CA9D}">
+												<AudioFileSource Name="Momo_Neutral_1" ID="{83089BBF-C029-4C83-BE73-3E008DA25301}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Bark_v3_2.wav</AudioFile>
+													<AudioFile>Momo_Neutral_1.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="229765407"/>
+														<MediaID ID="701129621"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Bark_v3_2" ID="{1A4905D3-3ABA-499F-A5C5-651B0E16CA9D}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Neutral_1" ID="{83089BBF-C029-4C83-BE73-3E008DA25301}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Bark_v3_1" ID="{852A3032-3DAB-4013-A631-15FEEA239224}" ShortID="821959455">
+										<Sound Name="Momo_Neutral_2" ID="{6D691099-34E3-46C1-9FE1-D64F1D598309}" ShortID="70771187">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Bark_v3_1" ID="{EFAFE88A-F4F6-4184-99BA-DF89BD504DB6}">
+												<AudioFileSource Name="Momo_Neutral_2" ID="{68B79950-3C8F-4AC4-AF05-5154C99B12C5}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Bark_v3_1.wav</AudioFile>
+													<AudioFile>Momo_Neutral_2.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="104161470"/>
+														<MediaID ID="883092850"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Bark_v3_1" ID="{EFAFE88A-F4F6-4184-99BA-DF89BD504DB6}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Neutral_2" ID="{68B79950-3C8F-4AC4-AF05-5154C99B12C5}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Bark_v3_4" ID="{779AE642-7A41-403B-A7D1-3276C73BA3B0}" ShortID="1070663954">
+										<Sound Name="Momo_Neutral_3" ID="{F1364306-0687-416A-B0CD-EC66BDD585B0}" ShortID="196231629">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Bark_v3_4" ID="{34022C0A-0B9A-49E7-809C-AA6E8C6060EE}">
+												<AudioFileSource Name="Momo_Neutral_3" ID="{E1513705-6F5C-4B89-A7F9-6B949F2251E9}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Bark_v3_4.wav</AudioFile>
+													<AudioFile>Momo_Neutral_3.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="591244343"/>
+														<MediaID ID="434905388"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Bark_v3_4" ID="{34022C0A-0B9A-49E7-809C-AA6E8C6060EE}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Neutral_3" ID="{E1513705-6F5C-4B89-A7F9-6B949F2251E9}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Bark_v3_5" ID="{2453A31C-F899-4D1C-86AE-1596B929B008}" ShortID="857183614">
+										<Sound Name="Momo_Neutral_4" ID="{6CF1BA56-2CB2-4227-B5AA-2DB4C94C8022}" ShortID="930384668">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Bark_v3_5" ID="{DDCDED85-8EC4-441C-A34F-B8D108FB76AE}">
+												<AudioFileSource Name="Momo_Neutral_4" ID="{F1BCFC79-61DB-4A61-9985-DB5F010499C9}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Bark_v3_5.wav</AudioFile>
+													<AudioFile>Momo_Neutral_4.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="341457068"/>
+														<MediaID ID="1049917503"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Bark_v3_5" ID="{DDCDED85-8EC4-441C-A34F-B8D108FB76AE}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Neutral_4" ID="{F1BCFC79-61DB-4A61-9985-DB5F010499C9}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_Bark_v3_3" ID="{817A064C-2895-4AD5-ACD0-C6CD56642355}" ShortID="488438532">
+										<Sound Name="Momo_Neutral_5" ID="{96FBD9FE-B8B0-4AE5-B395-7B888F6543B3}" ShortID="853776694">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_Bark_v3_3" ID="{F2740AA0-371A-4F58-B36B-4DBCF2B603E1}">
+												<AudioFileSource Name="Momo_Neutral_5" ID="{169DC576-B47A-4F25-9327-8830D854AC53}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_Bark_v3_3.wav</AudioFile>
+													<AudioFile>Momo_Neutral_5.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="52209026"/>
+														<MediaID ID="708768310"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_Bark_v3_3" ID="{F2740AA0-371A-4F58-B36B-4DBCF2B603E1}" Platform="Linked"/>
+												<ActiveSource Name="Momo_Neutral_5" ID="{169DC576-B47A-4F25-9327-8830D854AC53}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -1433,23 +1410,21 @@
 						</SwitchContainer>
 						<SwitchContainer Name="DEN_Crea_ReactionBarks" ID="{0BDB5C4C-0A0A-4C18-80B6-C5FCBFADFBD3}" ShortID="199720328">
 							<PropertyList>
-								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
 										<Value>5</Value>
 									</ValueList>
 								</Property>
 								<Property Name="OverridePriority" Type="bool" Value="True"/>
-								<Property Name="UseMaxSoundPerInstance" Type="bool">
-									<ValueList>
-										<Value>True</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="DEN_SW_RM_Curious" ID="{475A8F43-0DFC-4384-A3F3-584267D6995D}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
@@ -1461,15 +1436,9 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="DEN_Crea_RB_Anger" ID="{F7042B61-12A5-4593-B8D2-902F2004CD2C}" ShortID="906265007">
 									<PropertyList>
-										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
 												<Value>1</Value>
-											</ValueList>
-										</Property>
-										<Property Name="UseMaxSoundPerInstance" Type="bool">
-											<ValueList>
-												<Value>True</Value>
 											</ValueList>
 										</Property>
 										<Property Name="Volume" Type="Real64">
@@ -1487,7 +1456,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_Momo_AggroReaction_1" ID="{1DDAB2FC-08C0-497C-8B73-C63BA005D6B3}" ShortID="263266735">
+										<Sound Name="Momo_ReacAgro_1" ID="{C5789492-1EAB-4282-8833-BB35C2346E8F}" ShortID="122959411">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1497,24 +1466,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_AggroReaction_1" ID="{159D2CBB-AFEC-4980-971B-F2AC4EC9F20C}">
-													<PropertyList>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.292684588886946"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="1.56098447978576"/>
-													</PropertyList>
+												<AudioFileSource Name="Momo_ReacAgro_1" ID="{8B9D72AF-CFB2-41F1-9BBC-8DEC0C9F97B9}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_AggroReaction_1.wav</AudioFile>
+													<AudioFile>Momo_ReacAgro_1.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="861356114"/>
+														<MediaID ID="249321651"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_AggroReaction_1" ID="{159D2CBB-AFEC-4980-971B-F2AC4EC9F20C}" Platform="Linked"/>
+												<ActiveSource Name="Momo_ReacAgro_1" ID="{8B9D72AF-CFB2-41F1-9BBC-8DEC0C9F97B9}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_AggroReaction_2" ID="{8FC324E7-4BA3-49F8-AB66-952F66FBE329}" ShortID="434812570">
+										<Sound Name="Momo_ReacAgro_2" ID="{19362FC0-4DF4-4FA0-B29B-5EEF0BCA1A1D}" ShortID="443803390">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1524,24 +1488,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_AggroReaction_2" ID="{19130504-5A2B-4D46-8A61-75A74C2B2318}">
-													<PropertyList>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.327237630630544"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="1.50407358750219"/>
-													</PropertyList>
+												<AudioFileSource Name="Momo_ReacAgro_2" ID="{00C9F0DB-5A6B-4FE0-BADA-FDB09A4FCE06}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_AggroReaction_2.wav</AudioFile>
+													<AudioFile>Momo_ReacAgro_2.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="722382847"/>
+														<MediaID ID="796228657"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_AggroReaction_2" ID="{19130504-5A2B-4D46-8A61-75A74C2B2318}" Platform="Linked"/>
+												<ActiveSource Name="Momo_ReacAgro_2" ID="{00C9F0DB-5A6B-4FE0-BADA-FDB09A4FCE06}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_AggroReaction_3" ID="{2779960D-0DBA-465C-A36D-39B2495E644B}" ShortID="248763062">
+										<Sound Name="Momo_ReacAgro_3" ID="{E05CBC7A-37CA-4617-B3B3-FCB2B4970D71}" ShortID="104134344">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1551,39 +1510,28 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_AggroReaction_3" ID="{5A5FF863-CF24-451E-927A-4DC80AA830FE}">
-													<PropertyList>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.427317084335699"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="1.85170731459207"/>
-													</PropertyList>
+												<AudioFileSource Name="Momo_ReacAgro_3" ID="{6EF2D258-5136-4A28-8601-AA90D4AF4B47}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_AggroReaction_3.wav</AudioFile>
+													<AudioFile>Momo_ReacAgro_3.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="687121723"/>
+														<MediaID ID="451815592"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_AggroReaction_3" ID="{5A5FF863-CF24-451E-927A-4DC80AA830FE}" Platform="Linked"/>
+												<ActiveSource Name="Momo_ReacAgro_3" ID="{6EF2D258-5136-4A28-8601-AA90D4AF4B47}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="DEN_Crea_RB_Curious" ID="{8FB56826-0B57-49EA-8CA6-A778794E6AC5}" ShortID="577265543">
 									<PropertyList>
-										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
 												<Value>1</Value>
 											</ValueList>
 										</Property>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
-										<Property Name="UseMaxSoundPerInstance" Type="bool">
-											<ValueList>
-												<Value>True</Value>
-											</ValueList>
-										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -1599,7 +1547,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_Momo_CuriousReaction_1" ID="{2C5D4E49-F47C-479E-A7D5-CD60B80BA41F}" ShortID="121006865">
+										<Sound Name="Momo_ReacCurious_1" ID="{EC6C7D71-5CB4-439B-A674-FD855FB99801}" ShortID="202331566">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1609,19 +1557,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_CuriousReaction_1" ID="{43A66D9A-E31F-4BFE-BFFD-38536910404C}">
+												<AudioFileSource Name="Momo_ReacCurious_1" ID="{4581BE68-6D4F-4A11-9A41-D9DFE9357EF2}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_CuriousReaction_1.wav</AudioFile>
+													<AudioFile>Momo_ReacCurious_1.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="91104507"/>
+														<MediaID ID="93371706"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_CuriousReaction_1" ID="{43A66D9A-E31F-4BFE-BFFD-38536910404C}" Platform="Linked"/>
+												<ActiveSource Name="Momo_ReacCurious_1" ID="{4581BE68-6D4F-4A11-9A41-D9DFE9357EF2}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_CuriousReaction_2" ID="{710C4198-57D2-42E6-9478-DD211BA5C87A}" ShortID="594608807">
+										<Sound Name="Momo_ReacCurious_2" ID="{F51250C7-095F-4B98-9416-DF77F2A050FA}" ShortID="1064217736">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1631,19 +1579,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_CuriousReaction_2" ID="{B6341B50-68CC-4C88-8871-24A8FBC75394}">
+												<AudioFileSource Name="Momo_ReacCurious_2" ID="{153E642D-1700-40F4-96AD-5E2FC5E7E109}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_CuriousReaction_2.wav</AudioFile>
+													<AudioFile>Momo_ReacCurious_2.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="929683782"/>
+														<MediaID ID="180164986"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_CuriousReaction_2" ID="{B6341B50-68CC-4C88-8871-24A8FBC75394}" Platform="Linked"/>
+												<ActiveSource Name="Momo_ReacCurious_2" ID="{153E642D-1700-40F4-96AD-5E2FC5E7E109}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_CuriousReaction_3" ID="{1D462819-AA3C-4B28-B797-040B85854576}" ShortID="24331961">
+										<Sound Name="Momo_ReacCurious_3" ID="{1779DA95-73AD-4588-BE26-75A7C108E443}" ShortID="369580951">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1653,16 +1601,16 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_CuriousReaction_3" ID="{491AC984-654D-4415-B586-7FA369C7A04F}">
+												<AudioFileSource Name="Momo_ReacCurious_3" ID="{156298C2-3EBE-422A-8EB9-8B08D98F652D}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_CuriousReaction_3.wav</AudioFile>
+													<AudioFile>Momo_ReacCurious_3.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="204851898"/>
+														<MediaID ID="622318384"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_CuriousReaction_3" ID="{491AC984-654D-4415-B586-7FA369C7A04F}" Platform="Linked"/>
+												<ActiveSource Name="Momo_ReacCurious_3" ID="{156298C2-3EBE-422A-8EB9-8B08D98F652D}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -1686,15 +1634,9 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="DEN_Crea_RB_Fear" ID="{6CCD3F63-5BA8-4EC4-81B7-546417F8E97D}" ShortID="467728193">
 									<PropertyList>
-										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
 												<Value>1</Value>
-											</ValueList>
-										</Property>
-										<Property Name="UseMaxSoundPerInstance" Type="bool">
-											<ValueList>
-												<Value>True</Value>
 											</ValueList>
 										</Property>
 										<Property Name="Volume" Type="Real64">
@@ -1712,7 +1654,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_Momo_WorriedReaction_1" ID="{089A4F48-933D-4EC3-9974-BE252806CD89}" ShortID="819366777">
+										<Sound Name="Momo_ReacWorried_1" ID="{F36420D9-A819-461E-8B17-BB6A1E99C738}" ShortID="169523540">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1722,23 +1664,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_WorriedReaction_1" ID="{C742CA49-9928-4BF0-BBA4-1B87CA4E6CD1}">
-													<PropertyList>
-														<Property Name="FadeInDuration" Type="Real64" Value="0.0447318586019369"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-													</PropertyList>
+												<AudioFileSource Name="Momo_ReacWorried_1" ID="{E3EE6F63-C065-4325-8977-0DFE47C59EDE}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_WorriedReaction_1.wav</AudioFile>
+													<AudioFile>Momo_ReacWorried_1.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="384519567"/>
+														<MediaID ID="872390350"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_WorriedReaction_1" ID="{C742CA49-9928-4BF0-BBA4-1B87CA4E6CD1}" Platform="Linked"/>
+												<ActiveSource Name="Momo_ReacWorried_1" ID="{E3EE6F63-C065-4325-8977-0DFE47C59EDE}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_WorriedReaction_2" ID="{B0C680DC-3023-45E4-A57F-AC7387AF7230}" ShortID="887703528">
+										<Sound Name="Momo_ReacWorried_2" ID="{242C22E9-4A25-4017-8443-B146D3E90FE4}" ShortID="669300936">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1748,24 +1686,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_WorriedReaction_2" ID="{B21E4F03-5158-444C-AB0B-F30C3188687D}">
-													<PropertyList>
-														<Property Name="FadeInDuration" Type="Real64" Value="0.0277646018908574"/>
-														<Property Name="LoopBegin" Type="Real64" Value="0"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-													</PropertyList>
+												<AudioFileSource Name="Momo_ReacWorried_2" ID="{211394B7-42A6-45E2-B58E-E87B1FAAD340}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_WorriedReaction_2.wav</AudioFile>
+													<AudioFile>Momo_ReacWorried_2.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="1020077990"/>
+														<MediaID ID="392666637"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_WorriedReaction_2" ID="{B21E4F03-5158-444C-AB0B-F30C3188687D}" Platform="Linked"/>
+												<ActiveSource Name="Momo_ReacWorried_2" ID="{211394B7-42A6-45E2-B58E-E87B1FAAD340}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_Momo_WorriedReaction_3" ID="{ACF4EAED-603D-4FF5-ACD6-2ACD134DB458}" ShortID="506999498">
+										<Sound Name="Momo_ReacWorried_3" ID="{6AB03D31-06AC-4040-8C8A-E18D9104A9BE}" ShortID="763979425">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1775,21 +1708,16 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_Momo_WorriedReaction_3" ID="{140BFFA6-8B37-44FC-BB22-B02D48334E32}">
-													<PropertyList>
-														<Property Name="FadeInDuration" Type="Real64" Value="0.0354769913049845"/>
-														<Property Name="LoopBegin" Type="Real64" Value="0"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-													</PropertyList>
+												<AudioFileSource Name="Momo_ReacWorried_3" ID="{A61DFA89-7B63-4F96-A230-08DA16826388}">
 													<Language>SFX</Language>
-													<AudioFile>DEN_Momo_WorriedReaction_3.wav</AudioFile>
+													<AudioFile>Momo_ReacWorried_3.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="856628942"/>
+														<MediaID ID="918325066"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="DEN_Momo_WorriedReaction_3" ID="{140BFFA6-8B37-44FC-BB22-B02D48334E32}" Platform="Linked"/>
+												<ActiveSource Name="Momo_ReacWorried_3" ID="{A61DFA89-7B63-4F96-A230-08DA16826388}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -1824,6 +1752,1105 @@
 										<SwitchRef Name="DEN_SW_RM_Anger" ID="{E32256AC-91DE-4072-AA6F-342EDD7CF565}"/>
 										<ItemList>
 											<ItemRef Name="DEN_Crea_RB_Anger" ID="{F7042B61-12A5-4593-B8D2-902F2004CD2C}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
+					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{8D6B07CC-C490-4D28-82B5-858D153F44B9}"/>
+					</PositioningInfo>
+				</ActorMixer>
+				<ActorMixer Name="DEN_Portals" ID="{13456E35-9D1D-48C9-9AF7-6EDD75499FFC}" ShortID="727508847">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>2</Value>
+							</ValueList>
+						</Property>
+						<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="50"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="MomoConverstionSettings" ID="{2DB4720B-FF05-4826-8D23-747221FFD0DA}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="DEN_POR_BushEnter" ID="{DC48B22C-C329-406E-8DCE-0432BBBC9CAA}" ShortID="690473223">
+							<PropertyList>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverridePriority" Type="bool" Value="True"/>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_SFX_BushEnter_01" ID="{F5E76B3A-0D6B-467B-A75D-B1D201C42ACE}" ShortID="90031501">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_BushEnter_01" ID="{445F41F6-FEC9-479B-9B6F-C7AD8F38893C}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_BushEnter_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="734944575"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_BushEnter_01" ID="{445F41F6-FEC9-479B-9B6F-C7AD8F38893C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_BushEnter_02" ID="{541326D7-E3CB-4279-985B-B5E76814876A}" ShortID="1031803241">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_BushEnter_02" ID="{AB9D7DCD-FE83-4EBC-B65E-0BBF4D8404AE}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_BushEnter_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="364140952"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_BushEnter_02" ID="{AB9D7DCD-FE83-4EBC-B65E-0BBF4D8404AE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_BushEnter_03" ID="{45DBF71A-4792-4D9A-83F9-6BD8061895FF}" ShortID="686054547">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_BushEnter_03" ID="{425ADC63-5291-414B-9BEF-AB51DA08EE09}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_BushEnter_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="221872259"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_BushEnter_03" ID="{425ADC63-5291-414B-9BEF-AB51DA08EE09}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_BushEnter_04" ID="{44C3A71C-361E-451A-89BD-F6744417C760}" ShortID="210212105">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_BushEnter_04" ID="{DA0A9526-0F8C-48AA-B56E-75E036C9E356}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_BushEnter_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="115660716"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_BushEnter_04" ID="{DA0A9526-0F8C-48AA-B56E-75E036C9E356}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_BushEnter_05" ID="{DDD7D629-CBAA-4F5F-A32F-887EABB60B54}" ShortID="576405547">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_BushEnter_05" ID="{F79BF2B1-D41E-44F5-846C-7432B01D3E40}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_BushEnter_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="254524032"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_BushEnter_05" ID="{F79BF2B1-D41E-44F5-846C-7432B01D3E40}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="DEN_POR_TwigBirds" ID="{B2BA2C14-9992-40B8-8633-A5E56D1ADA16}" ShortID="1005610663">
+							<PropertyList>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+								<Property Name="OverridePriority" Type="bool" Value="True"/>
+								<Property Name="Priority" Type="int16">
+									<ValueList>
+										<Value>40</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_SFX_TwigBreak_01" ID="{5B6F8308-12FB-4442-A7DF-7A78A0DEA4B2}" ShortID="481114794">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_01" ID="{D933A798-D5E2-474F-A3B6-CC83E341770B}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="35213749"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_01" ID="{D933A798-D5E2-474F-A3B6-CC83E341770B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_02" ID="{07A31BE9-355F-4A8A-B5FE-1149829C1C1D}" ShortID="704545878">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_02" ID="{01793164-F558-4204-B521-44305C05040F}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="682368646"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_02" ID="{01793164-F558-4204-B521-44305C05040F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_03" ID="{528491D9-D451-4262-9A69-E7730B77C761}" ShortID="990960887">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_03" ID="{E911EB1F-BC3F-4D35-B3BB-D9B2F5E87261}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="609478152"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_03" ID="{E911EB1F-BC3F-4D35-B3BB-D9B2F5E87261}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_04" ID="{8D319C52-3E39-4939-8E72-EEC67CAF1692}" ShortID="497632367">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_04" ID="{22717E05-DA14-403D-8479-36F37F762819}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="747530569"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_04" ID="{22717E05-DA14-403D-8479-36F37F762819}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_05" ID="{C4F77513-E6C5-4308-8507-029C7B4E5600}" ShortID="445034326">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_05" ID="{F2EFB7F2-B2AE-4EB3-942E-3DA2ED4910F9}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="365461901"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_05" ID="{F2EFB7F2-B2AE-4EB3-942E-3DA2ED4910F9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_06" ID="{A7DF23C7-F005-4555-B797-45B967CE6362}" ShortID="661136695">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_06" ID="{6904789B-559E-40B6-91C6-BC2B2AD958FA}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_06.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="248974932"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_06" ID="{6904789B-559E-40B6-91C6-BC2B2AD958FA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_07" ID="{85642848-C4A3-4926-9BD2-164503969C18}" ShortID="139334222">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_07" ID="{03B3F149-3472-47A5-88F1-5A39B55CB5A5}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_07.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="430392812"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_07" ID="{03B3F149-3472-47A5-88F1-5A39B55CB5A5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_TwigBreak_08" ID="{65DA6A1D-BBF3-4C7B-B54B-AAA1A2FFFEC4}" ShortID="673066735">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_TwigBreak_08" ID="{0986B0A7-EB38-413C-93E8-6F3DEDE14444}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_TwigBreak_08.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="542584419"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_TwigBreak_08" ID="{0986B0A7-EB38-413C-93E8-6F3DEDE14444}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<RandomSequenceContainer Name="DEN_POR_TB_Birds" ID="{4D0F4A6B-165C-4D84-9F39-9015DDCB86C2}" ShortID="845582085">
+									<PropertyList>
+										<Property Name="3DPosition" Type="int16" Value="1"/>
+										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="50"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_SFX_BirdFlap_02" ID="{1057A25D-CF3B-44DA-8F2E-E71BB8ED9E3C}" ShortID="11701143">
+											<PropertyList>
+												<Property Name="Priority" Type="int16">
+													<ValueList>
+														<Value>40</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_SFX_BirdFlap_02" ID="{AB942F1D-54BF-47B6-A73D-A6E0EF398AB4}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_SFX_BirdFlap_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="893594946"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_SFX_BirdFlap_02" ID="{AB942F1D-54BF-47B6-A73D-A6E0EF398AB4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_SFX_BirdFlap_01" ID="{F0118525-7C18-4823-853C-71CE06461ECA}" ShortID="549420109">
+											<PropertyList>
+												<Property Name="Priority" Type="int16">
+													<ValueList>
+														<Value>40</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_SFX_BirdFlap_01" ID="{3B819070-770E-41F7-BC37-48B747C7D283}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_SFX_BirdFlap_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="584427654"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_SFX_BirdFlap_01" ID="{3B819070-770E-41F7-BC37-48B747C7D283}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_SFX_BirdFlap_03" ID="{746A988A-CF47-4A2E-9119-671FF9BA4EEB}" ShortID="141275878">
+											<PropertyList>
+												<Property Name="Priority" Type="int16">
+													<ValueList>
+														<Value>40</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_SFX_BirdFlap_03" ID="{8371A9B8-58AA-4BDE-A746-E3F4CCE418D7}">
+													<Language>SFX</Language>
+													<AudioFile>DEN_SFX_BirdFlap_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="788133295"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_SFX_BirdFlap_03" ID="{8371A9B8-58AA-4BDE-A746-E3F4CCE418D7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<PositioningInfo>
+										<Position Name="" ID="{33C7A550-1F74-4DC6-84EE-C1042E78E7DC}">
+											<PropertyList>
+												<Property Name="NewPathForEachSound" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismRandomOrSequence" Type="int16" Value="1"/>
+											</PropertyList>
+											<ChildrenList>
+												<Path2D Name="DEN_POR_TB_Birds_Path" ID="{D0AD5052-B8A8-481F-8B41-171E37A785D5}">
+													<PropertyList>
+														<Property Name="Duration" Type="Uint32" Value="2000"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>43.90243</XPos>
+															<YPos>0.21645</YPos>
+															<Flags>12</Flags>
+															<Time>0</Time>
+														</Point>
+														<Point>
+															<XPos>-0.22173</XPos>
+															<YPos>22.07792</YPos>
+															<Flags>0</Flags>
+															<Time>666</Time>
+														</Point>
+														<Point>
+															<XPos>-47.2283813747228</XPos>
+															<YPos>22.9437229437229</YPos>
+															<Flags>0</Flags>
+															<Time>1333</Time>
+														</Point>
+														<Point>
+															<XPos>-70.28825</XPos>
+															<YPos>-1.2987</YPos>
+															<Flags>0</Flags>
+															<Time>2000</Time>
+														</Point>
+													</PointList>
+												</Path2D>
+												<Path2D Name="DEN_POR_TB_Birds_Path_01" ID="{211C7764-318E-4026-A989-340430850919}">
+													<PropertyList>
+														<Property Name="Duration" Type="Uint32" Value="2000"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>-51.88471</XPos>
+															<YPos>-0.21645</YPos>
+															<Flags>12</Flags>
+															<Time>0</Time>
+														</Point>
+														<Point>
+															<XPos>-20.6208425720621</XPos>
+															<YPos>28.5714285714286</YPos>
+															<Flags>0</Flags>
+															<Time>666</Time>
+														</Point>
+														<Point>
+															<XPos>33.9246119733925</XPos>
+															<YPos>32.4675324675325</YPos>
+															<Flags>0</Flags>
+															<Time>1333</Time>
+														</Point>
+														<Point>
+															<XPos>67.1840354767184</XPos>
+															<YPos>4.32900432900433</YPos>
+															<Flags>0</Flags>
+															<Time>2000</Time>
+														</Point>
+													</PointList>
+												</Path2D>
+												<Path2D Name="DEN_POR_TB_Birds_Path_02" ID="{C1C8BC29-96FF-49A6-AB82-58D7FE8A71BF}">
+													<PropertyList>
+														<Property Name="Duration" Type="Uint32" Value="2000"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>-0.44347</XPos>
+															<YPos>-0.21645</YPos>
+															<Flags>12</Flags>
+															<Time>0</Time>
+														</Point>
+														<Point>
+															<XPos>24.1685144124169</XPos>
+															<YPos>6.06060606060606</YPos>
+															<Flags>0</Flags>
+															<Time>666</Time>
+														</Point>
+														<Point>
+															<XPos>77.3835920177384</XPos>
+															<YPos>5.62770562770562</YPos>
+															<Flags>0</Flags>
+															<Time>1333</Time>
+														</Point>
+														<Point>
+															<XPos>93.7915742793792</XPos>
+															<YPos>-10.3896103896104</YPos>
+															<Flags>0</Flags>
+															<Time>2000</Time>
+														</Point>
+													</PointList>
+												</Path2D>
+												<Path2D Name="DEN_POR_TB_Birds_Path_03" ID="{394509AB-A7E4-4653-A9FC-404015DE5DB5}">
+													<PropertyList>
+														<Property Name="Duration" Type="Uint32" Value="2000"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>0.88691</XPos>
+															<YPos>0.21645</YPos>
+															<Flags>12</Flags>
+															<Time>0</Time>
+														</Point>
+														<Point>
+															<XPos>-33.03769</XPos>
+															<YPos>24.24242</YPos>
+															<Flags>0</Flags>
+															<Time>666</Time>
+														</Point>
+														<Point>
+															<XPos>-79.15743</XPos>
+															<YPos>19.04762</YPos>
+															<Flags>0</Flags>
+															<Time>1333</Time>
+														</Point>
+														<Point>
+															<XPos>-96.4523281596452</XPos>
+															<YPos>-6.49350649350649</YPos>
+															<Flags>0</Flags>
+															<Time>2000</Time>
+														</Point>
+													</PointList>
+												</Path2D>
+											</ChildrenList>
+										</Position>
+									</PositioningInfo>
+								</RandomSequenceContainer>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+				</ActorMixer>
+				<ActorMixer Name="DEN_Stingers" ID="{DA036210-F729-4B1E-A8E7-44BFCB419C66}" ShortID="18197144">
+					<PropertyList>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="StingerConversionSettings" ID="{509209C3-DC51-49DB-AC32-3A45E12A8698}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<SwitchContainer Name="DEN_STI_Mood" ID="{CCD902E3-7036-48E8-98D2-FBBA7101FB35}" ShortID="328749626">
+							<PropertyList>
+								<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="DEN_State_Mood" ID="{0479447C-0867-4F59-A8A4-199CAE84ECB5}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SwitchContainer Name="DEN_STI_Mood_Anger" ID="{E21F51FE-DBDA-4B60-B3E5-02644DBD214B}" ShortID="1033625505">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="DEN_SW_AngerSteps" ID="{432BE505-1DAF-4C27-9B4A-0D9E9A9F2276}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_StingerAnger_01" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}" ShortID="458537793">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerAnger_01" ID="{00035DA7-D8C7-40AB-8C89-6B44F7CC0B8C}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.235384624737959"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerAnger_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="618592782"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerAnger_01" ID="{00035DA7-D8C7-40AB-8C89-6B44F7CC0B8C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerAnger_02" ID="{9A5B90D7-0360-4EC4-9A59-BE5805136EA4}" ShortID="860407037">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerAnger_02" ID="{4DC6EEB0-41BA-478E-AE73-24592F864809}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.283845337996116"/>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerAnger_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="271366596"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerAnger_02" ID="{4DC6EEB0-41BA-478E-AE73-24592F864809}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerAnger_03" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}" ShortID="762027477">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerAnger_03" ID="{51B31D58-227A-4471-A68E-2BB92EFBFA93}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.228461547539784"/>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerAnger_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="502492109"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerAnger_03" ID="{51B31D58-227A-4471-A68E-2BB92EFBFA93}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerAnger_01" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerAnger_03" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerAnger_02" ID="{9A5B90D7-0360-4EC4-9A59-BE5805136EA4}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_AS_1" ID="{0E92D334-2514-41A5-A7AA-F330ADDE3C84}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerAnger_02" ID="{9A5B90D7-0360-4EC4-9A59-BE5805136EA4}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_AS_2" ID="{774E5938-7788-4C31-9767-E461F2C0797F}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerAnger_03" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerAnger_01" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="DEN_STI_Mood_Fear" ID="{BB073935-4333-4371-BA8F-D2A63382CE46}" ShortID="527230388">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="DEN_SW_FS_0" ID="{F4E026D3-7E71-460E-836C-75047A2F9C7E}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="DEN_SW_FearSteps" ID="{3C40F149-74D8-42D4-8C5C-2D9D26AB6164}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}" ShortID="381200462">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerFear_01" ID="{6286B69C-7088-4E04-8F4D-2EA2F463BBEA}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.344999241828918"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.46729756724529"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerFear_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="187854125"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerFear_01" ID="{6286B69C-7088-4E04-8F4D-2EA2F463BBEA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerFear_02" ID="{7F5232FC-5B4F-4461-B237-EE6177A9F361}" ShortID="958045482">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerFear_02" ID="{AEFB6EF6-D378-4604-A085-153C153345EA}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.442306720293485"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.45845143283942"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerFear_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="352618498"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerFear_02" ID="{AEFB6EF6-D378-4604-A085-153C153345EA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}" ShortID="873690321">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerFear_03" ID="{1487C5EA-6A15-487C-B6F4-EEC5ED0378C2}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.318461531859177"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.47615384872143"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerFear_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="227242811"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerFear_03" ID="{1487C5EA-6A15-487C-B6F4-EEC5ED0378C2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerFear_02" ID="{7F5232FC-5B4F-4461-B237-EE6177A9F361}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_FS_1" ID="{32933CAB-CC4B-4F19-A29A-B748581979F0}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerFear_02" ID="{7F5232FC-5B4F-4461-B237-EE6177A9F361}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_FS_0" ID="{F4E026D3-7E71-460E-836C-75047A2F9C7E}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_FS_2" ID="{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="DEN_STI_Mood_Curious" ID="{3FF9D409-040C-405D-8C87-46F1870DBE1D}" ShortID="1000915220">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="DEN_SW_CS_0" ID="{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="DEN_SW_CuriositySteps" ID="{9D12713B-97CC-4C24-AE18-F75724EF566C}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="DEN_StingerCurious_01" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}" ShortID="657992209">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerCurious_01" ID="{C749B86C-B80C-4A1B-99E7-FC086EB1F720}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.205960523623687"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.01518230890005"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerCurious_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="520509391"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerCurious_01" ID="{C749B86C-B80C-4A1B-99E7-FC086EB1F720}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerCurious_02" ID="{9AF52CD6-317E-4663-9839-78C2070F3CCA}" ShortID="952566419">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerCurious_02" ID="{5754F416-B46B-4FC8-8B69-4F7300F91408}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.21403845181832"/>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerCurious_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="72635150"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerCurious_02" ID="{5754F416-B46B-4FC8-8B69-4F7300F91408}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="DEN_StingerCurious_03" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}" ShortID="937408931">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DEN_StingerCurious_03" ID="{D013B869-1207-4789-9AF8-3F016CAAFFA7}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.104999482631683"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>DEN_StingerCurious_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="522845458"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="DEN_StingerCurious_03" ID="{D013B869-1207-4789-9AF8-3F016CAAFFA7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerCurious_03" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerCurious_02" ID="{9AF52CD6-317E-4663-9839-78C2070F3CCA}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_StingerCurious_01" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_CS_0" ID="{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerCurious_01" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_CS_1" ID="{2515C69B-0223-4BD9-94FE-AC12B38F3A17}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerCurious_02" ID="{9AF52CD6-317E-4663-9839-78C2070F3CCA}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_CS_2" ID="{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}"/>
+												<ItemList>
+													<ItemRef Name="DEN_StingerCurious_03" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="DEN_STI_Mood_Curious" ID="{3FF9D409-040C-405D-8C87-46F1870DBE1D}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="DEN_STI_Mood_Fear" ID="{BB073935-4333-4371-BA8F-D2A63382CE46}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="DEN_STI_Mood_Anger" ID="{E21F51FE-DBDA-4B60-B3E5-02644DBD214B}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="DEN_ST_Mood_Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}"/>
+										<ItemList>
+											<ItemRef Name="DEN_STI_Mood_Fear" ID="{BB073935-4333-4371-BA8F-D2A63382CE46}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}"/>
+										<ItemList>
+											<ItemRef Name="DEN_STI_Mood_Curious" ID="{3FF9D409-040C-405D-8C87-46F1870DBE1D}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
+										<ItemList>
+											<ItemRef Name="DEN_STI_Mood_Anger" ID="{E21F51FE-DBDA-4B60-B3E5-02644DBD214B}"/>
 										</ItemList>
 									</Grouping>
 								</GroupingList>
