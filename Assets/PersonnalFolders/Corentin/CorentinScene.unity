@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 11d13eba91151d7449aaad612083866a, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -366,6 +366,10 @@ PrefabInstance:
       propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2247649468655420898, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 123
+      objectReference: {fileID: 0}
     - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: sinjCount
       value: 1
@@ -590,6 +594,18 @@ PrefabInstance:
       propertyPath: otherMovements.m_SingletonActionBindings.Array.data[0].m_Action
       value: Other Movements
       objectReference: {fileID: 0}
+    - target: {fileID: 5415500437956994873, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661486702685187857, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892985580992323935, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 123
+      objectReference: {fileID: 0}
     - target: {fileID: 6521624656204892207, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -633,6 +649,10 @@ PrefabInstance:
     - target: {fileID: 6836968198750542637, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309931923033024423, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
