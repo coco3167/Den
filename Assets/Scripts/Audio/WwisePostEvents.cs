@@ -58,7 +58,7 @@ namespace Audio
 
         public void PostRandomMoodEvent(GameObject target)
         {
-            randomMoodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+            randomMoodEvent.Post(target.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
         }
 
         private IEnumerator TriggerOKBarkSequence()
