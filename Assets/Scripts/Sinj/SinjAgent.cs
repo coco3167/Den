@@ -121,6 +121,16 @@ namespace Sinj
         {
             return emotions[emotion];
         }
+
+        public Emotions GetMainEmotion()
+        {
+            if (emotions[Emotions.Curiosity] < emotions[Emotions.Agression])
+            {
+                return emotions[Emotions.Agression] < emotions[Emotions.Fear] ? Emotions.Fear : Emotions.Agression;
+            }
+
+            return emotions[Emotions.Curiosity] < emotions[Emotions.Fear] ? Emotions.Fear : Emotions.Curiosity;
+        }
         #endregion
 
         #region Reactions

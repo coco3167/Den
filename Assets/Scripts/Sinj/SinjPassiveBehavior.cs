@@ -1,4 +1,7 @@
-using Random = UnityEngine.Random;
+using System;
+using System.Timers;
+using Audio;
+using UnityEngine;
 
 namespace Sinj
 {
@@ -17,7 +20,7 @@ namespace Sinj
             {
                 m_isFinished = false;
 
-                m_timer = new Timer(Random.Range(minTime, maxTime) * 1000);
+                m_timer = new Timer(UnityEngine.Random.Range(minTime, maxTime) * 1000);
                 m_timer.AutoReset = false;
                 m_timer.Elapsed += (_, _) =>
                 {

@@ -17,9 +17,7 @@ MonoBehaviour:
   - rid: 281592812629655630
   SinjReactions:
   - rid: 281592812629655631
-  - rid: 6866505373749608525
-  - rid: 6866505373749608526
-  - rid: 6866505373749608527
+  - rid: 6699013492897480782
   references:
     version: 2
     RefIds:
@@ -32,15 +30,6 @@ MonoBehaviour:
       type: {class: SinjActiveBehavior/FleeReaction, ns: Sinj, asm: Assembly-CSharp}
       data:
         distance: 2
-    - rid: 6866505373749608525
+    - rid: 6699013492897480782
       type: {class: SinjActiveBehavior/BarkReaction, ns: Sinj, asm: Assembly-CSharp}
-      data:
-        reactionMood: 1
-    - rid: 6866505373749608526
-      type: {class: SinjActiveBehavior/BarkReaction, ns: Sinj, asm: Assembly-CSharp}
-      data:
-        reactionMood: 0
-    - rid: 6866505373749608527
-      type: {class: SinjActiveBehavior/BarkReaction, ns: Sinj, asm: Assembly-CSharp}
-      data:
-        reactionMood: 2
+      data: 

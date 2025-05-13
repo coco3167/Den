@@ -47,5 +47,10 @@ namespace Audio
             Debug.Log("Audio state has been set to " + newAudioState);
             _currentAudioState = newAudioState;
         }
+
+        public static WwiseMoodState GetCurrentMoodState()
+        {
+            return _currentMoodState;
+        }
     }
 }

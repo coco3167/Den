@@ -167,11 +167,9 @@ namespace Sinj
         [Serializable]
         public class BarkReaction : SinjReaction
         {
-            [SerializeField] private WwiseReactionMoodSwitch reactionMood;
             public override void ApplyReaction(SinjAgent agent)
             {
-                // WwisePostEvents.Instance.PostReactionMoodEvent(reactionMood);
-                //Début fuite
+                WwisePostEvents.Instance.PostMoodStepFromState(agent);
             }
 
             public override bool IsFinished(SinjAgent agent)

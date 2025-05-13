@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
     private void OnPallierReached(Emotions emotion, int nextPallier)
     {
         m_currentPalier[emotion] = nextPallier;
-        //WwiseStateManager.SetWwiseMoodState(m_palierMoodState[emotion]);
+        WwiseStateManager.SetWwiseMoodState(m_palierMoodState[emotion]);
 
         if (m_currentPalier[emotion] == 100)
             OnGameEnded();
