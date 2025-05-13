@@ -7,6 +7,12 @@ namespace Sinj
     [CreateAssetMenu(fileName = "SinjActiveBehavior", menuName = "SinjBehavior/ActiveBehavior", order = 0)]
     public class SinjActiveBehavior : SinjBehavior
     {
+        private enum Comparison
+        {
+            Inferior,
+            Superior,
+            Equal
+        }
 
         #region Stimuli
         [Serializable]
@@ -159,17 +165,13 @@ namespace Sinj
         }
 
         [Serializable]
-        public class AudioReaction : SinjReaction
+        public class BarkReaction : SinjReaction
         {
-            [SerializeField] private AK.Wwise.Event wwiseEvent;
+            [SerializeField] private WwiseReactionMoodSwitch reactionMood;
             public override void ApplyReaction(SinjAgent agent)
             {
-                //TEMP réduction du rate de bark (test)
-                float random = UnityEngine.Random.Range(0, 3);
-                if (random >= 2)
-                {
-                    wwiseEvent.Post(agent.gameObject);
-                }
+                // WwisePostEvents.Instance.PostReactionMoodEvent(reactionMood);
+                //DÃ©but fuite
             }
 
             public override bool IsFinished(SinjAgent agent)

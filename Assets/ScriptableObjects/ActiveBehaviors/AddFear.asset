@@ -19,26 +19,18 @@ MonoBehaviour:
   - rid: 281592817506320458
   SinjReactions:
   - rid: 281592817506320459
-  - rid: 173352996323197005
   references:
     version: 2
     RefIds:
-    - rid: 173352996323197005
-      type: {class: SinjActiveBehavior/AudioReaction, ns: Sinj, asm: Assembly-CSharp}
-      data:
-        wwiseEvent:
-          idInternal: 0
-          valueGuidInternal: 
-          WwiseObjectReference: {fileID: 11400000, guid: 46bb9d5151a7b4546acbb90e2556fbec, type: 2}
     - rid: 281592817506320456
       type: {class: SinjActiveBehavior/MousePositionStimulus, ns: Sinj, asm: Assembly-CSharp}
       data:
-        distance: 4
+        distance: 6
         comparison: 0
     - rid: 281592817506320457
       type: {class: SinjActiveBehavior/MouseVelocityStimulus, ns: Sinj, asm: Assembly-CSharp}
       data:
-        velocity: 15
+        velocity: 6
         comparison: 1
     - rid: 281592817506320458
       type: {class: SinjActiveBehavior/TensionAmount, ns: Sinj, asm: Assembly-CSharp}
@@ -48,4 +40,4 @@ MonoBehaviour:
     - rid: 281592817506320459
       type: {class: SinjActiveBehavior/FearReaction, ns: Sinj, asm: Assembly-CSharp}
       data:
-        amount: 250
+        amount: 500
