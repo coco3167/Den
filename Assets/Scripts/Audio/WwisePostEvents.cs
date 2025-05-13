@@ -1,4 +1,5 @@
 using System.Collections;
+using Sinj;
 using UnityEngine;
 
 namespace Audio
@@ -47,18 +48,15 @@ namespace Audio
         // Start is called once before the first execution of Update after the MonoBehaviour is created  
         void Start()
         {
-            StartCoroutine(TriggerOKBarkSequence());
+            //StartCoroutine(TriggerOKBarkSequence());
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                PostRandomMoodEvent();
-            }
+            //rien
         }
 
-        public void PostRandomMoodEvent()
+        public void PostRandomMoodEvent(GameObject target)
         {
             randomMoodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
         }
