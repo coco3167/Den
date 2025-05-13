@@ -91,13 +91,13 @@
 						<Bus Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
-								<Property Name="Color" Type="int16" Value="4"/>
-								<Property Name="OverrideColor" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
+								<Property Name="BusVolume" Type="Real64">
 									<ValueList>
 										<Value>-16</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
 							<StateInfo>
 								<StateGroupList>
@@ -331,6 +331,39 @@
 															<Property Name="Bypass" Type="bool" Value="True"/>
 														</PropertyList>
 													</CustomState>
+												</CustomState>
+											</CustomStateList>
+										</StateInfo>
+									</EffectSlot>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{B1BD80E5-8A3F-449A-B191-BB99137FAB3E}" ShortID="144012786">
+										<ReferenceList>
+											<Reference Name="Effect">
+												<Custom>
+													<Effect Name="Recorder (Custom)" ID="{93508361-BBA7-4851-9396-5E4C90FB4DEA}" ShortID="546281340" PluginName="Wwise Recorder" CompanyID="0" PluginID="132" PluginType="3">
+														<PropertyList>
+															<Property Name="AuthoringFilename" Type="string" Value="C:\Users\poire\Downloads\DEN_pp3.wav"/>
+														</PropertyList>
+													</Effect>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+										<StateInfo>
+											<CustomStateList>
+												<CustomState>
+													<StateRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
+													<CustomState Name="" ID="{9793CA80-A8A3-48B8-9176-0191D6605869}" ShortID="567042216"/>
+												</CustomState>
+												<CustomState>
+													<StateRef Name="DEN_ST_Audio_Mix_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+													<CustomState Name="" ID="{73D4DEFF-E146-477B-8C11-62804E598000}" ShortID="810248054"/>
+												</CustomState>
+												<CustomState>
+													<StateRef Name="DEN_ST_Audio_Mix_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
+													<CustomState Name="" ID="{BEA88CC2-614F-4520-B52A-B4EE7AA89EEB}" ShortID="336796542"/>
 												</CustomState>
 											</CustomStateList>
 										</StateInfo>
