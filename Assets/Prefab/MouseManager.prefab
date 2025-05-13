@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 7193297211750209143}
   - component: {fileID: 427836962431298031}
   - component: {fileID: 1653717615395514633}
-  - component: {fileID: 3822529531292823585}
-  - component: {fileID: 4698760822294355368}
   m_Layer: 5
   m_Name: MouseManifestation
   m_TagString: Untagged
@@ -116,43 +114,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!208 &3822529531292823585
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3068687892102987918}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 1.5, y: 0.00001, z: 1.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
---- !u!135 &4698760822294355368
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3068687892102987918}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6521624656204892207
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,5 +163,3 @@ MonoBehaviour:
   terrainLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  shouldStayInView: 0
-  deltaSum: {x: 0, y: 0}
