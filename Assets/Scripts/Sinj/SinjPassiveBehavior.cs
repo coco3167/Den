@@ -53,7 +53,7 @@ namespace Sinj
                 {
                     //TEMP réduction du rate de bark (test)
                     float random = Random.Range(0,3);
-                    if (random >= 0)
+                    if (random >= 2)
                     {
                         WwisePostEvents.Instance.PostRandomMoodEvent(agent.gameObject);
                     }

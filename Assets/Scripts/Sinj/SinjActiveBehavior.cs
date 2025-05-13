@@ -164,7 +164,12 @@ namespace Sinj
             [SerializeField] private AK.Wwise.Event wwiseEvent;
             public override void ApplyReaction(SinjAgent agent)
             {
-                wwiseEvent.Post(agent.gameObject);
+                //TEMP réduction du rate de bark (test)
+                float random = UnityEngine.Random.Range(0, 3);
+                if (random >= 2)
+                {
+                    wwiseEvent.Post(agent.gameObject);
+                }
             }
 
             public override bool IsFinished(SinjAgent agent)
