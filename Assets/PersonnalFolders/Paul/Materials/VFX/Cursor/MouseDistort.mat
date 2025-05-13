@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Distort
-  m_Shader: {fileID: -6465566751694194690, guid: c7a7b5efb8784f44aa5a7b7fcc62bfa5, type: 3}
+  m_Name: MouseDistort
+  m_Shader: {fileID: -6465566751694194690, guid: d0fd638496af44145b7dd04decc41c59, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -31,7 +31,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -70,7 +70,7 @@ Material:
     - _RippleRadius: 3.51
     - _Rotation: 0
     - _SmoothedSize: 0
-    - _SoundShape: 0.465
+    - _SoundShape: 0
     - _SrcBlend: 5
     - _Strength: 10.12
     - _Surface: 1
