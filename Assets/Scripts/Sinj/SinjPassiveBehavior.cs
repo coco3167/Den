@@ -1,7 +1,3 @@
-using System;
-using System.Timers;
-using Audio;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Sinj
@@ -51,12 +47,7 @@ namespace Sinj
             {
                 if (agent.IsCloseToDestination())
                 {
-                    //TEMP réduction du rate de bark (test)
-                    float random = Random.Range(0,3);
-                    if (random >= 2)
-                    {
-                        WwisePostEvents.Instance.PostRandomMoodEvent(agent.gameObject);
-                    }
+                    WwisePostEvents.Instance.PostRandomMoodEvent(agent.gameObject);
                     return true;
                 }
                 return false;
