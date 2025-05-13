@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{62287BC5-0D1C-6C44-6F7D-FAEEDC09A1AE}",
+    "Hash": "{800ED66C-9D56-2CDC-0028-D0EDAE7F8C9D}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -23,6 +23,14 @@
        "GUID": "{560D89A7-03C8-4F1A-8BF8-C69990F0FA00}",
        "LibName": "Wwise Channel Router",
        "LibId": "12517379"
+      },
+      {
+       "Id": "546281340",
+       "Name": "Recorder (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\[Effect Slot [1]: (Recorder)]\\Recorder (Custom)",
+       "GUID": "{93508361-BBA7-4851-9396-5E4C90FB4DEA}",
+       "LibName": "Wwise Recorder",
+       "LibId": "8650755"
       }
      ],
      "AudioDevices": [
@@ -83,6 +91,9 @@
        "Custom": [
         {
          "Id": "370170101"
+        },
+        {
+         "Id": "546281340"
         }
        ]
       }
@@ -488,6 +499,6 @@
     ]
    }
   ],
-  "FileHash": "{1DDF30E9-630A-1FC8-01B8-686DF5B25659}"
+  "FileHash": "{80863BCC-55AA-7290-F448-F472608E3DB1}"
  }
 }
