@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{D3AAB9EE-3CE6-1ED6-81C4-5C1B9F4FCB81}",
+    "Hash": "{0D15B28F-61F0-E173-D906-E3683C60B6A4}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -261,6 +261,50 @@
       ]
      },
      {
+      "Id": "2248328396",
+      "Name": "DEN_State_TOD",
+      "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD",
+      "GUID": "{32B1AE65-D687-4FA3-8ACD-06DC274F66C3}",
+      "Color": "3",
+      "States": [
+       {
+        "Id": "354475675",
+        "Name": "DEN_ST_TOD_Day",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD\\DEN_ST_TOD_Day",
+        "GUID": "{8C7483EF-6E66-4CAC-AECB-F64A69FCEA6A}",
+        "Color": "3"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD\\None",
+        "GUID": "{0C25DF41-7451-4F5B-8CD3-1E37B3E9F968}",
+        "Color": "3"
+       },
+       {
+        "Id": "1758083905",
+        "Name": "DEN_ST_TOD_Morning",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD\\DEN_ST_TOD_Morning",
+        "GUID": "{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}",
+        "Color": "3"
+       },
+       {
+        "Id": "1822764695",
+        "Name": "DEN_ST_TOD_Night",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD\\DEN_ST_TOD_Night",
+        "GUID": "{E5651177-8597-4405-9543-A5179BF22D37}",
+        "Color": "3"
+       },
+       {
+        "Id": "3179366297",
+        "Name": "DEN_ST_TOD_Evening",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD\\DEN_ST_TOD_Evening",
+        "GUID": "{301D0269-A9F7-4079-99E6-921F35CE1806}",
+        "Color": "3"
+       }
+      ]
+     },
+     {
       "Id": "3079765046",
       "Name": "DEN_State_Mood",
       "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood",
@@ -499,6 +543,6 @@
     ]
    }
   ],
-  "FileHash": "{3F4EA3BF-4DA2-D371-DF7B-0A8795B08B16}"
+  "FileHash": "{6D86664C-95E7-37C1-D649-0935D174FCFE}"
  }
 }

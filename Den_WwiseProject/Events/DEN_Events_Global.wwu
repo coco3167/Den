@@ -73,6 +73,17 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{24D31C7A-6074-4125-B3AC-A211799DEF5D}" ShortID="798880169">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+								<Property Name="Delay" Type="Real64" Value="11"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Play_DEN_TOD" ID="{A9AF1466-344D-4324-AE95-7D7CEB304135}" WorkUnitID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="GameSyncs" ID="{941045A8-5065-4DEA-851C-C25EE47C2A9E}">

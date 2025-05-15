@@ -29,6 +29,7 @@ namespace AK
         static const AkUniqueID PLAY_DEN_MUSIC_TEST = 1174350178U;
         static const AkUniqueID PLAY_DEN_STARTGAME = 3010429372U;
         static const AkUniqueID PLAY_DEN_STINGER = 198938308U;
+        static const AkUniqueID PLAY_DEN_TOD = 892655767U;
         static const AkUniqueID SET_DEN_AMB_ANGER1 = 1566837199U;
         static const AkUniqueID SET_DEN_AMB_ANGER2 = 1566837196U;
         static const AkUniqueID SET_DEN_AMB_ANGER3 = 1566837197U;
@@ -39,6 +40,10 @@ namespace AK
         static const AkUniqueID SET_DEN_AMB_FEAR2 = 3699036623U;
         static const AkUniqueID SET_DEN_AMB_FEAR3 = 3699036622U;
         static const AkUniqueID SET_DEN_AMB_RESET = 4204191990U;
+        static const AkUniqueID SET_DEN_TOD_DAY = 4020875500U;
+        static const AkUniqueID SET_DEN_TOD_EVENING = 2386744970U;
+        static const AkUniqueID SET_DEN_TOD_MORNING = 1585709882U;
+        static const AkUniqueID SET_DEN_TOD_NIGHT = 282213896U;
     } // namespace EVENTS
 
     namespace STATES
@@ -80,6 +85,20 @@ namespace AK
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
         } // namespace DEN_STATE_MOOD
+
+        namespace DEN_STATE_TOD
+        {
+            static const AkUniqueID GROUP = 2248328396U;
+
+            namespace STATE
+            {
+                static const AkUniqueID DEN_ST_TOD_DAY = 354475675U;
+                static const AkUniqueID DEN_ST_TOD_EVENING = 3179366297U;
+                static const AkUniqueID DEN_ST_TOD_MORNING = 1758083905U;
+                static const AkUniqueID DEN_ST_TOD_NIGHT = 1822764695U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace DEN_STATE_TOD
 
     } // namespace STATES
 

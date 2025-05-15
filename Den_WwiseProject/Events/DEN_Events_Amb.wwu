@@ -494,8 +494,85 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Set_DEN_TOD_Morning" ID="{2D986335-042E-4D49-93EE-374B4AA7CC46}">
+							<ChildrenList>
+								<Action Name="" ID="{93DA33B0-7E2D-4BAA-BD76-CD23631D7DF6}" ShortID="980002794">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_TOD_Morning" ID="{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_TOD_Day" ID="{AE2C5EFC-06AE-437D-9586-FE3E4B98E629}">
+							<ChildrenList>
+								<Action Name="" ID="{9C2CC2F0-6657-408F-AEFD-440507297BCE}" ShortID="1070046021">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_TOD_Day" ID="{8C7483EF-6E66-4CAC-AECB-F64A69FCEA6A}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_TOD_Evening" ID="{1644581C-05D0-4827-B8EF-C5158381C68E}">
+							<ChildrenList>
+								<Action Name="" ID="{52D98024-D975-4A82-AFE3-F20B570DF74A}" ShortID="296061500">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_TOD_Evening" ID="{301D0269-A9F7-4079-99E6-921F35CE1806}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Set_DEN_TOD_Night" ID="{55C7A96A-5373-400E-ABEE-A112983068E6}">
+							<ChildrenList>
+								<Action Name="" ID="{5E5CE887-1218-47E8-9EE2-1F410DF10884}" ShortID="687572434">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_TOD_Night" ID="{E5651177-8597-4405-9543-A5179BF22D37}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_DEN_TOD" ID="{A9AF1466-344D-4324-AE95-7D7CEB304135}">
+					<ChildrenList>
+						<Action Name="" ID="{511071ED-3F58-4009-A2F5-6E6F2DDACE0D}" ShortID="577180360">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_TOD" ID="{17016375-1FEF-43B5-8E8C-66D7B8B60E44}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{66D68D53-E140-4155-B2CD-D0BB37343740}" ShortID="667555449">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_ST_TOD_Morning" ID="{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

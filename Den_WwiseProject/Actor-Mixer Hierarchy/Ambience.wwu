@@ -68,7 +68,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-10</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -99,6 +99,11 @@
 										<Property Name="IsStreamingEnabled" Type="bool">
 											<ValueList>
 												<Value>True</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -133,7 +138,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-8</Value>
+												<Value>3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1096,6 +1101,249 @@
 								<ItemList>
 									<ItemRef Name="DEN_Amb_SwitchGroup" ID="{0E9CD7E4-56E4-4FAE-8243-79EAE6D3183F}"/>
 									<ItemRef Name="DEN_Amb_Neutral" ID="{9B7C2336-284F-4B07-B17B-493A40D2D8F9}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<SwitchContainer Name="DEN_TOD" ID="{17016375-1FEF-43B5-8E8C-66D7B8B60E44}" ShortID="684055458">
+					<PropertyList>
+						<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>2</Value>
+							</ValueList>
+						</Property>
+						<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="AmbienceConversionSettings" ID="{34A3134F-FEBD-4C1D-BEAF-524D3ABDA36F}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="None" ID="{0C25DF41-7451-4F5B-8CD3-1E37B3E9F968}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="DEN_State_TOD" ID="{32B1AE65-D687-4FA3-8ACD-06DC274F66C3}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="DEN_AMB_TOD_Day_01" ID="{D7F72CE7-5E19-4C09-A865-562F477A0479}" ShortID="591722012">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_TOD_Day_01" ID="{DD27C4B5-6C7D-4FA9-90DC-9974D96BD3E6}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_TOD_Day_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="32943555"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_TOD_Day_01" ID="{DD27C4B5-6C7D-4FA9-90DC-9974D96BD3E6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DEN_AMB_TOD_Evening_01" ID="{A5EAD272-480A-4041-8CDF-767974DF91F8}" ShortID="385312358">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_TOD_Evening_01" ID="{4EF41691-84CE-4687-90F8-D763877F8B32}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_TOD_Evening_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="370277972"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_TOD_Evening_01" ID="{4EF41691-84CE-4687-90F8-D763877F8B32}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DEN_AMB_TOD_Morning_01" ID="{1ED2DE05-B4EE-4A44-8646-05B1AAAA5CAE}" ShortID="219379519">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_TOD_Morning_01" ID="{8568686C-C955-4193-9BFE-1358DDB58E9D}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_TOD_Morning_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="802547528"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_TOD_Morning_01" ID="{8568686C-C955-4193-9BFE-1358DDB58E9D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DEN_AMB_TOD_Night_01" ID="{D449E8FA-E886-4C0D-B883-DB9FF3E2B3CF}" ShortID="800008356">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_TOD_Night_01" ID="{31028506-5F95-484B-85CB-A5A71523BE20}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_TOD_Night_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="902305525"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_TOD_Night_01" ID="{31028506-5F95-484B-85CB-A5A71523BE20}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="DEN_AMB_TOD_Morning_01" ID="{1ED2DE05-B4EE-4A44-8646-05B1AAAA5CAE}"/>
+								<PropertyList>
+									<Property Name="FadeInTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="DEN_AMB_TOD_Evening_01" ID="{A5EAD272-480A-4041-8CDF-767974DF91F8}"/>
+								<PropertyList>
+									<Property Name="FadeInTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="DEN_AMB_TOD_Day_01" ID="{D7F72CE7-5E19-4C09-A865-562F477A0479}"/>
+								<PropertyList>
+									<Property Name="FadeInTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="DEN_AMB_TOD_Night_01" ID="{D449E8FA-E886-4C0D-B883-DB9FF3E2B3CF}"/>
+								<PropertyList>
+									<Property Name="FadeInTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_TOD_Evening" ID="{301D0269-A9F7-4079-99E6-921F35CE1806}"/>
+								<ItemList>
+									<ItemRef Name="DEN_AMB_TOD_Evening_01" ID="{A5EAD272-480A-4041-8CDF-767974DF91F8}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_TOD_Night" ID="{E5651177-8597-4405-9543-A5179BF22D37}"/>
+								<ItemList>
+									<ItemRef Name="DEN_AMB_TOD_Night_01" ID="{D449E8FA-E886-4C0D-B883-DB9FF3E2B3CF}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_TOD_Morning" ID="{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}"/>
+								<ItemList>
+									<ItemRef Name="DEN_AMB_TOD_Morning_01" ID="{1ED2DE05-B4EE-4A44-8646-05B1AAAA5CAE}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_TOD_Day" ID="{8C7483EF-6E66-4CAC-AECB-F64A69FCEA6A}"/>
+								<ItemList>
+									<ItemRef Name="DEN_AMB_TOD_Day_01" ID="{D7F72CE7-5E19-4C09-A865-562F477A0479}"/>
 								</ItemList>
 							</Grouping>
 						</GroupingList>
