@@ -10,11 +10,19 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{3773006F-582F-3260-0D64-0BAEF3B7EEDF}",
+    "Hash": "{CCB4284E-B9EB-CC00-BF05-19434A59B9BA}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
     "Media": [
+     {
+      "Id": "12744402",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_AMB_RandomNoises_01.wav",
+      "CachePath": "80/{80CD1EE3-9428-6226-9B4C-E5321D54AB60}.wem"
+     },
      {
       "Id": "26191170",
       "Language": "SFX",
@@ -210,7 +218,7 @@
       "Location": "Loose",
       "ShortName": "DEN_AMB_Neutral_04.wav",
       "Path": "Media/261266447.wem",
-      "CachePath": "83/{8366C4E8-9BAE-D8C0-1CD8-9F3F5577A4F0}.wem"
+      "CachePath": "46/{4659F7BC-2C55-4F71-5C24-252D6DD6E2EA}.wem"
      },
      {
       "Id": "269184436",
@@ -227,6 +235,14 @@
       "Location": "Memory",
       "ShortName": "DEN_StingerAnger_02.wav",
       "CachePath": "AF/{AFDBBA3D-A7AB-9C50-0B6B-1628CB356A5F}.wem"
+     },
+     {
+      "Id": "292186112",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_AMB_RandomNoises_04.wav",
+      "CachePath": "0C/{0C3E5B88-6AF8-8326-7E98-89B789CF8683}.wem"
      },
      {
       "Id": "306006355",
@@ -482,6 +498,14 @@
       "CachePath": "41/{4173FBAC-0880-0182-0E8F-3EBE347918AF}.wem"
      },
      {
+      "Id": "771888951",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_AMB_RandomNoises_05.wav",
+      "CachePath": "4F/{4F6DE8CF-2DC6-1A51-443B-D5B2F463BEE2}.wem"
+     },
+     {
       "Id": "788133295",
       "Language": "SFX",
       "Streaming": "false",
@@ -514,6 +538,14 @@
       "ShortName": "DEN_AMB_Anger_03.wav",
       "Path": "Media/825924168.wem",
       "CachePath": "64/{64090EFE-3E44-FB67-6A63-C05B8653EBF4}.wem"
+     },
+     {
+      "Id": "838622351",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_AMB_RandomNoises_03.wav",
+      "CachePath": "9B/{9B45EB9F-4FD9-8C52-2C24-578E25BBF1DC}.wem"
      },
      {
       "Id": "848552206",
@@ -656,12 +688,28 @@
       "CachePath": "8B/{8BF9AD4E-B94B-4B72-BC9E-9FC30637946E}.wem"
      },
      {
+      "Id": "1025430363",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_AMB_RandomNoises_02.wav",
+      "CachePath": "26/{266E3EB3-9948-8CCC-FFF9-9EC69ECDC8AC}.wem"
+     },
+     {
       "Id": "1049917503",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Momo_Neutral_4.wav",
       "CachePath": "48/{486CCF92-2AA8-469C-44BA-02336B5AB8B9}.wem"
+     },
+     {
+      "Id": "1054217432",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_AMB_RandomNoises_06.wav",
+      "CachePath": "EE/{EEC18D48-0C52-593F-1C88-315F036B4BED}.wem"
      },
      {
       "Id": "1068937982",
@@ -721,6 +769,26 @@
       "GUID": "{0A0BD5D1-7399-4070-A466-45EDA771A82F}",
       "Color": "4",
       "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "12744402"
+       },
+       {
+        "Id": "292186112"
+       },
+       {
+        "Id": "771888951"
+       },
+       {
+        "Id": "838622351"
+       },
+       {
+        "Id": "1025430363"
+       },
+       {
+        "Id": "1054217432"
+       }
+      ],
       "SwitchContainers": [
        {
         "SwitchValue": {
@@ -3702,6 +3770,6 @@
     ]
    }
   ],
-  "FileHash": "{A77DD226-3156-87AE-78CB-F2B0F8C2052E}"
+  "FileHash": "{D512CB2D-C25D-E673-C1D0-257AAC815371}"
  }
 }
