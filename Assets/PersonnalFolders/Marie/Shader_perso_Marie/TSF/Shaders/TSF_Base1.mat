@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TSF_Base1
+  m_Shader: {fileID: 4800000, guid: 44b54c59129572f469a949a22bc08cd0, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _COLOR_ON
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 5aad19fabfe697c4c86aec9b21dad9ba, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ToonShade:
+        m_Texture: {fileID: 2800000, guid: db2bb2c5ab565594a8507201fcb9e4bf, type: 3}
+        m_Scale: {x: 0.74, y: 1}
+        m_Offset: {x: -0.51, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Brightness: 1.51
+    - _DetailTex: 0
+    - _TintColor: 1
+    - _VertexColor: 0
+    m_Colors:
+    - _Color: {r: 0.7735849, g: 0.025542913, b: 0.025542913, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
