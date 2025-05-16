@@ -2,7 +2,7 @@ using System;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
-namespace SmartObjects_AI
+namespace SmartObjects_AI.Agent
 {
     [Serializable, CreateAssetMenu(menuName = "SmartObject/New SmartAgentData", fileName = "New SmartAgentData")]
     public class SmartAgentData : ScriptableObject
@@ -17,6 +17,10 @@ namespace SmartObjects_AI
         
     public enum AgentDynamicParameter
     {
+        Tension,
+        Curiosity,
+        Aggression,
+        Fear,
         Hide
     }
 }

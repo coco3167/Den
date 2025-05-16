@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
+using SmartObjects_AI.Agent;
 using UnityEngine;
 
 namespace SmartObjects_AI

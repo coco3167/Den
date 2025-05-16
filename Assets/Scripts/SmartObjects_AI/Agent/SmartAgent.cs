@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using AYellowpaper.SerializedCollections;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace SmartObjects_AI
+namespace SmartObjects_AI.Agent
 {
     [Serializable, RequireComponent(typeof(MovementAgent), typeof(AnimationAgent))]
     public class SmartAgent : MonoBehaviour
@@ -13,7 +15,7 @@ namespace SmartObjects_AI
         
         [SerializeField] private SmartAgentData data;
 
-        public Dictionary<AgentDynamicParameter, float> dynamicParameters { get; private set; } = new();
+        [field : SerializeField, ReadOnly] public SerializedDictionary<AgentDynamicParameter, float> dynamicParameters { get; private set; } = new();
 
 
         private SmartObject[] m_smartObjects;
@@ -40,6 +42,7 @@ namespace SmartObjects_AI
 
         private IEnumerator AIUpdate()
         {
+            yield return new WaitForEndOfFrame();
             while (true)
             {
                 SmartObject objToUse = SearchForSmartObject();
@@ -75,7 +78,7 @@ namespace SmartObjects_AI
         public void UpdateParameterValue(AgentDynamicParameter parameter, float value)
         {
             dynamicParameters[parameter] += value;
-            //Debug.Log(value);
+            Debug.Log(value);
         }
     }
 }

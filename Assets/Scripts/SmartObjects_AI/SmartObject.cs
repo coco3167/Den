@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using SmartObjects_AI.Agent;
 using UnityEngine;
 
 namespace SmartObjects_AI

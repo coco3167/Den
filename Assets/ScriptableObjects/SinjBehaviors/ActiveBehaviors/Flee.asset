@@ -12,12 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9107b413e4d79934c95487f3cce5c98a, type: 3}
   m_Name: Flee
   m_EditorClassIdentifier: 
-  instantenous: 0
   SinjStimuli:
   - rid: 281592812629655630
-  SinjReactions:
-  - rid: 281592812629655631
-  - rid: 6699013492897480782
+  SinjReactions: []
   references:
     version: 2
     RefIds:
@@ -26,10 +23,3 @@ MonoBehaviour:
       data:
         distance: 0.75
         comparison: 0
-    - rid: 281592812629655631
-      type: {class: SinjActiveBehavior/FleeReaction, ns: Sinj, asm: Assembly-CSharp}
-      data:
-        distance: 2
-    - rid: 6699013492897480782
-      type: {class: SinjActiveBehavior/BarkReaction, ns: Sinj, asm: Assembly-CSharp}
-      data: 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SmartObjects_AI
+namespace SmartObjects_AI.Agent
 {
     [RequireComponent(typeof(Animator))]
     public class AnimationAgent : MonoBehaviour

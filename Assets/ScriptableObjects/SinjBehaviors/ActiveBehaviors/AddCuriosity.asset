@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9107b413e4d79934c95487f3cce5c98a, type: 3}
   m_Name: AddCuriosity
   m_EditorClassIdentifier: 
-  instantenous: 1
   SinjStimuli:
   - rid: 281592817506320452
   - rid: 281592817506320453
@@ -41,7 +40,7 @@ MonoBehaviour:
     - rid: 281592817506320455
       type: {class: SinjActiveBehavior/CuriosityReaction, ns: Sinj, asm: Assembly-CSharp}
       data:
-        amount: 75
+        amount: 10
     - rid: 6866505373749608528
       type: {class: SinjActiveBehavior/TensionAmount, ns: Sinj, asm: Assembly-CSharp}
       data:

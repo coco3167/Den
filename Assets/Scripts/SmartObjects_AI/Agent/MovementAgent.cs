@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace SmartObjects_AI
+namespace SmartObjects_AI.Agent
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class MovementAgent : MonoBehaviour
