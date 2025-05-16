@@ -1,15 +1,30 @@
-using System.Collections.Generic;
+using System;
+using AYellowpaper.SerializedCollections;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SmartObjects_AI
 {
-    //TODO en faire un singleton ou un ScriptableObject au choix (pour pouvoir facilement modifier ses valeurs
-    public static class WorldParameters
-    {
-        public static Dictionary<WorldParameterType, float> Parameters;
-    }
+    [Serializable]
+    public class WorldParameters
+    { 
+        public SerializedDictionary<WorldParameterType, float> parameters;
+        private MouseManager m_mouseManager;
 
-    public enum WorldParameterType
-    {
-        None
+        public WorldParameters(MouseManager mouseManager)
+        {
+            m_mouseManager = mouseManager;
+        }
+
+        public Vector3 GetMousePositon()
+        { 
+            return m_mouseManager.GetRawWorldMousePosition();
+        }
+        
+        public enum WorldParameterType
+        {
+            None,
+            Hunger
+        }
     }
 }

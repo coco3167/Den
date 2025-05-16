@@ -1,18 +1,21 @@
 using System;
+using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
 namespace SmartObjects_AI
 {
+    [Serializable, CreateAssetMenu(menuName = "SmartObject/New SmartObjectData", fileName = "New SmartObjectData")]
     public class SmartObjectData : ScriptableObject
     {
-        [field : SerializeField] public SerializedDictionary<ParameterType, float> dynamicParameters { get; private set; }
-        [field : SerializeField] public Animator animator { get; private set; }
-        [field : SerializeReference] public Func<float> scoreCalculationScore { get; private set; }
+        [field : SerializeField] public SerializedDictionary<SmartObjectParameter, float> dynamicParametersEffect { get; private set; }
+        [field : SerializeReference] public BaseScoreCalcul scoreCalculation { get; private set; }
 
-        private float TestScore()
-        {
-            return dynamicParameters[ParameterType.None] + WorldParameters.Parameters[WorldParameterType.None];
-        }
+        [field : SerializeField] public RuntimeAnimatorController animatorController { get; private set; }
+        [field : SerializeField] public SerializedDictionary<AgentDynamicParameter, float> parameterEffectOnAgent { get; private set; }
+    }
+    public enum SmartObjectParameter
+    {
+        None,
     }
 }

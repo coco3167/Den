@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Audio;
 using Sinj;
 using Sirenix.OdinInspector;
+using SmartObjects_AI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private MouseManager mouseManager;
 
     [SerializeField] private UnityEvent<Emotions, int> pallierReached;
+
+    [SerializeField] public WorldParameters worldParameters;
 
     // Palier
     private readonly Dictionary<Emotions, WwiseMoodState> m_palierMoodState = new()
@@ -49,9 +52,11 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+        worldParameters = new(mouseManager);
+        
         pallierReached.AddListener(OnPallierReached);
-        Instance = this;
-        pallierReached.AddListener(OnPallierReached);
+        
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
         m_pausedEventArgs = new GamePausedEventArgs();
     }
@@ -103,6 +108,11 @@ public class GameManager : MonoBehaviour
     public Camera GetCamera()
     {
         return mainCamera;
+    }
+
+    public MouseManager GetMouseManager()
+    {
+        return mouseManager;
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
