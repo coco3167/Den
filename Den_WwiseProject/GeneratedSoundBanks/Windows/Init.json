@@ -421,6 +421,29 @@
       ]
      },
      {
+      "Id": "2461695847",
+      "Name": "DEN_SW_Footsteps",
+      "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_Footsteps",
+      "GUID": "{51FFDA2B-0A35-4B09-8314-1BB1096626BC}",
+      "Color": "2",
+      "Switches": [
+       {
+        "Id": "57715291",
+        "Name": "DEN_SW_FS_Running",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_Footsteps\\DEN_SW_FS_Running",
+        "GUID": "{16812A59-0E29-479C-B766-92E10BA27360}",
+        "Color": "2"
+       },
+       {
+        "Id": "3564956079",
+        "Name": "DEN_SW_FS_Walking",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_Footsteps\\DEN_SW_FS_Walking",
+        "GUID": "{03D9483C-E2FC-45DA-BE7F-13D6F4A7F087}",
+        "Color": "2"
+       }
+      ]
+     },
+     {
       "Id": "3152036582",
       "Name": "DEN_SW_CuriositySteps",
       "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_CuriositySteps",
@@ -543,6 +566,6 @@
     ]
    }
   ],
-  "FileHash": "{6D86664C-95E7-37C1-D649-0935D174FCFE}"
+  "FileHash": "{38FFE4BC-3685-7606-BA3F-6CA159E4CC9A}"
  }
 }

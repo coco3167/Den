@@ -143,6 +143,17 @@ namespace AK
             } // namespace SWITCH
         } // namespace DEN_SW_FEARSTEPS
 
+        namespace DEN_SW_FOOTSTEPS
+        {
+            static const AkUniqueID GROUP = 2461695847U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DEN_SW_FS_RUNNING = 57715291U;
+                static const AkUniqueID DEN_SW_FS_WALKING = 3564956079U;
+            } // namespace SWITCH
+        } // namespace DEN_SW_FOOTSTEPS
+
         namespace DEN_SW_NEUTRALSTEPS
         {
             static const AkUniqueID GROUP = 3572877288U;
