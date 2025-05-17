@@ -1461,7 +1461,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Momo_ReacAgro_1" ID="{C5789492-1EAB-4282-8833-BB35C2346E8F}" ShortID="122959411">
+										<Sound Name="DEN_Momo_New_Agro_1" ID="{7BE89919-C703-40F7-951B-96B5386B6076}" ShortID="540145133">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1471,19 +1471,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Momo_ReacAgro_1" ID="{8B9D72AF-CFB2-41F1-9BBC-8DEC0C9F97B9}">
+												<AudioFileSource Name="DEN_Momo_New_Agro_1" ID="{3506B2CC-D592-4E27-9EC9-F5C74C3D3253}">
 													<Language>SFX</Language>
-													<AudioFile>Momo_ReacAgro_1.wav</AudioFile>
+													<AudioFile>DEN_Momo_New_Agro_1.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="249321651"/>
+														<MediaID ID="834929320"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Momo_ReacAgro_1" ID="{8B9D72AF-CFB2-41F1-9BBC-8DEC0C9F97B9}" Platform="Linked"/>
+												<ActiveSource Name="DEN_Momo_New_Agro_1" ID="{3506B2CC-D592-4E27-9EC9-F5C74C3D3253}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="Momo_ReacAgro_2" ID="{19362FC0-4DF4-4FA0-B29B-5EEF0BCA1A1D}" ShortID="443803390">
+										<Sound Name="DEN_Momo_New_Agro_2" ID="{4EE33981-8D12-43CB-8287-6A2172C3AD09}" ShortID="908487957">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1493,19 +1493,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Momo_ReacAgro_2" ID="{00C9F0DB-5A6B-4FE0-BADA-FDB09A4FCE06}">
+												<AudioFileSource Name="DEN_Momo_New_Agro_2" ID="{1BEE6DEF-573D-4CAB-ABC5-3DBC704DCBBC}">
 													<Language>SFX</Language>
-													<AudioFile>Momo_ReacAgro_2.wav</AudioFile>
+													<AudioFile>DEN_Momo_New_Agro_2.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="796228657"/>
+														<MediaID ID="612684003"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Momo_ReacAgro_2" ID="{00C9F0DB-5A6B-4FE0-BADA-FDB09A4FCE06}" Platform="Linked"/>
+												<ActiveSource Name="DEN_Momo_New_Agro_2" ID="{1BEE6DEF-573D-4CAB-ABC5-3DBC704DCBBC}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="Momo_ReacAgro_3" ID="{E05CBC7A-37CA-4617-B3B3-FCB2B4970D71}" ShortID="104134344">
+										<Sound Name="DEN_Momo_New_Agro_3" ID="{7BE2F3F2-E64A-469E-9328-0C54D781C319}" ShortID="497569680">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -1515,16 +1515,16 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Momo_ReacAgro_3" ID="{6EF2D258-5136-4A28-8601-AA90D4AF4B47}">
+												<AudioFileSource Name="DEN_Momo_New_Agro_3" ID="{C9BBD628-E6F0-4AFF-A6C9-A636D0E08844}">
 													<Language>SFX</Language>
-													<AudioFile>Momo_ReacAgro_3.wav</AudioFile>
+													<AudioFile>DEN_Momo_New_Agro_3.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="451815592"/>
+														<MediaID ID="267401817"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Momo_ReacAgro_3" ID="{6EF2D258-5136-4A28-8601-AA90D4AF4B47}" Platform="Linked"/>
+												<ActiveSource Name="DEN_Momo_New_Agro_3" ID="{C9BBD628-E6F0-4AFF-A6C9-A636D0E08844}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -1762,6 +1762,126 @@
 								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
+						<RandomSequenceContainer Name="DEN_Crea_ScreamBarks" ID="{786A3461-4A26-47B5-9DD9-0DC2329497C9}" ShortID="1007490716">
+							<PropertyList>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Momo_ReacAgro_2" ID="{19362FC0-4DF4-4FA0-B29B-5EEF0BCA1A1D}" ShortID="443803390">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="MomoAttenuation" ID="{456558F9-8359-46CD-97CB-AB6C6EE86E99}" WorkUnitID="{4D8EE58E-8CFA-4860-A69D-33BF5CF8C67A}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="MomoConverstionSettings" ID="{2DB4720B-FF05-4826-8D23-747221FFD0DA}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Momo_ReacAgro_2" ID="{00C9F0DB-5A6B-4FE0-BADA-FDB09A4FCE06}">
+											<Language>SFX</Language>
+											<AudioFile>Momo_ReacAgro_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="796228657"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{B1FEAF02-1A7A-4C6D-9FAA-0F22AA60C3C3}"/>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Momo_ReacAgro_2" ID="{00C9F0DB-5A6B-4FE0-BADA-FDB09A4FCE06}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Momo_ReacAgro_3" ID="{E05CBC7A-37CA-4617-B3B3-FCB2B4970D71}" ShortID="104134344">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="MomoAttenuation" ID="{456558F9-8359-46CD-97CB-AB6C6EE86E99}" WorkUnitID="{4D8EE58E-8CFA-4860-A69D-33BF5CF8C67A}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="MomoConverstionSettings" ID="{2DB4720B-FF05-4826-8D23-747221FFD0DA}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Momo_ReacAgro_3" ID="{6EF2D258-5136-4A28-8601-AA90D4AF4B47}">
+											<Language>SFX</Language>
+											<AudioFile>Momo_ReacAgro_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="451815592"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{B52EDE86-5026-444B-958D-35E5FE775261}"/>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Momo_ReacAgro_3" ID="{6EF2D258-5136-4A28-8601-AA90D4AF4B47}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Momo_ReacAgro_1" ID="{C5789492-1EAB-4282-8833-BB35C2346E8F}" ShortID="122959411">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="MomoAttenuation" ID="{456558F9-8359-46CD-97CB-AB6C6EE86E99}" WorkUnitID="{4D8EE58E-8CFA-4860-A69D-33BF5CF8C67A}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="MomoConverstionSettings" ID="{2DB4720B-FF05-4826-8D23-747221FFD0DA}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Momo_ReacAgro_1" ID="{8B9D72AF-CFB2-41F1-9BBC-8DEC0C9F97B9}">
+											<Language>SFX</Language>
+											<AudioFile>Momo_ReacAgro_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="249321651"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{1C075F34-4820-42A0-83EC-B6BE89355206}"/>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="Momo_ReacAgro_1" ID="{8B9D72AF-CFB2-41F1-9BBC-8DEC0C9F97B9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 					<PositioningInfo>
 						<Panner Name="" ID="{8D6B07CC-C490-4D28-82B5-858D153F44B9}"/>

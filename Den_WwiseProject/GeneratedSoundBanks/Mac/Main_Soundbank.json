@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{84F9E37F-3F71-D21B-8B34-F93D0D2F31B5}",
+    "Hash": "{97276DD8-8366-E48D-4C69-097CFC5C9D15}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -221,6 +221,14 @@
       "CachePath": "46/{4659F7BC-2C55-4F71-5C24-252D6DD6E2EA}.wem"
      },
      {
+      "Id": "267401817",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_Momo_New_Agro_3.wav",
+      "CachePath": "5A/{5AD0C7B7-E94F-7D00-8BDE-05158FABB610}.wem"
+     },
+     {
       "Id": "269184436",
       "Language": "SFX",
       "Streaming": "false",
@@ -426,6 +434,14 @@
       "CachePath": "FD/{FDF66D86-8B36-F904-619A-933A7694CA53}.wem"
      },
      {
+      "Id": "612684003",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_Momo_New_Agro_2.wav",
+      "CachePath": "43/{435663F9-2F59-AF84-43A6-0732D8E1819A}.wem"
+     },
+     {
       "Id": "616686422",
       "Language": "SFX",
       "Streaming": "false",
@@ -538,6 +554,14 @@
       "ShortName": "DEN_AMB_Anger_03.wav",
       "Path": "Media/825924168.wem",
       "CachePath": "64/{64090EFE-3E44-FB67-6A63-C05B8653EBF4}.wem"
+     },
+     {
+      "Id": "834929320",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_Momo_New_Agro_1.wav",
+      "CachePath": "E4/{E4028F8A-4BDB-D8EE-DC8B-4F21B31613D5}.wem"
      },
      {
       "Id": "838622351",
@@ -1266,17 +1290,17 @@
       "Color": "10",
       "MaxAttenuation": "25",
       "DurationType": "OneShot",
-      "DurationMin": "1.5786667",
-      "DurationMax": "1.6041771",
+      "DurationMin": "0.45834374",
+      "DurationMax": "0.45834374",
       "MediaRefs": [
        {
-        "Id": "249321651"
+        "Id": "267401817"
        },
        {
-        "Id": "451815592"
+        "Id": "612684003"
        },
        {
-        "Id": "796228657"
+        "Id": "834929320"
        }
       ]
      },
@@ -1328,6 +1352,28 @@
        },
        {
         "Id": "918325066"
+       }
+      ]
+     },
+     {
+      "Id": "4165947622",
+      "Name": "Play_DEN_Crea_ScreamBarks",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_CreaBarks\\Play_DEN_Crea_ScreamBarks",
+      "GUID": "{83CE4AB3-5132-4D7F-A025-D568D793F870}",
+      "Color": "10",
+      "MaxAttenuation": "25",
+      "DurationType": "OneShot",
+      "DurationMin": "1.5786667",
+      "DurationMax": "1.6041771",
+      "MediaRefs": [
+       {
+        "Id": "249321651"
+       },
+       {
+        "Id": "451815592"
+       },
+       {
+        "Id": "796228657"
        }
       ]
      },
@@ -3770,6 +3816,6 @@
     ]
    }
   ],
-  "FileHash": "{81A1273E-21B6-B44C-FDF6-EA6FA5E07ADE}"
+  "FileHash": "{447FC1A1-39D7-F8B5-98E9-A2CF1784673A}"
  }
 }

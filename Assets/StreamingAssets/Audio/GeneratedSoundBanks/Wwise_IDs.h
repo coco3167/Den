@@ -24,6 +24,7 @@ namespace AK
         static const AkUniqueID PLAY_DEN_CREA_RB_ANGER = 3903286686U;
         static const AkUniqueID PLAY_DEN_CREA_RB_CURIOUS = 1141265601U;
         static const AkUniqueID PLAY_DEN_CREA_RB_FEAR = 231948563U;
+        static const AkUniqueID PLAY_DEN_CREA_SCREAMBARKS = 4165947622U;
         static const AkUniqueID PLAY_DEN_CURSOR = 2777527908U;
         static const AkUniqueID PLAY_DEN_MUSIC_START = 486039834U;
         static const AkUniqueID PLAY_DEN_MUSIC_TEST = 1174350178U;
