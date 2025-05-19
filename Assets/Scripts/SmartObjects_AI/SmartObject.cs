@@ -8,14 +8,13 @@ namespace SmartObjects_AI
 {
     public class SmartObject : MonoBehaviour
     {
-        [field: SerializeField, ChildGameObjectsOnly]
-        public Transform usingPoint { get; private set; }
-
-        [SerializeField] private SmartObjectData data;
+        [field: SerializeField, ChildGameObjectsOnly] public Transform usingPoint { get; private set; }
+        [SerializeField] private SmartObjectData data; 
 
         public Dictionary<SmartObjectParameter, float> dynamicParameters { get; private set; } = new();
 
-
+        private bool m_startedUse;
+        
         private void Awake()
         {
             if (!usingPoint)
@@ -38,8 +37,20 @@ namespace SmartObjects_AI
             animationAgent.SwitchAnimator(data.animatorController);
         }
 
+        public void FinishUse()
+        {
+            m_startedUse = false;
+        }
+
         public void Use(SmartAgent agent)
         {
+            if (!m_startedUse)
+            {
+                StartUse(agent.animationAgent);
+                m_startedUse = true;
+                return;
+            }
+            
             foreach (KeyValuePair<AgentDynamicParameter, float> parameterEffect in data.parameterEffectOnAgent)
             {
                 agent.UpdateParameterValue(parameterEffect.Key, parameterEffect.Value);

@@ -22,14 +22,14 @@ namespace SmartObjects_AI.Agent
         private SmartObject m_previousSmartObject;
         
         private MovementAgent m_movementAgent;
-        private AnimationAgent m_animationAgent;
+        public AnimationAgent animationAgent { get; private set; }
         
         private void Awake()
         {
             m_smartObjects = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             
             m_movementAgent = GetComponent<MovementAgent>();
-            m_animationAgent = GetComponent<AnimationAgent>();
+            animationAgent = GetComponent<AnimationAgent>();
 
             //Dynamic values to default state
             for (int loop = 0; loop < Enum.GetNames(typeof(AgentDynamicParameter)).Length; loop++)
@@ -43,20 +43,22 @@ namespace SmartObjects_AI.Agent
         private IEnumerator AIUpdate()
         {
             yield return new WaitForEndOfFrame();
+            m_previousSmartObject = SearchForSmartObject();
             while (true)
             {
                 SmartObject objToUse = SearchForSmartObject();
 
                 m_movementAgent.SetDestination(objToUse.usingPoint);
+                
+                if (m_previousSmartObject != objToUse)
+                {
+                    m_previousSmartObject.FinishUse();
+                    m_previousSmartObject = objToUse;
+                    animationAgent.FinishUseAnimation();
+                }
 
                 if (m_movementAgent.IsCloseToDestination())
                 {
-                    if (m_previousSmartObject != objToUse)
-                    {
-                        m_previousSmartObject = objToUse;
-                        objToUse.StartUse(m_animationAgent);
-                    }
-
                     objToUse.Use(this);
                 }
                 
@@ -78,7 +80,6 @@ namespace SmartObjects_AI.Agent
         public void UpdateParameterValue(AgentDynamicParameter parameter, float value)
         {
             dynamicParameters[parameter] += value;
-            Debug.Log(value);
         }
     }
 }
