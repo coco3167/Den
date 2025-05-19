@@ -2568,7 +2568,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_StingerAnger_01" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}" ShortID="458537793">
+										<Sound Name="DEN_StingerAnger_03" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}" ShortID="458537793">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -2621,7 +2621,7 @@
 												<ActiveSource Name="DEN_StingerAnger_02" ID="{4DC6EEB0-41BA-478E-AE73-24592F864809}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_StingerAnger_03" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}" ShortID="762027477">
+										<Sound Name="DEN_StingerAnger_01" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}" ShortID="762027477">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -2652,10 +2652,10 @@
 									<GroupingInfo>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
-												<ItemRef Name="DEN_StingerAnger_01" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}"/>
+												<ItemRef Name="DEN_StingerAnger_03" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
-												<ItemRef Name="DEN_StingerAnger_03" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}"/>
+												<ItemRef Name="DEN_StingerAnger_01" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
 												<ItemRef Name="DEN_StingerAnger_02" ID="{9A5B90D7-0360-4EC4-9A59-BE5805136EA4}"/>
@@ -2671,13 +2671,13 @@
 											<Grouping>
 												<SwitchRef Name="DEN_SW_AS_2" ID="{774E5938-7788-4C31-9767-E461F2C0797F}"/>
 												<ItemList>
-													<ItemRef Name="DEN_StingerAnger_03" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}"/>
+													<ItemRef Name="DEN_StingerAnger_03" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}"/>
 												</ItemList>
 											</Grouping>
 											<Grouping>
 												<SwitchRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}"/>
 												<ItemList>
-													<ItemRef Name="DEN_StingerAnger_01" ID="{1CF26812-A522-4009-A89C-C5847AA96E3B}"/>
+													<ItemRef Name="DEN_StingerAnger_01" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}"/>
 												</ItemList>
 											</Grouping>
 										</GroupingList>
@@ -2699,7 +2699,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}" ShortID="381200462">
+										<Sound Name="DEN_StingerFear_03" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}" ShortID="381200462">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -2713,7 +2713,6 @@
 													<PropertyList>
 														<Property Name="FadeOutDuration" Type="Real64" Value="0.344999241828918"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="4.46729756724529"/>
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>DEN_StingerFear_01.wav</AudioFile>
@@ -2740,7 +2739,6 @@
 													<PropertyList>
 														<Property Name="FadeOutDuration" Type="Real64" Value="0.442306720293485"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="4.45845143283942"/>
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>DEN_StingerFear_02.wav</AudioFile>
@@ -2753,7 +2751,7 @@
 												<ActiveSource Name="DEN_StingerFear_02" ID="{AEFB6EF6-D378-4604-A085-153C153345EA}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}" ShortID="873690321">
+										<Sound Name="DEN_StingerFear_01" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}" ShortID="873690321">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -2767,7 +2765,6 @@
 													<PropertyList>
 														<Property Name="FadeOutDuration" Type="Real64" Value="0.318461531859177"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="4.47615384872143"/>
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>DEN_StingerFear_03.wav</AudioFile>
@@ -2784,10 +2781,10 @@
 									<GroupingInfo>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
-												<ItemRef Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
+												<ItemRef Name="DEN_StingerFear_03" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
-												<ItemRef Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
+												<ItemRef Name="DEN_StingerFear_01" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
 												<ItemRef Name="DEN_StingerFear_02" ID="{7F5232FC-5B4F-4461-B237-EE6177A9F361}"/>
@@ -2803,13 +2800,13 @@
 											<Grouping>
 												<SwitchRef Name="DEN_SW_FS_0" ID="{F4E026D3-7E71-460E-836C-75047A2F9C7E}"/>
 												<ItemList>
-													<ItemRef Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
+													<ItemRef Name="DEN_StingerFear_01" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
 												</ItemList>
 											</Grouping>
 											<Grouping>
 												<SwitchRef Name="DEN_SW_FS_2" ID="{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}"/>
 												<ItemList>
-													<ItemRef Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
+													<ItemRef Name="DEN_StingerFear_03" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
 												</ItemList>
 											</Grouping>
 										</GroupingList>
@@ -2831,7 +2828,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_StingerCurious_01" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}" ShortID="657992209">
+										<Sound Name="DEN_StingerCurious_03" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}" ShortID="657992209">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -2845,7 +2842,6 @@
 													<PropertyList>
 														<Property Name="FadeOutDuration" Type="Real64" Value="0.205960523623687"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="2.01518230890005"/>
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>DEN_StingerCurious_01.wav</AudioFile>
@@ -2885,7 +2881,7 @@
 												<ActiveSource Name="DEN_StingerCurious_02" ID="{5754F416-B46B-4FC8-8B69-4F7300F91408}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_StingerCurious_03" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}" ShortID="937408931">
+										<Sound Name="DEN_StingerCurious_01" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}" ShortID="937408931">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -2915,20 +2911,20 @@
 									<GroupingInfo>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
-												<ItemRef Name="DEN_StingerCurious_03" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}"/>
+												<ItemRef Name="DEN_StingerCurious_01" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
 												<ItemRef Name="DEN_StingerCurious_02" ID="{9AF52CD6-317E-4663-9839-78C2070F3CCA}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
-												<ItemRef Name="DEN_StingerCurious_01" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}"/>
+												<ItemRef Name="DEN_StingerCurious_03" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}"/>
 											</GroupingBehavior>
 										</GroupingBehaviorList>
 										<GroupingList>
 											<Grouping>
 												<SwitchRef Name="DEN_SW_CS_0" ID="{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}"/>
 												<ItemList>
-													<ItemRef Name="DEN_StingerCurious_01" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}"/>
+													<ItemRef Name="DEN_StingerCurious_01" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}"/>
 												</ItemList>
 											</Grouping>
 											<Grouping>
@@ -2940,7 +2936,7 @@
 											<Grouping>
 												<SwitchRef Name="DEN_SW_CS_2" ID="{F0ABD7C3-2FCF-419B-9D74-318F42B8F8C1}"/>
 												<ItemList>
-													<ItemRef Name="DEN_StingerCurious_03" ID="{347CA758-A8A9-421B-B4DC-C49EF53AC213}"/>
+													<ItemRef Name="DEN_StingerCurious_03" ID="{AA615AFD-A10C-4158-8155-3A7780108F2F}"/>
 												</ItemList>
 											</Grouping>
 										</GroupingList>
