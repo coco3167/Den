@@ -31,7 +31,25 @@ namespace Sinj
 
         private void Awake()
         {
-            Reload();
+            for (int loop = 0; loop < sinjCount; loop++)
+            {
+                mouseAgents.Add(Instantiate(smartAgent, transform).GetComponent<MouseAgent>());
+                mouseAgents[loop].Init(mouseManager);
+                
+                //Being instanced in runtime they arent picked by GameManager at Awake
+                GameManager.Instance.GameReady += mouseAgents[loop].GetComponent<IGameStateListener>().OnGameReady;
+            }
+            
+            emotionsJaugeValues.Add(AgentDynamicParameter.Tension, 0.0f);
+            emotionsJaugeValues.Add(AgentDynamicParameter.Curiosity, 0.0f);
+            emotionsJaugeValues.Add(AgentDynamicParameter.Aggression, 0.0f);
+            emotionsJaugeValues.Add(AgentDynamicParameter.Fear, 0.0f);
+
+            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Tension.ToString(), "0"));
+            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Curiosity.ToString(), "0"));
+            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Aggression.ToString(), "0"));
+            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Fear.ToString(), "0"));
+            
             GameManager.Instance.OnGameReady();
         }
 
@@ -50,28 +68,10 @@ namespace Sinj
 
         public void Reload()
         {
-            foreach (MouseAgent agent in mouseAgents)
-            {
-                Destroy(agent.gameObject);
-            }
-            
-            mouseAgents.Clear();
-            for (int loop = 0; loop < sinjCount; loop++)
-            {
-                mouseAgents.Add(Instantiate(smartAgent, transform).GetComponent<MouseAgent>());
-                mouseAgents[loop].Init(mouseManager);
-            }
-            
-            emotionsJaugeValues.Clear();
-            emotionsJaugeValues.Add(AgentDynamicParameter.Tension, 0.0f);
-            emotionsJaugeValues.Add(AgentDynamicParameter.Curiosity, 0.0f);
-            emotionsJaugeValues.Add(AgentDynamicParameter.Aggression, 0.0f);
-            emotionsJaugeValues.Add(AgentDynamicParameter.Fear, 0.0f);
-
-            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Tension.ToString(), "0"));
-            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Curiosity.ToString(), "0"));
-            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Aggression.ToString(), "0"));
-            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Fear.ToString(), "0"));
+            emotionsJaugeValues[AgentDynamicParameter.Tension] = 0;
+            emotionsJaugeValues[AgentDynamicParameter.Curiosity] = 0;
+            emotionsJaugeValues[AgentDynamicParameter.Aggression] = 0;
+            emotionsJaugeValues[AgentDynamicParameter.Fear] = 0;
         }
 
         private float ClampEmotion(MouseAgent agent, AgentDynamicParameter parameter)

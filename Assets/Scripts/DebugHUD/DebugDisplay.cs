@@ -69,8 +69,6 @@ namespace DebugHUD
         }
         private void SetupParameters()
         {
-            Debug.Log(m_parameters.Count);
-            Debug.Log(m_currentDisplayAble.GetParameterCount());
             m_currentDisplayAble = m_displayAbles[m_index];
             int parameterToInstantiate = m_currentDisplayAble.GetParameterCount() - m_parameters.Count;
             int parameterToRemove = m_parameters.Count - m_currentDisplayAble.GetParameterCount();
@@ -87,7 +85,6 @@ namespace DebugHUD
                 m_parameters.Remove(parameter);
                 Destroy(parameter.gameObject);
             }
-            Debug.Log(m_parameters.Count);
         }
 
         private void DisplayParameters()
