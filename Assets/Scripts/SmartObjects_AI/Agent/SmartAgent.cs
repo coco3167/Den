@@ -5,7 +5,6 @@ using System.Linq;
 using AYellowpaper.SerializedCollections;
 using Sirenix.OdinInspector;
 using UnityEngine;
-
 namespace SmartObjects_AI.Agent
 {
     [Serializable, RequireComponent(typeof(MovementAgent), typeof(AnimationAgent))]
@@ -30,7 +29,7 @@ namespace SmartObjects_AI.Agent
             
             m_movementAgent = GetComponent<MovementAgent>();
             animationAgent = GetComponent<AnimationAgent>();
-
+            
             //Dynamic values to default state
             for (int loop = 0; loop < Enum.GetNames(typeof(AgentDynamicParameter)).Length; loop++)
             {

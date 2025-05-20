@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3d6e4e028b3024588f130ac127ba4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sinjPrefab: {fileID: 6521624656204892207, guid: 00cf198b9b1f6564484fc17c1375cb75, type: 3}
+  smartAgent: {fileID: 2636891235096447983, guid: ac537ed5e4f58e24e9a3d6c9fc1057f8, type: 3}
   sinjCount: 1
-  sinjs: []
-  emotionsCurrentValues:
+  mouseAgents: []
+  emotionsJaugeValues:
     _serializedList: []
   emotionsMin:
     _serializedList:
@@ -59,8 +59,6 @@ MonoBehaviour:
       Value: 0
     - Key: 3
       Value: 0
-    - Key: 4
-      Value: 0
   emotionsMax:
     _serializedList:
     - Key: 0
@@ -70,8 +68,6 @@ MonoBehaviour:
     - Key: 2
       Value: 100
     - Key: 3
-      Value: 100
-    - Key: 4
       Value: 100
   emotionsDecrease:
     _serializedList:
@@ -83,8 +79,6 @@ MonoBehaviour:
       Value: 5
     - Key: 3
       Value: 5
-    - Key: 4
-      Value: 0
   emotionsTransmissionCurve:
     _serializedList:
     - Key: 1
@@ -162,5 +156,4 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
-  environmentManager: {fileID: 0}
   mouseManager: {fileID: 0}

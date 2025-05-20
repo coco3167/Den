@@ -27,6 +27,11 @@ namespace SmartObjects_AI
             }
         }
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawSphere(usingPoint.position, 1);
+        }
+
         public float CalculateScore(SmartAgent smartAgent)
         {
             return data.scoreCalculation.CalculateScore(smartAgent, this);

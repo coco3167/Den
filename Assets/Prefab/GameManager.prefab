@@ -67,6 +67,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  worldParameters:
+    parameters:
+      _serializedList: []
 --- !u!114 &806879179260966156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +200,10 @@ PrefabInstance:
       propertyPath: sinjCount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 775690876167187258, guid: 102b9e843805211418420d99704bcb15, type: 3}
+      propertyPath: smartAgent
+      value: 
+      objectReference: {fileID: 2636891235096447983, guid: ac537ed5e4f58e24e9a3d6c9fc1057f8, type: 3}
     - target: {fileID: 775690876167187258, guid: 102b9e843805211418420d99704bcb15, type: 3}
       propertyPath: gameManager
       value: 

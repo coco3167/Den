@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
@@ -12,15 +11,16 @@ namespace SmartObjects_AI.Agent
     {
         private const float UpdateTime = 0.1f;
 
-        [SerializeField] private MouseManager mouseManager;
+        private MouseManager m_mouseManager;
         [SerializeField] private List<SinjActiveBehavior> mouseReactions;
 
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> emotionsDecrease;
 
         private SmartAgent m_smartAgent;
         
-        private void Awake()
+        public void Init(MouseManager mouseManager)
         {
+            m_mouseManager = mouseManager;
             m_smartAgent = GetComponent<SmartAgent>();
             StartCoroutine(MouseReactionLoop());
         }
@@ -45,7 +45,7 @@ namespace SmartObjects_AI.Agent
                 yield return new WaitForSeconds(UpdateTime);
             }
         }
-
+        
         private void AttenuateDynamicParameter(AgentDynamicParameter parameter)
         {
             float value = GetDynamicParameterValue(parameter);
@@ -58,11 +58,11 @@ namespace SmartObjects_AI.Agent
 
         public float DistanceToMouse()
         {
-            return mouseManager.ObjectDistanceToMouse(transform.position);
+            return m_mouseManager.ObjectDistanceToMouse(transform.position);
         }
         public float MouseVelocity()
         {
-            return mouseManager.MouseVelocity();
+            return m_mouseManager.MouseVelocity();
         }
 
         public float GetDynamicParameterValue(AgentDynamicParameter parameter)
@@ -72,8 +72,13 @@ namespace SmartObjects_AI.Agent
 
         public void AddDynamicParameterValue(AgentDynamicParameter parameter, float value)
         {
-            // TODO Tension is constantly increasing
             m_smartAgent.dynamicParameters[parameter] += value;
         }
+
+        public void SetDynamicParameterValue(AgentDynamicParameter parameter, float value)
+        {
+            m_smartAgent.dynamicParameters[parameter] = value;
+        }
+
     }
 }
