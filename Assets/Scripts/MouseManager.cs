@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MouseManager : MonoBehaviour
+public class MouseManager : MonoBehaviour, IGameStateListener
 {
     [SerializeField] private Rigidbody mouseRigidBody;
     [SerializeField] private LayerMask terrainLayerMask;
@@ -12,22 +12,28 @@ public class MouseManager : MonoBehaviour
     private Vector2 m_otherMoveValue;
     private bool m_isOtherMoving;
 
-    
-    private void Awake()
-    {
-        GameManager.Instance.GameReady += delegate
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            m_camera = GameManager.Instance.GetCamera();
-            Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
-            mouseRigidBody.MovePosition(new Vector3(1,1,-3));
-        };
-    }
-
     private void FixedUpdate()
     {
         if(m_isOtherMoving)
             MoveRigidBody(m_otherMoveValue);
+    }
+
+    public void OnGameReady(object sender, EventArgs eventArgs)
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        m_camera = GameManager.Instance.GetCamera();
+        Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
+        mouseRigidBody.MovePosition(new Vector3(1,1,-3));
+    }
+
+    public void OnGameEnded(object sender, EventArgs eventArgs)
+    {
+        // Nothing there
+    }
+
+    public void OnGamePaused(object sender, EventArgs eventArgs)
+    {
+        // Nothing there
     }
 
     public void OnMouseMoved(Vector2 value)

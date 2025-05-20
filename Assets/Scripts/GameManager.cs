@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Audio;
 using Sinj;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using SmartObjects_AI;
 using SmartObjects_AI.Agent;
 using UnityEngine;
@@ -60,6 +62,19 @@ public class GameManager : MonoBehaviour
         
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
         m_pausedEventArgs = new GamePausedEventArgs();
+        
+        IGameStateListener[] gameStateListeners = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).OfType<IGameStateListener>().ToArray();
+        gameStateListeners.ForEach(x => GameReady += x.OnGameReady);
+        gameStateListeners.ForEach(x => GameEnded += x.OnGameEnded);
+
+        FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).OfType<IPausable>()
+            .ForEach(x => GamePaused += x.OnGamePaused);
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+            OnGameEnded();
     }
 
     public void OnGameReady()
@@ -70,6 +85,13 @@ public class GameManager : MonoBehaviour
     public void OnGameEnded()
     {
         GameEnded?.Invoke(null, EventArgs.Empty);
+        Time.timeScale = 0;
+        Debug.Log("play the ending animation");
+        FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).OfType<IReloadable>()
+            .ForEach(x => x.Reload());
+        Debug.Log("go back to the game with animation");
+        Time.timeScale = 1;
+        OnGameReady();
     }
 
     public void HandlePallier(AgentDynamicParameter parameter, int value)
@@ -133,4 +155,20 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+}
+
+public interface IReloadable
+{
+    public void Reload();
+}
+
+public interface IGameStateListener
+{
+    public void OnGameReady(object sender, EventArgs eventArgs);
+    public void OnGameEnded(object sender, EventArgs eventArgs);
+}
+
+public interface IPausable
+{
+    public void OnGamePaused(object sender, GameManager.GamePausedEventArgs eventArgs);
 }

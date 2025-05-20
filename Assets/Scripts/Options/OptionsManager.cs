@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace Options
 {
-    public class OptionsManager : MonoBehaviour
+    public class OptionsManager : MonoBehaviour, IPausable
     {
         [Title("General")]
         [SerializeField] private CategoryButton generalButton;
@@ -40,13 +40,11 @@ namespace Options
             
             if (GameManager.Instance == null)
                 return;
-
-            GameManager.Instance.GamePaused += OnPaused;
         }
-
-        private void OnPaused(object obj, GameManager.GamePausedEventArgs e)
+        
+        public void OnGamePaused(object sender, GameManager.GamePausedEventArgs eventArgs)
         {
-            ShowOptions(e.IsPaused);
+            ShowOptions(eventArgs.IsPaused);
         }
 
         private void ShowOptions(bool isPaused)
@@ -59,5 +57,7 @@ namespace Options
                 EventSystem.current.SetSelectedGameObject(generalButton.gameObject);
             }
         }
+
+        
     }
 }
