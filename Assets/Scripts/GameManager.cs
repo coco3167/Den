@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Audio;
 using Sinj;
 using Sirenix.OdinInspector;
+using SmartObjects_AI;
+using SmartObjects_AI.Agent;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -17,21 +19,23 @@ public class GameManager : MonoBehaviour
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
     [SerializeField] private MouseManager mouseManager;
 
-    [SerializeField] private UnityEvent<Emotions, int> pallierReached;
+    [SerializeField] private UnityEvent<AgentDynamicParameter, int> pallierReached;
+
+    [SerializeField] public WorldParameters worldParameters;
 
     // Palier
-    private readonly Dictionary<Emotions, WwiseMoodState> m_palierMoodState = new()
+    private readonly Dictionary<AgentDynamicParameter, WwiseMoodState> m_palierMoodState = new()
     {
-        { Emotions.Curiosity, WwiseMoodState.CuriosityState },
-        { Emotions.Agression, WwiseMoodState.AngerState },
-        { Emotions.Fear, WwiseMoodState.FearState },
+        { AgentDynamicParameter.Curiosity, WwiseMoodState.CuriosityState },
+        { AgentDynamicParameter.Aggression, WwiseMoodState.AngerState },
+        { AgentDynamicParameter.Fear, WwiseMoodState.FearState },
 
     };
-    private readonly Dictionary<Emotions, int> m_currentPalier = new()
+    private readonly Dictionary<AgentDynamicParameter, int> m_currentPalier = new()
     {
-        { Emotions.Curiosity , 0},
-        { Emotions.Agression, 0},
-        { Emotions.Fear , 0},
+        { AgentDynamicParameter.Curiosity , 0},
+        { AgentDynamicParameter.Aggression, 0},
+        { AgentDynamicParameter.Fear , 0},
     };
     public const int IntervalPallier = 25;
 
@@ -49,9 +53,11 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+        worldParameters = new(mouseManager);
+        
         pallierReached.AddListener(OnPallierReached);
-        Instance = this;
-        pallierReached.AddListener(OnPallierReached);
+        
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
         m_pausedEventArgs = new GamePausedEventArgs();
     }
@@ -66,11 +72,11 @@ public class GameManager : MonoBehaviour
         GameEnded?.Invoke(null, EventArgs.Empty);
     }
 
-    public void HandlePallier(Emotions emotion, int value)
+    public void HandlePallier(AgentDynamicParameter parameter, int value)
     {
-        if (m_currentPalier[emotion] + IntervalPallier < value)
+        if (m_currentPalier[parameter] + IntervalPallier < value)
         {
-            pallierReached.Invoke(emotion, m_currentPalier[emotion] + IntervalPallier);
+            pallierReached.Invoke(parameter, m_currentPalier[parameter] + IntervalPallier);
         }
     }
 
@@ -105,13 +111,18 @@ public class GameManager : MonoBehaviour
         return mainCamera;
     }
 
-    // ReSharper disable Unity.PerformanceAnalysis
-    private void OnPallierReached(Emotions emotion, int nextPallier)
+    public MouseManager GetMouseManager()
     {
-        m_currentPalier[emotion] = nextPallier;
-        WwiseStateManager.SetWwiseMoodState(m_palierMoodState[emotion]);
+        return mouseManager;
+    }
 
-        if (m_currentPalier[emotion] == 100)
+    // ReSharper disable Unity.PerformanceAnalysis
+    private void OnPallierReached(AgentDynamicParameter parameter, int nextPallier)
+    {
+        m_currentPalier[parameter] = nextPallier;
+        WwiseStateManager.SetWwiseMoodState(m_palierMoodState[parameter]);
+
+        if (m_currentPalier[parameter] >= 100)
             OnGameEnded();
     }
 

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9107b413e4d79934c95487f3cce5c98a, type: 3}
   m_Name: AddTension
   m_EditorClassIdentifier: 
-  instantenous: 1
   SinjStimuli:
   - rid: 281592817506320388
   - rid: 281592817506320389
@@ -34,4 +33,4 @@ MonoBehaviour:
     - rid: 281592817506320390
       type: {class: SinjActiveBehavior/TensionReaction, ns: Sinj, asm: Assembly-CSharp}
       data:
-        amount: 150
+        amount: 10
