@@ -18,8 +18,16 @@
 							<Position X="0" Y="2"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Set_DEN_TOD_Morning" ID="{2D986335-042E-4D49-93EE-374B4AA7CC46}" WorkUnitID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}"/>
+							<Position X="0" Y="5"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Play_DEN_Crea_RandomBarks" ID="{EB698F03-9FE8-4841-A1D2-C73292F4E919}" WorkUnitID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}"/>
 							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_DEN_TOD" ID="{A9AF1466-344D-4324-AE95-7D7CEB304135}" WorkUnitID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}"/>
+							<Position X="1" Y="1"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Set_DEN_AMB_Anger1" ID="{F325B204-5816-4930-BB93-25C7EADDC152}" WorkUnitID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}"/>
@@ -34,12 +42,12 @@
 							<Position X="1" Y="4"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Play_DEN_Crea_RB_Anger" ID="{5B8EDBFC-4A78-4C63-A552-7DF7618F3432}" WorkUnitID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}"/>
-							<Position X="2" Y="0"/>
+							<ObjectRef Name="Set_DEN_TOD_Day" ID="{AE2C5EFC-06AE-437D-9586-FE3E4B98E629}" WorkUnitID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}"/>
+							<Position X="1" Y="5"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Play_DEN_StartGame" ID="{9C1A62E2-799B-42CE-99CF-BAD6A8746FC6}" WorkUnitID="{0EC03A08-5A73-415C-AC71-1BFFEC7E2C15}"/>
-							<Position X="2" Y="1"/>
+							<ObjectRef Name="Play_DEN_Crea_RB_Anger" ID="{5B8EDBFC-4A78-4C63-A552-7DF7618F3432}" WorkUnitID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}"/>
+							<Position X="2" Y="0"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Set_DEN_AMB_Anger2" ID="{775EF318-EB6D-4B54-8EEB-DC8FC6B4228C}" WorkUnitID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}"/>
@@ -54,11 +62,15 @@
 							<Position X="2" Y="4"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Set_DEN_TOD_Evening" ID="{1644581C-05D0-4827-B8EF-C5158381C68E}" WorkUnitID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}"/>
+							<Position X="2" Y="5"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Play_DEN_Crea_RB_Curious" ID="{90CFE2C7-1A23-4CF2-963E-094D1E28AC03}" WorkUnitID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}"/>
 							<Position X="3" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Play_DEN_BushEnter" ID="{688C57BA-C181-40AD-B85F-D4D8F97EBC7B}" WorkUnitID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}"/>
+							<ObjectRef Name="Play_DEN_StartGame" ID="{9C1A62E2-799B-42CE-99CF-BAD6A8746FC6}" WorkUnitID="{0EC03A08-5A73-415C-AC71-1BFFEC7E2C15}"/>
 							<Position X="3" Y="1"/>
 						</Module>
 						<Module>
@@ -74,8 +86,16 @@
 							<Position X="3" Y="4"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Set_DEN_TOD_Night" ID="{55C7A96A-5373-400E-ABEE-A112983068E6}" WorkUnitID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}"/>
+							<Position X="3" Y="5"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Play_DEN_Crea_RB_Fear" ID="{E162367F-28B3-49ED-88D4-392F222C8B0E}" WorkUnitID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}"/>
 							<Position X="4" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_DEN_BushEnter" ID="{688C57BA-C181-40AD-B85F-D4D8F97EBC7B}" WorkUnitID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}"/>
+							<Position X="4" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
@@ -134,15 +154,17 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
-						<CurrentStateRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
+						<CurrentStateRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}"/>
+						<CurrentStateRef Name="DEN_ST_TOD_Morning" ID="{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}"/>
 						<CurrentStateRef Name="DEN_ST_Amb_Playing" ID="{591B604F-ED42-451A-9D6A-DB7A0655879F}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="DEN_SW_FS_2" ID="{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}"/>
+						<CurrentSwitchRef Name="DEN_SW_FS_0" ID="{F4E026D3-7E71-460E-836C-75047A2F9C7E}"/>
 						<CurrentSwitchRef Name="DEN_SW_RM_Anger" ID="{E32256AC-91DE-4072-AA6F-342EDD7CF565}"/>
 						<CurrentSwitchRef Name="DEN_SW_NS_3" ID="{EE307804-A00D-4AD6-9F13-99AB80F6703E}"/>
-						<CurrentSwitchRef Name="DEN_SW_CS_3" ID="{0CE9736F-F798-44B3-8D3C-F002B7124776}"/>
-						<CurrentSwitchRef Name="DEN_SW_AS_2" ID="{774E5938-7788-4C31-9767-E461F2C0797F}"/>
+						<CurrentSwitchRef Name="DEN_SW_FS_Walking" ID="{03D9483C-E2FC-45DA-BE7F-13D6F4A7F087}"/>
+						<CurrentSwitchRef Name="DEN_SW_CS_0" ID="{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}"/>
+						<CurrentSwitchRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>
