@@ -106,6 +106,7 @@ namespace SmartObjects_AI.Agent
             foreach (SmartObject smartObject in m_smartObjects)
             {
                 smartObjectScore.Add(smartObject, smartObject.CalculateScore(this));
+                smartObject.DynamicParameterVariation();
             }
             
             return smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;

@@ -66,5 +66,13 @@ namespace SmartObjects_AI
                 dynamicParameters[parameterEffect.Key] += parameterEffect.Value;
             }
         }
+
+        public void DynamicParameterVariation()
+        {
+            foreach (SmartObjectParameter parameter in data.dynamicParametersVariation.Keys)
+            {
+                dynamicParameters[parameter] += data.dynamicParametersVariation[parameter];
+            }
+        }
     }
 }
