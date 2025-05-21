@@ -32,12 +32,12 @@ public class GameLoopManager : MonoBehaviour
         
     }
 
-    public void OnGameReady()
+    public void OnGameLoopReady()
     {
         GameReady?.Invoke(null, EventArgs.Empty);
     }
 
-    public void OnGameEnded()
+    public void OnGameLoopEnded()
     {
         GameEnded?.Invoke(null, EventArgs.Empty);
         m_animator.SetTrigger(EndGame);
@@ -49,6 +49,6 @@ public class GameLoopManager : MonoBehaviour
         Debug.Log("go back to the game with animation");
         
         Time.timeScale = 1;
-        OnGameReady();
+        OnGameLoopReady();
     }
 }

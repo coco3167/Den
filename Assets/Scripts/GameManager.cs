@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
     {
         if(!callbackContext.started)
             return;
-        GameLoopManager.Instance.OnGameEnded();
+        GameLoopManager.Instance.OnGameLoopEnded();
     }
 
     public void HandlePallier(AgentDynamicParameter parameter, int value)
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
         WwiseStateManager.SetWwiseMoodState(m_palierMoodState[parameter]);
 
         if (m_currentPalier[parameter] >= 100)
-            GameLoopManager.Instance.OnGameEnded();
+            GameLoopManager.Instance.OnGameLoopEnded();
     }
 
     // #region EventArgs
