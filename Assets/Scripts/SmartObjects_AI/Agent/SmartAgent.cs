@@ -65,23 +65,38 @@ namespace SmartObjects_AI.Agent
             m_previousSmartObject = SearchForSmartObject();
             while (true)
             {
-                SmartObject objToUse = SearchForSmartObject();
-
-                m_movementAgent.SetDestination(objToUse.usingPoint);
+                DynamicParameterVariation();
                 
-                if (m_previousSmartObject != objToUse)
-                {
-                    m_previousSmartObject.FinishUse();
-                    m_previousSmartObject = objToUse;
-                    animationAgent.FinishUseAnimation();
-                }
-
-                if (m_movementAgent.IsCloseToDestination())
-                {
-                    objToUse.Use(this);
-                }
+                TryToUseSmartObject();
                 
                 yield return new WaitForSeconds(AIUpdateSleepTime);
+            }
+        }
+
+        private void DynamicParameterVariation()
+        {
+            foreach (AgentDynamicParameter parameter in data.dynamicParametersVariation.Keys)
+            {
+                dynamicParameters[parameter] += data.dynamicParametersVariation[parameter];
+            }
+        }
+
+        private void TryToUseSmartObject()
+        {
+            SmartObject objToUse = SearchForSmartObject();
+
+            m_movementAgent.SetDestination(objToUse.usingPoint);
+                
+            if (m_previousSmartObject != objToUse)
+            {
+                m_previousSmartObject.FinishUse();
+                m_previousSmartObject = objToUse;
+                animationAgent.FinishUseAnimation();
+            }
+
+            if (m_movementAgent.IsCloseToDestination())
+            {
+                objToUse.Use(this);
             }
         }
 

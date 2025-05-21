@@ -8,6 +8,7 @@ namespace SmartObjects_AI.Agent
     public class SmartAgentData : ScriptableObject
     {
         [field : SerializeField] public SerializedDictionary<AgentStaticParameter, float> staticParameters { get; private set; }
+        [field : SerializeField] public SerializedDictionary<AgentDynamicParameter, float> dynamicParametersVariation { get; private set; }
     }
     
     public enum AgentStaticParameter
