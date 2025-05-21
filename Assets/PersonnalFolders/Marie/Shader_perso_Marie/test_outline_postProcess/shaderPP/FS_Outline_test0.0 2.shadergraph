@@ -14,6 +14,9 @@
         },
         {
             "m_Id": "1985cbf70bad4734957ca7ffb25f1164"
+        },
+        {
+            "m_Id": "f64b4a51b7514ec7808e832ae222b931"
         }
     ],
     "m_Keywords": [
@@ -762,7 +765,7 @@
                 "m_Node": {
                     "m_Id": "b88ee65cb87249629fb49879a3172879"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 2
             }
         },
         {
@@ -1070,7 +1073,7 @@
                 "m_Node": {
                     "m_Id": "b88ee65cb87249629fb49879a3172879"
                 },
-                "m_SlotId": 2
+                "m_SlotId": 1
             }
         },
         {
@@ -1265,8 +1268,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 2679.0,
-            "y": 420.9999694824219
+            "x": 2781.0,
+            "y": 406.0
         },
         "m_Blocks": [
             {
@@ -5444,6 +5447,9 @@
         },
         {
             "m_Id": "1985cbf70bad4734957ca7ffb25f1164"
+        },
+        {
+            "m_Id": "f64b4a51b7514ec7808e832ae222b931"
         }
     ]
 }
@@ -5947,10 +5953,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 2258.0,
-            "y": 218.99998474121095,
-            "width": 208.0,
-            "height": 302.0
+            "x": 2260.000244140625,
+            "y": 220.00003051757813,
+            "width": 207.999755859375,
+            "height": 302.0000305175781
         }
     },
     "m_Slots": [
@@ -5968,7 +5974,7 @@
     "m_Precision": 0,
     "m_PreviewExpanded": true,
     "m_DismissedVersion": 0,
-    "m_PreviewMode": 0,
+    "m_PreviewMode": 2,
     "m_CustomColors": {
         "m_SerializableColors": []
     },
@@ -7499,6 +7505,36 @@
         "z": 0.0,
         "w": 0.0
     }
+}
+
+{
+    "m_SGVersion": 3,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
+    "m_ObjectId": "f64b4a51b7514ec7808e832ae222b931",
+    "m_Guid": {
+        "m_GuidSerialized": "392d559f-3421-4d9b-b9b6-782a55daae48"
+    },
+    "m_Name": "Color",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Color",
+    "m_DefaultReferenceName": "_Color",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "r": 1.0,
+        "g": 0.07075470685958862,
+        "b": 0.07075470685958862,
+        "a": 0.0
+    },
+    "isMainColor": false,
+    "m_ColorMode": 0
 }
 
 {
