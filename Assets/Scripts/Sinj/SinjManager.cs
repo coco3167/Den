@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using DebugHUD;
@@ -8,7 +7,7 @@ using UnityEngine;
 
 namespace Sinj
 {
-    public class SinjManager : MonoBehaviour, IDebugDisplayAble
+    public class SinjManager : MonoBehaviour, IDebugDisplayAble, IReloadable
     {
         [Title("Sinjs")]
         [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject smartAgent;
@@ -29,17 +28,18 @@ namespace Sinj
         private List<DebugParameter> m_debugParameters = new();
         private float m_intensity;
 
-        
+
         private void Awake()
         {
-            mouseAgents.Clear();
             for (int loop = 0; loop < sinjCount; loop++)
             {
                 mouseAgents.Add(Instantiate(smartAgent, transform).GetComponent<MouseAgent>());
                 mouseAgents[loop].Init(mouseManager);
+                
+                //Being instanced in runtime they arent picked by GameManager at Awake
+                GameLoopManager.Instance.GameReady += mouseAgents[loop].GetComponent<IGameStateListener>().OnGameReady;
             }
             
-            emotionsJaugeValues.Clear();
             emotionsJaugeValues.Add(AgentDynamicParameter.Tension, 0.0f);
             emotionsJaugeValues.Add(AgentDynamicParameter.Curiosity, 0.0f);
             emotionsJaugeValues.Add(AgentDynamicParameter.Aggression, 0.0f);
@@ -49,12 +49,15 @@ namespace Sinj
             m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Curiosity.ToString(), "0"));
             m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Aggression.ToString(), "0"));
             m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Fear.ToString(), "0"));
-
-            GameManager.Instance.OnGameReady();
+            
+            //GameManager.Instance.OnGameReady();
         }
 
         private void FixedUpdate()
         {
+            if(GameManager.Instance.IsPaused)
+                return;
+            
             foreach (MouseAgent agent in mouseAgents)
             {
                 agent.SetDynamicParameterValue(AgentDynamicParameter.Tension, ClampEmotion(agent, AgentDynamicParameter.Tension));
@@ -64,6 +67,14 @@ namespace Sinj
             }
             //ClampIntensity();
             UpdateDebugValues();
+        }
+
+        public void Reload()
+        {
+            emotionsJaugeValues[AgentDynamicParameter.Tension] = 0;
+            emotionsJaugeValues[AgentDynamicParameter.Curiosity] = 0;
+            emotionsJaugeValues[AgentDynamicParameter.Aggression] = 0;
+            emotionsJaugeValues[AgentDynamicParameter.Fear] = 0;
         }
 
         private float ClampEmotion(MouseAgent agent, AgentDynamicParameter parameter)

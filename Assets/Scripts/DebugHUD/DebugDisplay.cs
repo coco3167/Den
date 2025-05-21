@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace DebugHUD
 {
-    public class DebugDisplay : MonoBehaviour
+    public class DebugDisplay : MonoBehaviour, IReloadable, IGameStateListener
     {
         [SerializeField] private GameObject parameterPrefab;
         [SerializeField] private Transform content;
@@ -18,24 +18,34 @@ namespace DebugHUD
         private List<IDebugDisplayAble> m_displayAbles = new();
         private IDebugDisplayAble m_currentDisplayAble;
 
-        private void Awake()
-        {
-            GameManager.Instance.GameReady += Init;
-        }
-
         private void Update()
         {
             if(m_currentDisplayAble == null)
                 return;
             DisplayParameters();
         }
+
+        public void Reload()
+        {
+            // Nothing There
+        }
         
-        private void Init(object sender, EventArgs eventArgs)
+        public void OnGameReady(object sender, EventArgs eventArgs)
         {
             SetupDisplayAbles();
             if(m_displayAbles.Count == 0)
                 return;
             SetupParameters();
+        }
+
+        public void OnGameEnded(object sender, EventArgs eventArgs)
+        {
+            // Nothing there
+        }
+
+        public void OnGamePaused(object sender, EventArgs eventArgs)
+        {
+            // Nothing there
         }
 
         private void SetupDisplayAbles()
@@ -55,6 +65,7 @@ namespace DebugHUD
             
             foreach (MonoBehaviour sinjManager in displayAbles)
                 m_displayAbles.Add(sinjManager.GetComponent<IDebugDisplayAble>());
+            
         }
         private void SetupParameters()
         {

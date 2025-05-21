@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6836968198750542637}
+  - component: {fileID: 953312326907930557}
   - component: {fileID: 4387186766017722496}
+  - component: {fileID: 5061241618360608737}
   - component: {fileID: 806879179260966156}
   m_Layer: 0
   m_Name: GameManager
@@ -36,6 +38,28 @@ Transform:
   - {fileID: 3676091503655762349}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &953312326907930557
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521624656204892207}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2dc6b4a9579eb045ac2ad209652c0e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4387186766017722496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +94,18 @@ MonoBehaviour:
   worldParameters:
     parameters:
       _serializedList: []
+--- !u!114 &5061241618360608737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521624656204892207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74cd125e7c2252f43aadae0c7fc342eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &806879179260966156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +219,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4387186766017722496}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnManualGameEnded
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 787c829c-4a8a-4aed-a889-012710f86189
+    m_ActionName: 'Player/Restart[/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -442,7 +494,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 53463628672602507, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
+    - {fileID: 6842288381820720830, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
+    - {fileID: 1378339855822352151, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}

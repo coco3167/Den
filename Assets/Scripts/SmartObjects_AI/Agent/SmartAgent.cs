@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 namespace SmartObjects_AI.Agent
 {
     [Serializable, RequireComponent(typeof(MovementAgent), typeof(AnimationAgent))]
-    public class SmartAgent : MonoBehaviour
+    public class SmartAgent : MonoBehaviour, IGameStateListener, IReloadable
     {
         private const float AIUpdateSleepTime = 0.1f;
         
@@ -36,7 +37,26 @@ namespace SmartObjects_AI.Agent
                 dynamicParameters.Add((AgentDynamicParameter)loop, 0);
             }
 
+        }
+        
+        public void OnGameReady(object sender, EventArgs eventArgs)
+        {
             StartCoroutine(AIUpdate());
+            Debug.Log("start coroutine");
+        }
+
+        public void OnGameEnded(object sender, EventArgs eventArgs)
+        {
+            StopCoroutine(AIUpdate());
+            Debug.Log("stop coroutine");
+        }
+
+        public void Reload()
+        {
+            transform.localPosition = Vector3.zero;
+            
+            AgentDynamicParameter[] keys = dynamicParameters.Keys.ToArray();
+            keys.ForEach(x => dynamicParameters[x] = 0);
         }
 
         private IEnumerator AIUpdate()
@@ -45,23 +65,38 @@ namespace SmartObjects_AI.Agent
             m_previousSmartObject = SearchForSmartObject();
             while (true)
             {
-                SmartObject objToUse = SearchForSmartObject();
-
-                m_movementAgent.SetDestination(objToUse.usingPoint);
+                DynamicParameterVariation();
                 
-                if (m_previousSmartObject != objToUse)
-                {
-                    m_previousSmartObject.FinishUse();
-                    m_previousSmartObject = objToUse;
-                    animationAgent.FinishUseAnimation();
-                }
-
-                if (m_movementAgent.IsCloseToDestination())
-                {
-                    objToUse.Use(this);
-                }
+                TryToUseSmartObject();
                 
                 yield return new WaitForSeconds(AIUpdateSleepTime);
+            }
+        }
+
+        private void DynamicParameterVariation()
+        {
+            foreach (AgentDynamicParameter parameter in data.dynamicParametersVariation.Keys)
+            {
+                dynamicParameters[parameter] += data.dynamicParametersVariation[parameter];
+            }
+        }
+
+        private void TryToUseSmartObject()
+        {
+            SmartObject objToUse = SearchForSmartObject();
+
+            m_movementAgent.SetDestination(objToUse.usingPoint);
+                
+            if (m_previousSmartObject != objToUse)
+            {
+                m_previousSmartObject.FinishUse();
+                m_previousSmartObject = objToUse;
+                animationAgent.FinishUseAnimation();
+            }
+
+            if (m_movementAgent.IsCloseToDestination())
+            {
+                objToUse.Use(this);
             }
         }
 

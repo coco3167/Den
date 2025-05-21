@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MouseManager : MonoBehaviour
+public class MouseManager : MonoBehaviour, IGameStateListener
 {
     [SerializeField] private Rigidbody mouseRigidBody;
     [SerializeField] private LayerMask terrainLayerMask;
@@ -12,22 +12,26 @@ public class MouseManager : MonoBehaviour
     private Vector2 m_otherMoveValue;
     private bool m_isOtherMoving;
 
-    
-    private void Awake()
-    {
-        GameManager.Instance.GameReady += delegate
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            m_camera = GameManager.Instance.GetCamera();
-            Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
-            mouseRigidBody.MovePosition(new Vector3(1,1,-3));
-        };
-    }
-
     private void FixedUpdate()
     {
+        if(GameManager.Instance.IsPaused)
+            return;
+        
         if(m_isOtherMoving)
             MoveRigidBody(m_otherMoveValue);
+    }
+
+    public void OnGameReady(object sender, EventArgs eventArgs)
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        m_camera = GameManager.Instance.GetCamera();
+        Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
+        mouseRigidBody.MovePosition(new Vector3(1,1,-3));
+    }
+
+    public void OnGameEnded(object sender, EventArgs eventArgs)
+    {
+        // Nothing there
     }
 
     public void OnMouseMoved(Vector2 value)
@@ -50,6 +54,8 @@ public class MouseManager : MonoBehaviour
     private void MoveRigidBody(Vector2 movement)
     {
         movement *= Time.deltaTime;
+        if(movement == Vector2.zero)
+            return;
         Vector3 newPos = mouseRigidBody.position + m_camera.transform.TransformDirection(new Vector3(movement.x, 0.0f, movement.y));
         
         Physics.Raycast(newPos + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 100, terrainLayerMask);

@@ -33,7 +33,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FurMask:
-        m_Texture: {fileID: 2800000, guid: d647d704640df914fb36caf1797903f8, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -43,16 +43,16 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutout: 0.359
-    - _FurScale: 4.21
+    - _FurScale: 0.28
     - _Metallic: 0
-    - _NormalScale: 1
+    - _NormalScale: 0
     - _Occlusion: 0.5
     - _RimLightIntensity: 0.5
     - _RimLightPower: 6
-    - _ShellAmount: 33
-    - _ShellStep: 0.00534
+    - _ShellAmount: 24
+    - _ShellStep: 0.01
     m_Colors:
-    - _AmbientColor: {r: 0.035733357, g: 0.6886792, b: 0.3345993, a: 1}
+    - _AmbientColor: {r: 0.21448667, g: 0.113697045, b: 0.3301887, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _WindFreq: {r: 0.5, g: 0.7, b: 0.9, a: 1}
     - _WindMove: {r: 0.2, g: 2.97, b: 0.2, a: 1}

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Audio;
 using Sinj;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using SmartObjects_AI;
 using SmartObjects_AI.Agent;
 using UnityEngine;
@@ -10,7 +12,8 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+[RequireComponent(typeof(PlayerInput))]
+public class GameManager : MonoBehaviour, IGameStateListener
 {
 
     [SerializeField, ChildGameObjectsOnly] private Camera mainCamera;
@@ -38,11 +41,15 @@ public class GameManager : MonoBehaviour
         { AgentDynamicParameter.Fear , 0},
     };
     public const int IntervalPallier = 25;
+    
+    public event EventHandler GamePaused;
+    public bool IsPaused { get; private set; }
 
-    public event EventHandler GameReady, GameEnded;
-    public event EventHandler<GamePausedEventArgs> GamePaused;
-    private GamePausedEventArgs m_pausedEventArgs;
+    //public event EventHandler<GamePausedEventArgs> GamePaused;
+    //public GamePausedEventArgs PausedEventArgs { get; private set; }
 
+    private PlayerInput m_playerInput;
+    
     public static GameManager Instance;
 
     private void Awake()
@@ -54,22 +61,50 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
 
+        m_playerInput = GetComponent<PlayerInput>();
+
         worldParameters = new(mouseManager);
         
         pallierReached.AddListener(OnPallierReached);
         
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
-        m_pausedEventArgs = new GamePausedEventArgs();
+        // PausedEventArgs = new GamePausedEventArgs();
+        
+        FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).OfType<IPausable>()
+            .ForEach(x => GamePaused += x.OnGamePaused);
+        IsPaused = true;
+
+        m_playerInput.enabled = false;
     }
 
-    public void OnGameReady()
+    public void OnGameReady(object sender, EventArgs eventArgs)
     {
-        GameReady?.Invoke(null, EventArgs.Empty);
+        IsPaused = false;
+        m_playerInput.enabled = true;
     }
 
-    public void OnGameEnded()
+    public void OnGameEnded(object sender, EventArgs eventArgs)
     {
-        GameEnded?.Invoke(null, EventArgs.Empty);
+        IsPaused = true;
+        m_playerInput.enabled = false;
+    }
+
+
+    public void OnPause(InputAction.CallbackContext callbackContext)
+    {
+        if(!callbackContext.started)
+            return;
+        IsPaused = !IsPaused;
+        Cursor.lockState = IsPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        Time.timeScale = IsPaused ? 0 : 1;
+        GamePaused?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void OnManualGameEnded(InputAction.CallbackContext callbackContext)
+    {
+        if(!callbackContext.started)
+            return;
+        GameLoopManager.Instance.OnGameLoopEnded();
     }
 
     public void HandlePallier(AgentDynamicParameter parameter, int value)
@@ -82,14 +117,14 @@ public class GameManager : MonoBehaviour
 
     public void OnMouseMoved(InputAction.CallbackContext callbackContext)
     {
-        if (m_pausedEventArgs.IsPaused)
+        if (IsPaused)
             return;
         mouseManager.OnMouseMoved(callbackContext.ReadValue<Vector2>());
     }
 
     public void OnOtherMoved(InputAction.CallbackContext callbackContext)
     {
-        if (m_pausedEventArgs.IsPaused)
+        if (IsPaused)
             return;
 
         if (callbackContext.performed)
@@ -98,13 +133,7 @@ public class GameManager : MonoBehaviour
             mouseManager.OnOtherMoveEnd();
     }
 
-    public void OnPause(InputAction.CallbackContext callbackContext)
-    {
-        m_pausedEventArgs.IsPaused = !m_pausedEventArgs.IsPaused;
-        Cursor.lockState = m_pausedEventArgs.IsPaused ? CursorLockMode.None : CursorLockMode.Locked;
-        Time.timeScale = m_pausedEventArgs.IsPaused ? 0 : 1;
-        GamePaused?.Invoke(this, m_pausedEventArgs);
-    }
+    
 
     public Camera GetCamera()
     {
@@ -123,14 +152,30 @@ public class GameManager : MonoBehaviour
         WwiseStateManager.SetWwiseMoodState(m_palierMoodState[parameter]);
 
         if (m_currentPalier[parameter] >= 100)
-            OnGameEnded();
+            GameLoopManager.Instance.OnGameLoopEnded();
     }
 
-    #region EventArgs
-    public class GamePausedEventArgs : EventArgs
-    {
-        public bool IsPaused;
-    }
-    #endregion
+    // #region EventArgs
+    // public class GamePausedEventArgs : EventArgs
+    // {
+    //     public bool IsPaused;
+    // }
+    // #endregion
 
+}
+
+public interface IReloadable
+{
+    public void Reload();
+}
+
+public interface IGameStateListener
+{
+    public void OnGameReady(object sender, EventArgs eventArgs);
+    public void OnGameEnded(object sender, EventArgs eventArgs);
+}
+
+public interface IPausable
+{
+    public void OnGamePaused(object sender, EventArgs eventArgs);
 }
