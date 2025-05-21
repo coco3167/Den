@@ -16,6 +16,6 @@ namespace SmartObjects_AI
     }
     public enum SmartObjectParameter
     {
-        None,
+        Usage,
     }
 }

@@ -15,13 +15,14 @@ namespace SmartObjects_AI.Agent
     {
         None
     }
-        
+
     public enum AgentDynamicParameter
     {
         Tension,
         Curiosity,
         Aggression,
         Fear,
-        Hide
+        Hide,
+        Tiredness
     }
 }

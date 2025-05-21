@@ -29,7 +29,7 @@ namespace SmartObjects_AI
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawSphere(usingPoint.position, 1);
+            Gizmos.DrawSphere(usingPoint.position, .2f);
         }
 
         public float CalculateScore(SmartAgent smartAgent)

@@ -24,4 +24,13 @@ namespace SmartObjects_AI
             return value;
         }
     }
+
+    public class SpotRepos : BaseScoreCalcul
+    {
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            float value = Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position) * smartAgent.dynamicParameters[AgentDynamicParameter.Tiredness] - smartObject.dynamicParameters[SmartObjectParameter.Usage];
+            return value;
+        }
+    }
 }
