@@ -37,7 +37,7 @@ namespace Sinj
                 mouseAgents[loop].Init(mouseManager);
                 
                 //Being instanced in runtime they arent picked by GameManager at Awake
-                GameManager.Instance.GameReady += mouseAgents[loop].GetComponent<IGameStateListener>().OnGameReady;
+                GameLoopManager.Instance.GameReady += mouseAgents[loop].GetComponent<IGameStateListener>().OnGameReady;
             }
             
             emotionsJaugeValues.Add(AgentDynamicParameter.Tension, 0.0f);
@@ -50,11 +50,14 @@ namespace Sinj
             m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Aggression.ToString(), "0"));
             m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Fear.ToString(), "0"));
             
-            GameManager.Instance.OnGameReady();
+            //GameManager.Instance.OnGameReady();
         }
 
         private void FixedUpdate()
         {
+            if(GameManager.Instance.IsPaused)
+                return;
+            
             foreach (MouseAgent agent in mouseAgents)
             {
                 agent.SetDynamicParameterValue(AgentDynamicParameter.Tension, ClampEmotion(agent, AgentDynamicParameter.Tension));

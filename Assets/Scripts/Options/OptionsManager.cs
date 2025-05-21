@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 namespace Options
 {
@@ -36,19 +35,19 @@ namespace Options
             graphicsButton.AddButtonListener(graphicsCategory.Show);
             audioButton.AddButtonListener(audioCategory.Show);
             
-            ShowOptions(false);
-            
-            if (GameManager.Instance == null)
-                return;
+            gameObjectsToHide.ForEach(x => x.SetActive(false));
+
+            GameManager.Instance.GamePaused += OnGamePaused;
         }
         
-        public void OnGamePaused(object sender, GameManager.GamePausedEventArgs eventArgs)
+        public void OnGamePaused(object sender, EventArgs eventArgs)
         {
-            ShowOptions(eventArgs.IsPaused);
+            ShowOptions();
         }
 
-        private void ShowOptions(bool isPaused)
+        private void ShowOptions()
         {
+            bool isPaused = GameManager.Instance.IsPaused;
             gameObjectsToHide.ForEach(x => x.SetActive(isPaused));
 
             if (isPaused)
