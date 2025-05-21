@@ -14,6 +14,9 @@ public class MouseManager : MonoBehaviour, IGameStateListener
 
     private void FixedUpdate()
     {
+        if(GameManager.Instance.IsPaused)
+            return;
+        
         if(m_isOtherMoving)
             MoveRigidBody(m_otherMoveValue);
     }
@@ -27,11 +30,6 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     }
 
     public void OnGameEnded(object sender, EventArgs eventArgs)
-    {
-        // Nothing there
-    }
-
-    public void OnGamePaused(object sender, EventArgs eventArgs)
     {
         // Nothing there
     }
@@ -56,6 +54,8 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     private void MoveRigidBody(Vector2 movement)
     {
         movement *= Time.deltaTime;
+        if(movement == Vector2.zero)
+            return;
         Vector3 newPos = mouseRigidBody.position + m_camera.transform.TransformDirection(new Vector3(movement.x, 0.0f, movement.y));
         
         Physics.Raycast(newPos + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 100, terrainLayerMask);
