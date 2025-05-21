@@ -1,8 +1,7 @@
-using System;
+/*using System;
 using System.Timers;
 using Audio;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Sinj
 {
@@ -21,7 +20,7 @@ namespace Sinj
             {
                 m_isFinished = false;
 
-                m_timer = new Timer(Random.Range(minTime, maxTime) * 1000);
+                m_timer = new Timer(UnityEngine.Random.Range(minTime, maxTime) * 1000);
                 m_timer.AutoReset = false;
                 m_timer.Elapsed += (_, _) =>
                 {
@@ -51,12 +50,7 @@ namespace Sinj
             {
                 if (agent.IsCloseToDestination())
                 {
-                    //TEMP réduction du rate de bark (test)
-                    float random = Random.Range(0,3);
-                    if (random >= 0)
-                    {
-                        WwisePostEvents.Instance.PostRandomMoodEvent(agent.gameObject);
-                    }
+                    WwisePostEvents.Instance.PostRandomMoodEvent(agent.gameObject);
                     return true;
                 }
                 return false;
@@ -64,4 +58,4 @@ namespace Sinj
         }
         #endregion
     }
-}
+}*/

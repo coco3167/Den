@@ -38,6 +38,15 @@
 						<State Name="DEN_ST_Amb_Playing" ID="{591B604F-ED42-451A-9D6A-DB7A0655879F}"/>
 					</ChildrenList>
 				</StateGroup>
+				<StateGroup Name="DEN_State_TOD" ID="{32B1AE65-D687-4FA3-8ACD-06DC274F66C3}">
+					<ChildrenList>
+						<State Name="None" ID="{0C25DF41-7451-4F5B-8CD3-1E37B3E9F968}"/>
+						<State Name="DEN_ST_TOD_Morning" ID="{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}"/>
+						<State Name="DEN_ST_TOD_Day" ID="{8C7483EF-6E66-4CAC-AECB-F64A69FCEA6A}"/>
+						<State Name="DEN_ST_TOD_Evening" ID="{301D0269-A9F7-4079-99E6-921F35CE1806}"/>
+						<State Name="DEN_ST_TOD_Night" ID="{E5651177-8597-4405-9543-A5179BF22D37}"/>
+					</ChildrenList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>
