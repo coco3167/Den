@@ -6,6 +6,7 @@ using AYellowpaper.SerializedCollections;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
+
 namespace SmartObjects_AI.Agent
 {
     [Serializable, RequireComponent(typeof(MovementAgent), typeof(AnimationAgent))]
@@ -15,8 +16,8 @@ namespace SmartObjects_AI.Agent
         
         [SerializeField] private SmartAgentData data;
 
-        [field : SerializeField, ReadOnly] public SerializedDictionary<AgentDynamicParameter, float> dynamicParameters { get; private set; } = new();
-
+        [SerializeField] private SerializedDictionary<AgentDynamicParameter, ParameterValue> dynamicParametersStartValue;
+        [field : SerializeField, ReadOnly] public SerializedDictionary<AgentDynamicParameter, ParameterValue> dynamicParameters { get; private set; } = new();
 
         private SmartObject[] m_smartObjects;
         private SmartObject m_previousSmartObject;
@@ -34,7 +35,12 @@ namespace SmartObjects_AI.Agent
             //Dynamic values to default state
             for (int loop = 0; loop < Enum.GetNames(typeof(AgentDynamicParameter)).Length; loop++)
             {
-                dynamicParameters.Add((AgentDynamicParameter)loop, 0);
+                AgentDynamicParameter parameter = (AgentDynamicParameter)loop;
+                
+                if (dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value))
+                    dynamicParameters.Add(parameter, value);
+                else 
+                    dynamicParameters.Add(parameter, new ParameterValue(0.0f));
             }
 
         }
@@ -56,7 +62,13 @@ namespace SmartObjects_AI.Agent
             transform.localPosition = Vector3.zero;
             
             AgentDynamicParameter[] keys = dynamicParameters.Keys.ToArray();
-            keys.ForEach(x => dynamicParameters[x] = 0);
+            keys.ForEach(x =>
+            {
+                if (dynamicParametersStartValue.TryGetValue(x, out ParameterValue value))
+                    dynamicParameters[x].SetValue(value);
+                else 
+                    dynamicParameters[x].SetValue(new ParameterValue(0.0f));
+            });
         }
 
         private IEnumerator AIUpdate()
@@ -77,7 +89,7 @@ namespace SmartObjects_AI.Agent
         {
             foreach (AgentDynamicParameter parameter in data.dynamicParametersVariation.Keys)
             {
-                dynamicParameters[parameter] += data.dynamicParametersVariation[parameter];
+                dynamicParameters[parameter].AddValue(data.dynamicParametersVariation[parameter]);
             }
         }
 
@@ -112,9 +124,9 @@ namespace SmartObjects_AI.Agent
             return smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;
         }
 
-        public void UpdateParameterValue(AgentDynamicParameter parameter, float value)
+        public void UpdateParameterValue(AgentDynamicParameter parameter, ParameterValue value)
         {
-            dynamicParameters[parameter] += value;
+            dynamicParameters[parameter].AddValue(value);
         }
     }
 }
