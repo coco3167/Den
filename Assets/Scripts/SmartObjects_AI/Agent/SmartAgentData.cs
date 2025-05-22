@@ -22,8 +22,8 @@ namespace SmartObjects_AI.Agent
         Curiosity,
         Aggression,
         Fear,
-        Hide,
-        Tiredness
+        Tiredness,
+        Suspicion,
     }
 
     [Serializable]

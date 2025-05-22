@@ -15,10 +15,10 @@ namespace SmartObjects_AI
         [SerializeField] private SmartObjectData data;
 
         [SerializeField] private SerializedDictionary<SmartObjectParameter, ParameterValue> dynamicParametersStartValue;
-        public Dictionary<SmartObjectParameter, ParameterValue> dynamicParameters { get; private set; } = new();
+        [field : SerializeField, ReadOnly] public SerializedDictionary<SmartObjectParameter, ParameterValue> dynamicParameters { get; private set; } = new();
 
         private bool m_startedUse;
-        
+
         private void Awake()
         {
             if (!usingPoint)
@@ -28,10 +28,10 @@ namespace SmartObjects_AI
             for (int loop = 0; loop < Enum.GetNames(typeof(SmartObjectParameter)).Length; loop++)
             {
                 SmartObjectParameter parameter = (SmartObjectParameter)loop;
-                
+
                 if (dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value))
                     dynamicParameters.Add(parameter, value);
-                else 
+                else
                     dynamicParameters.Add(parameter, new ParameterValue(0.0f));
             }
         }
@@ -55,6 +55,7 @@ namespace SmartObjects_AI
 
         public float CalculateScore(SmartAgent smartAgent)
         {
+            
             return data.scoreCalculation.CalculateScore(smartAgent, this);
         }
 
