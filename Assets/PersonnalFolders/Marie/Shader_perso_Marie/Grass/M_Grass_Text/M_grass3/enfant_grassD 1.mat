@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6768244662506916667
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,9 +20,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: enfant_grassD2 3
+  m_Name: enfant_grassD 1
   m_Shader: {fileID: -6465566751694194690, guid: e8d3433046e7e77488c10eb1fe3b5e6e, type: 3}
-  m_Parent: {fileID: 2100000, guid: d6036d3930c1266439366fce5e624b8e, type: 2}
+  m_Parent: {fileID: 2100000, guid: 47a1a200372b0c04881fed97d670d9b6, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _INVERT
@@ -35,33 +48,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _HeightBlend: 4.85
+    - _HeightBlend: 2.8
     - _INVERT: 1
-    - _WindMask: 2.57
-    - _WindNoiseSpeed: -1.01
-    - _WindSpeed: 0.01
-    - _alpha: 1.28
-    - _scal_noise: 0
-    - _step_grain: 0.3
+    - _WindNoiseSpeed: 6.03
+    - _WindSpeed: 0.04
+    - _alpha: 0.7
+    - _step_grain: 0.09
     m_Colors:
-    - _BottomColor: {r: 0.27485287, g: 0.1742168, b: 0.4245283, a: 0}
-    - _FarColor: {r: 0.7137255, g: 1, b: 0.9218852, a: 1}
-    - _NearColor: {r: 0.1986234, g: 0.095185116, b: 0.2924528, a: 1}
-    - _NearFarRange: {r: 0, g: 80.33, b: 0, a: 0}
+    - _BottomColor: {r: 0, g: 0, b: 0, a: 0}
+    - _FarColor: {r: 1, g: 0.9249007, b: 0.627451, a: 1}
+    - _NearColor: {r: 0.26033735, g: 0.4433962, b: 0.18614274, a: 1}
+    - _NearFarRange: {r: 0, g: 3.6, b: 0, a: 0}
     - _WindNoiseContrast: {r: 0, g: -0.1, b: 0, a: 0}
     - _WindNoiseScale: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &2339421197988308285
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 9
