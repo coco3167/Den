@@ -38,13 +38,10 @@ namespace SmartObjects_AI.Agent
             for (int loop = 0; loop < Enum.GetNames(typeof(AgentDynamicParameter)).Length; loop++)
             {
                 AgentDynamicParameter parameter = (AgentDynamicParameter)loop;
-                
-                if (dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value))
-                    dynamicParameters.Add(parameter, value);
-                else 
-                    dynamicParameters.Add(parameter, new ParameterValue(0.0f)); // Need to know if parameter is float or bool
-            }
 
+                dynamicParameters.Add(parameter,
+                    dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value) ? value : new ParameterValue());
+            }
         }
         
         public void OnGameReady(object sender, EventArgs eventArgs)
@@ -65,10 +62,8 @@ namespace SmartObjects_AI.Agent
             AgentDynamicParameter[] keys = dynamicParameters.Keys.ToArray();
             keys.ForEach(x =>
             {
-                if (dynamicParametersStartValue.TryGetValue(x, out ParameterValue value))
-                    dynamicParameters[x].SetValue(value);
-                else 
-                    dynamicParameters[x].SetValue(new ParameterValue(0.0f));
+                dynamicParameters[x].SetValue(
+                    dynamicParametersStartValue.TryGetValue(x, out ParameterValue value) ? value : new ParameterValue());
             });
         }
 

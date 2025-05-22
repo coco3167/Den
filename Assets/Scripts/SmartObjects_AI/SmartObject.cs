@@ -32,11 +32,9 @@ namespace SmartObjects_AI
             for (int loop = 0; loop < Enum.GetNames(typeof(SmartObjectParameter)).Length; loop++)
             {
                 parameter = (SmartObjectParameter)loop;
-                
-                if (dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value))
-                    dynamicParameters.Add(parameter, value);
-                else 
-                    dynamicParameters.Add(parameter, new ParameterValue(0.0f));
+
+                dynamicParameters.Add(parameter,
+                    dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value) ? value : new ParameterValue());
             }
         }
 
@@ -45,10 +43,8 @@ namespace SmartObjects_AI
             m_keys = dynamicParameters.Keys.ToArray();
             m_keys.ForEach(x =>
             {
-                if (dynamicParametersStartValue.TryGetValue(x, out ParameterValue value))
-                    dynamicParameters[x].SetValue(value);
-                else 
-                    dynamicParameters[x].SetValue(new ParameterValue(0.0f));
+                dynamicParameters[x].SetValue(
+                    dynamicParametersStartValue.TryGetValue(x, out ParameterValue value) ? value : new ParameterValue());
             });
         }
 

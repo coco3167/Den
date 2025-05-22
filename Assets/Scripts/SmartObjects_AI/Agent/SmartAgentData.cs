@@ -31,13 +31,19 @@ namespace SmartObjects_AI.Agent
         public enum ParameterValueType
         {
             Float,
-            Bool
+            Bool,
+            None
         }
 
         public ParameterValueType valueType;
         [SerializeField] private float floatValue;
         [SerializeField] private bool boolValue;
 
+        public ParameterValue()
+        {
+            valueType = ParameterValueType.None;
+        }
+        
         public ParameterValue(bool value)
         {
             valueType = ParameterValueType.Bool;
@@ -62,14 +68,22 @@ namespace SmartObjects_AI.Agent
 
         public void SetValue(ParameterValue other)
         {
+            TryToGetValueType(other);
             floatValue = other.floatValue;
             boolValue = other.boolValue;
         }
 
         public void AddValue(ParameterValue other)
         {
+            TryToGetValueType(other);
             floatValue += other.floatValue;
             boolValue = other.boolValue;
+        }
+
+        private void TryToGetValueType(ParameterValue other)
+        {
+            if (valueType == ParameterValueType.None && other.valueType != ParameterValueType.None)
+                valueType = other.valueType;
         }
     }
 }
