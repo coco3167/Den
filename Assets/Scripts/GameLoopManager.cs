@@ -15,7 +15,7 @@ public class GameLoopManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance)
         {
             Destroy(gameObject);
             return;

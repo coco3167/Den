@@ -12,22 +12,26 @@ namespace SmartObjects_AI
     public class SmartObject : MonoBehaviour, IReloadable
     {
         [field: SerializeField, ChildGameObjectsOnly] public Transform usingPoint { get; private set; }
+        [SerializeField] private float gizmosRadius;
         [SerializeField] private SmartObjectData data;
 
         [SerializeField] private SerializedDictionary<SmartObjectParameter, ParameterValue> dynamicParametersStartValue;
         public Dictionary<SmartObjectParameter, ParameterValue> dynamicParameters { get; private set; } = new();
 
         private bool m_startedUse;
+        private SmartObjectParameter[] m_keys;
         
         private void Awake()
         {
             if (!usingPoint)
                 usingPoint = transform;
 
+            // ReSharper disable once TooWideLocalVariableScope => no need to initialize multiple times
+            SmartObjectParameter parameter;
             //Dynamic values to default state
             for (int loop = 0; loop < Enum.GetNames(typeof(SmartObjectParameter)).Length; loop++)
             {
-                SmartObjectParameter parameter = (SmartObjectParameter)loop;
+                parameter = (SmartObjectParameter)loop;
                 
                 if (dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value))
                     dynamicParameters.Add(parameter, value);
@@ -38,8 +42,8 @@ namespace SmartObjects_AI
 
         public void Reload()
         {
-            SmartObjectParameter[] keys = dynamicParameters.Keys.ToArray();
-            keys.ForEach(x =>
+            m_keys = dynamicParameters.Keys.ToArray();
+            m_keys.ForEach(x =>
             {
                 if (dynamicParametersStartValue.TryGetValue(x, out ParameterValue value))
                     dynamicParameters[x].SetValue(value);
@@ -50,7 +54,7 @@ namespace SmartObjects_AI
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawSphere(usingPoint.position, 1);
+            Gizmos.DrawSphere(usingPoint.position, gizmosRadius);
         }
 
         public float CalculateScore(SmartAgent smartAgent)
@@ -58,7 +62,7 @@ namespace SmartObjects_AI
             return data.scoreCalculation.CalculateScore(smartAgent, this);
         }
 
-        public void StartUse(AnimationAgent animationAgent)
+        private void StartUse(AnimationAgent animationAgent)
         {
             animationAgent.SwitchAnimator(data.animatorController);
         }

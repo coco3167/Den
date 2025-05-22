@@ -1,7 +1,6 @@
 using System;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace SmartObjects_AI
 {

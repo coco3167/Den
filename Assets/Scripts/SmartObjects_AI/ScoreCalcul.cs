@@ -5,6 +5,7 @@ namespace SmartObjects_AI
 {
     public abstract class BaseScoreCalcul
     {
+        protected float Value;
         public abstract float CalculateScore(SmartAgent smartAgent, SmartObject smartObject);
     }
 
@@ -20,8 +21,8 @@ namespace SmartObjects_AI
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            float value = Vector3.Distance(smartObject.usingPoint.position, GameManager.Instance.worldParameters.GetMousePositon()) * smartAgent.dynamicParameters[AgentDynamicParameter.Hide].GetFloatValue();
-            return value;
+            Value = Vector3.Distance(smartObject.usingPoint.position, GameManager.Instance.worldParameters.GetMousePositon()) * smartAgent.dynamicParameters[AgentDynamicParameter.Hide].GetFloatValue();
+            return Value;
         }
     }
 }

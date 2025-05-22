@@ -1,5 +1,4 @@
 using System;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +10,9 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     private Camera m_camera;
     private Vector2 m_otherMoveValue;
     private bool m_isOtherMoving;
+
+    private Vector3 m_movementNewPos;
+    private RaycastHit m_hit;
 
     private void FixedUpdate()
     {
@@ -56,14 +58,14 @@ public class MouseManager : MonoBehaviour, IGameStateListener
         movement *= Time.deltaTime;
         if(movement == Vector2.zero)
             return;
-        Vector3 newPos = mouseRigidBody.position + m_camera.transform.TransformDirection(new Vector3(movement.x, 0.0f, movement.y));
+        m_movementNewPos = mouseRigidBody.position + m_camera.transform.TransformDirection(new Vector3(movement.x, 0.0f, movement.y));
         
-        Physics.Raycast(newPos + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 100, terrainLayerMask);
-        if(!hit.collider)
+        Physics.Raycast(m_movementNewPos + Vector3.up * 10f, Vector3.down, out m_hit, 100, terrainLayerMask);
+        if(!m_hit.collider)
             return;
-        newPos.y = hit.point.y + mouseRigidBody.transform.localScale.y/2;
+        m_movementNewPos.y = m_hit.point.y + mouseRigidBody.transform.localScale.y/2;
 
-        mouseRigidBody.MovePosition(newPos);
+        mouseRigidBody.MovePosition(m_movementNewPos);
     }
 
     public float ObjectDistanceToMouse(Vector3 otherPos)

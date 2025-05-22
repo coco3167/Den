@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance)
         {
             Destroy(gameObject);
             return;
