@@ -37,10 +37,12 @@ Material:
     m_Floats:
     - _HeightBlend: 0.41
     - _INVERT: 1
+    - _MASK_TEXTURE: 0
     - _WindMask: 2.57
     - _WindNoiseSpeed: -1.01
     - _WindSpeed: 0.01
-    - _alpha: 1
+    - _alpha: 0.99
+    - _scal_noise: 0
     - _step_grain: 0.16
     m_Colors:
     - _BottomColor: {r: 0.27485287, g: 0.1742168, b: 0.4245283, a: 0}
