@@ -135,18 +135,18 @@ MonoBehaviour:
   m_Active: 0
   settings:
     passTag: RenderObjects
-    Event: 300
+    Event: 1000
     filterSettings:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 0
+        m_Bits: 256
       PassNames: []
     overrideMaterial: {fileID: 0}
     overrideMaterialPassIndex: 0
-    overrideShader: {fileID: 0}
+    overrideShader: {fileID: -6465566751694194690, guid: a8dec4efd5c419748a6d552fa49418f0, type: 3}
     overrideShaderPassIndex: 0
-    overrideMode: 1
+    overrideMode: 2
     overrideDepthState: 0
     depthCompareFunction: 4
     enableWrite: 1

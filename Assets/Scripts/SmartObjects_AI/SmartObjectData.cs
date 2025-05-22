@@ -11,8 +11,9 @@ namespace SmartObjects_AI
         [field : SerializeReference] public BaseScoreCalcul scoreCalculation { get; private set; }
         [field : SerializeField] public AnimatorOverrideController animatorController { get; private set; }
         
-        [field : SerializeField] public SerializedDictionary<SmartObjectParameter, float> dynamicParametersEffect { get; private set; }
-        [field : SerializeField] public SerializedDictionary<AgentDynamicParameter, float> parameterEffectOnAgent { get; private set; }
+        [field : SerializeField] public SerializedDictionary<SmartObjectParameter, ParameterValue> dynamicParametersEffect { get; private set; }
+        [field : SerializeField] public SerializedDictionary<SmartObjectParameter, ParameterValue> dynamicParametersVariation { get; private set; }
+        [field : SerializeField] public SerializedDictionary<AgentDynamicParameter, ParameterValue> parameterEffectOnAgent { get; private set; }
     }
     public enum SmartObjectParameter
     {

@@ -20,7 +20,7 @@ namespace SmartObjects_AI
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            float value = Vector3.Distance(smartObject.usingPoint.position, GameManager.Instance.worldParameters.GetMousePositon()) * smartAgent.dynamicParameters[AgentDynamicParameter.Hide];
+            float value = Vector3.Distance(smartObject.usingPoint.position, GameManager.Instance.worldParameters.GetMousePositon()) * smartAgent.dynamicParameters[AgentDynamicParameter.Hide].GetFloatValue();
             return value;
         }
     }

@@ -7,8 +7,8 @@ namespace SmartObjects_AI.Agent
     [Serializable, CreateAssetMenu(menuName = "SmartObject/New SmartAgentData", fileName = "New SmartAgentData")]
     public class SmartAgentData : ScriptableObject
     {
-        [field : SerializeField] public SerializedDictionary<AgentStaticParameter, float> staticParameters { get; private set; }
-        [field : SerializeField] public SerializedDictionary<AgentDynamicParameter, float> dynamicParametersVariation { get; private set; }
+        [field : SerializeField] public SerializedDictionary<AgentStaticParameter, ParameterValue> staticParameters { get; private set; }
+        [field : SerializeField] public SerializedDictionary<AgentDynamicParameter, ParameterValue> dynamicParametersVariation { get; private set; }
     }
     
     public enum AgentStaticParameter
@@ -24,5 +24,53 @@ namespace SmartObjects_AI.Agent
         Fear,
         Hide,
         Tiredness
+    }
+
+    [Serializable]
+    public class ParameterValue
+    {
+        public enum ParameterValueType
+        {
+            Float,
+            Bool
+        }
+
+        public ParameterValueType valueType;
+        [SerializeField] private float floatValue;
+        [SerializeField] private bool boolValue;
+
+        public ParameterValue(bool value)
+        {
+            valueType = ParameterValueType.Bool;
+            boolValue = value;
+        }
+
+        public ParameterValue(float value)
+        {
+            valueType = ParameterValueType.Float;
+            floatValue = value;
+        }
+
+        public bool GetBoolValue()
+        {
+            return boolValue;
+        }
+
+        public float GetFloatValue()
+        {
+            return floatValue;
+        }
+
+        public void SetValue(ParameterValue other)
+        {
+            floatValue = other.floatValue;
+            boolValue = other.boolValue;
+        }
+
+        public void AddValue(ParameterValue other)
+        {
+            floatValue += other.floatValue;
+            boolValue = other.boolValue;
+        }
     }
 }

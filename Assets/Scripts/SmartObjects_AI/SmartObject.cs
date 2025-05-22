@@ -1,17 +1,21 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using AYellowpaper.SerializedCollections;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using SmartObjects_AI.Agent;
 using UnityEngine;
 
 namespace SmartObjects_AI
 {
-    public class SmartObject : MonoBehaviour
+    public class SmartObject : MonoBehaviour, IReloadable
     {
         [field: SerializeField, ChildGameObjectsOnly] public Transform usingPoint { get; private set; }
-        [SerializeField] private SmartObjectData data; 
+        [SerializeField] private SmartObjectData data;
 
-        public Dictionary<SmartObjectParameter, float> dynamicParameters { get; private set; } = new();
+        [SerializeField] private SerializedDictionary<SmartObjectParameter, ParameterValue> dynamicParametersStartValue;
+        public Dictionary<SmartObjectParameter, ParameterValue> dynamicParameters { get; private set; } = new();
 
         private bool m_startedUse;
         
@@ -23,8 +27,25 @@ namespace SmartObjects_AI
             //Dynamic values to default state
             for (int loop = 0; loop < Enum.GetNames(typeof(SmartObjectParameter)).Length; loop++)
             {
-                dynamicParameters.Add((SmartObjectParameter)loop, 0);
+                SmartObjectParameter parameter = (SmartObjectParameter)loop;
+                
+                if (dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value))
+                    dynamicParameters.Add(parameter, value);
+                else 
+                    dynamicParameters.Add(parameter, new ParameterValue(0.0f));
             }
+        }
+
+        public void Reload()
+        {
+            SmartObjectParameter[] keys = dynamicParameters.Keys.ToArray();
+            keys.ForEach(x =>
+            {
+                if (dynamicParametersStartValue.TryGetValue(x, out ParameterValue value))
+                    dynamicParameters[x].SetValue(value);
+                else 
+                    dynamicParameters[x].SetValue(new ParameterValue(0.0f));
+            });
         }
 
         private void OnDrawGizmos()
@@ -56,14 +77,22 @@ namespace SmartObjects_AI
                 return;
             }
             
-            foreach (KeyValuePair<AgentDynamicParameter, float> parameterEffect in data.parameterEffectOnAgent)
+            foreach (KeyValuePair<AgentDynamicParameter, ParameterValue> parameterEffect in data.parameterEffectOnAgent)
             {
                 agent.UpdateParameterValue(parameterEffect.Key, parameterEffect.Value);
             }
 
-            foreach (KeyValuePair<SmartObjectParameter, float> parameterEffect in data.dynamicParametersEffect)
+            foreach (KeyValuePair<SmartObjectParameter, ParameterValue> parameterEffect in data.dynamicParametersEffect)
             {
-                dynamicParameters[parameterEffect.Key] += parameterEffect.Value;
+                dynamicParameters[parameterEffect.Key].AddValue(parameterEffect.Value);
+            }
+        }
+
+        public void DynamicParameterVariation()
+        {
+            foreach (SmartObjectParameter parameter in data.dynamicParametersVariation.Keys)
+            {
+                dynamicParameters[parameter].AddValue(data.dynamicParametersVariation[parameter]);
             }
         }
     }

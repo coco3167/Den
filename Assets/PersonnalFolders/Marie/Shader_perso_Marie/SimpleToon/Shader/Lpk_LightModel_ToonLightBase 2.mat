@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -30,16 +30,16 @@ Material:
     m_Ints: []
     m_Floats:
     - _OutlineWidth: 0
-    - _RimStep: 0.973
-    - _RimStepSmooth: 0.287
-    - _ShadowStep: 0.065
+    - _RimStep: 0.629
+    - _RimStepSmooth: 0.564
+    - _ShadowStep: 0.402
     - _ShadowStepSmooth: 0.955
-    - _SpecularStep: 0.882
-    - _SpecularStepSmooth: 0.544
+    - _SpecularStep: 0.126
+    - _SpecularStepSmooth: 1
     m_Colors:
-    - _BaseColor: {r: 0.7264151, g: 0.4008989, b: 0.4008989, a: 1}
+    - _BaseColor: {r: 0.7264151, g: 0.3529281, b: 0.3529281, a: 1}
     - _OutlineColor: {r: 1, g: 0.7401695, b: 0.6179246, a: 1}
-    - _RimColor: {r: 0.5943396, g: 0.5310205, b: 0.2943663, a: 1}
-    - _SpecularColor: {r: 0.9528302, g: 0.61702275, b: 0.39101997, a: 1}
+    - _RimColor: {r: 0.6603774, g: 0.5262711, b: 0.052954797, a: 1}
+    - _SpecularColor: {r: 0.6792453, g: 0.18262726, b: 0.18262726, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
