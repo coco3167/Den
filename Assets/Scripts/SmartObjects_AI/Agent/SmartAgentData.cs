@@ -55,7 +55,7 @@ namespace SmartObjects_AI.Agent
         {
             valueType = ParameterValueType.Float;
             floatValue = value;
-            floatValue = Math.Max(0.0f, floatValue);
+            ClampValue();
         }
 
         public bool GetBoolValue()
@@ -73,7 +73,7 @@ namespace SmartObjects_AI.Agent
             TryToGetValueType(other);
             
             floatValue = other.floatValue; 
-            floatValue = Math.Max(0.0f, floatValue);
+            ClampValue();            
             
             boolValue = other.boolValue;
         }
@@ -83,7 +83,7 @@ namespace SmartObjects_AI.Agent
             TryToGetValueType(other);
             
             floatValue += other.floatValue;
-            floatValue = Math.Max(0.0f, floatValue);
+            ClampValue();
             
             boolValue = other.boolValue;
         }
@@ -92,6 +92,11 @@ namespace SmartObjects_AI.Agent
         {
             if (valueType == ParameterValueType.None && other.valueType != ParameterValueType.None)
                 valueType = other.valueType;
+        }
+
+        private void ClampValue()
+        {
+            floatValue = Math.Clamp(floatValue, 0.0f, 100.0f);
         }
     }
 }
