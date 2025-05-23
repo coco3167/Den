@@ -9,14 +9,12 @@ namespace SmartObjects_AI.Agent
         private static readonly int FinishUse = Animator.StringToHash("FinishUse");
         
         private Animator m_animator;
-        private RuntimeAnimatorController m_defaultAnimatorController;
 
         private bool m_isFinished = true;
         
         private void Awake()
         {
             m_animator = GetComponent<Animator>();
-            m_defaultAnimatorController = m_animator.runtimeAnimatorController;
         }
 
         public void SwitchAnimator(RuntimeAnimatorController animatorController)

@@ -20,7 +20,9 @@ namespace SmartObjects_AI.Agent
         [field : SerializeField, ReadOnly] public SerializedDictionary<AgentDynamicParameter, ParameterValue> dynamicParameters { get; private set; } = new();
 
         private SmartObject[] m_smartObjects;
-        private SmartObject m_previousSmartObject;
+        private SmartObject m_previousSmartObject, m_smartObjectToUse;
+
+        private Dictionary<SmartObject, float> m_smartObjectScore;
         
         private MovementAgent m_movementAgent;
         public AnimationAgent animationAgent { get; private set; }
@@ -36,25 +38,21 @@ namespace SmartObjects_AI.Agent
             for (int loop = 0; loop < Enum.GetNames(typeof(AgentDynamicParameter)).Length; loop++)
             {
                 AgentDynamicParameter parameter = (AgentDynamicParameter)loop;
-                
-                if (dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value))
-                    dynamicParameters.Add(parameter, value);
-                else 
-                    dynamicParameters.Add(parameter, new ParameterValue(0.0f));
-            }
 
+                dynamicParameters.Add(parameter,
+                    dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value) ? value : new ParameterValue());
+            }
         }
         
         public void OnGameReady(object sender, EventArgs eventArgs)
         {
-            StartCoroutine(AIUpdate());
-            Debug.Log("start coroutine");
+            m_previousSmartObject = SearchForSmartObject();
+            InvokeRepeating(nameof(AIUpdate), 0, AIUpdateSleepTime);
         }
 
         public void OnGameEnded(object sender, EventArgs eventArgs)
         {
-            StopCoroutine(AIUpdate());
-            Debug.Log("stop coroutine");
+            CancelInvoke(nameof(AIUpdate));
         }
 
         public void Reload()
@@ -64,25 +62,16 @@ namespace SmartObjects_AI.Agent
             AgentDynamicParameter[] keys = dynamicParameters.Keys.ToArray();
             keys.ForEach(x =>
             {
-                if (dynamicParametersStartValue.TryGetValue(x, out ParameterValue value))
-                    dynamicParameters[x].SetValue(value);
-                else 
-                    dynamicParameters[x].SetValue(new ParameterValue(0.0f));
+                dynamicParameters[x].SetValue(
+                    dynamicParametersStartValue.TryGetValue(x, out ParameterValue value) ? value : new ParameterValue());
             });
         }
 
-        private IEnumerator AIUpdate()
+        private void AIUpdate()
         {
-            yield return new WaitForEndOfFrame();
-            m_previousSmartObject = SearchForSmartObject();
-            while (true)
-            {
-                DynamicParameterVariation();
-                
-                TryToUseSmartObject();
-                
-                yield return new WaitForSeconds(AIUpdateSleepTime);
-            }
+            DynamicParameterVariation();
+            
+            TryToUseSmartObject();
         }
 
         private void DynamicParameterVariation()
@@ -95,33 +84,33 @@ namespace SmartObjects_AI.Agent
 
         private void TryToUseSmartObject()
         {
-            SmartObject objToUse = SearchForSmartObject();
+            m_smartObjectToUse = SearchForSmartObject();
 
-            m_movementAgent.SetDestination(objToUse.usingPoint);
+            m_movementAgent.SetDestination(m_smartObjectToUse.usingPoint);
                 
-            if (m_previousSmartObject != objToUse)
+            if (m_previousSmartObject != m_smartObjectToUse)
             {
                 m_previousSmartObject.FinishUse();
-                m_previousSmartObject = objToUse;
+                m_previousSmartObject = m_smartObjectToUse;
                 animationAgent.FinishUseAnimation();
             }
 
             if (m_movementAgent.IsCloseToDestination())
             {
-                objToUse.Use(this);
+                m_smartObjectToUse.Use(this);
             }
         }
 
         private SmartObject SearchForSmartObject()
         {
-            Dictionary<SmartObject, float> smartObjectScore = new Dictionary<SmartObject, float>();
+            m_smartObjectScore.Clear();
             foreach (SmartObject smartObject in m_smartObjects)
             {
-                smartObjectScore.Add(smartObject, smartObject.CalculateScore(this));
+                m_smartObjectScore.Add(smartObject, smartObject.CalculateScore(this));
                 smartObject.DynamicParameterVariation();
             }
             
-            return smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;
+            return m_smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;
         }
 
         public void UpdateParameterValue(AgentDynamicParameter parameter, ParameterValue value)

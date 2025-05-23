@@ -5,6 +5,7 @@ namespace SmartObjects_AI
 {
     public abstract class BaseScoreCalcul
     {
+        protected float Value;
         public abstract float CalculateScore(SmartAgent smartAgent, SmartObject smartObject);
     }
 
@@ -20,8 +21,8 @@ namespace SmartObjects_AI
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            float value = Vector3.Distance(smartObject.usingPoint.position, GameManager.Instance.worldParameters.GetMousePositon()) * smartAgent.dynamicParameters[AgentDynamicParameter.Suspicion].GetFloatValue();
-            return value;
+            Value = Vector3.Distance(smartObject.usingPoint.position, GameManager.Instance.worldParameters.GetMousePositon()) * smartAgent.dynamicParameters[AgentDynamicParameter.Suspicion].GetFloatValue();
+            return Value;
         }
     }
 
@@ -29,8 +30,8 @@ namespace SmartObjects_AI
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            float value = (smartAgent.dynamicParameters[AgentDynamicParameter.Tiredness].GetFloatValue() - Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position)) * 1 - (smartObject.dynamicParameters[SmartObjectParameter.Usage].GetBoolValue() ? 0 : 1);
-            return value;
+            Value = (smartAgent.dynamicParameters[AgentDynamicParameter.Tiredness].GetFloatValue() - Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position)) * 1 - (smartObject.dynamicParameters[SmartObjectParameter.Usage].GetBoolValue() ? 0 : 1);
+            return Value;
         }
     }
 
@@ -42,8 +43,8 @@ namespace SmartObjects_AI
             Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
             float suspiscion = smartAgent.dynamicParameters[AgentDynamicParameter.Suspicion].GetFloatValue();
 
-            float value = 10 - Vector3.Distance(agentPos, mousePos) - suspiscion;
-            return value;
+            Value = 10 - Vector3.Distance(agentPos, mousePos) - suspiscion;
+            return Value;
         }
     }
 }

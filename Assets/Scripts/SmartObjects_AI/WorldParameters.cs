@@ -1,14 +1,14 @@
 using System;
 using AYellowpaper.SerializedCollections;
+using SmartObjects_AI.Agent;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace SmartObjects_AI
 {
     [Serializable]
     public class WorldParameters
     { 
-        public SerializedDictionary<WorldParameterType, float> parameters;
+        public SerializedDictionary<WorldParameterType, ParameterValue> parameters;
         private MouseManager m_mouseManager;
 
         public WorldParameters(MouseManager mouseManager)
