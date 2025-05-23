@@ -54,6 +54,7 @@ namespace SmartObjects_AI.Agent
         {
             valueType = ParameterValueType.Float;
             floatValue = value;
+            floatValue = Math.Max(0.0f, floatValue);
         }
 
         public bool GetBoolValue()
@@ -69,14 +70,20 @@ namespace SmartObjects_AI.Agent
         public void SetValue(ParameterValue other)
         {
             TryToGetValueType(other);
-            floatValue = other.floatValue;
+            
+            floatValue = other.floatValue; 
+            floatValue = Math.Max(0.0f, floatValue);
+            
             boolValue = other.boolValue;
         }
 
         public void AddValue(ParameterValue other)
         {
             TryToGetValueType(other);
+            
             floatValue += other.floatValue;
+            floatValue = Math.Max(0.0f, floatValue);
+            
             boolValue = other.boolValue;
         }
 
