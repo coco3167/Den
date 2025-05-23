@@ -73,30 +73,35 @@
 												<Property Name="Channels" Type="int32">
 													<ValueList>
 														<Value Platform="Mac">4</Value>
+														<Value Platform="Linux">4</Value>
 														<Value Platform="Windows">4</Value>
 													</ValueList>
 												</Property>
 												<Property Name="LRMix" Type="Real64">
 													<ValueList>
 														<Value Platform="Mac">0</Value>
+														<Value Platform="Linux">0</Value>
 														<Value Platform="Windows">0</Value>
 													</ValueList>
 												</Property>
 												<Property Name="MaxSampleRate" Type="int32">
 													<ValueList>
 														<Value Platform="Mac">48000</Value>
+														<Value Platform="Linux">48000</Value>
 														<Value Platform="Windows">48000</Value>
 													</ValueList>
 												</Property>
 												<Property Name="MinSampleRate" Type="int32">
 													<ValueList>
 														<Value Platform="Mac">0</Value>
+														<Value Platform="Linux">0</Value>
 														<Value Platform="Windows">0</Value>
 													</ValueList>
 												</Property>
 												<Property Name="SampleRate" Type="int32">
 													<ValueList>
 														<Value Platform="Mac">2</Value>
+														<Value Platform="Linux">2</Value>
 														<Value Platform="Windows">2</Value>
 													</ValueList>
 												</Property>
@@ -104,6 +109,9 @@
 											<ConversionPluginInfoList>
 												<ConversionPluginInfo Platform="Mac">
 													<ConversionPlugin Name="" ID="{71C91FBE-FBA1-49DE-A2AA-C5A079D16B68}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
+												</ConversionPluginInfo>
+												<ConversionPluginInfo Platform="Linux">
+													<ConversionPlugin Name="" ID="{C624DCA5-9E6B-446B-A5E7-B24FFFF64BCC}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
 												</ConversionPluginInfo>
 												<ConversionPluginInfo Platform="Windows">
 													<ConversionPlugin Name="" ID="{B469D251-CF30-4308-B0A8-A985213633A6}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
