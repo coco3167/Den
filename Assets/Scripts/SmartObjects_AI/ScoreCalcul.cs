@@ -31,6 +31,8 @@ namespace SmartObjects_AI
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             Value = (smartAgent.dynamicParameters[AgentDynamicParameter.Tiredness].GetFloatValue() - Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position)) * 1 - (smartObject.dynamicParameters[SmartObjectParameter.Usage].GetBoolValue() ? 0 : 1);
+            Debug.Log(smartAgent);
+            Debug.Log(Value);
             return Value;
         }
     }

@@ -22,7 +22,7 @@ namespace SmartObjects_AI.Agent
         private SmartObject[] m_smartObjects, m_smartObjectsOwning;
         private SmartObject m_previousSmartObject, m_smartObjectToUse;
 
-        private Dictionary<SmartObject, float> m_smartObjectScore;
+        private Dictionary<SmartObject, float> m_smartObjectScore = new();
         
         private MovementAgent m_movementAgent;
         public AnimationAgent animationAgent { get; private set; }
