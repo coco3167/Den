@@ -19,7 +19,7 @@ namespace SmartObjects_AI.Agent
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, ParameterValue> dynamicParametersStartValue;
         [field : SerializeField, ReadOnly] public SerializedDictionary<AgentDynamicParameter, ParameterValue> dynamicParameters { get; private set; } = new();
 
-        private SmartObject[] m_smartObjects;
+        private SmartObject[] m_smartObjects, m_smartObjectsOwning;
         private SmartObject m_previousSmartObject, m_smartObjectToUse;
 
         private Dictionary<SmartObject, float> m_smartObjectScore;
@@ -42,6 +42,9 @@ namespace SmartObjects_AI.Agent
                 dynamicParameters.Add(parameter,
                     dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value) ? value : new ParameterValue());
             }
+            
+            //Owning SmartObjects
+            m_smartObjectsOwning.AddRange(GetComponentsInChildren<SmartObject>());
         }
         
         public void OnGameReady(object sender, EventArgs eventArgs)
@@ -111,6 +114,19 @@ namespace SmartObjects_AI.Agent
             }
             
             return m_smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;
+        }
+
+        public bool IsOwner(SmartObject smartObject)
+        {
+            return m_smartObjectsOwning.Contains(smartObject);
+        }
+
+        public bool IsUsing(SmartObject smartObject)
+        {
+            // If the object was used last time and tries to be used this time => it's being used
+            if (m_smartObjectToUse == m_previousSmartObject)
+                return m_smartObjectToUse == smartObject;
+            return false;
         }
 
         public void UpdateParameterValue(AgentDynamicParameter parameter, ParameterValue value)
