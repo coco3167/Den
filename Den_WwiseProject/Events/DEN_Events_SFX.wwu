@@ -162,6 +162,43 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="DEN_EV_SFX_Stingers" ID="{13393F86-0A76-4503-BDBD-31CD5E315E2B}" ShortID="378363828">
+					<ChildrenList>
+						<Event Name="Play_DEN_STI_Mood_Anger" ID="{FD1A94F4-A586-47EB-B570-CEC0DC0DBD45}">
+							<ChildrenList>
+								<Action Name="" ID="{20B7E959-A06C-4976-937C-9BBEA19EA135}" ShortID="71089816">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood_Anger" ID="{E21F51FE-DBDA-4B60-B3E5-02644DBD214B}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_STI_Mood_Fear" ID="{2F44F0B4-AEB3-4B83-833A-CB3E92D895B7}">
+							<ChildrenList>
+								<Action Name="" ID="{DABC5B60-FC76-4DCD-9F20-D150AF451D32}" ShortID="999542284">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood_Fear" ID="{BB073935-4333-4371-BA8F-D2A63382CE46}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_STI_Mood_Curious" ID="{54EAA0C9-BA25-4C61-9AFE-38FCA46954FD}">
+							<ChildrenList>
+								<Action Name="" ID="{5EB9740B-726C-4AFC-90B0-74EFFDD608C3}" ShortID="600884427">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_STI_Mood_Curious" ID="{3FF9D409-040C-405D-8C87-46F1870DBE1D}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
