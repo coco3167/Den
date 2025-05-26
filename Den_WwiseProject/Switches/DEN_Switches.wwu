@@ -203,6 +203,12 @@
 						</Curve>
 					</SwitchOnRTPC>
 				</SwitchGroup>
+				<SwitchGroup Name="DEN_SW_Footsteps" ID="{51FFDA2B-0A35-4B09-8314-1BB1096626BC}">
+					<ChildrenList>
+						<Switch Name="DEN_SW_FS_Walking" ID="{03D9483C-E2FC-45DA-BE7F-13D6F4A7F087}"/>
+						<Switch Name="DEN_SW_FS_Running" ID="{16812A59-0E29-479C-B766-92E10BA27360}"/>
+					</ChildrenList>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>

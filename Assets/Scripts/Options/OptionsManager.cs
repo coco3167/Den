@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 namespace Options
 {
-    public class OptionsManager : MonoBehaviour
+    public class OptionsManager : MonoBehaviour, IPausable
     {
         [Title("General")]
         [SerializeField] private CategoryButton generalButton;
@@ -36,21 +35,19 @@ namespace Options
             graphicsButton.AddButtonListener(graphicsCategory.Show);
             audioButton.AddButtonListener(audioCategory.Show);
             
-            ShowOptions(false);
-            
-            if (GameManager.Instance == null)
-                return;
+            gameObjectsToHide.ForEach(x => x.SetActive(false));
 
-            GameManager.Instance.GamePaused += OnPaused;
+            GameManager.Instance.GamePaused += OnGamePaused;
+        }
+        
+        public void OnGamePaused(object sender, EventArgs eventArgs)
+        {
+            ShowOptions();
         }
 
-        private void OnPaused(object obj, GameManager.GamePausedEventArgs e)
+        private void ShowOptions()
         {
-            ShowOptions(e.IsPaused);
-        }
-
-        private void ShowOptions(bool isPaused)
-        {
+            bool isPaused = GameManager.Instance.IsPaused;
             gameObjectsToHide.ForEach(x => x.SetActive(isPaused));
 
             if (isPaused)
@@ -59,5 +56,7 @@ namespace Options
                 EventSystem.current.SetSelectedGameObject(generalButton.gameObject);
             }
         }
+
+        
     }
 }

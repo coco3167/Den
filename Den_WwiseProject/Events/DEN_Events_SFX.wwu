@@ -72,6 +72,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_DEN_Crea_ScreamBarks" ID="{83CE4AB3-5132-4D7F-A025-D568D793F870}">
+							<ChildrenList>
+								<Action Name="" ID="{145F3777-C191-4029-97FC-E449A396D3C7}" ShortID="975617985">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Crea_ScreamBarks" ID="{786A3461-4A26-47B5-9DD9-0DC2329497C9}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="DEN_EV_SFX_ReactionBarks" ID="{C7713AAF-31E6-41B7-9F7F-98943F77CCC3}" ShortID="124386736">

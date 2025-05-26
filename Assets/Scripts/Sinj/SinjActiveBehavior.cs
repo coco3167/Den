@@ -1,5 +1,5 @@
 using System;
-using Audio;
+using SmartObjects_AI.Agent;
 using UnityEngine;
 
 namespace Sinj
@@ -7,6 +7,12 @@ namespace Sinj
     [CreateAssetMenu(fileName = "SinjActiveBehavior", menuName = "SinjBehavior/ActiveBehavior", order = 0)]
     public class SinjActiveBehavior : SinjBehavior
     {
+        private enum Comparison
+        {
+            Inferior,
+            Superior,
+            Equal
+        }
 
         #region Stimuli
         [Serializable]
@@ -15,9 +21,9 @@ namespace Sinj
             [SerializeField] private float distance;
             [SerializeField] private Comparison comparison;
 
-            public override bool IsApplying(SinjAgent agent)
+            public override bool IsApplying(MouseAgent mouseAgent)
             {
-                float distanceToMouse = agent.DistanceToMouse();
+                float distanceToMouse = mouseAgent.DistanceToMouse();
                 float realDistance = Mathf.Pow(distance, 2);
                 switch (comparison)
                 {
@@ -38,9 +44,9 @@ namespace Sinj
             [SerializeField] private float velocity;
             [SerializeField] private Comparison comparison;
 
-            public override bool IsApplying(SinjAgent agent)
+            public override bool IsApplying(MouseAgent mouseAgent)
             {
-                float mouseVelocity = agent.MouseVelocity();
+                float mouseVelocity = mouseAgent.MouseVelocity();
                 switch (comparison)
                 {
                     case Comparison.Inferior:
@@ -60,9 +66,10 @@ namespace Sinj
             [SerializeField] private float tension;
             [SerializeField] private Comparison comparison;
 
-            public override bool IsApplying(SinjAgent agent)
+            public override bool IsApplying(MouseAgent mouseAgent)
             {
-                float agentTension = agent.GetEmotion(Emotions.Tension);
+                //float agentTension = mouseAgent.GetEmotion(Emotions.Tension);
+                float agentTension = mouseAgent.GetDynamicParameterValue(AgentDynamicParameter.Tension).GetFloatValue();
                 switch (comparison)
                 {
                     case Comparison.Inferior:
@@ -78,7 +85,7 @@ namespace Sinj
         #endregion
 
         #region Reaction
-        [Serializable]
+        /*[Serializable]
         public class FleeReaction : SinjReaction
         {
             [field: SerializeField] private float distance;
@@ -92,22 +99,22 @@ namespace Sinj
             {
                 return agent.IsCloseToDestination();
             }
-        }
+        }*/
 
         [Serializable]
         public class TensionReaction : SinjReaction
         {
             [field: SerializeField] private float amount;
 
-            public override void ApplyReaction(SinjAgent agent)
+            public override void ApplyReaction(MouseAgent mouseAgent)
             {
-                agent.AddEmotion(amount, Emotions.Tension);
+                mouseAgent.AddDynamicParameterValue(AgentDynamicParameter.Tension, amount);
             }
 
-            public override bool IsFinished(SinjAgent agent)
-            {
-                return true;
-            }
+            // public override bool IsFinished(MouseAgent mouseAgent)
+            // {
+            //     return true;
+            // }
         }
 
         [Serializable]
@@ -115,15 +122,15 @@ namespace Sinj
         {
             [SerializeField] private float amount;
 
-            public override void ApplyReaction(SinjAgent agent)
+            public override void ApplyReaction(MouseAgent mouseAgent)
             {
-                agent.AddEmotion(amount, Emotions.Curiosity);
+                mouseAgent.AddDynamicParameterValue(AgentDynamicParameter.Curiosity, amount);
             }
 
-            public override bool IsFinished(SinjAgent agent)
-            {
-                return true;
-            }
+            // public override bool IsFinished(MouseAgent mouseAgent)
+            // {
+            //     return true;
+            // }
         }
 
         [Serializable]
@@ -131,15 +138,15 @@ namespace Sinj
         {
             [SerializeField] private float amount;
 
-            public override void ApplyReaction(SinjAgent agent)
+            public override void ApplyReaction(MouseAgent mouseAgent)
             {
-                agent.AddEmotion(amount, Emotions.Agression);
+                mouseAgent.AddDynamicParameterValue(AgentDynamicParameter.Aggression, amount);
             }
 
-            public override bool IsFinished(SinjAgent agent)
-            {
-                return true;
-            }
+            // public override bool IsFinished(MouseAgent mouseAgent)
+            // {
+            //     return true;
+            // }
         }
 
         [Serializable]
@@ -147,31 +154,30 @@ namespace Sinj
         {
             [SerializeField] private float amount;
 
-            public override void ApplyReaction(SinjAgent agent)
+            public override void ApplyReaction(MouseAgent mouseAgent)
             {
-                agent.AddEmotion(amount, Emotions.Fear);
+                mouseAgent.AddDynamicParameterValue(AgentDynamicParameter.Fear, amount);
             }
 
-            public override bool IsFinished(SinjAgent agent)
-            {
-                return true;
-            }
+            // public override bool IsFinished(MouseAgent mouseAgent)
+            // {
+            //     return true;
+            // }
         }
 
-        [Serializable]
-        public class AudioReaction : SinjReaction
+        /*[Serializable]
+        public class BarkReaction : SinjReaction
         {
-            [SerializeField] private AK.Wwise.Event wwiseEvent;
             public override void ApplyReaction(SinjAgent agent)
             {
-                wwiseEvent.Post(agent.gameObject);
+                WwisePostEvents.Instance.PostMoodStepFromState(agent);
             }
 
             public override bool IsFinished(SinjAgent agent)
             {
                 return true;
             }
-        }
+        }*/
         #endregion
     }
 }
