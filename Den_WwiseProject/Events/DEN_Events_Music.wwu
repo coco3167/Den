@@ -29,6 +29,76 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_DEN_Music_Menu" ID="{6C259AF6-C3BC-4185-8ACE-C091CB1BAF5C}">
+					<ChildrenList>
+						<Action Name="" ID="{DF259943-2768-471F-ADD4-B60C8EEF696C}" ShortID="120829463">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_Music_Menu" ID="{7FDF9561-A740-4286-AC98-47BCE1F8A1FE}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D5CC20F7-C884-4820-BCE4-8B45A580831B}" ShortID="161030692">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_AMB_RandomNoises" ID="{19D13256-72CF-4867-8F22-F07FC730B0FD}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DEN_Music_End" ID="{8136B59D-C0CF-4405-8F89-E85D835835EB}">
+					<ChildrenList>
+						<Action Name="" ID="{9F14DDC7-B077-4AD5-9FFA-89C8DDDCB744}" ShortID="14908802">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_Music_End" ID="{C0EC9950-884D-4CF1-A6B8-995105C8069B}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{7FD68AF4-3519-46E5-8BBC-F7490FC676BE}" ShortID="160629080">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_AMB_Moods" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{4FCD9A79-F5A0-44A7-AD90-BD4FE78E0B25}" ShortID="933270491">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_AMB_RandomNoises" ID="{19D13256-72CF-4867-8F22-F07FC730B0FD}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{381C1DC6-4C77-48ED-93DD-34D79223E6C7}" ShortID="449206248">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_TOD" ID="{17016375-1FEF-43B5-8E8C-66D7B8B60E44}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

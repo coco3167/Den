@@ -9,54 +9,12 @@
 			<ChildrenList>
 				<MusicSwitchContainer Name="DEN_Music_End" ID="{C0EC9950-884D-4CF1-A6B8-995105C8069B}" ShortID="71483550">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="Tempo" Type="Real64" Value="60"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
-							<Custom>
-								<Conversion Name="Conversion Settings (Custom)" ID="{449D9CD3-3426-42F6-AFE0-CCD021E9AC4D}">
-									<PropertyList>
-										<Property Name="Channels" Type="int32">
-											<ValueList>
-												<Value Platform="Mac">4</Value>
-												<Value Platform="Windows">4</Value>
-											</ValueList>
-										</Property>
-										<Property Name="LRMix" Type="Real64">
-											<ValueList>
-												<Value Platform="Mac">0</Value>
-												<Value Platform="Windows">0</Value>
-											</ValueList>
-										</Property>
-										<Property Name="MaxSampleRate" Type="int32">
-											<ValueList>
-												<Value Platform="Mac">48000</Value>
-												<Value Platform="Windows">48000</Value>
-											</ValueList>
-										</Property>
-										<Property Name="MinSampleRate" Type="int32">
-											<ValueList>
-												<Value Platform="Mac">0</Value>
-												<Value Platform="Windows">0</Value>
-											</ValueList>
-										</Property>
-										<Property Name="SampleRate" Type="int32">
-											<ValueList>
-												<Value Platform="Mac">2</Value>
-												<Value Platform="Windows">2</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ConversionPluginInfoList>
-										<ConversionPluginInfo Platform="Mac">
-											<ConversionPlugin Name="" ID="{110EA5E4-4E62-4427-B351-6FC76BD0132B}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
-										</ConversionPluginInfo>
-										<ConversionPluginInfo Platform="Windows">
-											<ConversionPlugin Name="" ID="{9867F52D-D6A5-49F9-BEB0-0A4AAAADF21F}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
-										</ConversionPluginInfo>
-									</ConversionPluginInfoList>
-								</Conversion>
-							</Custom>
+							<ObjectRef Name="MusicConversionSettings" ID="{2B826872-5AF0-476D-B010-27C79E8FA78F}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Music" ID="{4C0AAA7A-5063-49AA-B2EE-5337426DC76A}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
@@ -680,6 +638,11 @@
 							<Reference>
 								<Local>
 									<MultiSwitchEntry Name="" ID="{C9DCFDD8-58E7-43C2-8AA7-FF324D1E9000}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="DEN_AgroEnd_Simplified" ID="{8EF343BA-422B-498B-9AC1-158E385BA7EA}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+											</Reference>
+										</ReferenceList>
 										<ObjectLists>
 											<ObjectList Name="EntryPath">
 												<Reference>
@@ -693,6 +656,11 @@
 							<Reference>
 								<Local>
 									<MultiSwitchEntry Name="" ID="{A937BA0E-16C6-43B2-9995-515C755AC305}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="DEN_CuriousEnd_Simplified" ID="{444D12F5-2585-4F77-83E5-9A201C8E01E5}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+											</Reference>
+										</ReferenceList>
 										<ObjectLists>
 											<ObjectList Name="EntryPath">
 												<Reference>
@@ -706,6 +674,11 @@
 							<Reference>
 								<Local>
 									<MultiSwitchEntry Name="" ID="{374B822A-0C05-4FA5-B896-1E91942CE8E2}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="DEN_FearEnd_Simplified" ID="{E05F0354-E88B-4CD1-B9C1-C03F6EAE582A}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+											</Reference>
+										</ReferenceList>
 										<ObjectLists>
 											<ObjectList Name="EntryPath">
 												<Reference>
@@ -719,6 +692,11 @@
 							<Reference>
 								<Local>
 									<MultiSwitchEntry Name="" ID="{1DA2EDCD-E935-4768-B70C-BAD8F8CD27C2}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="DEN_NeutralEnd_Simplified" ID="{D0255A25-5988-43CA-B783-44E2DB35B09D}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+											</Reference>
+										</ReferenceList>
 										<ObjectLists>
 											<ObjectList Name="EntryPath">
 												<Reference>
@@ -734,6 +712,7 @@
 				</MusicSwitchContainer>
 				<MusicPlaylistContainer Name="DEN_Music_Start" ID="{702210DF-B77A-40D4-BAE9-52D600339161}" ShortID="383183233">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="Tempo" Type="Real64" Value="60"/>
 					</PropertyList>
 					<ReferenceList>
@@ -745,7 +724,20 @@
 						</Reference>
 						<Reference Name="PlaylistRoot">
 							<Custom>
-								<MusicPlaylistItem Name="" ID="{227D8B29-EE4A-457F-A75D-28CD167192BC}" ShortID="27607257"/>
+								<MusicPlaylistItem Name="" ID="{227D8B29-EE4A-457F-A75D-28CD167192BC}" ShortID="27607257">
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{B61A016E-37EF-459B-8E24-85962418A37F}" ShortID="605164807">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Segment">
+													<ObjectRef Name="DEN_Intro_Simplified" ID="{DB5F70CB-EF0F-43B3-8870-E8511DEE140E}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+												</Reference>
+											</ReferenceList>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
 							</Custom>
 						</Reference>
 						<Reference Name="TransitionRoot">
@@ -905,6 +897,145 @@
 												<PropertyList>
 													<Property Name="CueType" Type="int16" Value="1"/>
 													<Property Name="TimeMs" Type="Real64" Value="16200"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+					</ChildrenList>
+				</MusicPlaylistContainer>
+				<MusicPlaylistContainer Name="DEN_Music_Menu" ID="{7FDF9561-A740-4286-AC98-47BCE1F8A1FE}" ShortID="394419401">
+					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="Tempo" Type="Real64" Value="60"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="MusicConversionSettings" ID="{2B826872-5AF0-476D-B010-27C79E8FA78F}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Music" ID="{4C0AAA7A-5063-49AA-B2EE-5337426DC76A}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+						<Reference Name="PlaylistRoot">
+							<Custom>
+								<MusicPlaylistItem Name="" ID="{BD65322B-2B9F-45CA-B5C3-47957C72ACC2}" ShortID="625922236">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{2AF33448-5F29-4581-BB6D-5A503B4C5E82}" ShortID="91188383">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Segment">
+													<ObjectRef Name="DEN_menu" ID="{789036ED-D59B-4E0A-9B7E-0CEF722140EA}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+												</Reference>
+											</ReferenceList>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Custom>
+						</Reference>
+						<Reference Name="TransitionRoot">
+							<Custom>
+								<MusicTransition Name="Root" ID="{AAF9C8A0-CB8F-442F-AEDF-C0FBD64E7AF7}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{948FF08A-A0EE-406A-BBF8-D6B1C4770077}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</Custom>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="DEN_menu" ID="{789036ED-D59B-4E0A-9B7E-0CEF722140EA}" ShortID="746353918">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="48011.3541666667"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="DEN_menu" ID="{3614A5A5-5A7C-4963-866E-F08B8BB0F5AD}" ShortID="1034519372">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{84637E94-E0C6-4169-BAA9-CB956DE526C7}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_menu" ID="{B5EACEDE-AF78-41FE-9276-130143FF5F9A}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_menu.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="531520185"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{17898E3D-F2AD-4C50-BDB1-15D7FA269039}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="DEN_menu" ID="{0D71EDF4-8F7F-4675-97AB-A2AA093382F2}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="48011.3541666667"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="DEN_menu" ID="{B5EACEDE-AF78-41FE-9276-130143FF5F9A}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{0AE02DED-78EE-4333-98B6-4F394FFF708F}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{721D9FCB-D5EA-4C18-80A3-0D97BFC93D3C}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="48011.3541666667"/>
 												</PropertyList>
 											</MusicCue>
 										</Local>
