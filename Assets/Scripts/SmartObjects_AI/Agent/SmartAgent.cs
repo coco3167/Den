@@ -16,8 +16,8 @@ namespace SmartObjects_AI.Agent
         
         [SerializeField] private SmartAgentData data;
 
-        [SerializeField] private SerializedDictionary<AgentDynamicParameter, ParameterValue> dynamicParametersStartValue;
-        [field : SerializeField, ReadOnly] public SerializedDictionary<AgentDynamicParameter, ParameterValue> dynamicParameters { get; private set; } = new();
+        [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> dynamicParametersStartValue;
+        [field : SerializeField, ReadOnly] public SerializedDictionary<AgentDynamicParameter, float> dynamicParameters { get; private set; } = new();
 
         private SmartObject[] m_smartObjects, m_smartObjectsOwning;
         private SmartObject m_previousSmartObject, m_smartObjectToUse;
@@ -40,7 +40,7 @@ namespace SmartObjects_AI.Agent
                 AgentDynamicParameter parameter = (AgentDynamicParameter)loop;
 
                 dynamicParameters.Add(parameter,
-                    dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value) ? value : new ParameterValue());
+                    dynamicParametersStartValue.GetValueOrDefault(parameter, 0.0f));
             }
             
             //Owning SmartObjects
@@ -65,8 +65,7 @@ namespace SmartObjects_AI.Agent
             AgentDynamicParameter[] keys = dynamicParameters.Keys.ToArray();
             keys.ForEach(x =>
             {
-                dynamicParameters[x].SetValue(
-                    dynamicParametersStartValue.TryGetValue(x, out ParameterValue value) ? value : new ParameterValue());
+                dynamicParameters[x] = dynamicParametersStartValue.GetValueOrDefault(x);
             });
         }
 
@@ -81,7 +80,7 @@ namespace SmartObjects_AI.Agent
         {
             foreach (AgentDynamicParameter parameter in data.dynamicParametersVariation.Keys)
             {
-                dynamicParameters[parameter].AddValue(data.dynamicParametersVariation[parameter]);
+                dynamicParameters[parameter] += data.dynamicParametersVariation[parameter];
             }
         }
 
@@ -93,7 +92,7 @@ namespace SmartObjects_AI.Agent
                 
             if (m_previousSmartObject != m_smartObjectToUse)
             {
-                m_previousSmartObject.FinishUse();
+                m_previousSmartObject.FinishUse(this);
                 m_previousSmartObject = m_smartObjectToUse;
                 animationAgent.FinishUseAnimation();
             }
@@ -129,9 +128,9 @@ namespace SmartObjects_AI.Agent
             return false;
         }
 
-        public void UpdateParameterValue(AgentDynamicParameter parameter, ParameterValue value)
+        public void UpdateParameterValue(AgentDynamicParameter parameter, float value)
         {
-            dynamicParameters[parameter].AddValue(value);
+            dynamicParameters[parameter] += value;
         }
     }
 }
