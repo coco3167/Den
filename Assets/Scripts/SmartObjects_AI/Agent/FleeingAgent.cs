@@ -17,7 +17,7 @@ namespace SmartObjects_AI.Agent
 
         private void FixedUpdate()
         {
-            transform.position = distance * (agent.transform.position - m_mouseManager.GetRawWorldMousePosition()).normalized;
+            transform.localPosition = distance * (agent.transform.position - m_mouseManager.GetRawWorldMousePosition()).normalized;
         }
 
         private void OnDrawGizmos()

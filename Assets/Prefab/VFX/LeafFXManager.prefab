@@ -69,7 +69,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.2
+  m_Radius: 0.09
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &151992121954477113
 PrefabInstance:
@@ -262,6 +262,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9043896109399452353}
     m_Modifications:
+    - target: {fileID: 3030560738936623075, guid: a235a6d092fdf7d4991e8565f648b065, type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030560738936623075, guid: a235a6d092fdf7d4991e8565f648b065, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030560738936623075, guid: a235a6d092fdf7d4991e8565f648b065, type: 3}
+      propertyPath: NoiseModule.scrollSpeed.scalar
+      value: 0.27
+      objectReference: {fileID: 0}
     - target: {fileID: 4795971373449751700, guid: a235a6d092fdf7d4991e8565f648b065, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1

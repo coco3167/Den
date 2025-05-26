@@ -33,7 +33,7 @@ namespace SmartObjects_AI
             Value = (smartAgent.dynamicParameters[AgentDynamicParameter.Tiredness].GetFloatValue() / Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position));
             if (smartAgent.IsUsing(smartObject))
             {
-                Debug.Log(Value, smartAgent);
+                Debug.Log("Rest" + Value);
                 return Value;
             }
 
@@ -41,7 +41,7 @@ namespace SmartObjects_AI
             // Debug.Log(smartAgent);
             Value *= ((smartObject.dynamicParameters[SmartObjectParameter.Usage].GetBoolValue() ? 0 : 1));
             // Debug.Log(smartObject.dynamicParameters[SmartObjectParameter.Usage].GetBoolValue());
-            Debug.Log(Value, smartAgent);
+            
             return Value;
         }
     }
@@ -54,7 +54,21 @@ namespace SmartObjects_AI
             Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
             float suspiscion = smartAgent.dynamicParameters[AgentDynamicParameter.Suspicion].GetFloatValue();
 
-            Value = 10 - Vector3.Distance(agentPos, mousePos) - suspiscion;
+            Value = 10 / Vector3.Distance(agentPos, mousePos) - suspiscion;
+            return Value;
+        }
+    }
+
+    public class Flee : BaseScoreCalcul
+    {
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            Vector3 agentPos = smartAgent.transform.position;
+            Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
+            float suspiscion = smartAgent.dynamicParameters[AgentDynamicParameter.Suspicion].GetFloatValue();
+            Debug.Log(Vector3.Distance(agentPos, mousePos));
+            Value = Mathf.Clamp(2 - Vector3.Distance(agentPos, mousePos),0,5)*100;
+            Debug.Log("Flee" + Value);
             return Value;
         }
     }
