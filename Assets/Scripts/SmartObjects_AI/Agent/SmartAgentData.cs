@@ -7,8 +7,8 @@ namespace SmartObjects_AI.Agent
     [Serializable, CreateAssetMenu(menuName = "SmartObject/New SmartAgentData", fileName = "New SmartAgentData")]
     public class SmartAgentData : ScriptableObject
     {
-        [field : SerializeField] public SerializedDictionary<AgentStaticParameter, ParameterValue> staticParameters { get; private set; }
-        [field : SerializeField] public SerializedDictionary<AgentDynamicParameter, ParameterValue> dynamicParametersVariation { get; private set; }
+        [field : SerializeField] public SerializedDictionary<AgentStaticParameter, float> staticParameters { get; private set; }
+        [field : SerializeField] public SerializedDictionary<AgentDynamicParameter, float> dynamicParametersVariation { get; private set; }
     }
     
     public enum AgentStaticParameter
@@ -25,7 +25,7 @@ namespace SmartObjects_AI.Agent
         Hide
     }
 
-    [Serializable]
+    /*[Serializable]
     public class ParameterValue
     {
         public enum ParameterValueType
@@ -92,5 +92,5 @@ namespace SmartObjects_AI.Agent
             if (valueType == ParameterValueType.None && other.valueType != ParameterValueType.None)
                 valueType = other.valueType;
         }
-    }
+    }*/
 }

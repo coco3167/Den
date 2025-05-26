@@ -8,7 +8,7 @@ namespace SmartObjects_AI
     [Serializable]
     public class WorldParameters
     { 
-        public SerializedDictionary<WorldParameterType, ParameterValue> parameters;
+        public SerializedDictionary<WorldParameterType, float> parameters;
         private MouseManager m_mouseManager;
 
         public WorldParameters(MouseManager mouseManager)
