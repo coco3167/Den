@@ -15,10 +15,10 @@ namespace SmartObjects_AI
         [SerializeField] private float gizmosRadius;
         [SerializeField] private SmartObjectData data;
 
-        [SerializeField] private SerializedDictionary<SmartObjectParameter, ParameterValue> dynamicParametersStartValue;
-        [field : SerializeField, ReadOnly] public SerializedDictionary<SmartObjectParameter, ParameterValue> dynamicParameters { get; private set; } = new();
+        [SerializeField] private SerializedDictionary<SmartObjectParameter, float> dynamicParametersStartValue;
+        [field : SerializeField, ReadOnly] public SerializedDictionary<SmartObjectParameter, float> dynamicParameters { get; private set; } = new();
 
-        private bool m_startedUse;
+        private List<SmartAgent> m_startedUseList;
         private SmartObjectParameter[] m_keys;
         
         private void Awake()
@@ -34,7 +34,7 @@ namespace SmartObjects_AI
                 parameter = (SmartObjectParameter)loop;
 
                 dynamicParameters.Add(parameter,
-                    dynamicParametersStartValue.TryGetValue(parameter, out ParameterValue value) ? value : new ParameterValue());
+                    dynamicParametersStartValue.GetValueOrDefault(parameter));
             }
         }
 
@@ -43,8 +43,7 @@ namespace SmartObjects_AI
             m_keys = dynamicParameters.Keys.ToArray();
             m_keys.ForEach(x =>
             {
-                dynamicParameters[x].SetValue(
-                    dynamicParametersStartValue.TryGetValue(x, out ParameterValue value) ? value : new ParameterValue());
+                dynamicParameters[x] = dynamicParametersStartValue.GetValueOrDefault(x);
             });
         }
 
@@ -63,36 +62,41 @@ namespace SmartObjects_AI
             animationAgent.SwitchAnimator(data.animatorController);
         }
 
-        public void FinishUse()
+        public void FinishUse(SmartAgent agent)
         {
-            m_startedUse = false;
+            m_startedUseList.Remove(agent);
         }
 
         public void Use(SmartAgent agent)
         {
-            if (!m_startedUse)
+            if (!m_startedUseList.Contains(agent))
             {
                 StartUse(agent.animationAgent);
-                m_startedUse = true;
+                m_startedUseList.Add(agent);
                 return;
             }
             
-            foreach (KeyValuePair<AgentDynamicParameter, ParameterValue> parameterEffect in data.parameterEffectOnAgent)
+            foreach (KeyValuePair<AgentDynamicParameter, float> parameterEffect in data.parameterEffectOnAgent)
             {
                 agent.UpdateParameterValue(parameterEffect.Key, parameterEffect.Value);
             }
 
-            foreach (KeyValuePair<SmartObjectParameter, ParameterValue> parameterEffect in data.dynamicParametersEffect)
+            foreach (KeyValuePair<SmartObjectParameter, float> parameterEffect in data.dynamicParametersEffect)
             {
-                dynamicParameters[parameterEffect.Key].AddValue(parameterEffect.Value);
+                dynamicParameters[parameterEffect.Key] += parameterEffect.Value;
             }
+        }
+
+        public bool HasRoomForUse()
+        {
+            return data.maxUser > m_startedUseList.Count;
         }
 
         public void DynamicParameterVariation()
         {
             foreach (SmartObjectParameter parameter in data.dynamicParametersVariation.Keys)
             {
-                dynamicParameters[parameter].AddValue(data.dynamicParametersVariation[parameter]);
+                dynamicParameters[parameter] += data.dynamicParametersVariation[parameter];
             }
         }
     }
