@@ -1,4 +1,6 @@
 using System.Collections;
+using Sinj;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Audio
@@ -23,6 +25,11 @@ namespace Audio
         [SerializeField] private AK.Wwise.Event angerStepsEvent;
         [SerializeField] private AK.Wwise.Event curiousStepsEvent;
         [SerializeField] private AK.Wwise.Event fearStepsEvent;
+        
+        [Title("Reaction Barks")]
+        [SerializeField] private AK.Wwise.Event angerReactionEvent;
+        [SerializeField] private AK.Wwise.Event curiousReactionEvent;
+        [SerializeField] private AK.Wwise.Event fearReactionEvent;
 
 
 
@@ -47,20 +54,17 @@ namespace Audio
         // Start is called once before the first execution of Update after the MonoBehaviour is created  
         void Start()
         {
-            StartCoroutine(TriggerOKBarkSequence());
+            //StartCoroutine(TriggerOKBarkSequence());
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                PostRandomMoodEvent();
-            }
+            //rien
         }
 
-        public void PostRandomMoodEvent()
+        public void PostRandomMoodEvent(GameObject target)
         {
-            randomMoodEvent.Post(this.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+            randomMoodEvent.Post(target.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
         }
 
         private IEnumerator TriggerOKBarkSequence()
@@ -93,6 +97,29 @@ namespace Audio
         public void PostMoodStepEvent(AK.Wwise.Event moodEvent)
         {
             moodEvent.Post(gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
+        }
+
+        public void PostMoodStepFromState(SinjAgent agent)
+        {
+            AK.Wwise.Event reactionEvent;
+            switch (agent.GetMainEmotion())
+            {
+                case Emotions.Curiosity:
+                    reactionEvent = curiousReactionEvent;
+                    break;
+                case Emotions.Fear:
+                    reactionEvent = fearReactionEvent;
+                    break;
+                case Emotions.Agression:
+                    reactionEvent = angerReactionEvent;
+                    break;
+                default:
+                    reactionEvent = curiousReactionEvent;
+                    break;
+            }
+            if(reactionEvent == null)
+                return;
+            reactionEvent.Post(agent.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnEventEnd);
         }
 
         private void StopAllEvents()

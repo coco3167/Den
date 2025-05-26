@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{62287BC5-0D1C-6C44-6F7D-FAEEDC09A1AE}",
+    "Hash": "{D3DC5671-DDA8-7779-4CAC-BC1AE89172E4}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -23,6 +23,14 @@
        "GUID": "{560D89A7-03C8-4F1A-8BF8-C69990F0FA00}",
        "LibName": "Wwise Channel Router",
        "LibId": "12517379"
+      },
+      {
+       "Id": "546281340",
+       "Name": "Recorder (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\[Effect Slot [1]: (Recorder)]\\Recorder (Custom)",
+       "GUID": "{93508361-BBA7-4851-9396-5E4C90FB4DEA}",
+       "LibName": "Wwise Recorder",
+       "LibId": "8650755"
       }
      ],
      "AudioDevices": [
@@ -83,6 +91,9 @@
        "Custom": [
         {
          "Id": "370170101"
+        },
+        {
+         "Id": "546281340"
         }
        ]
       }
@@ -250,6 +261,50 @@
       ]
      },
      {
+      "Id": "2248328396",
+      "Name": "DEN_State_TOD",
+      "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD",
+      "GUID": "{32B1AE65-D687-4FA3-8ACD-06DC274F66C3}",
+      "Color": "3",
+      "States": [
+       {
+        "Id": "354475675",
+        "Name": "DEN_ST_TOD_Day",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD\\DEN_ST_TOD_Day",
+        "GUID": "{8C7483EF-6E66-4CAC-AECB-F64A69FCEA6A}",
+        "Color": "3"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD\\None",
+        "GUID": "{0C25DF41-7451-4F5B-8CD3-1E37B3E9F968}",
+        "Color": "3"
+       },
+       {
+        "Id": "1758083905",
+        "Name": "DEN_ST_TOD_Morning",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD\\DEN_ST_TOD_Morning",
+        "GUID": "{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}",
+        "Color": "3"
+       },
+       {
+        "Id": "1822764695",
+        "Name": "DEN_ST_TOD_Night",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD\\DEN_ST_TOD_Night",
+        "GUID": "{E5651177-8597-4405-9543-A5179BF22D37}",
+        "Color": "3"
+       },
+       {
+        "Id": "3179366297",
+        "Name": "DEN_ST_TOD_Evening",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD\\DEN_ST_TOD_Evening",
+        "GUID": "{301D0269-A9F7-4079-99E6-921F35CE1806}",
+        "Color": "3"
+       }
+      ]
+     },
+     {
       "Id": "3079765046",
       "Name": "DEN_State_Mood",
       "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood",
@@ -361,6 +416,29 @@
         "Name": "DEN_SW_RM_Fear",
         "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_ReactionMood\\DEN_SW_RM_Fear",
         "GUID": "{FBD20FA9-0A2A-4E0B-A22A-88862FEF4CAF}",
+        "Color": "2"
+       }
+      ]
+     },
+     {
+      "Id": "2461695847",
+      "Name": "DEN_SW_Footsteps",
+      "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_Footsteps",
+      "GUID": "{51FFDA2B-0A35-4B09-8314-1BB1096626BC}",
+      "Color": "2",
+      "Switches": [
+       {
+        "Id": "57715291",
+        "Name": "DEN_SW_FS_Running",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_Footsteps\\DEN_SW_FS_Running",
+        "GUID": "{16812A59-0E29-479C-B766-92E10BA27360}",
+        "Color": "2"
+       },
+       {
+        "Id": "3564956079",
+        "Name": "DEN_SW_FS_Walking",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_Footsteps\\DEN_SW_FS_Walking",
+        "GUID": "{03D9483C-E2FC-45DA-BE7F-13D6F4A7F087}",
         "Color": "2"
        }
       ]
@@ -488,6 +566,6 @@
     ]
    }
   ],
-  "FileHash": "{1DDF30E9-630A-1FC8-01B8-686DF5B25659}"
+  "FileHash": "{2DCE6F4A-A085-E89C-5C29-83E600ED38DB}"
  }
 }

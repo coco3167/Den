@@ -7,7 +7,7 @@
 				<Property Name="OverrideColor" Type="bool" Value="True"/>
 			</PropertyList>
 			<ChildrenList>
-				<SwitchContainer Name="DEN_Amb" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" ShortID="964794751">
+				<SwitchContainer Name="DEN_AMB_Moods" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" ShortID="964794751">
 					<PropertyList>
 						<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
 						<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
@@ -45,7 +45,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<BlendContainer Name="DEN_Amb_Neutral" ID="{9B7C2336-284F-4B07-B17B-493A40D2D8F9}" ShortID="1003764909">
+						<BlendContainer Name="DEN_AMB_Neutral" ID="{9B7C2336-284F-4B07-B17B-493A40D2D8F9}" ShortID="1003764909">
 							<PropertyList>
 								<Property Name="BlendBehavior" Type="int16" Value="1"/>
 							</PropertyList>
@@ -64,6 +64,11 @@
 										<Property Name="IsStreamingEnabled" Type="bool">
 											<ValueList>
 												<Value>True</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -94,6 +99,11 @@
 										<Property Name="IsStreamingEnabled" Type="bool">
 											<ValueList>
 												<Value>True</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -128,7 +138,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-1</Value>
+												<Value>5</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -280,7 +290,7 @@
 								</BlendTrack>
 							</BlendTrackList>
 						</BlendContainer>
-						<SwitchContainer Name="DEN_Amb_SwitchGroup" ID="{0E9CD7E4-56E4-4FAE-8243-79EAE6D3183F}" ShortID="1030250815">
+						<SwitchContainer Name="DEN_AMB_SwitchGroup" ID="{0E9CD7E4-56E4-4FAE-8243-79EAE6D3183F}" ShortID="1030250815">
 							<PropertyList>
 								<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
@@ -402,11 +412,6 @@
 												<Property Name="IsStreamingEnabled" Type="bool">
 													<ValueList>
 														<Value>True</Value>
-													</ValueList>
-												</Property>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>3</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -598,6 +603,11 @@
 														<Value>True</Value>
 													</ValueList>
 												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -630,7 +640,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-14</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -661,6 +671,11 @@
 												<Property Name="IsStreamingEnabled" Type="bool">
 													<ValueList>
 														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-14</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -852,6 +867,11 @@
 														<Value>True</Value>
 													</ValueList>
 												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -884,7 +904,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-9</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1058,13 +1078,13 @@
 					<GroupingInfo>
 						<GroupingBehaviorList>
 							<GroupingBehavior>
-								<ItemRef Name="DEN_Amb_Neutral" ID="{9B7C2336-284F-4B07-B17B-493A40D2D8F9}"/>
+								<ItemRef Name="DEN_AMB_Neutral" ID="{9B7C2336-284F-4B07-B17B-493A40D2D8F9}"/>
 								<PropertyList>
 									<Property Name="ContinuePlay" Type="bool" Value="True"/>
 								</PropertyList>
 							</GroupingBehavior>
 							<GroupingBehavior>
-								<ItemRef Name="DEN_Amb_SwitchGroup" ID="{0E9CD7E4-56E4-4FAE-8243-79EAE6D3183F}"/>
+								<ItemRef Name="DEN_AMB_SwitchGroup" ID="{0E9CD7E4-56E4-4FAE-8243-79EAE6D3183F}"/>
 								<PropertyList>
 									<Property Name="ContinuePlay" Type="bool" Value="True"/>
 								</PropertyList>
@@ -1074,13 +1094,698 @@
 							<Grouping>
 								<SwitchRef Name="DEN_ST_Amb_Playing" ID="{591B604F-ED42-451A-9D6A-DB7A0655879F}"/>
 								<ItemList>
-									<ItemRef Name="DEN_Amb_SwitchGroup" ID="{0E9CD7E4-56E4-4FAE-8243-79EAE6D3183F}"/>
-									<ItemRef Name="DEN_Amb_Neutral" ID="{9B7C2336-284F-4B07-B17B-493A40D2D8F9}"/>
+									<ItemRef Name="DEN_AMB_SwitchGroup" ID="{0E9CD7E4-56E4-4FAE-8243-79EAE6D3183F}"/>
+									<ItemRef Name="DEN_AMB_Neutral" ID="{9B7C2336-284F-4B07-B17B-493A40D2D8F9}"/>
 								</ItemList>
 							</Grouping>
 						</GroupingList>
 					</GroupingInfo>
 				</SwitchContainer>
+				<SwitchContainer Name="DEN_TOD" ID="{17016375-1FEF-43B5-8E8C-66D7B8B60E44}" ShortID="684055458">
+					<PropertyList>
+						<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>2</Value>
+							</ValueList>
+						</Property>
+						<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="AmbienceConversionSettings" ID="{34A3134F-FEBD-4C1D-BEAF-524D3ABDA36F}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="None" ID="{0C25DF41-7451-4F5B-8CD3-1E37B3E9F968}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="DEN_State_TOD" ID="{32B1AE65-D687-4FA3-8ACD-06DC274F66C3}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="DEN_AMB_TOD_Day_01" ID="{D7F72CE7-5E19-4C09-A865-562F477A0479}" ShortID="591722012">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_TOD_Day_01" ID="{DD27C4B5-6C7D-4FA9-90DC-9974D96BD3E6}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_TOD_Day_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="32943555"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_TOD_Day_01" ID="{DD27C4B5-6C7D-4FA9-90DC-9974D96BD3E6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DEN_AMB_TOD_Evening_01" ID="{A5EAD272-480A-4041-8CDF-767974DF91F8}" ShortID="385312358">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_TOD_Evening_01" ID="{4EF41691-84CE-4687-90F8-D763877F8B32}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_TOD_Evening_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="370277972"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_TOD_Evening_01" ID="{4EF41691-84CE-4687-90F8-D763877F8B32}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DEN_AMB_TOD_Morning_01" ID="{1ED2DE05-B4EE-4A44-8646-05B1AAAA5CAE}" ShortID="219379519">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_TOD_Morning_01" ID="{8568686C-C955-4193-9BFE-1358DDB58E9D}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_TOD_Morning_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="802547528"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_TOD_Morning_01" ID="{8568686C-C955-4193-9BFE-1358DDB58E9D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DEN_AMB_TOD_Night_01" ID="{D449E8FA-E886-4C0D-B883-DB9FF3E2B3CF}" ShortID="800008356">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_TOD_Night_01" ID="{31028506-5F95-484B-85CB-A5A71523BE20}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_TOD_Night_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="902305525"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_TOD_Night_01" ID="{31028506-5F95-484B-85CB-A5A71523BE20}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="DEN_AMB_TOD_Morning_01" ID="{1ED2DE05-B4EE-4A44-8646-05B1AAAA5CAE}"/>
+								<PropertyList>
+									<Property Name="FadeInTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="DEN_AMB_TOD_Evening_01" ID="{A5EAD272-480A-4041-8CDF-767974DF91F8}"/>
+								<PropertyList>
+									<Property Name="FadeInTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="DEN_AMB_TOD_Day_01" ID="{D7F72CE7-5E19-4C09-A865-562F477A0479}"/>
+								<PropertyList>
+									<Property Name="FadeInTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="DEN_AMB_TOD_Night_01" ID="{D449E8FA-E886-4C0D-B883-DB9FF3E2B3CF}"/>
+								<PropertyList>
+									<Property Name="FadeInTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_TOD_Evening" ID="{301D0269-A9F7-4079-99E6-921F35CE1806}"/>
+								<ItemList>
+									<ItemRef Name="DEN_AMB_TOD_Evening_01" ID="{A5EAD272-480A-4041-8CDF-767974DF91F8}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_TOD_Night" ID="{E5651177-8597-4405-9543-A5179BF22D37}"/>
+								<ItemList>
+									<ItemRef Name="DEN_AMB_TOD_Night_01" ID="{D449E8FA-E886-4C0D-B883-DB9FF3E2B3CF}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_TOD_Morning" ID="{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}"/>
+								<ItemList>
+									<ItemRef Name="DEN_AMB_TOD_Morning_01" ID="{1ED2DE05-B4EE-4A44-8646-05B1AAAA5CAE}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="DEN_ST_TOD_Day" ID="{8C7483EF-6E66-4CAC-AECB-F64A69FCEA6A}"/>
+								<ItemList>
+									<ItemRef Name="DEN_AMB_TOD_Day_01" ID="{D7F72CE7-5E19-4C09-A865-562F477A0479}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<RandomSequenceContainer Name="DEN_AMB_RandomNoises" ID="{19D13256-72CF-4867-8F22-F07FC730B0FD}" ShortID="206189544">
+					<PropertyList>
+						<Property Name="3DPosition" Type="int16" Value="1"/>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.5"/>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+						<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+						<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+						<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{D83290F1-94C2-4273-9298-F935C67743D3}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="8"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+						<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="ForestNoises" ID="{E5E37CA7-4AA4-4966-8E53-EC696038D49D}" WorkUnitID="{4D8EE58E-8CFA-4860-A69D-33BF5CF8C67A}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Ambience" ID="{F664A27B-9528-433E-BB7B-EDA25DD34C03}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="DEN_AMB_RandomNoises_01" ID="{86143763-62EF-420B-97C4-30CB4E865DA4}" ShortID="1056584915">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_RandomNoises_01" ID="{723E6B49-043F-4554-86CA-E94C3EBEE921}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_RandomNoises_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="12744402"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_RandomNoises_01" ID="{723E6B49-043F-4554-86CA-E94C3EBEE921}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DEN_AMB_RandomNoises_02" ID="{2468595C-39C0-4605-9600-5FB0E893B962}" ShortID="99304968">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_RandomNoises_02" ID="{F0373FB0-A43C-43EC-B392-B58FAB27EF50}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_RandomNoises_02.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1025430363"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_RandomNoises_02" ID="{F0373FB0-A43C-43EC-B392-B58FAB27EF50}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DEN_AMB_RandomNoises_03" ID="{839015A9-C7D3-44FF-ACA9-AC8AE7D09C6E}" ShortID="987512537">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_RandomNoises_03" ID="{DFF93A4C-43E5-4EF0-B5F9-14D014E7E1F4}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_RandomNoises_03.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="838622351"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_RandomNoises_03" ID="{DFF93A4C-43E5-4EF0-B5F9-14D014E7E1F4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DEN_AMB_RandomNoises_04" ID="{586EFE0A-2571-427D-90E5-A9EABBD9CFAA}" ShortID="16700975">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_RandomNoises_04" ID="{B99B0CAA-167C-4E9B-A469-0818ABB2313B}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_RandomNoises_04.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="292186112"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_RandomNoises_04" ID="{B99B0CAA-167C-4E9B-A469-0818ABB2313B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DEN_AMB_RandomNoises_05" ID="{6B6C75C0-18A3-423D-A241-AE12DA9D3B68}" ShortID="438231583">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_RandomNoises_05" ID="{E71220D0-5018-4958-BF5C-648DCB691E68}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_RandomNoises_05.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="771888951"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_RandomNoises_05" ID="{E71220D0-5018-4958-BF5C-648DCB691E68}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DEN_AMB_RandomNoises_06" ID="{5EC9DE77-917B-4C28-9A26-50222AFF206D}" ShortID="795535217">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DEN_AMB_RandomNoises_06" ID="{89360C1A-59EF-487C-9FCA-0A8FB15D2741}">
+									<Language>SFX</Language>
+									<AudioFile>DEN_AMB_RandomNoises_06.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1054217432"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DEN_AMB_RandomNoises_06" ID="{89360C1A-59EF-487C-9FCA-0A8FB15D2741}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{19A4F472-DF46-4450-AA54-2AE3848600F5}"/>
+						<Position Name="" ID="{F1E70D66-FD24-4743-9359-359511DB540E}">
+							<PropertyList>
+								<Property Name="NewPathForEachSound" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismRandomOrSequence" Type="int16" Value="1"/>
+							</PropertyList>
+							<ChildrenList>
+								<Path2D Name="DEN_AMB_RandomNoises_Path" ID="{0D221964-D6C7-4B4B-86C3-121F45FCA4D5}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>-100</XPos>
+											<YPos>3.89611</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_01" ID="{3CB0624F-F9AA-4F91-950D-BDC683D30F37}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>100</XPos>
+											<YPos>0.86581</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_02" ID="{142B5E0E-81DC-401B-BE07-E3A2A0F5C2EA}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>-29.93348</XPos>
+											<YPos>35.49784</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_03" ID="{16C59FCC-2C7E-4CB0-A88B-1111063B9B7D}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>36.14191</XPos>
+											<YPos>44.15585</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_04" ID="{7F1DBF1B-942E-4B28-8F53-F0B1D97F48A6}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>-68.95787</XPos>
+											<YPos>87.87879</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_05" ID="{DA6E76A5-26E4-49D6-B51A-BCB9A7C01D57}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>52.54989</XPos>
+											<YPos>90.0433</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_06" ID="{DB414890-55BC-408A-B6A2-7AB4877F9012}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>-70.28825</XPos>
+											<YPos>-77.48917</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_07" ID="{84AD77EB-5B62-4146-833B-4F157DE64F37}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>60.08869</XPos>
+											<YPos>-90.47618</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_08" ID="{26F56C72-8104-4AE0-AEA2-0CE16FCE3CDB}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>-64.52328</XPos>
+											<YPos>6.06061</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+										<Point>
+											<XPos>-92.9046563192905</XPos>
+											<YPos>12.1212121212121</YPos>
+											<Flags>0</Flags>
+											<Time>5000</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_09" ID="{301E4424-B62F-40DB-9469-C6B0A077EAC3}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>29.93348</XPos>
+											<YPos>-1.7316</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+										<Point>
+											<XPos>96.89579</XPos>
+											<YPos>-0.4329</YPos>
+											<Flags>0</Flags>
+											<Time>5000</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_10" ID="{A2879AED-F99F-4A26-98EE-605A6EA1AE4B}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>-48.55876</XPos>
+											<YPos>21.64503</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+										<Point>
+											<XPos>-19.7339246119734</XPos>
+											<YPos>-23.3766233766234</YPos>
+											<Flags>0</Flags>
+											<Time>2500</Time>
+										</Point>
+										<Point>
+											<XPos>38.8026607538803</XPos>
+											<YPos>-36.3636363636364</YPos>
+											<Flags>0</Flags>
+											<Time>5000</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_11" ID="{80EFE1B9-DA69-4C0E-BAFC-E667A7F1FB08}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>41.46341</XPos>
+											<YPos>20.77923</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+										<Point>
+											<XPos>73.8359201773836</XPos>
+											<YPos>-29.004329004329</YPos>
+											<Flags>0</Flags>
+											<Time>2500</Time>
+										</Point>
+										<Point>
+											<XPos>-8.64745011086474</XPos>
+											<YPos>-46.7532467532467</YPos>
+											<Flags>0</Flags>
+											<Time>5000</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_12" ID="{20905207-FAC9-4F5A-8022-0E79A2691929}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>-100</XPos>
+											<YPos>3.89611</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+										<Point>
+											<XPos>-69.4013303769401</XPos>
+											<YPos>53.2467532467533</YPos>
+											<Flags>0</Flags>
+											<Time>2500</Time>
+										</Point>
+										<Point>
+											<XPos>-2.88248337028824</XPos>
+											<YPos>70.1298701298701</YPos>
+											<Flags>0</Flags>
+											<Time>5000</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="DEN_AMB_RandomNoises_Path_13" ID="{08C12442-6939-4221-9AC7-BC8B1CABECA5}">
+									<PropertyList>
+										<Property Name="RandomX" Type="Real64" Value="50"/>
+										<Property Name="RandomY" Type="Real64" Value="50"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>37.47228</XPos>
+											<YPos>-30.30302</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+										<Point>
+											<XPos>87.5831485587583</XPos>
+											<YPos>-4.76190476190476</YPos>
+											<Flags>0</Flags>
+											<Time>2500</Time>
+										</Point>
+										<Point>
+											<XPos>76.4966740576497</XPos>
+											<YPos>24.6753246753247</YPos>
+											<Flags>0</Flags>
+											<Time>5000</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+							</ChildrenList>
+						</Position>
+					</PositioningInfo>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

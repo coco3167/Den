@@ -1,33 +1,39 @@
-using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MouseManager : MonoBehaviour
+public class MouseManager : MonoBehaviour, IGameStateListener
 {
     [SerializeField] private Rigidbody mouseRigidBody;
     [SerializeField] private LayerMask terrainLayerMask;
-
-    [SerializeField, ReadOnly] private Vector2 deltaSum;
-
+    
     private Camera m_camera;
     private Vector2 m_otherMoveValue;
     private bool m_isOtherMoving;
 
-    
-    private void Awake()
-    {
-        GameManager.Instance.GameReady += delegate
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            m_camera = GameManager.Instance.GetCamera();
-            Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
-        };
-    }
+    private Vector3 m_movementNewPos;
+    private RaycastHit m_hit;
 
     private void FixedUpdate()
     {
+        if(GameManager.Instance.IsPaused)
+            return;
+        
         if(m_isOtherMoving)
             MoveRigidBody(m_otherMoveValue);
+    }
+
+    public void OnGameReady(object sender, EventArgs eventArgs)
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        m_camera = GameManager.Instance.GetCamera();
+        Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
+        mouseRigidBody.MovePosition(new Vector3(1,1,-3));
+    }
+
+    public void OnGameEnded(object sender, EventArgs eventArgs)
+    {
+        // Nothing there
     }
 
     public void OnMouseMoved(Vector2 value)
@@ -49,13 +55,17 @@ public class MouseManager : MonoBehaviour
 
     private void MoveRigidBody(Vector2 movement)
     {
-        Vector3 newPos = mouseRigidBody.position + m_camera.transform.TransformDirection(new Vector3(movement.x, 0.0f, movement.y)) * Time.deltaTime;
-        Physics.Raycast(newPos + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 100, terrainLayerMask);
-        if(!hit.collider)
+        movement *= Time.deltaTime;
+        if(movement == Vector2.zero)
             return;
-        newPos.y = hit.point.y + mouseRigidBody.transform.localScale.y/2;
+        m_movementNewPos = mouseRigidBody.position + m_camera.transform.TransformDirection(new Vector3(movement.x, 0.0f, movement.y));
         
-        mouseRigidBody.MovePosition(newPos);
+        Physics.Raycast(m_movementNewPos + Vector3.up * 10f, Vector3.down, out m_hit, 100, terrainLayerMask);
+        if(!m_hit.collider)
+            return;
+        m_movementNewPos.y = m_hit.point.y + mouseRigidBody.transform.localScale.y/2;
+
+        mouseRigidBody.MovePosition(m_movementNewPos);
     }
 
     public float ObjectDistanceToMouse(Vector3 otherPos)

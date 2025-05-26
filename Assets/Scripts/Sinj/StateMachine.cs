@@ -10,8 +10,8 @@ namespace Sinj
 
         public void ResetBehavior(SinjAgent agent)
         {
-            if(CurrentBehavior  && CurrentBehavior.IsFinished(agent))
-                CurrentBehavior = null;
+            // if(CurrentBehavior  && CurrentBehavior.IsFinished(agent))
+            //     CurrentBehavior = null;
         }
 
         public bool HasBehavior(bool active = false)
@@ -30,11 +30,11 @@ namespace Sinj
             CurrentBehavior = behavior;
         }
 
-        public void ChoosePassivBehavior(List<SinjPassivBehavior> passivBehaviors)
-        {
-            int index = Random.Range(0, passivBehaviors.Count);
-            CurrentBehavior = passivBehaviors[index];
-        }
+        // public void ChoosePassivBehavior(List<SinjPassivBehavior> passivBehaviors)
+        // {
+        //     int index = Random.Range(0, passivBehaviors.Count);
+        //     CurrentBehavior = passivBehaviors[index];
+        // }
 
         public override string ToString()
         {

@@ -21,8 +21,9 @@ Shader "Custom/Grass"
             // This line defines the name of the vertex shader. 
             #pragma vertex vp
 			#pragma fragment fp
+            #include <UnityShaderUtilities.cginc>
 
-			// Unity has a lot of built in useful graphics functions, all this stuff is on github which you can look at and read there aren't really any
+            // Unity has a lot of built in useful graphics functions, all this stuff is on github which you can look at and read there aren't really any
 			// docs on it lmao
 
 			//#include "UnityPBSLighting.cginc"
@@ -96,7 +97,7 @@ Shader "Custom/Grass"
 
 				// Since we are preparing to send data over to the fragment shader, we finalize the normal by converting it to world space
 				// and it will be interpolated across triangles in the fragment shader, you kinda don't really need to worry about this since it just works (tm)
-                
+				
 				i.normal = normalize(mul((float3x3)unity_ObjectToWorld, v.normal));
 				
 				// This is for the "physics" this is what controls the curvature/stiffness of the hair, the higher the exponent the more the displacement
@@ -165,7 +166,7 @@ Shader "Custom/Grass"
 				// What's going on here is we take the dot product between the normal and the direction of the main Unity light source (the sun) which returns a value
 				// between -1 to 1, which is then clamped to 0 to 1 by the DotClamped function provided by Unity, we then convert the 0 to 1 to 0.5 to 1 with the following
 				// multiplication and addition.
-				float ndotl = DotClamped(i.normal, _WorldSpaceLightPos0) * 0.5f + 0.5f;
+				float ndotl = clamp(0, 1, dot(i.normal, _WorldSpaceLightPos0)) * 0.5f + 0.5f;
 
 				// Valve's half lambert squares the ndotl output, which is going to bring values down, once again you can see how this looks on desmos by graphing x^2
 				ndotl = ndotl * ndotl;

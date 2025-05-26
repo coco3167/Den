@@ -13,7 +13,7 @@ namespace Sinj
     {
         [Header("Behaviors")]
         [SerializeField] private List<SinjActiveBehavior> activeBehaviors;
-        [SerializeField] private List<SinjPassivBehavior> passiveBehaviors;
+        //[SerializeField] private List<SinjPassivBehavior> passiveBehaviors;
         
         [Header("Emotions")]
         [SerializeField, ReadOnly] private SerializedDictionary<Emotions, float> emotions;
@@ -81,16 +81,16 @@ namespace Sinj
             {
                 foreach (SinjActiveBehavior behavior in activeBehaviors)
                 {
-                    if (!behavior.IsApplying(this))
-                        continue;
-                    behavior.ApplyReaction(this);
+                    // if (!behavior.IsApplying(this))
+                    //     continue;
+                    //behavior.ApplyReaction(this);
                 }
                 
                 if (!m_stateMachine.HasBehavior())
                 {
                     SetCalmAgent();
-                    m_stateMachine.ChoosePassivBehavior(passiveBehaviors);
-                    m_stateMachine.CurrentBehavior.ApplyReaction(this);
+                    //m_stateMachine.ChoosePassivBehavior(passiveBehaviors);
+                    //m_stateMachine.CurrentBehavior.ApplyReaction(this);
                 }
             }
             
@@ -120,6 +120,16 @@ namespace Sinj
         public float GetEmotion(Emotions emotion)
         {
             return emotions[emotion];
+        }
+
+        public Emotions GetMainEmotion()
+        {
+            if (emotions[Emotions.Curiosity] < emotions[Emotions.Agression])
+            {
+                return emotions[Emotions.Agression] < emotions[Emotions.Fear] ? Emotions.Fear : Emotions.Agression;
+            }
+
+            return emotions[Emotions.Curiosity] < emotions[Emotions.Fear] ? Emotions.Fear : Emotions.Curiosity;
         }
         #endregion
 
