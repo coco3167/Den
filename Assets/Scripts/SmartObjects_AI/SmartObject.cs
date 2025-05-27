@@ -18,7 +18,7 @@ namespace SmartObjects_AI
         [SerializeField] private SerializedDictionary<SmartObjectParameter, float> dynamicParametersStartValue;
         public Dictionary<SmartObjectParameter, float> dynamicParameters { get; private set; } = new();
 
-        private List<SmartAgent> m_startedUseList;
+        private List<SmartAgent> m_startedUseList = new();
         private SmartObjectParameter[] m_keys;
         
         private void Awake()
