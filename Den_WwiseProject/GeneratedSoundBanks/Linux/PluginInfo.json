@@ -1,0 +1,54 @@
+{
+ "PluginInfo": {
+  "Platform": "Linux",
+  "BasePlatform": "Linux",
+  "PluginLibs": [
+   {
+    "LibName": "Wwise Parametric EQ",
+    "LibId": "6881283",
+    "Type": "Effect",
+    "DLL": "AkParametricEQ",
+    "StaticLib": "AkParametricEQFX"
+   },
+   {
+    "LibName": "Wwise Recorder",
+    "LibId": "8650755",
+    "Type": "Effect",
+    "DLL": "AkRecorder",
+    "StaticLib": "AkRecorderFX"
+   },
+   {
+    "LibName": "Wwise Pitch Shifter",
+    "LibId": "8912899",
+    "Type": "Effect",
+    "DLL": "AkPitchShifter",
+    "StaticLib": "AkPitchShifterFX"
+   },
+   {
+    "LibName": "Wwise Synth One",
+    "LibId": "9699330",
+    "Type": "Source",
+    "DLL": "AkSynthOne",
+    "StaticLib": "AkSynthOneSource"
+   },
+   {
+    "LibName": "System",
+    "LibId": "11403271",
+    "Type": "AudioDevice"
+   },
+   {
+    "LibName": "No Output",
+    "LibId": "11862023",
+    "Type": "AudioDevice"
+   },
+   {
+    "LibName": "Wwise Channel Router",
+    "LibId": "12517379",
+    "Type": "Effect",
+    "DLL": "AkChannelRouter",
+    "StaticLib": "AkChannelRouterFX"
+   }
+  ],
+  "FileHash": "{F6B12F58-2AE7-9782-38FF-11FAEF1C7005}"
+ }
+}

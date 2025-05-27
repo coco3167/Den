@@ -84,6 +84,17 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{88A5AAFD-42F9-48B1-B0AC-1DCD357E598D}" ShortID="54693574">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_Music_Menu" ID="{7FDF9561-A740-4286-AC98-47BCE1F8A1FE}" WorkUnitID="{4B98F839-4D9A-4DE9-90DE-3577758CF9F9}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="GameSyncs" ID="{941045A8-5065-4DEA-851C-C25EE47C2A9E}">
