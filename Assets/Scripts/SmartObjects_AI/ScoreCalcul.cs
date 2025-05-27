@@ -31,19 +31,19 @@ namespace SmartObjects_AI
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             Value = (smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness) / Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position));
-            if (smartAgent.IsUsing(smartObject))
-            {
-                Debug.Log("Rest" + Value);
-                return Value;
-            }
+            // if (smartAgent.IsUsing(smartObject))
+            // {
+            //     Debug.Log("Rest" + Value);
+            //     return Value;
+            // }
 
             // Debug.Log(Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position));
             // Debug.Log(smartAgent);
             
-            // TODO changer ça Value *= ((smartObject.dynamicParameters[SmartObjectParameter.Usage].GetBoolValue() ? 0 : 1));
+            // TODO changer ça Value *= ((smartObject.GetDynamicParameter[SmartObjectParameter.Usage].GetBoolValue() ? 0 : 1));
             // !!!!
             
-            // Debug.Log(smartObject.dynamicParameters[SmartObjectParameter.Usage].GetBoolValue());
+            // Debug.Log(smartObject.GetDynamicParameter[SmartObjectParameter.Usage].GetBoolValue());
             
             return Value;
         }
