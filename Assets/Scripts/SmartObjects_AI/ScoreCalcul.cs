@@ -21,7 +21,7 @@ namespace SmartObjects_AI
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            Value = Vector3.Distance(smartObject.usingPoint.position, GameManager.Instance.worldParameters.GetMousePositon()) * smartAgent.dynamicParameters[AgentDynamicParameter.Suspicion];
+            Value = Vector3.Distance(smartObject.usingPoint.position, GameManager.Instance.worldParameters.GetMousePositon()) * smartAgent.GetDynamicParameter(AgentDynamicParameter.Suspicion);
             return Value;
         }
     }
@@ -30,7 +30,7 @@ namespace SmartObjects_AI
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            Value = (smartAgent.dynamicParameters[AgentDynamicParameter.Tiredness] / Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position));
+            Value = (smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness) / Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position));
             // if (smartAgent.IsUsing(smartObject))
             // {
             //     Debug.Log("Rest" + Value);
@@ -40,10 +40,10 @@ namespace SmartObjects_AI
             // Debug.Log(Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position));
             // Debug.Log(smartAgent);
             
-            // TODO changer ça Value *= ((smartObject.dynamicParameters[SmartObjectParameter.Usage].GetBoolValue() ? 0 : 1));
+            // TODO changer ça Value *= ((smartObject.GetDynamicParameter[SmartObjectParameter.Usage].GetBoolValue() ? 0 : 1));
             // !!!!
             
-            // Debug.Log(smartObject.dynamicParameters[SmartObjectParameter.Usage].GetBoolValue());
+            // Debug.Log(smartObject.GetDynamicParameter[SmartObjectParameter.Usage].GetBoolValue());
             
             return Value;
         }
@@ -55,7 +55,7 @@ namespace SmartObjects_AI
         {
             Vector3 agentPos = smartAgent.transform.position;
             Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
-            float suspiscion = smartAgent.dynamicParameters[AgentDynamicParameter.Suspicion];
+            float suspiscion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Suspicion);
 
             Value = 10 / Vector3.Distance(agentPos, mousePos) - suspiscion;
             return Value;
@@ -68,7 +68,7 @@ namespace SmartObjects_AI
         {
             Vector3 agentPos = smartAgent.transform.position;
             Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
-            float suspiscion = smartAgent.dynamicParameters[AgentDynamicParameter.Suspicion];
+            float suspiscion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Suspicion);
             Debug.Log(Vector3.Distance(agentPos, mousePos));
             Value = Mathf.Clamp(2 - Vector3.Distance(agentPos, mousePos),0,5)*100;
             Debug.Log("Flee" + Value);
