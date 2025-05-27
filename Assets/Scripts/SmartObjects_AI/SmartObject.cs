@@ -16,7 +16,7 @@ namespace SmartObjects_AI
         [SerializeField] private SmartObjectData data;
 
         [SerializeField] private SerializedDictionary<SmartObjectParameter, float> dynamicParametersStartValue;
-        public Dictionary<SmartObjectParameter, float> dynamicParameters { get; private set; } = new();
+        private Dictionary<SmartObjectParameter, float> m_dynamicParameters = new();
 
         private List<SmartAgent> m_startedUseList = new();
         private SmartObjectParameter[] m_keys;
@@ -33,17 +33,17 @@ namespace SmartObjects_AI
             {
                 parameter = (SmartObjectParameter)loop;
 
-                dynamicParameters.Add(parameter,
+                m_dynamicParameters.Add(parameter,
                     dynamicParametersStartValue.GetValueOrDefault(parameter));
             }
         }
 
         public void Reload()
         {
-            m_keys = dynamicParameters.Keys.ToArray();
+            m_keys = m_dynamicParameters.Keys.ToArray();
             m_keys.ForEach(x =>
             {
-                dynamicParameters[x] = dynamicParametersStartValue.GetValueOrDefault(x);
+                m_dynamicParameters[x] = dynamicParametersStartValue.GetValueOrDefault(x);
             });
         }
 
@@ -83,7 +83,7 @@ namespace SmartObjects_AI
 
             foreach (KeyValuePair<SmartObjectParameter, float> parameterEffect in data.dynamicParametersEffect)
             {
-                dynamicParameters[parameterEffect.Key] += parameterEffect.Value;
+                m_dynamicParameters[parameterEffect.Key] += parameterEffect.Value;
             }
         }
 
@@ -92,12 +92,29 @@ namespace SmartObjects_AI
             return data.maxUser > m_startedUseList.Count;
         }
 
+        #region DynamicParameters
+        public float GetDynamicParameter(SmartObjectParameter parameter)
+        {
+            return m_dynamicParameters[parameter];
+        }
+        
+        public void SetDynamicParameter(SmartObjectParameter parameter, float value)
+        {
+            m_dynamicParameters[parameter] = Math.Clamp(value, 0, 100);
+        }
+
+        public void AddDynamicParameter(SmartObjectParameter parameter, float value)
+        {
+            SetDynamicParameter(parameter, m_dynamicParameters[parameter] + value);
+        }
+        
         public void DynamicParameterVariation()
         {
             foreach (SmartObjectParameter parameter in data.dynamicParametersVariation.Keys)
             {
-                dynamicParameters[parameter] += data.dynamicParametersVariation[parameter];
+                AddDynamicParameter(parameter, data.dynamicParametersVariation[parameter]);
             }
         }
+        #endregion
     }
 }

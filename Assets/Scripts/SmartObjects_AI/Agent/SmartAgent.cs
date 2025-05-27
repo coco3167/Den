@@ -17,7 +17,7 @@ namespace SmartObjects_AI.Agent
         [SerializeField] private SmartAgentData data;
 
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> dynamicParametersStartValue;
-        [field : SerializeField, ReadOnly] public SerializedDictionary<AgentDynamicParameter, float> dynamicParameters { get; private set; } = new();
+        [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> m_dynamicParameters = new();
 
         private SmartObject[] m_smartObjects;
         private SmartObject m_previousSmartObject, m_smartObjectToUse;
@@ -39,7 +39,7 @@ namespace SmartObjects_AI.Agent
             {
                 AgentDynamicParameter parameter = (AgentDynamicParameter)loop;
 
-                dynamicParameters.Add(parameter,
+                m_dynamicParameters.Add(parameter,
                     dynamicParametersStartValue.GetValueOrDefault(parameter, 0.0f));
             }
         }
@@ -59,10 +59,10 @@ namespace SmartObjects_AI.Agent
         {
             transform.localPosition = Vector3.zero;
             
-            AgentDynamicParameter[] keys = dynamicParameters.Keys.ToArray();
+            AgentDynamicParameter[] keys = m_dynamicParameters.Keys.ToArray();
             keys.ForEach(x =>
             {
-                dynamicParameters[x] = dynamicParametersStartValue.GetValueOrDefault(x);
+                m_dynamicParameters[x] = dynamicParametersStartValue.GetValueOrDefault(x);
             });
         }
 
@@ -77,7 +77,7 @@ namespace SmartObjects_AI.Agent
         {
             foreach (AgentDynamicParameter parameter in data.dynamicParametersVariation.Keys)
             {
-                dynamicParameters[parameter] += data.dynamicParametersVariation[parameter];
+                m_dynamicParameters[parameter] += data.dynamicParametersVariation[parameter];
             }
         }
 
@@ -112,9 +112,28 @@ namespace SmartObjects_AI.Agent
             return m_smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;
         }
 
+        #region DynamicParameters
+
+        public float GetDynamicParameter(AgentDynamicParameter parameter)
+        {
+            return m_dynamicParameters[parameter];
+        }
+        
+        public void SetDynamicParameter(AgentDynamicParameter parameter, float value)
+        {
+            m_dynamicParameters[parameter] = Math.Clamp(value, 0, 100);
+        }
+
+        public void AddDynamicParameter(AgentDynamicParameter parameter, float value)
+        {
+            SetDynamicParameter(parameter, m_dynamicParameters[parameter] + value);
+        }
+        
         public void UpdateParameterValue(AgentDynamicParameter parameter, float value)
         {
-            dynamicParameters[parameter] += value;
+            m_dynamicParameters[parameter] += value;
         }
+        #endregion
+        
     }
 }
