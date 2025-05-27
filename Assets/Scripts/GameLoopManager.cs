@@ -5,13 +5,12 @@ using Sirenix.Utilities;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class GameLoopManager : MonoBehaviour
+public class GameLoopManager : MonoBehaviour, IPausable
 {
-    [SerializeField] private Skybox skybox;
     [SerializeField] private float gameLoopDuration;
     
     private Animator m_animator;
-    private Tween m_skyboxTween;
+    private Tween m_tween;
     public event EventHandler GameReady, GameEnded;
 
     public static GameLoopManager Instance;
@@ -29,30 +28,27 @@ public class GameLoopManager : MonoBehaviour
         Instance = this;
         
         m_animator = GetComponent<Animator>();
-        m_skyboxTween = skybox.material.DOFloat(300, TimeOfDay, gameLoopDuration);
-        m_skyboxTween.Pause();
-        m_skyboxTween.SetEase(Ease.Linear);
+        m_tween = DOTween.To(() => Shader.GetGlobalFloat(TimeOfDay), (value) => Shader.SetGlobalFloat(TimeOfDay, value), 300, gameLoopDuration);
+        m_tween.Pause();
+        m_tween.SetEase(Ease.Linear);
         
         IGameStateListener[] gameStateListeners = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).OfType<IGameStateListener>().ToArray();
         gameStateListeners.ForEach(x => GameReady += x.OnGameReady);
         gameStateListeners.ForEach(x => GameEnded += x.OnGameEnded);
-
-        
     }
 
     public void OnGameLoopReady()
     {
-        skybox.material.SetFloat(TimeOfDay, 0);
-        Debug.Log(skybox.material.GetFloat(TimeOfDay));
+        Shader.SetGlobalFloat(TimeOfDay, 0);
         GameReady?.Invoke(null, EventArgs.Empty);
-        m_skyboxTween.Play();
+        m_tween.Play();
     }
 
     public void OnGameLoopEnded()
     {
         GameEnded?.Invoke(null, EventArgs.Empty);
         m_animator.SetTrigger(EndGame);
-        m_skyboxTween.Kill();
+        m_tween.Kill();
         Time.timeScale = 0;
         
         Debug.Log("play the ending animation");
@@ -62,5 +58,15 @@ public class GameLoopManager : MonoBehaviour
         
         Time.timeScale = 1;
         OnGameLoopReady();
+    }
+
+    public void OnGamePaused(object sender, EventArgs eventArgs)
+    {
+        if (GameManager.Instance.IsPaused)
+        {
+            m_tween.Pause();
+            return;
+        }
+        m_tween.Play();
     }
 }
