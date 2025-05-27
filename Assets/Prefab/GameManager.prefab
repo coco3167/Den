@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74cd125e7c2252f43aadae0c7fc342eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skybox: {fileID: 3596237770264406516}
+  gameLoopDuration: 300
 --- !u!114 &806879179260966156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,7 +496,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 53463628672602507, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
+    - {fileID: 6842288381820720830, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
+    - {fileID: 1378339855822352151, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
@@ -512,6 +517,11 @@ MonoBehaviour:
 --- !u!20 &3387363561274592155 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1280739566556841645, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
+  m_PrefabInstance: {fileID: 4522824518937824566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!45 &3596237770264406516 stripped
+Skybox:
+  m_CorrespondingSourceObject: {fileID: 1093297038415930562, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
   m_PrefabInstance: {fileID: 4522824518937824566}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6928091716874163739 stripped

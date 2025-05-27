@@ -73,13 +73,6 @@ namespace Sinj
             
             //public abstract bool IsFinished(SinjAgent agent);
         }
-        
-        protected enum Comparison
-        {
-            Inferior,
-            Superior,
-            Equal
-        }
         #endregion
     }
 }

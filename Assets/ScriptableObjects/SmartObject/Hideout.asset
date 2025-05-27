@@ -12,15 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a81eb427104b4198b7965408a44e57, type: 3}
   m_Name: Hideout
   m_EditorClassIdentifier: 
-  <dynamicParametersEffect>k__BackingField:
-    _serializedList: []
   <scoreCalculation>k__BackingField:
     rid: 6699013533669523538
   <animatorController>k__BackingField: {fileID: 22100000, guid: 5e42e6784d808824bb1807c13b0e4e6c, type: 2}
+  <dynamicParametersEffect>k__BackingField:
+    _serializedList: []
+  <dynamicParametersVariation>k__BackingField:
+    _serializedList: []
   <parameterEffectOnAgent>k__BackingField:
     _serializedList:
     - Key: 4
-      Value: -1
+      Value:
+        valueType: 0
+        floatValue: 0
+        boolValue: 0
   references:
     version: 2
     RefIds:

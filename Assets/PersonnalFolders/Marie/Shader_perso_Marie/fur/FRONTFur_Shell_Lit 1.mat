@@ -24,37 +24,37 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 084784318ba434d44bfd4b40b76db16d, type: 3}
-        m_Scale: {x: 1, y: 1.04}
-        m_Offset: {x: -0.08, y: -0.09}
+        m_Texture: {fileID: 2800000, guid: f7f9f04544621654a966ea10d9e247d2, type: 3}
+        m_Scale: {x: 1, y: 0.3}
+        m_Offset: {x: 0.88, y: 0.2}
     - _FurMap:
         m_Texture: {fileID: 2800000, guid: d647d704640df914fb36caf1797903f8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FurMask:
-        m_Texture: {fileID: 2800000, guid: 084784318ba434d44bfd4b40b76db16d, type: 3}
-        m_Scale: {x: 1, y: 16.12}
-        m_Offset: {x: 0, y: 0.26}
+        m_Texture: {fileID: 2800000, guid: f7f9f04544621654a966ea10d9e247d2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: 376acec26d7e74a40b4b2bda2b456a37, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutout: 0.304
-    - _FurScale: 1.5
+    - _AlphaCutout: 0.308
+    - _FurScale: 4.92
     - _Metallic: 0.5
     - _NormalScale: 2
-    - _Occlusion: 0.4
-    - _RimLightIntensity: 1
-    - _RimLightPower: 19.2
-    - _ShadowExtraBias: -0.14
-    - _ShellAmount: 26
-    - _ShellStep: 0.00734
+    - _Occlusion: 0.132
+    - _RimLightIntensity: 0
+    - _RimLightPower: 1
+    - _ShadowExtraBias: -1
+    - _ShellAmount: 50
+    - _ShellStep: 0.00926
     - _Smoothness: 0.5
     m_Colors:
-    - _AmbientColor: {r: 0.23496675, g: 0.23584908, b: 0.21026169, a: 1}
-    - _BaseColor: {r: 0, g: 1, b: 0.5964391, a: 1}
+    - _AmbientColor: {r: 0.31132078, g: 0.30717292, b: 0.0748932, a: 1}
+    - _BaseColor: {r: 0.21368816, g: 0.9245283, b: 0.63925683, a: 1}
     - _BaseMove: {r: 0, g: -0, b: 0, a: 3}
     - _WindFreq: {r: 1, g: 1, b: 1, a: 1}
     - _WindMove: {r: 1, g: 1, b: 1, a: 1}

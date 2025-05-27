@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -24,16 +24,16 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 084784318ba434d44bfd4b40b76db16d, type: 3}
-        m_Scale: {x: 0.31, y: 1.14}
-        m_Offset: {x: 2.4, y: 1.63}
+        m_Texture: {fileID: 2800000, guid: 364eaf3a3427ff7488421746054cbb5b, type: 3}
+        m_Scale: {x: 1, y: 0.51}
+        m_Offset: {x: -1, y: 1.3}
     - _FurMap:
-        m_Texture: {fileID: 2800000, guid: d647d704640df914fb36caf1797903f8, type: 3}
+        m_Texture: {fileID: 2800000, guid: c22fc16178bfeb94cb1b5985380c4287, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FurMask:
-        m_Texture: {fileID: 2800000, guid: 084784318ba434d44bfd4b40b76db16d, type: 3}
-        m_Scale: {x: 1, y: 16.12}
+        m_Texture: {fileID: 2800000, guid: 364eaf3a3427ff7488421746054cbb5b, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: 376acec26d7e74a40b4b2bda2b456a37, type: 3}
@@ -41,22 +41,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutout: 0.304
-    - _FurScale: 1.29
-    - _Metallic: 0.5
+    - _AlphaCutout: 0.507
+    - _FurScale: 2.03
+    - _Metallic: 0.528
     - _NormalScale: 2
-    - _Occlusion: 0.352
-    - _RimLightIntensity: 1
-    - _RimLightPower: 19.2
-    - _ShadowExtraBias: -0.24
-    - _ShellAmount: 17
-    - _ShellStep: 0.00734
-    - _Smoothness: 0.5
+    - _Occlusion: 0.282
+    - _RimLightIntensity: 0
+    - _RimLightPower: 1
+    - _ShadowExtraBias: -1
+    - _ShellAmount: 38
+    - _ShellStep: 0.01
+    - _Smoothness: 0.417
     m_Colors:
-    - _AmbientColor: {r: 0.7169812, g: 0.24012117, b: 0.24012107, a: 1}
-    - _BaseColor: {r: 0.45909953, g: 1, b: 0, a: 1}
+    - _AmbientColor: {r: 0.4752358, g: 0.5, b: 0.18632075, a: 1}
+    - _BaseColor: {r: 0.7188014, g: 0.745283, b: 0.2917853, a: 1}
     - _BaseMove: {r: 0, g: -0, b: 0, a: 3}
-    - _WindFreq: {r: 1, g: 1, b: 1, a: 1}
-    - _WindMove: {r: 1, g: 1, b: 1, a: 1}
+    - _WindFreq: {r: 0.7, g: 1, b: 1, a: 1}
+    - _WindMove: {r: 3.73, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

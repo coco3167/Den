@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using Sinj;
@@ -17,43 +16,41 @@ namespace SmartObjects_AI.Agent
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> emotionsDecrease;
 
         private SmartAgent m_smartAgent;
+
+        private float m_emotionDecrease;
+        private float m_parameterValue;
         
         public void Init(MouseManager mouseManager)
         {
             m_mouseManager = mouseManager;
             m_smartAgent = GetComponent<SmartAgent>();
-            StartCoroutine(MouseReactionLoop());
+            InvokeRepeating(nameof(MouseReactionLoop), 0, UpdateTime);
         }
 
-        private IEnumerator MouseReactionLoop()
+        private void MouseReactionLoop()
         {
-            while (true)
+            foreach (SinjActiveBehavior mouseReaction in mouseReactions)
             {
-                foreach (SinjActiveBehavior mouseReaction in mouseReactions)
+                if (mouseReaction.IsApplying(this))
                 {
-                    if (mouseReaction.IsApplying(this))
-                    {
-                        mouseReaction.ApplyReaction(this);
-                    }
+                    mouseReaction.ApplyReaction(this);
                 }
-                
-                AttenuateDynamicParameter(AgentDynamicParameter.Tension);
-                AttenuateDynamicParameter(AgentDynamicParameter.Curiosity);
-                AttenuateDynamicParameter(AgentDynamicParameter.Aggression);
-                AttenuateDynamicParameter(AgentDynamicParameter.Fear);
-                
-                yield return new WaitForSeconds(UpdateTime);
             }
+            
+            AttenuateDynamicParameter(AgentDynamicParameter.Tension);
+            AttenuateDynamicParameter(AgentDynamicParameter.Curiosity);
+            AttenuateDynamicParameter(AgentDynamicParameter.Aggression);
+            AttenuateDynamicParameter(AgentDynamicParameter.Fear);
         }
         
         private void AttenuateDynamicParameter(AgentDynamicParameter parameter)
         {
-            float value = GetDynamicParameterValue(parameter);
-            float emotionDecrease = emotionsDecrease[parameter];
-        
-            value -= emotionDecrease;
-            value = Mathf.Clamp(value, 0, 100);
-            m_smartAgent.dynamicParameters[parameter] = value;
+            m_parameterValue = GetDynamicParameterValue(parameter);
+            m_emotionDecrease  = emotionsDecrease[parameter];
+
+            m_parameterValue -= m_emotionDecrease;
+            m_parameterValue = Mathf.Clamp(m_parameterValue, 0, 100);
+            m_smartAgent.SetDynamicParameter(parameter, m_parameterValue);
         }
 
         public float DistanceToMouse()
@@ -67,17 +64,17 @@ namespace SmartObjects_AI.Agent
 
         public float GetDynamicParameterValue(AgentDynamicParameter parameter)
         {
-            return m_smartAgent.dynamicParameters[parameter];
+            return m_smartAgent.GetDynamicParameter(parameter);
         }
 
         public void AddDynamicParameterValue(AgentDynamicParameter parameter, float value)
         {
-            m_smartAgent.dynamicParameters[parameter] += value;
+            m_smartAgent.AddDynamicParameter(parameter, value);
         }
 
         public void SetDynamicParameterValue(AgentDynamicParameter parameter, float value)
         {
-            m_smartAgent.dynamicParameters[parameter] = value;
+            m_smartAgent.SetDynamicParameter(parameter, value);
         }
 
     }
