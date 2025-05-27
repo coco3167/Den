@@ -322,42 +322,48 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 4b81af0ddbfb11842b699651269301a5, type: 2}
-  PlayAngerStep1:
+  CuriosityStinger:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 87a8b9ba924b0324bbafcb5690f88d2d, type: 2}
-  PlayAngerStep2:
+    WwiseObjectReference: {fileID: 11400000, guid: af2b51c888cdaba45ab5fa1ba632b429, type: 2}
+  AngerStinger:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 7a2a3aa6ad51b15489f3be22b0bd1c4f, type: 2}
-  PlayAngerStep3:
+    WwiseObjectReference: {fileID: 11400000, guid: f0e318b3a8fe399449789f97829bcbb0, type: 2}
+  FearStinger:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: af9688f5ab90e794eabc63ead56c53f6, type: 2}
-  PlayFearStep1:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c1d3884bec03942409330ac6485a00b7, type: 2}
-  PlayFearStep2:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 8337ba3aa260715438f0c554bc465a7f, type: 2}
-  PlayFearStep3:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: da4f34640d31119418fac0859c218254, type: 2}
-  PlayCuriosityStep1:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 1098c503602a07d41960e1416f872a8e, type: 2}
-  PlayCuriosityStep2:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: e9bd733aefcadaf42b24d958bbe75c66, type: 2}
-  PlayCuriosityStep3:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 3b0ffa67599f23a4f9deb06c8fdfb79b, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 6917e79a230c88f489147eb9424f4d67, type: 2}
+  timeOfDayStates:
+    _serializedList:
+    - Key: 0
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 43cdaa910e004414b999e2a9489a1573, type: 2}
+    - Key: 1
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 72a74e84d5ccf3743be6c783bc75915c, type: 2}
+    - Key: 2
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: bcf6e29c41fbed841a5ff6c1b200a9f8, type: 2}
+    - Key: 3
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 19adc23ec8dcdb84f89390655a5703dc, type: 2}
 --- !u!1 &6390681636642090929
 GameObject:
   m_ObjectHideFlags: 0

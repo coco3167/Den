@@ -63,7 +63,13 @@ namespace Audio
         AngerSwitch,
         None,
     }
-
+    public enum WwiseTODState
+    {
+        Morning,
+        Day,
+        Evening,
+        Night
+    }
     [RequireComponent(typeof(AkGameObj))]
     public class AudioManager : MonoBehaviour
     {
@@ -118,12 +124,21 @@ namespace Audio
         [SerializeField] private AK.Wwise.Event AngerStinger;
         [SerializeField] private AK.Wwise.Event FearStinger;
 
+        [Title("Wwise Time of Day States")]
+        [SerializeField]
+        public SerializedDictionary<WwiseTODState, State> timeOfDayStates;
+
+        [Title("Wwise Cursor Movement")]
+        [SerializeField] private AK.Wwise.Event CursorMoveEvent;
+        [SerializeField] private AK.Wwise.RTPC DEN_GP_CursorSpeed;
+
         private Dictionary<AgentDynamicParameter, int> emotionPalliers = new()
         {
             { AgentDynamicParameter.Curiosity, 0 },
             { AgentDynamicParameter.Aggression, 0 },
             { AgentDynamicParameter.Fear, 0 },
         };
+        private uint cursorMovePlayingId = 0;
 
         private void Awake()
         {
@@ -139,8 +154,6 @@ namespace Audio
 
             ResetAmbience.Post(this.gameObject);
         }
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
@@ -148,7 +161,6 @@ namespace Audio
 
             StartAmbience();
         }
-
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Keypad1))
@@ -168,6 +180,7 @@ namespace Audio
                 WwiseStateManager.SetWwiseMoodState(WwiseMoodState.AngerState);
             }
         }
+
         public void PlayEmotionSteps(AgentDynamicParameter parameter, int pallierReached)
         {
             emotionPalliers[parameter] = pallierReached;
@@ -187,7 +200,12 @@ namespace Audio
                     break;
             }
         }
+        private void StartAmbience()
+        {
+            PlayAmbience.Post(this.gameObject);
+        }
 
+        #region Tools
         private void Initialize()
         {
             //Singleton logic
@@ -211,7 +229,6 @@ namespace Audio
 
             bIsInitialized = true;
         }
-
         private void LoadSoundbanks()
         {
             if (Soundbanks.Count > 0)
@@ -247,12 +264,9 @@ namespace Audio
                 }
             }
         }
+        #endregion Tools
 
-        private void StartAmbience()
-        {
-            PlayAmbience.Post(this.gameObject);
-        }
-
+        #region RTPC
         public void SetWwiseEmotionRTPC(AgentDynamicParameter parameter, GameObject target, float value)
         {
             WwiseEmotionStateRTPC emotionStateRtpc = TranslateSinjAgentEmotionToAudioManagerEmotion(parameter);
@@ -291,11 +305,14 @@ namespace Audio
                     return WwiseEmotionStateRTPC.Tension;
             }
         }
-
         public static void SetGlobalRTPCValue(RTPC rtpc, float value)
         {
             rtpc.SetGlobalValue(rtpc.Name, value);
         }
+
+        #endregion RTPC
+
+        #region Mood 
         private AgentDynamicParameter GetDominantMood()
         {
             // Returns the emotion with the highest pallier
@@ -322,5 +339,61 @@ namespace Audio
                 SetWwiseEmotionRTPC(kv.Key, gameObject, value);
             }
         }
+        #endregion Mood
+
+        #region TOD
+        public void SetWwiseTODState(WwiseTODState state)
+        {
+            if (timeOfDayStates.TryGetValue(state, out var wwiseState))
+            {
+                wwiseState.SetValue();
+            }
+            else
+            {
+                Debug.LogWarning($"No Wwise state mapped for {state}");
+            }
+        }
+        public static WwiseTODState ToWwiseTODState(GameLoopManager.GameLoopState state)
+        {
+            return state switch
+            {
+                GameLoopManager.GameLoopState.Morning => WwiseTODState.Morning,
+                GameLoopManager.GameLoopState.Day => WwiseTODState.Day,
+                GameLoopManager.GameLoopState.Evening => WwiseTODState.Evening,
+                GameLoopManager.GameLoopState.Night => WwiseTODState.Night,
+                _ => WwiseTODState.Morning
+            };
+        }
+
+        #endregion TOD
+
+        #region Cursor
+        public void StartCursorMoveSound(GameObject target)
+        {
+            if (cursorMovePlayingId == 0)
+            {
+                if (!target.GetComponent<AkGameObj>())
+                    target.AddComponent<AkGameObj>();
+                cursorMovePlayingId = CursorMoveEvent.Post(target);
+                Debug.Log($"CursorMoveEvent posted, playingId: {cursorMovePlayingId}");
+            }
+        }
+        public void StopCursorMoveSound(GameObject target)
+        {
+            if (cursorMovePlayingId != 0)
+            {
+                CursorMoveEvent.Stop(target);
+                cursorMovePlayingId = 0;
+            }
+        }
+        public void UpdateCursorSpeed(float speed, GameObject target)
+        {
+            float clampedSpeed = Mathf.Clamp(speed, 0f, 100f);
+            if (!target.GetComponent<AkGameObj>())
+                target.AddComponent<AkGameObj>();
+            DEN_GP_CursorSpeed.SetValue(target, clampedSpeed);
+            Debug.Log($"Cursor speed updated to {clampedSpeed}");
+        }
+        #endregion Cursor
     }
 }

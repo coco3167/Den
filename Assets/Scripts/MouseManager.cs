@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Audio;
 
 public class MouseManager : MonoBehaviour, IGameStateListener
 {
@@ -29,17 +30,26 @@ public class MouseManager : MonoBehaviour, IGameStateListener
         m_camera = GameManager.Instance.GetCamera();
         Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
         mouseRigidBody.MovePosition(new Vector3(1,1,-3));
+
+        //start mouse sound
+        AudioManager.Instance.StartCursorMoveSound(this.gameObject);
     }
 
     public void OnGameEnded(object sender, EventArgs eventArgs)
     {
-        // Nothing there
+        // stop mouse sound
+        AudioManager.Instance.StopCursorMoveSound(this.gameObject);
     }
 
     public void OnMouseMoved(Vector2 value)
     {
         value *= Options.GameParameters.MouseSensitivity;
         MoveRigidBody(value);
+
+        // Call cursor sound
+        float speed = MouseVelocity();
+        Debug.Log($"Mouse speed: {speed}");
+        AudioManager.Instance.UpdateCursorSpeed(speed, this.gameObject);
     }
 
     public void OnOtherMoveStart(Vector2 value)

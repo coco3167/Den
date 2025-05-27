@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{F1BB481E-7740-594F-4299-67F855D4C988}",
+    "Hash": "{CA1F85A2-C856-592A-3256-6A2ECD1447CB}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -237,6 +237,14 @@
       "CachePath": "F5/{F5BE17BB-9D60-43A4-2202-18A277B3E285}.wem"
      },
      {
+      "Id": "281684122",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_CursorMove_02.wav",
+      "CachePath": "85/{850B4960-B122-3AAD-5C59-D1C9D79236A8}.wem"
+     },
+     {
       "Id": "292186112",
       "Language": "SFX",
       "Streaming": "false",
@@ -251,6 +259,22 @@
       "Location": "Memory",
       "ShortName": "Momo_Worried_3.wav",
       "CachePath": "7D/{7DA74E5B-8E7F-5E41-9897-65AC22B6724D}.wem"
+     },
+     {
+      "Id": "323231147",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_CursorMove_04.wav",
+      "CachePath": "2B/{2B995F69-0925-3DC1-C24F-5B3CEA64D0F3}.wem"
+     },
+     {
+      "Id": "331669665",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_CursorMove_01.wav",
+      "CachePath": "FB/{FB6A93C0-47DC-0DDA-D295-262821007B46}.wem"
      },
      {
       "Id": "352618498",
@@ -360,12 +384,28 @@
       "CachePath": "46/{4607FB73-B412-7B0B-F178-DBF85EAFED1A}.wem"
      },
      {
+      "Id": "491782245",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_CursorMove_03.wav",
+      "CachePath": "33/{3324BCA5-A39A-356E-82E3-9F2090C94021}.wem"
+     },
+     {
       "Id": "502492109",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DEN_StingerAnger_03.wav",
       "CachePath": "1E/{1E57D12F-7832-4066-5525-F78A0F764917}.wem"
+     },
+     {
+      "Id": "507333948",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_CursorMove_08.wav",
+      "CachePath": "9C/{9CE87A57-2E6C-DC42-81CF-17F8382F5086}.wem"
      },
      {
       "Id": "520509391",
@@ -646,6 +686,14 @@
       "CachePath": "B8/{B8C706F8-8C34-A8C8-559B-CC36F298CC50}.wem"
      },
      {
+      "Id": "902741170",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_CursorMove_06.wav",
+      "CachePath": "22/{22E1B059-161C-81C3-D866-23146EE0A480}.wem"
+     },
+     {
       "Id": "911292341",
       "Language": "SFX",
       "Streaming": "false",
@@ -684,6 +732,14 @@
       "Location": "Memory",
       "ShortName": "DEN_AgroEnd_Simplified.wav",
       "CachePath": "9F/{9F043165-329A-C859-53AF-77C5F6FE4FB2}.wem"
+     },
+     {
+      "Id": "927217402",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_CursorMove_09.wav",
+      "CachePath": "E0/{E0543506-1B94-6010-C866-718FC28B29A9}.wem"
      },
      {
       "Id": "933971637",
@@ -728,12 +784,28 @@
       "CachePath": "0A/{0A3F0CCC-82C6-459E-41A6-62C729E04B02}.wem"
      },
      {
+      "Id": "983235783",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_CursorMove_07.wav",
+      "CachePath": "1D/{1DBE483B-187A-7441-1439-BC18553F054D}.wem"
+     },
+     {
       "Id": "984376535",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Momo_Agro_5.wav",
       "CachePath": "11/{11BF72F8-4F02-5E5B-AE20-14A9D4619515}.wem"
+     },
+     {
+      "Id": "993394238",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_CursorMove_05.wav",
+      "CachePath": "94/{9485F32B-9313-FF73-595B-8158BF1FFF27}.wem"
      },
      {
       "Id": "1008562838",
@@ -920,6 +992,62 @@
             "Id": "825924168"
            }
           ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2248328396",
+         "Id": "3179366297",
+         "GUID": "{301D0269-A9F7-4079-99E6-921F35CE1806}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "370277972"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2248328396",
+         "Id": "1822764695",
+         "GUID": "{E5651177-8597-4405-9543-A5179BF22D37}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "902305525"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2248328396",
+         "Id": "1758083905",
+         "GUID": "{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "802547528"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2248328396",
+         "Id": "354475675",
+         "GUID": "{8C7483EF-6E66-4CAC-AECB-F64A69FCEA6A}",
+         "Color": "3"
+        },
+        "MediaRefs": [
+         {
+          "Id": "32943555"
          }
         ]
        }
@@ -2102,6 +2230,43 @@
         "ObjectPath": "\\States\\Default Work Unit\\DEN_State_TOD\\DEN_ST_TOD_Morning",
         "GUID": "{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}",
         "Color": "3"
+       }
+      ]
+     },
+     {
+      "Id": "773185301",
+      "Name": "Play_DEN_UI_Cursor",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_UI\\Play_DEN_UI_Cursor",
+      "GUID": "{B56E7940-5A41-477A-9D8B-0DA2A489AC6B}",
+      "Color": "19",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "281684122"
+       },
+       {
+        "Id": "323231147"
+       },
+       {
+        "Id": "331669665"
+       },
+       {
+        "Id": "491782245"
+       },
+       {
+        "Id": "507333948"
+       },
+       {
+        "Id": "902741170"
+       },
+       {
+        "Id": "927217402"
+       },
+       {
+        "Id": "983235783"
+       },
+       {
+        "Id": "993394238"
        }
       ]
      },
@@ -3865,6 +4030,13 @@
       "Color": "14"
      },
      {
+      "Id": "2230858223",
+      "Name": "DEN_GP_CursorVolume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_CursorVolume",
+      "GUID": "{1A9200A0-E598-42D1-9C33-09BC4F3F8351}",
+      "Color": "14"
+     },
+     {
       "Id": "2578001617",
       "Name": "DEN_GP_CuriosityValue",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_CuriosityValue",
@@ -4190,6 +4362,6 @@
     ]
    }
   ],
-  "FileHash": "{8A833D3A-2DD5-3C5A-99AD-E0245FABBA8C}"
+  "FileHash": "{AA68C4E5-6057-A748-F04D-3C4290527C4E}"
  }
 }
