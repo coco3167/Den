@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1986693136342196442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4825016387209809137}
+  - component: {fileID: 1854292673295503937}
+  m_Layer: 0
+  m_Name: LightingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4825016387209809137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986693136342196442}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1854292673295503937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986693136342196442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22c0087fe37e8246bf9e8ab8205ae7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daySlider: 0.49
+  currentDayStep: evening
+  skyMat: {fileID: 2100000, guid: 20b37ff25a167e74caf1faa51525bfb2, type: 2}
+  morningMat: {fileID: 2100000, guid: fcb934c4734131a4a9c026689cd1e6eb, type: 2}
+  dayMat: {fileID: 2100000, guid: de0e3232d075890459768e26f31f43ad, type: 2}
+  eveningMat: {fileID: 2100000, guid: bb808f9b5452a244bb2a308fe46e2139, type: 2}
+  sunLight: {fileID: 0}
+  startXRotation: 5.55
+  endXRotation: 341.14
+  morningSunCol: {r: 0.8867924, g: 0.43067384, b: 0.3722855, a: 1}
+  daySunCol: {r: 1, g: 0.86274517, b: 0.7490196, a: 1}
+  eveningSunCol: {r: 0, g: 0, b: 0, a: 0}
+  morningRayCol: {r: 1, g: 0, b: 0, a: 0.57254905}
+  dayRayCol: {r: 0.62060815, g: 0.6320754, b: 0.25938946, a: 0.4745098}
+  eveningRayCol: {r: 0, g: 0, b: 0, a: 0}
+  godRays:
+  - {fileID: 0}
+  - {fileID: 0}

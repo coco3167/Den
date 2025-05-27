@@ -38,15 +38,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: db2bb2c5ab565594a8507201fcb9e4bf, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: f7f9f04544621654a966ea10d9e247d2, type: 3}
+        m_Scale: {x: 1, y: 0.91}
         m_Offset: {x: 0, y: 0}
     - _FurMap:
         m_Texture: {fileID: 2800000, guid: db2bb2c5ab565594a8507201fcb9e4bf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FurMask:
-        m_Texture: {fileID: 2800000, guid: 24f251218f8c34744b3d3481ec5da259, type: 3}
+        m_Texture: {fileID: 2800000, guid: f7f9f04544621654a966ea10d9e247d2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -55,19 +55,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutout: 0.346
-    - _FurScale: 0.07
+    - _AlphaCutout: 1
+    - _FurScale: 2.09
     - _Metallic: 0
-    - _NormalScale: 0.921
+    - _NormalScale: 0.5
     - _Occlusion: 0.916
     - _RimLightIntensity: 0.5
     - _RimLightPower: 6
-    - _ShadowExtraBias: 0
-    - _ShellAmount: 25
-    - _ShellStep: 0.00344
+    - _ShadowExtraBias: -0.52
+    - _ShellAmount: 37
+    - _ShellStep: 0.00626
     - _Smoothness: 0.5
     m_Colors:
-    - _AmbientColor: {r: 0.7254902, g: 0, b: 0.2610531, a: 1}
+    - _AmbientColor: {r: 0, g: 0.31132078, b: 0.15100421, a: 1}
     - _BaseColor: {r: 0.027969062, g: 0.7924528, b: 0, a: 1}
     - _WindMove: {r: 0.2, g: 0.3, b: 0.2, a: 1}
   m_BuildTextureStacks: []

@@ -11,8 +11,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 128a703297fb6cd42902b39c94ee1f04, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _OVERLAY
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -42,11 +41,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Normal_Threshold: 9.85
-    - _OVERLAY: 1
-    - _color_Threshold: 0.1
+    - _Normal_Threshold: 0.78
+    - _OVERLAY: 0
+    - _color_Threshold: 6.72
     m_Colors:
-    - _Outline_Color: {r: 0.35082126, g: 0.36862746, b: 0, a: 0}
-    - _outline_color2: {r: 0.38679248, g: 0, b: 0.38679248, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Outline_Color: {r: 0.9713571, g: 1, b: 0.7028302, a: 0}
+    - _outline_color2: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

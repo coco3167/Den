@@ -31,7 +31,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -61,13 +61,13 @@ Material:
     - _CastShadows: 1
     - _Center: 0
     - _Cull: 2
-    - _Distorsion: 0.18
+    - _Distorsion: 0.044
     - _DstBlend: 10
     - _Noise: 3.5
     - _QueueControl: 1
     - _QueueOffset: 0
     - _RippleCount: 3.88
-    - _RippleRadius: 13.43
+    - _RippleRadius: 3.51
     - _Rotation: 0
     - _SmoothedSize: 0
     - _SoundShape: 0.465
@@ -82,7 +82,7 @@ Material:
     - _Zoom_Offset: 0.33
     - _radius: 0.82
     - _size: 1.96
-    - _speed: 0.88
+    - _speed: 1.4
     m_Colors:
     - _Manual_Offset: {r: 0.5, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

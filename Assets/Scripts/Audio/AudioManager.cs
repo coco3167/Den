@@ -4,6 +4,7 @@ using AK.Wwise;
 using AYellowpaper.SerializedCollections;
 using Sinj;
 using Sirenix.OdinInspector;
+using SmartObjects_AI.Agent;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -117,12 +118,11 @@ namespace Audio
         [SerializeField] private AK.Wwise.Event AngerStinger;
         [SerializeField] private AK.Wwise.Event FearStinger;
 
-        private Dictionary<Emotions, int> emotionPalliers = new()
+        private Dictionary<AgentDynamicParameter, int> emotionPalliers = new()
         {
-            { Emotions.Curiosity, 0 },
-            { Emotions.Agression, 0 },
-            { Emotions.Fear, 0 },
-            { Emotions.Intensity, 0 }
+            { AgentDynamicParameter.Curiosity, 0 },
+            { AgentDynamicParameter.Aggression, 0 },
+            { AgentDynamicParameter.Fear, 0 },
         };
 
         private void Awake()
@@ -168,21 +168,21 @@ namespace Audio
                 WwiseStateManager.SetWwiseMoodState(WwiseMoodState.AngerState);
             }
         }
-        public void PlayEmotionSteps(Emotions emotion, int pallierReached)
+        public void PlayEmotionSteps(AgentDynamicParameter parameter, int pallierReached)
         {
-            emotionPalliers[emotion] = pallierReached;
+            emotionPalliers[parameter] = pallierReached;
             UpdateMoodAndRTPCs();
 
             // Trigger the stinger event for the emotion
-            switch (emotion)
+            switch (parameter)
             {
-                case Emotions.Curiosity:
+                case AgentDynamicParameter.Curiosity:
                     CuriosityStinger?.Post(this.gameObject);
                     break;
-                case Emotions.Agression:
+                case AgentDynamicParameter.Aggression:
                     AngerStinger?.Post(this.gameObject);
                     break;
-                case Emotions.Fear:
+                case AgentDynamicParameter.Fear:
                     FearStinger?.Post(this.gameObject);
                     break;
             }
@@ -253,9 +253,9 @@ namespace Audio
             PlayAmbience.Post(this.gameObject);
         }
 
-        public void SetWwiseEmotionRTPC(Sinj.Emotions emotion, GameObject target, float value)
+        public void SetWwiseEmotionRTPC(AgentDynamicParameter parameter, GameObject target, float value)
         {
-            WwiseEmotionStateRTPC emotionStateRtpc = TranslateSinjAgentEmotionToAudioManagerEmotion(emotion);
+            WwiseEmotionStateRTPC emotionStateRtpc = TranslateSinjAgentEmotionToAudioManagerEmotion(parameter);
             RTPC emotionRTPC = gameParameters[emotionStateRtpc];
 
             if (Mathf.Approximately(value, currentGameParametersValues[emotionStateRtpc]))
@@ -275,20 +275,18 @@ namespace Audio
             Debug.Log("Anger value has been set to " + value);
             currentGameParametersValues[emotionStateRtpc] = value;
         }
-        private WwiseEmotionStateRTPC TranslateSinjAgentEmotionToAudioManagerEmotion(Sinj.Emotions emotion)
+        private WwiseEmotionStateRTPC TranslateSinjAgentEmotionToAudioManagerEmotion(AgentDynamicParameter parameter)
         {
-            switch (emotion)
+            switch (parameter)
             {
-                case Sinj.Emotions.Curiosity:
+                case AgentDynamicParameter.Curiosity:
                     return WwiseEmotionStateRTPC.Curiosity;
-                case Sinj.Emotions.Fear:
+                case AgentDynamicParameter.Fear:
                     return WwiseEmotionStateRTPC.Fear;
-                case Sinj.Emotions.Agression:
+                case AgentDynamicParameter.Aggression:
                     return WwiseEmotionStateRTPC.Anger;
-                case Sinj.Emotions.Tension:
+                case AgentDynamicParameter.Tension:
                     return WwiseEmotionStateRTPC.Tension;
-                case Sinj.Emotions.Intensity:
-                    return WwiseEmotionStateRTPC.Intensity;
                 default:
                     return WwiseEmotionStateRTPC.Tension;
             }
@@ -298,21 +296,21 @@ namespace Audio
         {
             rtpc.SetGlobalValue(rtpc.Name, value);
         }
-        private Emotions GetDominantMood()
+        private AgentDynamicParameter GetDominantMood()
         {
             // Returns the emotion with the highest pallier
             return emotionPalliers.OrderByDescending(kv => kv.Value).First().Key;
         }
         public void UpdateMoodAndRTPCs()
         {
-            Emotions dominantMood = GetDominantMood();
+            AgentDynamicParameter dominantMood = GetDominantMood();
 
             // Set the mood state
             WwiseMoodState moodState = dominantMood switch
             {
-                Emotions.Curiosity => WwiseMoodState.CuriosityState,
-                Emotions.Fear => WwiseMoodState.FearState,
-                Emotions.Agression => WwiseMoodState.AngerState,
+                AgentDynamicParameter.Curiosity => WwiseMoodState.CuriosityState,
+                AgentDynamicParameter.Fear => WwiseMoodState.FearState,
+                AgentDynamicParameter.Aggression => WwiseMoodState.AngerState,
                 _ => WwiseMoodState.NeutralState
             };
             WwiseStateManager.SetWwiseMoodState(moodState);

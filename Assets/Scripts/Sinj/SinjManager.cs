@@ -1,117 +1,126 @@
-using System;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using DebugHUD;
 using Sirenix.OdinInspector;
+using SmartObjects_AI.Agent;
 using UnityEngine;
 
 namespace Sinj
 {
-    public class SinjManager : MonoBehaviour, IDebugDisplayAble
+    public class SinjManager : MonoBehaviour, IDebugDisplayAble, IReloadable
     {
         [Title("Sinjs")]
-        [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject sinjPrefab;
+        [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject smartAgent;
         [SerializeField, Range(1,10)] private int sinjCount;
-        [SerializeField, ReadOnly] private List<SinjAgent> sinjs = new();
+        [SerializeField, ReadOnly] private List<MouseAgent> mouseAgents = new();
 
         [Title("Emotions")]
-        [SerializeField, ReadOnly] private SerializedDictionary<Emotions, float> emotionsJaugeValues = new();
-        [SerializeField] private SerializedDictionary<Emotions, float> emotionsMin;
-        [SerializeField] private SerializedDictionary<Emotions, float> emotionsMax;
-        [SerializeField] private SerializedDictionary<Emotions, float> emotionsDecrease;
+        [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> emotionsJaugeValues = new();
+        [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> emotionsMin;
+        [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> emotionsMax;
+        [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> emotionsDecrease;
         [SerializeField, Tooltip("Used to know how many emotion/second is given to SinjManager")]
-        private SerializedDictionary<Emotions, AnimationCurve> emotionsTransmissionCurve;
-
-
-        [Title("Navigation")]
-        [SerializeField] private EnvironmentManager environmentManager;
-    
+        private SerializedDictionary<AgentDynamicParameter, AnimationCurve> emotionsTransmissionCurve;
+        
         [Title("Mouse Input")]
         [SerializeField] private MouseManager mouseManager;
     
-        private readonly List<DebugParameter> m_debugParameters = new();
+        private List<DebugParameter> m_debugParameters = new();
         private float m_intensity;
 
-        
+
         private void Awake()
         {
-            sinjs.Clear();
             for (int loop = 0; loop < sinjCount; loop++)
             {
-                sinjs.Add(Instantiate(sinjPrefab, transform).GetComponent<SinjAgent>());
-                sinjs[loop].Init(mouseManager);
+                mouseAgents.Add(Instantiate(smartAgent, transform).GetComponent<MouseAgent>());
+                mouseAgents[loop].Init(mouseManager);
+                
+                //Being instanced in runtime they arent picked by GameManager at Awake
+                GameLoopManager.Instance.GameReady += mouseAgents[loop].GetComponent<IGameStateListener>().OnGameReady;
             }
             
-            emotionsJaugeValues.Clear();
-            int emotionsCount = Enum.GetNames(typeof(Emotions)).Length;
-            for (int loop = 0; loop < emotionsCount; loop++)
-            {
-                Emotions emotion = (Emotions)loop;
-                emotionsJaugeValues.Add(emotion, 0);
-                m_debugParameters.Add(new DebugParameter(emotion.ToString(), "0"));
-            }
-            GameManager.Instance.OnGameReady();
+            emotionsJaugeValues.Add(AgentDynamicParameter.Tension, 0.0f);
+            emotionsJaugeValues.Add(AgentDynamicParameter.Curiosity, 0.0f);
+            emotionsJaugeValues.Add(AgentDynamicParameter.Aggression, 0.0f);
+            emotionsJaugeValues.Add(AgentDynamicParameter.Fear, 0.0f);
+
+            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Tension.ToString(), "0"));
+            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Curiosity.ToString(), "0"));
+            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Aggression.ToString(), "0"));
+            m_debugParameters.Add(new DebugParameter(AgentDynamicParameter.Fear.ToString(), "0"));
+            
+            //GameManager.Instance.OnGameReady();
         }
 
         private void FixedUpdate()
         {
-            foreach (SinjAgent sinj in sinjs)
+            if(GameManager.Instance.IsPaused)
+                return;
+            
+            foreach (MouseAgent agent in mouseAgents)
             {
-                sinj.HandleBehaviors();
-                sinj.UpdateEmotion(ClampEmotion(sinj, Emotions.Tension), Emotions.Tension);
-                sinj.UpdateEmotion(ClampEmotion(sinj, Emotions.Curiosity), Emotions.Curiosity);
-                sinj.UpdateEmotion(ClampEmotion(sinj, Emotions.Agression), Emotions.Agression);
-                sinj.UpdateEmotion(ClampEmotion(sinj, Emotions.Fear),Emotions.Fear);
+                agent.SetDynamicParameterValue(AgentDynamicParameter.Tension, ClampEmotion(agent, AgentDynamicParameter.Tension));
+                agent.SetDynamicParameterValue(AgentDynamicParameter.Curiosity, ClampEmotion(agent, AgentDynamicParameter.Curiosity));
+                agent.SetDynamicParameterValue(AgentDynamicParameter.Aggression, ClampEmotion(agent, AgentDynamicParameter.Aggression));
+                agent.SetDynamicParameterValue(AgentDynamicParameter.Fear, ClampEmotion(agent, AgentDynamicParameter.Fear));
             }
-            ClampIntensity();
+            //ClampIntensity();
             UpdateDebugValues();
         }
 
-        private float ClampEmotion(SinjAgent agent, Emotions emotion)
+        public void Reload()
         {
-            float value = agent.GetEmotion(emotion);
-            float emotionDecrease = emotionsDecrease[emotion];
-            float emotionMax = emotionsMax[emotion];
-            float emotionMin = emotionsMin[emotion];
+            emotionsJaugeValues[AgentDynamicParameter.Tension] = 0;
+            emotionsJaugeValues[AgentDynamicParameter.Curiosity] = 0;
+            emotionsJaugeValues[AgentDynamicParameter.Aggression] = 0;
+            emotionsJaugeValues[AgentDynamicParameter.Fear] = 0;
+        }
+
+        private float ClampEmotion(MouseAgent agent, AgentDynamicParameter parameter)
+        {
+            float value = agent.GetDynamicParameterValue(parameter);
+            float emotionDecrease = emotionsDecrease[parameter];
+            float emotionMax = emotionsMax[parameter];
+            float emotionMin = emotionsMin[parameter];
             
             value -= Time.deltaTime * emotionDecrease;
             value = Mathf.Clamp(value, emotionMin, emotionMax);
             
-            UpdateManagerEmotion(emotion, value);
+            UpdateManagerEmotion(parameter, value);
             
             return value;
         }
 
-        private void ClampIntensity()
-        {
-            float emotionMin = emotionsMin[Emotions.Intensity];
-            float emotionMax = emotionsMax[Emotions.Intensity];
-            m_intensity = Mathf.Clamp(m_intensity, emotionMin, emotionMax);
-            m_debugParameters[4].Value = m_intensity.ToString();
-            
-            UpdateManagerEmotion(Emotions.Intensity, m_intensity);
-        }
+        // private void ClampIntensity()
+        // {
+        //     float emotionMin = emotionsMin[Emotions.Intensity];
+        //     float emotionMax = emotionsMax[Emotions.Intensity];
+        //     m_intensity = Mathf.Clamp(m_intensity, emotionMin, emotionMax);
+        //     m_debugParameters[4].Value = m_intensity.ToString();
+        //     
+        //     UpdateManagerEmotion(Emotions.Intensity, m_intensity);
+        // }
 
-        private void UpdateManagerEmotion(Emotions emotion, float value)
+        private void UpdateManagerEmotion(AgentDynamicParameter parameter, float value)
         {
-            if(!emotionsTransmissionCurve.TryGetValue(emotion, out AnimationCurve curve))
+            if(!emotionsTransmissionCurve.TryGetValue(parameter, out AnimationCurve curve))
                 return;
 
             value /= 100;
-            emotionsJaugeValues[emotion] += curve.Evaluate(value)*Time.deltaTime;
+            emotionsJaugeValues[parameter] += curve.Evaluate(value)*Time.deltaTime;
 
-            GameManager.Instance.HandlePallier(emotion, (int)emotionsJaugeValues[emotion]);
+            GameManager.Instance.HandlePallier(parameter, (int)emotionsJaugeValues[parameter]);
         }
 
         
         #region Debug
         private void UpdateDebugValues()
         {
-            for (int loop = 0; loop < m_debugParameters.Count; loop++)
-            {
-                Emotions emotion = (Emotions)loop;
-                m_debugParameters[loop].UpdateValue(((int)emotionsJaugeValues[emotion]).ToString());
-            }
+            m_debugParameters[0].UpdateValue(((int)emotionsJaugeValues[AgentDynamicParameter.Tension]).ToString());
+            m_debugParameters[1].UpdateValue(((int)emotionsJaugeValues[AgentDynamicParameter.Curiosity]).ToString());
+            m_debugParameters[2].UpdateValue(((int)emotionsJaugeValues[AgentDynamicParameter.Aggression]).ToString());
+            m_debugParameters[3].UpdateValue(((int)emotionsJaugeValues[AgentDynamicParameter.Fear]).ToString());
         }
         public int GetParameterCount()
         {
