@@ -17,9 +17,9 @@ namespace SmartObjects_AI.Agent
         [SerializeField] private SmartAgentData data;
 
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> dynamicParametersStartValue;
-        [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> m_dynamicParameters = new();
+        [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> dynamicParameters = new();
 
-        private SmartObject[] m_smartObjects;
+        private SmartObject[] m_smartObjects, m_smartObjectsOwning;
         private SmartObject m_previousSmartObject, m_smartObjectToUse;
 
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
@@ -39,9 +39,12 @@ namespace SmartObjects_AI.Agent
             {
                 AgentDynamicParameter parameter = (AgentDynamicParameter)loop;
 
-                m_dynamicParameters.Add(parameter,
+                dynamicParameters.Add(parameter,
                     dynamicParametersStartValue.GetValueOrDefault(parameter, 0.0f));
             }
+            
+            //Owning SmartObjects
+            m_smartObjectsOwning.AddRange(GetComponentsInChildren<SmartObject>());
         }
         
         public void OnGameReady(object sender, EventArgs eventArgs)
@@ -59,10 +62,10 @@ namespace SmartObjects_AI.Agent
         {
             transform.localPosition = Vector3.zero;
             
-            AgentDynamicParameter[] keys = m_dynamicParameters.Keys.ToArray();
+            AgentDynamicParameter[] keys = dynamicParameters.Keys.ToArray();
             keys.ForEach(x =>
             {
-                m_dynamicParameters[x] = dynamicParametersStartValue.GetValueOrDefault(x);
+                SetDynamicParameter(x, dynamicParametersStartValue.GetValueOrDefault(x));
             });
         }
 
@@ -71,14 +74,6 @@ namespace SmartObjects_AI.Agent
             DynamicParameterVariation();
             
             TryToUseSmartObject();
-        }
-
-        private void DynamicParameterVariation()
-        {
-            foreach (AgentDynamicParameter parameter in data.dynamicParametersVariation.Keys)
-            {
-                m_dynamicParameters[parameter] += data.dynamicParametersVariation[parameter];
-            }
         }
 
         private void TryToUseSmartObject()
@@ -111,28 +106,46 @@ namespace SmartObjects_AI.Agent
             
             return m_smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;
         }
+        
+        public bool IsUsing(SmartObject smartObject)
+        {
+            // If the object was used last time and tries to be used this time => it's being used
+            if (m_smartObjectToUse == m_previousSmartObject)
+                return m_smartObjectToUse == smartObject;
+            return false;
+        }
+        
+        public bool IsOwner(SmartObject smartObject)
+        {
+            return m_smartObjectsOwning.Contains(smartObject);
+        }
+
+        
 
         #region DynamicParameters
-
         public float GetDynamicParameter(AgentDynamicParameter parameter)
         {
-            return m_dynamicParameters[parameter];
+            return dynamicParameters[parameter];
         }
         
         public void SetDynamicParameter(AgentDynamicParameter parameter, float value)
         {
-            m_dynamicParameters[parameter] = Math.Clamp(value, 0, 100);
+            dynamicParameters[parameter] = Math.Clamp(value, 0, 100);
         }
 
         public void AddDynamicParameter(AgentDynamicParameter parameter, float value)
         {
-            SetDynamicParameter(parameter, m_dynamicParameters[parameter] + value);
+            SetDynamicParameter(parameter, dynamicParameters[parameter] + value);
         }
         
-        public void UpdateParameterValue(AgentDynamicParameter parameter, float value)
+        private void DynamicParameterVariation()
         {
-            m_dynamicParameters[parameter] += value;
+            foreach (AgentDynamicParameter parameter in data.dynamicParametersVariation.Keys)
+            {
+                AddDynamicParameter(parameter, data.dynamicParametersVariation[parameter]);
+            }
         }
+        
         #endregion
         
     }
