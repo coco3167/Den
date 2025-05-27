@@ -44,7 +44,7 @@ namespace SmartObjects_AI.Agent
             }
             
             //Owning SmartObjects
-            m_smartObjectsOwning.AddRange(GetComponentsInChildren<SmartObject>());
+            m_smartObjectsOwning = GetComponentsInChildren<SmartObject>();
         }
         
         public void OnGameReady(object sender, EventArgs eventArgs)

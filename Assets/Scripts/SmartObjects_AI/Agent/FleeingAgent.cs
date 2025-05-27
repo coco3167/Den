@@ -13,11 +13,14 @@ namespace SmartObjects_AI.Agent
         private void Awake()
         {
             m_mouseManager = GameManager.Instance.GetMouseManager();
+            
         }
 
         private void FixedUpdate()
         {
-            transform.localPosition = distance * (agent.transform.position - m_mouseManager.GetRawWorldMousePosition()).normalized;
+            transform.position = m_mouseManager.GetRawWorldMousePosition() + distance * (agent.transform.position - m_mouseManager.GetRawWorldMousePosition()).normalized;
+            
+            
         }
 
         private void OnDrawGizmos()

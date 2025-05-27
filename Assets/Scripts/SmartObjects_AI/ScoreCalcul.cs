@@ -56,22 +56,30 @@ namespace SmartObjects_AI
             Vector3 agentPos = smartAgent.transform.position;
             Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
             float suspiscion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Suspicion);
+            
 
-            Value = 10 / Vector3.Distance(agentPos, mousePos) - suspiscion;
+            Value = Mathf.Clamp(3 - Vector3.Distance(agentPos, mousePos), 0, 3) *35 - suspiscion;
             return Value;
         }
     }
 
-    public class Flee : BaseScoreCalcul
+    public class CuriosityActive : BaseScoreCalcul
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             Vector3 agentPos = smartAgent.transform.position;
             Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
-            float suspiscion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Suspicion);
-            Debug.Log(Vector3.Distance(agentPos, mousePos));
-            Value = Mathf.Clamp(2 - Vector3.Distance(agentPos, mousePos),0,5)*100;
-            Debug.Log("Flee" + Value);
+            float detectionRange = 3;
+
+            
+            float curiosityLevel = smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity);
+            // float aggroLevel = smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression);
+            // float worldFear = ???
+
+
+            Value = Mathf.Clamp(3 - Vector3.Distance(agentPos, mousePos),0,3)*curiosityLevel;
+            Debug.Log(Value);
+            
             return Value;
         }
     }
