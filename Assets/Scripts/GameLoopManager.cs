@@ -7,10 +7,14 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class GameLoopManager : MonoBehaviour, IPausable
 {
-    [SerializeField] private float gameLoopDuration;
+    [SerializeField] private AnimationClip loopAnim;
     
     private Animator m_animator;
     private Tween m_tween;
+    
+    private float m_gameLoopDuration;
+    
+    public GameLoopState currentGameLoopState { get; private set; }
     public event EventHandler GameReady, GameEnded;
 
     public static GameLoopManager Instance;
@@ -28,7 +32,10 @@ public class GameLoopManager : MonoBehaviour, IPausable
         Instance = this;
         
         m_animator = GetComponent<Animator>();
-        m_tween = DOTween.To(() => Shader.GetGlobalFloat(TimeOfDay), (value) => Shader.SetGlobalFloat(TimeOfDay, value), 300, gameLoopDuration);
+        m_gameLoopDuration = loopAnim.length;
+        Debug.Log(m_gameLoopDuration);
+        
+        m_tween = DOTween.To(() => Shader.GetGlobalFloat(TimeOfDay), (value) => Shader.SetGlobalFloat(TimeOfDay, value), 300, m_gameLoopDuration);
         m_tween.Pause();
         m_tween.SetEase(Ease.Linear);
         
@@ -40,6 +47,7 @@ public class GameLoopManager : MonoBehaviour, IPausable
     public void OnGameLoopReady()
     {
         Shader.SetGlobalFloat(TimeOfDay, 0);
+        ChangeGameLoopState(GameLoopState.Morning);
         GameReady?.Invoke(null, EventArgs.Empty);
         m_tween.Play();
     }
@@ -68,5 +76,18 @@ public class GameLoopManager : MonoBehaviour, IPausable
             return;
         }
         m_tween.Play();
+    }
+
+    public void ChangeGameLoopState(GameLoopState state)
+    {
+        currentGameLoopState = state;
+    }
+
+    public enum GameLoopState
+    {
+        Morning,
+        Day,
+        Evening,
+        Night,
     }
 }
