@@ -78,7 +78,7 @@ namespace SmartObjects_AI
             
             foreach (KeyValuePair<AgentDynamicParameter, float> parameterEffect in data.parameterEffectOnAgent)
             {
-                agent.UpdateParameterValue(parameterEffect.Key, parameterEffect.Value);
+                agent.AddDynamicParameter(parameterEffect.Key, parameterEffect.Value);
             }
 
             foreach (KeyValuePair<SmartObjectParameter, float> parameterEffect in data.dynamicParametersEffect)
