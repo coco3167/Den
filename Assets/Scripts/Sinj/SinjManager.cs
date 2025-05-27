@@ -79,7 +79,7 @@ namespace Sinj
 
         private float ClampEmotion(MouseAgent agent, AgentDynamicParameter parameter)
         {
-            float value = agent.GetDynamicParameterValue(parameter).GetFloatValue();
+            float value = agent.GetDynamicParameterValue(parameter);
             float emotionDecrease = emotionsDecrease[parameter];
             float emotionMax = emotionsMax[parameter];
             float emotionMin = emotionsMin[parameter];
