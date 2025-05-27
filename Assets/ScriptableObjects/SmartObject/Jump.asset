@@ -15,6 +15,7 @@ MonoBehaviour:
   <scoreCalculation>k__BackingField:
     rid: 6866505601623785559
   <animatorController>k__BackingField: {fileID: 22100000, guid: 515727f21389bec45bf3bd30632cb5fd, type: 2}
+  <maxUser>k__BackingField: 0
   <dynamicParametersEffect>k__BackingField:
     _serializedList: []
   <dynamicParametersVariation>k__BackingField:
@@ -22,10 +23,7 @@ MonoBehaviour:
   <parameterEffectOnAgent>k__BackingField:
     _serializedList:
     - Key: 5
-      Value:
-        valueType: 0
-        floatValue: 100
-        boolValue: 0
+      Value: 100
   references:
     version: 2
     RefIds:
