@@ -95,7 +95,7 @@ namespace Sinj
             }
             
 
-            m_debugParameters[4].Value = m_stateMachine.ToString();
+            m_debugParameters[4].UpdateValue(m_stateMachine.ToString());
         }
 
         public void UpdateEmotion(float value, Emotions emotion)

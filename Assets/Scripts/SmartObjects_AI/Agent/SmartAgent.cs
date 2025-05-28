@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
+using DebugHUD;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -10,7 +11,7 @@ using UnityEngine;
 namespace SmartObjects_AI.Agent
 {
     [Serializable, RequireComponent(typeof(MovementAgent), typeof(AnimationAgent))]
-    public class SmartAgent : MonoBehaviour, IGameStateListener, IReloadable
+    public class SmartAgent : MonoBehaviour, IGameStateListener, IReloadable, IDebugDisplayAble
     {
         private const float AIUpdateSleepTime = 0.1f;
         
@@ -23,6 +24,7 @@ namespace SmartObjects_AI.Agent
         private SmartObject m_previousSmartObject, m_smartObjectToUse;
 
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
+        private DebugParameter[] m_debugParameters;
         
         private MovementAgent m_movementAgent;
         public AnimationAgent animationAgent { get; private set; }
@@ -30,6 +32,13 @@ namespace SmartObjects_AI.Agent
         private void Awake()
         {
             m_smartObjects = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            m_debugParameters = new DebugParameter[m_smartObjects.Length];
+            
+            for (var loop = 0; loop < m_smartObjects.Length; loop++)
+            {
+                DebugParameter debugParameter = new DebugParameter(m_smartObjects[loop].name, "0");
+                m_debugParameters.SetValue(debugParameter, loop);
+            }
             
             m_movementAgent = GetComponent<MovementAgent>();
             animationAgent = GetComponent<AnimationAgent>();
@@ -49,7 +58,8 @@ namespace SmartObjects_AI.Agent
         
         public void OnGameReady(object sender, EventArgs eventArgs)
         {
-            m_previousSmartObject = SearchForSmartObject();
+            SearchForSmartObject();
+            m_previousSmartObject = m_smartObjectToUse;
             InvokeRepeating(nameof(AIUpdate), 0, AIUpdateSleepTime);
         }
 
@@ -78,7 +88,7 @@ namespace SmartObjects_AI.Agent
 
         private void TryToUseSmartObject()
         {
-            m_smartObjectToUse = SearchForSmartObject();
+            SearchForSmartObject();
 
             m_movementAgent.SetDestination(m_smartObjectToUse.usingPoint);
                 
@@ -95,16 +105,20 @@ namespace SmartObjects_AI.Agent
             }
         }
 
-        private SmartObject SearchForSmartObject()
+        private void SearchForSmartObject()
         {
             m_smartObjectScore.Clear();
-            foreach (SmartObject smartObject in m_smartObjects)
+            for (int loop = 0; loop < m_smartObjects.Length; loop++)
             {
+                SmartObject smartObject = m_smartObjects[loop];
                 m_smartObjectScore.Add(smartObject, smartObject.CalculateScore(this));
                 smartObject.DynamicParameterVariation();
+                
+                m_debugParameters[loop].UpdateValue(m_smartObjectScore[smartObject].ToString("0.00"));
             }
             
-            return m_smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;
+            m_smartObjectToUse = m_smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;
+            m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse)].IsSpecial = true;
         }
         
         public bool IsUsing(SmartObject smartObject)
@@ -147,6 +161,15 @@ namespace SmartObjects_AI.Agent
         }
         
         #endregion
-        
+
+        public int GetParameterCount()
+        {
+            return m_debugParameters.Length;
+        }
+
+        public DebugParameter GetParameter(int index)
+        {
+            return m_debugParameters[index];
+        }
     }
 }

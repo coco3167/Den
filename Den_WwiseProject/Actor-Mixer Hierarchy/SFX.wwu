@@ -2533,7 +2533,7 @@
 								<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-1</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -3003,7 +3003,7 @@
 							<ObjectRef Name="FoostepsAttenuation" ID="{FCCCA6D7-75B0-446C-BFA5-B3B6F4E48078}" WorkUnitID="{4D8EE58E-8CFA-4860-A69D-33BF5CF8C67A}"/>
 						</Reference>
 						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+							<ObjectRef Name="FootstepsConversion" ID="{04277475-1B92-46D0-8D18-EC8AF6EA2104}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>

@@ -25,10 +25,14 @@ namespace AK
         static const AkUniqueID PLAY_DEN_CREA_RB_CURIOUS = 1141265601U;
         static const AkUniqueID PLAY_DEN_CREA_RB_FEAR = 231948563U;
         static const AkUniqueID PLAY_DEN_CREA_SCREAMBARKS = 4165947622U;
-        static const AkUniqueID PLAY_DEN_CURSOR = 2777527908U;
+        static const AkUniqueID PLAY_DEN_MUSIC_END = 2532886009U;
+        static const AkUniqueID PLAY_DEN_MUSIC_MENU = 334277355U;
         static const AkUniqueID PLAY_DEN_MUSIC_START = 486039834U;
         static const AkUniqueID PLAY_DEN_MUSIC_TEST = 1174350178U;
         static const AkUniqueID PLAY_DEN_STARTGAME = 3010429372U;
+        static const AkUniqueID PLAY_DEN_STI_MOOD_ANGER = 3155287650U;
+        static const AkUniqueID PLAY_DEN_STI_MOOD_CURIOUS = 2374769269U;
+        static const AkUniqueID PLAY_DEN_STI_MOOD_FEAR = 2375292999U;
         static const AkUniqueID PLAY_DEN_STINGER = 198938308U;
         static const AkUniqueID PLAY_DEN_TOD = 892655767U;
         static const AkUniqueID SET_DEN_AMB_ANGER1 = 1566837199U;
