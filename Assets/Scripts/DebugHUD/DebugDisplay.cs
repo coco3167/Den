@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sinj;
+using SmartObjects_AI.Agent;
 using UnityEngine;
 
 namespace DebugHUD
@@ -59,7 +60,7 @@ namespace DebugHUD
                     break;
                 
                 case DebugCategory.Sinj: 
-                    displayAbles = FindObjectsByType<SinjAgent>(FindObjectsSortMode.None);
+                    displayAbles = FindObjectsByType<SmartAgent>(FindObjectsSortMode.None);
                     break;
             }
             
@@ -102,7 +103,8 @@ namespace DebugHUD
     public class DebugParameter
     {
         public string Name;
-        public string Value;
+        public string Value { get; private set; }
+        public bool IsSpecial;
 
         public DebugParameter(string name, string value)
         {
@@ -113,6 +115,7 @@ namespace DebugHUD
         public void UpdateValue(string value)
         {
             Value = value;
+            IsSpecial = false;
         }
     }
 
