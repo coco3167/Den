@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SmartObjects_AI.Agent
 {
-    [RequireComponent(typeof(Animator), typeof(MovementAgent))]
+    [RequireComponent(typeof(MovementAgent))]
     public class AnimationAgent : MonoBehaviour
     {
         // ID for animator
@@ -10,27 +10,26 @@ namespace SmartObjects_AI.Agent
         private static readonly int FinishUse = Animator.StringToHash("FinishUse");
         private static readonly int Speed = Animator.StringToHash("Speed");
 
-        private Animator m_animator;
+        [SerializeField] private Animator animator;
         private MovementAgent m_movementAgent;
 
         private bool m_isFinished = true;
         
         private void Awake()
         {
-            m_animator = GetComponent<Animator>();
             m_movementAgent = GetComponent<MovementAgent>();
         }
 
         private void Update()
         {
-            m_animator.SetFloat(Speed, m_movementAgent.GetSpeed());
+            animator.SetFloat(Speed, m_movementAgent.GetSpeed());
         }
 
         public void SwitchAnimator(RuntimeAnimatorController animatorController)
         {
             m_isFinished = false;
-            m_animator.runtimeAnimatorController = animatorController;
-            m_animator.SetTrigger(StartUse);
+            animator.runtimeAnimatorController = animatorController;
+            animator.SetTrigger(StartUse);
         }
 
         public void FinishUseAnimation()
@@ -38,7 +37,7 @@ namespace SmartObjects_AI.Agent
             if(m_isFinished)
                 return;
             m_isFinished = true;
-            m_animator.SetTrigger(FinishUse);
+            animator.SetTrigger(FinishUse);
         }
     }
 }

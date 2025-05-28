@@ -25,7 +25,7 @@ namespace SmartObjects_AI.Agent
 
         public float GetSpeed()
         {
-            return m_navMeshAgent.speed;
+            return m_navMeshAgent.velocity.magnitude;
         }
     }
 }
