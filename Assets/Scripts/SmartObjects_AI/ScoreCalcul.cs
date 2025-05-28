@@ -30,7 +30,8 @@ namespace SmartObjects_AI
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            Value = (smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness) / Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position));
+            float tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Suspicion);
+            Value = tiredness / 2;
             // if (smartAgent.IsUsing(smartObject))
             // {
             //     Debug.Log("Rest" + Value);
@@ -39,12 +40,12 @@ namespace SmartObjects_AI
 
             // Debug.Log(Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position));
             // Debug.Log(smartAgent);
-            
+
             // TODO changer ça Value *= ((smartObject.GetDynamicParameter[SmartObjectParameter.Usage].GetBoolValue() ? 0 : 1));
             // !!!!
-            
+
             // Debug.Log(smartObject.GetDynamicParameter[SmartObjectParameter.Usage].GetBoolValue());
-            
+
             return Value;
         }
     }
@@ -56,9 +57,10 @@ namespace SmartObjects_AI
             Vector3 agentPos = smartAgent.transform.position;
             Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
             float suspiscion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Suspicion);
-            
 
-            Value = Mathf.Clamp(3 - Vector3.Distance(agentPos, mousePos), 0, 3) *35 - suspiscion;
+
+            Value = Mathf.Clamp(3 - Vector3.Distance(agentPos, mousePos), 0, 3) * 35 - suspiscion;
+            Value = Mathf.Clamp(Value, 0, 100);
             return Value;
         }
     }
@@ -69,16 +71,37 @@ namespace SmartObjects_AI
         {
             Vector3 agentPos = smartAgent.transform.position;
             Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
-            float detectionRange = 3;
+            // float detectionRange = 3;
 
-            
+
             float curiosityLevel = smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity);
             // float aggroLevel = smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression);
             // float worldFear = ???
 
 
-            Value = Mathf.Clamp(3 - Vector3.Distance(agentPos, mousePos),0,3)*curiosityLevel;
-            Debug.Log(Value);
+            Value = curiosityLevel / Vector3.Distance(agentPos, mousePos);
+
+
+            return Value;
+        }
+    }
+    
+    public class AgressionActive : BaseScoreCalcul
+    {
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            Vector3 agentPos = smartAgent.transform.position;
+            Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
+            // float detectionRange = 3;
+
+            
+            float agressionLevel = smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression);
+            
+            // float worldFear = ???
+
+
+            Value = agressionLevel/Vector3.Distance(agentPos, mousePos);
+            
             
             return Value;
         }
