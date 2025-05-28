@@ -24,6 +24,7 @@ namespace SmartObjects_AI.Agent
         Fear,
         Tiredness,
         Suspicion,
+        Neutral
     }
 
     /*[Serializable]

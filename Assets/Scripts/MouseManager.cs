@@ -7,7 +7,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
 {
     [SerializeField] private Rigidbody mouseRigidBody;
     [SerializeField] private LayerMask terrainLayerMask;
-    
+
     private Camera m_camera;
     private Vector2 m_otherMoveValue;
     private bool m_isOtherMoving;
@@ -30,26 +30,17 @@ public class MouseManager : MonoBehaviour, IGameStateListener
         m_camera = GameManager.Instance.GetCamera();
         Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
         mouseRigidBody.MovePosition(new Vector3(1,1,-3));
-
-        //start mouse sound
-        AudioManager.Instance.StartCursorMoveSound(this.gameObject);
     }
 
     public void OnGameEnded(object sender, EventArgs eventArgs)
     {
-        // stop mouse sound
-        AudioManager.Instance.StopCursorMoveSound(this.gameObject);
+        //nothing
     }
 
     public void OnMouseMoved(Vector2 value)
     {
         value *= Options.GameParameters.MouseSensitivity;
         MoveRigidBody(value);
-
-        // Call cursor sound
-        float speed = MouseVelocity();
-        Debug.Log($"Mouse speed: {speed}");
-        AudioManager.Instance.UpdateCursorSpeed(speed, this.gameObject);
     }
 
     public void OnOtherMoveStart(Vector2 value)
