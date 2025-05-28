@@ -69,7 +69,7 @@ namespace Sinj
             public override bool IsApplying(MouseAgent mouseAgent)
             {
                 //float agentTension = mouseAgent.GetEmotion(Emotions.Tension);
-                float agentTension = mouseAgent.GetDynamicParameterValue(AgentDynamicParameter.Tension).GetFloatValue();
+                float agentTension = mouseAgent.GetDynamicParameterValue(AgentDynamicParameter.Tension);
                 switch (comparison)
                 {
                     case Comparison.Inferior:
