@@ -13,7 +13,7 @@ namespace SmartObjects_AI.Agent
     
     public enum AgentStaticParameter
     {
-        None
+        FleeRange,
     }
 
     public enum AgentDynamicParameter
