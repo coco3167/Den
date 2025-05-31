@@ -45,7 +45,7 @@ namespace Sinj
                 GameLoopManager.Instance.GameReady += mouseAgents[loop].GetComponent<IGameStateListener>().OnGameReady;
             }
 
-            m_worldParameters.AgentGlobalParameters.ForEach(x => m_debugParameters.Add(new DebugParameter(x.ToString(), "0")));
+            m_worldParameters.AgentGlobalParameters.ForEach(x => m_debugParameters.Add(new DebugParameter(x.Key.ToString(), "0")));
             
             //GameManager.Instance.OnGameReady();
         }
