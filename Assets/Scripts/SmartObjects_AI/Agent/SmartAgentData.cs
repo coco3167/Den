@@ -24,6 +24,8 @@ namespace SmartObjects_AI.Agent
         Fear,
         Tiredness,
         Suspicion,
+        Hunger,
+        Social,
     }
 
     /*[Serializable]

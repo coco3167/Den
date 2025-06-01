@@ -32,23 +32,21 @@ namespace SmartObjects_AI
         {
             float tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness);
             Value = tiredness / 2;
-            // if (smartAgent.IsUsing(smartObject))
-            // {
-            //     Debug.Log("Rest" + Value);
-            //     return Value;
-            // }
-
-            // Debug.Log(Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position));
-            // Debug.Log(smartAgent);
-
-            // TODO changer ça Value *= ((smartObject.GetDynamicParameter[SmartObjectParameter.Usage].GetBoolValue() ? 0 : 1));
-            // !!!!
-
-            // Debug.Log(smartObject.GetDynamicParameter[SmartObjectParameter.Usage].GetBoolValue());
-
             return Value;
         }
     }
+
+    public class Food : BaseScoreCalcul
+    {
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            float hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger);
+            Value = hunger / 1.5f;
+            return Value;
+        }
+    }
+
+    //MOUSE REACTIVE
 
     public class Jump : BaseScoreCalcul
     {
@@ -62,7 +60,7 @@ namespace SmartObjects_AI
 
             Value = Mathf.Clamp(3 - Vector3.Distance(agentPos, mousePos), 0, 3) * mouseSpeed * 35 - suspiscion;
             Value = Mathf.Clamp(Value, 0, 100);
-            return Value;
+            return 0f;
         }
     }
 
@@ -78,7 +76,7 @@ namespace SmartObjects_AI
            
             
             
-            return Value;
+            return 0f;
         }
     }
 
