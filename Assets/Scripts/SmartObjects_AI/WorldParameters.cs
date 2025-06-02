@@ -31,6 +31,11 @@ namespace SmartObjects_AI
             return m_mouseManager.GetRawWorldMousePosition();
         }
 
+        public float GetMouseVelocity()
+        { 
+            return m_mouseManager.MouseVelocity();
+        }
+
         public float GetDynamicParameter(WorldParameterType parameter)
         {
             return m_parameters[parameter];

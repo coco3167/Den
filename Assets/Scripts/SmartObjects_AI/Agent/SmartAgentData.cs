@@ -13,7 +13,7 @@ namespace SmartObjects_AI.Agent
     
     public enum AgentStaticParameter
     {
-        None
+        FleeRange,
     }
 
     public enum AgentDynamicParameter
@@ -24,6 +24,8 @@ namespace SmartObjects_AI.Agent
         Fear,
         Tiredness,
         Suspicion,
+        Hunger,
+        Social,
     }
 
     /*[Serializable]
