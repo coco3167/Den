@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace SmartObjects_AI.Agent
@@ -16,7 +15,7 @@ namespace SmartObjects_AI.Agent
         private void Awake()
         {
             m_mouseManager = GameManager.Instance.GetMouseManager();
-            m_smartObject.GetComponentInChildren<SmartObject>();
+            m_smartObject = GetComponentInChildren<SmartObject>();
         }
 
         private void FixedUpdate()
