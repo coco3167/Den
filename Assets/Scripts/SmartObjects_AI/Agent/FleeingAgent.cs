@@ -5,22 +5,24 @@ namespace SmartObjects_AI.Agent
 {
     public class FleeingAgent : MonoBehaviour
     {
-        [SerializeField] private float distance;
-        [SerializeField] private MouseAgent agent;
-        
+        [SerializeReference] private BaseScoreCalcul scoreCalcul;
+        [SerializeField] private MouseAgent mouseAgent;
+        [SerializeField] private SmartAgent smartAgent;
+
+        private float m_distance;
         private MouseManager m_mouseManager;
+        private SmartObject m_smartObject;
 
         private void Awake()
         {
             m_mouseManager = GameManager.Instance.GetMouseManager();
-            
+            m_smartObject.GetComponentInChildren<SmartObject>();
         }
 
         private void FixedUpdate()
         {
-            transform.position = agent.transform.position + distance * (agent.transform.position - m_mouseManager.GetRawWorldMousePosition()).normalized;
-            
-            
+            m_distance = scoreCalcul.CalculateScore(smartAgent, m_smartObject);
+            transform.position = mouseAgent.transform.position + m_distance * (mouseAgent.transform.position - m_mouseManager.GetRawWorldMousePosition()).normalized;
         }
 
         private void OnDrawGizmos()

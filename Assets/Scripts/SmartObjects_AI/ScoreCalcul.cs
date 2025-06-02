@@ -17,6 +17,14 @@ namespace SmartObjects_AI
         }
     }
 
+    public class FleeingPointDistance : BaseScoreCalcul
+    {
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            return 1.5f;
+        }
+    }
+
     public class Hideout : BaseScoreCalcul
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
