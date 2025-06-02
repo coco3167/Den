@@ -60,7 +60,7 @@ namespace SmartObjects_AI
 
             Value = Mathf.Clamp(3 - Vector3.Distance(agentPos, mousePos), 0, 3) * mouseSpeed * 35 - suspiscion;
             Value = Mathf.Clamp(Value, 0, 100);
-            return 0f;
+            return Value;
         }
     }
 
@@ -76,7 +76,7 @@ namespace SmartObjects_AI
            
             
             
-            return 0f;
+            return Value;
         }
     }
 
@@ -96,7 +96,7 @@ namespace SmartObjects_AI
             Value = Mathf.Clamp(Value, 0, 100);
 
 
-            return 0f;
+            return Value;
         }
     }
     
@@ -105,7 +105,7 @@ namespace SmartObjects_AI
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             
-            return 0;
+            return Value;
         }
         
     }
