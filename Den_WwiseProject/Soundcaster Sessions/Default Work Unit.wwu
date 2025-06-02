@@ -105,15 +105,15 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_FearValue" ID="{5DDCEF5F-D8C4-40D7-BD7E-8336CBE14C7F}"/>
-							<Value>100</Value>
+							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_CuriosityValue" ID="{4C8EF3DA-5ED7-423F-8B0C-F48F58CE5ABD}"/>
-							<Value>100</Value>
+							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_CursorVolume" ID="{1A9200A0-E598-42D1-9C33-09BC4F3F8351}"/>
-							<Value>0</Value>
+							<Value>2</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_UIV_Ambience" ID="{B59131F9-E6C2-42E4-96DC-D7E9A4395CE2}"/>
@@ -148,14 +148,22 @@
 							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="DEN_GP_UIV_UI" ID="{EE4A669F-8623-4D6B-916E-75BB0A3D6CA5}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DEN_GP_CursorSpeed" ID="{9A55C7C2-566D-4E67-848E-AA5E41C7F412}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}"/>
-							<Value>100</Value>
+							<Value>0</Value>
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
 						<CurrentStateRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
-						<CurrentStateRef Name="DEN_ST_TOD_Night" ID="{E5651177-8597-4405-9543-A5179BF22D37}"/>
+						<CurrentStateRef Name="DEN_ST_TOD_Morning" ID="{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}"/>
 						<CurrentStateRef Name="DEN_ST_Amb_Playing" ID="{591B604F-ED42-451A-9D6A-DB7A0655879F}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">

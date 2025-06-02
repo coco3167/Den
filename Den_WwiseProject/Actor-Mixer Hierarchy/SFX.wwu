@@ -23,6 +23,7 @@
 								<Value>80</Value>
 							</ValueList>
 						</Property>
+						<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 						<Property Name="UseMaxSoundPerInstance" Type="bool">
 							<ValueList>
 								<Value>True</Value>
@@ -1896,6 +1897,7 @@
 								<Value>2</Value>
 							</ValueList>
 						</Property>
+						<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 						<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="50"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
@@ -2499,13 +2501,16 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{139701F3-2A77-4D85-94A6-AE81574CDADC}"/>
+					</PositioningInfo>
 				</ActorMixer>
 				<ActorMixer Name="DEN_Stingers" ID="{DA036210-F729-4B1E-A8E7-44BFCB419C66}" ShortID="18197144">
 					<PropertyList>
 						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 						<Property Name="MaxSoundPerInstance" Type="int16">
 							<ValueList>
-								<Value>1</Value>
+								<Value>2</Value>
 							</ValueList>
 						</Property>
 						<Property Name="UseMaxSoundPerInstance" Type="bool">
@@ -2622,6 +2627,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="DEN_StingerAnger_01" ID="{AB188E3B-2061-4A33-B05A-2ADC18D4357E}" ShortID="762027477">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -2992,6 +3004,7 @@
 								<Value>30</Value>
 							</ValueList>
 						</Property>
+						<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 						<Property Name="UseMaxSoundPerInstance" Type="bool">
 							<ValueList>
 								<Value>True</Value>

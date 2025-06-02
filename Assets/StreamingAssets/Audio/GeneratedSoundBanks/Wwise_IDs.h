@@ -35,6 +35,7 @@ namespace AK
         static const AkUniqueID PLAY_DEN_STI_MOOD_FEAR = 2375292999U;
         static const AkUniqueID PLAY_DEN_STINGER = 198938308U;
         static const AkUniqueID PLAY_DEN_TOD = 892655767U;
+        static const AkUniqueID PLAY_DEN_UI_CURSOR = 773185301U;
         static const AkUniqueID SET_DEN_AMB_ANGER1 = 1566837199U;
         static const AkUniqueID SET_DEN_AMB_ANGER2 = 1566837196U;
         static const AkUniqueID SET_DEN_AMB_ANGER3 = 1566837197U;
@@ -190,6 +191,7 @@ namespace AK
     {
         static const AkUniqueID DEN_GP_ANGERVALUE = 722514783U;
         static const AkUniqueID DEN_GP_CURIOSITYVALUE = 2578001617U;
+        static const AkUniqueID DEN_GP_CURSORSPEED = 4061733226U;
         static const AkUniqueID DEN_GP_CURSORVOLUME = 2230858223U;
         static const AkUniqueID DEN_GP_FEARVALUE = 4122714024U;
         static const AkUniqueID DEN_GP_INTENSITYVALUE = 973587621U;
@@ -200,6 +202,7 @@ namespace AK
         static const AkUniqueID DEN_GP_UIV_MASTER = 2421685046U;
         static const AkUniqueID DEN_GP_UIV_MUSIC = 3976517781U;
         static const AkUniqueID DEN_GP_UIV_SFX = 307573345U;
+        static const AkUniqueID DEN_GP_UIV_UI = 1763700666U;
         static const AkUniqueID DEN_GP_VOLUMEMOMO = 3482592633U;
     } // namespace GAME_PARAMETERS
 
