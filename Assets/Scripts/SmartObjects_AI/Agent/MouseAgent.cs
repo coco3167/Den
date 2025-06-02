@@ -50,7 +50,7 @@ namespace SmartObjects_AI.Agent
 
             m_parameterValue -= m_emotionDecrease;
             m_parameterValue = Mathf.Clamp(m_parameterValue, 0, 100);
-            m_smartAgent.dynamicParameters[parameter] = m_parameterValue;
+            m_smartAgent.SetDynamicParameter(parameter, m_parameterValue);
         }
 
         public float DistanceToMouse()
@@ -64,17 +64,17 @@ namespace SmartObjects_AI.Agent
 
         public float GetDynamicParameterValue(AgentDynamicParameter parameter)
         {
-            return m_smartAgent.dynamicParameters[parameter];
+            return m_smartAgent.GetDynamicParameter(parameter);
         }
 
         public void AddDynamicParameterValue(AgentDynamicParameter parameter, float value)
         {
-            m_smartAgent.dynamicParameters[parameter] += value;
+            m_smartAgent.AddDynamicParameter(parameter, value);
         }
 
         public void SetDynamicParameterValue(AgentDynamicParameter parameter, float value)
         {
-            m_smartAgent.dynamicParameters[parameter] = value;
+            m_smartAgent.SetDynamicParameter(parameter, value);
         }
 
     }

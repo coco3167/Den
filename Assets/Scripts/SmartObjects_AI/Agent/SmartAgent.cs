@@ -17,9 +17,9 @@ namespace SmartObjects_AI.Agent
         [SerializeField] private SmartAgentData data;
 
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> dynamicParametersStartValue;
-        [field : SerializeField, ReadOnly] public SerializedDictionary<AgentDynamicParameter, float> dynamicParameters { get; private set; } = new();
+        [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> dynamicParameters = new();
 
-        private SmartObject[] m_smartObjects;
+        private SmartObject[] m_smartObjects, m_smartObjectsOwning;
         private SmartObject m_previousSmartObject, m_smartObjectToUse;
 
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
@@ -42,6 +42,9 @@ namespace SmartObjects_AI.Agent
                 dynamicParameters.Add(parameter,
                     dynamicParametersStartValue.GetValueOrDefault(parameter, 0.0f));
             }
+            
+            //Owning SmartObjects
+            m_smartObjectsOwning.AddRange(GetComponentsInChildren<SmartObject>());
         }
         
         public void OnGameReady(object sender, EventArgs eventArgs)
@@ -62,7 +65,7 @@ namespace SmartObjects_AI.Agent
             AgentDynamicParameter[] keys = dynamicParameters.Keys.ToArray();
             keys.ForEach(x =>
             {
-                dynamicParameters[x] = dynamicParametersStartValue.GetValueOrDefault(x);
+                SetDynamicParameter(x, dynamicParametersStartValue.GetValueOrDefault(x));
             });
         }
 
@@ -71,14 +74,6 @@ namespace SmartObjects_AI.Agent
             DynamicParameterVariation();
             
             TryToUseSmartObject();
-        }
-
-        private void DynamicParameterVariation()
-        {
-            foreach (AgentDynamicParameter parameter in data.dynamicParametersVariation.Keys)
-            {
-                dynamicParameters[parameter] += data.dynamicParametersVariation[parameter];
-            }
         }
 
         private void TryToUseSmartObject()
@@ -111,10 +106,47 @@ namespace SmartObjects_AI.Agent
             
             return m_smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;
         }
-
-        public void UpdateParameterValue(AgentDynamicParameter parameter, float value)
+        
+        public bool IsUsing(SmartObject smartObject)
         {
-            dynamicParameters[parameter] += value;
+            // If the object was used last time and tries to be used this time => it's being used
+            if (m_smartObjectToUse == m_previousSmartObject)
+                return m_smartObjectToUse == smartObject;
+            return false;
         }
+        
+        public bool IsOwner(SmartObject smartObject)
+        {
+            return m_smartObjectsOwning.Contains(smartObject);
+        }
+
+        
+
+        #region DynamicParameters
+        public float GetDynamicParameter(AgentDynamicParameter parameter)
+        {
+            return dynamicParameters[parameter];
+        }
+        
+        public void SetDynamicParameter(AgentDynamicParameter parameter, float value)
+        {
+            dynamicParameters[parameter] = Math.Clamp(value, 0, 100);
+        }
+
+        public void AddDynamicParameter(AgentDynamicParameter parameter, float value)
+        {
+            SetDynamicParameter(parameter, dynamicParameters[parameter] + value);
+        }
+        
+        private void DynamicParameterVariation()
+        {
+            foreach (AgentDynamicParameter parameter in data.dynamicParametersVariation.Keys)
+            {
+                AddDynamicParameter(parameter, data.dynamicParametersVariation[parameter]);
+            }
+        }
+        
+        #endregion
+        
     }
 }
