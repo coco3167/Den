@@ -855,28 +855,6 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="DEN_UI_Fader_01" ID="{247D8DD4-3845-4E60-BBDD-94D8047638A5}" ShortID="481482205">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="DEN_UI_Fader_01" ID="{8C9C0210-8A17-4B1D-BF63-FE94FE0DEF71}">
-									<Language>SFX</Language>
-									<AudioFile>DEN_UI_Fader_01.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="307573119"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="DEN_UI_Fader_01" ID="{8C9C0210-8A17-4B1D-BF63-FE94FE0DEF71}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 						<Sound Name="DEN_UI_Fader_02" ID="{2448486E-96B9-4252-A43F-8781859DB543}" ShortID="57860587">
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -899,7 +877,26 @@
 								<ActiveSource Name="DEN_UI_Fader_02" ID="{E5992AD5-C73B-476E-9B55-D38C000F9C99}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="DEN_UI_Fader_03" ID="{E8E0301D-C0AF-4B88-870F-633E93C602B0}" ShortID="835667886">
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="DEN_UI_Box" ID="{34B8D91E-6ADF-476D-9599-56FCEB370F63}" ShortID="119870453">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="DEN_UI_Fader_03" ID="{EAC3BF42-64F6-4214-828C-ABB3C59819C9}" ShortID="615371695">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -909,7 +906,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="DEN_UI_Fader_03" ID="{AB2C0827-8665-4288-B32E-29B3C63499D3}">
+								<AudioFileSource Name="DEN_UI_Fader_03" ID="{C630FF63-1470-4C24-B6C3-32D68B6BC96F}">
 									<Language>SFX</Language>
 									<AudioFile>DEN_UI_Fader_03.wav</AudioFile>
 									<MediaIDList>
@@ -918,7 +915,7 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="DEN_UI_Fader_03" ID="{AB2C0827-8665-4288-B32E-29B3C63499D3}" Platform="Linked"/>
+								<ActiveSource Name="DEN_UI_Fader_03" ID="{C630FF63-1470-4C24-B6C3-32D68B6BC96F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

@@ -37,6 +37,7 @@ namespace AK
         static const AkUniqueID PLAY_DEN_TOD = 892655767U;
         static const AkUniqueID PLAY_DEN_UI_ACCEPT = 2557270739U;
         static const AkUniqueID PLAY_DEN_UI_BACK = 1885722902U;
+        static const AkUniqueID PLAY_DEN_UI_BOX = 2325474374U;
         static const AkUniqueID PLAY_DEN_UI_CURSOR = 773185301U;
         static const AkUniqueID PLAY_DEN_UI_FADERS = 188545216U;
         static const AkUniqueID PLAY_DEN_UI_MENU = 3529231902U;

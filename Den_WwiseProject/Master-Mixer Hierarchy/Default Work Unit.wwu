@@ -73,7 +73,7 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
-																		<XPos>1</XPos>
+																		<XPos>10</XPos>
 																		<YPos>0</YPos>
 																		<Flags>37</Flags>
 																	</Point>
@@ -158,7 +158,7 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
-																		<XPos>1</XPos>
+																		<XPos>10</XPos>
 																		<YPos>0</YPos>
 																		<Flags>37</Flags>
 																	</Point>
@@ -227,7 +227,7 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
-																		<XPos>1</XPos>
+																		<XPos>10</XPos>
 																		<YPos>0</YPos>
 																		<Flags>37</Flags>
 																	</Point>
@@ -244,6 +244,11 @@
 						</Bus>
 						<Bus Name="UI" ID="{536025B3-BD32-439B-A84E-2880E4EAE4C4}">
 							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Color" Type="int16" Value="19"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
@@ -436,7 +441,7 @@
 																<Flags>5</Flags>
 															</Point>
 															<Point>
-																<XPos>1</XPos>
+																<XPos>10</XPos>
 																<YPos>0</YPos>
 																<Flags>37</Flags>
 															</Point>

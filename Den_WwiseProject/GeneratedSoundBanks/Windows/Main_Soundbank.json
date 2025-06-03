@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{1C27C6B1-395B-DB32-BB55-0273A643A3FD}",
+    "Hash": "{E0AD2C2A-E54A-796C-EBEF-D80EF380B32D}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -354,14 +354,6 @@
       "Location": "Memory",
       "ShortName": "Momo_Worried_3.wav",
       "CachePath": "22/{22B57E5A-1825-7A14-41CE-553C5B64B1F8}.wem"
-     },
-     {
-      "Id": "307573119",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DEN_UI_Fader_01.wav",
-      "CachePath": "8D/{8DBBA650-F767-D9DB-7A9C-0F6DACCDAD75}.wem"
      },
      {
       "Id": "318315751",
@@ -3012,6 +3004,21 @@
       ]
      },
      {
+      "Id": "2325474374",
+      "Name": "Play_DEN_UI_Box",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_UI\\Play_DEN_UI_Box",
+      "GUID": "{2CD863B2-9754-4D2E-B083-AA61F7CC91AF}",
+      "Color": "19",
+      "DurationType": "OneShot",
+      "DurationMin": "0.0625",
+      "DurationMax": "0.0625",
+      "MediaRefs": [
+       {
+        "Id": "1069490422"
+       }
+      ]
+     },
+     {
       "Id": "773185301",
       "Name": "Play_DEN_UI_Cursor",
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_UI\\Play_DEN_UI_Cursor",
@@ -3061,12 +3068,6 @@
       "MediaRefs": [
        {
         "Id": "98624605"
-       },
-       {
-        "Id": "307573119"
-       },
-       {
-        "Id": "1069490422"
        }
       ]
      },
@@ -5293,6 +5294,6 @@
     ]
    }
   ],
-  "FileHash": "{8B18A728-4B3B-26F4-9EE4-0EF9C7A6746C}"
+  "FileHash": "{E136AE20-70C7-73F7-9CE2-8153800525BF}"
  }
 }

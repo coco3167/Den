@@ -21,6 +21,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1566837199	Set_DEN_AMB_Anger1			\Default Work Unit\DEN_Events_Amb\DEN_Set_Events\Set_DEN_AMB_Anger1	
 	1585709882	Set_DEN_TOD_Morning			\Default Work Unit\DEN_Events_Amb\DEN_Set_Events\Set_DEN_TOD_Morning	
 	1885722902	Play_DEN_UI_Back			\Default Work Unit\DEN_Events_UI\Play_DEN_UI_Back	
+	2325474374	Play_DEN_UI_Box			\Default Work Unit\DEN_Events_UI\Play_DEN_UI_Box	
 	2374769269	Play_DEN_STI_Mood_Curious			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_Stingers\Play_DEN_STI_Mood_Curious	
 	2375292999	Play_DEN_STI_Mood_Fear			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_Stingers\Play_DEN_STI_Mood_Fear	
 	2386744970	Set_DEN_TOD_Evening			\Default Work Unit\DEN_Events_Amb\DEN_Set_Events\Set_DEN_TOD_Evening	
@@ -139,7 +140,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	301428181	DEN_AMB_RandomNoises_11	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\81\{817910FD-FB84-D0A0-023E-99B100132199}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_RandomNoises\DEN_AMB_RandomNoises_11		340740
 	303254720	DEN_UI_Accept_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\7E\{7ECFB0E0-DB11-DC38-E705-5F09B2485C7A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Accept\DEN_UI_Accept_01		90344
 	306006355	Momo_Worried_3	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\22\{22B57E5A-1825-7A14-41CE-553C5B64B1F8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_WorriedBark\Momo_Worried_3		41945
-	307573119	DEN_UI_Fader_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\8D\{8DBBA650-F767-D9DB-7A9C-0F6DACCDAD75}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Faders\DEN_UI_Fader_01		12096
 	318315751	FE_AMB_WindGust_02	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\43\{43562281-227B-D71E-7964-4A76C0FC4FA1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_Moods\DEN_AMB_SwitchGroup\DEN_Amb_Fear\DEN_AMB_FEAR_04\FE_AMB_WindGust_02		999716
 	323231147	DEN_SFX_CursorMove_04	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\85\{857BF589-0254-2EFC-3530-845CAFC21B6C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Cursor\DEN_SFX_CursorMove_04		9331
 	331669665	DEN_SFX_CursorMove_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\53\{5351988E-72E5-C947-738D-E5052ABFF632}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Cursor\DEN_SFX_CursorMove_01		9807
@@ -254,7 +254,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1054179566	DEN_FearEnd_Simplified	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\CC\{CC27195C-1131-0EAF-F4B2-A9DBB6600A05}.wem		\Interactive Music Hierarchy\Default Work Unit\Music\DEN_Music_End\DEN_FearEnd_Simplified\DEN_FearEnd_Simplified		5472112
 	1054217432	DEN_AMB_RandomNoises_06	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\50\{50BA1F1F-C33F-5F4E-7A8D-A3CBA9D95B77}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_RandomNoises\DEN_AMB_RandomNoises_06		606556
 	1055699201	Momo_Curious_5	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\1F\{1F314D79-D86D-4CC5-D8CA-56D493C5B329}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Volumes\DEN_UI_VOL_SFX\Momo_Curious_5		88096
-	1069490422	DEN_UI_Fader_03	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\38\{38278BD7-32FD-A6C9-FD61-1D5CC5C60F19}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Faders\DEN_UI_Fader_03		12096
+	1069490422	DEN_UI_Fader_03	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\38\{38278BD7-32FD-A6C9-FD61-1D5CC5C60F19}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Box\DEN_UI_Fader_03		12096
 
 Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
 	32943555	DEN_AMB_TOD_Day_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\4A\{4A665E00-EE66-6EC8-98E7-757CE48CD3CC}.wem	32943555.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_TOD\DEN_AMB_TOD_Day_01	
