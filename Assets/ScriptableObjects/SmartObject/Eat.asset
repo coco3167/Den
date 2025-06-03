@@ -13,17 +13,20 @@ MonoBehaviour:
   m_Name: Eat
   m_EditorClassIdentifier: 
   <scoreCalculation>k__BackingField:
-    rid: -2
+    rid: 7321801942362751067
   <animatorController>k__BackingField: {fileID: 22100000, guid: 774c7f92c0ab54c429b05b3aff20bee3, type: 2}
-  <maxUser>k__BackingField: 0
+  <maxUser>k__BackingField: 1
   <dynamicParametersEffect>k__BackingField:
     _serializedList: []
   <dynamicParametersVariation>k__BackingField:
     _serializedList: []
   <parameterEffectOnAgent>k__BackingField:
-    _serializedList: []
+    _serializedList:
+    - Key: 6
+      Value: -5
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 7321801942362751067
+      type: {class: EatScore, ns: SmartObjects_AI, asm: Assembly-CSharp}
+      data: 

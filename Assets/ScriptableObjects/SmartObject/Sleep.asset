@@ -13,17 +13,20 @@ MonoBehaviour:
   m_Name: Sleep
   m_EditorClassIdentifier: 
   <scoreCalculation>k__BackingField:
-    rid: -2
-  <animatorController>k__BackingField: {fileID: 22100000, guid: e7f10f731268872458f64652b1fd4512, type: 2}
-  <maxUser>k__BackingField: 0
+    rid: 7321801942362751070
+  <animatorController>k__BackingField: {fileID: 22100000, guid: 6cffc6a4e2962204eb6d4d2011b944a7, type: 2}
+  <maxUser>k__BackingField: 1
   <dynamicParametersEffect>k__BackingField:
     _serializedList: []
   <dynamicParametersVariation>k__BackingField:
     _serializedList: []
   <parameterEffectOnAgent>k__BackingField:
-    _serializedList: []
+    _serializedList:
+    - Key: 4
+      Value: -0.6
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 7321801942362751070
+      type: {class: SleepScore, ns: SmartObjects_AI, asm: Assembly-CSharp}
+      data: 

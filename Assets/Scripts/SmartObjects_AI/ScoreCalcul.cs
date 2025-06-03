@@ -9,11 +9,13 @@ namespace SmartObjects_AI
         public abstract float CalculateScore(SmartAgent smartAgent, SmartObject smartObject);
     }
 
+    #region Deprecated
+    
     public class TestScoreCalcul : BaseScoreCalcul
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            return 50;
+            return 20;
         }
     }
 
@@ -116,5 +118,23 @@ namespace SmartObjects_AI
             return Value;
         }
         
+    }
+    
+    #endregion
+
+    public class EatScore : BaseScoreCalcul
+    {
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            return smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger) * smartObject.DistanceCoefficient(smartAgent);
+        }
+    }
+    
+    public class SleepScore : BaseScoreCalcul
+    {
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            return smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness) * smartObject.DistanceCoefficient(smartAgent);
+        }
     }
 }
