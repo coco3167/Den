@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{D8D38CCA-C04C-A441-07B1-026E94AEB72D}",
+    "Hash": "{8359A8E2-48B8-6AF5-E166-79548FED4FAF}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -23,12 +23,14 @@
        "GUID": "{560D89A7-03C8-4F1A-8BF8-C69990F0FA00}",
        "LibName": "Wwise Channel Router",
        "LibId": "12517379"
-      },
+      }
+     ],
+     "ShareSets": [
       {
-       "Id": "546281340",
-       "Name": "Recorder (Custom)",
-       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\[Effect Slot [1]: (Recorder)]\\Recorder (Custom)",
-       "GUID": "{93508361-BBA7-4851-9396-5E4C90FB4DEA}",
+       "Id": "4155787858",
+       "Name": "New_Recorder",
+       "ObjectPath": "\\Effects\\Default Work Unit\\New_Recorder",
+       "GUID": "{DA172244-69AB-45BF-8F52-02F03155CBD6}",
        "LibName": "Wwise Recorder",
        "LibId": "8650755"
       }
@@ -82,6 +84,13 @@
       "Color": "16"
      },
      {
+      "Id": "3023650669",
+      "Name": "SFX_Momo",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\SFX_Momo",
+      "GUID": "{73E7B879-B958-4B97-B9CF-F7BF81376759}",
+      "Color": "9"
+     },
+     {
       "Id": "3803692087",
       "Name": "Master Audio Bus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
@@ -91,9 +100,11 @@
        "Custom": [
         {
          "Id": "370170101"
-        },
+        }
+       ],
+       "ShareSets": [
         {
-         "Id": "546281340"
+         "Id": "4155787858"
         }
        ]
       }
@@ -580,6 +591,6 @@
     ]
    }
   ],
-  "FileHash": "{6C2D50B3-06FD-3CD5-7B22-594230005E1C}"
+  "FileHash": "{2D104A09-D3A7-7A34-E301-EFB67218D19C}"
  }
 }
