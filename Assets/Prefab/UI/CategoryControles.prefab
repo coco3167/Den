@@ -136,6 +136,22 @@ PrefabInstance:
       propertyPath: m_text
       value: Joystick Sensitivity
       objectReference: {fileID: 0}
+    - target: {fileID: 8083363078362854514, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083363078362854514, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083363078362854514, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083363078362854514, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -259,19 +275,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456152873557541516, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.39444447
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2456152873557541516, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2456152873557541516, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.39444447
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2456152873557541516, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3134382263088732337, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
       propertyPath: m_Name
@@ -284,6 +300,22 @@ PrefabInstance:
     - target: {fileID: 6110871422821935295, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083363078362854514, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083363078362854514, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083363078362854514, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083363078362854514, guid: b284dd7206946ac458dba6ff49de9e74, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -316,11 +348,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 505794608327204866, guid: 2be175c0f5b3fe2499906627bbe00dde, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 505794608327204866, guid: 2be175c0f5b3fe2499906627bbe00dde, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 681799439050814091, guid: 2be175c0f5b3fe2499906627bbe00dde, type: 3}
       propertyPath: m_AnchorMax.y
@@ -432,6 +464,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4920008985897576379, guid: 2be175c0f5b3fe2499906627bbe00dde, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008257329428768475, guid: 2be175c0f5b3fe2499906627bbe00dde, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5669863120916840232, guid: 2be175c0f5b3fe2499906627bbe00dde, type: 3}
