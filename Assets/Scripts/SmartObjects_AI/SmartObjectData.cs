@@ -15,6 +15,11 @@ namespace SmartObjects_AI
         [field : SerializeField] public SerializedDictionary<SmartObjectParameter, float> dynamicParametersEffect { get; private set; }
         [field : SerializeField] public SerializedDictionary<SmartObjectParameter, float> dynamicParametersVariation { get; private set; }
         [field : SerializeField] public SerializedDictionary<AgentDynamicParameter, float> parameterEffectOnAgent { get; private set; }
+
+        public void Init()
+        {
+            scoreCalculation.Init();
+        }
     }
     public enum SmartObjectParameter
     {

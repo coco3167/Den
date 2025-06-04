@@ -25,6 +25,8 @@ namespace SmartObjects_AI
         {
             if (!usingPoint)
                 usingPoint = transform;
+            
+            data.Init();
 
             // ReSharper disable once TooWideLocalVariableScope => no need to initialize multiple times
             SmartObjectParameter parameter;

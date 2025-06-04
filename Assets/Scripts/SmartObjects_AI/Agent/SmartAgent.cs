@@ -159,7 +159,7 @@ namespace SmartObjects_AI.Agent
         
         public void SetDynamicParameter(AgentDynamicParameter parameter, float value)
         {
-            dynamicParameters[parameter] = value;
+            dynamicParameters[parameter] = Math.Clamp(value, 0, 100);
         }
 
         public void AddDynamicParameter(AgentDynamicParameter parameter, float value)
