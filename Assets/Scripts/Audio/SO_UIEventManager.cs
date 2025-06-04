@@ -12,4 +12,21 @@ public class SO_UIEventManager : ScriptableObject
     {
         AudioManager.Instance.Box.Post(Camera.main.gameObject);
     }
+
+    public static void PlayMasterTest()
+    {
+        AudioManager.Instance.MasterTest.Post(Camera.main.gameObject);
+    }
+    public static void PlayMusicTest()
+    {
+        AudioManager.Instance.MusicTest.Post(Camera.main.gameObject);
+    }
+    public static void PlaySFXTest()
+    {
+        AudioManager.Instance.SFXTest.Post(Camera.main.gameObject);
+    }
+    public static void PlayAmbienceTest()
+    {
+        AudioManager.Instance.AmbienceTest.Post(Camera.main.gameObject);
+    }
 }

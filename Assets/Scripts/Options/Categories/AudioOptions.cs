@@ -84,10 +84,11 @@ namespace Options.Categories
             // Add value changed listener for option selection
             mixDropdown.onValueChanged.AddListener(OnAudioStateSelected);
 
-            // Add listener for dropdown open (pointer click)
-            mixDropdown.DropdownOnPointerClick += OnDropdownOpened;
+            // Add the component if it doesn't exist
+            var openListener = mixDropdown.GetComponent<DropdownOnPointerClick>();
+            if (openListener == null)
+                openListener = mixDropdown.gameObject.AddComponent<DropdownOnPointerClick>();
 
-            var openListener = mixDropdown.gameObject.AddComponent<DropdownOnPointerClick>();
             openListener.onDropdownOpened += OnDropdownOpened;
         }
 

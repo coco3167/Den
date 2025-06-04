@@ -146,14 +146,14 @@ namespace Audio
         [Title("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event FaderTick;
         [SerializeField] public AK.Wwise.Event Box;
-        [SerializeField] private AK.Wwise.Event UIMove;
-        [SerializeField] private AK.Wwise.Event UIAccept;
-        [SerializeField] private AK.Wwise.Event UIBack;
-        [SerializeField] private AK.Wwise.Event UIMenu;
-        [SerializeField] private AK.Wwise.Event MasterTest;
-        [SerializeField] private AK.Wwise.Event MusicTest;
-        [SerializeField] private AK.Wwise.Event AmbienceTest;
-        [SerializeField] private AK.Wwise.Event SFXTest;
+        [SerializeField] public AK.Wwise.Event UIMove;
+        [SerializeField] public AK.Wwise.Event UIAccept;
+        [SerializeField] public AK.Wwise.Event UIBack;
+        [SerializeField] public AK.Wwise.Event UIMenu;
+        [SerializeField] public AK.Wwise.Event MasterTest;
+        [SerializeField] public AK.Wwise.Event MusicTest;
+        [SerializeField] public AK.Wwise.Event AmbienceTest;
+        [SerializeField] public AK.Wwise.Event SFXTest;
 
 
         private void Awake()
