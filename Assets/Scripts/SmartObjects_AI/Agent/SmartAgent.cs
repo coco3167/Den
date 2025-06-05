@@ -15,6 +15,7 @@ namespace SmartObjects_AI.Agent
         private const float AIUpdateSleepTime = 0.1f;
         
         [SerializeField] private SmartAgentData data;
+        [SerializeField] private float agentDecisionFlexibility;
 
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> dynamicParametersStartValue;
         [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> dynamicParameters = new();
@@ -117,9 +118,17 @@ namespace SmartObjects_AI.Agent
                 
                 m_debugParameters[loop].UpdateValue(m_smartObjectScore[smartObject].ToString("0.00"));
             }
-
             
             m_smartObjectToUse = m_smartObjectScore.Aggregate((a, b) => a.Value > b.Value ? a : b);
+
+            // Dont change smartobject unless score remarkable score diff 
+            if (m_previousSmartObject)
+            {
+                float previousScore = m_smartObjectScore[m_previousSmartObject]; 
+                if (m_smartObjectToUse.Value < previousScore + agentDecisionFlexibility)
+                    m_smartObjectToUse = new KeyValuePair<SmartObject, float>(m_previousSmartObject, previousScore);
+            }
+            
             m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse.Key)].IsSpecial = true;
         }
         

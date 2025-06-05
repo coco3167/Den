@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8a81eb427104b4198b7965408a44e57, type: 3}
-  m_Name: Jump
+  m_Name: FleePoint
   m_EditorClassIdentifier: 
   <scoreCalculation>k__BackingField:
-    rid: 6866505601623785559
-  <animatorController>k__BackingField: {fileID: 22100000, guid: 515727f21389bec45bf3bd30632cb5fd, type: 2}
+    rid: 7321801964569755735
+  <animatorController>k__BackingField: {fileID: 22100000, guid: 5e42e6784d808824bb1807c13b0e4e6c, type: 2}
   <maxUser>k__BackingField: 1
+  <minRadius>k__BackingField: 1
+  <adatpToMood>k__BackingField: 1
   <dynamicParametersEffect>k__BackingField:
     _serializedList: []
   <dynamicParametersVariation>k__BackingField:
     _serializedList: []
   <parameterEffectOnAgent>k__BackingField:
-    _serializedList:
-    - Key: 6
-      Value: 100
+    _serializedList: []
   references:
     version: 2
     RefIds:
-    - rid: 6866505601623785559
-      type: {class: Jump, ns: SmartObjects_AI, asm: Assembly-CSharp}
-      data: 
+    - rid: 7321801964569755735
+      type: {class: FleePoint, ns: SmartObjects_AI, asm: Assembly-CSharp}
+      data:
+        playerCoeff: 10
