@@ -22,6 +22,7 @@ namespace SmartObjects_AI.Agent
         Curiosity,
         Aggression,
         Fear,
+        Neutral,
         Tiredness,
         Suspicion,
         Hunger,

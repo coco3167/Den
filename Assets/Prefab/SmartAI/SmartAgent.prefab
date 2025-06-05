@@ -45,8 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdb25fa383da534cad3a1792377fb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 1.5
-  agent: {fileID: 9153177029880401511}
+  scoreCalcul:
+    rid: 3648881191541801046
+  mouseAgent: {fileID: 0}
+  smartAgent: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3648881191541801046
+      type: {class: FleeingPointDistance, ns: SmartObjects_AI, asm: Assembly-CSharp}
+      data: 
 --- !u!1 &787410450518447545
 GameObject:
   m_ObjectHideFlags: 0
