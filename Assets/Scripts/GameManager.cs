@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
     [SerializeField] private MouseManager mouseManager;
 
-    [SerializeField] private UnityEvent<AgentDynamicParameter, int> pallierReached;
+    [SerializeField] public UnityEvent<AgentDynamicParameter, int> pallierReached;
 
     [SerializeField] public WorldParameters worldParameters;
 

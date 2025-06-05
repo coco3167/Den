@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
@@ -20,10 +19,12 @@ namespace SmartObjects_AI.Agent
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> dynamicParametersStartValue;
         [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> dynamicParameters = new();
 
+        // Score and SmartObjects
         private SmartObject[] m_smartObjects, m_smartObjectsOwning;
-        private SmartObject m_previousSmartObject, m_smartObjectToUse;
-
+        private SmartObject m_previousSmartObject;
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
+        private KeyValuePair<SmartObject, float> m_smartObjectToUse;
+        
         private DebugParameter[] m_debugParameters;
         
         private MovementAgent m_movementAgent;
@@ -59,7 +60,7 @@ namespace SmartObjects_AI.Agent
         public void OnGameReady(object sender, EventArgs eventArgs)
         {
             SearchForSmartObject();
-            m_previousSmartObject = m_smartObjectToUse;
+            m_previousSmartObject = m_smartObjectToUse.Key;
             InvokeRepeating(nameof(AIUpdate), 0, AIUpdateSleepTime);
         }
 
@@ -90,18 +91,18 @@ namespace SmartObjects_AI.Agent
         {
             SearchForSmartObject();
 
-            m_movementAgent.SetDestination(m_smartObjectToUse.usingPoint);
+            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint);
                 
-            if (m_previousSmartObject != m_smartObjectToUse)
+            if (m_previousSmartObject != m_smartObjectToUse.Key)
             {
                 m_previousSmartObject.FinishUse(this);
-                m_previousSmartObject = m_smartObjectToUse;
+                m_previousSmartObject = m_smartObjectToUse.Key;
                 animationAgent.FinishUseAnimation();
             }
 
             if (m_movementAgent.IsCloseToDestination())
             {
-                m_smartObjectToUse.Use(this);
+                m_smartObjectToUse.Key.Use(this);
             }
         }
 
@@ -116,16 +117,17 @@ namespace SmartObjects_AI.Agent
                 
                 m_debugParameters[loop].UpdateValue(m_smartObjectScore[smartObject].ToString("0.00"));
             }
+
             
-            m_smartObjectToUse = m_smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;
-            m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse)].IsSpecial = true;
+            m_smartObjectToUse = m_smartObjectScore.Aggregate((a, b) => a.Value > b.Value ? a : b);
+            m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse.Key)].IsSpecial = true;
         }
         
         public bool IsUsing(SmartObject smartObject)
         {
             // If the object was used last time and tries to be used this time => it's being used
-            if (m_smartObjectToUse == m_previousSmartObject)
-                return m_smartObjectToUse == smartObject;
+            if (m_smartObjectToUse.Key == m_previousSmartObject)
+                return m_smartObjectToUse.Key == smartObject;
             return false;
         }
         
@@ -134,6 +136,10 @@ namespace SmartObjects_AI.Agent
             return m_smartObjectsOwning.Contains(smartObject);
         }
 
+        public float CurrentScore()
+        {
+            return m_smartObjectToUse.Value;
+        }
         
 
         #region DynamicParameters

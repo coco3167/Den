@@ -1,19 +1,29 @@
 using System;
-using AYellowpaper.SerializedCollections;
+using System.Collections.Generic;
+using Sirenix.Utilities;
 using SmartObjects_AI.Agent;
 using UnityEngine;
 
 namespace SmartObjects_AI
 {
     [Serializable]
-    public class WorldParameters
-    { 
-        private SerializedDictionary<WorldParameterType, float> m_parameters;
+    public class WorldParameters : IReloadable
+    {
+        public Dictionary<AgentDynamicParameter, float> AgentGlobalParameters = new();
+        private static readonly AgentDynamicParameter[] EmotionsType =
+        {
+            AgentDynamicParameter.Curiosity,
+            AgentDynamicParameter.Aggression,
+            AgentDynamicParameter.Fear
+        };
+        
+        private Dictionary<WorldParameterType, float> m_parameters;
         private MouseManager m_mouseManager;
 
         public WorldParameters(MouseManager mouseManager)
         {
             m_mouseManager = mouseManager;
+            EmotionsType.ForEach(x => AgentGlobalParameters.Add(x, 0));
         }
 
         public Vector3 GetMousePositon()
@@ -44,7 +54,11 @@ namespace SmartObjects_AI
         public enum WorldParameterType
         {
             None,
-            Hunger
+        }
+
+        public void Reload()
+        {
+            EmotionsType.ForEach(x => AgentGlobalParameters[x] = 0);
         }
     }
 }

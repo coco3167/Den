@@ -76,6 +76,5 @@ namespace SmartObjects_AI.Agent
         {
             m_smartAgent.SetDynamicParameter(parameter, value);
         }
-
     }
 }
