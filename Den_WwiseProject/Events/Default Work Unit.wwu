@@ -6,18 +6,8 @@
 				<WorkUnit Name="DEN_Events_Amb" ID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}" PersistMode="Reference"/>
 				<WorkUnit Name="DEN_Events_SFX" ID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}" PersistMode="Reference"/>
 				<WorkUnit Name="DEN_Events_Music" ID="{FFE357D2-BBD9-4B4F-96C8-E8B7959DEA32}" PersistMode="Reference"/>
-				<Event Name="Play_DEN_Amb_Test_01" ID="{B1CD38B0-FCDF-4A66-A9EE-15180C803711}">
-					<ChildrenList>
-						<Action Name="" ID="{D166D0DE-9263-4305-9142-BB5B56C549CB}" ShortID="771906289">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="DEN_AMB_Moods" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<WorkUnit Name="DEN_Events_Global" ID="{0EC03A08-5A73-415C-AC71-1BFFEC7E2C15}" PersistMode="Reference"/>
+				<WorkUnit Name="DEN_Events_UI" ID="{9A0DBD44-8410-4C63-9E70-44C77EC7F7F2}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

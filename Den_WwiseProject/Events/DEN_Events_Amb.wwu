@@ -9,16 +9,6 @@
 			<ChildrenList>
 				<Event Name="Play_DEN_Amb" ID="{0A0BD5D1-7399-4070-A466-45EDA771A82F}">
 					<ChildrenList>
-						<Action Name="" ID="{E91FE96F-034A-46C1-B19E-317271251457}" ShortID="940245873">
-							<PropertyList>
-								<Property Name="FadeTime" Type="Real64" Value="4"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="DEN_AMB_Moods" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
 						<Action Name="" ID="{8B0E0A22-93EA-43D8-B460-E0A86D7BEEE5}" ShortID="271099733">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="22"/>
@@ -29,10 +19,33 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{E91FE96F-034A-46C1-B19E-317271251457}" ShortID="940245873">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="4"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_AMB_Moods" ID="{C75A7965-DD60-47C5-9B5B-D427258F4812}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{699BCDCC-F6EA-47AC-94A9-E12F7DD2AE43}" ShortID="101122334">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="4"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="DEN_AMB_RandomNoises" ID="{19D13256-72CF-4867-8F22-F07FC730B0FD}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{56178BC2-92F8-45A4-984E-DA02D2B89E6A}" ShortID="446199938">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="4"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_TOD" ID="{17016375-1FEF-43B5-8E8C-66D7B8B60E44}" WorkUnitID="{51F62933-4A10-4C20-BA6B-01DCC56176EE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
