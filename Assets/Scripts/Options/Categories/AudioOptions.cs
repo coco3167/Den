@@ -14,44 +14,52 @@ namespace Options.Categories
     {
         public Slider _slider;
         public RTPC rtpc;
-
-        // Reference to the Wwise event for slider change
         public AK.Wwise.Event sliderChangeEvent;
+
+        [Tooltip("Default value for this RTPC/slider")]
+        public float defaultValue = 8f;
+        [Tooltip("Minimum value for this RTPC/slider")]
+        public float minValue = 0f;
+        [Tooltip("Maximum value for this RTPC/slider")]
+        public float maxValue = 10f;
+        [Tooltip("If true, slider uses whole numbers")]
+        public bool wholeNumbers = true;
 
         public void AddListener()
         {
             _slider.onValueChanged.AddListener(delegate
             {
-                int intValue = Mathf.RoundToInt(_slider.value);
-                AudioManager.SetGlobalRTPCValue(rtpc, intValue);
-                SaveVolume(intValue);
+                float floatValue = _slider.value;
+                AudioManager.SetGlobalRTPCValue(rtpc, floatValue);
+                SaveVolume(floatValue);
 
-                // Play Wwise event for slider change
                 sliderChangeEvent?.Post(_slider.gameObject);
             });
         }
 
         public void LoadVolume()
         {
-            int stored = PlayerPrefs.GetInt(rtpc.Name, 8);
-            _slider.wholeNumbers = true;
-            _slider.minValue = 0;
-            _slider.maxValue = 10;
+            float stored = PlayerPrefs.GetFloat(rtpc.Name, defaultValue);
+            _slider.wholeNumbers = wholeNumbers;
+            _slider.minValue = minValue;
+            _slider.maxValue = maxValue;
             _slider.SetValueWithoutNotify(stored);
         }
+
         public void ApplyVolumeToWwise()
         {
-            int intValue = Mathf.RoundToInt(_slider.value);
-            AudioManager.SetGlobalRTPCValue(rtpc, intValue);
+            float floatValue = _slider.value;
+            AudioManager.SetGlobalRTPCValue(rtpc, floatValue);
         }
+
         public void RemoveListener()
         {
             _slider.onValueChanged.RemoveAllListeners();
         }
 
-        private void SaveVolume(int value)
+        private void SaveVolume(float value)
         {
-            PlayerPrefs.SetInt(rtpc.Name, value);
+            PlayerPrefs.SetFloat(rtpc.Name, value);
         }
 
         public void DeleteData()

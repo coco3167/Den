@@ -108,6 +108,10 @@
 							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="DEN_GP_LowPass" ID="{71CCC262-5702-41E0-9165-440B2CC09D75}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_CuriosityValue" ID="{4C8EF3DA-5ED7-423F-8B0C-F48F58CE5ABD}"/>
 							<Value>0</Value>
 						</RTPCValue>
@@ -128,12 +132,16 @@
 							<Value>8</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="DEN_GP_HighPass" ID="{46E0ECE7-A2CF-4A92-B11A-52E5B0A50F50}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_IntensityValue" ID="{06A92236-B1E4-4B96-B6E9-D34C84BD2715}"/>
 							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_TensionValue" ID="{2BACC983-9E6E-4BBE-8C8E-A1621790A002}"/>
-							<Value>0</Value>
+							<Value>100</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_UIV_Master" ID="{45D1C17B-870C-4C82-AB66-60B890113C5C}"/>
@@ -168,7 +176,7 @@
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="DEN_SW_FS_0" ID="{F4E026D3-7E71-460E-836C-75047A2F9C7E}"/>
-						<CurrentSwitchRef Name="DEN_SW_RM_Curious" ID="{475A8F43-0DFC-4384-A3F3-584267D6995D}"/>
+						<CurrentSwitchRef Name="DEN_SW_RM_Anger" ID="{E32256AC-91DE-4072-AA6F-342EDD7CF565}"/>
 						<CurrentSwitchRef Name="DEN_SW_NS_3" ID="{EE307804-A00D-4AD6-9F13-99AB80F6703E}"/>
 						<CurrentSwitchRef Name="DEN_SW_FS_Walking" ID="{03D9483C-E2FC-45DA-BE7F-13D6F4A7F087}"/>
 						<CurrentSwitchRef Name="DEN_SW_CS_0" ID="{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}"/>

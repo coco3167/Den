@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{69317A39-B857-2E39-E390-51184D6F0560}",
+    "Hash": "{4A422ED9-E275-EF26-16CF-124B51FE3320}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -186,6 +186,20 @@
       "Name": "DEN_GP_CuriosityValue",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_CuriosityValue",
       "GUID": "{4C8EF3DA-5ED7-423F-8B0C-F48F58CE5ABD}",
+      "Color": "14"
+     },
+     {
+      "Id": "2611759784",
+      "Name": "DEN_GP_LowPass",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_LowPass",
+      "GUID": "{71CCC262-5702-41E0-9165-440B2CC09D75}",
+      "Color": "14"
+     },
+     {
+      "Id": "3002578020",
+      "Name": "DEN_GP_HighPass",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_HighPass",
+      "GUID": "{46E0ECE7-A2CF-4A92-B11A-52E5B0A50F50}",
       "Color": "14"
      },
      {
@@ -591,6 +605,6 @@
     ]
    }
   ],
-  "FileHash": "{368D7556-689C-E839-D4C0-AB6BCF324D0F}"
+  "FileHash": "{92E4E8D4-7C15-3A3A-B994-3C3FF3431CA7}"
  }
 }

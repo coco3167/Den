@@ -205,7 +205,9 @@ namespace AK
         static const AkUniqueID DEN_GP_CURSORSPEED = 4061733226U;
         static const AkUniqueID DEN_GP_CURSORVOLUME = 2230858223U;
         static const AkUniqueID DEN_GP_FEARVALUE = 4122714024U;
+        static const AkUniqueID DEN_GP_HIGHPASS = 3002578020U;
         static const AkUniqueID DEN_GP_INTENSITYVALUE = 973587621U;
+        static const AkUniqueID DEN_GP_LOWPASS = 2611759784U;
         static const AkUniqueID DEN_GP_MONO = 1386681402U;
         static const AkUniqueID DEN_GP_NEUTRALVALUE = 1734226615U;
         static const AkUniqueID DEN_GP_TENSIONVALUE = 3189323882U;
