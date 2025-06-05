@@ -9,11 +9,70 @@ namespace SmartObjects_AI
     public abstract class BaseScoreCalcul
     {
         protected float Value;
+        protected MouseManager p_mouseManager;
+        protected float p_mouseObjectProximity;
 
-        public abstract void Init();
-        public abstract float CalculateScore(SmartAgent smartAgent, SmartObject smartObject);
+        public void Init()
+        {
+            p_mouseManager = GameManager.Instance.GetMouseManager();
+        }
+
+        public virtual float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            p_mouseObjectProximity = p_mouseManager.ObjectDistanceToMouse(smartObject.usingPoint.position);
+            return 0;
+        }
     }
+    
+    public class EatScore : BaseScoreCalcul
+    {
+        private float m_hunger, m_distanceCoefficient;
 
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            base.CalculateScore(smartAgent, smartObject);
+            
+            m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger);
+            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+            
+            return m_hunger * m_distanceCoefficient * p_mouseObjectProximity / 100;
+        }
+    }
+    
+    public class SleepScore : BaseScoreCalcul
+    {
+        private float m_tiredness, m_distanceCoefficient;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            base.CalculateScore(smartAgent, smartObject);
+            
+            m_tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness);
+            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+            
+            return m_tiredness * m_distanceCoefficient * p_mouseObjectProximity / 100;
+        }
+    }
+    
+    public class FleePoint : BaseScoreCalcul
+    {
+        [SerializeField] private float playerCoeff;
+
+        private float m_distanceCoefficient, m_mousePlayerProximity;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            base.CalculateScore(smartAgent, smartObject);
+            
+            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+            m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
+            
+            return playerCoeff*m_distanceCoefficient*p_mouseObjectProximity/(m_mousePlayerProximity*m_mousePlayerProximity);
+        }
+    }
+    
+    
+    
     #region Deprecated
     
     /*public class TestScoreCalcul : BaseScoreCalcul
@@ -126,66 +185,4 @@ namespace SmartObjects_AI
     }*/
     
     #endregion
-
-    public class EatScore : BaseScoreCalcul
-    {
-        private float m_hunger, m_distanceCoefficient, m_mouseObjectProximity;
-        private MouseManager m_mouseManager;
-
-        public override void Init()
-        {
-            m_mouseManager = GameManager.Instance.GetMouseManager();
-        }
-
-        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
-        {
-            m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger);
-            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
-            m_mouseObjectProximity = m_mouseManager.ObjectDistanceToMouse(smartObject.usingPoint.position);
-            
-            return m_hunger * m_distanceCoefficient * m_mouseObjectProximity / 100;
-        }
-    }
-    
-    public class SleepScore : BaseScoreCalcul
-    {
-        private float m_tiredness, m_distanceCoefficient, m_mouseObjectProximity;
-        private MouseManager m_mouseManager;
-
-        public override void Init()
-        {
-            m_mouseManager = GameManager.Instance.GetMouseManager();
-        }
-
-        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
-        {
-            m_tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness);
-            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
-            m_mouseObjectProximity = m_mouseManager.ObjectDistanceToMouse(smartObject.usingPoint.position);
-            
-            return m_tiredness * m_distanceCoefficient * m_mouseObjectProximity / 100;
-        }
-    }
-    
-    public class FleePoint : BaseScoreCalcul
-    {
-        [SerializeField] private float playerCoeff;
-
-        private float m_distanceCoefficient, m_mousePlayerProximity, m_mouseObjectProximity;
-        private MouseManager m_mouseManager;
-
-        public override void Init()
-        {
-            m_mouseManager = GameManager.Instance.GetMouseManager();
-        }
-
-        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
-        {
-            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
-            m_mouseObjectProximity = m_mouseManager.ObjectDistanceToMouse(smartObject.usingPoint.position);
-            m_mousePlayerProximity = m_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
-            
-            return playerCoeff*m_distanceCoefficient*m_mouseObjectProximity/(m_mousePlayerProximity*m_mousePlayerProximity);
-        }
-    }
 }

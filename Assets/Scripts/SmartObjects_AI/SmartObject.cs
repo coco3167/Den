@@ -12,7 +12,6 @@ namespace SmartObjects_AI
     public class SmartObject : MonoBehaviour, IReloadable
     {
         [field: SerializeField, ChildGameObjectsOnly] public Transform usingPoint { get; private set; }
-        [SerializeField] private float minRadius = 1;
         [SerializeField] private SmartObjectData data;
 
         [SerializeField] private SerializedDictionary<SmartObjectParameter, float> dynamicParametersStartValue;
@@ -51,7 +50,7 @@ namespace SmartObjects_AI
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawSphere(usingPoint.position, minRadius);
+            Gizmos.DrawSphere(usingPoint.position, data.minRadius);
         }
 
         public float CalculateScore(SmartAgent smartAgent)
@@ -61,7 +60,7 @@ namespace SmartObjects_AI
 
         private void StartUse(AnimationAgent animationAgent)
         {
-            animationAgent.SwitchAnimator(data.animatorController);
+            animationAgent.SwitchAnimator(data.animatorController, data.adatpToMood);
         }
 
         public void FinishUse(SmartAgent agent)
@@ -102,7 +101,7 @@ namespace SmartObjects_AI
         public float DistanceCoefficient(SmartAgent agent)
         {
             float distance = Vector3.Distance(agent.transform.position, transform.position);
-            return 1/Math.Max(minRadius, distance);
+            return 1/Math.Max(data.minRadius, distance);
         }
 
         #region DynamicParameters
