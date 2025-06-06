@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Audio;
 
 public class MouseManager : MonoBehaviour, IGameStateListener
 {
