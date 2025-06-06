@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lpk_LightModel_ToonLightBase 6
+  m_Name: Lpk_LightModel_ToonLightBase 10
   m_Shader: {fileID: 4800000, guid: 313fcf3aebc04cf4ab4f8c5f2850be7f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,22 +24,22 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 05e15a8249788bc4787d344bbe8e5d55, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5765af98652999a41b9b3cab40a5e9b0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 2.51, y: 0}
     m_Ints: []
     m_Floats:
     - _OutlineWidth: 0
-    - _RimStep: 0.78
-    - _RimStepSmooth: 0.293
-    - _ShadowStep: 0.592
-    - _ShadowStepSmooth: 0.192
+    - _RimStep: 1
+    - _RimStepSmooth: 1
+    - _ShadowStep: 0.32
+    - _ShadowStepSmooth: 0.733
     - _SpecularStep: 0
     - _SpecularStepSmooth: 0
     m_Colors:
-    - _BaseColor: {r: 0.9470834, g: 1, b: 0.7216981, a: 1}
-    - _OutlineColor: {r: 0.5377358, g: 0.19417603, b: 0.09385012, a: 1}
-    - _RimColor: {r: 0.6415094, g: 0.39604706, b: 0.17853329, a: 1}
-    - _SpecularColor: {r: 0.5283019, g: 0, b: 0.03342445, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 1, g: 0.7401695, b: 0.6179246, a: 1}
+    - _RimColor: {r: 0.62909395, g: 0.6320754, b: 0.6313814, a: 1}
+    - _SpecularColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

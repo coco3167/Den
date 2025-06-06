@@ -25,19 +25,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _baseColor:
-        m_Texture: {fileID: 2800000, guid: 6de2d55cac76cd14697c820695c7cc0a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 05e15a8249788bc4787d344bbe8e5d55, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _metal:
-        m_Texture: {fileID: 2800000, guid: 8452ecf9ab1717a4b820c109f129bc02, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _normal:
-        m_Texture: {fileID: 2800000, guid: 2668417d4a8b09043ac08d1e87cd5eb7, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _rought:
-        m_Texture: {fileID: 2800000, guid: be9fa864c79c3a24fa8d505b973fe024, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -56,18 +56,18 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _colo: 0.73
+    - _colo: 0
     - _intensityM: 0
     - _intensityR: 0
     - _lod: 0
     m_Colors:
-    - _Color: {r: 0, g: 0.7968655, b: 0.9433962, a: 0}
-    - _Vector3: {r: 0.92, g: 1.31, b: 0.88, a: 0}
-    - _offset: {r: -0.03, g: -0.07, b: 0, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector3: {r: 1, g: 1, b: 1, a: 0}
+    - _offset: {r: 0, g: 0, b: 0, a: 0}
     - _tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &2492154662388033471
+--- !u!114 &6033359364597080313
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
