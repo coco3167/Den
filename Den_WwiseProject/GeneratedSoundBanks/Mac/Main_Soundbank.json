@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{808EC1B7-8E3D-F47B-B15F-3EA126E461B6}",
+    "Hash": "{AE1C6361-6759-6323-9491-9EA45A436CC8}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -1378,12 +1378,30 @@
     "Plugins": {
      "Custom": [
       {
+       "Id": "370170101",
+       "Name": "AK Channel Router (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\[Effect Slot [0]: (AK Channel Router)]\\AK Channel Router (Custom)",
+       "GUID": "{560D89A7-03C8-4F1A-8BF8-C69990F0FA00}",
+       "LibName": "Wwise Channel Router",
+       "LibId": "12517379"
+      },
+      {
        "Id": "664198730",
        "Name": "Pitch Shifter (Custom)",
        "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\DEN_Crea_Barks\\DEN_Crea_ReactionBarks\\DEN_Crea_RB_Curious\\[Effect Slot [0]: (Pitch Shifter)]\\Pitch Shifter (Custom)",
        "GUID": "{3CBE2C33-EBED-46F6-AC6A-2C71E9E63FBE}",
        "LibName": "Wwise Pitch Shifter",
        "LibId": "8912899"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "4155787858",
+       "Name": "New_Recorder",
+       "ObjectPath": "\\Effects\\Default Work Unit\\New_Recorder",
+       "GUID": "{DA172244-69AB-45BF-8F52-02F03155CBD6}",
+       "LibName": "Wwise Recorder",
+       "LibId": "8650755"
       }
      ]
     },
@@ -4946,7 +4964,70 @@
       ]
      }
     ],
+    "Busses": [
+     {
+      "Id": "85412153",
+      "Name": "Ambience",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Ambience",
+      "GUID": "{F664A27B-9528-433E-BB7B-EDA25DD34C03}",
+      "Color": "4"
+     },
+     {
+      "Id": "393239870",
+      "Name": "SFX",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX",
+      "GUID": "{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}",
+      "Color": "9"
+     },
+     {
+      "Id": "1551306167",
+      "Name": "UI",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\UI",
+      "GUID": "{536025B3-BD32-439B-A84E-2880E4EAE4C4}",
+      "Color": "19"
+     },
+     {
+      "Id": "3023650669",
+      "Name": "SFX_Momo",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\SFX_Momo",
+      "GUID": "{73E7B879-B958-4B97-B9CF-F7BF81376759}",
+      "Color": "9"
+     },
+     {
+      "Id": "3803692087",
+      "Name": "Master Audio Bus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
+      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}",
+      "Color": "16",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "370170101"
+        }
+       ],
+       "ShareSets": [
+        {
+         "Id": "4155787858"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "3991942870",
+      "Name": "Music",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Music",
+      "GUID": "{4C0AAA7A-5063-49AA-B2EE-5337426DC76A}",
+      "Color": "13"
+     }
+    ],
     "GameParameters": [
+     {
+      "Id": "307573345",
+      "Name": "DEN_GP_UIV_SFX",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_UIVolumes\\DEN_GP_UIV_SFX",
+      "GUID": "{96A063C2-FFFC-4CD0-B0D1-72244BF9CE4B}",
+      "Color": "14"
+     },
      {
       "Id": "722514783",
       "Name": "DEN_GP_AngerValue",
@@ -4962,6 +5043,27 @@
       "Color": "14"
      },
      {
+      "Id": "1763700666",
+      "Name": "DEN_GP_UIV_UI",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_UIVolumes\\DEN_GP_UIV_UI",
+      "GUID": "{EE4A669F-8623-4D6B-916E-75BB0A3D6CA5}",
+      "Color": "14"
+     },
+     {
+      "Id": "2280064220",
+      "Name": "DEN_GP_UIV_Ambience",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_UIVolumes\\DEN_GP_UIV_Ambience",
+      "GUID": "{B59131F9-E6C2-42E4-96DC-D7E9A4395CE2}",
+      "Color": "14"
+     },
+     {
+      "Id": "2421685046",
+      "Name": "DEN_GP_UIV_Master",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_UIVolumes\\DEN_GP_UIV_Master",
+      "GUID": "{45D1C17B-870C-4C82-AB66-60B890113C5C}",
+      "Color": "14"
+     },
+     {
       "Id": "2578001617",
       "Name": "DEN_GP_CuriosityValue",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_CuriosityValue",
@@ -4969,10 +5071,31 @@
       "Color": "14"
      },
      {
+      "Id": "2611759784",
+      "Name": "DEN_GP_LowPass",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_LowPass",
+      "GUID": "{71CCC262-5702-41E0-9165-440B2CC09D75}",
+      "Color": "14"
+     },
+     {
+      "Id": "3002578020",
+      "Name": "DEN_GP_HighPass",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_HighPass",
+      "GUID": "{46E0ECE7-A2CF-4A92-B11A-52E5B0A50F50}",
+      "Color": "14"
+     },
+     {
       "Id": "3189323882",
       "Name": "DEN_GP_TensionValue",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_TensionValue",
       "GUID": "{2BACC983-9E6E-4BBE-8C8E-A1621790A002}",
+      "Color": "14"
+     },
+     {
+      "Id": "3976517781",
+      "Name": "DEN_GP_UIV_Music",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_UIVolumes\\DEN_GP_UIV_Music",
+      "GUID": "{0298F746-9F33-479D-B898-265FC8DB1F75}",
       "Color": "14"
      },
      {
@@ -5294,6 +5417,6 @@
     ]
    }
   ],
-  "FileHash": "{69C4231D-F895-9A6A-C198-F1E4BA007CC6}"
+  "FileHash": "{53AB8FF0-FF46-7E8F-6794-E82E1B0D32CE}"
  }
 }
