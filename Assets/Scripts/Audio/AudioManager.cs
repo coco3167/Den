@@ -143,6 +143,18 @@ namespace Audio
         private uint cursorMovePlayingId = 0;
         [SerializeField] private GameObject mouseManifestation;
 
+        [Title("Wwise UI Events")]
+        [SerializeField] public AK.Wwise.Event FaderTick;
+        [SerializeField] public AK.Wwise.Event Box;
+        [SerializeField] public AK.Wwise.Event UIMove;
+        [SerializeField] public AK.Wwise.Event UIAccept;
+        [SerializeField] public AK.Wwise.Event UIBack;
+        [SerializeField] public AK.Wwise.Event UIMenu;
+        [SerializeField] public AK.Wwise.Event MasterTest;
+        [SerializeField] public AK.Wwise.Event MusicTest;
+        [SerializeField] public AK.Wwise.Event AmbienceTest;
+        [SerializeField] public AK.Wwise.Event SFXTest;
+
 
         private void Awake()
         {

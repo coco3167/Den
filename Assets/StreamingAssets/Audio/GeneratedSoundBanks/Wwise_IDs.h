@@ -35,7 +35,18 @@ namespace AK
         static const AkUniqueID PLAY_DEN_STI_MOOD_FEAR = 2375292999U;
         static const AkUniqueID PLAY_DEN_STINGER = 198938308U;
         static const AkUniqueID PLAY_DEN_TOD = 892655767U;
+        static const AkUniqueID PLAY_DEN_UI_ACCEPT = 2557270739U;
+        static const AkUniqueID PLAY_DEN_UI_BACK = 1885722902U;
+        static const AkUniqueID PLAY_DEN_UI_BOX = 2325474374U;
         static const AkUniqueID PLAY_DEN_UI_CURSOR = 773185301U;
+        static const AkUniqueID PLAY_DEN_UI_FADERS = 188545216U;
+        static const AkUniqueID PLAY_DEN_UI_MENU = 3529231902U;
+        static const AkUniqueID PLAY_DEN_UI_MOVE = 3662467100U;
+        static const AkUniqueID PLAY_DEN_UI_VOL_AMBIENCE = 2675867705U;
+        static const AkUniqueID PLAY_DEN_UI_VOL_MASTER = 3006051719U;
+        static const AkUniqueID PLAY_DEN_UI_VOL_MUSIC = 2444000214U;
+        static const AkUniqueID PLAY_DEN_UI_VOL_SFX = 4040153662U;
+        static const AkUniqueID PLAY_DEN_UI_VOLUMEMUSIC = 3594824070U;
         static const AkUniqueID SET_DEN_AMB_ANGER1 = 1566837199U;
         static const AkUniqueID SET_DEN_AMB_ANGER2 = 1566837196U;
         static const AkUniqueID SET_DEN_AMB_ANGER3 = 1566837197U;
@@ -194,7 +205,9 @@ namespace AK
         static const AkUniqueID DEN_GP_CURSORSPEED = 4061733226U;
         static const AkUniqueID DEN_GP_CURSORVOLUME = 2230858223U;
         static const AkUniqueID DEN_GP_FEARVALUE = 4122714024U;
+        static const AkUniqueID DEN_GP_HIGHPASS = 3002578020U;
         static const AkUniqueID DEN_GP_INTENSITYVALUE = 973587621U;
+        static const AkUniqueID DEN_GP_LOWPASS = 2611759784U;
         static const AkUniqueID DEN_GP_MONO = 1386681402U;
         static const AkUniqueID DEN_GP_NEUTRALVALUE = 1734226615U;
         static const AkUniqueID DEN_GP_TENSIONVALUE = 3189323882U;
@@ -232,6 +245,7 @@ namespace AK
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID SFX = 393239870U;
+        static const AkUniqueID SFX_MOMO = 3023650669U;
         static const AkUniqueID UI = 1551306167U;
     } // namespace BUSSES
 

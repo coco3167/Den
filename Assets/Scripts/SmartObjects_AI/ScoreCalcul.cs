@@ -116,7 +116,7 @@ namespace SmartObjects_AI
         {
             float hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger);
             Value = hunger / 1.5f;
-            return Value;
+            return 0;
         }
     }
 
@@ -134,7 +134,7 @@ namespace SmartObjects_AI
 
             Value = Mathf.Clamp(3 - Vector3.Distance(agentPos, mousePos), 0, 3) * mouseSpeed * 35 - suspiscion;
             Value = Mathf.Clamp(Value, 0, 100);
-            return Value;
+            return 0;
         }
     }
 
@@ -170,7 +170,7 @@ namespace SmartObjects_AI
             Value = Mathf.Clamp(Value, 0, 100);
 
 
-            return Value;
+            return 0;
         }
     }
     
@@ -179,7 +179,7 @@ namespace SmartObjects_AI
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             
-            return Value;
+            return 0;
         }
         
     }*/

@@ -18,6 +18,117 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_DEN_UI_VolumeMusic" ID="{D0D136C1-85DD-4A4D-901F-D982AB6A8D3A}"/>
+				<Event Name="Play_DEN_UI_Move" ID="{564DD964-5E2E-4FD5-B19F-A64633857DC4}">
+					<ChildrenList>
+						<Action Name="" ID="{F72CB479-CD4F-4735-B9C1-DC07977BDDAF}" ShortID="665278030">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_UI_Move" ID="{22062117-7959-458F-A1E7-5C90EC7785A3}" WorkUnitID="{F034C3AE-AAFD-4836-9290-B69802A4DEDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DEN_UI_Menu" ID="{7CB429B5-9FCE-4744-888C-941B5A65B04A}">
+					<ChildrenList>
+						<Action Name="" ID="{EC674685-57E9-47A1-B986-A446BF99B38E}" ShortID="319386347">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_UI_Menu" ID="{F03F4F9E-C3D6-45E4-ABAB-EB3257C89F4B}" WorkUnitID="{F034C3AE-AAFD-4836-9290-B69802A4DEDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DEN_UI_Faders" ID="{E90B2A62-5691-4D4A-94F3-76B46CDEF8A0}">
+					<ChildrenList>
+						<Action Name="" ID="{9ED1B2C1-76E9-4D77-B618-AEE92985EBE0}" ShortID="641664106">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_UI_Faders" ID="{28AE8B7D-C7FD-4F49-9FFE-96667995AC48}" WorkUnitID="{F034C3AE-AAFD-4836-9290-B69802A4DEDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DEN_UI_Back" ID="{BF61C90D-155B-422B-96E1-C2BB5FEE890B}">
+					<ChildrenList>
+						<Action Name="" ID="{34831BCD-6639-4C2D-89CA-D59C2481CCBC}" ShortID="301640633">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_UI_Back" ID="{D9FED455-B42A-431A-954A-1162816FE7B0}" WorkUnitID="{F034C3AE-AAFD-4836-9290-B69802A4DEDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DEN_UI_Accept" ID="{0335CD74-9027-465D-A207-5D4F33B26118}">
+					<ChildrenList>
+						<Action Name="" ID="{DB3007E1-F2F9-4683-9F46-EC3D3529F6F5}" ShortID="907072316">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_UI_Accept" ID="{DC69E925-E3E0-44E6-8CF3-33267D7DA5FC}" WorkUnitID="{F034C3AE-AAFD-4836-9290-B69802A4DEDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DEN_UI_VOL_Music" ID="{12B2AD35-0ACA-47EC-BE2B-D365DAA708AB}">
+					<ChildrenList>
+						<Action Name="" ID="{C8D19E5F-A2E7-4D26-8B2A-A22C508F5FAC}" ShortID="345055673">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_UI_VOL_Music" ID="{8267010C-E1EB-4EAF-8A6D-E0607565643F}" WorkUnitID="{F034C3AE-AAFD-4836-9290-B69802A4DEDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DEN_UI_VOL_Master" ID="{FBCA9F2F-D767-40F9-B537-E58D4E5BD579}">
+					<ChildrenList>
+						<Action Name="" ID="{53502D27-035D-47ED-828B-CD7BD1BF140B}" ShortID="1013162257">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_UI_VOL_Master" ID="{7A36DF38-6EF1-4E26-9522-56D9B7B1F913}" WorkUnitID="{F034C3AE-AAFD-4836-9290-B69802A4DEDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DEN_UI_VOL_Ambience" ID="{74C35016-DC12-4D0A-AF8B-AA7D4EEC0318}">
+					<ChildrenList>
+						<Action Name="" ID="{31B23BAD-37A3-49FF-A95F-26419E1A011C}" ShortID="701487165">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_UI_VOL_Ambience" ID="{95A99055-6148-444B-A2B0-3FA6111BB075}" WorkUnitID="{F034C3AE-AAFD-4836-9290-B69802A4DEDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DEN_UI_VOL_SFX" ID="{A7ACE535-B460-4D53-B975-4A72FD8697D7}">
+					<ChildrenList>
+						<Action Name="" ID="{48C25D2F-DFC8-49C8-AF7A-8AD71C147D3C}" ShortID="503877191">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_UI_VOL_SFX" ID="{96500F61-A203-465B-9B95-EAD711ABAB30}" WorkUnitID="{F034C3AE-AAFD-4836-9290-B69802A4DEDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DEN_UI_Box" ID="{2CD863B2-9754-4D2E-B083-AA61F7CC91AF}">
+					<ChildrenList>
+						<Action Name="" ID="{55D056FD-856D-4976-922F-DCB97B908598}" ShortID="184200104">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_UI_Box" ID="{34B8D91E-6ADF-476D-9599-56FCEB370F63}" WorkUnitID="{F034C3AE-AAFD-4836-9290-B69802A4DEDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
