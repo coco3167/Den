@@ -14,7 +14,7 @@ namespace Sinj
     {
         [Title("Sinjs")]
         [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject smartAgent;
-        [SerializeField, Range(1,10)] private int sinjCount;
+        [SerializeField, Range(0,10)] private int sinjCount;
         [SerializeField, ReadOnly] private List<MouseAgent> mouseAgents = new();
 
         [Title("Emotions")]
