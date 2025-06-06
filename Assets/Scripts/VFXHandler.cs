@@ -1,23 +1,34 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class VFXHandler : MonoBehaviour
 {
-    private ParticleSystem m_particleSystem;
+    [SerializeField] private List<ParticleSystem> m_particleSystem;
+    [SerializeField] private List<float> m_ratesValues;
     
     private void Awake()
     {
-        m_particleSystem = GetComponent<ParticleSystem>();
-        m_particleSystem.Stop();
+        foreach (ParticleSystem p in m_particleSystem)
+        {
+            p.Stop();
+        }
     }
 
     public void StartParticleSystem()
     {
-        m_particleSystem.Play();
+        foreach (ParticleSystem p in m_particleSystem)
+        {
+            p.Play();
+        }
     }
 
-    public void ChangeParticlePower(float power)
+    public void ChangeParticlePower(int index)
     {
-        ParticleSystem.EmissionModule emission = m_particleSystem.emission;
-        emission.rateOverDistanceMultiplier = power;
+        foreach (ParticleSystem p in m_particleSystem)
+        {
+            ParticleSystem.EmissionModule emission = p.emission;
+            emission.rateOverTime = m_ratesValues[index];
+        }
+        
     }
 }
