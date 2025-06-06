@@ -43,7 +43,7 @@
 							<ObjectRef Name="MomoConverstionSettings" ID="{2DB4720B-FF05-4826-8D23-747221FFD0DA}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+							<ObjectRef Name="SFX_Momo" ID="{73E7B879-B958-4B97-B9CF-F7BF81376759}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -3027,6 +3027,11 @@
 							<PropertyList>
 								<Property Name="OverrideConversion" Type="bool" Value="True"/>
 								<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -3044,6 +3049,12 @@
 							</ReferenceList>
 							<ChildrenList>
 								<RandomSequenceContainer Name="DEN_FS_Walking" ID="{A71FEA59-A763-493A-8E94-D2E6026DA24E}" ShortID="641713212">
+									<PropertyList>
+										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -3342,6 +3353,12 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="DEN_FS_Running" ID="{A1CD9EAF-43F7-4D33-B454-D0E7232F4D6D}" ShortID="277776040">
+									<PropertyList>
+										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>

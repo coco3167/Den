@@ -12,7 +12,6 @@ namespace SmartObjects_AI
     public class SmartObject : MonoBehaviour, IReloadable
     {
         [field: SerializeField, ChildGameObjectsOnly] public Transform usingPoint { get; private set; }
-        [SerializeField] private float gizmosRadius;
         [SerializeField] private SmartObjectData data;
 
         [SerializeField] private SerializedDictionary<SmartObjectParameter, float> dynamicParametersStartValue;
@@ -25,6 +24,8 @@ namespace SmartObjects_AI
         {
             if (!usingPoint)
                 usingPoint = transform;
+            
+            data.Init();
 
             // ReSharper disable once TooWideLocalVariableScope => no need to initialize multiple times
             SmartObjectParameter parameter;
@@ -49,7 +50,7 @@ namespace SmartObjects_AI
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawSphere(usingPoint.position, gizmosRadius);
+            Gizmos.DrawSphere(usingPoint.position, data.minRadius);
         }
 
         public float CalculateScore(SmartAgent smartAgent)
@@ -59,7 +60,7 @@ namespace SmartObjects_AI
 
         private void StartUse(AnimationAgent animationAgent)
         {
-            animationAgent.SwitchAnimator(data.animatorController);
+            animationAgent.SwitchAnimator(data.animatorController, data.adatpToMood);
         }
 
         public void FinishUse(SmartAgent agent)
@@ -90,6 +91,17 @@ namespace SmartObjects_AI
         public bool HasRoomForUse()
         {
             return data.maxUser > m_startedUseList.Count;
+        }
+
+        /// <summary>
+        /// Calculate how much the distance affects the agent want to use the object
+        /// </summary>
+        /// <param name="agent"></param>
+        /// <returns>Value between 0 and 1 representing proximity</returns>
+        public float DistanceCoefficient(SmartAgent agent)
+        {
+            float distance = Vector3.Distance(agent.transform.position, transform.position);
+            return 1/Math.Max(data.minRadius, distance);
         }
 
         #region DynamicParameters

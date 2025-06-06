@@ -7,32 +7,51 @@
     using UnityEngine.UI;
     using AK.Wwise;
 
-    namespace Options.Categories
-    {
-        [Serializable]
+namespace Options.Categories
+{
+    [Serializable]
     public class WwiseBus
     {
         public Slider _slider;
         public RTPC rtpc;
+        public AK.Wwise.Event sliderChangeEvent;
+
+        [Tooltip("Default value for this RTPC/slider")]
+        public float defaultValue = 8f;
+        [Tooltip("Minimum value for this RTPC/slider")]
+        public float minValue = 0f;
+        [Tooltip("Maximum value for this RTPC/slider")]
+        public float maxValue = 10f;
+        [Tooltip("If true, slider uses whole numbers")]
+        public bool wholeNumbers = true;
 
         public void AddListener()
         {
             _slider.onValueChanged.AddListener(delegate
             {
-                AudioManager.SetGlobalRTPCValue(rtpc, _slider.value);
-                SaveVolume(_slider.value);
+                float floatValue = _slider.value;
+                AudioManager.SetGlobalRTPCValue(rtpc, floatValue);
+                SaveVolume(floatValue);
+
+                sliderChangeEvent?.Post(_slider.gameObject);
             });
         }
 
         public void LoadVolume()
         {
-            float stored = PlayerPrefs.GetFloat(rtpc.Name, 0.8f);
-            _slider.value = stored;
+            float stored = PlayerPrefs.GetFloat(rtpc.Name, defaultValue);
+            _slider.wholeNumbers = wholeNumbers;
+            _slider.minValue = minValue;
+            _slider.maxValue = maxValue;
+            _slider.SetValueWithoutNotify(stored);
         }
+
         public void ApplyVolumeToWwise()
         {
-            AudioManager.SetGlobalRTPCValue(rtpc, _slider.value);
+            float floatValue = _slider.value;
+            AudioManager.SetGlobalRTPCValue(rtpc, floatValue);
         }
+
         public void RemoveListener()
         {
             _slider.onValueChanged.RemoveAllListeners();
@@ -49,63 +68,77 @@
         }
     }
 
-        public class AudioOptions : MonoBehaviour
+    public class AudioOptions : MonoBehaviour
+    {
+        [SerializeField] private List<WwiseBus> buses;
+        [SerializeField] private TMP_Dropdown mixDropdown;
+
+        // Wwise events for dropdown actions
+        [SerializeField] private AK.Wwise.Event dropdownOpenEvent;
+        [SerializeField] private AK.Wwise.Event dropdownSelectEvent;
+
+        private void Awake()
         {
-            [SerializeField] private List<WwiseBus> buses;
-            [SerializeField] private TMP_Dropdown mixDropdown;
-
-            private void Awake()
-        {
-
-            // 1) Hook up the dropdown listener *first*
-            mixDropdown.onValueChanged.AddListener(OnAudioStateSelected);
-
-            // 2) Make sure the dropdown has one option per enum value
             mixDropdown.ClearOptions();
             var options = new List<string>();
             foreach (WwiseAudioState state in System.Enum.GetValues(typeof(WwiseAudioState)))
                 options.Add(state.ToString());
             mixDropdown.AddOptions(options);
 
-            // 3) Expose the currentAudioState publicly in AudioManager
-            //    (see note below) and then read it back immediately:
-            mixDropdown.value = AudioManager.Instance.CurrentAudioStateIndex;
+            // Set value before adding the listener
+            mixDropdown.SetValueWithoutNotify(AudioManager.Instance.CurrentAudioStateIndex);
             mixDropdown.RefreshShownValue();
 
-            // 4) Finally, actually apply it in Wwise
-            //    (because TMP_Dropdown.value assignment doesn’t invoke the callback)
-            OnAudioStateSelected(mixDropdown.value);
+            // Add value changed listener for option selection
+            mixDropdown.onValueChanged.AddListener(OnAudioStateSelected);
+
+            // Add the component if it doesn't exist
+            var openListener = mixDropdown.GetComponent<DropdownOnPointerClick>();
+            if (openListener == null)
+                openListener = mixDropdown.gameObject.AddComponent<DropdownOnPointerClick>();
+
+            openListener.onDropdownOpened += OnDropdownOpened;
         }
+
         private void Start()
         {
             foreach (var bus in buses)
             {
                 bus.LoadVolume();
-                // Apply to Wwise globally right away:
-                AudioManager.SetGlobalRTPCValue(bus.rtpc, bus._slider.value);
+                bus.ApplyVolumeToWwise();
                 bus.AddListener();
             }
         }
+
         private void OnAudioStateSelected(int value)
         {
             WwiseStateManager.SetWwiseAudioState((WwiseAudioState)value);
+
+            // Play Wwise event for dropdown option selection
+            dropdownSelectEvent?.Post(mixDropdown.gameObject);
+        }
+
+        // Called when the dropdown is opened
+        private void OnDropdownOpened(UnityEngine.EventSystems.PointerEventData eventData)
+        {
+            dropdownOpenEvent?.Post(mixDropdown.gameObject);
         }
 
         private void OnDestroy()
+        {
+            foreach (var bus in buses)
             {
-                foreach (var bus in buses)
-                {
-                    bus.RemoveListener();
-                }
+                bus.RemoveListener();
             }
+        }
 
-            public void DeleteUserData()
+        public void DeleteUserData()
+        {
+            foreach (var bus in buses)
             {
-                foreach (var bus in buses)
-                {
-                    bus.DeleteData();
-                    bus.LoadVolume();
-                }
+                bus.DeleteData();
+                bus.LoadVolume();
             }
         }
     }
+}

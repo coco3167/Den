@@ -108,6 +108,10 @@
 							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="DEN_GP_LowPass" ID="{71CCC262-5702-41E0-9165-440B2CC09D75}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_CuriosityValue" ID="{4C8EF3DA-5ED7-423F-8B0C-F48F58CE5ABD}"/>
 							<Value>0</Value>
 						</RTPCValue>
@@ -117,7 +121,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_UIV_Ambience" ID="{B59131F9-E6C2-42E4-96DC-D7E9A4395CE2}"/>
-							<Value>0.8</Value>
+							<Value>8</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}"/>
@@ -125,7 +129,11 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_UIV_Music" ID="{0298F746-9F33-479D-B898-265FC8DB1F75}"/>
-							<Value>0.8</Value>
+							<Value>8</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DEN_GP_HighPass" ID="{46E0ECE7-A2CF-4A92-B11A-52E5B0A50F50}"/>
+							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_IntensityValue" ID="{06A92236-B1E4-4B96-B6E9-D34C84BD2715}"/>
@@ -133,15 +141,15 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_TensionValue" ID="{2BACC983-9E6E-4BBE-8C8E-A1621790A002}"/>
-							<Value>0</Value>
+							<Value>100</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_UIV_Master" ID="{45D1C17B-870C-4C82-AB66-60B890113C5C}"/>
-							<Value>0.8</Value>
+							<Value>8</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_UIV_SFX" ID="{96A063C2-FFFC-4CD0-B0D1-72244BF9CE4B}"/>
-							<Value>0.8</Value>
+							<Value>8</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DEN_GP_VolumeMomo" ID="{2505558E-72AF-4D60-B6F5-EB4362BF0912}"/>
@@ -162,17 +170,17 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
-						<CurrentStateRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
+						<CurrentStateRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}"/>
 						<CurrentStateRef Name="DEN_ST_TOD_Morning" ID="{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}"/>
 						<CurrentStateRef Name="DEN_ST_Amb_Playing" ID="{591B604F-ED42-451A-9D6A-DB7A0655879F}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="DEN_SW_FS_3" ID="{DBFC477C-508F-456D-9097-86A9C4AD6174}"/>
+						<CurrentSwitchRef Name="DEN_SW_FS_0" ID="{F4E026D3-7E71-460E-836C-75047A2F9C7E}"/>
 						<CurrentSwitchRef Name="DEN_SW_RM_Anger" ID="{E32256AC-91DE-4072-AA6F-342EDD7CF565}"/>
 						<CurrentSwitchRef Name="DEN_SW_NS_3" ID="{EE307804-A00D-4AD6-9F13-99AB80F6703E}"/>
 						<CurrentSwitchRef Name="DEN_SW_FS_Walking" ID="{03D9483C-E2FC-45DA-BE7F-13D6F4A7F087}"/>
-						<CurrentSwitchRef Name="DEN_SW_CS_3" ID="{0CE9736F-F798-44B3-8D3C-F002B7124776}"/>
-						<CurrentSwitchRef Name="DEN_SW_AS_3" ID="{ED30EBA1-3775-4F29-A08C-6663D19FAA6B}"/>
+						<CurrentSwitchRef Name="DEN_SW_CS_0" ID="{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}"/>
+						<CurrentSwitchRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Damien" ID="{104873ED-2775-4BAE-8914-367F7C9B835B}">
@@ -289,15 +297,15 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
-						<CurrentStateRef Name="DEN_ST_TOD_Night" ID="{E5651177-8597-4405-9543-A5179BF22D37}"/>
+						<CurrentStateRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}"/>
+						<CurrentStateRef Name="DEN_ST_TOD_Morning" ID="{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}"/>
 						<CurrentStateRef Name="DEN_ST_Amb_Playing" ID="{591B604F-ED42-451A-9D6A-DB7A0655879F}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="DEN_SW_FS_3" ID="{DBFC477C-508F-456D-9097-86A9C4AD6174}"/>
-						<CurrentSwitchRef Name="DEN_SW_RM_Anger" ID="{E32256AC-91DE-4072-AA6F-342EDD7CF565}"/>
-						<CurrentSwitchRef Name="DEN_SW_CS_3" ID="{0CE9736F-F798-44B3-8D3C-F002B7124776}"/>
-						<CurrentSwitchRef Name="DEN_SW_AS_3" ID="{ED30EBA1-3775-4F29-A08C-6663D19FAA6B}"/>
+						<CurrentSwitchRef Name="DEN_SW_RM_Curious" ID="{475A8F43-0DFC-4384-A3F3-584267D6995D}"/>
+						<CurrentSwitchRef Name="DEN_SW_CS_0" ID="{6ED01F83-3FAA-47C3-B716-A71F23BDB27A}"/>
+						<CurrentSwitchRef Name="DEN_SW_AS_0" ID="{2F3FCC38-F2B0-472A-B029-A505491A4689}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>

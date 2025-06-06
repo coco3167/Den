@@ -11,10 +11,17 @@ namespace SmartObjects_AI
         [field : SerializeReference] public BaseScoreCalcul scoreCalculation { get; private set; }
         [field : SerializeField] public AnimatorOverrideController animatorController { get; private set; }
         [field : SerializeField] public int maxUser { get; private set; }
+        [field: SerializeField] public float minRadius { get; private set; } = 1;
+        [field: SerializeField] public bool adatpToMood { get; private set; } = false;
         
         [field : SerializeField] public SerializedDictionary<SmartObjectParameter, float> dynamicParametersEffect { get; private set; }
         [field : SerializeField] public SerializedDictionary<SmartObjectParameter, float> dynamicParametersVariation { get; private set; }
         [field : SerializeField] public SerializedDictionary<AgentDynamicParameter, float> parameterEffectOnAgent { get; private set; }
+
+        public void Init()
+        {
+            scoreCalculation.Init();
+        }
     }
     public enum SmartObjectParameter
     {
