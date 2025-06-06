@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
     [SerializeField, ChildGameObjectsOnly] private SinjManager sinjManager;
     [SerializeField] private MouseManager mouseManager;
 
-    [SerializeField] private UnityEvent<AgentDynamicParameter, int> pallierReached;
+    [SerializeField] public UnityEvent<AgentDynamicParameter, int> pallierReached;
 
     [SerializeField] public WorldParameters worldParameters;
 
@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
     private void OnPallierReached(AgentDynamicParameter parameter, int nextPallier)
     {
         m_currentPalier[parameter] = nextPallier;
-        WwiseStateManager.SetWwiseMoodState(m_palierMoodState[parameter]);
+        AudioManager.Instance.PlayEmotionSteps(parameter, nextPallier);
 
         if (m_currentPalier[parameter] >= 100)
             GameLoopManager.Instance.OnGameLoopEnded();

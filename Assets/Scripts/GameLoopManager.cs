@@ -3,6 +3,7 @@ using System.Linq;
 using DG.Tweening;
 using Sirenix.Utilities;
 using UnityEngine;
+using Audio;
 
 [RequireComponent(typeof(Animator))]
 public class GameLoopManager : MonoBehaviour, IPausable
@@ -87,6 +88,7 @@ public class GameLoopManager : MonoBehaviour, IPausable
     {
         currentGameLoopState = state;
         Shader.SetGlobalInteger(LoopState, (int)state);
+        AudioManager.Instance.SetWwiseTODState(AudioManager.ToWwiseTODState(state));
     }
 
     public enum GameLoopState

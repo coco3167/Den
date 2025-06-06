@@ -48,8 +48,11 @@ State	ID	Name	State Group			Notes
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	307573345	DEN_GP_UIV_SFX			\Default Work Unit\DEN_GameParameters\DEN_GP_UIVolumes\DEN_GP_UIV_SFX	
+	1763700666	DEN_GP_UIV_UI			\Default Work Unit\DEN_GameParameters\DEN_GP_UIVolumes\DEN_GP_UIV_UI	
 	2280064220	DEN_GP_UIV_Ambience			\Default Work Unit\DEN_GameParameters\DEN_GP_UIVolumes\DEN_GP_UIV_Ambience	
 	2421685046	DEN_GP_UIV_Master			\Default Work Unit\DEN_GameParameters\DEN_GP_UIVolumes\DEN_GP_UIV_Master	
+	2611759784	DEN_GP_LowPass			\Default Work Unit\DEN_GameParameters\DEN_GP_LowPass	
+	3002578020	DEN_GP_HighPass			\Default Work Unit\DEN_GameParameters\DEN_GP_HighPass	
 	3976517781	DEN_GP_UIV_Music			\Default Work Unit\DEN_GameParameters\DEN_GP_UIVolumes\DEN_GP_UIV_Music	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
@@ -57,12 +60,13 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
 	1551306167	UI			\Default Work Unit\Master Audio Bus\UI	
 	1802970371	FX			\Default Work Unit\FX	
+	3023650669	SFX_Momo			\Default Work Unit\Master Audio Bus\SFX\SFX_Momo	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
 
 Effect plug-ins	ID	Name	Type				Notes
 	370170101	AK Channel Router (Custom)	Wwise Channel Router			
-	546281340	Recorder (Custom)	Wwise Recorder			
+	4155787858	New_Recorder	Wwise Recorder			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

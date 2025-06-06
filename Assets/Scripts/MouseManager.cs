@@ -6,7 +6,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
 {
     [SerializeField] private Rigidbody mouseRigidBody;
     [SerializeField] private LayerMask terrainLayerMask;
-    
+
     private Camera m_camera;
     private Vector2 m_otherMoveValue;
     private bool m_isOtherMoving;
@@ -33,7 +33,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
 
     public void OnGameEnded(object sender, EventArgs eventArgs)
     {
-        // Nothing there
+        //nothing
     }
 
     public void OnMouseMoved(Vector2 value)

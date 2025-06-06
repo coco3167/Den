@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{0D15B28F-61F0-E173-D906-E3683C60B6A4}",
+    "Hash": "{4A422ED9-E275-EF26-16CF-124B51FE3320}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -23,12 +23,14 @@
        "GUID": "{560D89A7-03C8-4F1A-8BF8-C69990F0FA00}",
        "LibName": "Wwise Channel Router",
        "LibId": "12517379"
-      },
+      }
+     ],
+     "ShareSets": [
       {
-       "Id": "546281340",
-       "Name": "Recorder (Custom)",
-       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\[Effect Slot [1]: (Recorder)]\\Recorder (Custom)",
-       "GUID": "{93508361-BBA7-4851-9396-5E4C90FB4DEA}",
+       "Id": "4155787858",
+       "Name": "New_Recorder",
+       "ObjectPath": "\\Effects\\Default Work Unit\\New_Recorder",
+       "GUID": "{DA172244-69AB-45BF-8F52-02F03155CBD6}",
        "LibName": "Wwise Recorder",
        "LibId": "8650755"
       }
@@ -82,6 +84,13 @@
       "Color": "16"
      },
      {
+      "Id": "3023650669",
+      "Name": "SFX_Momo",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\SFX_Momo",
+      "GUID": "{73E7B879-B958-4B97-B9CF-F7BF81376759}",
+      "Color": "9"
+     },
+     {
       "Id": "3803692087",
       "Name": "Master Audio Bus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
@@ -91,9 +100,11 @@
        "Custom": [
         {
          "Id": "370170101"
-        },
+        }
+       ],
+       "ShareSets": [
         {
-         "Id": "546281340"
+         "Id": "4155787858"
         }
        ]
       }
@@ -143,6 +154,13 @@
       "Color": "14"
      },
      {
+      "Id": "1763700666",
+      "Name": "DEN_GP_UIV_UI",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_UIVolumes\\DEN_GP_UIV_UI",
+      "GUID": "{EE4A669F-8623-4D6B-916E-75BB0A3D6CA5}",
+      "Color": "14"
+     },
+     {
       "Id": "2230858223",
       "Name": "DEN_GP_CursorVolume",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_CursorVolume",
@@ -171,6 +189,20 @@
       "Color": "14"
      },
      {
+      "Id": "2611759784",
+      "Name": "DEN_GP_LowPass",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_LowPass",
+      "GUID": "{71CCC262-5702-41E0-9165-440B2CC09D75}",
+      "Color": "14"
+     },
+     {
+      "Id": "3002578020",
+      "Name": "DEN_GP_HighPass",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_HighPass",
+      "GUID": "{46E0ECE7-A2CF-4A92-B11A-52E5B0A50F50}",
+      "Color": "14"
+     },
+     {
       "Id": "3189323882",
       "Name": "DEN_GP_TensionValue",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_TensionValue",
@@ -189,6 +221,13 @@
       "Name": "DEN_GP_UIV_Music",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_UIVolumes\\DEN_GP_UIV_Music",
       "GUID": "{0298F746-9F33-479D-B898-265FC8DB1F75}",
+      "Color": "14"
+     },
+     {
+      "Id": "4061733226",
+      "Name": "DEN_GP_CursorSpeed",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_CursorSpeed",
+      "GUID": "{9A55C7C2-566D-4E67-848E-AA5E41C7F412}",
       "Color": "14"
      },
      {
@@ -566,6 +605,6 @@
     ]
    }
   ],
-  "FileHash": "{38FFE4BC-3685-7606-BA3F-6CA159E4CC9A}"
+  "FileHash": "{92E4E8D4-7C15-3A3A-B994-3C3FF3431CA7}"
  }
 }

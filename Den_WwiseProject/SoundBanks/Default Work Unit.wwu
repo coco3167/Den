@@ -5,10 +5,12 @@
 			<ChildrenList>
 				<SoundBank Name="Main_Soundbank" ID="{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DEN_Events_SFX" ID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}" WorkUnitID="{C4C53FC0-5F3D-4157-9ACC-25C3023DD72D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DEN_Events_Global" ID="{0EC03A08-5A73-415C-AC71-1BFFEC7E2C15}" WorkUnitID="{0EC03A08-5A73-415C-AC71-1BFFEC7E2C15}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DEN_Events_Amb" ID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}" WorkUnitID="{E81DF813-459A-4ADC-BCDC-F39E8E8A94AD}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DEN_Events_Music" ID="{FFE357D2-BBD9-4B4F-96C8-E8B7959DEA32}" WorkUnitID="{FFE357D2-BBD9-4B4F-96C8-E8B7959DEA32}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DEN_Events_UI" ID="{9A0DBD44-8410-4C63-9E70-44C77EC7F7F2}" WorkUnitID="{9A0DBD44-8410-4C63-9E70-44C77EC7F7F2}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

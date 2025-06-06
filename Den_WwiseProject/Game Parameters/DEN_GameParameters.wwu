@@ -42,16 +42,16 @@
 							<PropertyList>
 								<Property Name="InitialValue" Type="Real64" Value="0"/>
 								<Property Name="RTPCRamping" Type="int16" Value="1"/>
-								<Property Name="SlewRateDown" Type="Real64" Value="6"/>
-								<Property Name="SlewRateUp" Type="Real64" Value="6"/>
+								<Property Name="SlewRateDown" Type="Real64" Value="10"/>
+								<Property Name="SlewRateUp" Type="Real64" Value="10"/>
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="DEN_GP_AngerValue" ID="{8A0703FE-E34C-4FED-8E96-C3AFAEAD45A5}">
 							<PropertyList>
 								<Property Name="InitialValue" Type="Real64" Value="0"/>
 								<Property Name="RTPCRamping" Type="int16" Value="1"/>
-								<Property Name="SlewRateDown" Type="Real64" Value="6"/>
-								<Property Name="SlewRateUp" Type="Real64" Value="6"/>
+								<Property Name="SlewRateDown" Type="Real64" Value="10"/>
+								<Property Name="SlewRateUp" Type="Real64" Value="10"/>
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="DEN_GP_NeutralValue" ID="{CF2D0CA2-4C87-4713-80CD-EB3785B17D79}">
@@ -60,16 +60,16 @@
 								<Property Name="FilterTimeUp" Type="Real64" Value="1"/>
 								<Property Name="InitialValue" Type="Real64" Value="0"/>
 								<Property Name="RTPCRamping" Type="int16" Value="1"/>
-								<Property Name="SlewRateDown" Type="Real64" Value="6"/>
-								<Property Name="SlewRateUp" Type="Real64" Value="6"/>
+								<Property Name="SlewRateDown" Type="Real64" Value="10"/>
+								<Property Name="SlewRateUp" Type="Real64" Value="10"/>
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="DEN_GP_FearValue" ID="{5DDCEF5F-D8C4-40D7-BD7E-8336CBE14C7F}">
 							<PropertyList>
 								<Property Name="InitialValue" Type="Real64" Value="0"/>
 								<Property Name="RTPCRamping" Type="int16" Value="1"/>
-								<Property Name="SlewRateDown" Type="Real64" Value="6"/>
-								<Property Name="SlewRateUp" Type="Real64" Value="6"/>
+								<Property Name="SlewRateDown" Type="Real64" Value="10"/>
+								<Property Name="SlewRateUp" Type="Real64" Value="10"/>
 							</PropertyList>
 						</GameParameter>
 					</ChildrenList>
@@ -78,23 +78,29 @@
 					<ChildrenList>
 						<GameParameter Name="DEN_GP_UIV_Master" ID="{45D1C17B-870C-4C82-AB66-60B890113C5C}">
 							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="0.8"/>
-								<Property Name="Max" Type="Real64" Value="1"/>
+								<Property Name="InitialValue" Type="Real64" Value="8"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="DEN_GP_UIV_Music" ID="{0298F746-9F33-479D-B898-265FC8DB1F75}">
 							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="0.8"/>
-								<Property Name="Max" Type="Real64" Value="1"/>
+								<Property Name="InitialValue" Type="Real64" Value="8"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="DEN_GP_UIV_SFX" ID="{96A063C2-FFFC-4CD0-B0D1-72244BF9CE4B}">
 							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="0.8"/>
-								<Property Name="Max" Type="Real64" Value="1"/>
+								<Property Name="InitialValue" Type="Real64" Value="8"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="DEN_GP_UIV_Ambience" ID="{B59131F9-E6C2-42E4-96DC-D7E9A4395CE2}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="8"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="DEN_GP_UIV_UI" ID="{EE4A669F-8623-4D6B-916E-75BB0A3D6CA5}">
 							<PropertyList>
 								<Property Name="InitialValue" Type="Real64" Value="0.8"/>
 								<Property Name="Max" Type="Real64" Value="1"/>
@@ -102,6 +108,24 @@
 						</GameParameter>
 					</ChildrenList>
 				</Folder>
+				<GameParameter Name="DEN_GP_CursorSpeed" ID="{9A55C7C2-566D-4E67-848E-AA5E41C7F412}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="RTPCRamping" Type="int16" Value="1"/>
+						<Property Name="SlewRateDown" Type="Real64" Value="100"/>
+						<Property Name="SlewRateUp" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="DEN_GP_LowPass" ID="{71CCC262-5702-41E0-9165-440B2CC09D75}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="DEN_GP_HighPass" ID="{46E0ECE7-A2CF-4A92-B11A-52E5B0A50F50}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

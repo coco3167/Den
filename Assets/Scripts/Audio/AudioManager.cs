@@ -1,8 +1,12 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using AK.Wwise;
 using AYellowpaper.SerializedCollections;
+using DG.Tweening.Core.Easing;
 using Sinj;
 using Sirenix.OdinInspector;
+using SmartObjects_AI.Agent;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -30,10 +34,11 @@ namespace Audio
         Fear,
         Anger,
         Intensity,
-        Tension
+        Tension,
+        Neutral,
     }
 
-    public enum WwiseCuriositySwitch 
+    public enum WwiseCuriositySwitch
     {
         Curiosity_0,
         Curiosity_1,
@@ -61,9 +66,15 @@ namespace Audio
         AngerSwitch,
         None,
     }
-
+    public enum WwiseTODState
+    {
+        Morning,
+        Day,
+        Evening,
+        Night
+    }
     [RequireComponent(typeof(AkGameObj))]
-    public class AudioManager : MonoBehaviour
+    public class AudioManager : MonoBehaviour, IGameStateListener, IReloadable
     {
 
         public static AudioManager Instance;
@@ -73,17 +84,17 @@ namespace Audio
         [Title("Startup Soundbanks")]
         [SerializeField] private List<Bank> Soundbanks;
 
-        [Title("Game State Mood Variables")] [ReadOnly, SerializeField, HideLabel] private bool stateMoodSeparator;
+        [Title("Game State Mood Variables")][ReadOnly, SerializeField, HideLabel] private bool stateMoodSeparator;
         [SerializeField] public SerializedDictionary<WwiseMoodState, State> gameStateMoodVisualization;
         [SerializeField, ReadOnly] private WwiseMoodState currentMoodState;
 
-        [Title("Audio State Variables")] [ReadOnly, SerializeField, HideLabel] private bool audioStateSeparator;
+        [Title("Audio State Variables")][ReadOnly, SerializeField, HideLabel] private bool audioStateSeparator;
         [SerializeField] public SerializedDictionary<WwiseAudioState, State> audioState;
         [SerializeField, ReadOnly] public WwiseAudioState currentAudioState;
         public WwiseAudioState CurrentAudioState => currentAudioState;
         public int CurrentAudioStateIndex => (int)currentAudioState;
 
-        [Title("Wwise Mood Switches")] [ReadOnly, SerializeField, HideLabel] private bool moodSwitchSeparator;
+        [Title("Wwise Mood Switches")][ReadOnly, SerializeField, HideLabel] private bool moodSwitchSeparator;
         [SerializeField] private SerializedDictionary<WwiseCuriositySwitch, Switch> moodCuriosity;
         [SerializeField] private SerializedDictionary<WwiseFearSwitch, Switch> moodFear;
         [SerializeField] private SerializedDictionary<WwiseAngerSwitch, Switch> moodAnger;
@@ -96,29 +107,54 @@ namespace Audio
         [SerializeField] public SerializedDictionary<WwiseReactionMoodSwitch, Switch> switchReactionMood;
         [SerializeField, ReadOnly] private WwiseReactionMoodSwitch currentSwitchReactionMood;
 
-        [Title("Wwise Game Parameters")] [ReadOnly, SerializeField, HideLabel] private bool parametersSeparators;
+        [Title("Wwise Game Parameters")][ReadOnly, SerializeField, HideLabel] private bool parametersSeparators;
         [SerializeField] private SerializedDictionary<WwiseEmotionStateRTPC, RTPC> gameParameters;
         [SerializeField, ReadOnly] private SerializedDictionary<WwiseEmotionStateRTPC, float> currentGameParametersValues;
 
         [Title("Wwise Volume Paramters")]
-        [SerializeField] public  AK.Wwise.RTPC MasterVolume;
-        [SerializeField] public  AK.Wwise.RTPC MusicVolume;
-        [SerializeField] public  AK.Wwise.RTPC SFXVolume;
-        [SerializeField] public  AK.Wwise.RTPC AmbienceVolume;
+        [SerializeField] public AK.Wwise.RTPC MasterVolume;
+        [SerializeField] public AK.Wwise.RTPC MusicVolume;
+        [SerializeField] public AK.Wwise.RTPC SFXVolume;
+        [SerializeField] public AK.Wwise.RTPC AmbienceVolume;
 
         [Title("Wwise Events")]
         [SerializeField] private AK.Wwise.Event PlayIntroMusic;
         [SerializeField] private AK.Wwise.Event PlayAmbience;
         [SerializeField] private AK.Wwise.Event ResetAmbience;
-        [SerializeField] private AK.Wwise.Event PlayAngerStep1;
-        [SerializeField] private AK.Wwise.Event PlayAngerStep2;
-        [SerializeField] private AK.Wwise.Event PlayAngerStep3;
-        [SerializeField] private AK.Wwise.Event PlayFearStep1;
-        [SerializeField] private AK.Wwise.Event PlayFearStep2;
-        [SerializeField] private AK.Wwise.Event PlayFearStep3;
-        [SerializeField] private AK.Wwise.Event PlayCuriosityStep1;
-        [SerializeField] private AK.Wwise.Event PlayCuriosityStep2;
-        [SerializeField] private AK.Wwise.Event PlayCuriosityStep3;
+
+        [Title("Wwise Stinger Events")]
+        [SerializeField] private AK.Wwise.Event CuriosityStinger;
+        [SerializeField] private AK.Wwise.Event AngerStinger;
+        [SerializeField] private AK.Wwise.Event FearStinger;
+
+        [Title("Wwise Time of Day States")]
+        [SerializeField]
+        public SerializedDictionary<WwiseTODState, State> timeOfDayStates;
+
+        [Title("Wwise Cursor Movement")]
+        [SerializeField] private AK.Wwise.Event CursorMoveEvent;
+        [SerializeField] private AK.Wwise.RTPC CursorSpeed;
+        private Dictionary<AgentDynamicParameter, int> emotionPalliers = new()
+        {
+            { AgentDynamicParameter.Curiosity, 0 },
+            { AgentDynamicParameter.Aggression, 0 },
+            { AgentDynamicParameter.Fear, 0 },
+        };
+        private uint cursorMovePlayingId = 0;
+        [SerializeField] private GameObject mouseManifestation;
+
+        [Title("Wwise UI Events")]
+        [SerializeField] public AK.Wwise.Event FaderTick;
+        [SerializeField] public AK.Wwise.Event Box;
+        [SerializeField] public AK.Wwise.Event UIMove;
+        [SerializeField] public AK.Wwise.Event UIAccept;
+        [SerializeField] public AK.Wwise.Event UIBack;
+        [SerializeField] public AK.Wwise.Event UIMenu;
+        [SerializeField] public AK.Wwise.Event MasterTest;
+        [SerializeField] public AK.Wwise.Event MusicTest;
+        [SerializeField] public AK.Wwise.Event AmbienceTest;
+        [SerializeField] public AK.Wwise.Event SFXTest;
+
 
         private void Awake()
         {
@@ -130,12 +166,11 @@ namespace Audio
                 {WwiseEmotionStateRTPC.Anger, 0f},
                 {WwiseEmotionStateRTPC.Intensity, 0f},
                 {WwiseEmotionStateRTPC.Tension, 0f},
+                {WwiseEmotionStateRTPC.Neutral, 0f},
             };
 
             ResetAmbience.Post(this.gameObject);
         }
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
@@ -143,76 +178,42 @@ namespace Audio
 
             StartAmbience();
         }
-
-        private void Update()
+        private void FixedUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.Keypad1))
-            {
-                WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
-            }
-            else if (Input.GetKeyDown(KeyCode.Keypad2))
-            {
-                WwiseStateManager.SetWwiseMoodState(WwiseMoodState.CuriosityState);
-            }
-            else if (Input.GetKeyDown(KeyCode.Keypad3))
-            {
-                WwiseStateManager.SetWwiseMoodState(WwiseMoodState.FearState);
-            }
-            else if (Input.GetKeyDown(KeyCode.Keypad4))
-            {
-                WwiseStateManager.SetWwiseMoodState(WwiseMoodState.AngerState);
-            }
+            // Call cursor sound
+            float speed = GameManager.Instance.GetMouseManager().MouseVelocity();
+            AudioManager.Instance.UpdateCursorSpeed(speed, mouseManifestation);
         }
-        public void PlayEmotionSteps(Emotions emotion, int pallierReached)
+
+        public void PlayEmotionSteps(AgentDynamicParameter parameter, int pallierReached)
         {
-            pallierReached /= GameManager.IntervalPallier;
-            switch (emotion)
+            emotionPalliers[parameter] = pallierReached;
+            UpdateMoodAndRTPCs();
+
+            // Trigger the stinger event for the emotion
+            switch (parameter)
             {
-                case Emotions.Curiosity:
-                    switch (pallierReached)
-                    {
-                        case 1:
-                            PlayCuriosityStep1.Post(this.gameObject);
-                            break;
-                        case 2:
-                            PlayCuriosityStep2.Post(this.gameObject);
-                            break;
-                        case 3:
-                            PlayCuriosityStep3.Post(this.gameObject);
-                            break;
-                    }
+                case AgentDynamicParameter.Curiosity:
+                    CuriosityStinger?.Post(this.gameObject);
                     break;
-                case Emotions.Fear:
-                    switch (pallierReached)
-                    {
-                        case 1:
-                            PlayFearStep1.Post(this.gameObject);
-                            break;
-                        case 2:
-                            PlayFearStep2.Post(this.gameObject);
-                            break;
-                        case 3:
-                            PlayFearStep3.Post(this.gameObject);
-                            break;
-                    }
+                case AgentDynamicParameter.Aggression:
+                    AngerStinger?.Post(this.gameObject);
                     break;
-                case Emotions.Agression:
-                    switch (pallierReached)
-                    {
-                        case 1:
-                            PlayAngerStep1.Post(this.gameObject);
-                            break;
-                        case 2:
-                            PlayAngerStep2.Post(this.gameObject);
-                            break;
-                        case 3:
-                            PlayAngerStep3.Post(this.gameObject);
-                            break;
-                    }
+                case AgentDynamicParameter.Fear:
+                    FearStinger?.Post(this.gameObject);
                     break;
             }
         }
+        private void StartAmbience()
+        {
+            PlayAmbience.Post(this.gameObject);
+        }
+        public void RestartAmbience()
+        {
+            ResetAmbience.Post(this.gameObject);
+        }
 
+        #region Tools
         private void Initialize()
         {
             //Singleton logic
@@ -236,7 +237,6 @@ namespace Audio
 
             bIsInitialized = true;
         }
-
         private void LoadSoundbanks()
         {
             if (Soundbanks.Count > 0)
@@ -272,48 +272,46 @@ namespace Audio
                 }
             }
         }
+        #endregion Tools
 
-        private void StartAmbience()
+        #region RTPC
+        public void SetWwiseEmotionRTPC(AgentDynamicParameter parameter, GameObject target, float value)
         {
-            PlayAmbience.Post(this.gameObject);
-        }
+            // Clamp value to Wwise RTPC range
+            float clampedValue = value;
 
-        public void SetWwiseEmotionRTPC(Sinj.Emotions emotion, GameObject target, float value)
-        {
-            WwiseEmotionStateRTPC emotionStateRtpc = TranslateSinjAgentEmotionToAudioManagerEmotion(emotion);
+            WwiseEmotionStateRTPC emotionStateRtpc = TranslateSinjAgentEmotionToAudioManagerEmotion(parameter);
             RTPC emotionRTPC = gameParameters[emotionStateRtpc];
-        
-            if (Mathf.Approximately(value, currentGameParametersValues[emotionStateRtpc]))
+
+            if (Mathf.Approximately(clampedValue, currentGameParametersValues[emotionStateRtpc]))
             {
-                Debug.Log($"{emotionStateRtpc.ToString()} value is already set to {value}");
+                Debug.Log($"{emotionStateRtpc.ToString()} value is already set to {clampedValue}");
                 return;
             }
-            // Ensure that the target has an AkGameObject component.
             if (!target.GetComponent<AkGameObj>())
             {
                 target.AddComponent<AkGameObj>();
             }
 
-            // Use 'target' instead of 'gameObject'.
-            emotionRTPC.SetValue(target, value);
+            emotionRTPC.SetValue(target, clampedValue);
 
-            Debug.Log("Anger value has been set to " + value);
-            currentGameParametersValues[emotionStateRtpc] = value;
+            Debug.Log($"{emotionStateRtpc} value has been set to {clampedValue}");
+            currentGameParametersValues[emotionStateRtpc] = clampedValue;
         }
-        private WwiseEmotionStateRTPC TranslateSinjAgentEmotionToAudioManagerEmotion(Sinj.Emotions emotion)
+        private WwiseEmotionStateRTPC TranslateSinjAgentEmotionToAudioManagerEmotion(AgentDynamicParameter parameter)
         {
-            switch(emotion)
+            switch (parameter)
             {
-                case Sinj.Emotions.Curiosity:
+                case AgentDynamicParameter.Curiosity:
                     return WwiseEmotionStateRTPC.Curiosity;
-                case Sinj.Emotions.Fear:
+                case AgentDynamicParameter.Fear:
                     return WwiseEmotionStateRTPC.Fear;
-                case Sinj.Emotions.Agression:
+                case AgentDynamicParameter.Aggression:
                     return WwiseEmotionStateRTPC.Anger;
-                case Sinj.Emotions.Tension:
+                case AgentDynamicParameter.Tension:
                     return WwiseEmotionStateRTPC.Tension;
-                case Sinj.Emotions.Intensity:
-                    return WwiseEmotionStateRTPC.Intensity;
+                case AgentDynamicParameter.Neutral:
+                    return WwiseEmotionStateRTPC.Neutral;
                 default:
                     return WwiseEmotionStateRTPC.Tension;
             }
@@ -323,5 +321,122 @@ namespace Audio
         {
             rtpc.SetGlobalValue(rtpc.Name, value);
         }
+
+        #endregion RTPC
+
+        #region Mood 
+        private AgentDynamicParameter GetDominantMood()
+        {
+            // Returns the emotion with the highest pallier
+            return emotionPalliers.OrderByDescending(kv => kv.Value).First().Key;
+        }
+        public void UpdateMoodAndRTPCs()
+        {
+            AgentDynamicParameter dominantMood = GetDominantMood();
+            Debug.Log($"[AudioManager] Dominant mood: {dominantMood}, palliers: Curiosity={emotionPalliers[AgentDynamicParameter.Curiosity]}, Anger={emotionPalliers[AgentDynamicParameter.Aggression]}, Fear={emotionPalliers[AgentDynamicParameter.Fear]}");
+
+            // Set the mood state
+            WwiseMoodState moodState = dominantMood switch
+            {
+                AgentDynamicParameter.Curiosity => WwiseMoodState.CuriosityState,
+                AgentDynamicParameter.Fear => WwiseMoodState.FearState,
+                AgentDynamicParameter.Aggression => WwiseMoodState.AngerState,
+                _ => WwiseMoodState.NeutralState
+            };
+            WwiseStateManager.SetWwiseMoodState(moodState);
+
+            // Set RTPCs for each emotion
+            foreach (var kv in emotionPalliers)
+            {
+                // pas de *25 ici aussi
+                SetWwiseEmotionRTPC(kv.Key, gameObject, kv.Value);
+            }
+
+            // Set Neutral RTPC to the highest pallier reached (times interval)
+            int maxPallier = emotionPalliers.Values.Max();
+            float neutralValue = maxPallier; // pas *25 ici
+            SetWwiseEmotionRTPC(AgentDynamicParameter.Neutral, gameObject, neutralValue);
+        }
+
+        #endregion Mood
+
+        #region TOD
+        public void SetWwiseTODState(WwiseTODState state)
+        {
+            if (timeOfDayStates.TryGetValue(state, out var wwiseState))
+            {
+                wwiseState.SetValue();
+            }
+            else
+            {
+                Debug.LogWarning($"No Wwise state mapped for {state}");
+            }
+        }
+        public static WwiseTODState ToWwiseTODState(GameLoopManager.GameLoopState state)
+        {
+            return state switch
+            {
+                GameLoopManager.GameLoopState.Morning => WwiseTODState.Morning,
+                GameLoopManager.GameLoopState.Day => WwiseTODState.Day,
+                GameLoopManager.GameLoopState.Evening => WwiseTODState.Evening,
+                GameLoopManager.GameLoopState.Night => WwiseTODState.Night,
+                _ => WwiseTODState.Morning
+            };
+        }
+
+        #endregion TOD
+
+        #region Cursor
+        public void StartCursorMoveSound(GameObject target)
+        {
+            if (cursorMovePlayingId == 0)
+            {
+                if (!target.GetComponent<AkGameObj>())
+                    target.AddComponent<AkGameObj>();
+                cursorMovePlayingId = CursorMoveEvent.Post(target);
+            }
+        }
+        public void StopCursorMoveSound(GameObject target)
+        {
+            if (cursorMovePlayingId != 0)
+            {
+                CursorMoveEvent.Stop(target);
+                cursorMovePlayingId = 0;
+            }
+        }
+        public void UpdateCursorSpeed(float speed, GameObject target)
+        {
+            float clampedSpeed = Mathf.Clamp(speed, 0f, 100f);
+            if (!target.GetComponent<AkGameObj>())
+                target.AddComponent<AkGameObj>();
+            CursorSpeed.SetValue(target, clampedSpeed);
+        }
+
+        public void OnGameReady(object sender, EventArgs eventArgs)
+        {
+            StartCursorMoveSound(mouseManifestation);
+        }
+
+        public void OnGameEnded(object sender, EventArgs eventArgs)
+        {
+            StopCursorMoveSound(mouseManifestation);
+        }
+
+        public void Reload()
+        {
+            // Reset all emotion palliers to 0
+            foreach (var key in emotionPalliers.Keys.ToList())
+            {
+                emotionPalliers[key] = 0;
+            }
+
+            // Update RTPCs and mood state to reflect the reset
+            UpdateMoodAndRTPCs();
+
+            // Reset mood state and ambience as before
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
+            RestartAmbience();
+        }
+        #endregion Cursor
     }
 }

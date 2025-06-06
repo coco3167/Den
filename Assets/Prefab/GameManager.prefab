@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4387186766017722496}
   - component: {fileID: 5061241618360608737}
   - component: {fileID: 806879179260966156}
+  - component: {fileID: 6171359093696024756}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -238,6 +239,76 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6171359093696024756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521624656204892207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4cc1a1bd7ef45f44bd801006e4611a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thresholdMat: {fileID: 2100000, guid: 3ac4672f408a8c647a16a4c21848352e, type: 2}
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  secondAnimCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  animTime: 2
+  emotionColors:
+    _serializedList:
+    - Key: 1
+      Value: {r: 0, g: 1, b: 0, a: 0}
+    - Key: 2
+      Value: {r: 1, g: 0, b: 0, a: 0}
+    - Key: 3
+      Value: {r: 0, g: 0, b: 1, a: 0}
 --- !u!1001 &2960937896097798440
 PrefabInstance:
   m_ObjectHideFlags: 0

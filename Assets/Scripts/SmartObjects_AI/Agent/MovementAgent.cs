@@ -22,5 +22,10 @@ namespace SmartObjects_AI.Agent
         {
             return !m_navMeshAgent.pathPending && m_navMeshAgent.remainingDistance <= m_navMeshAgent.stoppingDistance;
         }
+
+        public float GetSpeed()
+        {
+            return m_navMeshAgent.velocity.magnitude;
+        }
     }
 }

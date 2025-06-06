@@ -1,8 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
+using DebugHUD;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -10,19 +10,23 @@ using UnityEngine;
 namespace SmartObjects_AI.Agent
 {
     [Serializable, RequireComponent(typeof(MovementAgent), typeof(AnimationAgent))]
-    public class SmartAgent : MonoBehaviour, IGameStateListener, IReloadable
+    public class SmartAgent : MonoBehaviour, IGameStateListener, IReloadable, IDebugDisplayAble
     {
         private const float AIUpdateSleepTime = 0.1f;
         
         [SerializeField] private SmartAgentData data;
+        [SerializeField] private float agentDecisionFlexibility;
 
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> dynamicParametersStartValue;
         [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> dynamicParameters = new();
 
+        // Score and SmartObjects
         private SmartObject[] m_smartObjects, m_smartObjectsOwning;
-        private SmartObject m_previousSmartObject, m_smartObjectToUse;
-
+        private SmartObject m_previousSmartObject;
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
+        private KeyValuePair<SmartObject, float> m_smartObjectToUse;
+        
+        private DebugParameter[] m_debugParameters;
         
         private MovementAgent m_movementAgent;
         public AnimationAgent animationAgent { get; private set; }
@@ -30,6 +34,13 @@ namespace SmartObjects_AI.Agent
         private void Awake()
         {
             m_smartObjects = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            m_debugParameters = new DebugParameter[m_smartObjects.Length];
+            
+            for (var loop = 0; loop < m_smartObjects.Length; loop++)
+            {
+                DebugParameter debugParameter = new DebugParameter(m_smartObjects[loop].name, "0");
+                m_debugParameters.SetValue(debugParameter, loop);
+            }
             
             m_movementAgent = GetComponent<MovementAgent>();
             animationAgent = GetComponent<AnimationAgent>();
@@ -44,12 +55,13 @@ namespace SmartObjects_AI.Agent
             }
             
             //Owning SmartObjects
-            m_smartObjectsOwning.AddRange(GetComponentsInChildren<SmartObject>());
+            m_smartObjectsOwning = GetComponentsInChildren<SmartObject>();
         }
         
         public void OnGameReady(object sender, EventArgs eventArgs)
         {
-            m_previousSmartObject = SearchForSmartObject();
+            SearchForSmartObject();
+            m_previousSmartObject = m_smartObjectToUse.Key;
             InvokeRepeating(nameof(AIUpdate), 0, AIUpdateSleepTime);
         }
 
@@ -78,40 +90,53 @@ namespace SmartObjects_AI.Agent
 
         private void TryToUseSmartObject()
         {
-            m_smartObjectToUse = SearchForSmartObject();
+            SearchForSmartObject();
 
-            m_movementAgent.SetDestination(m_smartObjectToUse.usingPoint);
+            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint);
                 
-            if (m_previousSmartObject != m_smartObjectToUse)
+            if (m_previousSmartObject != m_smartObjectToUse.Key)
             {
                 m_previousSmartObject.FinishUse(this);
-                m_previousSmartObject = m_smartObjectToUse;
+                m_previousSmartObject = m_smartObjectToUse.Key;
                 animationAgent.FinishUseAnimation();
             }
 
             if (m_movementAgent.IsCloseToDestination())
             {
-                m_smartObjectToUse.Use(this);
+                m_smartObjectToUse.Key.Use(this);
             }
         }
 
-        private SmartObject SearchForSmartObject()
+        private void SearchForSmartObject()
         {
             m_smartObjectScore.Clear();
-            foreach (SmartObject smartObject in m_smartObjects)
+            for (int loop = 0; loop < m_smartObjects.Length; loop++)
             {
+                SmartObject smartObject = m_smartObjects[loop];
                 m_smartObjectScore.Add(smartObject, smartObject.CalculateScore(this));
                 smartObject.DynamicParameterVariation();
+                
+                m_debugParameters[loop].UpdateValue(m_smartObjectScore[smartObject].ToString("0.00"));
             }
             
-            return m_smartObjectScore.Aggregate((a,b) => a.Value > b.Value ? a : b).Key;
+            m_smartObjectToUse = m_smartObjectScore.Aggregate((a, b) => a.Value > b.Value ? a : b);
+
+            // Dont change smartobject unless score remarkable score diff 
+            if (m_previousSmartObject)
+            {
+                float previousScore = m_smartObjectScore[m_previousSmartObject]; 
+                if (m_smartObjectToUse.Value < previousScore + agentDecisionFlexibility)
+                    m_smartObjectToUse = new KeyValuePair<SmartObject, float>(m_previousSmartObject, previousScore);
+            }
+            
+            m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse.Key)].IsSpecial = true;
         }
         
         public bool IsUsing(SmartObject smartObject)
         {
             // If the object was used last time and tries to be used this time => it's being used
-            if (m_smartObjectToUse == m_previousSmartObject)
-                return m_smartObjectToUse == smartObject;
+            if (m_smartObjectToUse.Key == m_previousSmartObject)
+                return m_smartObjectToUse.Key == smartObject;
             return false;
         }
         
@@ -120,6 +145,10 @@ namespace SmartObjects_AI.Agent
             return m_smartObjectsOwning.Contains(smartObject);
         }
 
+        public float CurrentScore()
+        {
+            return m_smartObjectToUse.Value;
+        }
         
 
         #region DynamicParameters
@@ -147,6 +176,15 @@ namespace SmartObjects_AI.Agent
         }
         
         #endregion
-        
+
+        public int GetParameterCount()
+        {
+            return m_debugParameters.Length;
+        }
+
+        public DebugParameter GetParameter(int index)
+        {
+            return m_debugParameters[index];
+        }
     }
 }

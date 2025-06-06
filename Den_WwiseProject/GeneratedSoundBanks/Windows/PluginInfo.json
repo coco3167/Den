@@ -4,13 +4,6 @@
   "BasePlatform": "Windows",
   "PluginLibs": [
    {
-    "LibName": "Wwise Parametric EQ",
-    "LibId": "6881283",
-    "Type": "Effect",
-    "DLL": "AkParametricEQ",
-    "StaticLib": "AkParametricEQFX"
-   },
-   {
     "LibName": "Wwise Recorder",
     "LibId": "8650755",
     "Type": "Effect",
@@ -23,13 +16,6 @@
     "Type": "Effect",
     "DLL": "AkPitchShifter",
     "StaticLib": "AkPitchShifterFX"
-   },
-   {
-    "LibName": "Wwise Synth One",
-    "LibId": "9699330",
-    "Type": "Source",
-    "DLL": "AkSynthOne",
-    "StaticLib": "AkSynthOneSource"
    },
    {
     "LibName": "System",
@@ -49,6 +35,6 @@
     "StaticLib": "AkChannelRouterFX"
    }
   ],
-  "FileHash": "{58C051FE-1C72-722D-C4E9-207267D070DB}"
+  "FileHash": "{47A12841-0294-1E2F-0B38-91D0BB6A065F}"
  }
 }
