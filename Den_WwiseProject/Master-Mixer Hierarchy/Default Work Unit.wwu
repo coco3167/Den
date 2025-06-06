@@ -73,7 +73,7 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
-																		<XPos>1</XPos>
+																		<XPos>10</XPos>
 																		<YPos>0</YPos>
 																		<Flags>37</Flags>
 																	</Point>
@@ -93,7 +93,7 @@
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="BusVolume" Type="Real64">
 									<ValueList>
-										<Value>-16</Value>
+										<Value>-14</Value>
 									</ValueList>
 								</Property>
 								<Property Name="Color" Type="int16" Value="4"/>
@@ -158,7 +158,7 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
-																		<XPos>1</XPos>
+																		<XPos>10</XPos>
 																		<YPos>0</YPos>
 																		<Flags>37</Flags>
 																	</Point>
@@ -178,6 +178,9 @@
 								<Property Name="Color" Type="int16" Value="9"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
+							<ChildrenList>
+								<Bus Name="SFX_Momo" ID="{73E7B879-B958-4B97-B9CF-F7BF81376759}"/>
+							</ChildrenList>
 							<StateInfo>
 								<StateGroupList>
 									<StateGroupInfo>
@@ -224,7 +227,7 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
-																		<XPos>1</XPos>
+																		<XPos>10</XPos>
 																		<YPos>0</YPos>
 																		<Flags>37</Flags>
 																	</Point>
@@ -241,6 +244,11 @@
 						</Bus>
 						<Bus Name="UI" ID="{536025B3-BD32-439B-A84E-2880E4EAE4C4}">
 							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Color" Type="int16" Value="19"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
@@ -383,31 +391,25 @@
 							</Reference>
 							<Reference>
 								<Local>
-									<EffectSlot Name="" ID="{B1BD80E5-8A3F-449A-B191-BB99137FAB3E}" ShortID="144012786">
+									<EffectSlot Name="" ID="{ED304A58-BDDF-4C09-828F-685D5146F0A3}" ShortID="981327495">
 										<ReferenceList>
-											<Reference Name="Effect">
-												<Custom>
-													<Effect Name="Recorder (Custom)" ID="{93508361-BBA7-4851-9396-5E4C90FB4DEA}" ShortID="546281340" PluginName="Wwise Recorder" CompanyID="0" PluginID="132" PluginType="3">
-														<PropertyList>
-															<Property Name="AuthoringFilename" Type="string" Value="C:\Users\poire\Downloads\DEN_pp3.wav"/>
-														</PropertyList>
-													</Effect>
-												</Custom>
+											<Reference Name="Effect" PluginName="Wwise Recorder" CompanyID="0" PluginID="132" PluginType="3">
+												<ObjectRef Name="New_Recorder" ID="{DA172244-69AB-45BF-8F52-02F03155CBD6}" WorkUnitID="{11BE4D9E-1965-425F-9C4B-6A837A823AE0}"/>
 											</Reference>
 										</ReferenceList>
 										<StateInfo>
 											<CustomStateList>
 												<CustomState>
 													<StateRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
-													<CustomState Name="" ID="{9793CA80-A8A3-48B8-9176-0191D6605869}" ShortID="567042216"/>
+													<CustomState Name="" ID="{656A4581-CA49-46CA-A694-CAB18617C284}" ShortID="188860406"/>
 												</CustomState>
 												<CustomState>
 													<StateRef Name="DEN_ST_Audio_Mix_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
-													<CustomState Name="" ID="{73D4DEFF-E146-477B-8C11-62804E598000}" ShortID="810248054"/>
+													<CustomState Name="" ID="{49821222-40E1-4BD5-8847-09C5152ADF8B}" ShortID="682375652"/>
 												</CustomState>
 												<CustomState>
 													<StateRef Name="DEN_ST_Audio_Mix_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
-													<CustomState Name="" ID="{BEA88CC2-614F-4520-B52A-B4EE7AA89EEB}" ShortID="336796542"/>
+													<CustomState Name="" ID="{4E2831A3-E025-4EAE-B2B5-63604CDAA251}" ShortID="218161709"/>
 												</CustomState>
 											</CustomStateList>
 										</StateInfo>
@@ -439,7 +441,7 @@
 																<Flags>5</Flags>
 															</Point>
 															<Point>
-																<XPos>1</XPos>
+																<XPos>10</XPos>
 																<YPos>0</YPos>
 																<Flags>37</Flags>
 															</Point>
