@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Events;
+using System;
 
-public class Proc_Look : MonoBehaviour
+
+public class Proc_Look : MonoBehaviour, IGameStateListener
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public RigBuilder rigBuilder;
@@ -9,10 +12,22 @@ public class Proc_Look : MonoBehaviour
     public MultiAimConstraint aimConstraint; // Assign the constraint itself in the Inspector
     public string sourceObjectName = "MouseAura"; // Name of object to find and add
     public float weight = 1f;
+    public Animator animator;
 
-    void Start()
+    public void OnGameReady(object sender, EventArgs eventArgs)
     {
-        // Try to find the source object by name
+        
+    }
+
+    public void OnGameEnded(object sender, EventArgs eventArgs)
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
         Transform source = GameObject.Find(sourceObjectName)?.transform;
 
         if (aimConstraint == null || source == null)
@@ -32,13 +47,9 @@ public class Proc_Look : MonoBehaviour
 
         // Refresh the constraint (force update)
         aimConstraint.weight = aimConstraint.weight;
-
+        
         rigBuilder.Build();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        
         
     }
 }
