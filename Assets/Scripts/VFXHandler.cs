@@ -1,34 +1,39 @@
 using System.Collections.Generic;
+using SmartObjects_AI.Agent;
 using UnityEngine;
 
 public class VFXHandler : MonoBehaviour
 {
-    [SerializeField] private List<ParticleSystem> m_particleSystem;
-    [SerializeField] private List<float> m_ratesValues;
+    [SerializeField] private AgentDynamicParameter selfParameter;
+    [SerializeField] private List<ParticleSystem> particleSystems;
+    [SerializeField] private List<float> ratesValues;
     
     private void Awake()
     {
-        foreach (ParticleSystem p in m_particleSystem)
-        {
-            p.Stop();
-        }
+        GameManager.Instance.pallierReached.AddListener(StartParticleSystem);
     }
 
-    public void StartParticleSystem()
+    private void StartParticleSystem(AgentDynamicParameter parameter, int pallier)
     {
-        foreach (ParticleSystem p in m_particleSystem)
+        if(selfParameter != parameter)
+            return;
+        
+        Debug.Log("here");  
+        
+        ChangeParticlePower(pallier/GameManager.IntervalPallier-1);
+        
+        foreach (ParticleSystem p in particleSystems)
         {
             p.Play();
         }
     }
 
-    public void ChangeParticlePower(int index)
+    private void ChangeParticlePower(int index)
     {
-        foreach (ParticleSystem p in m_particleSystem)
+        foreach (ParticleSystem p in particleSystems)
         {
             ParticleSystem.EmissionModule emission = p.emission;
-            emission.rateOverTime = m_ratesValues[index];
+            emission.rateOverTime = ratesValues[index];
         }
-        
     }
 }

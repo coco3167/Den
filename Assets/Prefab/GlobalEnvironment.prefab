@@ -734,12 +734,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4437800df8d24902911499aaeeedba41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_particleSystem:
+  selfParameter: 1
+  particleSystems:
   - {fileID: 1696773213726333281}
   - {fileID: 5367996924934373166}
-  m_ratesValues:
+  ratesValues:
   - 10
-  - 25
+  - 20
   - 40
 --- !u!1 &1434667241475532916
 GameObject:
@@ -17203,12 +17204,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4437800df8d24902911499aaeeedba41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_particleSystem:
-  - {fileID: 4970290923182107930}
+  selfParameter: 3
+  particleSystems:
   - {fileID: 2686296600856766273}
-  m_ratesValues:
+  - {fileID: 4970290923182107930}
+  ratesValues:
   - 10
-  - 25
+  - 20
   - 40
 --- !u!1 &4942420805075490970
 GameObject:
@@ -18822,12 +18824,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4437800df8d24902911499aaeeedba41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_particleSystem:
+  selfParameter: 2
+  particleSystems:
   - {fileID: 1900231471360302194}
   - {fileID: 238863463734595427}
-  m_ratesValues:
+  ratesValues:
   - 10
-  - 25
+  - 20
   - 40
 --- !u!1 &7528531989974714585
 GameObject:

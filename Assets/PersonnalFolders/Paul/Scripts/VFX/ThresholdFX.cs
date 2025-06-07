@@ -58,8 +58,6 @@ namespace PersonnalFolders.Paul.Scripts.VFX
 
         private void PlayFX()
         {
-            Debug.Log("vfx");
-            
             m_firstTween.Restart();
             m_secondTween.Restart();
         }
