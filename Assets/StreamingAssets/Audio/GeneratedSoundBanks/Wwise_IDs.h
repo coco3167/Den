@@ -19,12 +19,19 @@ namespace AK
         static const AkUniqueID PLAY_DEN_CREA_ANGERSTEPS = 2814436364U;
         static const AkUniqueID PLAY_DEN_CREA_CURIOUSSTEPS = 3724550301U;
         static const AkUniqueID PLAY_DEN_CREA_FEARSTEPS = 3029527017U;
+        static const AkUniqueID PLAY_DEN_CREA_IDLEBARKS = 1626519673U;
+        static const AkUniqueID PLAY_DEN_CREA_MOMOEAT = 3522896324U;
         static const AkUniqueID PLAY_DEN_CREA_NEUTRALBARK = 1250462805U;
         static const AkUniqueID PLAY_DEN_CREA_RANDOMBARKS = 3621090860U;
         static const AkUniqueID PLAY_DEN_CREA_RB_ANGER = 3903286686U;
         static const AkUniqueID PLAY_DEN_CREA_RB_CURIOUS = 1141265601U;
         static const AkUniqueID PLAY_DEN_CREA_RB_FEAR = 231948563U;
         static const AkUniqueID PLAY_DEN_CREA_SCREAMBARKS = 4165947622U;
+        static const AkUniqueID PLAY_DEN_CREA_STINGERBARKS = 1170217181U;
+        static const AkUniqueID PLAY_DEN_MM_SCRATCH = 1251290547U;
+        static const AkUniqueID PLAY_DEN_MM_SIT = 3222006401U;
+        static const AkUniqueID PLAY_DEN_MM_STAND = 807622397U;
+        static const AkUniqueID PLAY_DEN_MM_TUBE = 219628265U;
         static const AkUniqueID PLAY_DEN_MUSIC_END = 2532886009U;
         static const AkUniqueID PLAY_DEN_MUSIC_MENU = 334277355U;
         static const AkUniqueID PLAY_DEN_MUSIC_START = 486039834U;
@@ -76,18 +83,31 @@ namespace AK
             } // namespace STATE
         } // namespace DEN_STATE_AMBIENCE
 
-        namespace DEN_STATE_AUDIO_MIX
+        namespace DEN_STATE_AUDIOEXPERIENCE
         {
-            static const AkUniqueID GROUP = 1852625376U;
+            static const AkUniqueID GROUP = 3727414747U;
 
             namespace STATE
             {
-                static const AkUniqueID DEN_ST_AUDIO_MIX_MONO = 2408252910U;
-                static const AkUniqueID DEN_ST_AUDIO_MIX_STEREOHP = 1541385743U;
-                static const AkUniqueID DEN_ST_AUDIO_MIX_STEREOSP = 1960826282U;
+                static const AkUniqueID DEN_ST_AE_CONTEMPLATIVE = 663419673U;
+                static const AkUniqueID DEN_ST_AE_GAMEPLAY = 3807191716U;
+                static const AkUniqueID DEN_ST_AE_REGULAR = 4177635748U;
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
-        } // namespace DEN_STATE_AUDIO_MIX
+        } // namespace DEN_STATE_AUDIOEXPERIENCE
+
+        namespace DEN_STATE_AUDIOMIX
+        {
+            static const AkUniqueID GROUP = 3427900115U;
+
+            namespace STATE
+            {
+                static const AkUniqueID DEN_ST_AM_MONO = 2662107589U;
+                static const AkUniqueID DEN_ST_AM_STEREOHP = 821439348U;
+                static const AkUniqueID DEN_ST_AM_STEREOSP = 1005992997U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace DEN_STATE_AUDIOMIX
 
         namespace DEN_STATE_MOOD
         {
@@ -204,6 +224,7 @@ namespace AK
         static const AkUniqueID DEN_GP_CURIOSITYVALUE = 2578001617U;
         static const AkUniqueID DEN_GP_CURSORSPEED = 4061733226U;
         static const AkUniqueID DEN_GP_CURSORVOLUME = 2230858223U;
+        static const AkUniqueID DEN_GP_DISTANCE = 4242028194U;
         static const AkUniqueID DEN_GP_FEARVALUE = 4122714024U;
         static const AkUniqueID DEN_GP_HIGHPASS = 3002578020U;
         static const AkUniqueID DEN_GP_INTENSITYVALUE = 973587621U;
@@ -248,6 +269,11 @@ namespace AK
         static const AkUniqueID SFX_MOMO = 3023650669U;
         static const AkUniqueID UI = 1551306167U;
     } // namespace BUSSES
+
+    namespace AUX_BUSSES
+    {
+        static const AkUniqueID REVERB = 348963605U;
+    } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES
     {

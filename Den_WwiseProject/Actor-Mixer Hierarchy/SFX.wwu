@@ -45,9 +45,12 @@
 						<Reference Name="OutputBus">
 							<ObjectRef Name="SFX_Momo" ID="{73E7B879-B958-4B97-B9CF-F7BF81376759}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="Reverb" ID="{351B4193-20FA-47E6-B6FC-5C8182C156F2}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<RandomSequenceContainer Name="DEN_Crea_NeutralBark" ID="{426BC6A2-BDFC-4A37-BAD1-CAAFCA79B3C7}" ShortID="630615674">
+						<RandomSequenceContainer Name="DEN_Crea_NeutralBarks" ID="{426BC6A2-BDFC-4A37-BAD1-CAAFCA79B3C7}" ShortID="630615674">
 							<PropertyList>
 								<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
@@ -245,78 +248,6 @@
 									</Reference>
 									<Reference>
 										<ObjectRef Name="Momo_OK_5" ID="{1329F4C4-7037-44DE-B319-1A0A5F0D1873}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
-									</Reference>
-								</ObjectList>
-								<ObjectList Name="RTPC">
-									<Reference>
-										<Local>
-											<RTPC Name="" ID="{6B8A5A2B-EAA0-4C22-94AC-E3DC5ABAAA02}" ShortID="1017114959">
-												<PropertyList>
-													<Property Name="PropertyName" Type="string" Value="Volume"/>
-												</PropertyList>
-												<ReferenceList>
-													<Reference Name="ControlInput">
-														<ObjectRef Name="DEN_GP_TensionValue" ID="{2BACC983-9E6E-4BBE-8C8E-A1621790A002}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
-													</Reference>
-													<Reference Name="Curve">
-														<Custom>
-															<Curve Name="" ID="{D081D811-7A48-41B0-9DC7-6086353C5DE4}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="3"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>-5</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>100</XPos>
-																		<YPos>0</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</Custom>
-													</Reference>
-												</ReferenceList>
-											</RTPC>
-										</Local>
-									</Reference>
-									<Reference>
-										<Local>
-											<RTPC Name="" ID="{99CEEBCD-60C0-402A-A750-57FDAD5E2EA6}" ShortID="356248531">
-												<PropertyList>
-													<Property Name="PropertyName" Type="string" Value="Highpass"/>
-												</PropertyList>
-												<ReferenceList>
-													<Reference Name="ControlInput">
-														<ObjectRef Name="DEN_GP_TensionValue" ID="{2BACC983-9E6E-4BBE-8C8E-A1621790A002}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
-													</Reference>
-													<Reference Name="Curve">
-														<Custom>
-															<Curve Name="" ID="{40B6B4AD-AA5F-41D5-9F5C-6308955972C4}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="65537"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>40</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>100</XPos>
-																		<YPos>0</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</Custom>
-													</Reference>
-												</ReferenceList>
-											</RTPC>
-										</Local>
 									</Reference>
 								</ObjectList>
 							</ObjectLists>
@@ -1297,80 +1228,6 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 							</ChildrenList>
-							<ObjectLists>
-								<ObjectList Name="RTPC">
-									<Reference>
-										<Local>
-											<RTPC Name="" ID="{17C4C43C-C44F-4C25-A1E5-A71494F11058}" ShortID="172096631">
-												<PropertyList>
-													<Property Name="PropertyName" Type="string" Value="Volume"/>
-												</PropertyList>
-												<ReferenceList>
-													<Reference Name="ControlInput">
-														<ObjectRef Name="DEN_GP_TensionValue" ID="{2BACC983-9E6E-4BBE-8C8E-A1621790A002}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
-													</Reference>
-													<Reference Name="Curve">
-														<Custom>
-															<Curve Name="" ID="{7A38850A-217F-4BFA-9C3A-90B308028710}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="3"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>-5</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>100</XPos>
-																		<YPos>0</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</Custom>
-													</Reference>
-												</ReferenceList>
-											</RTPC>
-										</Local>
-									</Reference>
-									<Reference>
-										<Local>
-											<RTPC Name="" ID="{D6FB5D7B-E23E-4369-A54C-1BE8F0E57A65}" ShortID="307936454">
-												<PropertyList>
-													<Property Name="PropertyName" Type="string" Value="Highpass"/>
-												</PropertyList>
-												<ReferenceList>
-													<Reference Name="ControlInput">
-														<ObjectRef Name="DEN_GP_TensionValue" ID="{2BACC983-9E6E-4BBE-8C8E-A1621790A002}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
-													</Reference>
-													<Reference Name="Curve">
-														<Custom>
-															<Curve Name="" ID="{E2FFB889-7BAE-4A60-9733-08EA7F16DADA}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="65537"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>40</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>100</XPos>
-																		<YPos>0</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</Custom>
-													</Reference>
-												</ReferenceList>
-											</RTPC>
-										</Local>
-									</Reference>
-								</ObjectList>
-							</ObjectLists>
 							<GroupingInfo>
 								<GroupingBehaviorList>
 									<GroupingBehavior>
@@ -1445,11 +1302,6 @@
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
 												<Value>1</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1538,11 +1390,6 @@
 											</ValueList>
 										</Property>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1643,11 +1490,6 @@
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
 												<Value>1</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1883,10 +1725,329 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="DEN_Crea_IdleBarks" ID="{EB761694-11B8-405E-915F-13F918901A7F}" ShortID="82299027">
+							<PropertyList>
+								<Property Name="OverridePriority" Type="bool" Value="True"/>
+								<Property Name="Priority" Type="int16">
+									<ValueList>
+										<Value>80</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_Momo_Idle_1" ID="{90A8B20E-6B95-4D87-A693-4666D3CBD89F}" ShortID="809399358">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_Momo_Idle_1" ID="{DE39FB5C-5C72-4881-B240-A7472864C4C8}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_Momo_Idle_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="189439431"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_Momo_Idle_1" ID="{DE39FB5C-5C72-4881-B240-A7472864C4C8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_Momo_Idle_2" ID="{F3BF83BC-954F-4A44-8335-D116C73849F1}" ShortID="856709946">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_Momo_Idle_2" ID="{BA653E67-35F8-47DF-8DE7-FFE15F3AE1BC}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_Momo_Idle_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="935043819"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_Momo_Idle_2" ID="{BA653E67-35F8-47DF-8DE7-FFE15F3AE1BC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_Momo_Idle_3" ID="{0D63B0F3-45C4-4966-82A8-1476199ECD55}" ShortID="85948753">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_Momo_Idle_3" ID="{0D465BFF-39CA-45BA-AE65-7CB852C97647}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_Momo_Idle_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="376523766"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_Momo_Idle_3" ID="{0D465BFF-39CA-45BA-AE65-7CB852C97647}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_Momo_Idle_4" ID="{6A0065EA-E88E-4AA7-AE9A-1EC96152CFDB}" ShortID="981910190">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_Momo_Idle_4" ID="{E79CFD52-B556-4A9E-AC0E-9A9B01993B74}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_Momo_Idle_4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="845487899"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_Momo_Idle_4" ID="{E79CFD52-B556-4A9E-AC0E-9A9B01993B74}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="DEN_Crea_StingerBarks" ID="{9F923A5E-BEB7-47E2-814D-017BCD99EAB5}" ShortID="389443197">
+							<PropertyList>
+								<Property Name="OverridePriority" Type="bool" Value="True"/>
+								<Property Name="Priority" Type="int16">
+									<ValueList>
+										<Value>20</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_Momo_Stinger_1" ID="{1A35F935-6E19-49BB-8D24-B5BEF2E8FF5C}" ShortID="207932339">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_Momo_Stinger_1" ID="{777BDAE7-466A-44B0-9014-1308C40C127B}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_Momo_Stinger_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="718232459"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_Momo_Stinger_1" ID="{777BDAE7-466A-44B0-9014-1308C40C127B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_Momo_Stinger_2" ID="{3CBB2C3B-F625-4764-8225-194C274B75EB}" ShortID="1025155136">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_Momo_Stinger_2" ID="{848B2365-CF39-489D-9DD1-DF4F481E3552}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_Momo_Stinger_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="724066786"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_Momo_Stinger_2" ID="{848B2365-CF39-489D-9DD1-DF4F481E3552}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="DEN_Crea_MomoEat" ID="{2B82A0B2-DB03-4283-B2B7-094B9F8B4F64}" ShortID="756384010">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_Momo_Eat_1" ID="{4BC0DE9B-C293-40F1-8833-394922F499C8}" ShortID="616212597">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_Momo_Eat_1" ID="{D447C610-FE54-491A-84BE-C6A0902090AC}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_Momo_Eat_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="284753099"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_Momo_Eat_1" ID="{D447C610-FE54-491A-84BE-C6A0902090AC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_Momo_Eat_2" ID="{9B741DF8-2B9B-4FEC-A354-B142C1919256}" ShortID="1067794966">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_Momo_Eat_2" ID="{369CD096-ACBF-4A9B-B1EB-874669BE8EDD}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_Momo_Eat_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="415148642"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_Momo_Eat_2" ID="{369CD096-ACBF-4A9B-B1EB-874669BE8EDD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 					<PositioningInfo>
 						<Panner Name="" ID="{8D6B07CC-C490-4D28-82B5-858D153F44B9}"/>
 					</PositioningInfo>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{E6D0E38C-F972-424F-9D6D-DF92471A54C0}" ShortID="546195194">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="UserAuxSendVolume0"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="DEN_GP_Distance" ID="{B5D33835-23A0-4ECA-B33F-DD73543543BC}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{922F0D16-7822-4630-B91D-2F46D2A1AC2E}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{8D8AE20F-67C3-4477-965B-833D6C5C6244}" ShortID="930095478">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="OutputBusVolume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="DEN_GP_Distance" ID="{B5D33835-23A0-4ECA-B33F-DD73543543BC}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{BD15359D-C49F-481F-8B85-DCF646660BA4}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>-200</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
 				</ActorMixer>
 				<ActorMixer Name="DEN_Portals" ID="{13456E35-9D1D-48C9-9AF7-6EDD75499FFC}" ShortID="727508847">
 					<PropertyList>
@@ -3052,7 +3213,6 @@
 									<PropertyList>
 										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
@@ -3356,7 +3516,6 @@
 									<PropertyList>
 										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
@@ -3685,6 +3844,208 @@
 					</ChildrenList>
 					<PositioningInfo>
 						<Panner Name="" ID="{6901A874-619D-4911-9C89-903D6BCF3A66}"/>
+					</PositioningInfo>
+				</ActorMixer>
+				<ActorMixer Name="DEN_MomoMoves" ID="{6EB564B5-CB60-431B-9FA6-4AD19BF9AE52}" ShortID="712218799">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>3</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Priority" Type="int16">
+							<ValueList>
+								<Value>35</Value>
+							</ValueList>
+						</Property>
+						<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="FoostepsAttenuation" ID="{FCCCA6D7-75B0-446C-BFA5-B3B6F4E48078}" WorkUnitID="{4D8EE58E-8CFA-4860-A69D-33BF5CF8C67A}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="MomoConverstionSettings" ID="{2DB4720B-FF05-4826-8D23-747221FFD0DA}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="DEN_MM_Scratch" ID="{9CEE40A4-A255-4C09-BAF6-D6D832FD7C9C}" ShortID="542426329">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_SFX_Momo_Scratch_01" ID="{31A57F16-8BDE-4F5B-BD6E-02BFDA0235F2}" ShortID="1008337861">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_Momo_Scratch_01" ID="{46D0C592-8056-4C90-98B8-7E462EEF4490}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_Momo_Scratch_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="971310980"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_Momo_Scratch_01" ID="{46D0C592-8056-4C90-98B8-7E462EEF4490}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="DEN_MM_Sit" ID="{F83682D7-2B71-457D-81D0-0AC0A6E2196F}" ShortID="609356981">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_SFX_Momo_Sit_01" ID="{A272B76A-FCA8-4B5A-9A35-8D34FE0CA972}" ShortID="560689580">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_Momo_Sit_01" ID="{FB217BF5-1AFB-4E4E-8436-C7A13F64446A}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_Momo_Sit_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="264219143"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_Momo_Sit_01" ID="{FB217BF5-1AFB-4E4E-8436-C7A13F64446A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="DEN_MM_Tube" ID="{E6F2FF7A-C967-49DE-A527-B9D4EDE8CD38}" ShortID="758007913">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_SFX_Momo_Tube_01" ID="{703EFDBB-DB42-4587-A735-ABEBE0B0D839}" ShortID="986917633">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_Momo_Tube_01" ID="{09CCA1B0-397F-4D09-BB96-1E02D5DDF8E7}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_Momo_Tube_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="164819810"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_Momo_Tube_01" ID="{09CCA1B0-397F-4D09-BB96-1E02D5DDF8E7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="DEN_MM_Stand" ID="{B6A547EE-8C3F-4481-AED4-8D04F6472286}" ShortID="705979222">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_SFX_Momo_Stand_01" ID="{D2BAC54C-18D8-423A-A444-99B6FBE58276}" ShortID="208390875">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_Momo_Stand_01" ID="{E781742D-92AC-4B36-A1DB-E06DA7F38639}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_Momo_Stand_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="815493955"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_Momo_Stand_01" ID="{E781742D-92AC-4B36-A1DB-E06DA7F38639}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{C1A51440-0153-49E6-BD9C-E819C22983C5}"/>
 					</PositioningInfo>
 				</ActorMixer>
 			</ChildrenList>

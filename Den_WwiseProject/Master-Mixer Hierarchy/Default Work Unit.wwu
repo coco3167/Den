@@ -22,24 +22,49 @@
 							<StateInfo>
 								<StateGroupList>
 									<StateGroupInfo>
-										<StateGroupRef Name="DEN_State_Audio_Mix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}"/>
+										<StateGroupRef Name="DEN_State_AudioMix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}"/>
+									</StateGroupInfo>
+									<StateGroupInfo>
+										<StateGroupRef Name="DEN_State_AudioExperience" ID="{E17F6E2B-2EA1-4CD5-A3F5-F3961D13DBFB}"/>
 									</StateGroupInfo>
 								</StateGroupList>
 								<CustomStateList>
 									<CustomState>
-										<StateRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
-										<CustomState Name="" ID="{5DE38632-0780-47AD-AC08-02357C8C8670}" ShortID="970459527"/>
-									</CustomState>
-									<CustomState>
-										<StateRef Name="DEN_ST_Audio_Mix_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
-										<CustomState Name="" ID="{8398DF3D-2226-4ACE-8C18-9B19DF13E24F}" ShortID="404013625">
+										<StateRef Name="DEN_ST_AE_Regular" ID="{726B3CA8-AAA6-403A-9AD0-2334B68F464E}"/>
+										<CustomState Name="" ID="{7CB20262-2DC3-4DE5-A9FD-EF72AB2F46D9}" ShortID="88204782">
 											<PropertyList>
 												<Property Name="BusVolume" Type="Real64" Value="-3"/>
 											</PropertyList>
 										</CustomState>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="DEN_ST_Audio_Mix_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
+										<StateRef Name="DEN_ST_AM_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
+										<CustomState Name="" ID="{5DE38632-0780-47AD-AC08-02357C8C8670}" ShortID="970459527"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AE_Gameplay" ID="{A5EF11DF-E4CC-41DB-91B7-3A89CA4ED5EE}"/>
+										<CustomState Name="" ID="{04CD28C7-37E5-4594-9513-EC7D5B5730D8}" ShortID="867473097">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-12"/>
+												<Property Name="Highpass" Type="int16" Value="30"/>
+												<Property Name="Lowpass" Type="int16" Value="30"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AE_Contemplative" ID="{9262B593-5443-4427-B424-738278C21AA4}"/>
+										<CustomState Name="" ID="{FB7BDF0C-1C63-49FF-9BE9-0AABA99EBEEA}" ShortID="724547889"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AM_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+										<CustomState Name="" ID="{8398DF3D-2226-4ACE-8C18-9B19DF13E24F}" ShortID="404013625">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-4"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AM_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
 										<CustomState Name="" ID="{1DF33C75-A8DA-4EFF-A489-06DE8AE19EAD}" ShortID="215890904">
 											<PropertyList>
 												<Property Name="BusVolume" Type="Real64" Value="-3"/>
@@ -98,25 +123,49 @@
 								</Property>
 								<Property Name="Color" Type="int16" Value="4"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-3</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<StateInfo>
 								<StateGroupList>
 									<StateGroupInfo>
-										<StateGroupRef Name="DEN_State_Audio_Mix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}"/>
+										<StateGroupRef Name="DEN_State_AudioMix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}"/>
+									</StateGroupInfo>
+									<StateGroupInfo>
+										<StateGroupRef Name="DEN_State_AudioExperience" ID="{E17F6E2B-2EA1-4CD5-A3F5-F3961D13DBFB}"/>
 									</StateGroupInfo>
 								</StateGroupList>
 								<CustomStateList>
 									<CustomState>
-										<StateRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
+										<StateRef Name="DEN_ST_AE_Regular" ID="{726B3CA8-AAA6-403A-9AD0-2334B68F464E}"/>
+										<CustomState Name="" ID="{7DBCDE48-D17E-49CA-ABC2-27503C33A9F0}" ShortID="5384572">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-3"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AM_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
 										<CustomState Name="" ID="{1820D748-C551-4438-846B-BA8B6FD62443}" ShortID="567402505"/>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="DEN_ST_Audio_Mix_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+										<StateRef Name="DEN_ST_AE_Gameplay" ID="{A5EF11DF-E4CC-41DB-91B7-3A89CA4ED5EE}"/>
+										<CustomState Name="" ID="{BD64928B-B395-4F06-B800-2626DB447375}" ShortID="485172407">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-12"/>
+												<Property Name="Highpass" Type="int16" Value="30"/>
+												<Property Name="Lowpass" Type="int16" Value="30"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AE_Contemplative" ID="{9262B593-5443-4427-B424-738278C21AA4}"/>
+										<CustomState Name="" ID="{BB0C9682-4151-4F0E-9641-B18EC48CFBB9}" ShortID="730419022">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="3"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AM_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
 										<CustomState Name="" ID="{647B2227-CB54-4F43-B9F2-0032176D1D87}" ShortID="1073704546">
 											<PropertyList>
 												<Property Name="BusVolume" Type="Real64" Value="-6"/>
@@ -124,7 +173,7 @@
 										</CustomState>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="DEN_ST_Audio_Mix_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
+										<StateRef Name="DEN_ST_AM_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
 										<CustomState Name="" ID="{7EEB141A-21A4-48A4-94E2-9E97A16FD012}" ShortID="443227573">
 											<PropertyList>
 												<Property Name="BusVolume" Type="Real64" Value="-3"/>
@@ -184,20 +233,56 @@
 							<StateInfo>
 								<StateGroupList>
 									<StateGroupInfo>
-										<StateGroupRef Name="DEN_State_Audio_Mix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}"/>
+										<StateGroupRef Name="DEN_State_AudioMix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}"/>
+									</StateGroupInfo>
+									<StateGroupInfo>
+										<StateGroupRef Name="DEN_State_AudioExperience" ID="{E17F6E2B-2EA1-4CD5-A3F5-F3961D13DBFB}"/>
 									</StateGroupInfo>
 								</StateGroupList>
 								<CustomStateList>
 									<CustomState>
-										<StateRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
-										<CustomState Name="" ID="{DF2A7EA7-EE8D-4A8E-B4BF-AC41F3F01563}" ShortID="961921234"/>
+										<StateRef Name="DEN_ST_AE_Regular" ID="{726B3CA8-AAA6-403A-9AD0-2334B68F464E}"/>
+										<CustomState Name="" ID="{8A22E734-B927-4230-B8ED-3941485E94B2}" ShortID="69165321">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-3"/>
+											</PropertyList>
+										</CustomState>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="DEN_ST_Audio_Mix_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
-										<CustomState Name="" ID="{A6F7D921-8952-4718-8526-A87D3FEC6839}" ShortID="224356305"/>
+										<StateRef Name="DEN_ST_AM_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
+										<CustomState Name="" ID="{DF2A7EA7-EE8D-4A8E-B4BF-AC41F3F01563}" ShortID="961921234">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-1"/>
+											</PropertyList>
+										</CustomState>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="DEN_ST_Audio_Mix_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
+										<StateRef Name="DEN_ST_AE_Gameplay" ID="{A5EF11DF-E4CC-41DB-91B7-3A89CA4ED5EE}"/>
+										<CustomState Name="" ID="{EE9BC3FB-5A30-4F3D-94B6-2234D05C54CF}" ShortID="949198837">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="3"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AE_Contemplative" ID="{9262B593-5443-4427-B424-738278C21AA4}"/>
+										<CustomState Name="" ID="{EB32E1D6-7609-4163-92C7-139AC772E44B}" ShortID="549548401">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-9"/>
+												<Property Name="Highpass" Type="int16" Value="15"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AM_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+										<CustomState Name="" ID="{A6F7D921-8952-4718-8526-A87D3FEC6839}" ShortID="224356305">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-2"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AM_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
 										<CustomState Name="" ID="{93B6C0AA-8C7C-4552-9488-0D1746B38A4D}" ShortID="237943556"/>
 									</CustomState>
 								</CustomStateList>
@@ -257,8 +342,15 @@
 									<StateGroupInfo>
 										<StateGroupRef Name="DEN_State_Mood" ID="{0479447C-0867-4F59-A8A4-199CAE84ECB5}"/>
 									</StateGroupInfo>
+									<StateGroupInfo>
+										<StateGroupRef Name="DEN_State_AudioMix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}"/>
+									</StateGroupInfo>
 								</StateGroupList>
 								<CustomStateList>
+									<CustomState>
+										<StateRef Name="DEN_ST_AM_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
+										<CustomState Name="" ID="{84CF46C2-CC91-4651-B26C-79380DA26D70}" ShortID="340553959"/>
+									</CustomState>
 									<CustomState>
 										<StateRef Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}"/>
 										<CustomState Name="" ID="{D3C36BB7-7922-499A-8103-141641A63B92}" ShortID="730039998"/>
@@ -268,12 +360,29 @@
 										<CustomState Name="" ID="{F903817D-C36A-4BE6-A9DB-58EAEB7C875F}" ShortID="1013876887"/>
 									</CustomState>
 									<CustomState>
+										<StateRef Name="DEN_ST_AM_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+										<CustomState Name="" ID="{3825A324-2B5A-4854-823C-EA497DE3E0C5}" ShortID="844545301">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-2"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
 										<StateRef Name="DEN_ST_Mood_Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}"/>
 										<CustomState Name="" ID="{F33C71F2-CB9E-4F40-A242-391A81139185}" ShortID="860441980"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
 										<CustomState Name="" ID="{E52CB0B1-B50C-4F3F-A18A-9626131B519C}" ShortID="125283715"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AM_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
+										<CustomState Name="" ID="{8A1321F8-EFD4-45F3-9688-C39E09862801}" ShortID="380748794">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-2"/>
+												<Property Name="Highpass" Type="int16" Value="25"/>
+											</PropertyList>
+										</CustomState>
 									</CustomState>
 								</CustomStateList>
 							</StateInfo>
@@ -321,20 +430,20 @@
 					<StateInfo>
 						<StateGroupList>
 							<StateGroupInfo>
-								<StateGroupRef Name="DEN_State_Audio_Mix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}"/>
+								<StateGroupRef Name="DEN_State_AudioMix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}"/>
 							</StateGroupInfo>
 						</StateGroupList>
 						<CustomStateList>
 							<CustomState>
-								<StateRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
+								<StateRef Name="DEN_ST_AM_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
 								<CustomState Name="" ID="{E3089D64-DCA2-4E45-A621-04277FB52C30}" ShortID="595921347"/>
 							</CustomState>
 							<CustomState>
-								<StateRef Name="DEN_ST_Audio_Mix_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+								<StateRef Name="DEN_ST_AM_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
 								<CustomState Name="" ID="{A589CD85-3273-4DAA-BF3B-51C3DE28086B}" ShortID="79438037"/>
 							</CustomState>
 							<CustomState>
-								<StateRef Name="DEN_ST_Audio_Mix_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
+								<StateRef Name="DEN_ST_AM_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
 								<CustomState Name="" ID="{E6C97D82-E34A-4B57-9D1D-C535AD4D0039}" ShortID="81271255"/>
 							</CustomState>
 						</CustomStateList>
@@ -365,7 +474,7 @@
 											</StatePropertyList>
 											<CustomStateList>
 												<CustomState>
-													<StateRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
+													<StateRef Name="DEN_ST_AM_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
 													<CustomState Name="" ID="{5279952A-F744-4345-B188-C288070866C9}" ShortID="715566862">
 														<PropertyList>
 															<Property Name="Bypass" Type="bool" Value="True"/>
@@ -373,43 +482,16 @@
 													</CustomState>
 												</CustomState>
 												<CustomState>
-													<StateRef Name="DEN_ST_Audio_Mix_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+													<StateRef Name="DEN_ST_AM_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
 													<CustomState Name="" ID="{B33604DA-3B7F-43C8-9F3C-F85500304911}" ShortID="936818293"/>
 												</CustomState>
 												<CustomState>
-													<StateRef Name="DEN_ST_Audio_Mix_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
+													<StateRef Name="DEN_ST_AM_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
 													<CustomState Name="" ID="{773D6F43-D597-4DF2-8FD3-55DD4010C60E}" ShortID="594277023">
 														<PropertyList>
 															<Property Name="Bypass" Type="bool" Value="True"/>
 														</PropertyList>
 													</CustomState>
-												</CustomState>
-											</CustomStateList>
-										</StateInfo>
-									</EffectSlot>
-								</Local>
-							</Reference>
-							<Reference>
-								<Local>
-									<EffectSlot Name="" ID="{ED304A58-BDDF-4C09-828F-685D5146F0A3}" ShortID="981327495">
-										<ReferenceList>
-											<Reference Name="Effect" PluginName="Wwise Recorder" CompanyID="0" PluginID="132" PluginType="3">
-												<ObjectRef Name="New_Recorder" ID="{DA172244-69AB-45BF-8F52-02F03155CBD6}" WorkUnitID="{11BE4D9E-1965-425F-9C4B-6A837A823AE0}"/>
-											</Reference>
-										</ReferenceList>
-										<StateInfo>
-											<CustomStateList>
-												<CustomState>
-													<StateRef Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
-													<CustomState Name="" ID="{656A4581-CA49-46CA-A694-CAB18617C284}" ShortID="188860406"/>
-												</CustomState>
-												<CustomState>
-													<StateRef Name="DEN_ST_Audio_Mix_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
-													<CustomState Name="" ID="{49821222-40E1-4BD5-8847-09C5152ADF8B}" ShortID="682375652"/>
-												</CustomState>
-												<CustomState>
-													<StateRef Name="DEN_ST_Audio_Mix_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
-													<CustomState Name="" ID="{4E2831A3-E025-4EAE-B2B5-63604CDAA251}" ShortID="218161709"/>
 												</CustomState>
 											</CustomStateList>
 										</StateInfo>
@@ -536,6 +618,113 @@
 							<ObjectRef Name="System" ID="{C142E1D2-F511-452A-A935-13BE58498245}" WorkUnitID="{0337694D-80CD-4E8F-9491-C4742292E371}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<AuxBus Name="Reverb" ID="{351B4193-20FA-47E6-B6FC-5C8182C156F2}">
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="DEN_State_AudioMix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}"/>
+									</StateGroupInfo>
+									<StateGroupInfo>
+										<StateGroupRef Name="DEN_State_AudioExperience" ID="{E17F6E2B-2EA1-4CD5-A3F5-F3961D13DBFB}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="DEN_ST_AE_Regular" ID="{726B3CA8-AAA6-403A-9AD0-2334B68F464E}"/>
+										<CustomState Name="" ID="{56131D39-6F7A-4C6E-A223-4950A0BD344F}" ShortID="281791007"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AM_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
+										<CustomState Name="" ID="{FE2AF1E1-0CDE-49FC-8DB0-1F10CFEE04E8}" ShortID="914213229"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AE_Gameplay" ID="{A5EF11DF-E4CC-41DB-91B7-3A89CA4ED5EE}"/>
+										<CustomState Name="" ID="{B81919F1-5F94-4D51-85CA-1B971D5D1CB6}" ShortID="905141684">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-12"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AE_Contemplative" ID="{9262B593-5443-4427-B424-738278C21AA4}"/>
+										<CustomState Name="" ID="{34EB8089-DB5D-4D0E-9927-A694A13FDF30}" ShortID="179455926">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-6"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AM_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+										<CustomState Name="" ID="{AE62EE6C-275E-41A1-92AC-79AB36559951}" ShortID="580234131">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-4"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="DEN_ST_AM_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
+										<CustomState Name="" ID="{52B3FF29-5DC8-48F7-9D22-83C333A3F5FA}" ShortID="492850987">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-2"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{6278C337-CDBE-44A3-ABEF-29EB357B077A}" ShortID="781782003">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Matrix Reverb (Custom)" ID="{7E496A73-BEA3-45B8-9A57-71CA727BCA16}" ShortID="956753948" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+																<PropertyList>
+																	<Property Name="HFRatio" Type="Real32" Value="4"/>
+																	<Property Name="ProcessLFE" Type="bool" Value="False"/>
+																	<Property Name="ReverbTime" Type="Real32" Value="0.4"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+												<StateInfo>
+													<CustomStateList>
+														<CustomState>
+															<StateRef Name="DEN_ST_AE_Regular" ID="{726B3CA8-AAA6-403A-9AD0-2334B68F464E}"/>
+															<CustomState Name="" ID="{D97B0C58-D606-481F-A638-158BDA587126}" ShortID="967130548"/>
+														</CustomState>
+														<CustomState>
+															<StateRef Name="DEN_ST_AM_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
+															<CustomState Name="" ID="{FA95538D-C3CE-44B3-B96C-69CC86644B5C}" ShortID="855697999"/>
+														</CustomState>
+														<CustomState>
+															<StateRef Name="DEN_ST_AE_Gameplay" ID="{A5EF11DF-E4CC-41DB-91B7-3A89CA4ED5EE}"/>
+															<CustomState Name="" ID="{DF71EE0D-F238-4CCD-9DE9-725DD10E20B2}" ShortID="95972738"/>
+														</CustomState>
+														<CustomState>
+															<StateRef Name="DEN_ST_AE_Contemplative" ID="{9262B593-5443-4427-B424-738278C21AA4}"/>
+															<CustomState Name="" ID="{0C408F9D-B4B8-4E16-9429-11BB087AE0D6}" ShortID="742975129"/>
+														</CustomState>
+														<CustomState>
+															<StateRef Name="DEN_ST_AM_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+															<CustomState Name="" ID="{DA68C37D-2D7A-4B36-9DD7-7F8CD23E6A0E}" ShortID="450665276"/>
+														</CustomState>
+														<CustomState>
+															<StateRef Name="DEN_ST_AM_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
+															<CustomState Name="" ID="{15F5A963-5E71-4FD7-A1CA-F79B43EFCA38}" ShortID="90043206"/>
+														</CustomState>
+													</CustomStateList>
+												</StateInfo>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</AuxBus>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>
