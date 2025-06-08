@@ -18,6 +18,7 @@ namespace SmartObjects_AI.Agent
 
         private bool m_isFinished = true;
         private bool m_adaptToMood = false;
+        private bool m_shouldStopAnimationAgent;
         
         private void Awake()
         {
@@ -80,7 +81,13 @@ namespace SmartObjects_AI.Agent
         
         public void StopMovementAgent()
         {
-            movementAgent.StopAgent();
+            if(m_shouldStopAnimationAgent)
+                movementAgent.StopAgent();
+        }
+
+        public void SetStopMovementAgent(bool value)
+        {
+            m_shouldStopAnimationAgent = value;
         }
     }
 }
