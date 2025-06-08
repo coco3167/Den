@@ -73,12 +73,17 @@ Switch	ID	Name	Switch Group			Notes
 
 State Group	ID	Name			Wwise Object Path	Notes
 	1560129083	DEN_State_Ambience			\Default Work Unit\DEN_State_Ambience	
+	1852625376	DEN_State_Audio_Mix			\Default Work Unit\DEN_State_Audio_Mix	
 	2248328396	DEN_State_TOD			\Default Work Unit\DEN_State_TOD	
 	3079765046	DEN_State_Mood			\Default Work Unit\DEN_State_Mood	
 
 State	ID	Name	State Group			Notes
 	748895195	None	DEN_State_Ambience			
 	3026507386	DEN_ST_Amb_Playing	DEN_State_Ambience			
+	748895195	None	DEN_State_Audio_Mix			
+	1541385743	DEN_ST_Audio_Mix_StereoHP	DEN_State_Audio_Mix			
+	1960826282	DEN_ST_Audio_Mix_StereoSP	DEN_State_Audio_Mix			
+	2408252910	DEN_ST_Audio_Mix_Mono	DEN_State_Audio_Mix			
 	354475675	DEN_ST_TOD_Day	DEN_State_TOD			
 	748895195	None	DEN_State_TOD			
 	1758083905	DEN_ST_TOD_Morning	DEN_State_TOD			
@@ -91,15 +96,32 @@ State	ID	Name	State Group			Notes
 	3523856042	DEN_ST_Mood_Neutral	DEN_State_Mood			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
+	307573345	DEN_GP_UIV_SFX			\Default Work Unit\DEN_GameParameters\DEN_GP_UIVolumes\DEN_GP_UIV_SFX	
 	722514783	DEN_GP_AngerValue			\Default Work Unit\DEN_GameParameters\DEN_GP_Values\DEN_GP_AngerValue	
 	1734226615	DEN_GP_NeutralValue			\Default Work Unit\DEN_GameParameters\DEN_GP_Values\DEN_GP_NeutralValue	
+	1763700666	DEN_GP_UIV_UI			\Default Work Unit\DEN_GameParameters\DEN_GP_UIVolumes\DEN_GP_UIV_UI	
+	2280064220	DEN_GP_UIV_Ambience			\Default Work Unit\DEN_GameParameters\DEN_GP_UIVolumes\DEN_GP_UIV_Ambience	
+	2421685046	DEN_GP_UIV_Master			\Default Work Unit\DEN_GameParameters\DEN_GP_UIVolumes\DEN_GP_UIV_Master	
 	2578001617	DEN_GP_CuriosityValue			\Default Work Unit\DEN_GameParameters\DEN_GP_Values\DEN_GP_CuriosityValue	
+	2611759784	DEN_GP_LowPass			\Default Work Unit\DEN_GameParameters\DEN_GP_LowPass	
+	3002578020	DEN_GP_HighPass			\Default Work Unit\DEN_GameParameters\DEN_GP_HighPass	
 	3189323882	DEN_GP_TensionValue			\Default Work Unit\DEN_GameParameters\DEN_GP_Values\DEN_GP_TensionValue	
+	3976517781	DEN_GP_UIV_Music			\Default Work Unit\DEN_GameParameters\DEN_GP_UIVolumes\DEN_GP_UIV_Music	
 	4061733226	DEN_GP_CursorSpeed			\Default Work Unit\DEN_GameParameters\DEN_GP_CursorSpeed	
 	4122714024	DEN_GP_FearValue			\Default Work Unit\DEN_GameParameters\DEN_GP_Values\DEN_GP_FearValue	
 
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	85412153	Ambience			\Default Work Unit\Master Audio Bus\Ambience	
+	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
+	1551306167	UI			\Default Work Unit\Master Audio Bus\UI	
+	3023650669	SFX_Momo			\Default Work Unit\Master Audio Bus\SFX\SFX_Momo	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
+
 Effect plug-ins	ID	Name	Type				Notes
+	370170101	AK Channel Router (Custom)	Wwise Channel Router			
 	664198730	Pitch Shifter (Custom)	Wwise Pitch Shifter			
+	4155787858	New_Recorder	Wwise Recorder			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	2637145	DEN_UI_Move_02	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\48\{48A79458-E633-9147-4D57-2370A009CE8E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Move\DEN_UI_Move_02		48096

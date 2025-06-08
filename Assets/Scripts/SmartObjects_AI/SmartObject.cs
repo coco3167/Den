@@ -12,6 +12,7 @@ namespace SmartObjects_AI
     public class SmartObject : MonoBehaviour, IReloadable
     {
         [field: SerializeField, ChildGameObjectsOnly] public Transform usingPoint { get; private set; }
+        [field: SerializeField] public Transform lookingPoint { get; private set; }
         [SerializeField] private SmartObjectData data;
 
         [SerializeField] private SerializedDictionary<SmartObjectParameter, float> dynamicParametersStartValue;
@@ -58,21 +59,28 @@ namespace SmartObjects_AI
             return data.scoreCalculation.CalculateScore(smartAgent, this);
         }
 
-        private void StartUse(AnimationAgent animationAgent)
+        private void StartUse(SmartAgent agent)
         {
-            animationAgent.SwitchAnimator(data.animatorController, data.adatpToMood);
+            agent.animationAgent.SwitchAnimator(data.animatorController, data.adatpToMood);
+            Debug.Log("start use");
+            
+            agent.animationAgent.SetStopMovementAgent(data.shouldStopAgent);
+            
+            if(data.shouldLookAtObject && lookingPoint)
+                agent.StartLookingAtObject(lookingPoint);
         }
 
         public void FinishUse(SmartAgent agent)
         {
             m_startedUseList.Remove(agent);
+            agent.StopLookingAtObject();
         }
 
         public void Use(SmartAgent agent)
         {
             if (!m_startedUseList.Contains(agent))
             {
-                StartUse(agent.animationAgent);
+                StartUse(agent);
                 m_startedUseList.Add(agent);
                 return;
             }
