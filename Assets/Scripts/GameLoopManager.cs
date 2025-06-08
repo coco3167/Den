@@ -19,8 +19,13 @@ public class GameLoopManager : MonoBehaviour, IPausable
     public event EventHandler GameReady, GameEnded;
 
     public static GameLoopManager Instance;
+    
+    // Animator cached id
     private static readonly int EndGame = Animator.StringToHash("EndGame");
+    
+    // Shader cached id
     private static readonly int TimeOfDay = Shader.PropertyToID("_TimeOfDay");
+    private static readonly int LoopState = Shader.PropertyToID("_GameLoopState");
 
     private void Awake()
     {
@@ -82,6 +87,7 @@ public class GameLoopManager : MonoBehaviour, IPausable
     public void ChangeGameLoopState(GameLoopState state)
     {
         currentGameLoopState = state;
+        Shader.SetGlobalInteger(LoopState, (int)state);
         AudioManager.Instance.SetWwiseTODState(AudioManager.ToWwiseTODState(state));
     }
 

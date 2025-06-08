@@ -453,6 +453,76 @@
 									</RTPC>
 								</Local>
 							</Reference>
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{DF6BB051-9111-44F1-A146-9B4A4212C1CB}" ShortID="597377880">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Lowpass"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="DEN_GP_LowPass" ID="{71CCC262-5702-41E0-9165-440B2CC09D75}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{719569E3-0F6C-4CF4-84CF-D2CBF7D1F8AF}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="65537"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>100</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{7FEBA05D-79A1-4AFA-9C36-7C4A29CDA1FC}" ShortID="268354091">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Highpass"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="DEN_GP_HighPass" ID="{46E0ECE7-A2CF-4A92-B11A-52E5B0A50F50}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{A8E437F5-BA08-4B29-A879-AC8BF63AB2EA}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="65537"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>100</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
 						</ObjectList>
 					</ObjectLists>
 				</Bus>

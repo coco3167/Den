@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: outlines
   m_EditorClassIdentifier: 
   m_Active: 0
-  injectionPoint: 550
+  injectionPoint: 600
   fetchColorBuffer: 1
-  requirements: 6
+  requirements: 0
   passMaterial: {fileID: 2100000, guid: f8cca6769291ac143a3923da8cbe9db5, type: 2}
   passIndex: 0
   bindDepthStencilAttachment: 0
@@ -94,9 +94,8 @@ MonoBehaviour:
   - {fileID: 961507720297005532}
   - {fileID: 7985995759677244131}
   - {fileID: 680315537812759465}
-  - {fileID: 1583254562250843151}
   - {fileID: 3959864799384488079}
-  m_RendererFeatureMap: ad6b866f10d7b46c2cfacb0406ab15c0cee92571ab8cf343dc405f5b5de6b7fcdc4119652df6570de38256f1d4f4d36ea923828e60f770090f64facba2d9f8158fc8e2050e44f436
+  m_RendererFeatureMap: ad6b866f10d7b46c2cfacb0406ab15c0cee92571ab8cf343dc405f5b5de6b7fcdc4119652df6570de38256f1d4f4d36ea923828e60f770098fc8e2050e44f436
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -132,29 +131,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: RenderObjects
+  m_Name: momo
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
-    passTag: RenderObjects
-    Event: 1000
+    passTag: momo
+    Event: 200
     filterSettings:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 256
+        m_Bits: 1024
       PassNames: []
     overrideMaterial: {fileID: 0}
     overrideMaterialPassIndex: 0
-    overrideShader: {fileID: -6465566751694194690, guid: a8dec4efd5c419748a6d552fa49418f0, type: 3}
+    overrideShader: {fileID: 0}
     overrideShaderPassIndex: 0
-    overrideMode: 2
+    overrideMode: 1
     overrideDepthState: 0
-    depthCompareFunction: 4
+    depthCompareFunction: 0
     enableWrite: 1
     stencilSettings:
       overrideStencilState: 0
-      stencilReference: 0
+      stencilReference: 2
       stencilCompareFunction: 8
       passOperation: 0
       failOperation: 0
@@ -162,8 +161,8 @@ MonoBehaviour:
     cameraSettings:
       overrideCamera: 0
       restoreCamera: 1
-      offset: {x: 0, y: 0, z: 0, w: 0}
-      cameraFieldOfView: 60
+      offset: {x: 2.19, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 82
 --- !u!114 &961507720297005532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,26 +205,6 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
---- !u!114 &1583254562250843151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b00045f12942b46c698459096c89274e, type: 3}
-  m_Name: ThresholdFX
-  m_EditorClassIdentifier: 
-  m_Active: 0
-  injectionPoint: 600
-  fetchColorBuffer: 1
-  requirements: 0
-  passMaterial: {fileID: 2100000, guid: 3784d8dc7410dca47a1594ab411a728d, type: 2}
-  passIndex: 0
-  bindDepthStencilAttachment: 0
-  m_Version: 1
 --- !u!114 &3959864799384488079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,11 +217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00045f12942b46c698459096c89274e, type: 3}
   m_Name: DistoFX
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   injectionPoint: 600
   fetchColorBuffer: 1
   requirements: 0
-  passMaterial: {fileID: 2100000, guid: d26453f949ae7224da4fb18449f0ffdf, type: 2}
+  passMaterial: {fileID: 2100000, guid: 3ac4672f408a8c647a16a4c21848352e, type: 2}
   passIndex: 0
   bindDepthStencilAttachment: 0
   m_Version: 1
@@ -259,9 +238,9 @@ MonoBehaviour:
   m_Name: FullScreenPassRendererFeature
   m_EditorClassIdentifier: 
   m_Active: 0
-  injectionPoint: 450
+  injectionPoint: 600
   fetchColorBuffer: 0
-  requirements: 6
+  requirements: -1
   passMaterial: {fileID: 2100000, guid: 94c33efa4818ae64ca9b655c00fedd05, type: 2}
   passIndex: 0
   bindDepthStencilAttachment: 0

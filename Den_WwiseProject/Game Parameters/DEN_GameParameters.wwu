@@ -116,6 +116,16 @@
 						<Property Name="SlewRateUp" Type="Real64" Value="100"/>
 					</PropertyList>
 				</GameParameter>
+				<GameParameter Name="DEN_GP_LowPass" ID="{71CCC262-5702-41E0-9165-440B2CC09D75}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="DEN_GP_HighPass" ID="{46E0ECE7-A2CF-4A92-B11A-52E5B0A50F50}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

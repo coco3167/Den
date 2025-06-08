@@ -495,6 +495,11 @@
 								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -578,6 +583,11 @@
 								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
