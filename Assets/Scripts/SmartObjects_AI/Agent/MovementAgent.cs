@@ -27,5 +27,17 @@ namespace SmartObjects_AI.Agent
         {
             return m_navMeshAgent.velocity.magnitude;
         }
+
+        public void StartAgent()
+        {
+            Debug.Log("start moving");
+            m_navMeshAgent.isStopped = false;
+        }
+        
+        public void StopAgent()
+        {
+            Debug.Log("stop moving");
+            m_navMeshAgent.isStopped = true;
+        }
     }
 }

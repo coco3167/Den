@@ -1,8 +1,8 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SmartObjects_AI.Agent
 {
-    [RequireComponent(typeof(MovementAgent))]
     public class AnimationAgent : MonoBehaviour
     {
         // ID for animator
@@ -13,20 +13,20 @@ namespace SmartObjects_AI.Agent
         private static readonly int Aggression = Animator.StringToHash("Aggression");
         private static readonly int Fear = Animator.StringToHash("Fear");
 
-        [SerializeField] private Animator animator;
-        private MovementAgent m_movementAgent;
+        [SerializeField] private MovementAgent movementAgent;
+        private Animator m_animator;
 
         private bool m_isFinished = true;
         private bool m_adaptToMood = false;
         
         private void Awake()
         {
-            m_movementAgent = GetComponent<MovementAgent>();
+            m_animator = GetComponent<Animator>();
         }
 
         private void Update()
         {
-            animator.SetFloat(Speed, m_movementAgent.GetSpeed());
+            m_animator.SetFloat(Speed, movementAgent.GetSpeed());
         }
 
         public void SwitchMood(AgentDynamicParameter parameter)
@@ -36,22 +36,22 @@ namespace SmartObjects_AI.Agent
             switch (parameter)
             {
                 case AgentDynamicParameter.Curiosity:
-                    animator.SetBool(Curiosity, true);
+                    m_animator.SetBool(Curiosity, true);
                     break;
                 case AgentDynamicParameter.Aggression:
-                    animator.SetBool(Aggression, true);
+                    m_animator.SetBool(Aggression, true);
                     break;
                 case AgentDynamicParameter.Fear:
-                    animator.SetBool(Fear, true);
+                    m_animator.SetBool(Fear, true);
                     break;
             }
         }
 
         public void ResetMood()
         {
-            animator.SetBool(Curiosity, false);
-            animator.SetBool(Aggression, false);
-            animator.SetBool(Fear, false);
+            m_animator.SetBool(Curiosity, false);
+            m_animator.SetBool(Aggression, false);
+            m_animator.SetBool(Fear, false);
         }
 
         public void SwitchAnimator(RuntimeAnimatorController animatorController, bool adaptToMood)
@@ -61,8 +61,8 @@ namespace SmartObjects_AI.Agent
             m_adaptToMood = adaptToMood;
             ResetMood();
             
-            animator.runtimeAnimatorController = animatorController;
-            animator.SetTrigger(StartUse);
+            m_animator.runtimeAnimatorController = animatorController;
+            m_animator.SetTrigger(StartUse);
         }
 
         public void FinishUseAnimation()
@@ -70,7 +70,17 @@ namespace SmartObjects_AI.Agent
             if(m_isFinished)
                 return;
             m_isFinished = true;
-            animator.SetTrigger(FinishUse);
+            m_animator.SetTrigger(FinishUse);
+        }
+
+        public void StartMovementAgent()
+        {
+            movementAgent.StartAgent();
+        }
+        
+        public void StopMovementAgent()
+        {
+            movementAgent.StopAgent();
         }
     }
 }

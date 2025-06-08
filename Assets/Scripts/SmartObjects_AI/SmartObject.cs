@@ -61,6 +61,9 @@ namespace SmartObjects_AI
         private void StartUse(AnimationAgent animationAgent)
         {
             animationAgent.SwitchAnimator(data.animatorController, data.adatpToMood);
+            
+            if(data.shouldStopAgent)
+                animationAgent.StopMovementAgent();
         }
 
         public void FinishUse(SmartAgent agent)
