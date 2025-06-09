@@ -46,16 +46,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Float: 1.5
     - _HeightBlend: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WindHeight: -0.21
+    - _WindHeight: 0.83
     - _WindMask: 0.61
     - _WindNoiseSpeed: -0.84
-    - _WindSpeed: 0.1
-    - _alpha: 18.24
+    - _WindSpeed: 0.05
+    - _alpha: 17.66
     m_Colors:
     - _BottomColor: {r: 0, g: 0.18949646, b: 1, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Color_1: {r: 0.3126214, g: 0.17417233, b: 0.3584906, a: 0}
     - _FarColor: {r: 0, g: 0.5372549, b: 0.12549016, a: 1}
     - _NearColor: {r: 1, g: 0.7803922, b: 0, a: 1}
     - _NearFarRange: {r: 0, g: 0, b: 0, a: 0}

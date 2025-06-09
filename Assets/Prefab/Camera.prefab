@@ -392,7 +392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7822857135703651448
 RectTransform:
   m_ObjectHideFlags: 0
@@ -482,7 +482,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1014782018267147752
 Transform:
@@ -492,14 +492,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8961208663710407728}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.034048658, y: -0.9543509, z: 0.18075784, w: -0.23533314}
+  m_LocalRotation: {x: -0.03405117, y: -0.9543507, z: 0.1807575, w: -0.23533359}
   m_LocalPosition: {x: -1.924345, y: 1.8615034, z: 2.2974253}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7822857135703651448}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 160.726, y: -30.470001, z: 178.781}
+  m_LocalEulerAnglesHint: {x: 158.836, y: -27.934998, z: 178.766}
 --- !u!20 &5695097944436076209
 Camera:
   m_ObjectHideFlags: 0
@@ -611,7 +611,7 @@ MonoBehaviour:
     initialListenerList: []
     useDefaultListeners: 1
   isEnvironmentAware: 1
-  isStaticObject: 0
+  isStaticObject: 1
   usePositionOffsetData: 0
   m_positionOffsetData:
     KeepMe: 0

@@ -1,19 +1,97 @@
+using System;
 using SmartObjects_AI.Agent;
 using UnityEngine;
 
 namespace SmartObjects_AI
 {
+    
+    [Serializable]
     public abstract class BaseScoreCalcul
     {
-        protected float Value;
-        public abstract float CalculateScore(SmartAgent smartAgent, SmartObject smartObject);
-    }
+        protected MouseManager p_mouseManager;
+        protected float p_mouseObjectProximity;
+        protected float p_usingCapacity;
 
-    public class TestScoreCalcul : BaseScoreCalcul
+        public void Init()
+        {
+            p_mouseManager = GameManager.Instance.GetMouseManager();
+        }
+
+        public virtual float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            p_mouseObjectProximity = p_mouseManager.ObjectDistanceToMouse(smartObject.usingPoint.position);
+            p_usingCapacity = !smartObject.IsUsing(smartAgent) && !smartObject.HasRoomForUse() ? 0 : 1;
+            if(p_usingCapacity == 0)
+                Debug.Log($"doesnt have capacity | {GetType()}");
+            return 0;
+        }
+    }
+    
+    public class EatScore : BaseScoreCalcul
+    {
+        private float m_hunger, m_distanceCoefficient;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            base.CalculateScore(smartAgent, smartObject);
+            
+            m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger);
+            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+            
+            return p_usingCapacity * m_hunger * m_distanceCoefficient * p_mouseObjectProximity / 100;
+        }
+    }
+    
+    public class SleepScore : BaseScoreCalcul
+    {
+        private float m_tiredness, m_distanceCoefficient;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            base.CalculateScore(smartAgent, smartObject);
+            
+            m_tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness) / 100;
+            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+            
+            return p_usingCapacity * m_tiredness * m_distanceCoefficient * p_mouseObjectProximity;
+        }
+    }
+    
+    public class FleePoint : BaseScoreCalcul
+    {
+        [SerializeField] private float playerCoeff;
+
+        private float m_distanceCoefficient, m_mousePlayerProximity;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            base.CalculateScore(smartAgent, smartObject);
+            
+            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+            m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
+            m_mousePlayerProximity *= m_mousePlayerProximity;
+            
+            return p_usingCapacity * playerCoeff * m_distanceCoefficient * p_mouseObjectProximity / m_mousePlayerProximity;
+        }
+    }
+    
+    
+    
+    #region Deprecated
+    
+    /*public class TestScoreCalcul : BaseScoreCalcul
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            return 50;
+            return 20;
+        }
+    }
+
+    public class FleeingPointDistance : BaseScoreCalcul
+    {
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            return 1.5f;
         }
     }
 
@@ -30,24 +108,23 @@ namespace SmartObjects_AI
     {
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            Value = (smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness) / Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position));
-            // if (smartAgent.IsUsing(smartObject))
-            // {
-            //     Debug.Log("Rest" + Value);
-            //     return Value;
-            // }
-
-            // Debug.Log(Vector3.Distance(smartObject.usingPoint.position, smartAgent.transform.position));
-            // Debug.Log(smartAgent);
-            
-            // TODO changer ça Value *= ((smartObject.GetDynamicParameter[SmartObjectParameter.Usage].GetBoolValue() ? 0 : 1));
-            // !!!!
-            
-            // Debug.Log(smartObject.GetDynamicParameter[SmartObjectParameter.Usage].GetBoolValue());
-            
+            float tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness);
+            Value = tiredness / 2;
             return Value;
         }
     }
+
+    public class Food : BaseScoreCalcul
+    {
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            float hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger);
+            Value = hunger / 1.5f;
+            return 0;
+        }
+    }
+
+    //MOUSE REACTIVE
 
     public class Jump : BaseScoreCalcul
     {
@@ -55,10 +132,13 @@ namespace SmartObjects_AI
         {
             Vector3 agentPos = smartAgent.transform.position;
             Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
+            float mouseSpeed = GameManager.Instance.worldParameters.GetMouseVelocity();
             float suspiscion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Suspicion);
 
-            Value = 10 / Vector3.Distance(agentPos, mousePos) - suspiscion;
-            return Value;
+
+            Value = Mathf.Clamp(3 - Vector3.Distance(agentPos, mousePos), 0, 3) * mouseSpeed * 35 - suspiscion;
+            Value = Mathf.Clamp(Value, 0, 100);
+            return 0;
         }
     }
 
@@ -68,11 +148,45 @@ namespace SmartObjects_AI
         {
             Vector3 agentPos = smartAgent.transform.position;
             Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
-            float suspiscion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Suspicion);
-            Debug.Log(Vector3.Distance(agentPos, mousePos));
-            Value = Mathf.Clamp(2 - Vector3.Distance(agentPos, mousePos),0,5)*100;
-            Debug.Log("Flee" + Value);
+            float fleeRange = 2f;
+            float distance = Vector3.Distance(agentPos, mousePos);
+            Value = (fleeRange - Mathf.Clamp(distance, 0, fleeRange)) * (100/fleeRange);
+           
+            
+            
             return Value;
         }
     }
+
+    public class CuriosityActive : BaseScoreCalcul
+    {
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            Vector3 agentPos = smartAgent.transform.position;
+            Vector3 mousePos = GameManager.Instance.worldParameters.GetMousePositon();
+            
+
+
+            float curiosityLevel = smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity);
+
+
+            Value = curiosityLevel * Vector3.Distance(agentPos, mousePos);
+            Value = Mathf.Clamp(Value, 0, 100);
+
+
+            return 0;
+        }
+    }
+    
+    public class AgressionActive : BaseScoreCalcul
+    {
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            
+            return 0;
+        }
+        
+    }*/
+    
+    #endregion
 }
