@@ -69,6 +69,9 @@ namespace SmartObjects_AI
                 agent.animationAgent.LookingObject = lookingPoint;
                 Debug.Log(lookingPoint.position);
             }
+
+            if (data.wwiseEvent.IsValid())
+                data.wwiseEvent.Post(agent.gameObject);
         }
 
         public void FinishUse(SmartAgent agent)

@@ -12,6 +12,7 @@ namespace SmartObjects_AI
         [Title("Base Info")]
         [field : SerializeReference] public BaseScoreCalcul scoreCalculation { get; private set; }
         [field : SerializeField] public AnimatorOverrideController animatorController { get; private set; }
+        [field : SerializeField] public AK.Wwise.Event wwiseEvent { get; private set; }
         [field : SerializeField] public int maxUser { get; private set; }
         [field: SerializeField] public float minRadius { get; private set; } = 1;
         
