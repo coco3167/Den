@@ -20,7 +20,9 @@ namespace SmartObjects_AI
         public virtual float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             p_mouseObjectProximity = p_mouseManager.ObjectDistanceToMouse(smartObject.usingPoint.position);
-            p_usingCapacity = !smartAgent.IsUsing(smartObject) && !smartObject.HasRoomForUse() ? 0 : 1;
+            p_usingCapacity = !smartObject.IsUsing(smartAgent) && !smartObject.HasRoomForUse() ? 0 : 1;
+            if(p_usingCapacity == 0)
+                Debug.Log($"doesnt have capacity | {GetType()}");
             return 0;
         }
     }
@@ -69,7 +71,7 @@ namespace SmartObjects_AI
             m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
             m_mousePlayerProximity *= m_mousePlayerProximity;
             
-            return playerCoeff*m_distanceCoefficient*p_mouseObjectProximity/m_mousePlayerProximity;
+            return p_usingCapacity * playerCoeff * m_distanceCoefficient * p_mouseObjectProximity / m_mousePlayerProximity;
         }
     }
     

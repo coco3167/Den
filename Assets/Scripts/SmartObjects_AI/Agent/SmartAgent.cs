@@ -132,14 +132,6 @@ namespace SmartObjects_AI.Agent
             m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse.Key)].IsSpecial = true;
         }
         
-        public bool IsUsing(SmartObject smartObject)
-        {
-            // If the object was used last time and tries to be used this time => it's being used
-            if (m_smartObjectToUse.Key == m_previousSmartObject)
-                return m_smartObjectToUse.Key == smartObject;
-            return false;
-        }
-        
         public bool IsOwner(SmartObject smartObject)
         {
             return m_smartObjectsOwning.Contains(smartObject);

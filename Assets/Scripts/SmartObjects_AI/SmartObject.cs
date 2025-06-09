@@ -107,6 +107,11 @@ namespace SmartObjects_AI
             return data.maxUser > m_startedUseList.Count;
         }
 
+        public bool IsUsing(SmartAgent agent)
+        {
+            return m_startedUseList.Contains(agent);
+        }
+
         public bool ShouldRun()
         {
             return data.shouldRunTo;
