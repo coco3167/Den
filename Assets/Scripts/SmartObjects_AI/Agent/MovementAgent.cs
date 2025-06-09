@@ -7,14 +7,17 @@ namespace SmartObjects_AI.Agent
     public class MovementAgent : MonoBehaviour
     {
         private NavMeshAgent m_navMeshAgent;
+
+        [SerializeField] private float walkSpeed, runSpeed;
         
         private void Awake()
         {
             m_navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
-        public void SetDestination(Transform destination)
+        public void SetDestination(Transform destination, bool shouldRun)
         {
+            m_navMeshAgent.speed = shouldRun ? runSpeed : walkSpeed;
             m_navMeshAgent.SetDestination(destination.position);
         }
         

@@ -19,6 +19,8 @@ namespace DebugHUD
         private List<IDebugDisplayAble> m_displayAbles = new();
         private IDebugDisplayAble m_currentDisplayAble;
 
+        
+
         private void Update()
         {
             if(m_currentDisplayAble == null)

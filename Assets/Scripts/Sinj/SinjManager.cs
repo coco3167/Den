@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
@@ -10,7 +11,7 @@ using UnityEngine;
 
 namespace Sinj
 {
-    public class SinjManager : MonoBehaviour, IDebugDisplayAble
+    public class SinjManager : MonoBehaviour, IDebugDisplayAble, IReloadable
     {
         [Title("Sinjs")]
         [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject smartAgent;
@@ -121,5 +122,14 @@ namespace Sinj
             return m_debugParameters[index];
         }
         #endregion
+
+        public void Reload()
+        {
+            AgentDynamicParameter[] keys = m_worldParameters.AgentGlobalParameters.Keys.ToArray();
+            foreach (AgentDynamicParameter parameter in keys)
+            {
+                m_worldParameters.AgentGlobalParameters[parameter] = 0;
+            }
+        }
     }
 }

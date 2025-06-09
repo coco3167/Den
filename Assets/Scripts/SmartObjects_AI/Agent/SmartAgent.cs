@@ -92,7 +92,7 @@ namespace SmartObjects_AI.Agent
         {
             SearchForSmartObject();
 
-            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint);
+            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint, m_smartObjectToUse.Key.ShouldRun());
                 
             if (m_previousSmartObject != m_smartObjectToUse.Key)
             {
@@ -130,14 +130,6 @@ namespace SmartObjects_AI.Agent
             }
             
             m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse.Key)].IsSpecial = true;
-        }
-        
-        public bool IsUsing(SmartObject smartObject)
-        {
-            // If the object was used last time and tries to be used this time => it's being used
-            if (m_smartObjectToUse.Key == m_previousSmartObject)
-                return m_smartObjectToUse.Key == smartObject;
-            return false;
         }
         
         public bool IsOwner(SmartObject smartObject)

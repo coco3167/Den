@@ -69,6 +69,9 @@ namespace SmartObjects_AI
                 agent.animationAgent.LookingObject = lookingPoint;
                 Debug.Log(lookingPoint.position);
             }
+
+            if (data.wwiseEvent.IsValid())
+                data.wwiseEvent.Post(agent.gameObject);
         }
 
         public void FinishUse(SmartAgent agent)
@@ -102,6 +105,16 @@ namespace SmartObjects_AI
         public bool HasRoomForUse()
         {
             return data.maxUser > m_startedUseList.Count;
+        }
+
+        public bool IsUsing(SmartAgent agent)
+        {
+            return m_startedUseList.Contains(agent);
+        }
+
+        public bool ShouldRun()
+        {
+            return data.shouldRunTo;
         }
 
         /// <summary>
