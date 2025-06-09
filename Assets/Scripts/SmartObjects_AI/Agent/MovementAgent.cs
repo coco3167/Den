@@ -7,7 +7,7 @@ namespace SmartObjects_AI.Agent
     public class MovementAgent : MonoBehaviour
     {
         private NavMeshAgent m_navMeshAgent;
-
+        
         private void Awake()
         {
             m_navMeshAgent = GetComponent<NavMeshAgent>();
@@ -30,13 +30,11 @@ namespace SmartObjects_AI.Agent
 
         public void StartAgent()
         {
-            Debug.Log("start moving");
             m_navMeshAgent.isStopped = false;
         }
         
         public void StopAgent()
         {
-            Debug.Log("stop moving");
             m_navMeshAgent.isStopped = true;
         }
     }
