@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
         { AgentDynamicParameter.Fear , 0},
     };
     public const int IntervalPallier = 25;
-    
+
     public event EventHandler GamePaused;
     public bool IsPaused { get; private set; }
 
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
     //public GamePausedEventArgs PausedEventArgs { get; private set; }
 
     private PlayerInput m_playerInput;
-    
+
     public static GameManager Instance;
 
     private void Awake()
@@ -64,12 +64,12 @@ public class GameManager : MonoBehaviour, IGameStateListener
         m_playerInput = GetComponent<PlayerInput>();
 
         worldParameters = new(mouseManager);
-        
+
         pallierReached.AddListener(OnPallierReached);
-        
+
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
         // PausedEventArgs = new GamePausedEventArgs();
-        
+
         FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).OfType<IPausable>()
             .ForEach(x => GamePaused += x.OnGamePaused);
         IsPaused = true;
@@ -92,17 +92,24 @@ public class GameManager : MonoBehaviour, IGameStateListener
 
     public void OnPause(InputAction.CallbackContext callbackContext)
     {
-        if(!callbackContext.started)
+        if (!callbackContext.started)
             return;
         IsPaused = !IsPaused;
         Cursor.lockState = IsPaused ? CursorLockMode.None : CursorLockMode.Locked;
         Time.timeScale = IsPaused ? 0 : 1;
+
+        // Pause or resume ambience
+        if (IsPaused)
+            AudioManager.Instance.PauseAmbience();
+        else
+            AudioManager.Instance.ResumeAmbience();
+
         GamePaused?.Invoke(this, EventArgs.Empty);
     }
 
     public void OnManualGameEnded(InputAction.CallbackContext callbackContext)
     {
-        if(!callbackContext.started)
+        if (!callbackContext.started)
             return;
         GameLoopManager.Instance.OnGameLoopEnded();
     }
@@ -133,7 +140,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
             mouseManager.OnOtherMoveEnd();
     }
 
-    
+
 
     public Camera GetCamera()
     {

@@ -20,16 +20,16 @@
 						<State Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}"/>
 					</ChildrenList>
 				</StateGroup>
-				<StateGroup Name="DEN_State_Audio_Mix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}">
+				<StateGroup Name="DEN_State_AudioMix" ID="{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}">
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="3"/>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
 						<State Name="None" ID="{9194538F-49FF-48E6-851D-9C54A6070545}"/>
-						<State Name="DEN_ST_Audio_Mix_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
-						<State Name="DEN_ST_Audio_Mix_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
-						<State Name="DEN_ST_Audio_Mix_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
+						<State Name="DEN_ST_AM_StereoHP" ID="{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}"/>
+						<State Name="DEN_ST_AM_StereoSP" ID="{047D45B0-AF72-4DAF-B465-792165DD80A5}"/>
+						<State Name="DEN_ST_AM_Mono" ID="{180B6345-227B-45E9-BD3F-732A9DE1F93C}"/>
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="DEN_State_Ambience" ID="{C20EEE3E-9096-4FE4-8A6D-5A8967A55802}">
@@ -45,6 +45,14 @@
 						<State Name="DEN_ST_TOD_Day" ID="{8C7483EF-6E66-4CAC-AECB-F64A69FCEA6A}"/>
 						<State Name="DEN_ST_TOD_Evening" ID="{301D0269-A9F7-4079-99E6-921F35CE1806}"/>
 						<State Name="DEN_ST_TOD_Night" ID="{E5651177-8597-4405-9543-A5179BF22D37}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="DEN_State_AudioExperience" ID="{E17F6E2B-2EA1-4CD5-A3F5-F3961D13DBFB}">
+					<ChildrenList>
+						<State Name="None" ID="{21937088-D9E9-4EFC-BC50-1E59841C6FED}"/>
+						<State Name="DEN_ST_AE_Regular" ID="{726B3CA8-AAA6-403A-9AD0-2334B68F464E}"/>
+						<State Name="DEN_ST_AE_Gameplay" ID="{A5EF11DF-E4CC-41DB-91B7-3A89CA4ED5EE}"/>
+						<State Name="DEN_ST_AE_Contemplative" ID="{9262B593-5443-4427-B424-738278C21AA4}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>

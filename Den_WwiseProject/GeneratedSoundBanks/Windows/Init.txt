@@ -24,17 +24,14 @@ Switch	ID	Name	Switch Group			Notes
 
 State Group	ID	Name			Wwise Object Path	Notes
 	1560129083	DEN_State_Ambience			\Default Work Unit\DEN_State_Ambience	
-	1852625376	DEN_State_Audio_Mix			\Default Work Unit\DEN_State_Audio_Mix	
 	2248328396	DEN_State_TOD			\Default Work Unit\DEN_State_TOD	
 	3079765046	DEN_State_Mood			\Default Work Unit\DEN_State_Mood	
+	3427900115	DEN_State_AudioMix			\Default Work Unit\DEN_State_AudioMix	
+	3727414747	DEN_State_AudioExperience			\Default Work Unit\DEN_State_AudioExperience	
 
 State	ID	Name	State Group			Notes
 	748895195	None	DEN_State_Ambience			
 	3026507386	DEN_ST_Amb_Playing	DEN_State_Ambience			
-	748895195	None	DEN_State_Audio_Mix			
-	1541385743	DEN_ST_Audio_Mix_StereoHP	DEN_State_Audio_Mix			
-	1960826282	DEN_ST_Audio_Mix_StereoSP	DEN_State_Audio_Mix			
-	2408252910	DEN_ST_Audio_Mix_Mono	DEN_State_Audio_Mix			
 	354475675	DEN_ST_TOD_Day	DEN_State_TOD			
 	748895195	None	DEN_State_TOD			
 	1758083905	DEN_ST_TOD_Morning	DEN_State_TOD			
@@ -45,6 +42,14 @@ State	ID	Name	State Group			Notes
 	1511253875	DEN_ST_Mood_Fear	DEN_State_Mood			
 	2378539543	DEN_ST_Mood_Curiousity	DEN_State_Mood			
 	3523856042	DEN_ST_Mood_Neutral	DEN_State_Mood			
+	748895195	None	DEN_State_AudioMix			
+	821439348	DEN_ST_AM_StereoHP	DEN_State_AudioMix			
+	1005992997	DEN_ST_AM_StereoSP	DEN_State_AudioMix			
+	2662107589	DEN_ST_AM_Mono	DEN_State_AudioMix			
+	663419673	DEN_ST_AE_Contemplative	DEN_State_AudioExperience			
+	748895195	None	DEN_State_AudioExperience			
+	3807191716	DEN_ST_AE_Gameplay	DEN_State_AudioExperience			
+	4177635748	DEN_ST_AE_Regular	DEN_State_AudioExperience			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	307573345	DEN_GP_UIV_SFX			\Default Work Unit\DEN_GameParameters\DEN_GP_UIVolumes\DEN_GP_UIV_SFX	
@@ -64,9 +69,12 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
 
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	348963605	Reverb			\Default Work Unit\FX\Reverb	
+
 Effect plug-ins	ID	Name	Type				Notes
 	370170101	AK Channel Router (Custom)	Wwise Channel Router			
-	4155787858	New_Recorder	Wwise Recorder			
+	956753948	Matrix Reverb (Custom)	Wwise Matrix Reverb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

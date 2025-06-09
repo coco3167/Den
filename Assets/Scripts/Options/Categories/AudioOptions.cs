@@ -1,11 +1,12 @@
 
-    using Audio;
-    using TMPro;
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.UI;
-    using AK.Wwise;
+using System;
+using System.Collections.Generic;
+using AK.Wwise;
+using Audio;
+using TMPro;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Options.Categories
 {
@@ -14,7 +15,10 @@ namespace Options.Categories
     {
         public Slider _slider;
         public RTPC rtpc;
+        [Tooltip("Event to post when the slider value changes")]
         public AK.Wwise.Event sliderChangeEvent;
+        [Tooltip("Event to post when the test/play button is pressed")]
+        public AK.Wwise.Event testEvent;
 
         [Tooltip("Default value for this RTPC/slider")]
         public float defaultValue = 8f;
@@ -72,6 +76,7 @@ namespace Options.Categories
     {
         [SerializeField] private List<WwiseBus> buses;
         [SerializeField] private TMP_Dropdown mixDropdown;
+        [SerializeField] private TMP_Dropdown mixPresetDropdown;
 
         // Wwise events for dropdown actions
         [SerializeField] private AK.Wwise.Event dropdownOpenEvent;
@@ -98,6 +103,26 @@ namespace Options.Categories
                 openListener = mixDropdown.gameObject.AddComponent<DropdownOnPointerClick>();
 
             openListener.onDropdownOpened += OnDropdownOpened;
+
+            // MixPreset Dropdown setup
+            mixPresetDropdown.ClearOptions();
+            var mixPresetOptions = new List<string>();
+            foreach (WwiseMixPreset preset in Enum.GetValues(typeof(WwiseMixPreset)))
+                mixPresetOptions.Add(preset.ToString());
+            mixPresetDropdown.AddOptions(mixPresetOptions);
+
+            // Set value before adding the listener
+            mixPresetDropdown.SetValueWithoutNotify(AudioManager.Instance.CurrentMixPresetIndex);
+            mixPresetDropdown.RefreshShownValue();
+
+            // Add value changed listener for option selection
+            mixPresetDropdown.onValueChanged.AddListener(OnMixPresetSelected);
+            // Add the component if it doesn't exist for mixPresetDropdown
+            var presetOpenListener = mixPresetDropdown.GetComponent<DropdownOnPointerClick>();
+            if (presetOpenListener == null)
+                presetOpenListener = mixPresetDropdown.gameObject.AddComponent<DropdownOnPointerClick>();
+
+            presetOpenListener.onDropdownOpened += OnMixPresetDropdownOpened;
         }
 
         private void Start()
@@ -110,6 +135,23 @@ namespace Options.Categories
             }
         }
 
+        private void Update()
+        {
+            var selected = EventSystem.current.currentSelectedGameObject;
+            if (selected == null) return;
+
+            foreach (var bus in buses)
+            {
+                if (selected == bus._slider.gameObject)
+                {
+                    if (Input.GetButtonDown("Submit"))
+                    {
+                        bus.testEvent?.Post(bus._slider.gameObject);
+                    }
+                    break;
+                }
+            }
+        }
         private void OnAudioStateSelected(int value)
         {
             WwiseStateManager.SetWwiseAudioState((WwiseAudioState)value);
@@ -117,11 +159,21 @@ namespace Options.Categories
             // Play Wwise event for dropdown option selection
             dropdownSelectEvent?.Post(mixDropdown.gameObject);
         }
+        private void OnMixPresetSelected(int value)
+        {
+            WwiseStateManager.SetWwiseMixPreset((WwiseMixPreset)value);
 
+            // Play Wwise event for dropdown option selection
+            dropdownSelectEvent?.Post(mixDropdown.gameObject);
+        }
         // Called when the dropdown is opened
         private void OnDropdownOpened(UnityEngine.EventSystems.PointerEventData eventData)
         {
             dropdownOpenEvent?.Post(mixDropdown.gameObject);
+        }
+        private void OnMixPresetDropdownOpened(UnityEngine.EventSystems.PointerEventData eventData)
+        {
+            dropdownOpenEvent?.Post(mixPresetDropdown.gameObject);
         }
 
         private void OnDestroy()
