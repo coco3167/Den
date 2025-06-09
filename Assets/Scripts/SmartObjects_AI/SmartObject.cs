@@ -62,18 +62,21 @@ namespace SmartObjects_AI
         private void StartUse(SmartAgent agent)
         {
             agent.animationAgent.SwitchAnimator(data.animatorController, data.adatpToMood);
-            Debug.Log("start use");
-            
             agent.animationAgent.SetStopMovementAgent(data.shouldStopAgent);
-            
-            if(data.shouldLookAtObject && lookingPoint)
-                agent.StartLookingAtObject(lookingPoint);
+
+            if (data.shouldLookAtObject && lookingPoint)
+            {
+                agent.animationAgent.LookingObject = lookingPoint;
+                Debug.Log(lookingPoint.position);
+            }
         }
 
         public void FinishUse(SmartAgent agent)
         {
             m_startedUseList.Remove(agent);
-            agent.StopLookingAtObject();
+            agent.animationAgent.LookingObject = null;
+            if(!data.shouldStopAgent)
+                agent.animationAgent.StopLookingObject();
         }
 
         public void Use(SmartAgent agent)

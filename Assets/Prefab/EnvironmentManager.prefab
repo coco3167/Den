@@ -677,7 +677,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.01, y: 0.01, z: 0.01}
+  m_Extents: {x: 0.01, y: 0.03, z: 0.01}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -723,12 +723,12 @@ NavMeshObstacle:
   m_GameObject: {fileID: 3772500566660584512}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.035, y: 0.035, z: 0.025}
+  m_Shape: 0
+  m_Extents: {x: 0.04, y: 0.035, z: 0.04}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: -0.01, y: -0.001, z: -0.004}
+  m_Center: {x: -0.015, y: -0.001, z: -0.004}
   m_TimeToStationary: 0.5
 --- !u!1 &4362169473256176538 stripped
 GameObject:
@@ -912,12 +912,12 @@ NavMeshObstacle:
   m_GameObject: {fileID: 9086805404526448923}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.00001, y: 0.015, z: 0.01}
+  m_Shape: 0
+  m_Extents: {x: 0.006, y: 0.039, z: 0.006}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: -0.002, y: -0.005, z: -0.002}
+  m_Center: {x: 0.003, y: -0.003, z: -0.002}
   m_TimeToStationary: 0.5
 --- !u!1001 &3594338583561292949
 PrefabInstance:
