@@ -11,7 +11,7 @@ namespace SmartObjects_AI
 {
     public class SmartObject : MonoBehaviour, IReloadable
     {
-        [field: SerializeField, ChildGameObjectsOnly] public Transform usingPoint { get; private set; }
+        [field: SerializeField] public Transform usingPoint { get; private set; }
         [field: SerializeField] public Transform lookingPoint { get; private set; }
         [SerializeField] private SmartObjectData data;
 
