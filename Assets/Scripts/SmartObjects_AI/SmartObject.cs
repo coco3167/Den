@@ -107,6 +107,11 @@ namespace SmartObjects_AI
             return data.maxUser > m_startedUseList.Count;
         }
 
+        public bool ShouldRun()
+        {
+            return data.shouldRunTo;
+        }
+
         /// <summary>
         /// Calculate how much the distance affects the agent want to use the object
         /// </summary>

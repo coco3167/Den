@@ -92,7 +92,7 @@ namespace SmartObjects_AI.Agent
         {
             SearchForSmartObject();
 
-            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint);
+            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint, m_smartObjectToUse.Key.ShouldRun());
                 
             if (m_previousSmartObject != m_smartObjectToUse.Key)
             {

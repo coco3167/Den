@@ -17,6 +17,7 @@ namespace SmartObjects_AI
         [field: SerializeField] public float minRadius { get; private set; } = 1;
         
         [Title("Boolean")]
+        [field: SerializeField] public bool shouldRunTo { get; private set; } = false;
         [field: SerializeField] public bool adatpToMood { get; private set; } = false;
         [field: SerializeField] public bool shouldStopAgent { get; private set; } = false;
         [field: SerializeField] public bool shouldLookAtObject { get; private set; } = false;
