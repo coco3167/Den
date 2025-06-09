@@ -20,7 +20,7 @@ namespace PersonnalFolders.Paul.Scripts.VFX
     
         private Tween m_firstTween, m_secondTween;
 
-        private void Awake()
+        private void Start()
         {
             m_firstTween.SetEase(animCurve);
             m_secondTween.SetEase(secondAnimCurve);
