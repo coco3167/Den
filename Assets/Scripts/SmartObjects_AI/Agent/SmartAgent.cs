@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace SmartObjects_AI.Agent
 {
-    [Serializable, RequireComponent(typeof(MovementAgent), typeof(AnimationAgent))]
+    [Serializable, RequireComponent(typeof(MovementAgent))]
     public class SmartAgent : MonoBehaviour, IGameStateListener, IReloadable, IDebugDisplayAble
     {
         private const float AIUpdateSleepTime = 0.1f;
@@ -17,6 +17,8 @@ namespace SmartObjects_AI.Agent
         [SerializeField] private SmartAgentData data;
         [SerializeField] private float agentDecisionFlexibility;
 
+        [field : SerializeField] public AnimationAgent animationAgent { get; private set; }
+        
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> dynamicParametersStartValue;
         [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> dynamicParameters = new();
 
@@ -29,7 +31,6 @@ namespace SmartObjects_AI.Agent
         private DebugParameter[] m_debugParameters;
         
         private MovementAgent m_movementAgent;
-        public AnimationAgent animationAgent { get; private set; }
         
         private void Awake()
         {
@@ -43,7 +44,6 @@ namespace SmartObjects_AI.Agent
             }
             
             m_movementAgent = GetComponent<MovementAgent>();
-            animationAgent = GetComponent<AnimationAgent>();
             
             //Dynamic values to default state
             for (int loop = 0; loop < Enum.GetNames(typeof(AgentDynamicParameter)).Length; loop++)
@@ -57,7 +57,7 @@ namespace SmartObjects_AI.Agent
             //Owning SmartObjects
             m_smartObjectsOwning = GetComponentsInChildren<SmartObject>();
         }
-        
+
         public void OnGameReady(object sender, EventArgs eventArgs)
         {
             SearchForSmartObject();
@@ -92,7 +92,7 @@ namespace SmartObjects_AI.Agent
         {
             SearchForSmartObject();
 
-            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint);
+            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint, m_smartObjectToUse.Key.ShouldRun());
                 
             if (m_previousSmartObject != m_smartObjectToUse.Key)
             {
@@ -130,14 +130,6 @@ namespace SmartObjects_AI.Agent
             }
             
             m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse.Key)].IsSpecial = true;
-        }
-        
-        public bool IsUsing(SmartObject smartObject)
-        {
-            // If the object was used last time and tries to be used this time => it's being used
-            if (m_smartObjectToUse.Key == m_previousSmartObject)
-                return m_smartObjectToUse.Key == smartObject;
-            return false;
         }
         
         public bool IsOwner(SmartObject smartObject)

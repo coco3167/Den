@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8842904687236856933
 Transform:
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9197716772605836950}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.68175566, y: -0.18764123, z: -0.18764119, w: 0.68175566}
+  m_LocalRotation: {x: -0.6817561, y: -0.1876397, z: -0.1876397, w: 0.6817561}
   m_LocalPosition: {x: -5.713, y: 5.568, z: 15.478}
   m_LocalScale: {x: 0.42547, y: 0.42547002, z: 0.42547002}
   m_ConstrainProportionsScale: 0
@@ -48,9 +48,9 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

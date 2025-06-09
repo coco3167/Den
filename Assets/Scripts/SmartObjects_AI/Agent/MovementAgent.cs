@@ -8,13 +8,16 @@ namespace SmartObjects_AI.Agent
     {
         private NavMeshAgent m_navMeshAgent;
 
+        [SerializeField] private float walkSpeed, runSpeed;
+        
         private void Awake()
         {
             m_navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
-        public void SetDestination(Transform destination)
+        public void SetDestination(Transform destination, bool shouldRun)
         {
+            m_navMeshAgent.speed = shouldRun ? runSpeed : walkSpeed;
             m_navMeshAgent.SetDestination(destination.position);
         }
         
@@ -26,6 +29,16 @@ namespace SmartObjects_AI.Agent
         public float GetSpeed()
         {
             return m_navMeshAgent.velocity.magnitude;
+        }
+
+        public void StartAgent()
+        {
+            m_navMeshAgent.isStopped = false;
+        }
+        
+        public void StopAgent()
+        {
+            m_navMeshAgent.isStopped = true;
         }
     }
 }

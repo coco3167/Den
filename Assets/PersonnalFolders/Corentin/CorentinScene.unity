@@ -418,13 +418,13 @@ PrefabInstance:
       propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
-      propertyPath: sinjCount
-      value: 0
+    - target: {fileID: 2221577614170658128, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
-      propertyPath: mouseManager
-      value: 
+      propertyPath: sinjCount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: emotionsDecrease._serializedList.Array.data[0].Value
@@ -614,6 +614,14 @@ PrefabInstance:
       propertyPath: emotionsTransmissionCurve._serializedList.Array.data[1].Value.m_Curve.Array.data[2].tangentMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2970224537215928610, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: isStaticObject
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320898275810335701, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4387186766017722496, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: otherMovements.m_Name
       value: Other Movements
@@ -637,6 +645,10 @@ PrefabInstance:
     - target: {fileID: 4387186766017722496, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: otherMovements.m_SingletonActionBindings.Array.data[0].m_Action
       value: Other Movements
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828601374616703752, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: looping
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6521624656204892207, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: m_Name
@@ -681,6 +693,26 @@ PrefabInstance:
     - target: {fileID: 6836968198750542637, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869654557468772708, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869654557468772708, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_Center.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869654557468772708, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_Extents.x
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869654557468772708, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_Extents.y
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869654557468772708, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: m_Extents.z
+      value: 0.015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
