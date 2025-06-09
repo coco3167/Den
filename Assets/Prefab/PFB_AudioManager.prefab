@@ -30,8 +30,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 692194201349089044}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5089703929871445020
@@ -145,6 +144,38 @@ MonoBehaviour:
         groupGuidInternal: 
         WwiseObjectReference: {fileID: 11400000, guid: 815acc27b28e83a42952b125468b5cb9, type: 2}
   currentAudioState: 0
+  mixPresetSeparator: 0
+  mixPresets:
+    _serializedList:
+    - Key: 0
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 0c0ff97cbc884064bb15b42d219742b0, type: 2}
+    - Key: 1
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 11efc3a6148971747bfc20b1f3dc5d77, type: 2}
+    - Key: 2
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 68b783b4f3f5ced4fbf7ac724c9052a8, type: 2}
+    - Key: 3
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 7fa9f3fa00fa1c04d8c8056a61bca6fe, type: 2}
+  currentMixPreset: 0
   moodSwitchSeparator: 0
   moodCuriosity:
     _serializedList:
@@ -418,83 +449,19 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 2f087decc60c39b4389f7c9cbdeb57ac, type: 2}
---- !u!1 &6390681636642090929
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 692194201349089044}
-  - component: {fileID: 3786736935927452777}
-  m_Layer: 0
-  m_Name: BarkerTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &692194201349089044
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6390681636642090929}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8098472380902549966}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3786736935927452777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6390681636642090929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3dde156a3265a45be7618e416d457f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  randomMoodEvent:
+  Menu:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: b8c5981e92b81ad4dbcc3c5f4848afb6, type: 2}
-  eventCooldown: 2
-  okEvent:
+    WwiseObjectReference: {fileID: 11400000, guid: 75904cfac5afefe42a8852bb5e9108c7, type: 2}
+  Back:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: dbf38947144cc3940ad86d28118b9aee, type: 2}
-  intervalBetweenSequences: 15
-  minDelayBetweenEvents: 0.35
-  maxDelayBetweenEvents: 0.65
-  angerStepsEvent:
+    WwiseObjectReference: {fileID: 11400000, guid: 2b7c5e1c538de0e45a67234b94b50d9b, type: 2}
+  Accept:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 896406ad5f4781f419922a3003712c4b, type: 2}
-  curiousStepsEvent:
+    WwiseObjectReference: {fileID: 11400000, guid: 29e2529f371465a4ca734e4b52f0df64, type: 2}
+  Move:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 0caf9e95ca2d33c4e8bbcafb9a63fee0, type: 2}
-  fearStepsEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 8b113d92fb16beb45a012168821213c2, type: 2}
-  angerReactionEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 7e0a551d38372564daadacf8f3bd8271, type: 2}
-  curiousReactionEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c1054c39aaf2ca84ca99eddbd0a37a1a, type: 2}
-  fearReactionEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 46bb9d5151a7b4546acbb90e2556fbec, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 68d7ce66c38daa24d92b2c2f2ad5f701, type: 2}

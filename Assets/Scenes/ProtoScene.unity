@@ -833,13 +833,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1654532039749989344, guid: 60941bdb20ca3604caa8e955c46465da, type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654532039749989344, guid: 60941bdb20ca3604caa8e955c46465da, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 562aea3f872d6de42af2bdb7a2cd8706, type: 2}
     - target: {fileID: 1654532039749989344, guid: 60941bdb20ca3604caa8e955c46465da, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 2180264, guid: 562aea3f872d6de42af2bdb7a2cd8706, type: 2}
+    - target: {fileID: 1654532039749989344, guid: 60941bdb20ca3604caa8e955c46465da, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2932520898948193066, guid: 60941bdb20ca3604caa8e955c46465da, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -983,11 +991,15 @@ PrefabInstance:
     - target: {fileID: 5258938921688365627, guid: 60941bdb20ca3604caa8e955c46465da, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 562aea3f872d6de42af2bdb7a2cd8706, type: 2}
     - target: {fileID: 5258938921688365627, guid: 60941bdb20ca3604caa8e955c46465da, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 2180264, guid: 562aea3f872d6de42af2bdb7a2cd8706, type: 2}
+    - target: {fileID: 5258938921688365627, guid: 60941bdb20ca3604caa8e955c46465da, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7432003997817474625, guid: 60941bdb20ca3604caa8e955c46465da, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
