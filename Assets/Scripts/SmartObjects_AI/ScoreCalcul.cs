@@ -34,7 +34,7 @@ namespace SmartObjects_AI
             m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger);
             m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
             
-            return p_usingCapacity * m_hunger * m_distanceCoefficient;
+            return p_usingCapacity * m_hunger * m_distanceCoefficient/10;
         }
     }
     
@@ -49,7 +49,7 @@ namespace SmartObjects_AI
             m_tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness);
             m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
             
-            return p_usingCapacity * m_tiredness * m_distanceCoefficient;
+            return p_usingCapacity * m_tiredness * m_distanceCoefficient/10;
         }
     }
     
@@ -57,16 +57,26 @@ namespace SmartObjects_AI
     {
         [SerializeField] private float playerCoeff;
 
-        private float m_mousePlayerProximity;
+        private float m_mousePlayerProximity, m_distanceCoefficient;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            base.CalculateScore(smartAgent, smartObject);
+            if (!smartAgent.IsOwner(smartObject))
+                return 0;
+            
             
             m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
             m_mousePlayerProximity *= m_mousePlayerProximity;
+
+            m_distanceCoefficient = 1;
             
-            return p_usingCapacity * playerCoeff / m_mousePlayerProximity;
+            if (smartAgent.IsGoing(smartObject))
+            {
+                m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+                return Math.Max(1, smartAgent.GetBiggestEmotion()) * Math.Max(m_distanceCoefficient, 1/m_mousePlayerProximity);
+            }
+            
+            return playerCoeff / m_mousePlayerProximity;
         }
     }
     
