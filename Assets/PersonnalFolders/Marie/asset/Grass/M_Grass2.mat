@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Grass2
+  m_Shader: {fileID: -6465566751694194690, guid: b29f153067329b94ca14c446f118e6eb, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainText:
+        m_Texture: {fileID: 2800000, guid: bdc0cc4a769624243ace8ea62c1c5420, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WindTexture:
+        m_Texture: {fileID: 2800000, guid: 44af8c6ec83057f4caa19ef1abcf231c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _HeightBlend: 1.26
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _WindHeight: 86.4
+    - _WindMask: -1.09
+    - _WindNoiseSpeed: -5.3
+    - _WindSpeed: 0.2
+    - _alpha: 0.83
+    m_Colors:
+    - _BottomColor: {r: 0.34945306, g: 0.5660378, b: 0, a: 0}
+    - _FarColor: {r: 0, g: 0.13960263, b: 0.5372549, a: 1}
+    - _NearColor: {r: 1, g: 0.57264155, b: 0.2783019, a: 1}
+    - _NearFarRange: {r: 0, g: 6.22, b: 0, a: 0}
+    - _WindNoiseContrast: {r: 0.5, g: 0.6, b: 0, a: 0}
+    - _WindNoiseScale: {r: 10, g: 10, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &516894691252750273
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
