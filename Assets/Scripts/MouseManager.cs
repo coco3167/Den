@@ -78,6 +78,11 @@ public class MouseManager : MonoBehaviour, IGameStateListener
         return mouseRigidBody.position;
     }
 
+    public Transform GetMouseTransform()
+    {
+        return mouseRigidBody.transform;
+    }
+
     public float MouseVelocity()
     {
         return mouseRigidBody.linearVelocity.magnitude;

@@ -27,6 +27,11 @@ namespace SmartObjects_AI
                 usingPoint = transform;
             
             data.Init();
+            if (!lookingPoint && data.defaultLookingPoint == SmartObjectData.DefaultLookingPoint.Mouse)
+            {
+                lookingPoint = GameManager.Instance.GetMouseManager().GetMouseTransform();
+                Debug.Log(lookingPoint);
+            }
 
             // ReSharper disable once TooWideLocalVariableScope => no need to initialize multiple times
             SmartObjectParameter parameter;
@@ -67,7 +72,6 @@ namespace SmartObjects_AI
             if (data.shouldLookAtObject && lookingPoint)
             {
                 agent.animationAgent.LookingObject = lookingPoint;
-                Debug.Log(lookingPoint.position);
             }
             
             agent.animationAgent.SetEndFast(data.shouldEndFast);

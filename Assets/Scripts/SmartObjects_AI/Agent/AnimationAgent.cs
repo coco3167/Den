@@ -41,9 +41,10 @@ namespace SmartObjects_AI.Agent
             
             if (!m_currentLookingObject)
                 return;
+            
             m_locationToLookAt = m_currentLookingObject.position - m_transformMovementAgent.position;
             m_locationToLookAt.y = 0;
-            m_goalRotation = Quaternion.LookRotation(m_locationToLookAt, Vector3.up);
+            m_goalRotation = Quaternion.LookRotation(m_locationToLookAt, transform.up);
             m_transformMovementAgent.rotation = Quaternion.Lerp(m_transformMovementAgent.rotation, m_goalRotation, rotationLerpSpeed*Time.deltaTime);
         }
 
@@ -51,7 +52,7 @@ namespace SmartObjects_AI.Agent
         {
             if (m_currentLookingObject)
             {
-                Gizmos.DrawLine(m_transformMovementAgent.position, m_locationToLookAt);
+                Gizmos.DrawLine(m_transformMovementAgent.position, m_currentLookingObject.position);
             }
         }
 
