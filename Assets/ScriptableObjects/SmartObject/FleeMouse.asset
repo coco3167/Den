@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a81eb427104b4198b7965408a44e57, type: 3}
+  m_Name: FleeMouse
+  m_EditorClassIdentifier: 
+  <scoreCalculation>k__BackingField:
+    rid: 7321801964569755735
+  <animatorController>k__BackingField: {fileID: 22100000, guid: 5e42e6784d808824bb1807c13b0e4e6c, type: 2}
+  <maxUser>k__BackingField: 1
+  <minRadius>k__BackingField: 0.5
+  <adatpToMood>k__BackingField: 1
+  <shouldStopAgent>k__BackingField: 1
+  <shouldLookAtObject>k__BackingField: 1
+  <dynamicParametersEffect>k__BackingField:
+    _serializedList: []
+  <dynamicParametersVariation>k__BackingField:
+    _serializedList: []
+  <parameterEffectOnAgent>k__BackingField:
+    _serializedList: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 7321801964569755735
+      type: {class: FleePoint, ns: SmartObjects_AI, asm: Assembly-CSharp}
+      data:
+        playerCoeff: 10
