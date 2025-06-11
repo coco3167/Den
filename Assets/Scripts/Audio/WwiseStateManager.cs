@@ -5,6 +5,7 @@ namespace Audio
     public static class WwiseStateManager
     {
         private static WwiseMoodState _currentMoodState = WwiseMoodState.NoneState;
+        private static WwiseMixPreset _currentMixPreset = WwiseMixPreset.None;
         private static WwiseAudioState _currentAudioState = WwiseAudioState.None;
         public static void SetWwiseMoodState(
             WwiseMoodState stateMood)
@@ -47,10 +48,32 @@ namespace Audio
             Debug.Log("Audio state has been set to " + newAudioState);
             _currentAudioState = newAudioState;
         }
+        public static void SetWwiseMixPreset(WwiseMixPreset newMixPreset)
+        {
+            if (newMixPreset == _currentMixPreset)
+            {
+                Debug.Log("MixPreset is already set to " + newMixPreset);
+                return;
+            }
 
+            if (!AudioManager.Instance.mixPresets.ContainsKey(newMixPreset))
+            {
+                Debug.LogError($"MixPreset {newMixPreset} not found in the dictionary.");
+                return;
+            }
+
+            AudioManager.Instance.mixPresets[newMixPreset].SetValue();
+
+            Debug.Log("MixPreset has been set to " + newMixPreset);
+            _currentMixPreset = newMixPreset;
+        }
         public static WwiseMoodState GetCurrentMoodState()
         {
             return _currentMoodState;
+        }
+        public static WwiseMixPreset GetCurrentMixPreset()
+        {
+            return _currentMixPreset;
         }
     }
 }

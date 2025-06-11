@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6680997557674217371}
   - component: {fileID: 1739762324140367294}
-  - component: {fileID: 6554920553799060753}
+  - component: {fileID: 1322657489160868574}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -211,7 +211,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7511264196982474528}
   m_CullTransparentMesh: 1
---- !u!114 &6554920553799060753
+--- !u!114 &1322657489160868574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 11b5b6930335fd744aa202c7ba8bdf62, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 6680997557674217371}
+  rawImage: {fileID: 1322657489160868574}
   mouseManager: {fileID: 751927112402875643}
 --- !u!1001 &4096834319455209820
 PrefabInstance:

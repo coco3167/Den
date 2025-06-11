@@ -4,11 +4,11 @@
   "BasePlatform": "Mac",
   "PluginLibs": [
    {
-    "LibName": "Wwise Recorder",
-    "LibId": "8650755",
+    "LibName": "Wwise Matrix Reverb",
+    "LibId": "7536643",
     "Type": "Effect",
-    "DLL": "AkRecorder",
-    "StaticLib": "AkRecorderFX"
+    "DLL": "AkMatrixReverb",
+    "StaticLib": "AkMatrixReverbFX"
    },
    {
     "LibName": "Wwise Pitch Shifter",
@@ -35,6 +35,6 @@
     "StaticLib": "AkChannelRouterFX"
    }
   ],
-  "FileHash": "{A4A7D065-19EE-120F-5234-15696DE71B4A}"
+  "FileHash": "{B824E882-B729-F09A-0658-30FAFDB2DE54}"
  }
 }

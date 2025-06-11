@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using AK.Wwise;
 using AYellowpaper.SerializedCollections;
-using DG.Tweening.Core.Easing;
-using Sinj;
 using Sirenix.OdinInspector;
 using SmartObjects_AI.Agent;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace Audio
 {
@@ -27,7 +24,13 @@ namespace Audio
         Mono,
         None
     }
-
+    public enum WwiseMixPreset
+    {
+        Regular,
+        Gameplay,
+        Contemplative,
+        None
+    }
     public enum WwiseEmotionStateRTPC
     {
         Curiosity,
@@ -94,6 +97,12 @@ namespace Audio
         public WwiseAudioState CurrentAudioState => currentAudioState;
         public int CurrentAudioStateIndex => (int)currentAudioState;
 
+        [Title("Mix Preset Variables")][ReadOnly, SerializeField, HideLabel] private bool mixPresetSeparator;
+        [SerializeField] public SerializedDictionary<WwiseMixPreset, State> mixPresets;
+        [SerializeField, ReadOnly] public WwiseMixPreset currentMixPreset;
+        public WwiseMixPreset CurrentMixPreset => currentMixPreset;
+        public int CurrentMixPresetIndex => (int)currentMixPreset;
+
         [Title("Wwise Mood Switches")][ReadOnly, SerializeField, HideLabel] private bool moodSwitchSeparator;
         [SerializeField] private SerializedDictionary<WwiseCuriositySwitch, Switch> moodCuriosity;
         [SerializeField] private SerializedDictionary<WwiseFearSwitch, Switch> moodFear;
@@ -154,6 +163,11 @@ namespace Audio
         [SerializeField] public AK.Wwise.Event MusicTest;
         [SerializeField] public AK.Wwise.Event AmbienceTest;
         [SerializeField] public AK.Wwise.Event SFXTest;
+        [SerializeField] public AK.Wwise.Event Menu;
+        [SerializeField] public AK.Wwise.Event Back;
+        [SerializeField] public AK.Wwise.Event Accept;
+        [SerializeField] public AK.Wwise.Event Move;
+
 
 
         private void Awake()
@@ -211,6 +225,14 @@ namespace Audio
         public void RestartAmbience()
         {
             ResetAmbience.Post(this.gameObject);
+        }
+        public void PauseAmbience()
+        {
+            PlayAmbience?.ExecuteAction(this.gameObject, AkActionOnEventType.AkActionOnEventType_Pause, 450, AkCurveInterpolation.AkCurveInterpolation_Linear);
+        }
+        public void ResumeAmbience()
+        {
+            PlayAmbience?.ExecuteAction(this.gameObject, AkActionOnEventType.AkActionOnEventType_Resume, 250, AkCurveInterpolation.AkCurveInterpolation_Linear);
         }
 
         #region Tools

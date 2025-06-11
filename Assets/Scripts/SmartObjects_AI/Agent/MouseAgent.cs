@@ -12,13 +12,15 @@ namespace SmartObjects_AI.Agent
         private const float UpdateTime = 0.1f;
 
         private MouseManager m_mouseManager;
+        
+        [SerializeField] private AnimationAgent animationAgent;
+        
         [SerializeField] private List<SinjActiveBehavior> mouseReactions;
 
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> emotionsDecrease;
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> emotionsDisplayCap;
 
         private SmartAgent m_smartAgent;
-        private AnimationAgent m_animationAgent;
 
         private float m_emotionDecrease;
         private float m_parameterValue;
@@ -28,7 +30,6 @@ namespace SmartObjects_AI.Agent
         {
             m_mouseManager = mouseManager;
             m_smartAgent = GetComponent<SmartAgent>();
-            m_animationAgent = GetComponent<AnimationAgent>();
 
             m_currentMouseParameters = new()
             {
@@ -62,9 +63,9 @@ namespace SmartObjects_AI.Agent
         {
             KeyValuePair<AgentDynamicParameter, float> maxEmotion = m_currentMouseParameters.Aggregate((a, b) => a.Value > b.Value ? a : b);
             if(maxEmotion.Value < emotionsDisplayCap[maxEmotion.Key])
-                m_animationAgent.ResetMood();
+                animationAgent.ResetMood();
             else
-                m_animationAgent.SwitchMood(maxEmotion.Key);
+                animationAgent.SwitchMood(maxEmotion.Key);
         }
         
         private void AttenuateDynamicParameter(AgentDynamicParameter parameter)
