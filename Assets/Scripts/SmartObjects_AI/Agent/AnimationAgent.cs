@@ -12,6 +12,7 @@ namespace SmartObjects_AI.Agent
         private static readonly int Curiosity = Animator.StringToHash("Curiosity");
         private static readonly int Aggression = Animator.StringToHash("Aggression");
         private static readonly int Fear = Animator.StringToHash("Fear");
+        private static readonly int FinishFast = Animator.StringToHash("FinishFast");
 
         [SerializeField] private MovementAgent movementAgent;
         [SerializeField] private float rotationLerpSpeed = 10;
@@ -121,6 +122,11 @@ namespace SmartObjects_AI.Agent
         public void SetStopMovementAgent(bool value)
         {
             m_shouldStopAnimationAgent = value;
+        }
+
+        public void SetEndFast(bool value)
+        {
+            m_animator.SetBool(FinishFast, value);
         }
     }
 }

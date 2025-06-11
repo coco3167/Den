@@ -21,6 +21,7 @@ namespace SmartObjects_AI
         [field: SerializeField] public bool adatpToMood { get; private set; } = false;
         [field: SerializeField] public bool shouldStopAgent { get; private set; } = false;
         [field: SerializeField] public bool shouldLookAtObject { get; private set; } = false;
+        [field: SerializeField] public bool shouldEndFast { get; private set; } = false;
         
         [Title("Dictionnaries")]
         [field : SerializeField] public SerializedDictionary<SmartObjectParameter, float> dynamicParametersEffect { get; private set; }
