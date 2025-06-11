@@ -55,6 +55,8 @@ namespace SmartObjects_AI
     
     public class FleePoint : BaseScoreCalcul
     {
+        [SerializeField] private float playerCoeff;
+
         private float m_mousePlayerProximity, m_distanceCoefficient;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
@@ -65,6 +67,8 @@ namespace SmartObjects_AI
             
             m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
             m_mousePlayerProximity *= m_mousePlayerProximity;
+
+            m_distanceCoefficient = 1;
             
             if (smartAgent.IsGoing(smartObject))
             {
@@ -72,24 +76,7 @@ namespace SmartObjects_AI
                 return Math.Max(1, smartAgent.GetBiggestEmotion()) * Math.Max(m_distanceCoefficient, 1/m_mousePlayerProximity);
             }
             
-            return 10 / m_mousePlayerProximity;
-        }
-    }
-
-    public class JumpScareScore : BaseScoreCalcul
-    {
-        private float m_mousePlayerProximity, m_usageCoeff;
-        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
-        {
-            if (!smartAgent.IsOwner(smartObject))
-                return 0;
-            
-            m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
-            m_mousePlayerProximity *= m_mousePlayerProximity;
-
-            m_usageCoeff = smartObject.GetDynamicParameter(SmartObjectParameter.Usage) > 90 ? 1.1f : 0;
-            
-            return 10 * m_usageCoeff / m_mousePlayerProximity;
+            return playerCoeff / m_mousePlayerProximity;
         }
     }
     
