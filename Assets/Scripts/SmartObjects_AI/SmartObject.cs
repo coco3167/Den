@@ -11,7 +11,7 @@ namespace SmartObjects_AI
 {
     public class SmartObject : MonoBehaviour, IReloadable
     {
-        [field: SerializeField, ChildGameObjectsOnly] public Transform usingPoint { get; private set; }
+        [field: SerializeField] public Transform usingPoint { get; private set; }
         [field: SerializeField] public Transform lookingPoint { get; private set; }
         [SerializeField] private SmartObjectData data;
 
@@ -27,6 +27,11 @@ namespace SmartObjects_AI
                 usingPoint = transform;
             
             data.Init();
+            if (!lookingPoint && data.defaultLookingPoint == SmartObjectData.DefaultLookingPoint.Mouse)
+            {
+                lookingPoint = GameManager.Instance.GetMouseManager().GetMouseTransform();
+                Debug.Log(lookingPoint);
+            }
 
             // ReSharper disable once TooWideLocalVariableScope => no need to initialize multiple times
             SmartObjectParameter parameter;
@@ -67,8 +72,9 @@ namespace SmartObjects_AI
             if (data.shouldLookAtObject && lookingPoint)
             {
                 agent.animationAgent.LookingObject = lookingPoint;
-                Debug.Log(lookingPoint.position);
             }
+            
+            agent.animationAgent.SetEndFast(data.shouldEndFast);
 
             if (data.wwiseEvent.IsValid())
                 data.wwiseEvent.Post(agent.gameObject);
