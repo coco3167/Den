@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
@@ -16,7 +15,7 @@ namespace Sinj
         [Title("Sinjs")]
         [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject smartAgent;
         [SerializeField, Range(0,10)] private int sinjCount;
-        [SerializeField, ReadOnly] private List<MouseAgent> mouseAgents = new();
+        [SerializeField, ReadOnly] public List<MouseAgent> mouseAgents = new();
 
         [Title("Emotions")]
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> emotionsMin;

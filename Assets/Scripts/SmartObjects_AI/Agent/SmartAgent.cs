@@ -137,6 +137,11 @@ namespace SmartObjects_AI.Agent
             return m_smartObjectsOwning.Contains(smartObject);
         }
 
+        public bool IsGoing(SmartObject smartObject)
+        {
+            return m_previousSmartObject == smartObject;
+        }
+
         public float CurrentScore()
         {
             return m_smartObjectToUse.Value;
@@ -165,6 +170,14 @@ namespace SmartObjects_AI.Agent
             {
                 AddDynamicParameter(parameter, data.dynamicParametersVariation[parameter]);
             }
+        }
+
+        public float GetBiggestEmotion()
+        {
+            return Math.Max(
+                Math.Max(GetDynamicParameter(AgentDynamicParameter.Curiosity),
+                    GetDynamicParameter(AgentDynamicParameter.Aggression)),
+                GetDynamicParameter(AgentDynamicParameter.Fear));
         }
         
         #endregion
