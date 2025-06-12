@@ -100,11 +100,25 @@ public class GameManager : MonoBehaviour, IGameStateListener
 
         // Pause or resume ambience
         if (IsPaused)
+        {
             AudioManager.Instance.PauseAmbience();
+            AudioManager.Instance.StopCursorMoveSound(AudioManager.Instance.MouseManifestation);
+        }
         else
+        {
             AudioManager.Instance.ResumeAmbience();
+            AudioManager.Instance.StartCursorMoveSound(AudioManager.Instance.MouseManifestation);
+        }
 
         GamePaused?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void Reload()
+    {
+        foreach (var key in m_currentPalier.Keys.ToList())
+        {
+            m_currentPalier[key] = 0;
+        }
     }
 
     public void OnManualGameEnded(InputAction.CallbackContext callbackContext)

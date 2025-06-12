@@ -28,6 +28,8 @@ namespace AK
         static const AkUniqueID PLAY_DEN_CREA_RB_FEAR = 231948563U;
         static const AkUniqueID PLAY_DEN_CREA_SCREAMBARKS = 4165947622U;
         static const AkUniqueID PLAY_DEN_CREA_STINGERBARKS = 1170217181U;
+        static const AkUniqueID PLAY_DEN_FS_RUNNING = 3475562211U;
+        static const AkUniqueID PLAY_DEN_FS_WALKING = 1657671319U;
         static const AkUniqueID PLAY_DEN_MM_SCRATCH = 1251290547U;
         static const AkUniqueID PLAY_DEN_MM_SIT = 3222006401U;
         static const AkUniqueID PLAY_DEN_MM_STAND = 807622397U;
