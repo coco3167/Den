@@ -8,13 +8,16 @@ namespace SmartObjects_AI.Agent
     {
         private NavMeshAgent m_navMeshAgent;
 
+        [SerializeField] private float walkSpeed, runSpeed;
+        
         private void Awake()
         {
             m_navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
-        public void SetDestination(Transform destination)
+        public void SetDestination(Transform destination, bool shouldRun)
         {
+            m_navMeshAgent.speed = shouldRun ? runSpeed : walkSpeed;
             m_navMeshAgent.SetDestination(destination.position);
         }
         
@@ -30,13 +33,11 @@ namespace SmartObjects_AI.Agent
 
         public void StartAgent()
         {
-            Debug.Log("start moving");
             m_navMeshAgent.isStopped = false;
         }
         
         public void StopAgent()
         {
-            Debug.Log("stop moving");
             m_navMeshAgent.isStopped = true;
         }
     }

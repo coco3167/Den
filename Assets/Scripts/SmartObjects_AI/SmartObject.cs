@@ -11,7 +11,7 @@ namespace SmartObjects_AI
 {
     public class SmartObject : MonoBehaviour, IReloadable
     {
-        [field: SerializeField, ChildGameObjectsOnly] public Transform usingPoint { get; private set; }
+        [field: SerializeField] public Transform usingPoint { get; private set; }
         [field: SerializeField] public Transform lookingPoint { get; private set; }
         [SerializeField] private SmartObjectData data;
 
@@ -27,6 +27,11 @@ namespace SmartObjects_AI
                 usingPoint = transform;
             
             data.Init();
+            if (!lookingPoint && data.defaultLookingPoint == SmartObjectData.DefaultLookingPoint.Mouse)
+            {
+                lookingPoint = GameManager.Instance.GetMouseManager().GetMouseTransform();
+                Debug.Log(lookingPoint);
+            }
 
             // ReSharper disable once TooWideLocalVariableScope => no need to initialize multiple times
             SmartObjectParameter parameter;
@@ -62,18 +67,25 @@ namespace SmartObjects_AI
         private void StartUse(SmartAgent agent)
         {
             agent.animationAgent.SwitchAnimator(data.animatorController, data.adatpToMood);
-            Debug.Log("start use");
-            
             agent.animationAgent.SetStopMovementAgent(data.shouldStopAgent);
+
+            if (data.shouldLookAtObject && lookingPoint)
+            {
+                agent.animationAgent.LookingObject = lookingPoint;
+            }
             
-            if(data.shouldLookAtObject && lookingPoint)
-                agent.StartLookingAtObject(lookingPoint);
+            agent.animationAgent.SetEndFast(data.shouldEndFast);
+
+            if (data.wwiseEvent.IsValid())
+                data.wwiseEvent.Post(agent.gameObject);
         }
 
         public void FinishUse(SmartAgent agent)
         {
             m_startedUseList.Remove(agent);
-            agent.StopLookingAtObject();
+            agent.animationAgent.LookingObject = null;
+            if(!data.shouldStopAgent)
+                agent.animationAgent.StopLookingObject();
         }
 
         public void Use(SmartAgent agent)
@@ -99,6 +111,16 @@ namespace SmartObjects_AI
         public bool HasRoomForUse()
         {
             return data.maxUser > m_startedUseList.Count;
+        }
+
+        public bool IsUsing(SmartAgent agent)
+        {
+            return m_startedUseList.Contains(agent);
+        }
+
+        public bool ShouldRun()
+        {
+            return data.shouldRunTo;
         }
 
         /// <summary>

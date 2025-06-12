@@ -10,12 +10,12 @@ using UnityEngine;
 
 namespace Sinj
 {
-    public class SinjManager : MonoBehaviour, IDebugDisplayAble
+    public class SinjManager : MonoBehaviour, IDebugDisplayAble, IReloadable
     {
         [Title("Sinjs")]
         [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject smartAgent;
         [SerializeField, Range(0,10)] private int sinjCount;
-        [SerializeField, ReadOnly] private List<MouseAgent> mouseAgents = new();
+        [SerializeField, ReadOnly] public List<MouseAgent> mouseAgents = new();
 
         [Title("Emotions")]
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> emotionsMin;
@@ -121,5 +121,14 @@ namespace Sinj
             return m_debugParameters[index];
         }
         #endregion
+
+        public void Reload()
+        {
+            AgentDynamicParameter[] keys = m_worldParameters.AgentGlobalParameters.Keys.ToArray();
+            foreach (AgentDynamicParameter parameter in keys)
+            {
+                m_worldParameters.AgentGlobalParameters[parameter] = 0;
+            }
+        }
     }
 }

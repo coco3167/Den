@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
 using DebugHUD;
-using DG.Tweening;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -32,8 +31,6 @@ namespace SmartObjects_AI.Agent
         private DebugParameter[] m_debugParameters;
         
         private MovementAgent m_movementAgent;
-
-        private Transform m_lookingObject;
         
         private void Awake()
         {
@@ -59,12 +56,6 @@ namespace SmartObjects_AI.Agent
             
             //Owning SmartObjects
             m_smartObjectsOwning = GetComponentsInChildren<SmartObject>();
-        }
-
-        private void Update()
-        {
-            if(m_lookingObject)
-                transform.DOLookAt(m_lookingObject.position, 1, AxisConstraint.Z | AxisConstraint.X | AxisConstraint.W);
         }
 
         public void OnGameReady(object sender, EventArgs eventArgs)
@@ -101,7 +92,7 @@ namespace SmartObjects_AI.Agent
         {
             SearchForSmartObject();
 
-            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint);
+            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint, m_smartObjectToUse.Key.ShouldRun());
                 
             if (m_previousSmartObject != m_smartObjectToUse.Key)
             {
@@ -140,28 +131,15 @@ namespace SmartObjects_AI.Agent
             
             m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse.Key)].IsSpecial = true;
         }
-
-        public void StartLookingAtObject(Transform otherTransform)
-        {
-            m_lookingObject = otherTransform;
-        }
-
-        public void StopLookingAtObject()
-        {
-            m_lookingObject = null;
-        }
-        
-        public bool IsUsing(SmartObject smartObject)
-        {
-            // If the object was used last time and tries to be used this time => it's being used
-            if (m_smartObjectToUse.Key == m_previousSmartObject)
-                return m_smartObjectToUse.Key == smartObject;
-            return false;
-        }
         
         public bool IsOwner(SmartObject smartObject)
         {
             return m_smartObjectsOwning.Contains(smartObject);
+        }
+
+        public bool IsGoing(SmartObject smartObject)
+        {
+            return m_previousSmartObject == smartObject;
         }
 
         public float CurrentScore()
@@ -192,6 +170,14 @@ namespace SmartObjects_AI.Agent
             {
                 AddDynamicParameter(parameter, data.dynamicParametersVariation[parameter]);
             }
+        }
+
+        public float GetBiggestEmotion()
+        {
+            return Math.Max(
+                Math.Max(GetDynamicParameter(AgentDynamicParameter.Curiosity),
+                    GetDynamicParameter(AgentDynamicParameter.Aggression)),
+                GetDynamicParameter(AgentDynamicParameter.Fear));
         }
         
         #endregion

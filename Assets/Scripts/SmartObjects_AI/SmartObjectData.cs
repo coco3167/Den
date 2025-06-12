@@ -12,13 +12,17 @@ namespace SmartObjects_AI
         [Title("Base Info")]
         [field : SerializeReference] public BaseScoreCalcul scoreCalculation { get; private set; }
         [field : SerializeField] public AnimatorOverrideController animatorController { get; private set; }
+        [field : SerializeField] public AK.Wwise.Event wwiseEvent { get; private set; }
         [field : SerializeField] public int maxUser { get; private set; }
         [field: SerializeField] public float minRadius { get; private set; } = 1;
         
         [Title("Boolean")]
+        [field: SerializeField] public bool shouldRunTo { get; private set; } = false;
         [field: SerializeField] public bool adatpToMood { get; private set; } = false;
         [field: SerializeField] public bool shouldStopAgent { get; private set; } = false;
         [field: SerializeField] public bool shouldLookAtObject { get; private set; } = false;
+        [field: SerializeField, EnableIf("shouldLookAtObject")] public DefaultLookingPoint defaultLookingPoint { get; private set; }
+        [field: SerializeField] public bool shouldEndFast { get; private set; } = false;
         
         [Title("Dictionnaries")]
         [field : SerializeField] public SerializedDictionary<SmartObjectParameter, float> dynamicParametersEffect { get; private set; }
@@ -28,6 +32,12 @@ namespace SmartObjects_AI
         public void Init()
         {
             scoreCalculation.Init();
+        }
+
+        public enum DefaultLookingPoint
+        {
+            None,
+            Mouse
         }
     }
     public enum SmartObjectParameter

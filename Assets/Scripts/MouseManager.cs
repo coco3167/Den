@@ -28,7 +28,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
         Cursor.lockState = CursorLockMode.Locked;
         m_camera = GameManager.Instance.GetCamera();
         Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
-        mouseRigidBody.MovePosition(new Vector3(1,1,-3));
+        //mouseRigidBody.MovePosition(new Vector3(1,1,-3));
     }
 
     public void OnGameEnded(object sender, EventArgs eventArgs)
@@ -76,6 +76,11 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     public Vector3 GetRawWorldMousePosition()
     {
         return mouseRigidBody.position;
+    }
+
+    public Transform GetMouseTransform()
+    {
+        return mouseRigidBody.transform;
     }
 
     public float MouseVelocity()

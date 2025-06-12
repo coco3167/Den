@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{4C29617E-61D1-C379-D81C-663F5D38A2BA}",
+    "Hash": "{EFB3892A-A666-28B9-8E33-2646F5FF8491}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -23,16 +23,14 @@
        "GUID": "{560D89A7-03C8-4F1A-8BF8-C69990F0FA00}",
        "LibName": "Wwise Channel Router",
        "LibId": "12517379"
-      }
-     ],
-     "ShareSets": [
+      },
       {
-       "Id": "4155787858",
-       "Name": "New_Recorder",
-       "ObjectPath": "\\Effects\\Default Work Unit\\New_Recorder",
-       "GUID": "{DA172244-69AB-45BF-8F52-02F03155CBD6}",
-       "LibName": "Wwise Recorder",
-       "LibId": "8650755"
+       "Id": "956753948",
+       "Name": "Matrix Reverb (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\FX\\Reverb\\[Effect Slot [0]: (Matrix Reverb)]\\Matrix Reverb (Custom)",
+       "GUID": "{7E496A73-BEA3-45B8-9A57-71CA727BCA16}",
+       "LibName": "Wwise Matrix Reverb",
+       "LibId": "7536643"
       }
      ],
      "AudioDevices": [
@@ -101,11 +99,6 @@
         {
          "Id": "370170101"
         }
-       ],
-       "ShareSets": [
-        {
-         "Id": "4155787858"
-        }
        ]
       }
      },
@@ -115,6 +108,22 @@
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Music",
       "GUID": "{4C0AAA7A-5063-49AA-B2EE-5337426DC76A}",
       "Color": "13"
+     }
+    ],
+    "AuxBusses": [
+     {
+      "Id": "348963605",
+      "Name": "Reverb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\FX\\Reverb",
+      "GUID": "{351B4193-20FA-47E6-B6FC-5C8182C156F2}",
+      "Color": "16",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "956753948"
+        }
+       ]
+      }
      }
     ],
     "GameParameters": [
@@ -236,6 +245,13 @@
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Values\\DEN_GP_FearValue",
       "GUID": "{5DDCEF5F-D8C4-40D7-BD7E-8336CBE14C7F}",
       "Color": "14"
+     },
+     {
+      "Id": "4242028194",
+      "Name": "DEN_GP_Distance",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DEN_GameParameters\\DEN_GP_Distance",
+      "GUID": "{B5D33835-23A0-4ECA-B33F-DD73543543BC}",
+      "Color": "14"
      }
     ],
     "StateGroups": [
@@ -258,43 +274,6 @@
         "Name": "DEN_ST_Amb_Playing",
         "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Ambience\\DEN_ST_Amb_Playing",
         "GUID": "{591B604F-ED42-451A-9D6A-DB7A0655879F}",
-        "Color": "3"
-       }
-      ]
-     },
-     {
-      "Id": "1852625376",
-      "Name": "DEN_State_Audio_Mix",
-      "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Audio_Mix",
-      "GUID": "{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}",
-      "Color": "3",
-      "States": [
-       {
-        "Id": "748895195",
-        "Name": "None",
-        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Audio_Mix\\None",
-        "GUID": "{9194538F-49FF-48E6-851D-9C54A6070545}",
-        "Color": "3"
-       },
-       {
-        "Id": "1541385743",
-        "Name": "DEN_ST_Audio_Mix_StereoHP",
-        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Audio_Mix\\DEN_ST_Audio_Mix_StereoHP",
-        "GUID": "{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}",
-        "Color": "3"
-       },
-       {
-        "Id": "1960826282",
-        "Name": "DEN_ST_Audio_Mix_StereoSP",
-        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Audio_Mix\\DEN_ST_Audio_Mix_StereoSP",
-        "GUID": "{047D45B0-AF72-4DAF-B465-792165DD80A5}",
-        "Color": "3"
-       },
-       {
-        "Id": "2408252910",
-        "Name": "DEN_ST_Audio_Mix_Mono",
-        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Audio_Mix\\DEN_ST_Audio_Mix_Mono",
-        "GUID": "{180B6345-227B-45E9-BD3F-732A9DE1F93C}",
         "Color": "3"
        }
       ]
@@ -383,6 +362,80 @@
         "Name": "DEN_ST_Mood_Neutral",
         "ObjectPath": "\\States\\Default Work Unit\\DEN_State_Mood\\DEN_ST_Mood_Neutral",
         "GUID": "{88D8C9E8-142E-4396-BDE2-129CA516E641}",
+        "Color": "3"
+       }
+      ]
+     },
+     {
+      "Id": "3427900115",
+      "Name": "DEN_State_AudioMix",
+      "ObjectPath": "\\States\\Default Work Unit\\DEN_State_AudioMix",
+      "GUID": "{979F4E3D-EDA8-45EC-B9D1-3ED7BEC0C63A}",
+      "Color": "3",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_AudioMix\\None",
+        "GUID": "{9194538F-49FF-48E6-851D-9C54A6070545}",
+        "Color": "3"
+       },
+       {
+        "Id": "821439348",
+        "Name": "DEN_ST_AM_StereoHP",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_AudioMix\\DEN_ST_AM_StereoHP",
+        "GUID": "{6FBA0A20-1762-40E0-92C0-B6E3EA10C590}",
+        "Color": "3"
+       },
+       {
+        "Id": "1005992997",
+        "Name": "DEN_ST_AM_StereoSP",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_AudioMix\\DEN_ST_AM_StereoSP",
+        "GUID": "{047D45B0-AF72-4DAF-B465-792165DD80A5}",
+        "Color": "3"
+       },
+       {
+        "Id": "2662107589",
+        "Name": "DEN_ST_AM_Mono",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_AudioMix\\DEN_ST_AM_Mono",
+        "GUID": "{180B6345-227B-45E9-BD3F-732A9DE1F93C}",
+        "Color": "3"
+       }
+      ]
+     },
+     {
+      "Id": "3727414747",
+      "Name": "DEN_State_AudioExperience",
+      "ObjectPath": "\\States\\Default Work Unit\\DEN_State_AudioExperience",
+      "GUID": "{E17F6E2B-2EA1-4CD5-A3F5-F3961D13DBFB}",
+      "Color": "3",
+      "States": [
+       {
+        "Id": "663419673",
+        "Name": "DEN_ST_AE_Contemplative",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_AudioExperience\\DEN_ST_AE_Contemplative",
+        "GUID": "{9262B593-5443-4427-B424-738278C21AA4}",
+        "Color": "3"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_AudioExperience\\None",
+        "GUID": "{21937088-D9E9-4EFC-BC50-1E59841C6FED}",
+        "Color": "3"
+       },
+       {
+        "Id": "3807191716",
+        "Name": "DEN_ST_AE_Gameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_AudioExperience\\DEN_ST_AE_Gameplay",
+        "GUID": "{A5EF11DF-E4CC-41DB-91B7-3A89CA4ED5EE}",
+        "Color": "3"
+       },
+       {
+        "Id": "4177635748",
+        "Name": "DEN_ST_AE_Regular",
+        "ObjectPath": "\\States\\Default Work Unit\\DEN_State_AudioExperience\\DEN_ST_AE_Regular",
+        "GUID": "{726B3CA8-AAA6-403A-9AD0-2334B68F464E}",
         "Color": "3"
        }
       ]
@@ -605,6 +658,6 @@
     ]
    }
   ],
-  "FileHash": "{7A7C5B66-A9B8-B83A-AE8B-D5802ED02C3F}"
+  "FileHash": "{22925D7C-2C18-18C5-7B23-0087E481D56D}"
  }
 }

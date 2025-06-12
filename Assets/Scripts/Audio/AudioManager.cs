@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using AK.Wwise;
 using AYellowpaper.SerializedCollections;
-using DG.Tweening.Core.Easing;
-using Sinj;
 using Sirenix.OdinInspector;
 using SmartObjects_AI.Agent;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace Audio
 {
@@ -27,7 +24,13 @@ namespace Audio
         Mono,
         None
     }
-
+    public enum WwiseMixPreset
+    {
+        Regular,
+        Gameplay,
+        Contemplative,
+        None
+    }
     public enum WwiseEmotionStateRTPC
     {
         Curiosity,
@@ -94,6 +97,12 @@ namespace Audio
         public WwiseAudioState CurrentAudioState => currentAudioState;
         public int CurrentAudioStateIndex => (int)currentAudioState;
 
+        [Title("Mix Preset Variables")][ReadOnly, SerializeField, HideLabel] private bool mixPresetSeparator;
+        [SerializeField] public SerializedDictionary<WwiseMixPreset, State> mixPresets;
+        [SerializeField, ReadOnly] public WwiseMixPreset currentMixPreset;
+        public WwiseMixPreset CurrentMixPreset => currentMixPreset;
+        public int CurrentMixPresetIndex => (int)currentMixPreset;
+
         [Title("Wwise Mood Switches")][ReadOnly, SerializeField, HideLabel] private bool moodSwitchSeparator;
         [SerializeField] private SerializedDictionary<WwiseCuriositySwitch, Switch> moodCuriosity;
         [SerializeField] private SerializedDictionary<WwiseFearSwitch, Switch> moodFear;
@@ -142,18 +151,53 @@ namespace Audio
         };
         private uint cursorMovePlayingId = 0;
         [SerializeField] private GameObject mouseManifestation;
+        public GameObject MouseManifestation => mouseManifestation;
 
-        [Title("Wwise UI Events")]
+        [Title("Wwise Events")]
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event FaderTick;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event Box;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event UIMove;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event UIAccept;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event UIBack;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event UIMenu;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event MasterTest;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event MusicTest;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event AmbienceTest;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event SFXTest;
+        [FoldoutGroup("Wwise UI Events")]
+        [SerializeField] public AK.Wwise.Event Menu;
+        [FoldoutGroup("Wwise UI Events")]
+        [SerializeField] public AK.Wwise.Event Back;
+        [FoldoutGroup("Wwise UI Events")]
+        [SerializeField] public AK.Wwise.Event Accept;
+        [FoldoutGroup("Wwise UI Events")]
+        [SerializeField] public AK.Wwise.Event Move;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event FootstepWalk;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event FootstepRun;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Eat;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Scratch;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Sit;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Stand;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Tube;
+
+
 
 
         private void Awake()
@@ -211,6 +255,14 @@ namespace Audio
         public void RestartAmbience()
         {
             ResetAmbience.Post(this.gameObject);
+        }
+        public void PauseAmbience()
+        {
+            PlayAmbience?.ExecuteAction(this.gameObject, AkActionOnEventType.AkActionOnEventType_Pause, 450, AkCurveInterpolation.AkCurveInterpolation_Linear);
+        }
+        public void ResumeAmbience()
+        {
+            PlayAmbience?.ExecuteAction(this.gameObject, AkActionOnEventType.AkActionOnEventType_Resume, 250, AkCurveInterpolation.AkCurveInterpolation_Linear);
         }
 
         #region Tools
@@ -412,6 +464,9 @@ namespace Audio
             CursorSpeed.SetValue(target, clampedSpeed);
         }
 
+        #endregion Cursor
+
+        #region Cycles
         public void OnGameReady(object sender, EventArgs eventArgs)
         {
             StartCursorMoveSound(mouseManifestation);
@@ -436,7 +491,8 @@ namespace Audio
             // Reset mood state and ambience as before
             WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
             RestartAmbience();
+            GameManager.Instance.Reload();
         }
-        #endregion Cursor
+        #endregion Cycles
     }
 }

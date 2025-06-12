@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace SmartObjects_AI.Agent
 {
@@ -12,22 +12,48 @@ namespace SmartObjects_AI.Agent
         private static readonly int Curiosity = Animator.StringToHash("Curiosity");
         private static readonly int Aggression = Animator.StringToHash("Aggression");
         private static readonly int Fear = Animator.StringToHash("Fear");
+        private static readonly int FinishFast = Animator.StringToHash("FinishFast");
 
         [SerializeField] private MovementAgent movementAgent;
+        [SerializeField] private float rotationLerpSpeed = 10;
+
         private Animator m_animator;
 
         private bool m_isFinished = true;
         private bool m_adaptToMood = false;
         private bool m_shouldStopAnimationAgent;
-        
+
+        [NonSerialized] public Transform LookingObject;
+        private Transform m_currentLookingObject;
+        private Vector3 m_locationToLookAt;
+        private Quaternion m_goalRotation;
+        private Transform m_transformMovementAgent;
+
         private void Awake()
         {
             m_animator = GetComponent<Animator>();
+            m_transformMovementAgent = movementAgent.transform;
         }
 
         private void Update()
         {
             m_animator.SetFloat(Speed, movementAgent.GetSpeed());
+            
+            if (!m_currentLookingObject)
+                return;
+            
+            m_locationToLookAt = m_currentLookingObject.position - m_transformMovementAgent.position;
+            m_locationToLookAt.y = 0;
+            m_goalRotation = Quaternion.LookRotation(m_locationToLookAt, transform.up);
+            m_transformMovementAgent.rotation = Quaternion.Lerp(m_transformMovementAgent.rotation, m_goalRotation, rotationLerpSpeed*Time.deltaTime);
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (m_currentLookingObject)
+            {
+                Gizmos.DrawLine(m_transformMovementAgent.position, m_currentLookingObject.position);
+            }
         }
 
         public void SwitchMood(AgentDynamicParameter parameter)
@@ -77,17 +103,31 @@ namespace SmartObjects_AI.Agent
         public void StartMovementAgent()
         {
             movementAgent.StartAgent();
+            
+            StopLookingObject();
         }
         
         public void StopMovementAgent()
         {
             if(m_shouldStopAnimationAgent)
                 movementAgent.StopAgent();
+            
+            m_currentLookingObject = LookingObject;
+        }
+
+        public void StopLookingObject()
+        {
+            m_currentLookingObject = null;
         }
 
         public void SetStopMovementAgent(bool value)
         {
             m_shouldStopAnimationAgent = value;
+        }
+
+        public void SetEndFast(bool value)
+        {
+            m_animator.SetBool(FinishFast, value);
         }
     }
 }

@@ -66,7 +66,7 @@
 								<Action Name="" ID="{08580E76-6EDC-406A-8A42-97178B906272}" ShortID="690205415">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="DEN_Crea_NeutralBark" ID="{426BC6A2-BDFC-4A37-BAD1-CAAFCA79B3C7}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+											<ObjectRef Name="DEN_Crea_NeutralBarks" ID="{426BC6A2-BDFC-4A37-BAD1-CAAFCA79B3C7}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -78,6 +78,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="DEN_Crea_ScreamBarks" ID="{786A3461-4A26-47B5-9DD9-0DC2329497C9}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_Crea_IdleBarks" ID="{B4DB3BE8-DE46-4258-89D8-E3DBD72B8F24}">
+							<ChildrenList>
+								<Action Name="" ID="{D951FB96-4D37-4148-8D4A-927B7092CA88}" ShortID="312111847">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Crea_IdleBarks" ID="{EB761694-11B8-405E-915F-13F918901A7F}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_Crea_StingerBarks" ID="{739177A2-4C8F-4075-A272-14AE3AB16DA6}">
+							<ChildrenList>
+								<Action Name="" ID="{02369C0B-38EB-4192-86FC-72B54FA87856}" ShortID="704465971">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Crea_StingerBarks" ID="{9F923A5E-BEB7-47E2-814D-017BCD99EAB5}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -122,24 +144,6 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="Play_DEN_BushEnter" ID="{688C57BA-C181-40AD-B85F-D4D8F97EBC7B}">
-					<ChildrenList>
-						<Action Name="" ID="{768C8DC6-0FE6-4786-9AED-D9AD01ACF33F}" ShortID="406767909">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="DEN_POR_BushEnter" ID="{DC48B22C-C329-406E-8DCE-0432BBBC9CAA}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{7E0489F0-AC2B-46CB-A898-D4DD0743A8FE}" ShortID="268176798">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="DEN_POR_TwigBirds" ID="{B2BA2C14-9992-40B8-8633-A5E56D1ADA16}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_DEN_Stinger" ID="{4F9C075E-F583-4EF9-9C4A-3D605EAE0B52}">
 					<ChildrenList>
 						<Action Name="" ID="{03F374BD-72E6-49DD-8629-BDA4B6B117D6}" ShortID="45940557">
@@ -181,6 +185,105 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="DEN_STI_Mood_Curious" ID="{3FF9D409-040C-405D-8C87-46F1870DBE1D}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="DEN_EV_SFX_MomoMoves" ID="{52D98376-CC69-4867-AA3A-7ADAF51B36BB}" ShortID="342495809">
+					<ChildrenList>
+						<Event Name="Play_DEN_BushEnter" ID="{688C57BA-C181-40AD-B85F-D4D8F97EBC7B}">
+							<ChildrenList>
+								<Action Name="" ID="{768C8DC6-0FE6-4786-9AED-D9AD01ACF33F}" ShortID="406767909">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_POR_BushEnter" ID="{DC48B22C-C329-406E-8DCE-0432BBBC9CAA}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7E0489F0-AC2B-46CB-A898-D4DD0743A8FE}" ShortID="268176798">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_POR_TwigBirds" ID="{B2BA2C14-9992-40B8-8633-A5E56D1ADA16}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_Crea_MomoEat" ID="{7966C962-C74E-44DA-8CAE-719315E4F827}">
+							<ChildrenList>
+								<Action Name="" ID="{C054C707-62C4-48FE-AC60-A7D810BF642B}" ShortID="873156727">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Crea_MomoEat" ID="{2B82A0B2-DB03-4283-B2B7-094B9F8B4F64}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_MM_Sit" ID="{B61C8F07-F6D1-4F0B-8B86-7798EF508370}">
+							<ChildrenList>
+								<Action Name="" ID="{AA4F35EF-022E-440B-9C7C-BCB6D558C882}" ShortID="579715320">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_MM_Sit" ID="{F83682D7-2B71-457D-81D0-0AC0A6E2196F}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_MM_Scratch" ID="{63D4CDD0-9C52-4208-8EDD-E504F319E204}">
+							<ChildrenList>
+								<Action Name="" ID="{EBD6C252-D425-426F-A9FD-EBEA23D509C3}" ShortID="186655131">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_MM_Scratch" ID="{9CEE40A4-A255-4C09-BAF6-D6D832FD7C9C}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_MM_Tube" ID="{1C064CFD-E4DD-4ED0-A276-FE33C59854AF}">
+							<ChildrenList>
+								<Action Name="" ID="{83502E84-7858-4F0A-8C93-6AB84873DE4D}" ShortID="611480956">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_MM_Tube" ID="{E6F2FF7A-C967-49DE-A527-B9D4EDE8CD38}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_MM_Stand" ID="{EEE04535-2592-4273-AEEE-42CCF0FC6572}">
+							<ChildrenList>
+								<Action Name="" ID="{C70CC66E-1C16-448E-B812-EF8B7A19D431}" ShortID="250642371">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_MM_Stand" ID="{B6A547EE-8C3F-4481-AED4-8D04F6472286}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_FS_Running" ID="{7C5C7496-0CF0-4B50-BCE0-AC6234902B3E}">
+							<ChildrenList>
+								<Action Name="" ID="{AC3D63BC-2C5E-47E7-BE9D-0964EF03ACDA}" ShortID="508279498">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_FS_Running" ID="{A1CD9EAF-43F7-4D33-B454-D0E7232F4D6D}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_FS_Walking" ID="{85E80FB1-8DED-4209-92B5-A839A26E3F46}">
+							<ChildrenList>
+								<Action Name="" ID="{8CB3B71E-55C8-44F3-BDCE-EEE543836DCC}" ShortID="664539304">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_FS_Walking" ID="{A71FEA59-A763-493A-8E94-D2E6026DA24E}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
