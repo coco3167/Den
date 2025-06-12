@@ -13,6 +13,8 @@ namespace SmartObjects_AI.Agent
         private static readonly int Aggression = Animator.StringToHash("Aggression");
         private static readonly int Fear = Animator.StringToHash("Fear");
         private static readonly int FinishFast = Animator.StringToHash("FinishFast");
+        private static readonly int SkipStart = Animator.StringToHash("SkipStart");
+        private static readonly int SkipEnd = Animator.StringToHash("SkipEnd");
 
         [SerializeField] private MovementAgent movementAgent;
         [SerializeField] private float rotationLerpSpeed = 10;
@@ -129,5 +131,16 @@ namespace SmartObjects_AI.Agent
         {
             m_animator.SetBool(FinishFast, value);
         }
+        
+        public void SetSkipStart(bool value)
+        {
+            m_animator.SetBool(SkipStart, value);
+        }
+        
+        public void SetSkipEnd(bool value)
+        {
+            m_animator.SetBool(SkipEnd, value);
+        }
+        
     }
 }

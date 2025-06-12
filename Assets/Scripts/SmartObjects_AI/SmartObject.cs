@@ -77,6 +77,8 @@ namespace SmartObjects_AI
             }
             
             agent.animationAgent.SetEndFast(data.shouldEndFast);
+            agent.animationAgent.SetSkipStart(data.shouldSkipStart);
+            agent.animationAgent.SetSkipEnd(data.shouldSkipEnd);
 
             if (data.wwiseEvent.IsValid())
                 data.wwiseEvent.Post(agent.gameObject);
