@@ -95,18 +95,23 @@ namespace SmartObjects_AI.Agent
         {
             SearchForSmartObject();
 
-            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint, m_smartObjectToUse.Key.ShouldRun());
-                
-            if (m_previousSmartObject != m_smartObjectToUse.Key)
+            SmartObject smartObjectToUse = m_smartObjectToUse.Key;
+
+            m_movementAgent.SetDestination(smartObjectToUse.usingPoint, smartObjectToUse.ShouldRun());
+
+            if (m_previousSmartObject != smartObjectToUse && m_previousSmartObject.IsUsing(this))
             {
                 m_previousSmartObject.FinishUse(this);
-                m_previousSmartObject = m_smartObjectToUse.Key;
-                animationAgent.FinishUseAnimation();
+                animationAgent.FinishUseAnimation(smartObjectToUse.ShouldInterrupt());
             }
+            m_previousSmartObject = smartObjectToUse;
 
             if (m_movementAgent.IsCloseToDestination())
             {
-                m_smartObjectToUse.Key.Use(this);
+                if(animationAgent.IsAnimationReady())
+                    smartObjectToUse.StartUse(this);
+                else if(smartObjectToUse.IsUsing(this))
+                    smartObjectToUse.Use(this);
             }
         }
 

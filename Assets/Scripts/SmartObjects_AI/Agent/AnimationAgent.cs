@@ -21,7 +21,6 @@ namespace SmartObjects_AI.Agent
 
         private Animator m_animator;
 
-        private bool m_isFinished = true;
         private bool m_adaptToMood = false;
         private bool m_shouldStopAnimationAgent;
 
@@ -85,8 +84,6 @@ namespace SmartObjects_AI.Agent
 
         public void SwitchAnimator(RuntimeAnimatorController animatorController, bool adaptToMood)
         {
-            m_isFinished = false;
-            
             m_adaptToMood = adaptToMood;
             ResetMood();
             
@@ -94,12 +91,16 @@ namespace SmartObjects_AI.Agent
             m_animator.SetTrigger(StartUse);
         }
 
-        public void FinishUseAnimation()
+        public void FinishUseAnimation(bool shouldInterrupt)
         {
-            if(m_isFinished)
-                return;
-            m_isFinished = true;
             m_animator.SetTrigger(FinishUse);
+            Debug.Log($"finish use : {shouldInterrupt}");
+
+            if (shouldInterrupt)
+            {
+                SetEndFast(true);
+                SetSkipEnd(true);
+            }
         }
 
         public void StartMovementAgent()
@@ -129,6 +130,7 @@ namespace SmartObjects_AI.Agent
 
         public void SetEndFast(bool value)
         {
+            Debug.Log($"end fast : {value}");
             m_animator.SetBool(FinishFast, value);
         }
         
@@ -139,7 +141,13 @@ namespace SmartObjects_AI.Agent
         
         public void SetSkipEnd(bool value)
         {
+            Debug.Log($"skip end : {value}");
             m_animator.SetBool(SkipEnd, value);
+        }
+
+        public bool IsAnimationReady()
+        {
+            return m_animator.GetCurrentAnimatorStateInfo(0).IsTag("Usable");
         }
         
     }

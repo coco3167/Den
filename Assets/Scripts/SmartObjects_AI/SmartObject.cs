@@ -66,8 +66,10 @@ namespace SmartObjects_AI
             return data.scoreCalculation.CalculateScore(smartAgent, this);
         }
 
-        private void StartUse(SmartAgent agent)
+        public void StartUse(SmartAgent agent)
         {
+            m_startedUseList.Add(agent);
+            
             agent.animationAgent.SwitchAnimator(data.animatorController, data.adatpToMood);
             agent.animationAgent.SetStopMovementAgent(data.shouldStopAgent);
 
@@ -94,13 +96,6 @@ namespace SmartObjects_AI
 
         public void Use(SmartAgent agent)
         {
-            if (!m_startedUseList.Contains(agent))
-            {
-                StartUse(agent);
-                m_startedUseList.Add(agent);
-                return;
-            }
-            
             foreach (KeyValuePair<AgentDynamicParameter, float> parameterEffect in data.parameterEffectOnAgent)
             {
                 agent.AddDynamicParameter(parameterEffect.Key, parameterEffect.Value);
@@ -130,6 +125,11 @@ namespace SmartObjects_AI
         public bool IsRest()
         {
             return data.IsRest();
+        }
+
+        public bool ShouldInterrupt()
+        {
+            return data.shouldInterruptNext;
         }
 
         /// <summary>
