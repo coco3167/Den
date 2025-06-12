@@ -34,6 +34,11 @@ namespace SmartObjects_AI
             scoreCalculation.Init();
         }
 
+        public bool IsRest()
+        {
+            return scoreCalculation.GetType() == typeof(RestScore);
+        }
+
         public enum DefaultLookingPoint
         {
             None,
@@ -43,5 +48,6 @@ namespace SmartObjects_AI
     public enum SmartObjectParameter
     {
         Usage,
+        Dirtiness,
     }
 }

@@ -11,6 +11,8 @@ namespace SmartObjects_AI
 {
     public class SmartObject : MonoBehaviour, IReloadable
     {
+        [NonSerialized] public bool IsUsable = true;
+        
         [field: SerializeField] public Transform usingPoint { get; private set; }
         [field: SerializeField] public Transform lookingPoint { get; private set; }
         [SerializeField] private SmartObjectData data;
@@ -121,6 +123,11 @@ namespace SmartObjects_AI
         public bool ShouldRun()
         {
             return data.shouldRunTo;
+        }
+
+        public bool IsRest()
+        {
+            return data.IsRest();
         }
 
         /// <summary>

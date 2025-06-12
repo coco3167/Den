@@ -16,6 +16,8 @@ namespace SmartObjects_AI.Agent
         
         [SerializeField] private SmartAgentData data;
         [SerializeField] private float agentDecisionFlexibility;
+        
+        [SerializeField] private SmartObject groomingObject;
 
         [field : SerializeField] public AnimationAgent animationAgent { get; private set; }
         
@@ -23,7 +25,8 @@ namespace SmartObjects_AI.Agent
         [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> dynamicParameters = new();
 
         // Score and SmartObjects
-        private SmartObject[] m_smartObjects, m_smartObjectsOwning;
+        private SmartObject[] m_smartObjects;
+        [SerializeField, ReadOnly] private SmartObject[] m_smartObjectsOwning;
         private SmartObject m_previousSmartObject;
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
         private KeyValuePair<SmartObject, float> m_smartObjectToUse;
@@ -128,6 +131,8 @@ namespace SmartObjects_AI.Agent
                 if (m_smartObjectToUse.Value < previousScore + agentDecisionFlexibility)
                     m_smartObjectToUse = new KeyValuePair<SmartObject, float>(m_previousSmartObject, previousScore);
             }
+
+            groomingObject.IsUsable = m_smartObjectToUse.Key.IsRest() && m_smartObjectToUse.Key.IsUsing(this);
             
             m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse.Key)].IsSpecial = true;
         }

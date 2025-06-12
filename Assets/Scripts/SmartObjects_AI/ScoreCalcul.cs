@@ -38,7 +38,7 @@ namespace SmartObjects_AI
         }
     }
     
-    public class SleepScore : BaseScoreCalcul
+    public class RestScore : BaseScoreCalcul
     {
         private float m_tiredness, m_distanceCoefficient;
 
@@ -92,8 +92,24 @@ namespace SmartObjects_AI
             return 10 * m_usageCoeff / m_mousePlayerProximity;
         }
     }
-    
-    
+
+    public class GroomingScore : BaseScoreCalcul
+    {
+        private float m_dirtiness, m_distanceCoefficient;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            base.CalculateScore(smartAgent, smartObject);
+
+            if (smartAgent.IsOwner(smartObject) || !smartObject.IsUsable)
+                return 0;
+            
+            m_dirtiness = smartObject.GetDynamicParameter(SmartObjectParameter.Dirtiness);
+            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+            
+            return p_usingCapacity * m_dirtiness * m_distanceCoefficient/10;
+        }
+    }
     
     #region Deprecated
     
