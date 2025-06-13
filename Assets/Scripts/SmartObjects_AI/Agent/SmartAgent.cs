@@ -181,14 +181,6 @@ namespace SmartObjects_AI.Agent
                 AddDynamicParameter(parameter, data.dynamicParametersVariation[parameter]);
             }
         }
-
-        public float GetBiggestEmotion()
-        {
-            return Math.Max(
-                Math.Max(GetDynamicParameter(AgentDynamicParameter.Curiosity),
-                    GetDynamicParameter(AgentDynamicParameter.Aggression)),
-                GetDynamicParameter(AgentDynamicParameter.Fear));
-        }
         
         #endregion
 

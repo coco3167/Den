@@ -18,7 +18,6 @@ namespace SmartObjects_AI
         
         [Title("Boolean")]
         [field: SerializeField] public bool shouldRunTo { get; private set; } = false;
-        [field: SerializeField] public bool adatpToMood { get; private set; } = false;
         [field: SerializeField] public bool shouldStopAgent { get; private set; } = false;
         [field: SerializeField] public bool shouldLookAtObject { get; private set; } = false;
         [field: SerializeField, EnableIf("shouldLookAtObject")] public DefaultLookingPoint defaultLookingPoint { get; private set; }

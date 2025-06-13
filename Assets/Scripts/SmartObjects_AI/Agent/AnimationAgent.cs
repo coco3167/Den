@@ -21,7 +21,6 @@ namespace SmartObjects_AI.Agent
 
         private Animator m_animator;
 
-        private bool m_adaptToMood = false;
         private bool m_shouldStopAnimationAgent;
 
         [NonSerialized] public Transform LookingObject;
@@ -57,36 +56,8 @@ namespace SmartObjects_AI.Agent
             }
         }
 
-        public void SwitchMood(AgentDynamicParameter parameter)
+        public void SwitchAnimator(RuntimeAnimatorController animatorController)
         {
-            if(!m_adaptToMood)
-                return;
-            switch (parameter)
-            {
-                case AgentDynamicParameter.Curiosity:
-                    m_animator.SetBool(Curiosity, true);
-                    break;
-                case AgentDynamicParameter.Aggression:
-                    m_animator.SetBool(Aggression, true);
-                    break;
-                case AgentDynamicParameter.Fear:
-                    m_animator.SetBool(Fear, true);
-                    break;
-            }
-        }
-
-        public void ResetMood()
-        {
-            m_animator.SetBool(Curiosity, false);
-            m_animator.SetBool(Aggression, false);
-            m_animator.SetBool(Fear, false);
-        }
-
-        public void SwitchAnimator(RuntimeAnimatorController animatorController, bool adaptToMood)
-        {
-            m_adaptToMood = adaptToMood;
-            ResetMood();
-            
             m_animator.runtimeAnimatorController = animatorController;
             m_animator.SetTrigger(StartUse);
         }

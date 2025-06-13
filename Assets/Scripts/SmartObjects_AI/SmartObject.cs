@@ -70,7 +70,7 @@ namespace SmartObjects_AI
         {
             m_startedUseList.Add(agent);
             
-            agent.animationAgent.SwitchAnimator(data.animatorController, data.adatpToMood);
+            agent.animationAgent.SwitchAnimator(data.animatorController);
             agent.animationAgent.SetStopMovementAgent(data.shouldStopAgent);
 
             if (data.shouldLookAtObject && lookingPoint)

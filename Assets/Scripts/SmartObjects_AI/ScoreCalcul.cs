@@ -53,7 +53,7 @@ namespace SmartObjects_AI
         }
     }
     
-    public class FleePoint : BaseScoreCalcul
+    public class FleePointCuriosity : BaseScoreCalcul
     {
         private float m_mousePlayerProximity, m_distanceCoefficient;
 
@@ -69,7 +69,30 @@ namespace SmartObjects_AI
             if (smartAgent.IsGoing(smartObject))
             {
                 m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
-                return Math.Max(1, smartAgent.GetBiggestEmotion()) * Math.Max(m_distanceCoefficient, 1/m_mousePlayerProximity);
+                return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity)) * Math.Max(m_distanceCoefficient, 1/m_mousePlayerProximity);
+            }
+            
+            return 10 / m_mousePlayerProximity;
+        }
+    }
+    
+    public class FleePointAggression : BaseScoreCalcul
+    {
+        private float m_mousePlayerProximity, m_distanceCoefficient;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            if (!smartAgent.IsOwner(smartObject))
+                return 0;
+            
+            
+            m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
+            m_mousePlayerProximity *= m_mousePlayerProximity;
+            
+            if (smartAgent.IsGoing(smartObject))
+            {
+                m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+                return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression)) * Math.Max(m_distanceCoefficient, 1/m_mousePlayerProximity);
             }
             
             return 10 / m_mousePlayerProximity;
