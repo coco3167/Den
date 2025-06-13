@@ -78,6 +78,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 2688688be1df7934aa1041fba0af3035, type: 2}
   agentDecisionFlexibility: 1
   groomingObject: {fileID: 5123573746155390108}
+  fightObject: {fileID: 7848071345593520305}
   <animationAgent>k__BackingField: {fileID: 579326141887779282}
   dynamicParametersStartValue:
     _serializedList:
@@ -320,15 +321,15 @@ PrefabInstance:
       objectReference: {fileID: 2344725178497238442}
     - target: {fileID: 8575047228937180028, guid: 5543f0786476b3141bde77a04964005a, type: 3}
       propertyPath: dynamicParametersStartValue._serializedList.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8575047228937180028, guid: 5543f0786476b3141bde77a04964005a, type: 3}
       propertyPath: dynamicParametersStartValue._serializedList.Array.data[0].Key
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8575047228937180028, guid: 5543f0786476b3141bde77a04964005a, type: 3}
       propertyPath: dynamicParametersStartValue._serializedList.Array.data[0].Value
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -341,6 +342,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6085368776231162620, guid: 5543f0786476b3141bde77a04964005a, type: 3}
   m_PrefabInstance: {fileID: 2011212700062417869}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7848071345593520305 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8575047228937180028, guid: 5543f0786476b3141bde77a04964005a, type: 3}
+  m_PrefabInstance: {fileID: 2011212700062417869}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873ecba2b6d54196bf419f27087cd2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2031766490545620080
 PrefabInstance:
   m_ObjectHideFlags: 0

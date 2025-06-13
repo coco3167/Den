@@ -26,6 +26,7 @@ namespace SmartObjects_AI.Agent
         Tiredness,
         Hunger,
         Fight,
+        UsableFear,
     }
 
     /*[Serializable]

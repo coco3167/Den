@@ -51,5 +51,6 @@ namespace SmartObjects_AI
     {
         Usage,
         Dirtiness,
+        Fear,
     }
 }

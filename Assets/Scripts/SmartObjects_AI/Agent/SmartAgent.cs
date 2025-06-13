@@ -18,6 +18,7 @@ namespace SmartObjects_AI.Agent
         [SerializeField] private float agentDecisionFlexibility;
         
         [SerializeField] private SmartObject groomingObject;
+        [SerializeField] private SmartObject fightObject;
 
         [field : SerializeField] public AnimationAgent animationAgent { get; private set; }
         
@@ -90,6 +91,8 @@ namespace SmartObjects_AI.Agent
 
         private void AIUpdate()
         {
+            AddDynamicParameter(AgentDynamicParameter.UsableFear, fightObject.GetDynamicParameter(SmartObjectParameter.Fear));
+            
             DynamicParameterVariation();
             
             TryToUseSmartObject();

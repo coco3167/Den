@@ -32,9 +32,9 @@ namespace SmartObjects_AI
         {
             base.CalculateScore(smartAgent, smartObject);
             
-            m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger);
+            m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger)/10;
             
-            return p_usingCapacity * m_hunger * p_distanceCoefficient/10;
+            return p_usingCapacity * m_hunger * p_distanceCoefficient;
         }
     }
     
@@ -46,9 +46,9 @@ namespace SmartObjects_AI
         {
             base.CalculateScore(smartAgent, smartObject);
             
-            m_tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness);
+            m_tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness)/10;
             
-            return p_usingCapacity * m_tiredness * p_distanceCoefficient/10;
+            return p_usingCapacity * m_tiredness * p_distanceCoefficient;
         }
     }
     
@@ -125,9 +125,9 @@ namespace SmartObjects_AI
             base.CalculateScore(smartAgent, smartObject);
             
             
-            m_dirtiness = smartObject.GetDynamicParameter(SmartObjectParameter.Dirtiness);
+            m_dirtiness = smartObject.GetDynamicParameter(SmartObjectParameter.Dirtiness)/10;
             
-            return p_usingCapacity * m_dirtiness * p_distanceCoefficient/10;
+            return p_usingCapacity * m_dirtiness * p_distanceCoefficient;
         }
     }
 
@@ -144,6 +144,20 @@ namespace SmartObjects_AI
             m_agentFight = smartAgent.GetDynamicParameter(AgentDynamicParameter.Fight)/10;
 
             return p_usingCapacity * m_agentFight * p_distanceCoefficient;
+        }
+    }
+
+    public class Hideout : BaseScoreCalcul
+    {
+        private float m_agentFear;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            base.CalculateScore(smartAgent, smartObject);
+
+            m_agentFear = Math.Max(smartAgent.GetDynamicParameter(AgentDynamicParameter.UsableFear), smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear))/10;
+
+            return p_usingCapacity * m_agentFear * p_distanceCoefficient;
         }
     }
     
