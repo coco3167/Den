@@ -9,7 +9,7 @@ namespace SmartObjects_AI
     public abstract class BaseScoreCalcul
     {
         protected MouseManager p_mouseManager;
-        protected float p_usingCapacity;
+        protected float p_usingCapacity, p_distanceCoefficient;
 
         public void Init()
         {
@@ -19,43 +19,42 @@ namespace SmartObjects_AI
         public virtual float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             p_usingCapacity = !smartObject.IsUsing(smartAgent) && !smartObject.HasRoomForUse() ? 0 : 1;
+            p_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
             return 0;
         }
     }
     
     public class EatScore : BaseScoreCalcul
     {
-        private float m_hunger, m_distanceCoefficient;
+        private float m_hunger;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             base.CalculateScore(smartAgent, smartObject);
             
             m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger);
-            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
             
-            return p_usingCapacity * m_hunger * m_distanceCoefficient/10;
+            return p_usingCapacity * m_hunger * p_distanceCoefficient/10;
         }
     }
     
     public class RestScore : BaseScoreCalcul
     {
-        private float m_tiredness, m_distanceCoefficient;
+        private float m_tiredness;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             base.CalculateScore(smartAgent, smartObject);
             
             m_tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness);
-            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
             
-            return p_usingCapacity * m_tiredness * m_distanceCoefficient/10;
+            return p_usingCapacity * m_tiredness * p_distanceCoefficient/10;
         }
     }
     
     public class FleePointCuriosity : BaseScoreCalcul
     {
-        private float m_mousePlayerProximity, m_distanceCoefficient;
+        private float m_mousePlayerProximity;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
@@ -68,8 +67,7 @@ namespace SmartObjects_AI
             
             if (smartAgent.IsGoing(smartObject))
             {
-                m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
-                return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity)) * Math.Max(m_distanceCoefficient, 1/m_mousePlayerProximity);
+                return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity)) * Math.Max(p_distanceCoefficient, 1/m_mousePlayerProximity);
             }
             
             return 10 / m_mousePlayerProximity;
@@ -78,7 +76,7 @@ namespace SmartObjects_AI
     
     public class FleePointAggression : BaseScoreCalcul
     {
-        private float m_mousePlayerProximity, m_distanceCoefficient;
+        private float m_mousePlayerProximity;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
@@ -91,8 +89,7 @@ namespace SmartObjects_AI
             
             if (smartAgent.IsGoing(smartObject))
             {
-                m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
-                return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression)) * Math.Max(m_distanceCoefficient, 1/m_mousePlayerProximity);
+                return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression)) * Math.Max(p_distanceCoefficient, 1/m_mousePlayerProximity);
             }
             
             return 10 / m_mousePlayerProximity;
@@ -118,19 +115,35 @@ namespace SmartObjects_AI
 
     public class GroomingScore : BaseScoreCalcul
     {
-        private float m_dirtiness, m_distanceCoefficient;
+        private float m_dirtiness;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            base.CalculateScore(smartAgent, smartObject);
-
             if (smartAgent.IsOwner(smartObject) || !smartObject.IsUsable)
                 return 0;
             
-            m_dirtiness = smartObject.GetDynamicParameter(SmartObjectParameter.Dirtiness);
-            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+            base.CalculateScore(smartAgent, smartObject);
             
-            return p_usingCapacity * m_dirtiness * m_distanceCoefficient/10;
+            
+            m_dirtiness = smartObject.GetDynamicParameter(SmartObjectParameter.Dirtiness);
+            
+            return p_usingCapacity * m_dirtiness * p_distanceCoefficient/10;
+        }
+    }
+
+    public class FightScore : BaseScoreCalcul
+    {
+        private float m_agentFight;
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            if (smartAgent.IsOwner(smartObject))
+                return 0;
+            
+            base.CalculateScore(smartAgent, smartObject);
+
+            m_agentFight = smartAgent.GetDynamicParameter(AgentDynamicParameter.Fight)/10;
+
+            return p_usingCapacity * m_agentFight * p_distanceCoefficient;
         }
     }
     

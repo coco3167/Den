@@ -65,7 +65,6 @@ namespace SmartObjects_AI.Agent
         public void FinishUseAnimation(bool shouldInterrupt)
         {
             m_animator.SetTrigger(FinishUse);
-            Debug.Log($"finish use : {shouldInterrupt}");
 
             if (shouldInterrupt)
             {
@@ -101,7 +100,6 @@ namespace SmartObjects_AI.Agent
 
         public void SetEndFast(bool value)
         {
-            Debug.Log($"end fast : {value}");
             m_animator.SetBool(FinishFast, value);
         }
         
@@ -112,7 +110,6 @@ namespace SmartObjects_AI.Agent
         
         public void SetSkipEnd(bool value)
         {
-            Debug.Log($"skip end : {value}");
             m_animator.SetBool(SkipEnd, value);
         }
 

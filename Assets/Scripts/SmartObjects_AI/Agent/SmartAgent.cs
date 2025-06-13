@@ -26,26 +26,17 @@ namespace SmartObjects_AI.Agent
 
         // Score and SmartObjects
         private SmartObject[] m_smartObjects;
-        [SerializeField, ReadOnly] private SmartObject[] m_smartObjectsOwning;
+        private SmartObject[] m_smartObjectsOwning;
         private SmartObject m_previousSmartObject;
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
         private KeyValuePair<SmartObject, float> m_smartObjectToUse;
         
-        private DebugParameter[] m_debugParameters;
+        private DebugParameter[] m_debugParameters = {};
         
         private MovementAgent m_movementAgent;
-        
+
         private void Awake()
         {
-            m_smartObjects = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-            m_debugParameters = new DebugParameter[m_smartObjects.Length];
-            
-            for (var loop = 0; loop < m_smartObjects.Length; loop++)
-            {
-                DebugParameter debugParameter = new DebugParameter(m_smartObjects[loop].name, "0");
-                m_debugParameters.SetValue(debugParameter, loop);
-            }
-            
             m_movementAgent = GetComponent<MovementAgent>();
             
             //Dynamic values to default state
@@ -63,6 +54,7 @@ namespace SmartObjects_AI.Agent
 
         public void OnGameReady(object sender, EventArgs eventArgs)
         {
+            Init();
             SearchForSmartObject();
             m_previousSmartObject = m_smartObjectToUse.Key;
             InvokeRepeating(nameof(AIUpdate), 0, AIUpdateSleepTime);
@@ -82,6 +74,18 @@ namespace SmartObjects_AI.Agent
             {
                 SetDynamicParameter(x, dynamicParametersStartValue.GetValueOrDefault(x));
             });
+        }
+        
+        private void Init()
+        {
+            m_smartObjects = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            m_debugParameters = new DebugParameter[m_smartObjects.Length];
+            
+            for (var loop = 0; loop < m_smartObjects.Length; loop++)
+            {
+                DebugParameter debugParameter = new DebugParameter(m_smartObjects[loop].name, "0");
+                m_debugParameters.SetValue(debugParameter, loop);
+            }
         }
 
         private void AIUpdate()

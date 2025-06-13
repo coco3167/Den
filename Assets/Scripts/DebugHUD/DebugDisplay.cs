@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace DebugHUD
 {
-    public class DebugDisplay : MonoBehaviour, IReloadable, IGameStateListener
+    public class DebugDisplay : MonoBehaviour, IReloadable
     {
         [SerializeField] private GameObject parameterPrefab;
         [SerializeField] private Transform content;
@@ -33,17 +33,12 @@ namespace DebugHUD
             // Nothing There
         }
         
-        public void OnGameReady(object sender, EventArgs eventArgs)
+        public void Init()
         {
             SetupDisplayAbles();
             if(m_displayAbles.Count == 0)
                 return;
             SetupParameters();
-        }
-
-        public void OnGameEnded(object sender, EventArgs eventArgs)
-        {
-            // Nothing there
         }
 
         public void OnGamePaused(object sender, EventArgs eventArgs)
