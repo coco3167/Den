@@ -68,7 +68,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2636891235096447983}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b18a043d7a834a2b9e3fed4992d31fc2, type: 3}
   m_Name: 
@@ -275,30 +275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProceduralComponent
       objectReference: {fileID: 0}
-    - target: {fileID: 2857643518734642285, guid: 78b24331a352afd42928709e13499b46, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4451448550000089250, guid: 78b24331a352afd42928709e13499b46, type: 3}
-      propertyPath: m_Name
-      value: Spine4Look
-      objectReference: {fileID: 0}
     - target: {fileID: 5272602896326063484, guid: 78b24331a352afd42928709e13499b46, type: 3}
       propertyPath: agent
       value: 
       objectReference: {fileID: 3674485137582665523}
-    - target: {fileID: 6925169969470503022, guid: 78b24331a352afd42928709e13499b46, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2698411
-      objectReference: {fileID: 0}
-    - target: {fileID: 6925169969470503022, guid: 78b24331a352afd42928709e13499b46, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2698413
-      objectReference: {fileID: 0}
-    - target: {fileID: 6925169969470503022, guid: 78b24331a352afd42928709e13499b46, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2698413
-      objectReference: {fileID: 0}
     - target: {fileID: 6925169969470503022, guid: 78b24331a352afd42928709e13499b46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -313,23 +293,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6925169969470503022, guid: 78b24331a352afd42928709e13499b46, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7072302
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6925169969470503022, guid: 78b24331a352afd42928709e13499b46, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7069834
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6925169969470503022, guid: 78b24331a352afd42928709e13499b46, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6925169969470503022, guid: 78b24331a352afd42928709e13499b46, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6925169969470503022, guid: 78b24331a352afd42928709e13499b46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 89.98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6925169969470503022, guid: 78b24331a352afd42928709e13499b46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1614,7 +1594,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1bf72a13d453ab4a857b3a9c08675bf, type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 8778282408653552707}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1bf72a13d453ab4a857b3a9c08675bf, type: 3}
@@ -1722,7 +1702,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3153068997202566928}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
   m_Name: 
