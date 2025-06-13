@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.8769367, z: -0, w: -0.48060596}
   m_LocalPosition: {x: -0.474, y: 0.237, z: -0.212}
-  m_LocalScale: {x: 0.01, y: 0.08, z: 0.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8116641561114375267}
@@ -56,7 +56,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 8116641561114375267}
-  wiggleMagnitude: 3
+  gone: 0
+  maxIntensity: 2
   movementMagnitude: 0.15
   movementCurve:
     serializedVersion: 2
@@ -100,6 +101,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  distanceMoved: 0
+  distanceToLeave: 0.7
+  wiggleMagnitude: 3
   wiggleCurve:
     serializedVersion: 2
     m_Curve:
@@ -133,13 +137,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  intensity: 0
-  maxIntensity: 2
-  solidity: 0
   maxSolidity: 1
-  distanceMoved: 0
-  distanceToLeave: 0.7
-  gone: 0
 --- !u!54 &331078272690766857
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -196,7 +194,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 369799894893512439}
