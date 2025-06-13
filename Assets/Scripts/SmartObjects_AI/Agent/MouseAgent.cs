@@ -55,17 +55,6 @@ namespace SmartObjects_AI.Agent
             AttenuateDynamicParameter(AgentDynamicParameter.Curiosity);
             AttenuateDynamicParameter(AgentDynamicParameter.Aggression);
             AttenuateDynamicParameter(AgentDynamicParameter.Fear);
-
-            UpdateAnimationEmotion();
-        }
-
-        private void UpdateAnimationEmotion()
-        {
-            KeyValuePair<AgentDynamicParameter, float> maxEmotion = m_currentMouseParameters.Aggregate((a, b) => a.Value > b.Value ? a : b);
-            if(maxEmotion.Value < emotionsDisplayCap[maxEmotion.Key])
-                animationAgent.ResetMood();
-            else
-                animationAgent.SwitchMood(maxEmotion.Key);
         }
         
         private void AttenuateDynamicParameter(AgentDynamicParameter parameter)
