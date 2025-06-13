@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,12 @@ namespace DebugHUD
         [SerializeField] private List<GameObject> objectsToHide;
         [SerializeField] private List<DebugDisplay> debugDisplays;
         private bool m_shouldDisplay;
-        
+
+        private void Awake()
+        {
+            objectsToHide.ForEach(x => x.SetActive(m_shouldDisplay));
+        }
+
         // Update is called once per frame
         void Update()
         {
