@@ -16,6 +16,9 @@ namespace SmartObjects_AI.Agent
         
         [SerializeField] private SmartAgentData data;
         [SerializeField] private float agentDecisionFlexibility;
+        
+        [SerializeField] private SmartObject groomingObject;
+        [SerializeField] private SmartObject fightObject;
 
         [field : SerializeField] public AnimationAgent animationAgent { get; private set; }
         
@@ -23,26 +26,18 @@ namespace SmartObjects_AI.Agent
         [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> dynamicParameters = new();
 
         // Score and SmartObjects
-        private SmartObject[] m_smartObjects, m_smartObjectsOwning;
+        private SmartObject[] m_smartObjects;
+        private SmartObject[] m_smartObjectsOwning;
         private SmartObject m_previousSmartObject;
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
         private KeyValuePair<SmartObject, float> m_smartObjectToUse;
         
-        private DebugParameter[] m_debugParameters;
+        private DebugParameter[] m_debugParameters = {};
         
         private MovementAgent m_movementAgent;
-        
+
         private void Awake()
         {
-            m_smartObjects = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-            m_debugParameters = new DebugParameter[m_smartObjects.Length];
-            
-            for (var loop = 0; loop < m_smartObjects.Length; loop++)
-            {
-                DebugParameter debugParameter = new DebugParameter(m_smartObjects[loop].name, "0");
-                m_debugParameters.SetValue(debugParameter, loop);
-            }
-            
             m_movementAgent = GetComponent<MovementAgent>();
             
             //Dynamic values to default state
@@ -60,6 +55,7 @@ namespace SmartObjects_AI.Agent
 
         public void OnGameReady(object sender, EventArgs eventArgs)
         {
+            Init();
             SearchForSmartObject();
             m_previousSmartObject = m_smartObjectToUse.Key;
             InvokeRepeating(nameof(AIUpdate), 0, AIUpdateSleepTime);
@@ -80,9 +76,23 @@ namespace SmartObjects_AI.Agent
                 SetDynamicParameter(x, dynamicParametersStartValue.GetValueOrDefault(x));
             });
         }
+        
+        private void Init()
+        {
+            m_smartObjects = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            m_debugParameters = new DebugParameter[m_smartObjects.Length];
+            
+            for (var loop = 0; loop < m_smartObjects.Length; loop++)
+            {
+                DebugParameter debugParameter = new DebugParameter(m_smartObjects[loop].name, "0");
+                m_debugParameters.SetValue(debugParameter, loop);
+            }
+        }
 
         private void AIUpdate()
         {
+            AddDynamicParameter(AgentDynamicParameter.UsableFear, fightObject.GetDynamicParameter(SmartObjectParameter.Fear));
+            
             DynamicParameterVariation();
             
             TryToUseSmartObject();
@@ -92,18 +102,23 @@ namespace SmartObjects_AI.Agent
         {
             SearchForSmartObject();
 
-            m_movementAgent.SetDestination(m_smartObjectToUse.Key.usingPoint, m_smartObjectToUse.Key.ShouldRun());
-                
-            if (m_previousSmartObject != m_smartObjectToUse.Key)
+            SmartObject smartObjectToUse = m_smartObjectToUse.Key;
+
+            m_movementAgent.SetDestination(smartObjectToUse.usingPoint, smartObjectToUse.ShouldRun());
+
+            if (m_previousSmartObject != smartObjectToUse && m_previousSmartObject.IsUsing(this))
             {
                 m_previousSmartObject.FinishUse(this);
-                m_previousSmartObject = m_smartObjectToUse.Key;
-                animationAgent.FinishUseAnimation();
+                animationAgent.FinishUseAnimation(smartObjectToUse.ShouldInterrupt());
             }
+            m_previousSmartObject = smartObjectToUse;
 
             if (m_movementAgent.IsCloseToDestination())
             {
-                m_smartObjectToUse.Key.Use(this);
+                if(animationAgent.IsAnimationReady())
+                    smartObjectToUse.StartUse(this);
+                else if(smartObjectToUse.IsUsing(this))
+                    smartObjectToUse.Use(this);
             }
         }
 
@@ -128,6 +143,8 @@ namespace SmartObjects_AI.Agent
                 if (m_smartObjectToUse.Value < previousScore + agentDecisionFlexibility)
                     m_smartObjectToUse = new KeyValuePair<SmartObject, float>(m_previousSmartObject, previousScore);
             }
+
+            groomingObject.IsUsable = m_smartObjectToUse.Key.IsRest() && m_smartObjectToUse.Key.IsUsing(this);
             
             m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse.Key)].IsSpecial = true;
         }
@@ -170,14 +187,6 @@ namespace SmartObjects_AI.Agent
             {
                 AddDynamicParameter(parameter, data.dynamicParametersVariation[parameter]);
             }
-        }
-
-        public float GetBiggestEmotion()
-        {
-            return Math.Max(
-                Math.Max(GetDynamicParameter(AgentDynamicParameter.Curiosity),
-                    GetDynamicParameter(AgentDynamicParameter.Aggression)),
-                GetDynamicParameter(AgentDynamicParameter.Fear));
         }
         
         #endregion

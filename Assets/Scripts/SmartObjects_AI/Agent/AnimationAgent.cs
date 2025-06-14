@@ -13,14 +13,14 @@ namespace SmartObjects_AI.Agent
         private static readonly int Aggression = Animator.StringToHash("Aggression");
         private static readonly int Fear = Animator.StringToHash("Fear");
         private static readonly int FinishFast = Animator.StringToHash("FinishFast");
+        private static readonly int SkipStart = Animator.StringToHash("SkipStart");
+        private static readonly int SkipEnd = Animator.StringToHash("SkipEnd");
 
         [SerializeField] private MovementAgent movementAgent;
         [SerializeField] private float rotationLerpSpeed = 10;
 
         private Animator m_animator;
 
-        private bool m_isFinished = true;
-        private bool m_adaptToMood = false;
         private bool m_shouldStopAnimationAgent;
 
         [NonSerialized] public Transform LookingObject;
@@ -56,48 +56,21 @@ namespace SmartObjects_AI.Agent
             }
         }
 
-        public void SwitchMood(AgentDynamicParameter parameter)
+        public void SwitchAnimator(RuntimeAnimatorController animatorController)
         {
-            if(!m_adaptToMood)
-                return;
-            switch (parameter)
-            {
-                case AgentDynamicParameter.Curiosity:
-                    m_animator.SetBool(Curiosity, true);
-                    break;
-                case AgentDynamicParameter.Aggression:
-                    m_animator.SetBool(Aggression, true);
-                    break;
-                case AgentDynamicParameter.Fear:
-                    m_animator.SetBool(Fear, true);
-                    break;
-            }
-        }
-
-        public void ResetMood()
-        {
-            m_animator.SetBool(Curiosity, false);
-            m_animator.SetBool(Aggression, false);
-            m_animator.SetBool(Fear, false);
-        }
-
-        public void SwitchAnimator(RuntimeAnimatorController animatorController, bool adaptToMood)
-        {
-            m_isFinished = false;
-            
-            m_adaptToMood = adaptToMood;
-            ResetMood();
-            
             m_animator.runtimeAnimatorController = animatorController;
             m_animator.SetTrigger(StartUse);
         }
 
-        public void FinishUseAnimation()
+        public void FinishUseAnimation(bool shouldInterrupt)
         {
-            if(m_isFinished)
-                return;
-            m_isFinished = true;
             m_animator.SetTrigger(FinishUse);
+
+            if (shouldInterrupt)
+            {
+                SetEndFast(true);
+                SetSkipEnd(true);
+            }
         }
 
         public void StartMovementAgent()
@@ -129,5 +102,21 @@ namespace SmartObjects_AI.Agent
         {
             m_animator.SetBool(FinishFast, value);
         }
+        
+        public void SetSkipStart(bool value)
+        {
+            m_animator.SetBool(SkipStart, value);
+        }
+        
+        public void SetSkipEnd(bool value)
+        {
+            m_animator.SetBool(SkipEnd, value);
+        }
+
+        public bool IsAnimationReady()
+        {
+            return m_animator.GetCurrentAnimatorStateInfo(0).IsTag("Usable");
+        }
+        
     }
 }

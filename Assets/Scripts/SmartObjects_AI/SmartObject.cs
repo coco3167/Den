@@ -11,6 +11,8 @@ namespace SmartObjects_AI
 {
     public class SmartObject : MonoBehaviour, IReloadable
     {
+        [NonSerialized] public bool IsUsable = true;
+        
         [field: SerializeField] public Transform usingPoint { get; private set; }
         [field: SerializeField] public Transform lookingPoint { get; private set; }
         [SerializeField] private SmartObjectData data;
@@ -64,9 +66,11 @@ namespace SmartObjects_AI
             return data.scoreCalculation.CalculateScore(smartAgent, this);
         }
 
-        private void StartUse(SmartAgent agent)
+        public void StartUse(SmartAgent agent)
         {
-            agent.animationAgent.SwitchAnimator(data.animatorController, data.adatpToMood);
+            m_startedUseList.Add(agent);
+            
+            agent.animationAgent.SwitchAnimator(data.animatorController);
             agent.animationAgent.SetStopMovementAgent(data.shouldStopAgent);
 
             if (data.shouldLookAtObject && lookingPoint)
@@ -75,6 +79,8 @@ namespace SmartObjects_AI
             }
             
             agent.animationAgent.SetEndFast(data.shouldEndFast);
+            agent.animationAgent.SetSkipStart(data.shouldSkipStart);
+            agent.animationAgent.SetSkipEnd(data.shouldSkipEnd);
 
             if (data.wwiseEvent.IsValid())
                 data.wwiseEvent.Post(agent.gameObject);
@@ -90,13 +96,6 @@ namespace SmartObjects_AI
 
         public void Use(SmartAgent agent)
         {
-            if (!m_startedUseList.Contains(agent))
-            {
-                StartUse(agent);
-                m_startedUseList.Add(agent);
-                return;
-            }
-            
             foreach (KeyValuePair<AgentDynamicParameter, float> parameterEffect in data.parameterEffectOnAgent)
             {
                 agent.AddDynamicParameter(parameterEffect.Key, parameterEffect.Value);
@@ -121,6 +120,16 @@ namespace SmartObjects_AI
         public bool ShouldRun()
         {
             return data.shouldRunTo;
+        }
+
+        public bool IsRest()
+        {
+            return data.IsRest();
+        }
+
+        public bool ShouldInterrupt()
+        {
+            return data.shouldInterruptNext;
         }
 
         /// <summary>

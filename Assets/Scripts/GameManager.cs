@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
             return;
         IsPaused = !IsPaused;
         Cursor.lockState = IsPaused ? CursorLockMode.None : CursorLockMode.Locked;
-        Time.timeScale = IsPaused ? 0 : 1;
+        Time.timeScale = IsPaused ? 0 : Options.GameParameters.TimeScale;
 
         // Pause or resume ambience
         if (IsPaused)
