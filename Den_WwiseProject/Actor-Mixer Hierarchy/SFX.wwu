@@ -3621,6 +3621,7 @@
 						<SwitchContainer Name="DEN_FS_Switch" ID="{36914098-998B-45B0-873A-7E92B041DB8C}" ShortID="165140743">
 							<PropertyList>
 								<Property Name="OverrideConversion" Type="bool" Value="True"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -4252,6 +4253,27 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{2FF5DDAB-B4FB-4ABB-9F7D-AEFD2691DD83}" ShortID="387046217">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Parametric EQ (Custom)" ID="{C17729E7-6DBE-404A-8C59-8504F5523158}" ShortID="723817217" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+																<PropertyList>
+																	<Property Name="GainBand1" Type="Real32" Value="6"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 							<GroupingInfo>
 								<GroupingBehaviorList>
 									<GroupingBehavior>

@@ -63,7 +63,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.8318345
-        functionName: PlayReacCurious
+        functionName: PlayIdle
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -97,7 +97,28 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.73697186
+        functionName: PlayFootstepWalk
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9165992
+        functionName: PlayFootstepWalk
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3485211
+        functionName: PlayReacCurious
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
