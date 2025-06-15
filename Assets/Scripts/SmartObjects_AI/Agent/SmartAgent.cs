@@ -28,7 +28,7 @@ namespace SmartObjects_AI.Agent
         // Score and SmartObjects
         private SmartObject[] m_smartObjects;
         private SmartObject[] m_smartObjectsOwning;
-        private SmartObject m_previousSmartObject;
+        private SmartObject m_currentSmartObject;
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
         private KeyValuePair<SmartObject, float> m_smartObjectToUse;
         
@@ -57,7 +57,8 @@ namespace SmartObjects_AI.Agent
         {
             Init();
             SearchForSmartObject();
-            m_previousSmartObject = m_smartObjectToUse.Key;
+            m_currentSmartObject = m_smartObjectToUse.Key;
+            m_movementAgent.SetDestination(m_currentSmartObject.usingPoint, m_currentSmartObject.ShouldRun());
             InvokeRepeating(nameof(AIUpdate), 0, AIUpdateSleepTime);
         }
 
@@ -91,7 +92,8 @@ namespace SmartObjects_AI.Agent
 
         private void AIUpdate()
         {
-            AddDynamicParameter(AgentDynamicParameter.UsableFear, fightObject.GetDynamicParameter(SmartObjectParameter.Fear));
+            // TODO enlever le commentaire du bout de code par poitier
+            //AddDynamicParameter(AgentDynamicParameter.UsableFear, fightObject.GetDynamicParameter(SmartObjectParameter.Fear));
             
             DynamicParameterVariation();
             
@@ -103,22 +105,31 @@ namespace SmartObjects_AI.Agent
             SearchForSmartObject();
 
             SmartObject smartObjectToUse = m_smartObjectToUse.Key;
-
-            m_movementAgent.SetDestination(smartObjectToUse.usingPoint, smartObjectToUse.ShouldRun());
-
-            if (m_previousSmartObject != smartObjectToUse && m_previousSmartObject.IsUsing(this))
-            {
-                m_previousSmartObject.FinishUse(this);
-                animationAgent.FinishUseAnimation(smartObjectToUse.ShouldInterrupt());
+            bool isStillSameObject = smartObjectToUse == m_currentSmartObject;
+            
+            if (!isStillSameObject && animationAgent.IsAnimationReady())
+            { 
+                m_currentSmartObject.FinishUse(this);
+                m_currentSmartObject = smartObjectToUse;
             }
-            m_previousSmartObject = smartObjectToUse;
+            
+            m_movementAgent.SetDestination(m_currentSmartObject.usingPoint, m_currentSmartObject.ShouldRun());
+            if (m_currentSmartObject.IsUsing(this) && !m_movementAgent.IsCloseToDestination())
+            {
+                animationAgent.FinishUseAnimation(true, false);
+                m_currentSmartObject.FinishUse(this);
+            }
+            
+            animationAgent.FinishUseAnimation(!(isStillSameObject && m_movementAgent.IsCloseToDestination()), smartObjectToUse.ShouldInterrupt());
 
             if (m_movementAgent.IsCloseToDestination())
             {
-                if(animationAgent.IsAnimationReady())
-                    smartObjectToUse.StartUse(this);
-                else if(smartObjectToUse.IsUsing(this))
-                    smartObjectToUse.Use(this);
+                if (animationAgent.IsAnimationReady())
+                {
+                    m_currentSmartObject.StartUse(this);
+                }
+                else if(m_currentSmartObject.IsUsing(this))
+                    m_currentSmartObject.Use(this);
             }
         }
 
@@ -137,11 +148,11 @@ namespace SmartObjects_AI.Agent
             m_smartObjectToUse = m_smartObjectScore.Aggregate((a, b) => a.Value > b.Value ? a : b);
 
             // Dont change smartobject unless score remarkable score diff 
-            if (m_previousSmartObject)
+            if (m_currentSmartObject)
             {
-                float previousScore = m_smartObjectScore[m_previousSmartObject]; 
+                float previousScore = m_smartObjectScore[m_currentSmartObject]; 
                 if (m_smartObjectToUse.Value < previousScore + agentDecisionFlexibility)
-                    m_smartObjectToUse = new KeyValuePair<SmartObject, float>(m_previousSmartObject, previousScore);
+                    m_smartObjectToUse = new KeyValuePair<SmartObject, float>(m_currentSmartObject, previousScore);
             }
 
             groomingObject.IsUsable = m_smartObjectToUse.Key.IsRest() && m_smartObjectToUse.Key.IsUsing(this);
@@ -156,7 +167,7 @@ namespace SmartObjects_AI.Agent
 
         public bool IsGoing(SmartObject smartObject)
         {
-            return m_previousSmartObject == smartObject;
+            return m_currentSmartObject == smartObject;
         }
 
         public float CurrentScore()

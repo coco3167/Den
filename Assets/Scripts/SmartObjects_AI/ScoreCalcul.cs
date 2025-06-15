@@ -65,12 +65,12 @@ namespace SmartObjects_AI
             m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
             m_mousePlayerProximity *= m_mousePlayerProximity;
             
-            if (smartAgent.IsGoing(smartObject))
-            {
-                return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity)) * Math.Max(p_distanceCoefficient, 1/m_mousePlayerProximity);
-            }
+            // if (smartAgent.IsGoing(smartObject))
+            // {
+            //     return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity)) * Math.Max(p_distanceCoefficient, 1/m_mousePlayerProximity);
+            // }
             
-            return 10 / m_mousePlayerProximity;
+            return 10 / m_mousePlayerProximity * smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity);
         }
     }
     
@@ -147,7 +147,7 @@ namespace SmartObjects_AI
         }
     }
 
-    public class Hideout : BaseScoreCalcul
+    public class HideoutScore : BaseScoreCalcul
     {
         private float m_agentFear;
 
@@ -158,6 +158,23 @@ namespace SmartObjects_AI
             m_agentFear = Math.Max(smartAgent.GetDynamicParameter(AgentDynamicParameter.UsableFear), smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear))/10;
 
             return p_usingCapacity * m_agentFear * p_distanceCoefficient;
+        }
+    }
+
+    public class AgressionCapScore : BaseScoreCalcul
+    {
+        private float m_agressionCap;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            if (!smartAgent.IsOwner(smartObject))
+                return 0;
+            
+            m_agressionCap = smartAgent.GetDynamicParameter(AgentDynamicParameter.AggressionCap);
+
+            Debug.Log(m_agressionCap, smartAgent);
+            
+            return 10 * m_agressionCap;
         }
     }
     

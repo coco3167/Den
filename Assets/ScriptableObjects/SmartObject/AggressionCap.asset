@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8a81eb427104b4198b7965408a44e57, type: 3}
-  m_Name: Hideout
+  m_Name: AggressionCap
   m_EditorClassIdentifier: 
   <scoreCalculation>k__BackingField:
-    rid: 4719945366016622768
-  <animatorController>k__BackingField: {fileID: 22100000, guid: a278c5804ee0ab84cacc654e700f9880, type: 2}
+    rid: 4719945365713059942
+  <animatorController>k__BackingField: {fileID: 22100000, guid: 1d0cf6082d2d5484f9321108de7090b0, type: 2}
   <wwiseEvent>k__BackingField:
     idInternal: 0
     valueGuidInternal: 
@@ -25,9 +25,9 @@ MonoBehaviour:
   <shouldStopAgent>k__BackingField: 1
   <shouldLookAtObject>k__BackingField: 0
   <defaultLookingPoint>k__BackingField: 0
-  <shouldEndFast>k__BackingField: 1
-  <shouldSkipStart>k__BackingField: 1
-  <shouldSkipEnd>k__BackingField: 1
+  <shouldEndFast>k__BackingField: 0
+  <shouldSkipStart>k__BackingField: 0
+  <shouldSkipEnd>k__BackingField: 0
   <shouldInterruptNext>k__BackingField: 1
   <dynamicParametersEffect>k__BackingField:
     _serializedList: []
@@ -35,11 +35,11 @@ MonoBehaviour:
     _serializedList: []
   <parameterEffectOnAgent>k__BackingField:
     _serializedList:
-    - Key: 8
-      Value: -1
+    - Key: 9
+      Value: -100
   references:
     version: 2
     RefIds:
-    - rid: 4719945366016622768
-      type: {class: HideoutScore, ns: SmartObjects_AI, asm: Assembly-CSharp}
+    - rid: 4719945365713059942
+      type: {class: AgressionCapScore, ns: SmartObjects_AI, asm: Assembly-CSharp}
       data: 
