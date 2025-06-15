@@ -27,14 +27,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6692819926565070717}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.8769367, z: -0, w: -0.48060596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.474, y: 0.237, z: -0.212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8116641561114375267}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 237.45, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6649811842798947992
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   sprite: {fileID: 8116641561114375267}
   gone: 0
   maxIntensity: 2
-  movementMagnitude: 0.15
+  movementMagnitude: 0.1
   movementCurve:
     serializedVersion: 2
     m_Curve:
@@ -102,8 +102,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   distanceMoved: 0
-  distanceToLeave: 0.7
-  wiggleMagnitude: 3
+  distanceToLeave: 0.3
+  wiggleMagnitude: 0.1
   wiggleCurve:
     serializedVersion: 2
     m_Curve:
@@ -163,7 +163,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &8132886515237628196
 GameObject:
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 8116641561114375267}
   - component: {fileID: 7291044657761120116}
   - component: {fileID: 4898755909982929787}
-  - component: {fileID: 986028719799335659}
+  - component: {fileID: 8019314396966900076}
   m_Layer: 0
   m_Name: BranchSprite
   m_TagString: Branch
@@ -230,7 +230,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 03f353c7e39ec214eaad79d5b8bac900, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -252,8 +252,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &986028719799335659
-MeshCollider:
+--- !u!65 &8019314396966900076
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -267,10 +267,9 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 9.22, y: 2.220446e-16, z: 6.49}
+  m_Center: {x: 0, y: 0, z: -1.7}

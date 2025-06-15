@@ -89,7 +89,7 @@ public class Proc_Look : MonoBehaviour /*, IGameStateListener*/
 
     void UpdateConstraints(Vector3 newRatio)
     {
-        Debug.Log(newRatio);
+        
 
 
         foreach (MultiAimConstraint aimConstraint in aimConstraints)
@@ -108,7 +108,7 @@ public class Proc_Look : MonoBehaviour /*, IGameStateListener*/
     {
         Vector3 toTarget = (targetPos - transform.position).normalized;                                         
         float dot = Vector3.Dot(transform.forward, toTarget); // -1 (behind) to 1 (in front)                        <--
-        Debug.Log(Mathf.Clamp01((dot + 1f) / 2f));
+        
         return Mathf.Clamp01((dot + 1f) / 2f); // Remap from [-1,1] to [0,1]                                        <-- Full chat GPT ça
         
     }
