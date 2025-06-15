@@ -9,9 +9,6 @@ namespace SmartObjects_AI.Agent
         private static readonly int StartUse = Animator.StringToHash("StartUse");
         private static readonly int FinishUse = Animator.StringToHash("FinishUse");
         private static readonly int Speed = Animator.StringToHash("Speed");
-        private static readonly int Curiosity = Animator.StringToHash("Curiosity");
-        private static readonly int Aggression = Animator.StringToHash("Aggression");
-        private static readonly int Fear = Animator.StringToHash("Fear");
         private static readonly int FinishFast = Animator.StringToHash("FinishFast");
         private static readonly int SkipStart = Animator.StringToHash("SkipStart");
         private static readonly int SkipEnd = Animator.StringToHash("SkipEnd");
@@ -23,7 +20,6 @@ namespace SmartObjects_AI.Agent
 
         private bool m_shouldStopAnimationAgent;
 
-        [NonSerialized] public Transform LookingObject;
         private Transform m_currentLookingObject;
         private Vector3 m_locationToLookAt;
         private Quaternion m_goalRotation;
@@ -38,7 +34,13 @@ namespace SmartObjects_AI.Agent
         private void Update()
         {
             m_animator.SetFloat(Speed, movementAgent.GetSpeed());
-            
+
+            if (IsAnimationReady())
+            {
+                StartMovementAgent();
+                StopLookingObject();
+            }
+
             if (!m_currentLookingObject)
                 return;
             
@@ -56,36 +58,43 @@ namespace SmartObjects_AI.Agent
             }
         }
 
-        public void SwitchAnimator(RuntimeAnimatorController animatorController)
+        public void SwitchAnimator(SmartObjectData data, Transform lookingObject = null)
         {
-            m_animator.runtimeAnimatorController = animatorController;
+            m_animator.runtimeAnimatorController = data.animatorController;
+            
+            if(data.shouldLookAtObject)
+                m_currentLookingObject = lookingObject;
+            
+            m_animator.SetBool(SkipStart, data.shouldSkipStart);
+            m_animator.SetBool(SkipEnd, data.shouldSkipEnd);
+            m_animator.SetBool(FinishFast, data.shouldEndFast);
+            
             m_animator.SetTrigger(StartUse);
+            
+            if(data.shouldStopAgent)
+                movementAgent.StopAgent();
         }
 
-        public void FinishUseAnimation(bool shouldInterrupt)
+        public void FinishUseAnimation(bool shouldEnd, bool shouldInterrupt)
         {
-            m_animator.SetTrigger(FinishUse);
+            m_animator.SetBool(FinishUse, shouldEnd);
 
-            if (shouldInterrupt)
+            if (shouldEnd && shouldInterrupt)
             {
-                SetEndFast(true);
-                SetSkipEnd(true);
+                m_animator.SetBool(FinishFast, true);
+                m_animator.SetBool(SkipEnd, true);
             }
         }
 
         public void StartMovementAgent()
         {
             movementAgent.StartAgent();
-            
             StopLookingObject();
         }
         
         public void StopMovementAgent()
         {
-            if(m_shouldStopAnimationAgent)
-                movementAgent.StopAgent();
-            
-            m_currentLookingObject = LookingObject;
+            movementAgent.StopAgent();
         }
 
         public void StopLookingObject()
@@ -93,30 +102,10 @@ namespace SmartObjects_AI.Agent
             m_currentLookingObject = null;
         }
 
-        public void SetStopMovementAgent(bool value)
-        {
-            m_shouldStopAnimationAgent = value;
-        }
-
-        public void SetEndFast(bool value)
-        {
-            m_animator.SetBool(FinishFast, value);
-        }
-        
-        public void SetSkipStart(bool value)
-        {
-            m_animator.SetBool(SkipStart, value);
-        }
-        
-        public void SetSkipEnd(bool value)
-        {
-            m_animator.SetBool(SkipEnd, value);
-        }
-
         public bool IsAnimationReady()
         {
             return m_animator.GetCurrentAnimatorStateInfo(0).IsTag("Usable");
         }
-        
+
     }
 }

@@ -70,17 +70,7 @@ namespace SmartObjects_AI
         {
             m_startedUseList.Add(agent);
             
-            agent.animationAgent.SwitchAnimator(data.animatorController);
-            agent.animationAgent.SetStopMovementAgent(data.shouldStopAgent);
-
-            if (data.shouldLookAtObject && lookingPoint)
-            {
-                agent.animationAgent.LookingObject = lookingPoint;
-            }
-            
-            agent.animationAgent.SetEndFast(data.shouldEndFast);
-            agent.animationAgent.SetSkipStart(data.shouldSkipStart);
-            agent.animationAgent.SetSkipEnd(data.shouldSkipEnd);
+            agent.animationAgent.SwitchAnimator(data);
 
             if (data.wwiseEvent.IsValid())
                 data.wwiseEvent.Post(agent.gameObject);
@@ -89,9 +79,6 @@ namespace SmartObjects_AI
         public void FinishUse(SmartAgent agent)
         {
             m_startedUseList.Remove(agent);
-            agent.animationAgent.LookingObject = null;
-            if(!data.shouldStopAgent)
-                agent.animationAgent.StopLookingObject();
         }
 
         public void Use(SmartAgent agent)
@@ -105,6 +92,9 @@ namespace SmartObjects_AI
             {
                 AddDynamicParameter(parameterEffect.Key, parameterEffect.Value);
             }
+            
+            if(data.shouldStopAgent)
+                agent.animationAgent.StopMovementAgent();
         }
 
         public bool HasRoomForUse()
@@ -140,7 +130,7 @@ namespace SmartObjects_AI
         public float DistanceCoefficient(SmartAgent agent)
         {
             float distance = Vector3.Distance(agent.transform.position, transform.position);
-            return 1/Math.Max(data.minRadius, distance);
+            return Math.Max(1, 1/Math.Max(data.minRadius, distance));
         }
 
         #region DynamicParameters

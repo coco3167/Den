@@ -27,6 +27,7 @@ namespace SmartObjects_AI.Agent
         Hunger,
         Fight,
         UsableFear,
+        AggressionCap,
     }
 
     /*[Serializable]
