@@ -140,7 +140,7 @@ namespace SmartObjects_AI
         public float DistanceCoefficient(SmartAgent agent)
         {
             float distance = Vector3.Distance(agent.transform.position, transform.position);
-            return 1/Math.Max(data.minRadius, distance);
+            return 1 + 1/Math.Max(data.minRadius, distance);
         }
 
         #region DynamicParameters

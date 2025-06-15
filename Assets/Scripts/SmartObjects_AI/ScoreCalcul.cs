@@ -150,14 +150,15 @@ namespace SmartObjects_AI
     public class Hideout : BaseScoreCalcul
     {
         private float m_agentFear;
+        
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             base.CalculateScore(smartAgent, smartObject);
 
-            m_agentFear = Math.Max(smartAgent.GetDynamicParameter(AgentDynamicParameter.UsableFear), smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear))/10;
+            m_agentFear = Math.Max(smartAgent.GetDynamicParameter(AgentDynamicParameter.UsableFear), smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear)) / 10;
 
-            return p_usingCapacity * m_agentFear * p_distanceCoefficient;
+            return p_usingCapacity * m_agentFear * p_distanceCoefficient * 10;
         }
     }
     
