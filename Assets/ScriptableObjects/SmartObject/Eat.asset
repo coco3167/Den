@@ -22,18 +22,20 @@ MonoBehaviour:
   <maxUser>k__BackingField: 1
   <minRadius>k__BackingField: 1
   <shouldRunTo>k__BackingField: 0
-  <adatpToMood>k__BackingField: 0
-  <shouldStopAgent>k__BackingField: 0
+  <shouldStopAgent>k__BackingField: 1
   <shouldLookAtObject>k__BackingField: 1
   <defaultLookingPoint>k__BackingField: 0
-  <shouldEndFast>k__BackingField: 1
+  <shouldEndFast>k__BackingField: 0
+  <shouldSkipStart>k__BackingField: 0
+  <shouldSkipEnd>k__BackingField: 1
+  <shouldInterruptNext>k__BackingField: 0
   <dynamicParametersEffect>k__BackingField:
     _serializedList: []
   <dynamicParametersVariation>k__BackingField:
     _serializedList: []
   <parameterEffectOnAgent>k__BackingField:
     _serializedList:
-    - Key: 7
+    - Key: 6
       Value: -5
   references:
     version: 2
