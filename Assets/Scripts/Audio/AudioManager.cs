@@ -151,22 +151,72 @@ namespace Audio
         };
         private uint cursorMovePlayingId = 0;
         [SerializeField] private GameObject mouseManifestation;
+        public GameObject MouseManifestation => mouseManifestation;
 
-        [Title("Wwise UI Events")]
+        [Title("Wwise Events")]
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event FaderTick;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event Box;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event UIMove;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event UIAccept;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event UIBack;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event UIMenu;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event MasterTest;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event MusicTest;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event AmbienceTest;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event SFXTest;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event Menu;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event Back;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event Accept;
+        [FoldoutGroup("Wwise UI Events")]
         [SerializeField] public AK.Wwise.Event Move;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event FootstepWalk;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event FootstepRun;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Eat;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Scratch;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Sit;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Stand;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Tube;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Groomer;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event Idle;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event MoodBark;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event ReacAnger;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event ReacFear;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event ReacCurious;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event SleepFlower;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event StingerScream;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event Groomed;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event Scream;
+
 
 
 
@@ -434,6 +484,9 @@ namespace Audio
             CursorSpeed.SetValue(target, clampedSpeed);
         }
 
+        #endregion Cursor
+
+        #region Cycles
         public void OnGameReady(object sender, EventArgs eventArgs)
         {
             StartCursorMoveSound(mouseManifestation);
@@ -458,7 +511,8 @@ namespace Audio
             // Reset mood state and ambience as before
             WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
             RestartAmbience();
+            GameManager.Instance.Reload();
         }
-        #endregion Cursor
+        #endregion Cycles
     }
 }

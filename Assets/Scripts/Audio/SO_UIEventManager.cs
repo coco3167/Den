@@ -1,5 +1,6 @@
 using UnityEngine;
 using Audio;
+using System.Runtime.CompilerServices;
 
 [CreateAssetMenu(fileName = "SO_UIEventManager", menuName = "Scriptable Objects/SO_UIEventManager")]
 public class SO_UIEventManager : ScriptableObject
