@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
@@ -25,6 +26,8 @@ namespace SmartObjects_AI.Agent
         private float m_emotionDecrease;
         private float m_parameterValue;
         private Dictionary<AgentDynamicParameter, float> m_currentMouseParameters;
+
+        [NonSerialized] public bool InfluencedByMouse;
         
         public void Init(MouseManager mouseManager)
         {
@@ -43,6 +46,9 @@ namespace SmartObjects_AI.Agent
 
         private void MouseReactionLoop()
         {
+            if(!InfluencedByMouse)
+                return;
+            
             foreach (SinjActiveBehavior mouseReaction in mouseReactions)
             {
                 if (mouseReaction.IsApplying(this))

@@ -31,7 +31,6 @@ namespace Sinj
         private float m_intensity;
         private WorldParameters m_worldParameters;
 
-
         private void Awake()
         {
             m_worldParameters = GameManager.Instance.worldParameters;
@@ -120,6 +119,11 @@ namespace Sinj
             m_worldParameters.AgentGlobalParameters[parameter] += curve.Evaluate(value)*Time.deltaTime;
 
             GameManager.Instance.HandlePallier(parameter, (int)m_worldParameters.AgentGlobalParameters[parameter]);
+        }
+
+        public void InfluencedByMouse(bool value)
+        {
+            mouseAgents.ForEach(x => x.InfluencedByMouse = value);
         }
 
         

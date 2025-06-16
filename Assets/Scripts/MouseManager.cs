@@ -15,6 +15,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     private Vector3 m_movementNewPos;
     private RaycastHit m_hit;
 
+
     private void FixedUpdate()
     {
         if (GameManager.Instance.IsPaused)
@@ -47,7 +48,6 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     {
         value *= Options.GameParameters.MouseSensitivity;
         MoveRigidBody(value);
-        
     }
 
     public void OnOtherMoveStart(Vector2 value)
