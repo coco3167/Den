@@ -52,6 +52,7 @@ public class IntroManager : MonoBehaviour, IReloadable
         SetDepthOfField(dofRange.x);
         
         sinjManager.InfluencedByMouse(false);
+        mouseManager.IsUsed = false;
     }
 
     // Update is called once per frame
@@ -140,7 +141,8 @@ public class IntroManager : MonoBehaviour, IReloadable
                     mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, cameraSpots[1].rotation, cameraMoveSpeed * Time.deltaTime);
                 }
                 sinjManager.InfluencedByMouse(true);
-                // foutre    mouse manager au milieu
+                mouseManager.IsUsed = true;
+                // Déclencher OnGameReady via anim ?
                 break;
         }
 
@@ -232,6 +234,7 @@ public class IntroManager : MonoBehaviour, IReloadable
     {
         step = 2;
         sinjManager.InfluencedByMouse(false);
+        mouseManager.IsUsed = false;
     }
 
     private void SetDepthOfField(float value)
