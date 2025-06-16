@@ -192,9 +192,85 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
-      propertyPath: mouseManager
-      value: 
-      objectReference: {fileID: 1353841251}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[1].Value.m_Curve.Array.data[1].time
+      value: 0.15023367
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[0].Value.m_Curve.Array.data[1].value
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[1].Value.m_Curve.Array.data[1].value
+      value: 0.8919038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[1].Value.m_Curve.Array.data[2].value
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[2].Value.m_Curve.Array.data[1].value
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[0].Value.m_Curve.Array.data[0].inSlope
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[0].Value.m_Curve.Array.data[1].inSlope
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[1].Value.m_Curve.Array.data[0].inSlope
+      value: 5.936777
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[1].Value.m_Curve.Array.data[1].inSlope
+      value: 2.0618355
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[2].Value.m_Curve.Array.data[0].inSlope
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[2].Value.m_Curve.Array.data[1].inSlope
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[0].Value.m_Curve.Array.data[0].outSlope
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[0].Value.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[0].Value.m_Curve.Array.data[1].outSlope
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[1].Value.m_Curve.Array.data[0].outSlope
+      value: 5.936777
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[1].Value.m_Curve.Array.data[1].inWeight
+      value: 0.4662556
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[1].Value.m_Curve.Array.data[1].outSlope
+      value: 2.0618355
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[2].Value.m_Curve.Array.data[0].outSlope
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[2].Value.m_Curve.Array.data[1].outSlope
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581851118876373522, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
+      propertyPath: emotionsTransmissionCurve._serializedList.Array.data[0].Value.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
     - target: {fileID: 3474819815636296662, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -263,10 +339,6 @@ PrefabInstance:
       propertyPath: <lookingPoint>k__BackingField
       value: 
       objectReference: {fileID: 1450386404}
-    - target: {fileID: 6266057349210577837, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6462830934067320995, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -405,17 +477,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
-    - {fileID: 2676457169690422559, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
-    - {fileID: 4786756996769550250, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
     - {fileID: 8165187398133708177, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
     - {fileID: 1778720081852203169, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
     - {fileID: 2810419321207054453, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
     - {fileID: 1701239582615707316, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
     - {fileID: 7223174399680194524, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
-    - {fileID: 1142944690004914716, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
-    - {fileID: 4230956568586660246, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
-    - {fileID: 844786449002632075, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
-    - {fileID: 2631516861073470910, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2221577614170658128, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
@@ -488,17 +554,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3822608347102319024, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
   m_PrefabInstance: {fileID: 975807054}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1353841251 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7460971846164452987, guid: fc5ef6dc093220d4a96af57f6a4a4056, type: 3}
-  m_PrefabInstance: {fileID: 975807054}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cebb16c4b01f67042a4981fe4c828452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1357162949
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,9 +50,9 @@ Material:
     - _HeightBlend: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WindHeight: -0.21
-    - _WindMask: 0.61
-    - _WindNoiseSpeed: -0.84
+    - _WindHeight: 0.05
+    - _WindMask: 2
+    - _WindNoiseSpeed: -0.1
     - _WindSpeed: 0.1
     - _alpha: 1.99
     m_Colors:
@@ -62,8 +62,8 @@ Material:
     - _FarColor: {r: 0, g: 0.5372549, b: 0.12549016, a: 1}
     - _NearColor: {r: 1, g: 0.7803922, b: 0, a: 1}
     - _NearFarRange: {r: 0, g: 0, b: 0, a: 0}
-    - _WindNoiseContrast: {r: 0, g: 1, b: 0, a: 0}
-    - _WindNoiseScale: {r: 0, g: 0.85, b: 0, a: 0}
+    - _WindNoiseContrast: {r: 0, g: 0.25, b: 0, a: 0}
+    - _WindNoiseScale: {r: 0, g: 0.15, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6742428774958673428

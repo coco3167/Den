@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: momo_flowerP 3
+  m_Name: momo_Feuille
   m_Shader: {fileID: -6465566751694194690, guid: f17a8f4989c2dc94dbabcda8996cef83, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -25,19 +25,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _baseColor:
-        m_Texture: {fileID: 2800000, guid: 54f10a869dadebf439ee9c18f460158d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 243297cd04b699a4ab30202d1dff5e81, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _metal:
-        m_Texture: {fileID: 2800000, guid: eeb48ca0116fb7544a86d891938c9fc2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 105d9d38db890fe4a9663a8a176f6efe, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _normal:
-        m_Texture: {fileID: 2800000, guid: 1372145906906d24c912e7b7b9e11a8b, type: 3}
+        m_Texture: {fileID: 2800000, guid: e94bb06e79a61c14bad749fa453a0f7b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _rought:
-        m_Texture: {fileID: 2800000, guid: 3e204d58176207349a48f569f39d6a3a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 16b6431f3e91d5a41aba616c4b53acc3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -56,13 +56,12 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _colo: 0.25
+    - _colo: 1
     - _intensityM: 0
     - _intensityR: 0
     - _lod: 0
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Vector3: {r: 0.78, g: 0.65, b: 1.18, a: 0}
     - _offset: {r: 0, g: 0, b: 0, a: 0}
     - _tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

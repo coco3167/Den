@@ -89,7 +89,6 @@ namespace SmartObjects_AI.Agent
 
         public void OnPallierFinished(AgentDynamicParameter parameter)
         {
-            // TODO remettre souris + baisser agression cap
             GameManager.Instance.InfluencedByMouse(true);
             smartAgent.SetDynamicParameter(parameter, 0);
         }

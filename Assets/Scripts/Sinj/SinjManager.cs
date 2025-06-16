@@ -117,7 +117,7 @@ namespace Sinj
                 return;
 
             value /= 100;
-            m_worldParameters.AgentGlobalParameters[parameter] += curve.Evaluate(value)*Time.deltaTime;
+            m_worldParameters.AgentGlobalParameters[parameter] += curve.Evaluate(value)*Time.deltaTime/sinjCount;
 
             GameManager.Instance.HandlePallier(parameter, (int)m_worldParameters.AgentGlobalParameters[parameter]);
         }
