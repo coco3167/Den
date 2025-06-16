@@ -180,8 +180,6 @@ namespace SmartObjects_AI
                 return 0;
             
             m_agressionCap = smartAgent.GetDynamicParameter(AgentDynamicParameter.AggressionCap);
-
-            Debug.Log(m_agressionCap, smartAgent);
             
             return 10 * m_agressionCap;
         }

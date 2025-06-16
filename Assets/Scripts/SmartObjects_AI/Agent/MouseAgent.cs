@@ -27,7 +27,7 @@ namespace SmartObjects_AI.Agent
         private float m_parameterValue;
         private Dictionary<AgentDynamicParameter, float> m_currentMouseParameters;
 
-        [NonSerialized] public bool InfluencedByMouse;
+        [NonSerialized] public bool InfluencedByMouse = true;
         
         public void Init(MouseManager mouseManager)
         {

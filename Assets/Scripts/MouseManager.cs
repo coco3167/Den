@@ -15,7 +15,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     private Vector3 m_movementNewPos;
     private RaycastHit m_hit;
 
-    [NonSerialized] public bool IsUsed;
+    [NonSerialized] public bool IsUsed = true;
 
 
     private void FixedUpdate()
@@ -81,7 +81,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     public float ObjectDistanceToMouse(Vector3 otherPos)
     {
         if (!IsUsed)
-            return 0;
+            return float.MaxValue;
         return (otherPos - mouseRigidBody.position).sqrMagnitude;
     }
 

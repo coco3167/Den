@@ -154,6 +154,11 @@ public class GameManager : MonoBehaviour, IGameStateListener
             mouseManager.OnOtherMoveEnd();
     }
 
+    public void InfluencedByMouse(bool value)
+    {
+        mouseManager.IsUsed = value;
+        sinjManager.InfluencedByMouse(value);
+    }
 
 
     public Camera GetCamera()

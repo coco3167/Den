@@ -13,6 +13,7 @@ namespace SmartObjects_AI.Agent
         private static readonly int SkipStart = Animator.StringToHash("SkipStart");
         private static readonly int SkipEnd = Animator.StringToHash("SkipEnd");
 
+        [SerializeField] private SmartAgent smartAgent;
         [SerializeField] private MovementAgent movementAgent;
         [SerializeField] private float rotationLerpSpeed = 10;
 
@@ -84,6 +85,13 @@ namespace SmartObjects_AI.Agent
                 m_animator.SetBool(FinishFast, true);
                 m_animator.SetBool(SkipEnd, true);
             }
+        }
+
+        public void OnPallierFinished(AgentDynamicParameter parameter)
+        {
+            // TODO remettre souris + baisser agression cap
+            GameManager.Instance.InfluencedByMouse(true);
+            smartAgent.SetDynamicParameter(parameter, 0);
         }
 
         public void StartMovementAgent()
