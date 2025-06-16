@@ -34,7 +34,8 @@ public class IntroManager : MonoBehaviour
     public GameObject uiCursor;
 
     [Header("Depth of Field (WIP)")]
-    public Vector2 dofRange;
+    public Volume dofVolume;
+    public float dofSpeed;
 
 
 
@@ -49,14 +50,12 @@ public class IntroManager : MonoBehaviour
 
         // mainCamera.transform.position = cameraSpots[0].position;
 
-        SetDepthOfField(dofRange.x);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetDepthOfField(dofRange.y);
-
         currentStep = stepNames[step - 1];
 
         mouseDistance += mouseManager.MouseVelocity();
@@ -132,14 +131,20 @@ public class IntroManager : MonoBehaviour
             
         }
 
-        if (step == 5 || !cameraUp)
+        if (step == 5)
         {
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, cameraSpots[1].position, cameraMoveSpeed * Time.deltaTime);
             mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, cameraSpots[1].rotation, cameraMoveSpeed * Time.deltaTime);
+
+            dofVolume.weight = Mathf.Lerp(dofVolume.weight, 0, Time.deltaTime * dofSpeed);
             
         }
-
         else
+        {
+            dofVolume.weight = Mathf.Lerp(dofVolume.weight, 1, Time.deltaTime * dofSpeed);
+        }
+
+        if (step != 5 && cameraUp)
         {
             mainCamera.transform.position = cameraSpots[0].position;
             mainCamera.transform.rotation = cameraSpots[0].rotation;
@@ -151,21 +156,5 @@ public class IntroManager : MonoBehaviour
         step = 2;
     }
 
-    private void SetDepthOfField(float value)
-    {
-        var urpAsset = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
-        var volumeProfile = urpAsset?.volumeProfile;
-        
-        if (volumeProfile == null)
-        {
-            Debug.LogError("No default Volume Profile found in URP Asset.");
-            return;
-        }
-
-        if (volumeProfile.TryGet<DepthOfField>(out var dof))
-        {
-            dof.focusDistance.value = value;
-
-        }
-    }
+    
 }
