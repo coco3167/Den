@@ -11,6 +11,8 @@ namespace SmartObjects_AI
 {
     public class SmartObject : MonoBehaviour, IReloadable
     {
+        [NonSerialized] public bool IsUsable = true;
+        
         [field: SerializeField] public Transform usingPoint { get; private set; }
         [field: SerializeField] public Transform lookingPoint { get; private set; }
         [SerializeField] private SmartObjectData data;
@@ -64,17 +66,11 @@ namespace SmartObjects_AI
             return data.scoreCalculation.CalculateScore(smartAgent, this);
         }
 
-        private void StartUse(SmartAgent agent)
+        public void StartUse(SmartAgent agent)
         {
-            agent.animationAgent.SwitchAnimator(data.animatorController, data.adatpToMood);
-            agent.animationAgent.SetStopMovementAgent(data.shouldStopAgent);
-
-            if (data.shouldLookAtObject && lookingPoint)
-            {
-                agent.animationAgent.LookingObject = lookingPoint;
-            }
+            m_startedUseList.Add(agent);
             
-            agent.animationAgent.SetEndFast(data.shouldEndFast);
+            agent.animationAgent.SwitchAnimator(data);
 
             if (data.wwiseEvent.IsValid())
                 data.wwiseEvent.Post(agent.gameObject);
@@ -83,20 +79,10 @@ namespace SmartObjects_AI
         public void FinishUse(SmartAgent agent)
         {
             m_startedUseList.Remove(agent);
-            agent.animationAgent.LookingObject = null;
-            if(!data.shouldStopAgent)
-                agent.animationAgent.StopLookingObject();
         }
 
         public void Use(SmartAgent agent)
         {
-            if (!m_startedUseList.Contains(agent))
-            {
-                StartUse(agent);
-                m_startedUseList.Add(agent);
-                return;
-            }
-            
             foreach (KeyValuePair<AgentDynamicParameter, float> parameterEffect in data.parameterEffectOnAgent)
             {
                 agent.AddDynamicParameter(parameterEffect.Key, parameterEffect.Value);
@@ -106,6 +92,9 @@ namespace SmartObjects_AI
             {
                 AddDynamicParameter(parameterEffect.Key, parameterEffect.Value);
             }
+            
+            if(data.shouldStopAgent)
+                agent.animationAgent.StopMovementAgent();
         }
 
         public bool HasRoomForUse()
@@ -123,6 +112,16 @@ namespace SmartObjects_AI
             return data.shouldRunTo;
         }
 
+        public bool IsRest()
+        {
+            return data.IsRest();
+        }
+
+        public bool ShouldInterrupt()
+        {
+            return data.shouldInterruptNext;
+        }
+
         /// <summary>
         /// Calculate how much the distance affects the agent want to use the object
         /// </summary>
@@ -131,7 +130,7 @@ namespace SmartObjects_AI
         public float DistanceCoefficient(SmartAgent agent)
         {
             float distance = Vector3.Distance(agent.transform.position, transform.position);
-            return 1/Math.Max(data.minRadius, distance);
+            return 1 + 1/Math.Max(data.minRadius, distance);
         }
 
         #region DynamicParameters

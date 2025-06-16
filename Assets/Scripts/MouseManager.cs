@@ -6,6 +6,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
 {
     [SerializeField] private Rigidbody mouseRigidBody;
     [SerializeField] private LayerMask terrainLayerMask;
+    [SerializeField] private Material UIcursorMat;
 
     private Camera m_camera;
     private Vector2 m_otherMoveValue;
@@ -14,13 +15,22 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     private Vector3 m_movementNewPos;
     private RaycastHit m_hit;
 
+    [NonSerialized] public bool IsUsed = true;
+
+
     private void FixedUpdate()
     {
-        if(GameManager.Instance.IsPaused)
+        if (GameManager.Instance.IsPaused)
             return;
-        
-        if(m_isOtherMoving)
+
+        if (m_isOtherMoving)
             MoveRigidBody(m_otherMoveValue);
+            
+    }
+
+    private void Update()
+    {
+        UpdateCursorMaterial();
     }
 
     public void OnGameReady(object sender, EventArgs eventArgs)
@@ -56,20 +66,22 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     private void MoveRigidBody(Vector2 movement)
     {
         movement *= Time.deltaTime;
-        if(movement == Vector2.zero)
+        if (movement == Vector2.zero)
             return;
         m_movementNewPos = mouseRigidBody.position + m_camera.transform.TransformDirection(new Vector3(movement.x, 0.0f, movement.y));
-        
+
         Physics.Raycast(m_movementNewPos + Vector3.up * 10f, Vector3.down, out m_hit, 100, terrainLayerMask);
-        if(!m_hit.collider)
+        if (!m_hit.collider)
             return;
-        m_movementNewPos.y = m_hit.point.y + mouseRigidBody.transform.localScale.y/2;
+        m_movementNewPos.y = m_hit.point.y + mouseRigidBody.transform.localScale.y / 2;
 
         mouseRigidBody.MovePosition(m_movementNewPos);
     }
 
     public float ObjectDistanceToMouse(Vector3 otherPos)
     {
+        if (!IsUsed)
+            return float.MaxValue;
         return (otherPos - mouseRigidBody.position).sqrMagnitude;
     }
 
@@ -86,5 +98,11 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     public float MouseVelocity()
     {
         return mouseRigidBody.linearVelocity.magnitude;
+    }
+
+    public void UpdateCursorMaterial()
+    {
+        float newRange = Mathf.Lerp(UIcursorMat.GetFloat("_range"), MouseVelocity() / 10, Time.deltaTime * 5);
+        UIcursorMat.SetFloat("_range", Mathf.Clamp(newRange,0,1));
     }
 }

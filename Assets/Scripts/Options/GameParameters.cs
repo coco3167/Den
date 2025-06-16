@@ -4,5 +4,6 @@ namespace Options
     {
         public static float MouseSensitivity = .1f;
         public static float JoystickSensitivity = 4f;
+        public static float TimeScale = 1f;
     }
 }

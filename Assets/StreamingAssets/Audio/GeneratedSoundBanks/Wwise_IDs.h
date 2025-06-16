@@ -19,8 +19,10 @@ namespace AK
         static const AkUniqueID PLAY_DEN_CREA_ANGERSTEPS = 2814436364U;
         static const AkUniqueID PLAY_DEN_CREA_CURIOUSSTEPS = 3724550301U;
         static const AkUniqueID PLAY_DEN_CREA_FEARSTEPS = 3029527017U;
+        static const AkUniqueID PLAY_DEN_CREA_GROOMED = 1527731383U;
         static const AkUniqueID PLAY_DEN_CREA_IDLEBARKS = 1626519673U;
         static const AkUniqueID PLAY_DEN_CREA_MOMOEAT = 3522896324U;
+        static const AkUniqueID PLAY_DEN_CREA_MUNCH = 1437099511U;
         static const AkUniqueID PLAY_DEN_CREA_NEUTRALBARK = 1250462805U;
         static const AkUniqueID PLAY_DEN_CREA_RANDOMBARKS = 3621090860U;
         static const AkUniqueID PLAY_DEN_CREA_RB_ANGER = 3903286686U;
