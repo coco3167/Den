@@ -19,8 +19,10 @@ namespace AK
         static const AkUniqueID PLAY_DEN_CREA_ANGERSTEPS = 2814436364U;
         static const AkUniqueID PLAY_DEN_CREA_CURIOUSSTEPS = 3724550301U;
         static const AkUniqueID PLAY_DEN_CREA_FEARSTEPS = 3029527017U;
+        static const AkUniqueID PLAY_DEN_CREA_GROOMED = 1527731383U;
         static const AkUniqueID PLAY_DEN_CREA_IDLEBARKS = 1626519673U;
         static const AkUniqueID PLAY_DEN_CREA_MOMOEAT = 3522896324U;
+        static const AkUniqueID PLAY_DEN_CREA_MUNCH = 1437099511U;
         static const AkUniqueID PLAY_DEN_CREA_NEUTRALBARK = 1250462805U;
         static const AkUniqueID PLAY_DEN_CREA_RANDOMBARKS = 3621090860U;
         static const AkUniqueID PLAY_DEN_CREA_RB_ANGER = 3903286686U;
@@ -28,6 +30,8 @@ namespace AK
         static const AkUniqueID PLAY_DEN_CREA_RB_FEAR = 231948563U;
         static const AkUniqueID PLAY_DEN_CREA_SCREAMBARKS = 4165947622U;
         static const AkUniqueID PLAY_DEN_CREA_STINGERBARKS = 1170217181U;
+        static const AkUniqueID PLAY_DEN_FS_RUNNING = 3475562211U;
+        static const AkUniqueID PLAY_DEN_FS_WALKING = 1657671319U;
         static const AkUniqueID PLAY_DEN_MM_SCRATCH = 1251290547U;
         static const AkUniqueID PLAY_DEN_MM_SIT = 3222006401U;
         static const AkUniqueID PLAY_DEN_MM_STAND = 807622397U;

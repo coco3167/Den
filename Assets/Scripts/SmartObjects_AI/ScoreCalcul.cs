@@ -116,48 +116,57 @@ namespace SmartObjects_AI
     public class GroomingScore : BaseScoreCalcul
     {
         private float m_dirtiness;
+        private float m_worldCuriosity;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             if (smartAgent.IsOwner(smartObject) || !smartObject.IsUsable)
                 return 0;
-            
+
             base.CalculateScore(smartAgent, smartObject);
-            
-            
-            m_dirtiness = smartObject.GetDynamicParameter(SmartObjectParameter.Dirtiness)/10;
-            
-            return p_usingCapacity * m_dirtiness * p_distanceCoefficient;
+
+
+            m_dirtiness = smartObject.GetDynamicParameter(SmartObjectParameter.Dirtiness) / 10;
+            m_worldCuriosity = GameManager.Instance.worldParameters.AgentGlobalParameters[AgentDynamicParameter.Curiosity];
+            m_worldCuriosity = m_worldCuriosity > 25 ? m_worldCuriosity/50 : 0;
+
+            return p_usingCapacity * m_dirtiness * p_distanceCoefficient * m_worldCuriosity;
         }
     }
 
     public class FightScore : BaseScoreCalcul
     {
         private float m_agentFight;
+        private float m_worldAggression;
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             if (smartAgent.IsOwner(smartObject))
                 return 0;
-            
+
             base.CalculateScore(smartAgent, smartObject);
 
-            m_agentFight = smartAgent.GetDynamicParameter(AgentDynamicParameter.Fight)/10;
+            m_agentFight = smartAgent.GetDynamicParameter(AgentDynamicParameter.Fight) / 10;
+            m_worldAggression = GameManager.Instance.worldParameters.AgentGlobalParameters[AgentDynamicParameter.Aggression];
+            m_worldAggression = m_worldAggression > 25 ? m_worldAggression/50 : 0;
 
-            return p_usingCapacity * m_agentFight * p_distanceCoefficient;
+            return p_usingCapacity * m_agentFight * p_distanceCoefficient * m_worldAggression;
         }
     }
 
     public class HideoutScore : BaseScoreCalcul
     {
         private float m_agentFear;
+        private float m_worldFear;
+        
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             base.CalculateScore(smartAgent, smartObject);
 
-            m_agentFear = Math.Max(smartAgent.GetDynamicParameter(AgentDynamicParameter.UsableFear), smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear))/10;
+            m_agentFear = Math.Max(smartAgent.GetDynamicParameter(AgentDynamicParameter.UsableFear), smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear)) / 10;
+            m_worldFear = GameManager.Instance.worldParameters.AgentGlobalParameters[AgentDynamicParameter.Fear];
 
-            return p_usingCapacity * m_agentFear * p_distanceCoefficient;
+            return p_usingCapacity * m_agentFear * p_distanceCoefficient * m_worldFear/10;
         }
     }
 
