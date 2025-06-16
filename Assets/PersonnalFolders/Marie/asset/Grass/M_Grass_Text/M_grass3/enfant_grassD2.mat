@@ -39,18 +39,18 @@ Material:
     - _INVERT: 1
     - _MASK_TEXTURE: 0
     - _WindMask: 2.57
-    - _WindNoiseSpeed: -1.01
+    - _WindNoiseSpeed: 0.1
     - _WindSpeed: 0.01
     - _alpha: 0.99
     - _scal_noise: 0
     - _step_grain: 0.16
     m_Colors:
     - _BottomColor: {r: 0.27485287, g: 0.1742168, b: 0.4245283, a: 0}
-    - _FarColor: {r: 0.13534157, g: 0.18867922, b: 0.041829824, a: 1}
+    - _FarColor: {r: 0, g: 0.3490566, b: 0.29151705, a: 1}
     - _NearColor: {r: 0.22831027, g: 0.113697045, b: 0.3301887, a: 1}
     - _NearFarRange: {r: 0, g: 80.33, b: 0, a: 0}
-    - _WindNoiseContrast: {r: 0, g: -0.1, b: 0, a: 0}
-    - _WindNoiseScale: {r: 0, g: 1, b: 0, a: 0}
+    - _WindNoiseContrast: {r: 0, g: 41.79, b: 0, a: 0}
+    - _WindNoiseScale: {r: 0, g: 0.02, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &2339421197988308285
