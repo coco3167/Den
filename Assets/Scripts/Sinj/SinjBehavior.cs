@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Options;
 using SmartObjects_AI.Agent;
 using UnityEngine;
 
@@ -10,19 +11,30 @@ namespace Sinj
         //[SerializeField] private bool instantenous = false;
         [SerializeReference] private List<SinjStimulus> SinjStimuli;
         [SerializeReference] private List<SinjReaction> SinjReactions;
+        [SerializeField] private AgentDynamicParameter parameter;
         
         public bool IsApplying(MouseAgent mouseAgent)
         {
-            bool result = true;
             foreach (SinjStimulus sinjStimulus in SinjStimuli)
             {
+                if (sinjStimulus is not SinjActiveBehavior.MousePositionStimulus)
+                {
+                    // If cursor is set to the same type of obj
+                    if (parameter == GameParameters.CursorMode)
+                        continue;
+
+                    if (GameParameters.CursorMode != AgentDynamicParameter.Tension)
+                    {
+                        return false;
+                    }
+                }
+
                 if(sinjStimulus.IsApplying(mouseAgent))
                     continue;
-                result = false;
-                break;
+                return false;
             }
             
-            return result;
+            return true;
         }
 
         public void ApplyReaction(MouseAgent mouseAgent)
