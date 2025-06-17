@@ -2003,11 +2003,6 @@
 										<Value>20</Value>
 									</ValueList>
 								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-5</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -3288,7 +3283,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_StingerFear_03" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}" ShortID="381200462">
+										<Sound Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}" ShortID="381200462">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -3340,7 +3335,7 @@
 												<ActiveSource Name="DEN_StingerFear_02" ID="{AEFB6EF6-D378-4604-A085-153C153345EA}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="DEN_StingerFear_01" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}" ShortID="873690321">
+										<Sound Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}" ShortID="873690321">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -3370,10 +3365,10 @@
 									<GroupingInfo>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
-												<ItemRef Name="DEN_StingerFear_03" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
+												<ItemRef Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
-												<ItemRef Name="DEN_StingerFear_01" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
+												<ItemRef Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
 												<ItemRef Name="DEN_StingerFear_02" ID="{7F5232FC-5B4F-4461-B237-EE6177A9F361}"/>
@@ -3389,13 +3384,13 @@
 											<Grouping>
 												<SwitchRef Name="DEN_SW_FS_0" ID="{F4E026D3-7E71-460E-836C-75047A2F9C7E}"/>
 												<ItemList>
-													<ItemRef Name="DEN_StingerFear_01" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
+													<ItemRef Name="DEN_StingerFear_01" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
 												</ItemList>
 											</Grouping>
 											<Grouping>
 												<SwitchRef Name="DEN_SW_FS_2" ID="{53BC99FE-AB51-4FEF-BCB0-2E05FE8B1A11}"/>
 												<ItemList>
-													<ItemRef Name="DEN_StingerFear_03" ID="{6AED5334-B635-4C45-8F09-2BBF18DBD3BA}"/>
+													<ItemRef Name="DEN_StingerFear_03" ID="{B59E0575-6C4F-4E9C-B9E2-9FD67DB7A62E}"/>
 												</ItemList>
 											</Grouping>
 										</GroupingList>
@@ -3761,7 +3756,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-16</Value>
+								<Value>-24</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>

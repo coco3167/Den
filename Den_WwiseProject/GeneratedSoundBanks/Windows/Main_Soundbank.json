@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{EFB55C28-EE42-0321-6C92-524052C316C9}",
+    "Hash": "{802E09D5-948D-5361-10E5-39EEC4E5A6DF}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -1087,14 +1087,6 @@
       "Location": "Memory",
       "ShortName": "DEN_UI_MusicTest_01.wav",
       "CachePath": "56/{56516820-F22A-E61A-0D22-67494A0D0E29}.wem"
-     },
-     {
-      "Id": "699159010",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DEN_UI_MasterTest_03.wav",
-      "CachePath": "AD/{ADDF8C7F-0BA7-FBF1-D4D7-EC5BB1E76832}.wem"
      },
      {
       "Id": "701129621",
@@ -2924,7 +2916,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_MomoMoves\\Play_DEN_FS_Running",
       "GUID": "{7C5C7496-0CF0-4B50-BCE0-AC6234902B3E}",
       "Color": "10",
-      "MaxAttenuation": "20",
+      "MaxAttenuation": "22",
       "DurationType": "OneShot",
       "DurationMin": "0.36686465",
       "DurationMax": "0.5448033",
@@ -2983,7 +2975,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_MomoMoves\\Play_DEN_FS_Walking",
       "GUID": "{85E80FB1-8DED-4209-92B5-A839A26E3F46}",
       "Color": "10",
-      "MaxAttenuation": "20",
+      "MaxAttenuation": "22",
       "DurationType": "OneShot",
       "DurationMin": "0.5715301",
       "DurationMax": "0.83363855",
@@ -3070,7 +3062,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_MomoMoves\\Play_DEN_MM_Scratch",
       "GUID": "{63D4CDD0-9C52-4208-8EDD-E504F319E204}",
       "Color": "10",
-      "MaxAttenuation": "20",
+      "MaxAttenuation": "22",
       "DurationType": "OneShot",
       "DurationMin": "0.4248282",
       "DurationMax": "0.6743728",
@@ -3086,7 +3078,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_MomoMoves\\Play_DEN_MM_Sit",
       "GUID": "{B61C8F07-F6D1-4F0B-8B86-7798EF508370}",
       "Color": "10",
-      "MaxAttenuation": "20",
+      "MaxAttenuation": "22",
       "DurationType": "OneShot",
       "DurationMin": "0.65681374",
       "DurationMax": "0.85178196",
@@ -3102,7 +3094,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_MomoMoves\\Play_DEN_MM_Stand",
       "GUID": "{EEE04535-2592-4273-AEEE-42CCF0FC6572}",
       "Color": "10",
-      "MaxAttenuation": "20",
+      "MaxAttenuation": "22",
       "DurationType": "OneShot",
       "DurationMin": "0.64590156",
       "DurationMax": "0.813785",
@@ -3118,7 +3110,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_MomoMoves\\Play_DEN_MM_Tube",
       "GUID": "{1C064CFD-E4DD-4ED0-A276-FE33C59854AF}",
       "Color": "10",
-      "MaxAttenuation": "20",
+      "MaxAttenuation": "22",
       "DurationType": "OneShot",
       "DurationMin": "0.20045221",
       "DurationMax": "0.25255394",
@@ -3589,7 +3581,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "227242811"
+          "Id": "187854125"
          }
         ]
        },
@@ -3603,7 +3595,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "187854125"
+          "Id": "227242811"
          }
         ]
        }
@@ -3651,7 +3643,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "227242811"
+            "Id": "187854125"
            }
           ]
          },
@@ -3665,7 +3657,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "187854125"
+            "Id": "227242811"
            }
           ]
          }
@@ -4020,13 +4012,10 @@
       "Color": "19",
       "DurationType": "OneShot",
       "DurationMin": "0.92777085",
-      "DurationMax": "1.028552",
+      "DurationMax": "1.01575",
       "MediaRefs": [
        {
         "Id": "639800680"
-       },
-       {
-        "Id": "699159010"
        },
        {
         "Id": "960196941"
@@ -4128,7 +4117,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "227242811"
+            "Id": "187854125"
            }
           ]
          },
@@ -4142,7 +4131,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "187854125"
+            "Id": "227242811"
            }
           ]
          }
@@ -4310,7 +4299,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "227242811"
+            "Id": "187854125"
            }
           ]
          },
@@ -4324,7 +4313,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "187854125"
+            "Id": "227242811"
            }
           ]
          }
@@ -4492,7 +4481,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "227242811"
+            "Id": "187854125"
            }
           ]
          },
@@ -4506,7 +4495,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "187854125"
+            "Id": "227242811"
            }
           ]
          }
@@ -4674,7 +4663,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "227242811"
+            "Id": "187854125"
            }
           ]
          },
@@ -4688,7 +4677,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "187854125"
+            "Id": "227242811"
            }
           ]
          }
@@ -4856,7 +4845,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "227242811"
+            "Id": "187854125"
            }
           ]
          },
@@ -4870,7 +4859,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "187854125"
+            "Id": "227242811"
            }
           ]
          }
@@ -5038,7 +5027,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "227242811"
+            "Id": "187854125"
            }
           ]
          },
@@ -5052,7 +5041,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "187854125"
+            "Id": "227242811"
            }
           ]
          }
@@ -5220,7 +5209,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "227242811"
+            "Id": "187854125"
            }
           ]
          },
@@ -5234,7 +5223,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "187854125"
+            "Id": "227242811"
            }
           ]
          }
@@ -5402,7 +5391,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "227242811"
+            "Id": "187854125"
            }
           ]
          },
@@ -5416,7 +5405,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "187854125"
+            "Id": "227242811"
            }
           ]
          }
@@ -5584,7 +5573,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "227242811"
+            "Id": "187854125"
            }
           ]
          },
@@ -5598,7 +5587,7 @@
           },
           "MediaRefs": [
            {
-            "Id": "187854125"
+            "Id": "227242811"
            }
           ]
          }
@@ -6331,6 +6320,6 @@
     ]
    }
   ],
-  "FileHash": "{186625F4-E229-48D0-2714-D9C6BC038335}"
+  "FileHash": "{6B77B944-84E7-7440-A5DC-B9E793E55C83}"
  }
 }
