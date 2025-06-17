@@ -3566,6 +3566,165 @@
 								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
+						<RandomSequenceContainer Name="DEN_MM_Flower" ID="{6E6736DD-8384-458C-BF14-37675E546D53}" ShortID="761393054">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Priority" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+								<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="MomoAttenuation" ID="{456558F9-8359-46CD-97CB-AB6C6EE86E99}" WorkUnitID="{4D8EE58E-8CFA-4860-A69D-33BF5CF8C67A}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="MomoConverstionSettings" ID="{2DB4720B-FF05-4826-8D23-747221FFD0DA}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="DEN_SFX_SleepFlower_01" ID="{C977477C-A907-47C2-A6E1-38DC90F34312}" ShortID="783071296">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_SleepFlower_01" ID="{EF8E3779-E0A8-428E-87AF-7641E317B754}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_SleepFlower_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="546458716"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_SleepFlower_01" ID="{EF8E3779-E0A8-428E-87AF-7641E317B754}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_SleepFlower_02" ID="{F1993ADF-994E-40B2-B941-8BFF59093CBF}" ShortID="337805670">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_SleepFlower_02" ID="{537F907B-21EF-425E-86D7-32529D098A2C}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_SleepFlower_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1047406118"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_SleepFlower_02" ID="{537F907B-21EF-425E-86D7-32529D098A2C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_SleepFlower_03" ID="{08F5DF72-95DC-4387-9B6F-A8962112765F}" ShortID="914913549">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_SleepFlower_03" ID="{A946D082-B38E-47C7-8750-FA5BD5D9FE89}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_SleepFlower_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="810403588"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_SleepFlower_03" ID="{A946D082-B38E-47C7-8750-FA5BD5D9FE89}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_SleepFlower_04" ID="{BCF5FEC9-6379-472F-BAD7-B4230CFDE36C}" ShortID="747997297">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_SleepFlower_04" ID="{58636E2A-DAD9-4C59-82D3-3D6BF8862E21}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_SleepFlower_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="298964035"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_SleepFlower_04" ID="{58636E2A-DAD9-4C59-82D3-3D6BF8862E21}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DEN_SFX_SleepFlower_05" ID="{80918697-7958-4CD8-8670-03E6DD5BE718}" ShortID="630365944">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DEN_SFX_SleepFlower_05" ID="{BDEE8BC7-4172-46B3-A65D-D32508D0D2D4}">
+											<Language>SFX</Language>
+											<AudioFile>DEN_SFX_SleepFlower_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="17797108"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DEN_SFX_SleepFlower_05" ID="{BDEE8BC7-4172-46B3-A65D-D32508D0D2D4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{0CB35CB4-C3E6-4E8E-8B0F-87863191A09A}"/>
+							</PositioningInfo>
+							<ObjectLists>
+								<ObjectList Name="Playlist">
+									<Reference>
+										<ObjectRef Name="DEN_SFX_SleepFlower_01" ID="{C977477C-A907-47C2-A6E1-38DC90F34312}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+									</Reference>
+									<Reference>
+										<ObjectRef Name="DEN_SFX_SleepFlower_02" ID="{F1993ADF-994E-40B2-B941-8BFF59093CBF}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+									</Reference>
+									<Reference>
+										<ObjectRef Name="DEN_SFX_SleepFlower_03" ID="{08F5DF72-95DC-4387-9B6F-A8962112765F}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+									</Reference>
+									<Reference>
+										<ObjectRef Name="DEN_SFX_SleepFlower_04" ID="{BCF5FEC9-6379-472F-BAD7-B4230CFDE36C}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+									</Reference>
+									<Reference>
+										<ObjectRef Name="DEN_SFX_SleepFlower_05" ID="{80918697-7958-4CD8-8670-03E6DD5BE718}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="DEN_Footsteps" ID="{14F0E67E-735E-4A79-951A-A329370FB549}" ShortID="1050420543">

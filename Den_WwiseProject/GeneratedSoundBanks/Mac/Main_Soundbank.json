@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{8D751FC1-DE64-B75B-F3D6-A1088B00BC08}",
+    "Hash": "{EFB55C28-EE42-0321-6C92-524052C316C9}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -30,6 +30,14 @@
       "Location": "Memory",
       "ShortName": "DEN_AMB_RandomNoises_01.wav",
       "CachePath": "42/{4216932A-A24C-567B-DB59-C5ABC86066EE}.wem"
+     },
+     {
+      "Id": "17797108",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_SleepFlower_05.wav",
+      "CachePath": "66/{66EDE161-7683-6C73-44D2-2CC84D7F69A5}.wem"
      },
      {
       "Id": "18504785",
@@ -436,6 +444,14 @@
       "CachePath": "68/{681B0DFD-72AD-0E7D-4369-034073F1DC49}.wem"
      },
      {
+      "Id": "298964035",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_SleepFlower_04.wav",
+      "CachePath": "12/{1235839F-CAC7-7357-8D13-C45324D8E9C0}.wem"
+     },
+     {
       "Id": "300165023",
       "Language": "SFX",
       "Streaming": "false",
@@ -821,6 +837,14 @@
       "Location": "Memory",
       "ShortName": "DEN_Intro_Simplified.wav",
       "CachePath": "EE/{EE2C134B-5F42-DEF1-F159-4A4776BB1B03}.wem"
+     },
+     {
+      "Id": "546458716",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_SleepFlower_01.wav",
+      "CachePath": "7D/{7DCA9E2B-5D87-C5AB-03F7-32BC1B6622D3}.wem"
      },
      {
       "Id": "547231889",
@@ -1258,6 +1282,14 @@
       "CachePath": "66/{66CD10D0-81D2-CCF4-5761-06F2ADA4443F}.wem"
      },
      {
+      "Id": "810403588",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_SleepFlower_03.wav",
+      "CachePath": "B7/{B76C4C25-2993-DAB2-E0EC-24C2984DD046}.wem"
+     },
+     {
       "Id": "810738657",
       "Language": "SFX",
       "Streaming": "false",
@@ -1692,6 +1724,14 @@
       "Location": "Memory",
       "ShortName": "DEN_AMB_Birds_10.wav",
       "CachePath": "C8/{C82F7670-EB39-D15F-045B-F3D90DAA7FCA}.wem"
+     },
+     {
+      "Id": "1047406118",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DEN_SFX_SleepFlower_02.wav",
+      "CachePath": "F4/{F4173A5D-415E-E309-4AE9-5EAEEFCCC94A}.wem"
      },
      {
       "Id": "1049917503",
@@ -2997,6 +3037,34 @@
       }
      },
      {
+      "Id": "1947054598",
+      "Name": "Play_DEN_MM_Flower",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_Stingers\\Play_DEN_MM_Flower",
+      "GUID": "{E934102A-EEF9-43D4-B4AA-16BC680360DA}",
+      "Color": "10",
+      "MaxAttenuation": "16",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1123438",
+      "DurationMax": "1.25",
+      "MediaRefs": [
+       {
+        "Id": "17797108"
+       },
+       {
+        "Id": "298964035"
+       },
+       {
+        "Id": "546458716"
+       },
+       {
+        "Id": "810403588"
+       },
+       {
+        "Id": "1047406118"
+       }
+      ]
+     },
+     {
       "Id": "1251290547",
       "Name": "Play_DEN_MM_Scratch",
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_MomoMoves\\Play_DEN_MM_Scratch",
@@ -3544,7 +3612,7 @@
      {
       "Id": "198938308",
       "Name": "Play_DEN_Stinger",
-      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\Play_DEN_Stinger",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_Stingers\\Play_DEN_Stinger",
       "GUID": "{4F9C075E-F583-4EF9-9C4A-3D605EAE0B52}",
       "Color": "10",
       "DurationType": "Infinite",
@@ -6263,6 +6331,6 @@
     ]
    }
   ],
-  "FileHash": "{E6F24A7F-41B6-7BB0-5CF7-C0408713942B}"
+  "FileHash": "{2217F970-3D53-F30D-163C-AA958ADA849D}"
  }
 }

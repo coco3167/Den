@@ -1,7 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	170047161	GameSyncs			\Default Work Unit\DEN_Events_Global\GameSyncs	
 	188545216	Play_DEN_UI_Faders			\Default Work Unit\DEN_Events_UI\Play_DEN_UI_Faders	
-	198938308	Play_DEN_Stinger			\Default Work Unit\DEN_Events_SFX\Play_DEN_Stinger	
+	198938308	Play_DEN_Stinger			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_Stingers\Play_DEN_Stinger	
 	219628265	Play_DEN_MM_Tube			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_MomoMoves\Play_DEN_MM_Tube	
 	231948563	Play_DEN_Crea_RB_Fear			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_ReactionBarks\Play_DEN_Crea_RB_Fear	
 	282213896	Set_DEN_TOD_Night			\Default Work Unit\DEN_Events_Amb\DEN_Set_Events\Set_DEN_TOD_Night	
@@ -29,6 +29,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1626519673	Play_DEN_Crea_IdleBarks			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_CreaBarks\Play_DEN_Crea_IdleBarks	
 	1657671319	Play_DEN_FS_Walking			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_MomoMoves\Play_DEN_FS_Walking	
 	1885722902	Play_DEN_UI_Back			\Default Work Unit\DEN_Events_UI\Play_DEN_UI_Back	
+	1947054598	Play_DEN_MM_Flower			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_Stingers\Play_DEN_MM_Flower	
 	2325474374	Play_DEN_UI_Box			\Default Work Unit\DEN_Events_UI\Play_DEN_UI_Box	
 	2374769269	Play_DEN_STI_Mood_Curious			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_Stingers\Play_DEN_STI_Mood_Curious	
 	2375292999	Play_DEN_STI_Mood_Fear			\Default Work Unit\DEN_Events_SFX\DEN_EV_SFX_Stingers\Play_DEN_STI_Mood_Fear	
@@ -144,6 +145,7 @@ Effect plug-ins	ID	Name	Type				Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	2637145	DEN_UI_Move_02	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\48\{48A79458-E633-9147-4D57-2370A009CE8E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Move\DEN_UI_Move_02		48096
 	12744402	DEN_AMB_RandomNoises_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\42\{4216932A-A24C-567B-DB59-C5ABC86066EE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_RandomNoises\DEN_AMB_RandomNoises_01		345780
+	17797108	DEN_SFX_SleepFlower_05	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\66\{66EDE161-7683-6C73-44D2-2CC84D7F69A5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Stingers\DEN_MM_Flower\DEN_SFX_SleepFlower_05		240096
 	18504785	DEN_AMB_Birds_05	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\9B\{9B9B16FF-749C-600A-E509-FB0395C1C9E5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_Moods\DEN_AMB_Neutral\DEN_AMB_Neutral_04\DEN_AMB_Birds_05		942580
 	21692570	FE_AMB_WindGust_12	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\7B\{7BB4BE8A-4792-A582-7281-B640810CCE07}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_Moods\DEN_AMB_SwitchGroup\DEN_Amb_Fear\DEN_AMB_FEAR_04\FE_AMB_WindGust_12		778876
 	26191170	Den_Crea_v2_8	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\7E\{7EFE2141-218E-9883-9AEC-44C00DB5C24F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodSteps\DEN_Crea_FearSteps\Den_Crea_v2_8		33872
@@ -190,6 +192,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	281684122	DEN_SFX_CursorMove_02	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\D4\{D4A2C5D7-D6DE-25A4-A28D-43230CE47AD5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Cursor\DEN_SFX_CursorMove_02		9841
 	284753099	DEN_Momo_Eat_1	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\5A\{5A9E3434-A743-45A8-CA50-9649DBD3FD4C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MomoEat\DEN_Momo_Eat_1		50002
 	292186112	DEN_AMB_RandomNoises_04	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\68\{681B0DFD-72AD-0E7D-4369-034073F1DC49}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_RandomNoises\DEN_AMB_RandomNoises_04		260388
+	298964035	DEN_SFX_SleepFlower_04	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\12\{1235839F-CAC7-7357-8D13-C45324D8E9C0}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Stingers\DEN_MM_Flower\DEN_SFX_SleepFlower_04		160096
 	300165023	DEN_SFX_Footsteps_Short_03	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\7E\{7E8A1208-7242-9814-D7B0-E1AB83AE9D06}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Footsteps\DEN_FS_Switch\DEN_FS_Running\DEN_SFX_Footsteps_Short_03		4566
 	301428181	DEN_AMB_RandomNoises_11	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\81\{817910FD-FB84-D0A0-023E-99B100132199}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_RandomNoises\DEN_AMB_RandomNoises_11		340740
 	303254720	DEN_UI_Accept_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\7E\{7ECFB0E0-DB11-DC38-E705-5F09B2485C7A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Accept\DEN_UI_Accept_01		90344
@@ -235,6 +238,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	534694421	DEN_AMB_Birds_21	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\B9\{B9F0F4E4-9D36-D149-6662-4A0EF509423E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_Moods\DEN_AMB_SwitchGroup\DEN_Amb_Curious\DEN_AMB_Neutral_04\DEN_AMB_Birds_21		1601896
 	542584419	DEN_SFX_TwigBreak_08	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\D3\{D32E528B-5DEF-64AB-A03D-CD9B5B9626B4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Portals\DEN_POR_TwigBirds\DEN_SFX_TwigBreak_08		34396
 	545385816	DEN_Intro_Simplified	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\EE\{EE2C134B-5F42-DEF1-F159-4A4776BB1B03}.wem		\Interactive Music Hierarchy\Default Work Unit\Music\DEN_Music_Start\DEN_Intro_Simplified\DEN_Intro_Simplified		5987344
+	546458716	DEN_SFX_SleepFlower_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\7D\{7DCA9E2B-5D87-C5AB-03F7-32BC1B6622D3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Stingers\DEN_MM_Flower\DEN_SFX_SleepFlower_01		180096
 	547231889	DEN_SFX_Footsteps_Long_09	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\3B\{3B769D4F-B674-C01D-C0DB-5BF06E81AC71}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Footsteps\DEN_FS_Switch\DEN_FS_Walking\DEN_SFX_Footsteps_Long_09		7020
 	561674851	FE_AMB_WindGust_14	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\E0\{E0751B93-1F3A-375A-DCB3-91C7778DC37B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_Moods\DEN_AMB_SwitchGroup\DEN_Amb_Fear\DEN_AMB_FEAR_04\FE_AMB_WindGust_14		797712
 	577149290	FE_AMB_WindGust_04	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\75\{751C3FAA-CAE2-05C6-564A-84BD9ADE57FF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_Moods\DEN_AMB_SwitchGroup\DEN_Amb_Fear\DEN_AMB_FEAR_04\FE_AMB_WindGust_04		927604
@@ -286,6 +290,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	796228657	Momo_ReacAgro_2	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\34\{3475FD93-BA7E-F1A6-C55A-7C4E8F7F6232}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_ScreamBarks\Momo_ReacAgro_2		48006
 	802343383	DEN_Momo_Miam_1	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\D6\{D6AE0456-04A7-EF45-AFB4-E0042F1FF845}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_Munch\DEN_Momo_Miam_1		6504
 	808761928	DEN_AMB_RandomNoises_14	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\66\{66CD10D0-81D2-CCF4-5761-06F2ADA4443F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_RandomNoises\DEN_AMB_RandomNoises_14		161060
+	810403588	DEN_SFX_SleepFlower_03	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\B7\{B76C4C25-2993-DAB2-E0EC-24C2984DD046}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Stingers\DEN_MM_Flower\DEN_SFX_SleepFlower_03		106880
 	810738657	DEN_SFX_Footsteps_Long_05	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\63\{638AD9B9-48CF-4A07-0A03-1EA48CFF74BC}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Footsteps\DEN_FS_Switch\DEN_FS_Walking\DEN_SFX_Footsteps_Long_05		9528
 	815493955	DEN_SFX_Momo_Stand_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\A9\{A92741C1-4D24-F406-2ACA-CAB193337A4A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_MomoMoves\DEN_MM_Stand\DEN_SFX_Momo_Stand_01		18371
 	821963762	DEN_AMB_Birds_15	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\B9\{B904A2EF-A937-766F-3C4C-BEE3556BA455}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_Moods\DEN_AMB_Neutral\DEN_AMB_Neutral_04\DEN_AMB_Birds_15		803524
@@ -336,6 +341,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1034066410	DEN_AMB_RandomNoises_12	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\C6\{C6EB0FA9-2130-DC54-D099-692C77D9A0EA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_RandomNoises\DEN_AMB_RandomNoises_12		211296
 	1044221638	DEN_UI_Menu_01	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\59\{59E78FC5-8C54-4C03-DEB5-5AB2DCF4C1FF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DEN_UI_Menu\DEN_UI_Menu_01		201296
 	1045286288	DEN_AMB_Birds_10	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\C8\{C82F7670-EB39-D15F-045B-F3D90DAA7FCA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_Moods\DEN_AMB_SwitchGroup\DEN_Amb_Curious\DEN_AMB_Neutral_04\DEN_AMB_Birds_10		1076292
+	1047406118	DEN_SFX_SleepFlower_02	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\F4\{F4173A5D-415E-E309-4AE9-5EAEEFCCC94A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Stingers\DEN_MM_Flower\DEN_SFX_SleepFlower_02		160096
 	1049917503	Momo_Neutral_4	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\3F\{3F809B63-31A5-2B1C-D48E-1B36467C6C8C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\DEN_Crea_Barks\DEN_Crea_MoodBarks\DEN_Crea_NeutralBark\Momo_Neutral_4		28196
 	1054179566	DEN_FearEnd_Simplified	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\CC\{CC27195C-1131-0EAF-F4B2-A9DBB6600A05}.wem		\Interactive Music Hierarchy\Default Work Unit\Music\DEN_Music_End\DEN_FearEnd_Simplified\DEN_FearEnd_Simplified		5472112
 	1054217432	DEN_AMB_RandomNoises_06	C:\Users\ELE66e03fa3589b5\Documents\GitHub\Den\Den_WwiseProject\.cache\50\{50BA1F1F-C33F-5F4E-7A8D-A3CBA9D95B77}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\DEN_AMB_RandomNoises\DEN_AMB_RandomNoises_06		606556
