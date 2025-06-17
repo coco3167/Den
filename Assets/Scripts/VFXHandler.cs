@@ -30,6 +30,9 @@ public class VFXHandler : MonoBehaviour
 
     private void ChangeParticlePower(int index)
     {
+        if(index >= particleSystems.Count)
+            return;
+        
         foreach (ParticleSystem p in particleSystems)
         {
             ParticleSystem.EmissionModule emission = p.emission;
