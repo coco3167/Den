@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class IntroManager : MonoBehaviour, IReloadable
+public class IntroManager : MonoBehaviour
 {
     [Header("General")]
     [Range(1, 5)]
@@ -139,6 +139,7 @@ public class IntroManager : MonoBehaviour, IReloadable
                 if (titleDelay < 0)
                 {
                     step = 5;
+                    GameLoopManager.Instance.OnGameLoopReady();
                 }
                 break;
             
@@ -153,7 +154,6 @@ public class IntroManager : MonoBehaviour, IReloadable
                 mouseManager.IsUsed = true;
                 dofVolume.weight = Mathf.Lerp(dofVolume.weight, 0, Time.deltaTime * dofSpeed);
 
-                // Déclencher OnGameReady via anim ?
                 break;
         }
 
@@ -177,10 +177,5 @@ public class IntroManager : MonoBehaviour, IReloadable
         coverAnimation = true;
         sinjManager.InfluencedByMouse(false);
         mouseManager.IsUsed = false;
-    }
-    
-    public void Reload()
-    {
-        LoopReset();
     }
 }

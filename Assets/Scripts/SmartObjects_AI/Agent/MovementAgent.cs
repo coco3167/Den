@@ -20,6 +20,11 @@ namespace SmartObjects_AI.Agent
             m_navMeshAgent.speed = shouldRun ? runSpeed : walkSpeed;
             m_navMeshAgent.SetDestination(destination.position);
         }
+
+        public void ResetDestination()
+        {
+            m_navMeshAgent.ResetPath();
+        }
         
         public bool IsCloseToDestination()
         {

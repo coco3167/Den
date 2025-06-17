@@ -72,9 +72,9 @@ public class GameManager : MonoBehaviour, IGameStateListener
 
         FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).OfType<IPausable>()
             .ForEach(x => GamePaused += x.OnGamePaused);
-        IsPaused = true;
+        //IsPaused = true;
 
-        m_playerInput.enabled = false;
+        //m_playerInput.enabled = false;
     }
 
     public void OnGameReady(object sender, EventArgs eventArgs)
@@ -85,8 +85,8 @@ public class GameManager : MonoBehaviour, IGameStateListener
 
     public void OnGameEnded(object sender, EventArgs eventArgs)
     {
-        IsPaused = true;
-        m_playerInput.enabled = false;
+        //IsPaused = true;
+        //m_playerInput.enabled = false;
     }
 
 
@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
         {
             OnPause(callbackContext);
         }
-        GameLoopManager.Instance.OnGameLoopEnded();
+        GameLoopManager.Instance.OnGameLoopEnded(true);
     }
 
     public void HandlePallier(AgentDynamicParameter parameter, int value)

@@ -64,6 +64,11 @@ namespace SmartObjects_AI.Agent
 
         public void OnGameEnded(object sender, EventArgs eventArgs)
         {
+            Debug.Log("Game ended ?");
+            m_smartObjects = null;
+            m_debugParameters = null;
+            m_currentSmartObject = null;
+            m_movementAgent.ResetDestination();
             CancelInvoke(nameof(AIUpdate));
         }
 

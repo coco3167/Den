@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loopAnim: {fileID: 7400000, guid: fa9ec7af47f00e64bb90ffe2985b875f, type: 2}
+  introManager: {fileID: 5088332857326388813}
 --- !u!114 &806879179260966156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,6 +648,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3b4a75294b32b747859c1bab13205d2, type: 3}
+--- !u!114 &5088332857326388813 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 127909422867365065, guid: d3b4a75294b32b747859c1bab13205d2, type: 3}
+  m_PrefabInstance: {fileID: 5141720128648149636}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e436fdd0c20da4da6d4c1a2e7c9728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5424728382450912422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 870195901677385250, guid: d3b4a75294b32b747859c1bab13205d2, type: 3}
