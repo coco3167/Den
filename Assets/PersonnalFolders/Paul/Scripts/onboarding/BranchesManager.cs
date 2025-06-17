@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class BranchesManager : MonoBehaviour
@@ -6,7 +7,7 @@ public class BranchesManager : MonoBehaviour
     private string targetTag = "Branch";
     private float rayLength = 100f;
     private Color rayColor = Color.red;
-    public Branch[] branches;
+    [ReadOnly] public Branch[] branches;
 
     void Start()
     {

@@ -24,9 +24,10 @@ namespace SmartObjects_AI.Agent
         Fear,
         Neutral,
         Tiredness,
-        Suspicion,
         Hunger,
-        Social,
+        Fight,
+        UsableFear,
+        AggressionCap,
     }
 
     /*[Serializable]

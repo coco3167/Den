@@ -30,6 +30,8 @@ public class Branch : MonoBehaviour
     private Quaternion startRot;
     private Vector3 coverPos;
 
+    private Rigidbody m_rigidbody;
+
 
 
 
@@ -43,6 +45,8 @@ public class Branch : MonoBehaviour
         startPos = transform.position;
         startRot = transform.rotation;
         coverPos = transform.position - transform.forward*3;
+
+        m_rigidbody = GetComponent<Rigidbody>();
     }
 
 
@@ -52,26 +56,26 @@ public class Branch : MonoBehaviour
         intensity = Mathf.Lerp(intensity, intensityTarget, Time.deltaTime);
 
         float wiggleIntensity = wiggleCurve.Evaluate(Mathf.Clamp(intensity, 0, maxIntensity) / maxIntensity);
-        float sine = Mathf.Sin(Time.time * 30) * wiggleMagnitude * wiggleIntensity;
+        float sine = Mathf.Sin(Time.time * 30) / wiggleMagnitude * wiggleIntensity * Time.deltaTime;
         sprite.localPosition = new Vector3(sine, sprite.localPosition.y, sprite.localPosition.z);
 
         //Break if wiggled enough
-        solidity -= wiggleIntensity * Time.deltaTime;
+        solidity -= wiggleIntensity*Time.deltaTime;
         if (solidity < 0)
         {
-            GetComponent<Rigidbody>().isKinematic = false;
+            m_rigidbody.isKinematic = false;
             gone = true;
         }
 
         //Manage Movement
         float movementIntensity = movementCurve.Evaluate(Mathf.Clamp(intensity, 0, maxIntensity) / maxIntensity);
-        transform.position -= transform.forward * movementIntensity * movementMagnitude * Time.deltaTime;
+        transform.position -= transform.forward * (movementIntensity * movementMagnitude * Time.deltaTime);
 
         //Leave if moved enough
         distanceMoved += movementIntensity * movementMagnitude * Time.deltaTime;
         if (distanceMoved > distanceToLeave)
         {
-            transform.position -= transform.forward * movementMagnitude * Time.deltaTime * 5;
+            transform.position -= transform.forward * (movementMagnitude * Time.deltaTime * 5);
             gone = true;
         }
 
@@ -88,7 +92,7 @@ public class Branch : MonoBehaviour
 
     public void Reset()
     {
-        GetComponent<Rigidbody>().isKinematic = true;
+        m_rigidbody.isKinematic = true;
         solidity = maxSolidity;
         distanceMoved = 0f;
         gone = false;
