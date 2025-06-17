@@ -92,14 +92,13 @@ namespace Sinj
 
         private void OnPallierReached(AgentDynamicParameter parameter, int value)
         {
-            if (parameter == AgentDynamicParameter.Aggression)
+            if (parameter is AgentDynamicParameter.Aggression or AgentDynamicParameter.Fear)
             {
                 MakeEveryoneFlee();
                 MouseAgent bestAgent = mouseAgents.Aggregate((x, y) =>
                     x.GetDynamicParameterValue(AgentDynamicParameter.Aggression) < y.GetDynamicParameterValue(AgentDynamicParameter.Aggression) ? y : x);
                 bestAgent.SetDynamicParameterValue(AgentDynamicParameter.AggressionCap, 100);
                 GameManager.Instance.InfluencedByMouse(false);
-                Debug.Log(bestAgent.GetDynamicParameterValue(AgentDynamicParameter.AggressionCap));
             }
         }
 

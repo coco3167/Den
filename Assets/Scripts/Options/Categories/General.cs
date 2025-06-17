@@ -1,5 +1,5 @@
-using System;
-using UnityEditor;
+using SmartObjects_AI.Agent;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,20 +7,35 @@ namespace Options.Categories
 {
     public class General : MonoBehaviour
     {
-        [SerializeField] private Toggle fullscreenButton;
+        [SerializeField] private Toggle godMode;
+        [SerializeField] private TMP_Dropdown cursorMode;
+
+        private AgentDynamicParameter m_cursorModeParameter = AgentDynamicParameter.Tension;
 
         private void Awake()
         {
-            fullscreenButton.onValueChanged.AddListener(Fullscreen);
+            cursorMode.interactable = false;
+            GameParameters.CursorMode = AgentDynamicParameter.Tension;
+            
+            godMode.onValueChanged.AddListener(OnGodModeToggle);
+            cursorMode.onValueChanged.AddListener(OnCursorMode);
         }
 
-        private void Fullscreen(bool value)
+        private void OnGodModeToggle(bool value)
         {
-            #if UNITY_EDITOR
-                EditorWindow.mouseOverWindow.maximized = value;
-            #else
-                Screen.fullScreen = value;
-            #endif
+            cursorMode.interactable = value;
+
+            GameParameters.CursorMode = value ? m_cursorModeParameter : AgentDynamicParameter.Tension;
+        }
+
+        private void OnCursorMode(int value)
+        {
+            m_cursorModeParameter = (AgentDynamicParameter)value;
+
+            if (cursorMode.interactable)
+                GameParameters.CursorMode = m_cursorModeParameter;
+            
+            Debug.Log(GameParameters.CursorMode);
         }
     }
 }
