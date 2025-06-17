@@ -92,8 +92,7 @@ namespace SmartObjects_AI.Agent
 
         private void AIUpdate()
         {
-            // TODO enlever le commentaire du bout de code par poitier
-            //AddDynamicParameter(AgentDynamicParameter.UsableFear, fightObject.GetDynamicParameter(SmartObjectParameter.Fear));
+            AddDynamicParameter(AgentDynamicParameter.UsableFear, fightObject.GetDynamicParameter(SmartObjectParameter.Fear));
             
             DynamicParameterVariation();
             

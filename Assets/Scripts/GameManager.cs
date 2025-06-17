@@ -125,6 +125,10 @@ public class GameManager : MonoBehaviour, IGameStateListener
     {
         if (!callbackContext.started)
             return;
+        if (IsPaused)
+        {
+            OnPause(callbackContext);
+        }
         GameLoopManager.Instance.OnGameLoopEnded();
     }
 

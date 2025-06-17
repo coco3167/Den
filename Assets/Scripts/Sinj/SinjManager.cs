@@ -29,6 +29,7 @@ namespace Sinj
     
         private List<DebugParameter> m_debugParameters = new();
         private float m_intensity;
+        private bool m_pallierEmotionStamp;
         private WorldParameters m_worldParameters;
 
         private void Awake()
@@ -100,6 +101,20 @@ namespace Sinj
                 bestAgent.SetDynamicParameterValue(AgentDynamicParameter.AggressionCap, 100);
                 GameManager.Instance.InfluencedByMouse(false);
             }
+
+            foreach (MouseAgent agent in mouseAgents)
+            {
+                agent.ResetEmotions();
+            }
+
+            m_pallierEmotionStamp = true;
+            
+            Invoke(nameof(EndPallierTempEmotionStop), 15);
+        }
+
+        private void EndPallierTempEmotionStop()
+        {
+            m_pallierEmotionStamp = false;
         }
 
         private void MakeEveryoneFlee()
@@ -113,6 +128,9 @@ namespace Sinj
         private void UpdateManagerEmotion(AgentDynamicParameter parameter, float value)
         {
             if(!emotionsTransmissionCurve.TryGetValue(parameter, out AnimationCurve curve))
+                return;
+            
+            if(m_pallierEmotionStamp)
                 return;
 
             value /= 100;
