@@ -32,6 +32,11 @@ public class Branch : MonoBehaviour
 
     private Rigidbody m_rigidbody;
 
+    [Header("Audio States")]
+    public bool wiggling;
+    public bool moving;
+
+
 
 
 
@@ -44,7 +49,7 @@ public class Branch : MonoBehaviour
         solidity = maxSolidity;
         startPos = transform.position;
         startRot = transform.rotation;
-        coverPos = transform.position - transform.forward*3;
+        coverPos = transform.position - transform.forward * 3;
 
         m_rigidbody = GetComponent<Rigidbody>();
     }
@@ -54,14 +59,16 @@ public class Branch : MonoBehaviour
     {
         //Manage Wiggle
         intensity = Mathf.Lerp(intensity, intensityTarget, Time.deltaTime);
+        CheckAudioState(intensity);
 
         float wiggleIntensity = wiggleCurve.Evaluate(Mathf.Clamp(intensity, 0, maxIntensity) / maxIntensity);
         float sine = Mathf.Sin(Time.time * 30) / wiggleMagnitude * wiggleIntensity * Time.deltaTime;
         sprite.localPosition = new Vector3(sine, sprite.localPosition.y, sprite.localPosition.z);
 
         //Break if wiggled enough
-        solidity -= wiggleIntensity*Time.deltaTime;
-        if (solidity < 0)
+        solidity -= wiggleIntensity * Time.deltaTime;
+        solidity = Mathf.Clamp(solidity,0, maxSolidity);
+        if (solidity == 0)
         {
             m_rigidbody.isKinematic = false;
             gone = true;
@@ -99,11 +106,19 @@ public class Branch : MonoBehaviour
 
         transform.position = coverPos;
         transform.rotation = startRot;
-        
+
     }
 
     public void CoverAnimation(float animFactor)
     {
-        transform.position = Vector3.Lerp(transform.position, startPos,animFactor);
+        transform.position = Vector3.Lerp(transform.position, startPos, animFactor);
+    }
+
+    public void CheckAudioState(float intensity)
+    {
+        
+            wiggling = intensity >= .4 ? true : false;
+            moving = intensity <= .4 && intensity > 0.1f ? true : false;
+        
     }
 }
