@@ -1,9 +1,10 @@
+using Sinj;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class IntroManager : MonoBehaviour
+public class IntroManager : MonoBehaviour, IReloadable
 {
     [Header("General")]
     [Range(1, 5)]
@@ -14,6 +15,7 @@ public class IntroManager : MonoBehaviour
     [Header("Scripts")]
     public BranchesManager branchesManager;
     public MouseManager mouseManager;
+    public SinjManager sinjManager;
 
     [Header("Black Background")]
 
@@ -42,8 +44,6 @@ public class IntroManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-
         Color color = blackBackground.color;
         color.a = 1;
         blackBackground.color = color;
@@ -67,7 +67,95 @@ public class IntroManager : MonoBehaviour
         branchesManager.transform.position = mainCamera.transform.position;
         branchesManager.transform.rotation = mainCamera.transform.rotation;
 
-        if (step == 1 && mouseDistance > 500)
+        switch (step)
+        {
+            case 1:
+                if (mouseDistance > 500)
+                {
+                    step = 2;
+                }
+                break;
+            
+            case 2:
+                transitionFactor = Mathf.Lerp(transitionFactor, 1, Time.deltaTime * fadeSpeed);
+                if (transitionFactor > 0.8f)
+                {
+                    transitionFactor = 1;
+                    step = 3;
+                }
+
+                Color color = blackBackground.color;
+                color.a = 1 - transitionFactor;
+
+                blackBackground.color = color;
+
+                foreach (Branch branchScript in branchesManager.branches)
+                {
+                    if (branchScript.gone)
+                    {
+                        branchScript.Reset();
+                    }
+
+                    else
+                    {
+                        branchScript.CoverAnimation(transitionFactor);
+                    }
+                }
+                break;
+            
+            case 3:
+                blackBackground.gameObject.SetActive(false);
+                transitionFactor = 0f;
+
+                int leftBranches = 0;
+                foreach (Branch branchScript in branchesManager.branches)
+                {
+                    if (!branchScript.gone)
+                    {
+                        leftBranches++;
+                    }
+                }
+
+                if (leftBranches == 0f)
+                {
+                    step = 4;
+                }
+                break;
+            
+            case 4:
+                titleDelay -= Time.deltaTime;
+                if (titleDelay < 0)
+                {
+                    step = 5;
+                }
+                break;
+            
+            case 5:
+                if (!cameraUp)
+                {
+                    mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, cameraSpots[1].position, cameraMoveSpeed * Time.deltaTime);
+                    mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, cameraSpots[1].rotation, cameraMoveSpeed * Time.deltaTime);
+                }
+                sinjManager.InfluencedByMouse(true);
+                mouseManager.IsUsed = true;
+                dofVolume.weight = Mathf.Lerp(dofVolume.weight, 0, Time.deltaTime * dofSpeed);
+
+                // Déclencher OnGameReady via anim ?
+                break;
+        }
+
+        if (step != 5)
+        {
+            if (cameraUp)
+            {
+                mainCamera.transform.position = cameraSpots[0].position;
+                mainCamera.transform.rotation = cameraSpots[0].rotation;
+            }
+
+            dofVolume.weight = Mathf.Lerp(dofVolume.weight, 1, Time.deltaTime * dofSpeed);
+        }
+
+        /*if (step == 1 && mouseDistance > 500)
         {
             step = 2;
         }
@@ -148,13 +236,18 @@ public class IntroManager : MonoBehaviour
         {
             mainCamera.transform.position = cameraSpots[0].position;
             mainCamera.transform.rotation = cameraSpots[0].rotation;
-        }
+        }*/
     }
 
     public void LoopReset()
     {
         step = 2;
+        sinjManager.InfluencedByMouse(false);
+        mouseManager.IsUsed = false;
     }
-
     
+    public void Reload()
+    {
+        LoopReset();
+    }
 }

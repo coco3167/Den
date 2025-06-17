@@ -39,7 +39,6 @@ public class GameLoopManager : MonoBehaviour, IPausable
         
         m_animator = GetComponent<Animator>();
         m_gameLoopDuration = loopAnim.length;
-        Debug.Log(m_gameLoopDuration);
         
         m_tween = DOTween.To(() => Shader.GetGlobalFloat(TimeOfDay), (value) => Shader.SetGlobalFloat(TimeOfDay, value), 300, m_gameLoopDuration);
         m_tween.Pause();

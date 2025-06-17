@@ -37,4 +37,48 @@ public class MovementAudioManager : MonoBehaviour
     {
         AudioManager.Instance.Scratch.Post(this.gameObject);
     }
+
+    public void PlayMoodBark()
+    {
+        AudioManager.Instance.MoodBark.Post(this.gameObject);
+    }
+
+    public void PlayIdle()
+    {
+        AudioManager.Instance.Idle.Post(this.gameObject);
+    }
+
+    public void PlayReacAnger()
+    {
+        AudioManager.Instance.ReacAnger.Post(this.gameObject);
+    }
+    public void PlayReacFear()
+    {
+        AudioManager.Instance.ReacFear.Post(this.gameObject);
+    }
+    public void PlayReacCurious()
+    {
+        AudioManager.Instance.ReacCurious.Post(this.gameObject);
+    }
+    public void PlaySleepFlower()
+    {
+        AudioManager.Instance.SleepFlower.Post(this.gameObject);
+    }
+    public void PlayStingerScream()
+    {
+        AudioManager.Instance.StingerScream.Post(this.gameObject);
+    }
+
+    public void PlayGroomed()
+    {
+        AudioManager.Instance.Groomed.Post(this.gameObject);
+    }
+    public void PlayGroomer()
+    {
+        AudioManager.Instance.Groomer.Post(this.gameObject);
+    }
+    public void PlayScream()
+    {
+        AudioManager.Instance.Scream.Post(this.gameObject);
+    }
 }

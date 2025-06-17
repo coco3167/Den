@@ -196,6 +196,26 @@ namespace Audio
         [SerializeField] public AK.Wwise.Event Stand;
         [FoldoutGroup("Wwise Move Events")]
         [SerializeField] public AK.Wwise.Event Tube;
+        [FoldoutGroup("Wwise Move Events")]
+        [SerializeField] public AK.Wwise.Event Groomer;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event Idle;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event MoodBark;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event ReacAnger;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event ReacFear;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event ReacCurious;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event SleepFlower;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event StingerScream;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event Groomed;
+        [FoldoutGroup("Wwise Barks Events")]
+        [SerializeField] public AK.Wwise.Event Scream;
 
 
 
