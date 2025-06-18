@@ -43,6 +43,8 @@ public class IntroManager : MonoBehaviour, IReloadable
     [Header("Transition to Game")]
 
     public float titleDelay = 3;
+    public Material titleMat;
+    public float titleFadeSpeed;
     public GameObject uiCursor;
 
     [Header("Depth of Field (WIP)")]
@@ -64,6 +66,7 @@ public class IntroManager : MonoBehaviour, IReloadable
         Color color = blackBackground.color;
         color.a = 1;
         blackBackground.color = color;
+        titleMat.SetFloat("_MAIN", 0.5f);
 
         // mainCamera.transform.position = cameraSpots[0].position;
         AudioManager.SetGameStateBlackscreen();
@@ -85,6 +88,8 @@ public class IntroManager : MonoBehaviour, IReloadable
         branchesManager.transform.position = mainCamera.transform.position;
         branchesManager.transform.rotation = mainCamera.transform.rotation;
 
+        float titleMAIN;
+
         switch (step)
         {
             case 1:
@@ -93,7 +98,7 @@ public class IntroManager : MonoBehaviour, IReloadable
                     step = 2;
                 }
                 break;
-            
+
             case 2:
                 transitionFactor = Mathf.Lerp(transitionFactor, 1, Time.deltaTime * fadeSpeed);
                 if (transitionFactor > 0.8f)
@@ -120,7 +125,7 @@ public class IntroManager : MonoBehaviour, IReloadable
                     }
                 }
                 break;
-            
+
             case 3:
                 coverAnimation = false;
                 blackBackground.gameObject.SetActive(false);
@@ -144,10 +149,14 @@ public class IntroManager : MonoBehaviour, IReloadable
                     step = 4;
                 }
                 break;
-            
+
             case 4:
                 titleReveal = true;
                 titleDelay -= Time.deltaTime;
+
+                titleMAIN = Mathf.Lerp(titleMat.GetFloat("_MAIN"), 1, Time.deltaTime * titleFadeSpeed);
+                titleMat.SetFloat("_MAIN", titleMAIN);
+
                 AudioManager.Instance.MusicIntro.Post(GameManager.Instance.GetCamera().gameObject);
                 Debug.Log("musical intro launched");
                 if (titleDelay < 0)
@@ -155,7 +164,7 @@ public class IntroManager : MonoBehaviour, IReloadable
                     step = 5;
                 }
                 break;
-            
+
             case 5:
                 titleReveal = false;
                 if (!cameraUp)
@@ -166,6 +175,9 @@ public class IntroManager : MonoBehaviour, IReloadable
                 sinjManager.InfluencedByMouse(true);
                 mouseManager.IsUsed = true;
                 dofVolume.weight = Mathf.Lerp(dofVolume.weight, 0, Time.deltaTime * dofSpeed);
+
+                titleMAIN = Mathf.Lerp(titleMat.GetFloat("_MAIN"), 0, Time.deltaTime * titleFadeSpeed);
+                titleMat.SetFloat("_MAIN", titleMAIN);
 
                 // Déclencher OnGameReady via anim ?
                 break;

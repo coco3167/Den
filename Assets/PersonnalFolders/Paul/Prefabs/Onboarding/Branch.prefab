@@ -57,7 +57,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 8116641561114375267}
   gone: 0
-  maxIntensity: 3.5
+  maxIntensity: 2
   movementMagnitude: 0.1
   movementCurve:
     serializedVersion: 2
@@ -138,6 +138,34 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   maxSolidity: 2
+  breakCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.614594
+      outSlope: 0.614594
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.2643003
+    - serializedVersion: 3
+      time: 1
+      value: -1
+      inSlope: -2.3498988
+      outSlope: -2.3498988
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.119642556
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  breakAnimSpeed: 1
+  breakAnimRange: 3
+  wiggling: 0
+  moving: 0
 --- !u!54 &331078272690766857
 Rigidbody:
   m_ObjectHideFlags: 0

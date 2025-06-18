@@ -25,10 +25,17 @@ public class Branch : MonoBehaviour
     private float solidity;
     public float maxSolidity;
 
+    [Header("Break")]
+    private Vector3 breakingPos;
+    [SerializeField] private AnimationCurve breakCurve = AnimationCurve.Linear(0, -1, 1, 1);
+    private float breakAnimState;
+    public float breakAnimSpeed;
+    public float breakAnimRange;
+
     [Header("Reset")]
 
     private Vector3 startPos;
-    private Quaternion startRot;
+    public Quaternion startRot;
     private Vector3 coverPos;
 
     private Rigidbody m_rigidbody;
@@ -72,18 +79,27 @@ public class Branch : MonoBehaviour
         solidity = Mathf.Clamp(solidity, 0, maxSolidity);
         if (solidity == 0)
         {
-            m_rigidbody.isKinematic = false;
+            // m_rigidbody.isKinematic = false;
+            BreakAnim();
             gone = true;
             AudioManager.Instance.BranchBreaking.Post(GameManager.Instance.GetCamera().gameObject);
         }
 
+        else
+        {
+            breakingPos = transform.localPosition;
+            breakAnimState = 0;
+        }
+
         //Manage Movement
-        float movementIntensity = movementCurve.Evaluate(Mathf.Clamp(intensity, 0, maxIntensity) / maxIntensity);
+            float movementIntensity = movementCurve.Evaluate(Mathf.Clamp(intensity, 0, maxIntensity) / maxIntensity);
         transform.position -= transform.forward * (movementIntensity * movementMagnitude * Time.deltaTime);
 
         //Leave if moved enough
         distanceMoved += movementIntensity * movementMagnitude * Time.deltaTime;
-        if (distanceMoved > distanceToLeave)
+
+        float localPosMagnitude = Mathf.Abs(transform.localPosition.x) + Mathf.Abs(transform.localPosition.y) + Mathf.Abs(transform.localPosition.z);
+        if (distanceMoved > distanceToLeave && localPosMagnitude < 5)
         {
             transform.position -= transform.forward * (movementMagnitude * Time.deltaTime * 5);
             gone = true;
@@ -116,15 +132,23 @@ public class Branch : MonoBehaviour
 
     }
 
+    public void BreakAnim()
+    {
+        breakAnimState += breakAnimSpeed * Time.deltaTime;
+        transform.localPosition = new Vector3(breakingPos.x, breakingPos.y + breakCurve.Evaluate(breakAnimState) * breakAnimRange, breakingPos.z);
+        sprite.transform.Rotate(Vector3.up, Time.deltaTime*30);
+    }
+
     public void Reset()
     {
-        m_rigidbody.isKinematic = true;
+        // m_rigidbody.isKinematic = true;
         solidity = maxSolidity;
         distanceMoved = 0f;
         gone = false;
 
         transform.position = coverPos;
         transform.rotation = startRot;
+        sprite.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 
     }
 
@@ -135,6 +159,7 @@ public class Branch : MonoBehaviour
 
     public void CheckAudioState(float intensity)
     {
+        Debug.Log(intensity);
             wiggling = intensity >= .4 ? true : false;
             moving = intensity <= .4 && intensity > 0.01f ? true : false;
     }
