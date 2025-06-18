@@ -3580,45 +3580,6 @@
 							</GroupingInfo>
 						</SwitchContainer>
 					</ChildrenList>
-					<ObjectLists>
-						<ObjectList Name="RTPC">
-							<Reference>
-								<Local>
-									<RTPC Name="" ID="{79654259-53C1-4B36-89CB-8D1B4C280974}" ShortID="573125311">
-										<PropertyList>
-											<Property Name="PropertyName" Type="string" Value="OutputBusLowpass"/>
-										</PropertyList>
-										<ReferenceList>
-											<Reference Name="ControlInput">
-												<ObjectRef Name="DEN_GP_TutoStep" ID="{D48420A7-BC76-48FF-87DF-299C61A4CFE5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
-											</Reference>
-											<Reference Name="Curve">
-												<Custom>
-													<Curve Name="" ID="{BAD41F08-8869-4EF1-B4C1-BF0AE537D20B}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="65537"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>50</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>100</XPos>
-																<YPos>0</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</Custom>
-											</Reference>
-										</ReferenceList>
-									</RTPC>
-								</Local>
-							</Reference>
-						</ObjectList>
-					</ObjectLists>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

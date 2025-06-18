@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AK.Wwise;
@@ -75,6 +76,13 @@ namespace Audio
         Day,
         Evening,
         Night
+    }
+    public enum GameState
+    {
+        Blackscreen,
+        Branches,
+        TitleReveal,
+        Gameplay
     }
     [RequireComponent(typeof(AkGameObj))]
     public class AudioManager : MonoBehaviour, IGameStateListener, IReloadable
@@ -234,15 +242,30 @@ namespace Audio
         [FoldoutGroup("Wwise Music Events")]
         [SerializeField] public AK.Wwise.Event MusicEnd;
 
+        private bool hasPlayedIntroMusic = false;
+        private struct SavedRTPC
+        {
+            public RTPC RTPC;
+            public float Value;
+        }
+        private List<SavedRTPC> playerSavedRTPCs = new List<SavedRTPC>();
 
-
-
-
-
+        private void LoadPlayerSavedRTPCs()
+        {
+            // Populate playerSavedRTPCs from PlayerPrefs for each bus
+            playerSavedRTPCs.Clear();
+            // e.g.:
+            playerSavedRTPCs.Add(new SavedRTPC { RTPC = MasterVolume, Value = PlayerPrefs.GetFloat(MasterVolume.Name, 8f) });
+            playerSavedRTPCs.Add(new SavedRTPC { RTPC = MusicVolume, Value = PlayerPrefs.GetFloat(MusicVolume.Name, 8f) });
+            playerSavedRTPCs.Add(new SavedRTPC { RTPC = SFXVolume, Value = PlayerPrefs.GetFloat(SFXVolume.Name, 8f) });
+            playerSavedRTPCs.Add(new SavedRTPC { RTPC = AmbienceVolume, Value = PlayerPrefs.GetFloat(AmbienceVolume.Name, 8f) });
+        }
 
         private void Awake()
         {
             Initialize();
+            LoadPlayerSavedRTPCs();
+
             currentGameParametersValues = new()
             {
                 {WwiseEmotionStateRTPC.Curiosity, 0f},
@@ -250,10 +273,8 @@ namespace Audio
                 {WwiseEmotionStateRTPC.Anger, 0f},
                 {WwiseEmotionStateRTPC.Intensity, 0f},
                 {WwiseEmotionStateRTPC.Tension, 0f},
-                //{WwiseEmotionStateRTPC.Neutral, 0f},
+                {WwiseEmotionStateRTPC.Neutral, 75f},
             };
-
-            ResetAmbience.Post(this.gameObject);
         }
         void Start()
         {
@@ -552,37 +573,95 @@ namespace Audio
 
         public void SetGameStateBlackscreen()
         {
-            
+            // Mood and audio state
             WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
             WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones);
             WwiseStateManager.SetWwiseMixPreset(WwiseMixPreset.Regular);
-            float neutralValue = 75f;    // or whatever inspector value you want
-            var neutralRtpc = gameParameters[WwiseEmotionStateRTPC.Neutral];
-            neutralRtpc.SetGlobalValue(neutralValue);
-            Debug.Log($"[AudioManager] Neutral RTPC = {neutralValue}");
-            SetGlobalRTPCValue(AudioManager.Instance.DEN_GP_TutoStep, 0f);
+
+            // Neutral RTPC to 75 and tutorial step to 0
+            SetGlobalRTPCValue(gameParameters[WwiseEmotionStateRTPC.Neutral], 75f);
+            SetGlobalRTPCValue(DEN_GP_TutoStep, 0f);
+            StartCoroutine(FadeRTPCVolume(SFXVolume, 8f, 5f, 1f));
+
+            hasPlayedIntroMusic = false;
         }
 
-        public static void SetBrancheStep1() 
+        public void SetGameStateBranches(int branchesLeft, int totalBranches)
         {
-            float neutralValue = 50f;
-            SetWwiseGlobalRTPCValue(WwiseEmotionStateRTPC.Neutral, neutralValue);
-            AudioManager.SetGlobalRTPCValue(AudioManager.Instance.DEN_GP_TutoStep, 33f);
+            if (totalBranches <= 0) return;
+
+            // Compute progression [0..1] where 1 = nothing left
+            float progress = 1f - (float)branchesLeft / totalBranches;
+
+            // Map to neutral RTPC [75->0] and tutorial step [0->100]
+            float neutralValue = Mathf.Lerp(75f, 0f, progress);
+            float stepValue = Mathf.Lerp(0f, 100f, progress);
+
+            SetGlobalRTPCValue(gameParameters[WwiseEmotionStateRTPC.Neutral], neutralValue);
+            SetGlobalRTPCValue(DEN_GP_TutoStep, stepValue);
         }
 
-        public static void SetBrancheStep2()
+        public void SetGameStateTitleReveal()
         {
-            float neutralValue = 25f;
-            SetWwiseGlobalRTPCValue(WwiseEmotionStateRTPC.Neutral, neutralValue);
-            AudioManager.SetGlobalRTPCValue(AudioManager.Instance.DEN_GP_TutoStep, 66f);
+            // Play the intro music or stinger for title reveal
+            if (!hasPlayedIntroMusic)
+            {
+                MusicIntro.Post(GameManager.Instance.GetCamera().gameObject);
+                hasPlayedIntroMusic = true;
+            }            // Fade ambience from 8 -> 5 over 1 second
+            StartCoroutine(FadeRTPCVolume(AmbienceVolume, 8f, 5f, 1f));
+            SetGlobalRTPCValue(gameParameters[WwiseEmotionStateRTPC.Neutral], 0f);
+            StartCoroutine(FadeRTPCVolume(SFXVolume, 5f, 8f, 1f));
         }
 
-        public static void SetBrancheStep3()
+        public void SetGameStateGameplay()
         {
-            float neutralValue = 0f;
-            SetWwiseGlobalRTPCValue(WwiseEmotionStateRTPC.Neutral, neutralValue);
-            AudioManager.SetGlobalRTPCValue(AudioManager.Instance.DEN_GP_TutoStep, 100f);
+            // Fade ambience from current (5) back to 8 over 1 second
+            StartCoroutine(FadeRTPCVolume(AmbienceVolume, 5f, 8f, 1f));
+
         }
+
+        private IEnumerator FadeRTPCVolume(RTPC rtpc, float from, float to, float duration)
+        {
+            float elapsed = 0f;
+            while (elapsed < duration)
+            {
+                float value = Mathf.Lerp(from, to, elapsed / duration);
+                SetGlobalRTPCValue(rtpc, value);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+            // Ensure final value
+            SetGlobalRTPCValue(rtpc, to);
+        }
+        public void InitializeForState(GameState state)
+        {
+            // 1. Apply all saved slider RTPCs (master, music, sfx, ambience)
+            foreach (var kv in playerSavedRTPCs)
+            {
+                SetGlobalRTPCValue(kv.RTPC, kv.Value);
+            }
+
+            // 2. Apply any one-time startup RTPCs or states not tied to cycles
+
+            // 3. Then apply state-specific overrides
+            switch (state)
+            {
+                case GameState.Blackscreen:
+                    SetGameStateBlackscreen();
+                    break;
+                case GameState.Branches:
+                    // branches state will be updated per frame via SetGameStateBranches()
+                    break;
+                case GameState.TitleReveal:
+                    SetGameStateTitleReveal();
+                    break;
+                case GameState.Gameplay:
+                    SetGameStateGameplay();
+                    break;
+            }
+        }
+
 
         #endregion Game State
     }

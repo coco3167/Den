@@ -1,9 +1,9 @@
+using System.Linq;
+using Audio;
 using Sinj;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
-using Audio;
+using UnityEngine.UI;
 
 public class IntroManager : MonoBehaviour, IReloadable
 {
@@ -20,7 +20,7 @@ public class IntroManager : MonoBehaviour, IReloadable
     step 5 = game (blur fading)
     */
     public string currentStep;
-    
+
 
     [Header("Scripts")]
     public BranchesManager branchesManager;
@@ -69,7 +69,7 @@ public class IntroManager : MonoBehaviour, IReloadable
         titleMat.SetFloat("_MAIN", 0.5f);
 
         // mainCamera.transform.position = cameraSpots[0].position;
-        AudioManager.SetGameStateBlackscreen();
+        AudioManager.Instance.InitializeForState(GameState.Blackscreen);
 
     }
 
@@ -131,34 +131,29 @@ public class IntroManager : MonoBehaviour, IReloadable
                 blackBackground.gameObject.SetActive(false);
                 transitionFactor = 0f;
 
-                branchesLeft = branchesManager.branches.FindAll(x => !x.gone).Count;
-                if (branchesLeft <= 9f)
-                {
-                    AudioManager.SetBrancheStep1();
-                    Debug.Log("branche step 1 launched");
-                }
-                else if (branchesLeft <= 6f)
-                {
-                    AudioManager.SetBrancheStep2();
-                    Debug.Log("branche step 2 launched");
-                }
-                else if (branchesLeft == 0f)
-                {
-                    AudioManager.SetBrancheStep3();
-                    Debug.Log("branche step 3 launched");
+                int total = branchesManager.branches.Count;
+                int left = branchesManager.branches.Count(b => !b.gone);
+
+                // this will lerp Neutral RTPC from 75→0
+                // and tutorial RTPC from 0→100
+
+                AudioManager.Instance.SetGameStateBranches(left, total);
+
+                if (left == 0)
                     step = 4;
-                }
                 break;
 
             case 4:
                 titleReveal = true;
+
+                AudioManager.Instance.SetGameStateTitleReveal();
+                AudioManager.Instance.RestartAmbience();
+
                 titleDelay -= Time.deltaTime;
 
                 titleMAIN = Mathf.Lerp(titleMat.GetFloat("_MAIN"), 1, Time.deltaTime * titleFadeSpeed);
                 titleMat.SetFloat("_MAIN", titleMAIN);
 
-                AudioManager.Instance.MusicIntro.Post(GameManager.Instance.GetCamera().gameObject);
-                Debug.Log("musical intro launched");
                 if (titleDelay < 0)
                 {
                     step = 5;
@@ -174,6 +169,7 @@ public class IntroManager : MonoBehaviour, IReloadable
                 }
                 sinjManager.InfluencedByMouse(true);
                 mouseManager.IsUsed = true;
+                AudioManager.Instance.SetGameStateGameplay();
                 dofVolume.weight = Mathf.Lerp(dofVolume.weight, 0, Time.deltaTime * dofSpeed);
 
                 titleMAIN = Mathf.Lerp(titleMat.GetFloat("_MAIN"), 0, Time.deltaTime * titleFadeSpeed);
@@ -194,7 +190,7 @@ public class IntroManager : MonoBehaviour, IReloadable
             dofVolume.weight = Mathf.Lerp(dofVolume.weight, 1, Time.deltaTime * dofSpeed);
         }
 
-        
+
     }
 
     public void LoopReset()
@@ -204,7 +200,7 @@ public class IntroManager : MonoBehaviour, IReloadable
         sinjManager.InfluencedByMouse(false);
         mouseManager.IsUsed = false;
     }
-    
+
     public void Reload()
     {
         LoopReset();

@@ -4715,11 +4715,6 @@
 					<PropertyList>
 						<Property Name="3DSpatialization" Type="int16" Value="1"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="2"/>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-6</Value>
-							</ValueList>
-						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
@@ -4729,7 +4724,7 @@
 							<ObjectRef Name="AmbienceConversionSettings" ID="{34A3134F-FEBD-4C1D-BEAF-524D3ABDA36F}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+							<ObjectRef Name="UI" ID="{536025B3-BD32-439B-A84E-2880E4EAE4C4}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
