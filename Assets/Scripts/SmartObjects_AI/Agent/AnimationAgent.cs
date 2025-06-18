@@ -113,7 +113,6 @@ namespace SmartObjects_AI.Agent
 
         public void StopLookingObject()
         {
-            Debug.Log("no looking object");
             m_currentLookingObject = null;
         }
 

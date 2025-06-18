@@ -9,11 +9,13 @@ namespace SmartObjects_AI
     public abstract class BaseScoreCalcul
     {
         protected MouseManager p_mouseManager;
+        protected WorldParameters p_worldParameters;
         protected float p_usingCapacity, p_distanceCoefficient;
 
         public void Init()
         {
             p_mouseManager = GameManager.Instance.GetMouseManager();
+            p_worldParameters = GameManager.Instance.worldParameters;
         }
 
         public virtual float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
@@ -182,6 +184,33 @@ namespace SmartObjects_AI
             m_agressionCap = smartAgent.GetDynamicParameter(AgentDynamicParameter.AggressionCap);
             
             return 10 * m_agressionCap;
+        }
+    }
+
+    public class EndScore : BaseScoreCalcul
+    {
+        [SerializeField] private AgentDynamicParameter parameter;
+        private float m_score;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            base.CalculateScore(smartAgent, smartObject);
+            switch (parameter)
+            {
+                case AgentDynamicParameter.Curiosity:
+                    m_score = p_worldParameters.GetDynamicParameter(WorldParameters.WorldParameterType.EndSleep);
+                    break;
+                
+                case AgentDynamicParameter.Aggression:
+                    m_score = p_worldParameters.GetDynamicParameter(WorldParameters.WorldParameterType.EndAggression);
+                    break;
+                
+                case AgentDynamicParameter.Fear:
+                    m_score = p_worldParameters.GetDynamicParameter(WorldParameters.WorldParameterType.EndFleeOuterSpace);
+                    break;
+            } 
+            
+            return 10 * m_score * p_distanceCoefficient;
         }
     }
     

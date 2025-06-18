@@ -45,5 +45,15 @@ namespace SmartObjects_AI.Agent
         {
             m_navMeshAgent.isStopped = true;
         }
+
+        public void Deactivate()
+        {
+            m_navMeshAgent.enabled = false;
+        }
+
+        public bool IsActive()
+        {
+            return m_navMeshAgent.enabled;
+        }
     }
 }

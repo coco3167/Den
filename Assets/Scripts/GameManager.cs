@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour, IGameStateListener
 
     [SerializeField] public WorldParameters worldParameters;
 
+    [SerializeField] private float timeBeforeRealEnd = 5;
+
     // Palier
     private readonly Dictionary<AgentDynamicParameter, WwiseMoodState> m_palierMoodState = new()
     {
@@ -182,7 +184,15 @@ public class GameManager : MonoBehaviour, IGameStateListener
         AudioManager.Instance.PlayEmotionSteps(parameter, nextPallier);
 
         if (m_currentPalier[parameter] >= 100)
-            GameLoopManager.Instance.OnGameLoopEnded();
+        {
+            InfluencedByMouse(false);
+            Invoke(nameof(CallGameLoopEnd), timeBeforeRealEnd);
+        }
+    }
+
+    private void CallGameLoopEnd()
+    {
+        GameLoopManager.Instance.OnGameLoopEnded();
     }
 
     // #region EventArgs

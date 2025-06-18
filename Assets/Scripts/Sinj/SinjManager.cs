@@ -105,6 +105,26 @@ namespace Sinj
                 GameManager.Instance.InfluencedByMouse(false);
             }
 
+            if (value >= 100)
+            {
+                GameManager.Instance.InfluencedByMouse(false);
+
+                switch (parameter)
+                {
+                    case AgentDynamicParameter.Curiosity:
+                        m_worldParameters.SetDynamicParameter(WorldParameters.WorldParameterType.EndSleep, 100);
+                        break;
+                    
+                    case AgentDynamicParameter.Aggression:
+                        m_worldParameters.SetDynamicParameter(WorldParameters.WorldParameterType.EndFleeOuterSpace, 100);
+                        break;
+                    
+                    case AgentDynamicParameter.Fear: 
+                        m_worldParameters.SetDynamicParameter(WorldParameters.WorldParameterType.EndFleeOuterSpace, 100);
+                        break;
+                }
+            }
+
             foreach (MouseAgent agent in mouseAgents)
             {
                 agent.ResetEmotions();

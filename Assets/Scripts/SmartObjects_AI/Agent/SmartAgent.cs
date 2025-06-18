@@ -5,7 +5,9 @@ using AYellowpaper.SerializedCollections;
 using DebugHUD;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace SmartObjects_AI.Agent
 {
@@ -106,6 +108,12 @@ namespace SmartObjects_AI.Agent
 
         private void TryToUseSmartObject()
         {
+            if (!m_movementAgent.IsActive())
+            {
+                m_currentSmartObject.Use(this);
+                return;
+            }
+            
             SearchForSmartObject();
 
             SmartObject smartObjectToUse = m_smartObjectToUse.Key;
@@ -177,6 +185,13 @@ namespace SmartObjects_AI.Agent
         public float CurrentScore()
         {
             return m_smartObjectToUse.Value;
+        }
+
+        public void SnapToPoint(Vector3 position)
+        {
+            m_movementAgent.Deactivate();
+            transform.position = new Vector3(Random.Range(-.1f, .1f), 0, Random.Range(-.1f, .1f)) + position;
+            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, Random.Range(0, 360), transform.rotation.eulerAngles.z));
         }
         
 

@@ -15,6 +15,7 @@ namespace SmartObjects_AI
         
         [field: SerializeField] public Transform usingPoint { get; private set; }
         [field: SerializeField] public Transform lookingPoint { get; private set; }
+        [SerializeField] private bool shouldSnapToLookingPoint;
         [SerializeField] private SmartObjectData data;
 
         [SerializeField] private SerializedDictionary<SmartObjectParameter, float> dynamicParametersStartValue;
@@ -74,6 +75,9 @@ namespace SmartObjects_AI
 
             if (data.wwiseEvent.IsValid())
                 data.wwiseEvent.Post(agent.gameObject);
+
+            if (shouldSnapToLookingPoint)
+                agent.SnapToPoint(lookingPoint.position);
         }
 
         public void FinishUse(SmartAgent agent)
