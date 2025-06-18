@@ -45,6 +45,8 @@ namespace Sinj
                 GameLoopManager.Instance.GameReady += mouseAgents[loop].GetComponent<IGameStateListener>().OnGameReady;
                 GameLoopManager.Instance.GameEnded += mouseAgents[loop].GetComponent<IGameStateListener>().OnGameEnded;
             }
+            
+            InfluencedByMouse(false);
 
             m_worldParameters.AgentGlobalParameters.ForEach(x => m_debugParameters.Add(new DebugParameter(x.Key.ToString(), "0")));
             
