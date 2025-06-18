@@ -152,6 +152,9 @@ namespace Audio
         private uint cursorMovePlayingId = 0;
         [SerializeField] private GameObject mouseManifestation;
         public GameObject MouseManifestation => mouseManifestation;
+        [SerializeField] public AK.Wwise.RTPC DEN_GP_TutoMove;
+        [SerializeField] public AK.Wwise.RTPC DEN_GP_TutoStep;
+
 
         [Title("Wwise Events")]
         [FoldoutGroup("Wwise UI Events")]
@@ -216,6 +219,23 @@ namespace Audio
         [SerializeField] public AK.Wwise.Event Groomed;
         [FoldoutGroup("Wwise Barks Events")]
         [SerializeField] public AK.Wwise.Event Scream;
+        [FoldoutGroup("Wwise Tuto Events")]
+        [SerializeField] public AK.Wwise.Event BranchMoving;
+        [FoldoutGroup("Wwise Tuto Events")]
+        [SerializeField] public AK.Wwise.Event BranchBreaking;
+        [FoldoutGroup("Wwise Tuto Events")]
+        [SerializeField] public AK.Wwise.Event BranchGone;
+        [FoldoutGroup("Wwise Tuto Events")]
+        [SerializeField] public AK.Wwise.Event BranchStopMoving;
+        [FoldoutGroup("Wwise Music Events")]
+        [SerializeField] public AK.Wwise.Event MusicIntro;
+        [FoldoutGroup("Wwise Music Events")]
+        [SerializeField] public AK.Wwise.Event MusicMenu;
+        [FoldoutGroup("Wwise Music Events")]
+        [SerializeField] public AK.Wwise.Event MusicEnd;
+
+
+
 
 
 
@@ -230,15 +250,15 @@ namespace Audio
                 {WwiseEmotionStateRTPC.Anger, 0f},
                 {WwiseEmotionStateRTPC.Intensity, 0f},
                 {WwiseEmotionStateRTPC.Tension, 0f},
-                {WwiseEmotionStateRTPC.Neutral, 0f},
+                //{WwiseEmotionStateRTPC.Neutral, 0f},
             };
 
             ResetAmbience.Post(this.gameObject);
         }
         void Start()
         {
-            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
-            WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones);
+            //WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
+            //WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones);
 
             StartAmbience();
         }
@@ -394,6 +414,19 @@ namespace Audio
             rtpc.SetGlobalValue(rtpc.Name, value);
         }
 
+        public void SetRTPCValue(RTPC rtpc, GameObject target, float value)
+        {
+            if (target == null)
+            {
+                return;
+            }
+            if (!target.GetComponent<AkGameObj>())
+            {
+                target.AddComponent<AkGameObj>();
+            }
+            rtpc.SetValue(target, value);
+        }
+
         #endregion RTPC
 
         #region Mood 
@@ -514,5 +547,43 @@ namespace Audio
             GameManager.Instance.Reload();
         }
         #endregion Cycles
+
+        #region Game State
+
+        public void SetGameStateBlackscreen()
+        {
+            
+            WwiseStateManager.SetWwiseMoodState(WwiseMoodState.NeutralState);
+            WwiseStateManager.SetWwiseAudioState(WwiseAudioState.StereoHeadphones);
+            WwiseStateManager.SetWwiseMixPreset(WwiseMixPreset.Regular);
+            float neutralValue = 75f;    // or whatever inspector value you want
+            var neutralRtpc = gameParameters[WwiseEmotionStateRTPC.Neutral];
+            neutralRtpc.SetGlobalValue(neutralValue);
+            Debug.Log($"[AudioManager] Neutral RTPC = {neutralValue}");
+            SetGlobalRTPCValue(AudioManager.Instance.DEN_GP_TutoStep, 0f);
+        }
+
+        public static void SetBrancheStep1() 
+        {
+            float neutralValue = 50f;
+            SetWwiseGlobalRTPCValue(WwiseEmotionStateRTPC.Neutral, neutralValue);
+            AudioManager.SetGlobalRTPCValue(AudioManager.Instance.DEN_GP_TutoStep, 33f);
+        }
+
+        public static void SetBrancheStep2()
+        {
+            float neutralValue = 25f;
+            SetWwiseGlobalRTPCValue(WwiseEmotionStateRTPC.Neutral, neutralValue);
+            AudioManager.SetGlobalRTPCValue(AudioManager.Instance.DEN_GP_TutoStep, 66f);
+        }
+
+        public static void SetBrancheStep3()
+        {
+            float neutralValue = 0f;
+            SetWwiseGlobalRTPCValue(WwiseEmotionStateRTPC.Neutral, neutralValue);
+            AudioManager.SetGlobalRTPCValue(AudioManager.Instance.DEN_GP_TutoStep, 100f);
+        }
+
+        #endregion Game State
     }
 }

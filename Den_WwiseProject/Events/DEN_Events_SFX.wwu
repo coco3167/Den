@@ -324,6 +324,61 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="DEN_EV_SFX_Tuto" ID="{DB346BCC-240E-4C1D-BB67-859BA7303D11}" ShortID="186992053">
+					<ChildrenList>
+						<Event Name="Play_DEN_Tuto_BranchGone" ID="{2091A159-0E6E-49A3-8E17-FE07B329C688}">
+							<ChildrenList>
+								<Action Name="" ID="{BD31B40A-3D2C-43C8-9CB7-8BD254CE5763}" ShortID="811963371">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Tuto_BranchGone" ID="{721F8EAC-F55D-4096-8614-E0CDFC7C732E}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_Tuto_BranchMove" ID="{069F145A-757D-4480-BB30-74F9FEF726FE}">
+							<ChildrenList>
+								<Action Name="" ID="{06B07812-1DDC-4A2E-AE4C-D1D97FBC9928}" ShortID="352803444">
+									<PropertyList>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Tuto_Branching" ID="{977A75F9-C3DB-4F01-9698-3A6F1AB1466B}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DEN_Tuto_BranchBreaking" ID="{3F676F78-4EE7-4019-8755-6F4DE5E8036E}">
+							<ChildrenList>
+								<Action Name="" ID="{B2455F69-5BF2-4486-863E-C5DF6AEDF170}" ShortID="375827973">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Tuto_BranchBreaking" ID="{C18FE3AD-E19E-47D7-AA38-F3A26791798F}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_DEN_Tuto_BranchMoving" ID="{77237ABA-2B66-4A2C-9594-9B0F5395CF83}">
+							<ChildrenList>
+								<Action Name="" ID="{69EAEC81-EF19-41B5-9C80-B3C4B0D7950E}" ShortID="949182309">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_Tuto_BranchMove" ID="{27068375-6900-441A-B885-86641ADB2EFF}" WorkUnitID="{3A7BB224-0746-47DC-9DC1-F2F57F613545}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

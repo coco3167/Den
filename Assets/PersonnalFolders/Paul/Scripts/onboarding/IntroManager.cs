@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using Audio;
 
 public class IntroManager : MonoBehaviour, IReloadable
 {
@@ -65,8 +66,8 @@ public class IntroManager : MonoBehaviour, IReloadable
         blackBackground.color = color;
 
         // mainCamera.transform.position = cameraSpots[0].position;
+        AudioManager.SetGameStateBlackscreen();
 
-        
     }
 
     // Update is called once per frame
@@ -126,9 +127,20 @@ public class IntroManager : MonoBehaviour, IReloadable
                 transitionFactor = 0f;
 
                 branchesLeft = branchesManager.branches.FindAll(x => !x.gone).Count;
-
-                if (branchesLeft == 0f)
+                if (branchesLeft <= 9f)
                 {
+                    AudioManager.SetBrancheStep1();
+                    Debug.Log("branche step 1 launched");
+                }
+                else if (branchesLeft <= 6f)
+                {
+                    AudioManager.SetBrancheStep2();
+                    Debug.Log("branche step 2 launched");
+                }
+                else if (branchesLeft == 0f)
+                {
+                    AudioManager.SetBrancheStep3();
+                    Debug.Log("branche step 3 launched");
                     step = 4;
                 }
                 break;
@@ -136,6 +148,8 @@ public class IntroManager : MonoBehaviour, IReloadable
             case 4:
                 titleReveal = true;
                 titleDelay -= Time.deltaTime;
+                AudioManager.Instance.MusicIntro.Post(GameManager.Instance.GetCamera().gameObject);
+                Debug.Log("musical intro launched");
                 if (titleDelay < 0)
                 {
                     step = 5;
