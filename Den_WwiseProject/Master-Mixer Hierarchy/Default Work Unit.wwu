@@ -219,6 +219,41 @@
 											</RTPC>
 										</Local>
 									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{6421210E-4CF7-4AC3-8B69-3150013FA942}" ShortID="665244017">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="OutputBusLowpass"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="DEN_GP_TutoStep" ID="{D48420A7-BC76-48FF-87DF-299C61A4CFE5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{C47787E5-3CFD-4E28-ABB5-4F3F4406EEC6}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>50</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
 								</ObjectList>
 							</ObjectLists>
 						</Bus>
@@ -313,6 +348,41 @@
 																	</Point>
 																	<Point>
 																		<XPos>10</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{017D87D5-FE54-4BD2-8008-9E2F58D0A4E7}" ShortID="84181983">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="OutputBusLowpass"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="DEN_GP_TutoStep" ID="{D48420A7-BC76-48FF-87DF-299C61A4CFE5}" WorkUnitID="{FB311474-A814-4F96-BA39-A1ACEFCA30D4}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{5E722B7C-5129-4611-9F8C-B4E178953587}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>50</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
 																		<YPos>0</YPos>
 																		<Flags>37</Flags>
 																	</Point>
