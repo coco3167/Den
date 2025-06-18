@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace SmartObjects_AI.Agent
@@ -20,8 +21,9 @@ namespace SmartObjects_AI.Agent
         private Animator m_animator;
 
         private bool m_shouldStopAnimationAgent;
+        private bool m_startedAnimation;
 
-        private Transform m_currentLookingObject;
+        [SerializeField, ReadOnly] private Transform m_currentLookingObject;
         private Vector3 m_locationToLookAt;
         private Quaternion m_goalRotation;
         private Transform m_transformMovementAgent;
@@ -45,6 +47,7 @@ namespace SmartObjects_AI.Agent
             if (!m_currentLookingObject)
                 return;
             
+            
             m_locationToLookAt = m_currentLookingObject.position - m_transformMovementAgent.position;
             m_locationToLookAt.y = 0;
             m_goalRotation = Quaternion.LookRotation(m_locationToLookAt, transform.up);
@@ -59,12 +62,16 @@ namespace SmartObjects_AI.Agent
             }
         }
 
-        public void SwitchAnimator(SmartObjectData data, Transform lookingObject = null)
+        public void SwitchAnimator(SmartObjectData data, Transform lookingObject)
         {
             m_animator.runtimeAnimatorController = data.animatorController;
-            
-            if(data.shouldLookAtObject)
+            m_startedAnimation = true;
+
+            if (data.shouldLookAtObject)
+            {
                 m_currentLookingObject = lookingObject;
+            }
+
             
             m_animator.SetBool(SkipStart, data.shouldSkipStart);
             m_animator.SetBool(SkipEnd, data.shouldSkipEnd);
@@ -78,6 +85,7 @@ namespace SmartObjects_AI.Agent
 
         public void FinishUseAnimation(bool shouldEnd, bool shouldInterrupt)
         {
+            m_startedAnimation = false;
             m_animator.SetBool(FinishUse, shouldEnd);
 
             if (shouldEnd && shouldInterrupt)
@@ -96,7 +104,6 @@ namespace SmartObjects_AI.Agent
         public void StartMovementAgent()
         {
             movementAgent.StartAgent();
-            StopLookingObject();
         }
         
         public void StopMovementAgent()
@@ -106,12 +113,13 @@ namespace SmartObjects_AI.Agent
 
         public void StopLookingObject()
         {
+            Debug.Log("no looking object");
             m_currentLookingObject = null;
         }
 
         public bool IsAnimationReady()
         {
-            return m_animator.GetCurrentAnimatorStateInfo(0).IsTag("Usable");
+            return m_animator.GetCurrentAnimatorStateInfo(0).IsTag("Usable") && !m_startedAnimation;
         }
 
     }
