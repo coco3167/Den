@@ -66,7 +66,6 @@ namespace SmartObjects_AI.Agent
 
         public void OnGameEnded(object sender, EventArgs eventArgs)
         {
-            Debug.Log("Game ended ?");
             m_smartObjects = null;
             m_debugParameters = null;
             m_currentSmartObject = null;
@@ -89,6 +88,8 @@ namespace SmartObjects_AI.Agent
         {
             m_smartObjects = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             m_debugParameters = new DebugParameter[m_smartObjects.Length];
+            
+            m_movementAgent.Activate(true);
             
             for (var loop = 0; loop < m_smartObjects.Length; loop++)
             {
@@ -189,7 +190,7 @@ namespace SmartObjects_AI.Agent
 
         public void SnapToPoint(Vector3 position)
         {
-            m_movementAgent.Deactivate();
+            m_movementAgent.Activate(false);
             transform.position = new Vector3(Random.Range(-.1f, .1f), 0, Random.Range(-.1f, .1f)) + position;
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, Random.Range(0, 360), transform.rotation.eulerAngles.z));
         }
