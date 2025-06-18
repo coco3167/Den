@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using AYellowpaper.SerializedCollections;
 using DebugHUD;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,15 +15,15 @@ namespace SmartObjects_AI.Agent
     public class SmartAgent : MonoBehaviour, IGameStateListener, IReloadable, IDebugDisplayAble
     {
         private const float AIUpdateSleepTime = 0.1f;
-        
+
         [SerializeField] private SmartAgentData data;
         [SerializeField] private float agentDecisionFlexibility;
-        
+
         [SerializeField] private SmartObject groomingObject;
         [SerializeField] private SmartObject fightObject;
 
-        [field : SerializeField] public AnimationAgent animationAgent { get; private set; }
-        
+        [field: SerializeField] public AnimationAgent animationAgent { get; private set; }
+
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> dynamicParametersStartValue;
         [SerializeField, ReadOnly] private SerializedDictionary<AgentDynamicParameter, float> dynamicParameters = new();
 
@@ -33,15 +33,15 @@ namespace SmartObjects_AI.Agent
         private SmartObject m_currentSmartObject;
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
         private KeyValuePair<SmartObject, float> m_smartObjectToUse;
-        
-        private DebugParameter[] m_debugParameters = {};
-        
+
+        private DebugParameter[] m_debugParameters = { };
+
         private MovementAgent m_movementAgent;
 
         private void Awake()
         {
             m_movementAgent = GetComponent<MovementAgent>();
-            
+
             //Dynamic values to default state
             for (int loop = 0; loop < Enum.GetNames(typeof(AgentDynamicParameter)).Length; loop++)
             {
@@ -50,7 +50,7 @@ namespace SmartObjects_AI.Agent
                 dynamicParameters.Add(parameter,
                     dynamicParametersStartValue.GetValueOrDefault(parameter, 0.0f));
             }
-            
+
             //Owning SmartObjects
             m_smartObjectsOwning = GetComponentsInChildren<SmartObject>();
         }
@@ -77,19 +77,19 @@ namespace SmartObjects_AI.Agent
         public void Reload()
         {
             transform.localPosition = Vector3.zero;
-            
+
             AgentDynamicParameter[] keys = dynamicParameters.Keys.ToArray();
             keys.ForEach(x =>
             {
                 SetDynamicParameter(x, dynamicParametersStartValue.GetValueOrDefault(x));
             });
         }
-        
+
         private void Init()
         {
             m_smartObjects = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             m_debugParameters = new DebugParameter[m_smartObjects.Length];
-            
+
             for (var loop = 0; loop < m_smartObjects.Length; loop++)
             {
                 DebugParameter debugParameter = new DebugParameter(m_smartObjects[loop].name, "0");
@@ -100,9 +100,9 @@ namespace SmartObjects_AI.Agent
         private void AIUpdate()
         {
             AddDynamicParameter(AgentDynamicParameter.UsableFear, fightObject.GetDynamicParameter(SmartObjectParameter.Fear));
-            
+
             DynamicParameterVariation();
-            
+
             TryToUseSmartObject();
         }
 
@@ -113,25 +113,25 @@ namespace SmartObjects_AI.Agent
                 m_currentSmartObject.Use(this);
                 return;
             }
-            
+
             SearchForSmartObject();
 
             SmartObject smartObjectToUse = m_smartObjectToUse.Key;
             bool isStillSameObject = smartObjectToUse == m_currentSmartObject;
-            
+
             if (!isStillSameObject && animationAgent.IsAnimationReady())
-            { 
+            {
                 m_currentSmartObject.FinishUse(this);
                 m_currentSmartObject = smartObjectToUse;
             }
-            
+
             m_movementAgent.SetDestination(m_currentSmartObject.usingPoint, m_currentSmartObject.ShouldRun());
             if (m_currentSmartObject.IsUsing(this) && !m_movementAgent.IsCloseToDestination())
             {
                 animationAgent.FinishUseAnimation(true, false);
                 m_currentSmartObject.FinishUse(this);
             }
-            
+
             animationAgent.FinishUseAnimation(!(isStillSameObject && m_movementAgent.IsCloseToDestination()), smartObjectToUse.ShouldInterrupt());
 
             if (m_movementAgent.IsCloseToDestination())
@@ -140,7 +140,7 @@ namespace SmartObjects_AI.Agent
                 {
                     m_currentSmartObject.StartUse(this);
                 }
-                else if(m_currentSmartObject.IsUsing(this))
+                else if (m_currentSmartObject.IsUsing(this))
                     m_currentSmartObject.Use(this);
             }
         }
@@ -153,25 +153,25 @@ namespace SmartObjects_AI.Agent
                 SmartObject smartObject = m_smartObjects[loop];
                 m_smartObjectScore.Add(smartObject, smartObject.CalculateScore(this));
                 smartObject.DynamicParameterVariation();
-                
+
                 m_debugParameters[loop].UpdateValue(m_smartObjectScore[smartObject].ToString("0.00"));
             }
-            
+
             m_smartObjectToUse = m_smartObjectScore.Aggregate((a, b) => a.Value > b.Value ? a : b);
 
             // Dont change smartobject unless score remarkable score diff 
             if (m_currentSmartObject)
             {
-                float previousScore = m_smartObjectScore[m_currentSmartObject]; 
+                float previousScore = m_smartObjectScore[m_currentSmartObject];
                 if (m_smartObjectToUse.Value < previousScore + agentDecisionFlexibility)
                     m_smartObjectToUse = new KeyValuePair<SmartObject, float>(m_currentSmartObject, previousScore);
             }
 
             groomingObject.IsUsable = m_smartObjectToUse.Key.IsRest() && m_smartObjectToUse.Key.IsUsing(this);
-            
+
             m_debugParameters[m_smartObjectScore.Keys.ToList().IndexOf(m_smartObjectToUse.Key)].IsSpecial = true;
         }
-        
+
         public bool IsOwner(SmartObject smartObject)
         {
             return m_smartObjectsOwning.Contains(smartObject);
@@ -192,15 +192,16 @@ namespace SmartObjects_AI.Agent
             m_movementAgent.Deactivate();
             transform.position = new Vector3(Random.Range(-.1f, .1f), 0, Random.Range(-.1f, .1f)) + position;
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, Random.Range(0, 360), transform.rotation.eulerAngles.z));
+            AudioManager.Instance.PlayEndMusic();
         }
-        
+
 
         #region DynamicParameters
         public float GetDynamicParameter(AgentDynamicParameter parameter)
         {
             return dynamicParameters[parameter];
         }
-        
+
         public void SetDynamicParameter(AgentDynamicParameter parameter, float value)
         {
             dynamicParameters[parameter] = Math.Clamp(value, 0, 100);
@@ -210,7 +211,7 @@ namespace SmartObjects_AI.Agent
         {
             SetDynamicParameter(parameter, dynamicParameters[parameter] + value);
         }
-        
+
         private void DynamicParameterVariation()
         {
             foreach (AgentDynamicParameter parameter in data.dynamicParametersVariation.Keys)
@@ -218,7 +219,7 @@ namespace SmartObjects_AI.Agent
                 AddDynamicParameter(parameter, data.dynamicParametersVariation[parameter]);
             }
         }
-        
+
         #endregion
 
         public int GetParameterCount()
