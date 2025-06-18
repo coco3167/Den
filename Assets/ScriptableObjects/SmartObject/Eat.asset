@@ -15,18 +15,27 @@ MonoBehaviour:
   <scoreCalculation>k__BackingField:
     rid: 7321801942362751067
   <animatorController>k__BackingField: {fileID: 22100000, guid: 774c7f92c0ab54c429b05b3aff20bee3, type: 2}
+  <wwiseEvent>k__BackingField:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   <maxUser>k__BackingField: 1
-  <minRadius>k__BackingField: 1
-  <adatpToMood>k__BackingField: 0
-  <shouldStopAgent>k__BackingField: 0
+  <minRadius>k__BackingField: 0.5
+  <shouldRunTo>k__BackingField: 0
+  <shouldStopAgent>k__BackingField: 1
   <shouldLookAtObject>k__BackingField: 1
+  <defaultLookingPoint>k__BackingField: 0
+  <shouldEndFast>k__BackingField: 0
+  <shouldSkipStart>k__BackingField: 0
+  <shouldSkipEnd>k__BackingField: 1
+  <shouldInterruptNext>k__BackingField: 0
   <dynamicParametersEffect>k__BackingField:
     _serializedList: []
   <dynamicParametersVariation>k__BackingField:
     _serializedList: []
   <parameterEffectOnAgent>k__BackingField:
     _serializedList:
-    - Key: 7
+    - Key: 6
       Value: -5
   references:
     version: 2

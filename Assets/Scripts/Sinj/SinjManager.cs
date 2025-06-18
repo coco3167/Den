@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
@@ -16,7 +15,7 @@ namespace Sinj
         [Title("Sinjs")]
         [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject smartAgent;
         [SerializeField, Range(0,10)] private int sinjCount;
-        [SerializeField, ReadOnly] private List<MouseAgent> mouseAgents = new();
+        [SerializeField, ReadOnly] public List<MouseAgent> mouseAgents = new();
 
         [Title("Emotions")]
         [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> emotionsMin;
@@ -32,7 +31,6 @@ namespace Sinj
         private float m_intensity;
         private WorldParameters m_worldParameters;
 
-
         private void Awake()
         {
             m_worldParameters = GameManager.Instance.worldParameters;
@@ -47,6 +45,8 @@ namespace Sinj
             }
 
             m_worldParameters.AgentGlobalParameters.ForEach(x => m_debugParameters.Add(new DebugParameter(x.Key.ToString(), "0")));
+            
+            GameManager.Instance.pallierReached.AddListener(OnPallierReached);
             
             //GameManager.Instance.OnGameReady();
         }
@@ -90,15 +90,41 @@ namespace Sinj
         //     UpdateManagerEmotion(Emotions.Intensity, m_intensity);
         // }
 
+        private void OnPallierReached(AgentDynamicParameter parameter, int value)
+        {
+            if (parameter == AgentDynamicParameter.Aggression)
+            {
+                MakeEveryoneFlee();
+                MouseAgent bestAgent = mouseAgents.Aggregate((x, y) =>
+                    x.GetDynamicParameterValue(AgentDynamicParameter.Aggression) < y.GetDynamicParameterValue(AgentDynamicParameter.Aggression) ? y : x);
+                bestAgent.SetDynamicParameterValue(AgentDynamicParameter.AggressionCap, 100);
+                GameManager.Instance.InfluencedByMouse(false);
+                Debug.Log(bestAgent.GetDynamicParameterValue(AgentDynamicParameter.AggressionCap));
+            }
+        }
+
+        private void MakeEveryoneFlee()
+        {
+            foreach (MouseAgent mouseAgent in mouseAgents)
+            {
+                mouseAgent.SetDynamicParameterValue(AgentDynamicParameter.UsableFear, 100);
+            }
+        }
+
         private void UpdateManagerEmotion(AgentDynamicParameter parameter, float value)
         {
             if(!emotionsTransmissionCurve.TryGetValue(parameter, out AnimationCurve curve))
                 return;
 
             value /= 100;
-            m_worldParameters.AgentGlobalParameters[parameter] += curve.Evaluate(value)*Time.deltaTime;
+            m_worldParameters.AgentGlobalParameters[parameter] += curve.Evaluate(value)*Time.deltaTime/sinjCount;
 
             GameManager.Instance.HandlePallier(parameter, (int)m_worldParameters.AgentGlobalParameters[parameter]);
+        }
+
+        public void InfluencedByMouse(bool value)
+        {
+            mouseAgents.ForEach(x => x.InfluencedByMouse = value);
         }
 
         

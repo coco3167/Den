@@ -9,8 +9,7 @@ namespace SmartObjects_AI
     public abstract class BaseScoreCalcul
     {
         protected MouseManager p_mouseManager;
-        protected float p_mouseObjectProximity;
-        protected float p_usingCapacity;
+        protected float p_usingCapacity, p_distanceCoefficient;
 
         public void Init()
         {
@@ -19,63 +18,172 @@ namespace SmartObjects_AI
 
         public virtual float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            p_mouseObjectProximity = p_mouseManager.ObjectDistanceToMouse(smartObject.usingPoint.position);
             p_usingCapacity = !smartObject.IsUsing(smartAgent) && !smartObject.HasRoomForUse() ? 0 : 1;
-            if(p_usingCapacity == 0)
-                Debug.Log($"doesnt have capacity | {GetType()}");
+            p_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
             return 0;
         }
     }
     
     public class EatScore : BaseScoreCalcul
     {
-        private float m_hunger, m_distanceCoefficient;
+        private float m_hunger;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             base.CalculateScore(smartAgent, smartObject);
             
-            m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger);
-            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+            m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger)/10;
             
-            return p_usingCapacity * m_hunger * m_distanceCoefficient * p_mouseObjectProximity / 100;
+            return p_usingCapacity * m_hunger * p_distanceCoefficient;
         }
     }
     
-    public class SleepScore : BaseScoreCalcul
+    public class RestScore : BaseScoreCalcul
     {
-        private float m_tiredness, m_distanceCoefficient;
+        private float m_tiredness;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             base.CalculateScore(smartAgent, smartObject);
             
-            m_tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness) / 100;
-            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+            m_tiredness = smartAgent.GetDynamicParameter(AgentDynamicParameter.Tiredness)/10;
             
-            return p_usingCapacity * m_tiredness * m_distanceCoefficient * p_mouseObjectProximity;
+            return p_usingCapacity * m_tiredness * p_distanceCoefficient;
         }
     }
     
-    public class FleePoint : BaseScoreCalcul
+    public class FleePointCuriosity : BaseScoreCalcul
     {
-        [SerializeField] private float playerCoeff;
-
-        private float m_distanceCoefficient, m_mousePlayerProximity;
+        private float m_mousePlayerProximity;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
-            base.CalculateScore(smartAgent, smartObject);
+            if (!smartAgent.IsOwner(smartObject))
+                return 0;
             
-            m_distanceCoefficient = smartObject.DistanceCoefficient(smartAgent);
+            
             m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
             m_mousePlayerProximity *= m_mousePlayerProximity;
             
-            return p_usingCapacity * playerCoeff * m_distanceCoefficient * p_mouseObjectProximity / m_mousePlayerProximity;
+            // if (smartAgent.IsGoing(smartObject))
+            // {
+            //     return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity)) * Math.Max(p_distanceCoefficient, 1/m_mousePlayerProximity);
+            // }
+            
+            return 10 / m_mousePlayerProximity * smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity);
         }
     }
     
-    
+    public class FleePointAggression : BaseScoreCalcul
+    {
+        private float m_mousePlayerProximity;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            if (!smartAgent.IsOwner(smartObject))
+                return 0;
+            
+            
+            m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
+            m_mousePlayerProximity *= m_mousePlayerProximity;
+            
+            if (smartAgent.IsGoing(smartObject))
+            {
+                return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression)) * Math.Max(p_distanceCoefficient, 1/m_mousePlayerProximity);
+            }
+            
+            return 10 / m_mousePlayerProximity;
+        }
+    }
+
+    public class JumpScareScore : BaseScoreCalcul
+    {
+        private float m_mousePlayerProximity, m_usageCoeff;
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            if (!smartAgent.IsOwner(smartObject))
+                return 0;
+            
+            m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
+            m_mousePlayerProximity *= m_mousePlayerProximity;
+
+            m_usageCoeff = smartObject.GetDynamicParameter(SmartObjectParameter.Usage) > 90 ? 1.1f : 0;
+            
+            return 10 * m_usageCoeff / m_mousePlayerProximity;
+        }
+    }
+
+    public class GroomingScore : BaseScoreCalcul
+    {
+        private float m_dirtiness;
+        private float m_worldCuriosity;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            if (smartAgent.IsOwner(smartObject) || !smartObject.IsUsable)
+                return 0;
+
+            base.CalculateScore(smartAgent, smartObject);
+
+
+            m_dirtiness = smartObject.GetDynamicParameter(SmartObjectParameter.Dirtiness) / 10;
+            m_worldCuriosity = GameManager.Instance.worldParameters.AgentGlobalParameters[AgentDynamicParameter.Curiosity];
+            m_worldCuriosity = m_worldCuriosity > 25 ? m_worldCuriosity/50 : 0;
+
+            return p_usingCapacity * m_dirtiness * p_distanceCoefficient * m_worldCuriosity;
+        }
+    }
+
+    public class FightScore : BaseScoreCalcul
+    {
+        private float m_agentFight;
+        private float m_worldAggression;
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            if (smartAgent.IsOwner(smartObject))
+                return 0;
+
+            base.CalculateScore(smartAgent, smartObject);
+
+            m_agentFight = smartAgent.GetDynamicParameter(AgentDynamicParameter.Fight) / 10;
+            m_worldAggression = GameManager.Instance.worldParameters.AgentGlobalParameters[AgentDynamicParameter.Aggression];
+            m_worldAggression = m_worldAggression > 25 ? m_worldAggression/50 : 0;
+
+            return p_usingCapacity * m_agentFight * p_distanceCoefficient * m_worldAggression;
+        }
+    }
+
+    public class HideoutScore : BaseScoreCalcul
+    {
+        private float m_agentFear;
+        private float m_worldFear;
+        
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            base.CalculateScore(smartAgent, smartObject);
+
+            m_agentFear = Math.Max(smartAgent.GetDynamicParameter(AgentDynamicParameter.UsableFear), smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear)) / 10;
+            m_worldFear = GameManager.Instance.worldParameters.AgentGlobalParameters[AgentDynamicParameter.Fear];
+
+            return p_usingCapacity * m_agentFear * p_distanceCoefficient * m_worldFear/10;
+        }
+    }
+
+    public class AgressionCapScore : BaseScoreCalcul
+    {
+        private float m_agressionCap;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            if (!smartAgent.IsOwner(smartObject))
+                return 0;
+            
+            m_agressionCap = smartAgent.GetDynamicParameter(AgentDynamicParameter.AggressionCap);
+            
+            return 10 * m_agressionCap;
+        }
+    }
     
     #region Deprecated
     

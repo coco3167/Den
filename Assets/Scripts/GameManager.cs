@@ -96,15 +96,29 @@ public class GameManager : MonoBehaviour, IGameStateListener
             return;
         IsPaused = !IsPaused;
         Cursor.lockState = IsPaused ? CursorLockMode.None : CursorLockMode.Locked;
-        Time.timeScale = IsPaused ? 0 : 1;
+        Time.timeScale = IsPaused ? 0 : Options.GameParameters.TimeScale;
 
         // Pause or resume ambience
         if (IsPaused)
+        {
             AudioManager.Instance.PauseAmbience();
+            AudioManager.Instance.StopCursorMoveSound(AudioManager.Instance.MouseManifestation);
+        }
         else
+        {
             AudioManager.Instance.ResumeAmbience();
+            AudioManager.Instance.StartCursorMoveSound(AudioManager.Instance.MouseManifestation);
+        }
 
         GamePaused?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void Reload()
+    {
+        foreach (var key in m_currentPalier.Keys.ToList())
+        {
+            m_currentPalier[key] = 0;
+        }
     }
 
     public void OnManualGameEnded(InputAction.CallbackContext callbackContext)
@@ -140,6 +154,11 @@ public class GameManager : MonoBehaviour, IGameStateListener
             mouseManager.OnOtherMoveEnd();
     }
 
+    public void InfluencedByMouse(bool value)
+    {
+        mouseManager.IsUsed = value;
+        sinjManager.InfluencedByMouse(value);
+    }
 
 
     public Camera GetCamera()
