@@ -9,8 +9,17 @@ public class IntroManager : MonoBehaviour, IReloadable
     [Header("General")]
     [Range(1, 5)]
     public int step;
-    private string[] stepNames = { "black screen", "fade", "onboarding", "title", "game" };
+    private string[] stepNames = { "black screen", "fade", "onboarding", "title pause", "game" };
+
+    /*
+    step 1 = black screen
+    step 2 = fade
+    step 3 = onboarding
+    step 4 = title pause
+    step 5 = game (blur fading)
+    */
     public string currentStep;
+    
 
     [Header("Scripts")]
     public BranchesManager branchesManager;
@@ -33,10 +42,20 @@ public class IntroManager : MonoBehaviour, IReloadable
     [Header("Transition to Game")]
 
     public float titleDelay = 3;
+    public Material titleMat;
+    public float titleFadeSpeed;
     public GameObject uiCursor;
 
     [Header("Depth of Field (WIP)")]
-    public Vector2 dofRange;
+    public Volume dofVolume;
+    public float dofSpeed;
+
+    [Header("Audio")]
+    public float mouseVelocity;
+    public float branchesLeft;
+    public bool coverAnimation;
+    public bool titleReveal;
+
 
 
 
@@ -46,23 +65,20 @@ public class IntroManager : MonoBehaviour, IReloadable
         Color color = blackBackground.color;
         color.a = 1;
         blackBackground.color = color;
+        titleMat.SetFloat("_MAIN", 0.5f);
 
         // mainCamera.transform.position = cameraSpots[0].position;
 
-        SetDepthOfField(dofRange.x);
-        
-        sinjManager.InfluencedByMouse(false);
-        mouseManager.IsUsed = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetDepthOfField(dofRange.y);
-
         currentStep = stepNames[step - 1];
 
-        mouseDistance += mouseManager.MouseVelocity();
+        mouseVelocity = mouseManager.MouseVelocity();
+        mouseDistance += mouseVelocity;
 
 
         Cursor.lockState = step == 5 ? CursorLockMode.Locked : CursorLockMode.None;
@@ -70,6 +86,8 @@ public class IntroManager : MonoBehaviour, IReloadable
 
         branchesManager.transform.position = mainCamera.transform.position;
         branchesManager.transform.rotation = mainCamera.transform.rotation;
+
+        float titleMAIN;
 
         switch (step)
         {
@@ -79,7 +97,7 @@ public class IntroManager : MonoBehaviour, IReloadable
                     step = 2;
                 }
                 break;
-            
+
             case 2:
                 transitionFactor = Mathf.Lerp(transitionFactor, 1, Time.deltaTime * fadeSpeed);
                 if (transitionFactor > 0.8f)
@@ -106,35 +124,35 @@ public class IntroManager : MonoBehaviour, IReloadable
                     }
                 }
                 break;
-            
+
             case 3:
+                coverAnimation = false;
                 blackBackground.gameObject.SetActive(false);
                 transitionFactor = 0f;
 
-                int leftBranches = 0;
-                foreach (Branch branchScript in branchesManager.branches)
-                {
-                    if (!branchScript.gone)
-                    {
-                        leftBranches++;
-                    }
-                }
+                branchesLeft = branchesManager.branches.FindAll(x => !x.gone).Count;
 
-                if (leftBranches == 0f)
+                if (branchesLeft == 0f)
                 {
                     step = 4;
                 }
                 break;
-            
+
             case 4:
+                titleReveal = true;
                 titleDelay -= Time.deltaTime;
+
+                titleMAIN = Mathf.Lerp(titleMat.GetFloat("_MAIN"), 1, Time.deltaTime * titleFadeSpeed);
+                titleMat.SetFloat("_MAIN", titleMAIN);
+
                 if (titleDelay < 0)
                 {
                     step = 5;
                 }
                 break;
-            
+
             case 5:
+                titleReveal = false;
                 if (!cameraUp)
                 {
                     mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, cameraSpots[1].position, cameraMoveSpeed * Time.deltaTime);
@@ -142,119 +160,37 @@ public class IntroManager : MonoBehaviour, IReloadable
                 }
                 sinjManager.InfluencedByMouse(true);
                 mouseManager.IsUsed = true;
+                dofVolume.weight = Mathf.Lerp(dofVolume.weight, 0, Time.deltaTime * dofSpeed);
+
+                titleMAIN = Mathf.Lerp(titleMat.GetFloat("_MAIN"), 0, Time.deltaTime * titleFadeSpeed);
+                titleMat.SetFloat("_MAIN", titleMAIN);
+
                 // Déclencher OnGameReady via anim ?
                 break;
         }
 
-        if (step != 5 && cameraUp)
+        if (step != 5)
         {
-            mainCamera.transform.position = cameraSpots[0].position;
-            mainCamera.transform.rotation = cameraSpots[0].rotation;
-        }
-
-        /*if (step == 1 && mouseDistance > 500)
-        {
-            step = 2;
-        }
-
-        if (step == 2)
-        {
-            transitionFactor = Mathf.Lerp(transitionFactor, 1, Time.deltaTime * fadeSpeed);
-            if (transitionFactor > 0.8f)
+            if (cameraUp)
             {
-                transitionFactor = 1;
-                step = 3;
+                mainCamera.transform.position = cameraSpots[0].position;
+                mainCamera.transform.rotation = cameraSpots[0].rotation;
             }
 
-            Color color = blackBackground.color;
-            color.a = 1 - transitionFactor;
-
-            blackBackground.color = color;
-
-            foreach (Branch branchScript in branchesManager.branches)
-            {
-                if (branchScript.gone)
-                {
-                    branchScript.Reset();
-                }
-
-                else
-                {
-                    branchScript.CoverAnimation(transitionFactor);
-                }
-            }
+            dofVolume.weight = Mathf.Lerp(dofVolume.weight, 1, Time.deltaTime * dofSpeed);
         }
 
-        if (step == 3)
-        {
-            blackBackground.gameObject.SetActive(false);
-            transitionFactor = 0f;
-
-            int leftBranches = 0;
-            foreach (Branch branchScript in branchesManager.branches)
-            {
-                if (!branchScript.gone)
-                {
-                    leftBranches++;
-                }
-            }
-
-            if (leftBranches == 0f)
-            {
-                step = 4;
-            }
-        }
-
-        if (step == 4)
-        {
-            titleDelay -= Time.deltaTime;
-            if (titleDelay < 0)
-            {
-                step = 5;
-            }
-
-            
-        }
-
-        if (step == 5 || !cameraUp)
-        {
-            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, cameraSpots[1].position, cameraMoveSpeed * Time.deltaTime);
-            mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, cameraSpots[1].rotation, cameraMoveSpeed * Time.deltaTime);
-            
-        }
-
-        else
-        {
-            mainCamera.transform.position = cameraSpots[0].position;
-            mainCamera.transform.rotation = cameraSpots[0].rotation;
-        }*/
+        
     }
 
     public void LoopReset()
     {
         step = 2;
+        coverAnimation = true;
         sinjManager.InfluencedByMouse(false);
         mouseManager.IsUsed = false;
     }
-
-    private void SetDepthOfField(float value)
-    {
-        var urpAsset = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
-        var volumeProfile = urpAsset?.volumeProfile;
-        
-        if (volumeProfile == null)
-        {
-            Debug.LogError("No default Volume Profile found in URP Asset.");
-            return;
-        }
-
-        if (volumeProfile.TryGet<DepthOfField>(out var dof))
-        {
-            dof.focusDistance.value = value;
-
-        }
-    }
-
+    
     public void Reload()
     {
         LoopReset();

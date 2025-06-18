@@ -7,25 +7,29 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SkyBoxCopie
-  m_Shader: {fileID: -6465566751694194690, guid: f1051510fcd2cb6408bfedf304b077fc, type: 3}
+  m_Name: 1.2-BrancheMat 1
+  m_Shader: {fileID: -6465566751694194690, guid: 773998059db761448b09521b8636d775, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: _Cubemap
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Cubemap:
-        m_Texture: {fileID: 8900000, guid: d3a08125bf8606b48bee70583dff6593, type: 3}
+    - _SampleTexture2D_5c4e69e72c1445ed99e6bc97c9ca7e20_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: d3d8a2d1ddf9bc64d962b5f220a19133, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Text:
+        m_Texture: {fileID: 2800000, guid: d3d8a2d1ddf9bc64d962b5f220a19133, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -42,19 +46,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Flip: 0
+    - _FlipX: 0
+    - _FlipY: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Step1: 0.9136
-    - _Step2: 0.6212
-    - _Step3: 0.188
+    - _Rotation: 1.09
+    - _roundRotation: 1
     m_Colors:
-    - _Col1: {r: 0.5957419, g: 0.22188678, b: 0.04081879, a: 1}
-    - _Col2: {r: 0.52169144, g: 0.67507666, b: 0.6643851, a: 0}
-    - _Col3: {r: 0.5028404, g: 0.4384343, b: 0.18988863, a: 0}
-    - _SubCol: {r: 0.57818127, g: 0.6908489, b: 0.82930607, a: 0}
+    - _Vector2: {r: 1.24, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &1783418245129060187
+--- !u!114 &8584368401481302419
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

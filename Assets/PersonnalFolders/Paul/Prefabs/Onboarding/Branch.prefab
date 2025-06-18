@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6649811842798947992}
   - component: {fileID: 6833854550455266098}
   - component: {fileID: 331078272690766857}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Branch
   m_TagString: Branch
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 8116641561114375267}
   gone: 0
-  maxIntensity: 6
+  maxIntensity: 2
   movementMagnitude: 0.1
   movementCurve:
     serializedVersion: 2
@@ -138,6 +138,34 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   maxSolidity: 2
+  breakCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.614594
+      outSlope: 0.614594
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.2643003
+    - serializedVersion: 3
+      time: 1
+      value: -1
+      inSlope: -2.3498988
+      outSlope: -2.3498988
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.119642556
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  breakAnimSpeed: 1
+  breakAnimRange: 3
+  wiggling: 0
+  moving: 0
 --- !u!54 &331078272690766857
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -177,7 +205,7 @@ GameObject:
   - component: {fileID: 7291044657761120116}
   - component: {fileID: 4898755909982929787}
   - component: {fileID: 8019314396966900076}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BranchSprite
   m_TagString: Branch
   m_Icon: {fileID: 0}
