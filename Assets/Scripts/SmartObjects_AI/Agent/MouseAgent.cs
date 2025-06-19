@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using AYellowpaper.SerializedCollections;
 using Sinj;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace SmartObjects_AI.Agent
@@ -27,7 +27,7 @@ namespace SmartObjects_AI.Agent
         private float m_parameterValue;
         private Dictionary<AgentDynamicParameter, float> m_currentMouseParameters;
 
-        [NonSerialized] public bool InfluencedByMouse = true;
+        [ReadOnly] public bool InfluencedByMouse = true;
         
         public void Init(MouseManager mouseManager)
         {
@@ -75,6 +75,14 @@ namespace SmartObjects_AI.Agent
                 return;
             
             m_currentMouseParameters[parameter] = m_smartAgent.GetDynamicParameter(parameter);
+        }
+
+        public void ResetEmotions()
+        {
+            SetDynamicParameterValue(AgentDynamicParameter.Tension, 0);
+            SetDynamicParameterValue(AgentDynamicParameter.Curiosity, 0);
+            SetDynamicParameterValue(AgentDynamicParameter.Aggression, 0);
+            SetDynamicParameterValue(AgentDynamicParameter.Fear, 0);
         }
 
         public float DistanceToMouse()

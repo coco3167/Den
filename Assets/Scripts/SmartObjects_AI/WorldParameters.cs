@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.Utilities;
 using SmartObjects_AI.Agent;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine;
 namespace SmartObjects_AI
 {
     [Serializable]
-    public class WorldParameters : IReloadable
+    public class WorldParameters
     {
         public Dictionary<AgentDynamicParameter, float> AgentGlobalParameters = new();
         private static readonly AgentDynamicParameter[] EmotionsType =
@@ -24,6 +25,13 @@ namespace SmartObjects_AI
         {
             m_mouseManager = mouseManager;
             EmotionsType.ForEach(x => AgentGlobalParameters.Add(x, 0));
+
+            m_parameters = new()
+            {
+                { WorldParameterType.EndSleep, 0 },
+                { WorldParameterType.EndFleeOuterSpace, 0 },
+                { WorldParameterType.EndAggression, 0 },
+            };
         }
 
         public Vector3 GetMousePositon()
@@ -54,11 +62,21 @@ namespace SmartObjects_AI
         public enum WorldParameterType
         {
             None,
+            EndSleep,
+            EndFleeOuterSpace,
+            EndAggression,
         }
 
         public void Reload()
         {
             EmotionsType.ForEach(x => AgentGlobalParameters[x] = 0);
+            WorldParameterType[] keys = m_parameters.Keys.ToArray();
+
+            foreach (WorldParameterType key in keys)
+            {
+                m_parameters[key] = 0;
+            }
+            
         }
     }
 }

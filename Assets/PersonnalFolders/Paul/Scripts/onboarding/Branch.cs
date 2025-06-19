@@ -1,3 +1,4 @@
+using Audio;
 using UnityEngine;
 
 public class Branch : MonoBehaviour
@@ -42,7 +43,7 @@ public class Branch : MonoBehaviour
     [Header("Audio States")]
     public bool wiggling;
     public bool moving;
-
+    public bool isPlaying;
 
 
 
@@ -66,7 +67,8 @@ public class Branch : MonoBehaviour
     {
         //Manage Wiggle
         intensity = Mathf.Lerp(intensity, intensityTarget, Time.deltaTime);
-        CheckAudioState(Mathf.Clamp(intensity,0,maxIntensity)/maxIntensity);
+        float normalizedIntensity = Mathf.Clamp(intensity, 0, maxIntensity) / maxIntensity;
+        CheckAudioState(intensity);
 
         float wiggleIntensity = wiggleCurve.Evaluate(Mathf.Clamp(intensity, 0, maxIntensity) / maxIntensity);
         float sine = Mathf.Sin(Time.time * 30) / wiggleMagnitude * wiggleIntensity * Time.deltaTime;
@@ -74,12 +76,13 @@ public class Branch : MonoBehaviour
 
         //Break if wiggled enough
         solidity -= wiggleIntensity * Time.deltaTime;
-        solidity = Mathf.Clamp(solidity,0, maxSolidity);
+        solidity = Mathf.Clamp(solidity, 0, maxSolidity);
         if (solidity == 0)
         {
             // m_rigidbody.isKinematic = false;
             BreakAnim();
             gone = true;
+            AudioManager.Instance.BranchBreaking.Post(GameManager.Instance.GetCamera().gameObject);
         }
 
         else
@@ -102,11 +105,27 @@ public class Branch : MonoBehaviour
         {
             transform.position -= transform.forward * (movementMagnitude * Time.deltaTime * 5);
             gone = true;
+            AudioManager.Instance.BranchGone.Post(this.gameObject);
         }
 
         //Resets Intensity Target, so it gets back to zero if not hovered
         intensityTarget = 0;
 
+        //branch moving and wiggling audio logic
+        if (intensity > 0.1f)
+        {
+            if (!isPlaying)
+            {
+                AudioManager.Instance.BranchMoving.Post(this.gameObject);
+                isPlaying = true;
+            }
+            AudioManager.Instance.SetRTPCValue(AudioManager.Instance.DEN_GP_TutoStep, this.gameObject, normalizedIntensity);
+        }
+        else
+        {
+            AudioManager.Instance.BranchStopMoving.Post(this.gameObject);
+            isPlaying = false;
+        }
     }
 
     public void Hover(float mouseIntensity)
@@ -144,7 +163,6 @@ public class Branch : MonoBehaviour
     {
         Debug.Log(intensity);
             wiggling = intensity >= .4 ? true : false;
-            moving = intensity <= .4 && intensity > 0.1f ? true : false;
-        
+            moving = intensity <= .4 && intensity > 0.01f ? true : false;
     }
 }

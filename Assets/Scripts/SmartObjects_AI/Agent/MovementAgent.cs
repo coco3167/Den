@@ -20,6 +20,11 @@ namespace SmartObjects_AI.Agent
             m_navMeshAgent.speed = shouldRun ? runSpeed : walkSpeed;
             m_navMeshAgent.SetDestination(destination.position);
         }
+
+        public void ResetDestination()
+        {
+            m_navMeshAgent.ResetPath();
+        }
         
         public bool IsCloseToDestination()
         {
@@ -39,6 +44,16 @@ namespace SmartObjects_AI.Agent
         public void StopAgent()
         {
             m_navMeshAgent.isStopped = true;
+        }
+
+        public void Activate(bool value)
+        {
+            m_navMeshAgent.enabled = value;
+        }
+
+        public bool IsActive()
+        {
+            return m_navMeshAgent.enabled;
         }
     }
 }

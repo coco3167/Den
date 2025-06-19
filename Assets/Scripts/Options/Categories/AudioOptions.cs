@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.Collections.Generic;
 using AK.Wwise;
@@ -97,12 +97,27 @@ namespace Options.Categories
             // Add value changed listener for option selection
             mixDropdown.onValueChanged.AddListener(OnAudioStateSelected);
 
+            // Play open‐sound on ANY Submit (Enter/Space/Gamepad):
+            var trigger = mixDropdown.GetComponent<EventTrigger>();
+            if (trigger == null)
+                trigger = mixDropdown.gameObject.AddComponent<EventTrigger>();
+
+            var submitEntry = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.Submit
+            };
+            submitEntry.callback.AddListener((data) =>
+            {
+                dropdownOpenEvent?.Post(mixDropdown.gameObject);
+            });
+            trigger.triggers.Add(submitEntry);
+
             // Add the component if it doesn't exist
-            var openListener = mixDropdown.GetComponent<DropdownOnPointerClick>();
+            /*var openListener = mixDropdown.GetComponent<DropdownOnPointerClick>();
             if (openListener == null)
                 openListener = mixDropdown.gameObject.AddComponent<DropdownOnPointerClick>();
 
-            openListener.onDropdownOpened += OnDropdownOpened;
+            openListener.onDropdownOpened += OnDropdownOpened;*/
 
             // MixPreset Dropdown setup
             mixPresetDropdown.ClearOptions();
@@ -117,12 +132,27 @@ namespace Options.Categories
 
             // Add value changed listener for option selection
             mixPresetDropdown.onValueChanged.AddListener(OnMixPresetSelected);
+
+            var presetTrigger = mixPresetDropdown.GetComponent<EventTrigger>();
+            if (presetTrigger == null)
+                presetTrigger = mixPresetDropdown.gameObject.AddComponent<EventTrigger>();
+
+            var presetSubmit = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.Submit
+            };
+            presetSubmit.callback.AddListener((data) =>
+            {
+                dropdownOpenEvent?.Post(mixPresetDropdown.gameObject);
+            });
+            presetTrigger.triggers.Add(presetSubmit);
+
             // Add the component if it doesn't exist for mixPresetDropdown
-            var presetOpenListener = mixPresetDropdown.GetComponent<DropdownOnPointerClick>();
+            /*var presetOpenListener = mixPresetDropdown.GetComponent<DropdownOnPointerClick>();
             if (presetOpenListener == null)
                 presetOpenListener = mixPresetDropdown.gameObject.AddComponent<DropdownOnPointerClick>();
 
-            presetOpenListener.onDropdownOpened += OnMixPresetDropdownOpened;
+            presetOpenListener.onDropdownOpened += OnMixPresetDropdownOpened;*/
         }
 
         private void Start()
@@ -151,6 +181,16 @@ namespace Options.Categories
                     break;
                 }
             }
+
+            /*if (selected == mixDropdown.gameObject || selected == mixPresetDropdown.gameObject)
+            {
+                if (Input.GetButtonDown("Submit"))
+                {
+                    dropdownOpenEvent?.Post(selected);
+                    // Actually open it if you want:
+                    mixDropdown.Show();            // or mixPresetDropdown.Show()
+                }
+            }*/
         }
         private void OnAudioStateSelected(int value)
         {
@@ -164,7 +204,7 @@ namespace Options.Categories
             WwiseStateManager.SetWwiseMixPreset((WwiseMixPreset)value);
 
             // Play Wwise event for dropdown option selection
-            dropdownSelectEvent?.Post(mixDropdown.gameObject);
+            dropdownSelectEvent?.Post(mixPresetDropdown.gameObject);
         }
         // Called when the dropdown is opened
         private void OnDropdownOpened(UnityEngine.EventSystems.PointerEventData eventData)

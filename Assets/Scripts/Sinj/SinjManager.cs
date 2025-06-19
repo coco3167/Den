@@ -26,9 +26,11 @@ namespace Sinj
         
         [Title("Mouse Input")]
         [SerializeField] private MouseManager mouseManager;
+        [SerializeField] private float emotionStampTime;
     
         private List<DebugParameter> m_debugParameters = new();
         private float m_intensity;
+        private bool m_pallierEmotionStamp;
         private WorldParameters m_worldParameters;
 
         private void Awake()
@@ -42,7 +44,10 @@ namespace Sinj
                 
                 //Being instanced in runtime they arent picked by GameManager at Awake
                 GameLoopManager.Instance.GameReady += mouseAgents[loop].GetComponent<IGameStateListener>().OnGameReady;
+                GameLoopManager.Instance.GameEnded += mouseAgents[loop].GetComponent<IGameStateListener>().OnGameEnded;
             }
+            
+            InfluencedByMouse(false);
 
             m_worldParameters.AgentGlobalParameters.ForEach(x => m_debugParameters.Add(new DebugParameter(x.Key.ToString(), "0")));
             
@@ -92,15 +97,50 @@ namespace Sinj
 
         private void OnPallierReached(AgentDynamicParameter parameter, int value)
         {
-            if (parameter == AgentDynamicParameter.Aggression)
+            if (parameter is AgentDynamicParameter.Aggression or AgentDynamicParameter.Fear)
             {
                 MakeEveryoneFlee();
                 MouseAgent bestAgent = mouseAgents.Aggregate((x, y) =>
                     x.GetDynamicParameterValue(AgentDynamicParameter.Aggression) < y.GetDynamicParameterValue(AgentDynamicParameter.Aggression) ? y : x);
                 bestAgent.SetDynamicParameterValue(AgentDynamicParameter.AggressionCap, 100);
                 GameManager.Instance.InfluencedByMouse(false);
-                Debug.Log(bestAgent.GetDynamicParameterValue(AgentDynamicParameter.AggressionCap));
             }
+
+            if (value >= 100)
+            {
+                GameManager.Instance.InfluencedByMouse(false);
+
+                switch (parameter)
+                {
+                    case AgentDynamicParameter.Curiosity:
+                        m_worldParameters.SetDynamicParameter(WorldParameters.WorldParameterType.EndSleep, 100);
+                        break;
+
+                    case AgentDynamicParameter.Aggression:
+                        m_worldParameters.SetDynamicParameter(WorldParameters.WorldParameterType.EndAggression, 100);
+                        break;
+
+                    case AgentDynamicParameter.Fear:
+                        m_worldParameters.SetDynamicParameter(WorldParameters.WorldParameterType.EndFleeOuterSpace,
+                            100);
+                        break;
+                }
+            }
+            else
+            {
+                Invoke(nameof(EndPallierTempEmotionStop), emotionStampTime);
+            }
+            foreach (MouseAgent agent in mouseAgents)
+            {
+                agent.ResetEmotions();
+            }
+
+            m_pallierEmotionStamp = true;
+        }
+
+        private void EndPallierTempEmotionStop()
+        {
+            m_pallierEmotionStamp = false;
         }
 
         private void MakeEveryoneFlee()
@@ -114,6 +154,9 @@ namespace Sinj
         private void UpdateManagerEmotion(AgentDynamicParameter parameter, float value)
         {
             if(!emotionsTransmissionCurve.TryGetValue(parameter, out AnimationCurve curve))
+                return;
+            
+            if(m_pallierEmotionStamp)
                 return;
 
             value /= 100;
