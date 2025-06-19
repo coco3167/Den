@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.Utilities;
 using SmartObjects_AI.Agent;
 using UnityEngine;
@@ -69,6 +70,13 @@ namespace SmartObjects_AI
         public void Reload()
         {
             EmotionsType.ForEach(x => AgentGlobalParameters[x] = 0);
+            WorldParameterType[] keys = m_parameters.Keys.ToArray();
+
+            foreach (WorldParameterType key in keys)
+            {
+                m_parameters[key] = 0;
+            }
+            
         }
     }
 }
