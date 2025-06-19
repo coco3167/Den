@@ -187,6 +187,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
         {
             InfluencedByMouse(false);
             Invoke(nameof(CallGameLoopEnd), timeBeforeRealEnd);
+            AudioManager.Instance.PlayEndMusic();
         }
     }
 
