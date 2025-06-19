@@ -199,4 +199,9 @@ public class IntroManager : MonoBehaviour, IReloadable
         sinjManager.InfluencedByMouse(false);
         mouseManager.IsUsed = false;
     }
+    
+    public void OnDestroy()
+    {
+        titleMat.SetFloat("_MAIN", .5f);
+    }
 }
