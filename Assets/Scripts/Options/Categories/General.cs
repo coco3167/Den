@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using SmartObjects_AI.Agent;
 using TMPro;
 using UnityEngine;
@@ -9,6 +10,11 @@ namespace Options.Categories
     {
         [SerializeField] private Toggle godMode;
         [SerializeField] private TMP_Dropdown cursorMode;
+        
+        [Title("Pop Up")]
+        [SerializeField] private GameObject popUp;
+        [SerializeField] private Button apply;
+        [SerializeField] private Button back;
 
         private AgentDynamicParameter m_cursorModeParameter = AgentDynamicParameter.Tension;
 
@@ -19,13 +25,36 @@ namespace Options.Categories
             
             godMode.onValueChanged.AddListener(OnGodModeToggle);
             cursorMode.onValueChanged.AddListener(OnCursorMode);
+            
+            apply.onClick.AddListener(OnGodModeApply);
+            back.onClick.AddListener(OnGodModeBack);
+            
+            popUp.SetActive(false);
         }
 
         private void OnGodModeToggle(bool value)
         {
-            cursorMode.interactable = value;
+            cursorMode.interactable = false;
+            GameParameters.CursorMode = AgentDynamicParameter.Tension;
 
-            GameParameters.CursorMode = value ? m_cursorModeParameter : AgentDynamicParameter.Tension;
+            if (value)
+            {
+                popUp.SetActive(true);
+            }
+        }
+
+        private void OnGodModeApply()
+        {
+            cursorMode.interactable = true;
+            GameParameters.CursorMode = m_cursorModeParameter;
+            godMode.isOn = true;
+            popUp.SetActive(false);
+        }
+
+        private void OnGodModeBack()
+        {
+            godMode.isOn = false;
+            popUp.SetActive(false);
         }
 
         private void OnCursorMode(int value)

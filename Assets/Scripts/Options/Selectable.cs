@@ -4,11 +4,13 @@ using UnityEngine.EventSystems;
 
 namespace Options
 {
-    public class Selectable : MonoBehaviour, ISelectHandler
+    public class Selectable : MonoBehaviour, ISelectHandler, IPointerEnterHandler, IPointerExitHandler
     {
         private static List<Selectable> _selectables = new();
 
         [SerializeField] private SelectedFlowers selectedFlowers;
+
+        private bool m_selected;
 
         private void Awake()
         {
@@ -21,8 +23,21 @@ namespace Options
         {
             foreach (Selectable selectable in _selectables)
             {
-                selectable.selectedFlowers.OnSelect(selectable.gameObject == eventData.selectedObject);
+                m_selected = selectable.gameObject == eventData.selectedObject;
+                selectable.selectedFlowers.OnSelect(m_selected);
             }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if(!m_selected)
+                selectedFlowers.OnSelect(true);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if(!m_selected)
+                selectedFlowers.OnSelect(false);
         }
     }
 }
