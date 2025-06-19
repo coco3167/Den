@@ -13,10 +13,12 @@ namespace SmartObjects_AI.Agent
         private static readonly int FinishFast = Animator.StringToHash("FinishFast");
         private static readonly int SkipStart = Animator.StringToHash("SkipStart");
         private static readonly int SkipEnd = Animator.StringToHash("SkipEnd");
+        private static readonly int FearWalk = Animator.StringToHash("FearWalk");
 
         [SerializeField] private SmartAgent smartAgent;
         [SerializeField] private MovementAgent movementAgent;
         [SerializeField] private float rotationLerpSpeed = 10;
+        [SerializeField] private float minFearWalk = 10;
 
         private Animator m_animator;
 
@@ -37,6 +39,7 @@ namespace SmartObjects_AI.Agent
         private void Update()
         {
             m_animator.SetFloat(Speed, movementAgent.GetSpeed());
+            m_animator.SetBool(FearWalk, smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear) >= minFearWalk);
 
             if (IsAnimationReady())
             {
