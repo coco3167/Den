@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class IntroManager : MonoBehaviour, IReloadable
+public class IntroManager : MonoBehaviour
 {
     [Header("General")]
     [Range(1, 5)]
@@ -198,5 +198,10 @@ public class IntroManager : MonoBehaviour, IReloadable
         coverAnimation = true;
         sinjManager.InfluencedByMouse(false);
         mouseManager.IsUsed = false;
+    }
+    
+    public void OnDestroy()
+    {
+        titleMat.SetFloat("_MAIN", .5f);
     }
 }
