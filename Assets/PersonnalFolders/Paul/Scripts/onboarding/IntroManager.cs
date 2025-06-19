@@ -19,7 +19,7 @@ public class IntroManager : MonoBehaviour, IReloadable
     step 5 = game (blur fading)
     */
     public string currentStep;
-    
+
 
     [Header("Scripts")]
     public BranchesManager branchesManager;
@@ -180,7 +180,7 @@ public class IntroManager : MonoBehaviour, IReloadable
             dofVolume.weight = Mathf.Lerp(dofVolume.weight, 1, Time.deltaTime * dofSpeed);
         }
 
-        
+
     }
 
     public void LoopReset()
@@ -190,9 +190,14 @@ public class IntroManager : MonoBehaviour, IReloadable
         sinjManager.InfluencedByMouse(false);
         mouseManager.IsUsed = false;
     }
-    
+
     public void Reload()
     {
         LoopReset();
+    }
+
+    public void OnDestroy()
+    {
+        titleMat.SetFloat("_MAIN", .5f);
     }
 }
