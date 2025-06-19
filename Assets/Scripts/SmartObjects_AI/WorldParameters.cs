@@ -8,7 +8,7 @@ using UnityEngine;
 namespace SmartObjects_AI
 {
     [Serializable]
-    public class WorldParameters : IReloadable
+    public class WorldParameters
     {
         public Dictionary<AgentDynamicParameter, float> AgentGlobalParameters = new();
         private static readonly AgentDynamicParameter[] EmotionsType =

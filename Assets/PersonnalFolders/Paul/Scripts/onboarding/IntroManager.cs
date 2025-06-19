@@ -69,8 +69,7 @@ public class IntroManager : MonoBehaviour
         titleMat.SetFloat("_MAIN", 0.5f);
 
         // mainCamera.transform.position = cameraSpots[0].position;
-        AudioManager.Instance.InitializeForState(GameState.Blackscreen);
-
+        AudioManager.Instance.InitializeForState(GameState.Blackscreen); 
     }
 
     // Update is called once per frame
@@ -82,7 +81,7 @@ public class IntroManager : MonoBehaviour
         mouseDistance += mouseVelocity;
 
 
-        Cursor.lockState = step == 5 ? CursorLockMode.Locked : CursorLockMode.None;
+        // Cursor.lockState = step == 5 ? CursorLockMode.Locked : CursorLockMode.None;
         uiCursor.SetActive(step == 5);
 
         branchesManager.transform.position = mainCamera.transform.position;
@@ -187,6 +186,7 @@ public class IntroManager : MonoBehaviour
             }
 
             dofVolume.weight = Mathf.Lerp(dofVolume.weight, 1, Time.deltaTime * dofSpeed);
+            Cursor.lockState = CursorLockMode.Confined;
         }
 
         

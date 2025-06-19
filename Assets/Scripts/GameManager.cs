@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
     {
         //IsPaused = true;
         //m_playerInput.enabled = false;
+        worldParameters.Reload();
     }
 
 

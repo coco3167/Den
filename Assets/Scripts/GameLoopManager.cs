@@ -18,7 +18,7 @@ public class GameLoopManager : MonoBehaviour, IPausable
     private float m_gameLoopDuration;
     
     public GameLoopState currentGameLoopState { get; private set; }
-    public event EventHandler GameReady, GameEnded;
+    public event EventHandler GameReady, GameEnded, Reload;
 
     public static GameLoopManager Instance;
     

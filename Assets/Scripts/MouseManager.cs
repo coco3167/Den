@@ -41,7 +41,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     {
         Cursor.lockState = CursorLockMode.Locked;
         Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
-        //mouseRigidBody.MovePosition(new Vector3(1,1,-3));
+        mouseRigidBody.MovePosition(new Vector3(1,1,-3));
     }
 
     public void OnGameEnded(object sender, EventArgs eventArgs)
