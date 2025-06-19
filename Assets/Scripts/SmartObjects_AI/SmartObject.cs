@@ -72,6 +72,7 @@ namespace SmartObjects_AI
             m_startedUseList.Add(agent);
             
             agent.animationAgent.SwitchAnimator(data, lookingPoint);
+            agent.SetStoppingDistance(data.stoppingDistance);
 
             if (data.wwiseEvent.IsValid())
                 data.wwiseEvent.Post(agent.gameObject);
