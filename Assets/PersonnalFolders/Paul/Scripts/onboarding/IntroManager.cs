@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class IntroManager : MonoBehaviour
+public class IntroManager : MonoBehaviour, IReloadable
 {
     [Header("General")]
     [Range(1, 5)]
@@ -20,7 +20,7 @@ public class IntroManager : MonoBehaviour
     step 5 = game (blur fading)
     */
     public string currentStep;
-
+    
 
     [Header("Scripts")]
     public BranchesManager branchesManager;
@@ -189,7 +189,7 @@ public class IntroManager : MonoBehaviour
             dofVolume.weight = Mathf.Lerp(dofVolume.weight, 1, Time.deltaTime * dofSpeed);
         }
 
-
+        
     }
 
     public void LoopReset()
