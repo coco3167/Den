@@ -55,8 +55,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.044502947
+      - time: 0.007372157
         functionName: PlaySit
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.27151978
+        functionName: PlaySleepFlower
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

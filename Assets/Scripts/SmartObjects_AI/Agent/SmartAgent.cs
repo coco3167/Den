@@ -193,7 +193,6 @@ namespace SmartObjects_AI.Agent
             m_movementAgent.Activate(false);
             transform.position = new Vector3(Random.Range(-.1f, .1f), 0, Random.Range(-.1f, .1f)) + position;
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, Random.Range(0, 360), transform.rotation.eulerAngles.z));
-            AudioManager.Instance.PlayEndMusic();
         }
         
 
