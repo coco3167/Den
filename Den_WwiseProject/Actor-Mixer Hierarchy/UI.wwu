@@ -555,28 +555,6 @@
 										<ActiveSource Name="DEN_UI_MasterTest_02" ID="{48375F4C-C119-4078-95E3-919E79BED814}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="DEN_UI_MasterTest_03" ID="{2A14EB94-98A4-4457-9EF0-85E7286B3819}" ShortID="292575213">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="DEN_UI_MasterTest_03" ID="{2A859D1B-B0EF-4B82-8E56-412126F9E3E1}">
-											<Language>SFX</Language>
-											<AudioFile>DEN_UI_MasterTest_03.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="699159010"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="DEN_UI_MasterTest_03" ID="{2A859D1B-B0EF-4B82-8E56-412126F9E3E1}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="DEN_UI_VOL_SFX" ID="{96500F61-A203-465B-9B95-EAD711ABAB30}" ShortID="714680270">
@@ -856,6 +834,11 @@
 					<PropertyList>
 						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 						<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">

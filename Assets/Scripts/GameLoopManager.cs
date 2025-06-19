@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using DG.Tweening;
 using Sirenix.Utilities;
@@ -9,6 +10,7 @@ using Audio;
 public class GameLoopManager : MonoBehaviour, IPausable
 {
     [SerializeField] private AnimationClip loopAnim;
+    [SerializeField] private IntroManager introManager;
     
     private Animator m_animator;
     private Tween m_tween;
@@ -26,6 +28,8 @@ public class GameLoopManager : MonoBehaviour, IPausable
     // Shader cached id
     private static readonly int TimeOfDay = Shader.PropertyToID("_TimeOfDay");
     private static readonly int LoopState = Shader.PropertyToID("_GameLoopState");
+    private static readonly int Restart = Animator.StringToHash("Restart");
+    private static readonly int StartGame = Animator.StringToHash("StartGame");
 
     private void Awake()
     {
@@ -51,26 +55,24 @@ public class GameLoopManager : MonoBehaviour, IPausable
 
     public void OnGameLoopReady()
     {
+        m_animator.SetTrigger(StartGame);
         Shader.SetGlobalFloat(TimeOfDay, 0);
         ChangeGameLoopState(GameLoopState.Morning);
         GameReady?.Invoke(null, EventArgs.Empty);
         m_tween.Play();
     }
 
-    public void OnGameLoopEnded()
+    public void OnGameLoopEnded(bool manual = false)
     {
+        if(manual)
+            m_animator.SetTrigger(EndGame);
+        
         GameEnded?.Invoke(null, EventArgs.Empty);
-        m_animator.SetTrigger(EndGame);
         m_tween.Kill();
-        Time.timeScale = 0;
         
-        Debug.Log("play the ending animation");
-        FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).OfType<IReloadable>()
-            .ForEach(x => x.Reload());
-        Debug.Log("go back to the game with animation");
+        introManager.LoopReset();
+        StartCoroutine(RestartCoroutine());
         
-        Time.timeScale = 1;
-        OnGameLoopReady();
     }
 
     public void OnGamePaused(object sender, EventArgs eventArgs)
@@ -81,6 +83,21 @@ public class GameLoopManager : MonoBehaviour, IPausable
             return;
         }
         m_tween.Play();
+    }
+
+    private IEnumerator RestartCoroutine()
+    {
+        WaitForEndOfFrame endOfFrame = new WaitForEndOfFrame();
+        
+        while (introManager.step < 3)
+        {
+            Debug.Log(introManager.step);
+            yield return endOfFrame;
+        }
+        
+        FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).OfType<IReloadable>()
+            .ForEach(x => x.Reload());
+        m_animator.SetTrigger(Restart);
     }
 
     public void ChangeGameLoopState(GameLoopState state)

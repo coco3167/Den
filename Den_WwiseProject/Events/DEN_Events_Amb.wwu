@@ -254,6 +254,16 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{CB4AC378-A2B7-4954-9E63-81F76CFE2982}" ShortID="473641890">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DEN_ST_TOD_Morning" ID="{4E49FEB8-B994-4F5E-9F3B-F6656388EDF3}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="Set_DEN_AMB_Curious1" ID="{6C3DD368-3FEF-4216-A593-BC9E683AA5CF}">

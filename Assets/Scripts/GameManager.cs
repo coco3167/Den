@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour, IGameStateListener
 
     [SerializeField] public WorldParameters worldParameters;
 
+    [SerializeField] private float timeBeforeRealEnd = 5;
+
     // Palier
     private readonly Dictionary<AgentDynamicParameter, WwiseMoodState> m_palierMoodState = new()
     {
@@ -72,9 +74,9 @@ public class GameManager : MonoBehaviour, IGameStateListener
 
         FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).OfType<IPausable>()
             .ForEach(x => GamePaused += x.OnGamePaused);
-        IsPaused = true;
+        //IsPaused = true;
 
-        m_playerInput.enabled = false;
+        //m_playerInput.enabled = false;
     }
 
     public void OnGameReady(object sender, EventArgs eventArgs)
@@ -85,8 +87,8 @@ public class GameManager : MonoBehaviour, IGameStateListener
 
     public void OnGameEnded(object sender, EventArgs eventArgs)
     {
-        IsPaused = true;
-        m_playerInput.enabled = false;
+        //IsPaused = true;
+        //m_playerInput.enabled = false;
     }
 
 
@@ -125,7 +127,11 @@ public class GameManager : MonoBehaviour, IGameStateListener
     {
         if (!callbackContext.started)
             return;
-        GameLoopManager.Instance.OnGameLoopEnded();
+        if (IsPaused)
+        {
+            OnPause(callbackContext);
+        }
+        GameLoopManager.Instance.OnGameLoopEnded(true);
     }
 
     public void HandlePallier(AgentDynamicParameter parameter, int value)
@@ -178,7 +184,15 @@ public class GameManager : MonoBehaviour, IGameStateListener
         AudioManager.Instance.PlayEmotionSteps(parameter, nextPallier);
 
         if (m_currentPalier[parameter] >= 100)
-            GameLoopManager.Instance.OnGameLoopEnded();
+        {
+            InfluencedByMouse(false);
+            Invoke(nameof(CallGameLoopEnd), timeBeforeRealEnd);
+        }
+    }
+
+    private void CallGameLoopEnd()
+    {
+        GameLoopManager.Instance.OnGameLoopEnded();
     }
 
     // #region EventArgs

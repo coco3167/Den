@@ -12,7 +12,6 @@ namespace Options
         private static List<CategoryButton> _categoryButtons = new();
 
         [SerializeField] private Color m_unselected, m_selected;
-        [SerializeField] private GameObject selectedFlower;
 
         private bool suppressNextAccept = false;
 
@@ -27,8 +26,6 @@ namespace Options
 
             m_button.onClick.AddListener(Show);
             m_button.onClick.AddListener(HideOtherCategoryButtons);
-            
-            selectedFlower.SetActive(false);
         }
 
         public void AddButtonListener(UnityAction callAction)
@@ -59,26 +56,16 @@ namespace Options
             if (!suppressNextAccept)
                 AudioManager.Instance.Accept.Post(gameObject);
             suppressNextAccept = false;
-            
-            selectedFlower.SetActive(true);
         }
 
         private void Hide()
         {
             m_canvas.sortingOrder = 1;
-            selectedFlower.SetActive(false);
         }
         
         public void OnSelect(BaseEventData eventData)
         {
             AudioManager.Instance.Move.Post(gameObject);
-            foreach (CategoryButton button in _categoryButtons)
-            {
-                if (button != this)
-                    button.selectedFlower.SetActive(false);
-                else
-                    button.selectedFlower.SetActive(true);
-            }
         }
     }
 }

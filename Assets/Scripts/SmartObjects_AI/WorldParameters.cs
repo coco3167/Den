@@ -24,6 +24,13 @@ namespace SmartObjects_AI
         {
             m_mouseManager = mouseManager;
             EmotionsType.ForEach(x => AgentGlobalParameters.Add(x, 0));
+
+            m_parameters = new()
+            {
+                { WorldParameterType.EndSleep, 0 },
+                { WorldParameterType.EndFleeOuterSpace, 0 },
+                { WorldParameterType.EndAggression, 0 },
+            };
         }
 
         public Vector3 GetMousePositon()
@@ -54,6 +61,9 @@ namespace SmartObjects_AI
         public enum WorldParameterType
         {
             None,
+            EndSleep,
+            EndFleeOuterSpace,
+            EndAggression,
         }
 
         public void Reload()

@@ -17,6 +17,10 @@ public class MouseManager : MonoBehaviour, IGameStateListener
 
     [NonSerialized] public bool IsUsed = true;
 
+    private void Awake()
+    {
+        m_camera = GameManager.Instance.GetCamera();
+    }
 
     private void FixedUpdate()
     {
@@ -36,7 +40,6 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     public void OnGameReady(object sender, EventArgs eventArgs)
     {
         Cursor.lockState = CursorLockMode.Locked;
-        m_camera = GameManager.Instance.GetCamera();
         Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
         //mouseRigidBody.MovePosition(new Vector3(1,1,-3));
     }
