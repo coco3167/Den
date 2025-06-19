@@ -100,7 +100,9 @@ namespace SmartObjects_AI
 
     public class JumpScareScore : BaseScoreCalcul
     {
-        private float m_mousePlayerProximity, m_usageCoeff;
+        [SerializeField] private AgentDynamicParameter parameter;
+        
+        private float m_mousePlayerProximity, m_usageCoeff, m_emotion;
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             if (!smartAgent.IsOwner(smartObject))
@@ -109,9 +111,24 @@ namespace SmartObjects_AI
             m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
             m_mousePlayerProximity *= m_mousePlayerProximity;
 
+            switch (parameter)
+            {
+                case AgentDynamicParameter.Curiosity:
+                    m_emotion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity)/100;
+                    break;
+                
+                case AgentDynamicParameter.Aggression:
+                    m_emotion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression) / 100;
+                    break;
+                
+                default:
+                    m_emotion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear) / 100;
+                    break;
+            }
+
             m_usageCoeff = smartObject.GetDynamicParameter(SmartObjectParameter.Usage) > 90 ? 1.1f : 0;
             
-            return 10 * m_usageCoeff / m_mousePlayerProximity;
+            return 10 * m_usageCoeff * m_emotion / m_mousePlayerProximity;
         }
     }
 

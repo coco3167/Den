@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8a81eb427104b4198b7965408a44e57, type: 3}
-  m_Name: JumpScare
+  m_Name: JumpScareCuriosity
   m_EditorClassIdentifier: 
   <scoreCalculation>k__BackingField:
     rid: 7321802125993312347
-  <animatorController>k__BackingField: {fileID: 22100000, guid: 515727f21389bec45bf3bd30632cb5fd, type: 2}
+  <animatorController>k__BackingField: {fileID: 22100000, guid: cbaa8dd4761f75d42b0f0fd1f621d610, type: 2}
   <wwiseEvent>k__BackingField:
     idInternal: 0
     valueGuidInternal: 
@@ -45,4 +45,4 @@ MonoBehaviour:
     - rid: 7321802125993312347
       type: {class: JumpScareScore, ns: SmartObjects_AI, asm: Assembly-CSharp}
       data:
-        parameter: 3
+        parameter: 1
