@@ -26,6 +26,7 @@ namespace Sinj
         
         [Title("Mouse Input")]
         [SerializeField] private MouseManager mouseManager;
+        [SerializeField] private float emotionStampTime;
     
         private List<DebugParameter> m_debugParameters = new();
         private float m_intensity;
@@ -114,25 +115,27 @@ namespace Sinj
                     case AgentDynamicParameter.Curiosity:
                         m_worldParameters.SetDynamicParameter(WorldParameters.WorldParameterType.EndSleep, 100);
                         break;
-                    
+
                     case AgentDynamicParameter.Aggression:
-                        m_worldParameters.SetDynamicParameter(WorldParameters.WorldParameterType.EndFleeOuterSpace, 100);
+                        m_worldParameters.SetDynamicParameter(WorldParameters.WorldParameterType.EndAggression, 100);
                         break;
-                    
-                    case AgentDynamicParameter.Fear: 
-                        m_worldParameters.SetDynamicParameter(WorldParameters.WorldParameterType.EndFleeOuterSpace, 100);
+
+                    case AgentDynamicParameter.Fear:
+                        m_worldParameters.SetDynamicParameter(WorldParameters.WorldParameterType.EndFleeOuterSpace,
+                            100);
                         break;
                 }
             }
-
+            else
+            {
+                Invoke(nameof(EndPallierTempEmotionStop), emotionStampTime);
+            }
             foreach (MouseAgent agent in mouseAgents)
             {
                 agent.ResetEmotions();
             }
 
             m_pallierEmotionStamp = true;
-            
-            Invoke(nameof(EndPallierTempEmotionStop), 15);
         }
 
         private void EndPallierTempEmotionStop()

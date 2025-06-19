@@ -243,6 +243,8 @@ namespace Audio
         [SerializeField] public AK.Wwise.Event MusicEnd;
 
         private bool hasPlayedIntroMusic = false;
+        private bool hasPlayedEndMusic = false;
+
         private struct SavedRTPC
         {
             public RTPC RTPC;
@@ -326,6 +328,22 @@ namespace Audio
             PlayAmbience?.ExecuteAction(this.gameObject, AkActionOnEventType.AkActionOnEventType_Resume, 250, AkCurveInterpolation.AkCurveInterpolation_Linear);
         }
 
+        public void PlayEndMusic()
+        {
+            if (!hasPlayedEndMusic)
+            {
+                MusicEnd.Post(GameManager.Instance.GetCamera().gameObject);
+                hasPlayedEndMusic = true;
+            }
+        }
+
+        public void ReloadEndMusic()
+        {
+            if (hasPlayedEndMusic)
+            {
+                hasPlayedEndMusic = false;
+            }
+        }
         #region Tools
         private void Initialize()
         {
@@ -579,11 +597,12 @@ namespace Audio
             WwiseStateManager.SetWwiseMixPreset(WwiseMixPreset.Regular);
 
             // Neutral RTPC to 75 and tutorial step to 0
-            SetGlobalRTPCValue(gameParameters[WwiseEmotionStateRTPC.Neutral], 75f);
+            SetWwiseEmotionRTPC(AgentDynamicParameter.Neutral, gameObject, 75f);
             SetGlobalRTPCValue(DEN_GP_TutoStep, 0f);
             StartCoroutine(FadeRTPCVolume(SFXVolume, 8f, 5f, 1f));
 
             hasPlayedIntroMusic = false;
+            hasPlayedEndMusic = false;
         }
 
         public void SetGameStateBranches(int branchesLeft, int totalBranches)
@@ -597,7 +616,7 @@ namespace Audio
             float neutralValue = Mathf.Lerp(75f, 0f, progress);
             float stepValue = Mathf.Lerp(0f, 100f, progress);
 
-            SetGlobalRTPCValue(gameParameters[WwiseEmotionStateRTPC.Neutral], neutralValue);
+            SetWwiseEmotionRTPC(AgentDynamicParameter.Neutral, gameObject, neutralValue);
             SetGlobalRTPCValue(DEN_GP_TutoStep, stepValue);
         }
 
@@ -610,7 +629,7 @@ namespace Audio
                 hasPlayedIntroMusic = true;
             }            // Fade ambience from 8 -> 5 over 1 second
             StartCoroutine(FadeRTPCVolume(AmbienceVolume, 8f, 5f, 1f));
-            SetGlobalRTPCValue(gameParameters[WwiseEmotionStateRTPC.Neutral], 0f);
+            SetWwiseEmotionRTPC(AgentDynamicParameter.Neutral, gameObject, 0f);
             StartCoroutine(FadeRTPCVolume(SFXVolume, 5f, 8f, 1f));
         }
 
