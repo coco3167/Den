@@ -125,6 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6836968198750542637}
   - component: {fileID: 751927112402875643}
+  - component: {fileID: 7716068617890067336}
   m_Layer: 0
   m_Name: MouseManager
   m_TagString: Untagged
@@ -166,6 +167,27 @@ MonoBehaviour:
   terrainLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  UIcursorMat: {fileID: 0}
+--- !u!114 &7716068617890067336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521624656204892207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873ecba2b6d54196bf419f27087cd2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <usingPoint>k__BackingField: {fileID: 9072182575799556337}
+  <lookingPoint>k__BackingField: {fileID: 9072182575799556337}
+  shouldSnapToLookingPoint: 0
+  data: {fileID: 11400000, guid: 9e15652ab47743e44b27f831a4124fa0, type: 2}
+  dynamicParametersStartValue:
+    _serializedList: []
+  dynamicParameters:
+    _serializedList: []
 --- !u!1 &7511264196982474528
 GameObject:
   m_ObjectHideFlags: 0

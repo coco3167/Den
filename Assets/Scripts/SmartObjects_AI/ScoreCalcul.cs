@@ -9,11 +9,13 @@ namespace SmartObjects_AI
     public abstract class BaseScoreCalcul
     {
         protected MouseManager p_mouseManager;
+        protected WorldParameters p_worldParameters;
         protected float p_usingCapacity, p_distanceCoefficient;
 
         public void Init()
         {
             p_mouseManager = GameManager.Instance.GetMouseManager();
+            p_worldParameters = GameManager.Instance.worldParameters;
         }
 
         public virtual float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
@@ -98,7 +100,9 @@ namespace SmartObjects_AI
 
     public class JumpScareScore : BaseScoreCalcul
     {
-        private float m_mousePlayerProximity, m_usageCoeff;
+        [SerializeField] private AgentDynamicParameter parameter;
+        
+        private float m_mousePlayerProximity, m_usageCoeff, m_emotion;
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             if (!smartAgent.IsOwner(smartObject))
@@ -107,9 +111,24 @@ namespace SmartObjects_AI
             m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
             m_mousePlayerProximity *= m_mousePlayerProximity;
 
+            switch (parameter)
+            {
+                case AgentDynamicParameter.Curiosity:
+                    m_emotion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity)/100;
+                    break;
+                
+                case AgentDynamicParameter.Aggression:
+                    m_emotion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression) / 100;
+                    break;
+                
+                default:
+                    m_emotion = smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear) / 100;
+                    break;
+            }
+
             m_usageCoeff = smartObject.GetDynamicParameter(SmartObjectParameter.Usage) > 90 ? 1.1f : 0;
             
-            return 10 * m_usageCoeff / m_mousePlayerProximity;
+            return 10 * m_usageCoeff * m_emotion / m_mousePlayerProximity;
         }
     }
 
@@ -182,6 +201,33 @@ namespace SmartObjects_AI
             m_agressionCap = smartAgent.GetDynamicParameter(AgentDynamicParameter.AggressionCap);
             
             return 10 * m_agressionCap;
+        }
+    }
+
+    public class EndScore : BaseScoreCalcul
+    {
+        [SerializeField] private AgentDynamicParameter parameter;
+        private float m_score;
+
+        public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
+        {
+            base.CalculateScore(smartAgent, smartObject);
+            switch (parameter)
+            {
+                case AgentDynamicParameter.Curiosity:
+                    m_score = p_worldParameters.GetDynamicParameter(WorldParameters.WorldParameterType.EndSleep);
+                    break;
+                
+                case AgentDynamicParameter.Aggression:
+                    m_score = p_worldParameters.GetDynamicParameter(WorldParameters.WorldParameterType.EndAggression);
+                    break;
+                
+                case AgentDynamicParameter.Fear:
+                    m_score = p_worldParameters.GetDynamicParameter(WorldParameters.WorldParameterType.EndFleeOuterSpace);
+                    break;
+            } 
+            
+            return 10 * m_score * p_distanceCoefficient;
         }
     }
     

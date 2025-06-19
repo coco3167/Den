@@ -22,7 +22,6 @@ MonoBehaviour:
   <maxUser>k__BackingField: 1
   <minRadius>k__BackingField: 1
   <shouldRunTo>k__BackingField: 0
-  <adatpToMood>k__BackingField: 0
   <shouldStopAgent>k__BackingField: 1
   <shouldLookAtObject>k__BackingField: 0
   <defaultLookingPoint>k__BackingField: 0
@@ -45,4 +44,5 @@ MonoBehaviour:
     RefIds:
     - rid: 7321802125993312347
       type: {class: JumpScareScore, ns: SmartObjects_AI, asm: Assembly-CSharp}
-      data: 
+      data:
+        parameter: 3

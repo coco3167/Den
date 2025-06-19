@@ -1,5 +1,6 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class BranchesManager : MonoBehaviour
 {
@@ -7,11 +8,11 @@ public class BranchesManager : MonoBehaviour
     private string targetTag = "Branch";
     private float rayLength = 100f;
     private Color rayColor = Color.red;
-    [ReadOnly] public Branch[] branches;
+    [ReadOnly] public List<Branch> branches;
 
     void Start()
     {
-        branches = GetComponentsInChildren<Branch>();
+        branches = new List<Branch> (GetComponentsInChildren<Branch>() );
     }
 
     void Update()
@@ -26,7 +27,7 @@ public class BranchesManager : MonoBehaviour
 
                 Branch branchScript = hit.collider.GetComponentInParent<Branch>();
 
-                branchScript.Hover(introManager.mouseManager.MouseVelocity());
+                branchScript.Hover(introManager.mouseVelocity);
             }
         }
     }

@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using AYellowpaper.SerializedCollections;
 using DebugHUD;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace SmartObjects_AI.Agent
 {
@@ -64,6 +66,10 @@ namespace SmartObjects_AI.Agent
 
         public void OnGameEnded(object sender, EventArgs eventArgs)
         {
+            m_smartObjects = null;
+            m_debugParameters = null;
+            m_currentSmartObject = null;
+            m_movementAgent.ResetDestination();
             CancelInvoke(nameof(AIUpdate));
         }
 
@@ -83,6 +89,8 @@ namespace SmartObjects_AI.Agent
             m_smartObjects = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             m_debugParameters = new DebugParameter[m_smartObjects.Length];
             
+            m_movementAgent.Activate(true);
+            
             for (var loop = 0; loop < m_smartObjects.Length; loop++)
             {
                 DebugParameter debugParameter = new DebugParameter(m_smartObjects[loop].name, "0");
@@ -92,8 +100,7 @@ namespace SmartObjects_AI.Agent
 
         private void AIUpdate()
         {
-            // TODO enlever le commentaire du bout de code par poitier
-            //AddDynamicParameter(AgentDynamicParameter.UsableFear, fightObject.GetDynamicParameter(SmartObjectParameter.Fear));
+            AddDynamicParameter(AgentDynamicParameter.UsableFear, fightObject.GetDynamicParameter(SmartObjectParameter.Fear));
             
             DynamicParameterVariation();
             
@@ -102,6 +109,12 @@ namespace SmartObjects_AI.Agent
 
         private void TryToUseSmartObject()
         {
+            if (!m_movementAgent.IsActive())
+            {
+                m_currentSmartObject.Use(this);
+                return;
+            }
+            
             SearchForSmartObject();
 
             SmartObject smartObjectToUse = m_smartObjectToUse.Key;
@@ -173,6 +186,13 @@ namespace SmartObjects_AI.Agent
         public float CurrentScore()
         {
             return m_smartObjectToUse.Value;
+        }
+
+        public void SnapToPoint(Vector3 position)
+        {
+            m_movementAgent.Activate(false);
+            transform.position = new Vector3(Random.Range(-.1f, .1f), 0, Random.Range(-.1f, .1f)) + position;
+            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, Random.Range(0, 360), transform.rotation.eulerAngles.z));
         }
         
 
