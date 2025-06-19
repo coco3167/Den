@@ -15,6 +15,7 @@ namespace SmartObjects_AI
         [field : SerializeField] public AK.Wwise.Event wwiseEvent { get; private set; }
         [field : SerializeField] public int maxUser { get; private set; }
         [field: SerializeField] public float minRadius { get; private set; } = 1;
+        [field: SerializeField] public float stoppingDistance { get; private set; } = 1;
         
         [Title("Boolean")]
         [field: SerializeField] public bool shouldRunTo { get; private set; } = false;
