@@ -82,7 +82,7 @@ public class IntroManager : MonoBehaviour
 
 
         // Cursor.lockState = step == 5 ? CursorLockMode.Locked : CursorLockMode.None;
-        uiCursor.SetActive(step == 5);
+        // uiCursor.SetActive(step == 5);
 
         branchesManager.transform.position = mainCamera.transform.position;
         branchesManager.transform.rotation = mainCamera.transform.rotation;
