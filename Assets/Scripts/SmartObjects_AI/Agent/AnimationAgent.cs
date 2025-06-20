@@ -67,7 +67,7 @@ namespace SmartObjects_AI.Agent
 
         public void SwitchAnimator(SmartObjectData data, Transform lookingObject)
         {
-            m_animator.runtimeAnimatorController = data.animatorController;
+            m_animator.runtimeAnimatorController = data.GetAnimator();
             m_startedAnimation = true;
 
             if (data.shouldLookAtObject)
@@ -89,6 +89,7 @@ namespace SmartObjects_AI.Agent
         public void FinishUseAnimation(bool shouldEnd, bool shouldInterrupt)
         {
             m_startedAnimation = false;
+            
             m_animator.SetBool(FinishUse, shouldEnd);
 
             if (shouldEnd && shouldInterrupt)

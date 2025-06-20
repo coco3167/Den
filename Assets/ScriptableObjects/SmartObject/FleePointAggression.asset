@@ -14,13 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <scoreCalculation>k__BackingField:
     rid: 7321802163606257756
-  <animatorController>k__BackingField: {fileID: 22100000, guid: 23405ea54af329249b436138a319c217, type: 2}
+  animatorControllers:
+  - {fileID: 22100000, guid: 23405ea54af329249b436138a319c217, type: 2}
+  - {fileID: 22100000, guid: a1f1d21bdf03ded4d95dd6fdce01b99f, type: 2}
   <wwiseEvent>k__BackingField:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
   <maxUser>k__BackingField: 1
   <minRadius>k__BackingField: 0.5
+  <stoppingDistance>k__BackingField: 1
   <shouldRunTo>k__BackingField: 1
   <shouldStopAgent>k__BackingField: 1
   <shouldLookAtObject>k__BackingField: 1

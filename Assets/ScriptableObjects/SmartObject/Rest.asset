@@ -14,19 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <scoreCalculation>k__BackingField:
     rid: 7321802140316074088
-  <animatorController>k__BackingField: {fileID: 22100000, guid: 6cffc6a4e2962204eb6d4d2011b944a7, type: 2}
+  animatorControllers:
+  - {fileID: 22100000, guid: 6cffc6a4e2962204eb6d4d2011b944a7, type: 2}
   <wwiseEvent>k__BackingField:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
   <maxUser>k__BackingField: 1
   <minRadius>k__BackingField: 1
+  <stoppingDistance>k__BackingField: 1
   <shouldRunTo>k__BackingField: 0
-  <adatpToMood>k__BackingField: 0
   <shouldStopAgent>k__BackingField: 1
   <shouldLookAtObject>k__BackingField: 0
   <defaultLookingPoint>k__BackingField: 0
   <shouldEndFast>k__BackingField: 0
+  <shouldSkipStart>k__BackingField: 0
+  <shouldSkipEnd>k__BackingField: 0
+  <shouldInterruptNext>k__BackingField: 0
   <dynamicParametersEffect>k__BackingField:
     _serializedList: []
   <dynamicParametersVariation>k__BackingField:
