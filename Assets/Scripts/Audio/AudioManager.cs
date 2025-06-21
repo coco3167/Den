@@ -287,9 +287,13 @@ namespace Audio
         }
         private void FixedUpdate()
         {
+            // If no cursor sound, dont get cursor speed (maybe broken my bad)
+            if(cursorMovePlayingId == 0)
+                return;
+            
             // Call cursor sound
             float speed = GameManager.Instance.GetMouseManager().MouseVelocity();
-            AudioManager.Instance.UpdateCursorSpeed(speed, mouseManifestation);
+            Instance.UpdateCursorSpeed(speed, mouseManifestation);
         }
 
         public void PlayEmotionSteps(AgentDynamicParameter parameter, int pallierReached)
