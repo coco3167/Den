@@ -10,7 +10,19 @@
 				<MusicSwitchContainer Name="DEN_Music_End" ID="{C0EC9950-884D-4CF1-A6B8-995105C8069B}" ShortID="71483550">
 					<PropertyList>
 						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Tempo" Type="Real64" Value="60"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -633,6 +645,9 @@
 							<Reference>
 								<ObjectRef Name="DEN_State_Mood" ID="{0479447C-0867-4F59-A8A4-199CAE84ECB5}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
 							</Reference>
+							<Reference>
+								<ObjectRef Name="DEN_SW_NeutralSteps" ID="{10EE25D8-01EB-4384-8CB1-D2E7B680A10C}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+							</Reference>
 						</ObjectList>
 						<ObjectList Name="Entries">
 							<Reference>
@@ -647,6 +662,9 @@
 											<ObjectList Name="EntryPath">
 												<Reference>
 													<ObjectRef Name="DEN_ST_Mood_Anger" ID="{2A2FD39A-9F32-4A31-AAD6-183105542CB1}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="DEN_SW_NS_3" ID="{EE307804-A00D-4AD6-9F13-99AB80F6703E}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
 												</Reference>
 											</ObjectList>
 										</ObjectLists>
@@ -666,6 +684,9 @@
 												<Reference>
 													<ObjectRef Name="DEN_ST_Mood_Curiousity" ID="{F29A8F1D-3C50-4323-AA17-159FA662951A}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
 												</Reference>
+												<Reference>
+													<ObjectRef Name="DEN_SW_NS_3" ID="{EE307804-A00D-4AD6-9F13-99AB80F6703E}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+												</Reference>
 											</ObjectList>
 										</ObjectLists>
 									</MultiSwitchEntry>
@@ -684,6 +705,9 @@
 												<Reference>
 													<ObjectRef Name="DEN_ST_Mood_Fear" ID="{507F0D05-9ADC-49F3-9139-4B1ECFA45933}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
 												</Reference>
+												<Reference>
+													<ObjectRef Name="DEN_SW_NS_3" ID="{EE307804-A00D-4AD6-9F13-99AB80F6703E}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+												</Reference>
 											</ObjectList>
 										</ObjectLists>
 									</MultiSwitchEntry>
@@ -701,6 +725,9 @@
 											<ObjectList Name="EntryPath">
 												<Reference>
 													<ObjectRef Name="DEN_ST_Mood_Neutral" ID="{88D8C9E8-142E-4396-BDE2-129CA516E641}" WorkUnitID="{730ED2B4-D229-46B4-A895-D5B036688D70}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="DEN_SW_NS_3" ID="{EE307804-A00D-4AD6-9F13-99AB80F6703E}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
 												</Reference>
 											</ObjectList>
 										</ObjectLists>

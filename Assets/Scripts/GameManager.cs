@@ -167,6 +167,11 @@ public class GameManager : MonoBehaviour, IGameStateListener
         sinjManager.InfluencedByMouse(value);
     }
 
+    public void ResetEmotionPalliers()
+    {
+        foreach (var key in m_currentPalier.Keys.ToList())
+            m_currentPalier[key] = 0;
+    }
 
     public Camera GetCamera()
     {

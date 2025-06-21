@@ -20,7 +20,7 @@ public class IntroManager : MonoBehaviour
     step 5 = game (blur fading)
     */
     public string currentStep;
-    
+
 
     [Header("Scripts")]
     public BranchesManager branchesManager;
@@ -69,7 +69,7 @@ public class IntroManager : MonoBehaviour
         titleMat.SetFloat("_MAIN", 0.5f);
 
         // mainCamera.transform.position = cameraSpots[0].position;
-        AudioManager.Instance.InitializeForState(GameState.Blackscreen); 
+        AudioManager.Instance.InitializeForState(GameState.Blackscreen);
     }
 
     // Update is called once per frame
@@ -189,7 +189,7 @@ public class IntroManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
         }
 
-        
+
     }
 
     public void LoopReset()
@@ -198,8 +198,12 @@ public class IntroManager : MonoBehaviour
         coverAnimation = true;
         sinjManager.InfluencedByMouse(false);
         mouseManager.IsUsed = false;
+
+        GameManager.Instance.ResetEmotionPalliers();
+
+        AudioManager.Instance.ResetEndMusic();
     }
-    
+
     public void OnDestroy()
     {
         titleMat.SetFloat("_MAIN", .5f);

@@ -200,6 +200,17 @@ namespace AK
             } // namespace SWITCH
         } // namespace DEN_SW_FOOTSTEPS
 
+        namespace DEN_SW_MATERIAL
+        {
+            static const AkUniqueID GROUP = 4119069401U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DEN_SW_MAT_GRASS = 1442248219U;
+                static const AkUniqueID DEN_SW_MAT_WATER = 349638508U;
+            } // namespace SWITCH
+        } // namespace DEN_SW_MATERIAL
+
         namespace DEN_SW_NEUTRALSTEPS
         {
             static const AkUniqueID GROUP = 3572877288U;
