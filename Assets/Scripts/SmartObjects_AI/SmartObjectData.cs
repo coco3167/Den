@@ -3,6 +3,7 @@ using AYellowpaper.SerializedCollections;
 using Sirenix.OdinInspector;
 using SmartObjects_AI.Agent;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace SmartObjects_AI
 {
@@ -11,10 +12,12 @@ namespace SmartObjects_AI
     {
         [Title("Base Info")]
         [field : SerializeReference] public BaseScoreCalcul scoreCalculation { get; private set; }
-        [field : SerializeField] public AnimatorOverrideController animatorController { get; private set; }
+
+        [SerializeField] private AnimatorOverrideController[] animatorControllers;
         [field : SerializeField] public AK.Wwise.Event wwiseEvent { get; private set; }
         [field : SerializeField] public int maxUser { get; private set; }
         [field: SerializeField] public float minRadius { get; private set; } = 1;
+        [field: SerializeField] public float stoppingDistance { get; private set; } = 1;
         
         [Title("Boolean")]
         [field: SerializeField] public bool shouldRunTo { get; private set; } = false;
@@ -39,6 +42,13 @@ namespace SmartObjects_AI
         public bool IsRest()
         {
             return scoreCalculation.GetType() == typeof(RestScore);
+        }
+        
+        public AnimatorOverrideController GetAnimator()
+        {
+            int rand = Random.Range(0, animatorControllers.Length);
+            Debug.Log(animatorControllers[rand]);
+            return animatorControllers[rand];
         }
 
         public enum DefaultLookingPoint

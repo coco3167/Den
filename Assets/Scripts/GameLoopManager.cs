@@ -5,12 +5,15 @@ using DG.Tweening;
 using Sirenix.Utilities;
 using UnityEngine;
 using Audio;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 public class GameLoopManager : MonoBehaviour, IPausable
 {
     [SerializeField] private AnimationClip loopAnim;
     [SerializeField] private IntroManager introManager;
+    [SerializeField] private RawImage blackBackground;
     
     private Animator m_animator;
     private Tween m_tween;
@@ -69,10 +72,13 @@ public class GameLoopManager : MonoBehaviour, IPausable
         
         GameEnded?.Invoke(null, EventArgs.Empty);
         m_tween.Kill();
-        
-        introManager.LoopReset();
-        StartCoroutine(RestartCoroutine());
-        
+
+        blackBackground.gameObject.SetActive(true);
+        blackBackground.DOColor(Color.black, 5).OnComplete(() => SceneManager.LoadScene("Credits", LoadSceneMode.Single));
+
+        //introManager.LoopReset();
+        //StartCoroutine(RestartCoroutine());
+
     }
 
     public void OnGamePaused(object sender, EventArgs eventArgs)

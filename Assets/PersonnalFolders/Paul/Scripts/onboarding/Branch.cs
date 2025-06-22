@@ -161,7 +161,7 @@ public class Branch : MonoBehaviour
 
     public void CheckAudioState(float intensity)
     {
-        Debug.Log(intensity);
+        //Debug.Log(intensity);
             wiggling = intensity >= .4 ? true : false;
             moving = intensity <= .4 && intensity > 0.01f ? true : false;
     }

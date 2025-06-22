@@ -21,6 +21,11 @@ namespace SmartObjects_AI.Agent
             m_navMeshAgent.SetDestination(destination.position);
         }
 
+        public void SetStoppingDistance(float distance)
+        {
+            m_navMeshAgent.stoppingDistance = distance;
+        }
+
         public void ResetDestination()
         {
             m_navMeshAgent.ResetPath();
