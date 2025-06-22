@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{DF9BADCC-62A9-B6B8-B73A-92DA036B1905}",
+    "Hash": "{61DD341F-A316-80A7-6FB1-0491C381BED6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -3093,9 +3093,7 @@
       "GUID": "{7C5C7496-0CF0-4B50-BCE0-AC6234902B3E}",
       "Color": "10",
       "MaxAttenuation": "22",
-      "DurationType": "OneShot",
-      "DurationMin": "0.36686465",
-      "DurationMax": "0.740404",
+      "DurationType": "Infinite",
       "SwitchContainers": [
        {
         "SwitchValue": {
@@ -3212,9 +3210,7 @@
       "GUID": "{85E80FB1-8DED-4209-92B5-A839A26E3F46}",
       "Color": "10",
       "MaxAttenuation": "22",
-      "DurationType": "OneShot",
-      "DurationMin": "0.40191597",
-      "DurationMax": "0.83363855",
+      "DurationType": "Infinite",
       "SwitchContainers": [
        {
         "SwitchValue": {
@@ -6237,6 +6233,48 @@
       "DurationType": "OneShot",
       "DurationMin": "0",
       "DurationMax": "0"
+     },
+     {
+      "Id": "510323321",
+      "Name": "SwitchGrass",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Global\\SwitchGrass",
+      "GUID": "{1E400BE6-9FBE-4ACC-860E-4D2DCD7D8DB4}",
+      "Color": "3",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetSwitch": [
+       {
+        "GroupId": "4119069401",
+        "Id": "1442248219",
+        "Name": "DEN_SW_MAT_Grass",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_Material\\DEN_SW_MAT_Grass",
+        "GUID": "{2F79CA3B-E6EB-4E78-85B2-D8B2A6B5F135}",
+        "Color": "2"
+       }
+      ]
+     },
+     {
+      "Id": "3169919642",
+      "Name": "SwitchWater",
+      "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_Global\\SwitchWater",
+      "GUID": "{E70D573A-9BD1-46AB-8FA3-6FECA4D7641A}",
+      "Color": "3",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetSwitch": [
+       {
+        "GroupId": "4119069401",
+        "Id": "349638508",
+        "Name": "DEN_SW_MAT_Water",
+        "ObjectPath": "\\Switches\\Default Work Unit\\DEN_Switches\\DEN_SW_Material\\DEN_SW_MAT_Water",
+        "GUID": "{5300E24B-846B-43CC-9363-2E004CAF7D9E}",
+        "Color": "2"
+       }
+      ]
      }
     ],
     "Busses": [
@@ -6817,6 +6855,6 @@
     ]
    }
   ],
-  "FileHash": "{06C3541B-E528-645E-B55B-F70C3C1385E8}"
+  "FileHash": "{A584D3F5-224F-D784-32E4-FC890C4889B9}"
  }
 }

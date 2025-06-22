@@ -1,24 +1,31 @@
-using Audio;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class WaterSurfaceTrigger : MonoBehaviour
 {
+    [SerializeField] private AK.Wwise.Event SetSwitchToWater;
+    [SerializeField] private AK.Wwise.Event SetSwitchToGrass;
+
     private void OnTriggerEnter(Collider other)
     {
-        // whenever *any* creature enters, switch its footstep to Water
-        AudioManager.Instance.SetFootstepSurface(
-            WwiseSurfaceSwitch.Water,
-            other.gameObject
-        );
+        if (!other.CompareTag("Creature"))
+            return;
+
+        // other.gameObject is the rig child—where your MovementAudioManager & AkGameObj live
+        var emitterGO = other.gameObject;
+
+        Debug.Log($"[WaterTrigger] Posting SetSwitchToWater on {emitterGO.name}");
+        SetSwitchToWater.Post(emitterGO);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        // when they leave, switch it back to Grass
-        AudioManager.Instance.SetFootstepSurface(
-            WwiseSurfaceSwitch.Grass,
-            other.gameObject
-        );
+        if (!other.CompareTag("Creature"))
+            return;
+
+        var emitterGO = other.gameObject;
+
+        Debug.Log($"[WaterTrigger] Posting SetSwitchToGrass on {emitterGO.name}");
+        SetSwitchToGrass.Post(emitterGO);
     }
 }

@@ -3756,7 +3756,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-24</Value>
+								<Value>-20</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -3801,6 +3801,9 @@
 							</ReferenceList>
 							<ChildrenList>
 								<SwitchContainer Name="DEN_FS_Running" ID="{A9B695CE-DA3B-407C-BA71-88A0972011FA}" ShortID="699963915">
+									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -4402,6 +4405,9 @@
 									</GroupingInfo>
 								</SwitchContainer>
 								<SwitchContainer Name="DEN_FS_Walking" ID="{F0AFC1C6-986E-4B70-8A4B-C118F600EEEF}" ShortID="692037791">
+									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>

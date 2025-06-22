@@ -77,6 +77,8 @@ namespace AK
         static const AkUniqueID SET_DEN_TOD_MORNING = 1585709882U;
         static const AkUniqueID SET_DEN_TOD_NIGHT = 282213896U;
         static const AkUniqueID STOP_DEN_TUTO_BRANCHMOVING = 3855147319U;
+        static const AkUniqueID SWITCHGRASS = 510323321U;
+        static const AkUniqueID SWITCHWATER = 3169919642U;
     } // namespace EVENTS
 
     namespace STATES

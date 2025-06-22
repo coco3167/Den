@@ -156,6 +156,34 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="SwitchWater" ID="{E70D573A-9BD1-46AB-8FA3-6FECA4D7641A}">
+					<ChildrenList>
+						<Action Name="" ID="{737D7915-F2EF-4FA2-A225-3123F85F4323}" ShortID="567399518">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="23"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_SW_MAT_Water" ID="{5300E24B-846B-43CC-9363-2E004CAF7D9E}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SwitchGrass" ID="{1E400BE6-9FBE-4ACC-860E-4D2DCD7D8DB4}">
+					<ChildrenList>
+						<Action Name="" ID="{2CF2F1C0-669A-432D-AB7D-24E6CFEDDACA}" ShortID="437747840">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="23"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DEN_SW_MAT_Grass" ID="{2F79CA3B-E6EB-4E78-85B2-D8B2A6B5F135}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

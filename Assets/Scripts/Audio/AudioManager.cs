@@ -182,7 +182,7 @@ namespace Audio
 
         [Title("Footstep Surface Switch")]
         [SerializeField]
-        private SerializedDictionary<WwiseSurfaceSwitch, Switch> surfaceSwitches;
+        private SerializedDictionary<WwiseSurfaceSwitch, Switch> DEN_SW_Material;
 
         [Title("Wwise Events")]
         [FoldoutGroup("Wwise UI Events")]
@@ -376,10 +376,9 @@ namespace Audio
 
         public void SetFootstepSurface(WwiseSurfaceSwitch surface, GameObject target)
         {
-            if (!target.GetComponent<AkGameObj>())
-                target.AddComponent<AkGameObj>();
+            var emitter = target.GetComponentInChildren<AkGameObj>()?.gameObject ?? target;
 
-            surfaceSwitches[surface].SetValue(target);
+            DEN_SW_Material[surface].SetValue(emitter);
         }
 
         #region Tools
@@ -413,7 +412,7 @@ namespace Audio
                 foreach (Bank bank in Soundbanks)
                 {
                     bank.Load();
-                    Debug.Log("Soundbanks have been loaded.");
+                    //Debug.Log("Soundbanks have been loaded.");
                 }
             }
             else
@@ -433,7 +432,7 @@ namespace Audio
                 if (bankToUnload != null)
                 {
                     bankToUnload.Unload();
-                    Debug.Log($"Soundbank '{bankName}' has been unloaded.");
+                    //Debug.Log($"Soundbank '{bankName}' has been unloaded.");
                 }
                 else
                 {
@@ -454,7 +453,7 @@ namespace Audio
 
             if (Mathf.Approximately(clampedValue, currentGameParametersValues[emotionStateRtpc]))
             {
-                Debug.Log($"{emotionStateRtpc.ToString()} value is already set to {clampedValue}");
+                //Debug.Log($"{emotionStateRtpc.ToString()} value is already set to {clampedValue}");
                 return;
             }
             if (!target.GetComponent<AkGameObj>())
@@ -464,7 +463,7 @@ namespace Audio
 
             emotionRTPC.SetValue(target, clampedValue);
 
-            Debug.Log($"{emotionStateRtpc} value has been set to {clampedValue}");
+            //Debug.Log($"{emotionStateRtpc} value has been set to {clampedValue}");
             currentGameParametersValues[emotionStateRtpc] = clampedValue;
         }
         private WwiseEmotionStateRTPC TranslateSinjAgentEmotionToAudioManagerEmotion(AgentDynamicParameter parameter)
@@ -515,7 +514,7 @@ namespace Audio
         public void UpdateMoodAndRTPCs()
         {
             AgentDynamicParameter dominantMood = GetDominantMood();
-            Debug.Log($"[AudioManager] Dominant mood: {dominantMood}, palliers: Curiosity={emotionPalliers[AgentDynamicParameter.Curiosity]}, Anger={emotionPalliers[AgentDynamicParameter.Aggression]}, Fear={emotionPalliers[AgentDynamicParameter.Fear]}");
+            //Debug.Log($"[AudioManager] Dominant mood: {dominantMood}, palliers: Curiosity={emotionPalliers[AgentDynamicParameter.Curiosity]}, Anger={emotionPalliers[AgentDynamicParameter.Aggression]}, Fear={emotionPalliers[AgentDynamicParameter.Fear]}");
 
             // Set the mood state
             WwiseMoodState moodState = dominantMood switch
