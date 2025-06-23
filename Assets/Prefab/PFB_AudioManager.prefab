@@ -267,9 +267,40 @@ MonoBehaviour:
         groupIdInternal: 0
         groupGuidInternal: 
         WwiseObjectReference: {fileID: 11400000, guid: a4b27cbcdec8c3b48a7c8c0fcea31328, type: 2}
+  moodNeutral:
+    _serializedList:
+    - Key: 0
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: b5be75d435d6f844ca1813a420ab8ab5, type: 2}
+    - Key: 1
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 6a57eb614a8e9104794a17635522b4f4, type: 2}
+    - Key: 2
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 1ac8cb9e10987984f8a637677ca7915c, type: 2}
+    - Key: 3
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 84bac2b0fd9bce54c9a78b2ed9d177a5, type: 2}
   currentCuriositySwitch: 0
   currentFearSwitch: 0
   currentAngerSwitch: 0
+  currentNeutralSwitch: 0
   switchReactionMoodSeparator: 0
   switchReactionMood:
     _serializedList:
@@ -417,6 +448,22 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 6ec384d5f4187574e89974a66cfa4151, type: 2}
+  DEN_SW_Material:
+    _serializedList:
+    - Key: 0
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 5f21dc49f20b11e458f3406f93500380, type: 2}
+    - Key: 1
+      Value:
+        idInternal: 0
+        valueGuidInternal: 
+        groupIdInternal: 0
+        groupGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: ce8aa3ea53891e84a96776a37d1ac141, type: 2}
   FaderTick:
     idInternal: 0
     valueGuidInternal: 
@@ -476,11 +523,11 @@ MonoBehaviour:
   FootstepWalk:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 89441a31379e5cd44a2770ae5f885e4e, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 03803596535ff3c4fa3e038a0ccd591b, type: 2}
   FootstepRun:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 83a2efc5ae5841d44ac3ab4f33d6980c, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 0e6cd6b9c2c3d0b4da6e8c340f12fd3f, type: 2}
   Eat:
     idInternal: 0
     valueGuidInternal: 

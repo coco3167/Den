@@ -77,6 +77,8 @@ namespace AK
         static const AkUniqueID SET_DEN_TOD_MORNING = 1585709882U;
         static const AkUniqueID SET_DEN_TOD_NIGHT = 282213896U;
         static const AkUniqueID STOP_DEN_TUTO_BRANCHMOVING = 3855147319U;
+        static const AkUniqueID SWITCHGRASS = 510323321U;
+        static const AkUniqueID SWITCHWATER = 3169919642U;
     } // namespace EVENTS
 
     namespace STATES
@@ -199,6 +201,17 @@ namespace AK
                 static const AkUniqueID DEN_SW_FS_WALKING = 3564956079U;
             } // namespace SWITCH
         } // namespace DEN_SW_FOOTSTEPS
+
+        namespace DEN_SW_MATERIAL
+        {
+            static const AkUniqueID GROUP = 4119069401U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DEN_SW_MAT_GRASS = 1442248219U;
+                static const AkUniqueID DEN_SW_MAT_WATER = 349638508U;
+            } // namespace SWITCH
+        } // namespace DEN_SW_MATERIAL
 
         namespace DEN_SW_NEUTRALSTEPS
         {

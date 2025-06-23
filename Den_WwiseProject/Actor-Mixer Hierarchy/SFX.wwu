@@ -35,7 +35,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-6</Value>
+								<Value>-3</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -3756,7 +3756,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-24</Value>
+								<Value>-20</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -3768,7 +3768,7 @@
 							<ObjectRef Name="FootstepsConversion" ID="{04277475-1B92-46D0-8D18-EC8AF6EA2104}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+							<ObjectRef Name="SFX" ID="{C7048BF3-A60E-4D17-B3B1-33F37197CFD3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -3800,22 +3800,353 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<RandomSequenceContainer Name="DEN_FS_Walking" ID="{A71FEA59-A763-493A-8E94-D2E6026DA24E}" ShortID="641713212">
+								<SwitchContainer Name="DEN_FS_Running" ID="{A9B695CE-DA3B-407C-BA71-88A0972011FA}" ShortID="699963915">
 									<PropertyList>
-										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="DEN_SW_MAT_Grass" ID="{2F79CA3B-E6EB-4E78-85B2-D8B2A6B5F135}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="DEN_SW_Material" ID="{84DB9935-FED4-46C1-9555-401867A243B7}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_SFX_Footsteps_Long_01" ID="{B8260777-C947-44DB-8588-4CCCCB0D688E}" ShortID="1062459563">
+										<RandomSequenceContainer Name="DEN_FS_GrassRunning" ID="{A1CD9EAF-43F7-4D33-B454-D0E7232F4D6D}" ShortID="277776040">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="Priority" Type="int16">
+													<ValueList>
+														<Value>30</Value>
+													</ValueList>
+												</Property>
+												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="FoostepsAttenuation" ID="{FCCCA6D7-75B0-446C-BFA5-B3B6F4E48078}" WorkUnitID="{4D8EE58E-8CFA-4860-A69D-33BF5CF8C67A}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="FootstepsConversion" ID="{04277475-1B92-46D0-8D18-EC8AF6EA2104}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="DEN_SFX_Footsteps_Short_01" ID="{3AB62EDD-4D4A-4BE6-922C-76FF2F8ADC37}" ShortID="534761148">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_01" ID="{41A58E3A-46E9-4D25-997F-142A72140B85}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1013704900"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_01" ID="{41A58E3A-46E9-4D25-997F-142A72140B85}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_02" ID="{17ADED13-A3C5-451B-A6EA-9AAE98C2FF18}" ShortID="1052105643">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_02" ID="{4889AB01-8A95-4DBB-875C-F38AEFFBB275}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="826922015"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_02" ID="{4889AB01-8A95-4DBB-875C-F38AEFFBB275}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_03" ID="{48D62C92-0F0B-4D6C-8F9D-1008193F293D}" ShortID="72424022">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_03" ID="{23D73021-61B4-4CF4-9F8B-F335142870C2}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="300165023"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_03" ID="{23D73021-61B4-4CF4-9F8B-F335142870C2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_04" ID="{72F5BFF7-2B77-4B73-B4B8-926BDCBB5D4F}" ShortID="88392293">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_04" ID="{0669E4D5-D4CC-44C2-9502-CFF462F17419}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="222722659"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_04" ID="{0669E4D5-D4CC-44C2-9502-CFF462F17419}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_05" ID="{51D5C723-069B-4099-B292-BAC61A53CC34}" ShortID="1041041297">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_05" ID="{AF55CCE6-2782-4705-84EA-F9E145DDD132}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="233464838"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_05" ID="{AF55CCE6-2782-4705-84EA-F9E145DDD132}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_06" ID="{D5C42BDD-CC37-4359-8D0F-BD124FDCCCD8}" ShortID="448799601">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_06" ID="{01A73E11-8097-434D-88C7-44A4EC2617F9}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1063901351"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_06" ID="{01A73E11-8097-434D-88C7-44A4EC2617F9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_07" ID="{3E6D01F6-3D68-402C-BF14-2F8ACB29ACD5}" ShortID="456887984">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_07" ID="{F9BF808C-5883-414D-84EE-A26E6FA33F3F}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_07.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="501334488"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_07" ID="{F9BF808C-5883-414D-84EE-A26E6FA33F3F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_08" ID="{1B032ABB-BA20-40DE-9CF0-B0879BFE2430}" ShortID="282559903">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_08" ID="{A11A43EB-7D87-4AA6-94CE-D3046AFF772F}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_08.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="396074710"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_08" ID="{A11A43EB-7D87-4AA6-94CE-D3046AFF772F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_09" ID="{6C5316DD-C247-4B92-892A-26057F15C8FE}" ShortID="94750741">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_09" ID="{1B6EB84B-422E-4C9B-BA1F-925D4C7EB250}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_09.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="375483292"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_09" ID="{1B6EB84B-422E-4C9B-BA1F-925D4C7EB250}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_10" ID="{AEFFF9E0-7469-4F97-A423-A527A11672D8}" ShortID="805820238">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_10" ID="{31989B20-A69A-4AAB-B6EE-E1921D63A6E9}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_10.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="361229653"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_10" ID="{31989B20-A69A-4AAB-B6EE-E1921D63A6E9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_11" ID="{48B5E448-4C48-4F04-8E37-0D87A5A616CC}" ShortID="474351388">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_11" ID="{EB865895-9925-42FD-88F6-8D0F2E939A36}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_11.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="424552174"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_11" ID="{EB865895-9925-42FD-88F6-8D0F2E939A36}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_12" ID="{3F93350A-940F-44C6-BA42-738804E350C9}" ShortID="933524865">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_12" ID="{7CAF8F74-DF23-418F-8FB3-43E63B8341F0}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_12.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="511506814"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_12" ID="{7CAF8F74-DF23-418F-8FB3-43E63B8341F0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Short_13" ID="{EE3FEB24-F8A1-46B1-99AF-1C1046A3D9C6}" ShortID="748220710">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Short_13" ID="{7CC5A996-B089-4D48-8E7F-4FDC58680253}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Short_13.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="951379162"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Short_13" ID="{7CC5A996-B089-4D48-8E7F-4FDC58680253}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{3E5017CB-3A52-4E0F-83CB-C55AEE77B4CC}"/>
+											</PositioningInfo>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="DEN_FS_WaterRunning" ID="{26DBAD36-F374-4EB2-89AE-28F3B3A1A5BF}" ShortID="1063504032">
+											<PropertyList>
+												<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -3825,300 +4156,601 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_01" ID="{6CB4FAB6-E160-4022-8064-508EDC8F28C2}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_01.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="587179653"/>
-													</MediaIDList>
-												</AudioFileSource>
+												<Sound Name="DEN_SFX_Footsteps_Water_01" ID="{6BFDCDBF-A828-4516-B209-D92E5D538B20}" ShortID="897769725">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_01" ID="{450F7E7A-E551-4427-9CCA-3A63CF224BC2}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="346286787"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_01" ID="{450F7E7A-E551-4427-9CCA-3A63CF224BC2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_02" ID="{91A0BEA3-973E-4038-B104-752C32A5907C}" ShortID="609507178">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_02" ID="{C699AEA8-C3CF-4CB5-AB10-A195CD6D2FB7}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="634348727"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_02" ID="{C699AEA8-C3CF-4CB5-AB10-A195CD6D2FB7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_03" ID="{9C68FBD7-A9D0-439C-AF37-7B3399222794}" ShortID="718795633">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_03" ID="{D6CAEFE4-BD1B-45D2-BEBE-EAC1C1084183}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="429239445"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_03" ID="{D6CAEFE4-BD1B-45D2-BEBE-EAC1C1084183}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_04" ID="{C80F8E1C-3121-42F3-B142-96CD78ECA4D4}" ShortID="468307306">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_04" ID="{F403E69F-E844-4722-896C-B0682119192F}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="209437140"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_04" ID="{F403E69F-E844-4722-896C-B0682119192F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_05" ID="{30D3E064-7739-41B9-89B3-8FF08A4CEDFE}" ShortID="29406466">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_05" ID="{6C668711-4715-470E-B27D-609FAABF3C84}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="990710183"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_05" ID="{6C668711-4715-470E-B27D-609FAABF3C84}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_06" ID="{7F004E0C-2B32-4803-9ADF-F78BDC407B77}" ShortID="41863854">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_06" ID="{EDDCECE8-7387-4467-AABB-DEE12070C68F}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="486923290"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_06" ID="{EDDCECE8-7387-4467-AABB-DEE12070C68F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_07" ID="{5E753971-479F-40EF-B368-67635FE00B4D}" ShortID="897678934">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_07" ID="{95682EB8-935C-4CBB-AC1E-566CBF747EB0}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_07.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="579309475"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_07" ID="{95682EB8-935C-4CBB-AC1E-566CBF747EB0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_08" ID="{DE96C72D-BC6C-41E5-8E96-8861F68CBFD7}" ShortID="89168228">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_08" ID="{351687E1-76ED-4128-81C4-6071CE31374A}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_08.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="189568007"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_08" ID="{351687E1-76ED-4128-81C4-6071CE31374A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_09" ID="{73483143-BCDD-422F-A603-FEDB52A2E9CC}" ShortID="37660612">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_09" ID="{97D9C39B-255B-49D4-A6CB-2603EA5DF44B}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_09.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="180219570"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_09" ID="{97D9C39B-255B-49D4-A6CB-2603EA5DF44B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_10" ID="{2C4C54EC-B52B-4660-B939-395600D3FEDE}" ShortID="708891215">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_10" ID="{C45AEAA9-02D7-432C-A61B-E17D3B9B512A}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_10.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="663979054"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_10" ID="{C45AEAA9-02D7-432C-A61B-E17D3B9B512A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_01" ID="{6CB4FAB6-E160-4022-8064-508EDC8F28C2}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_02" ID="{E2F9E388-98AA-4F4E-9B7B-9468CACF689A}" ShortID="70022486">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_02" ID="{0A6C0871-74FC-4F33-AF7C-D11C11BC011B}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_02.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="756801821"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_02" ID="{0A6C0871-74FC-4F33-AF7C-D11C11BC011B}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_03" ID="{A16B5734-7D93-45E4-B412-1314E2178DD7}" ShortID="855255830">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_03" ID="{59921C98-8666-4212-977D-307ABCA83EFC}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_03.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="849976495"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_03" ID="{59921C98-8666-4212-977D-307ABCA83EFC}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_04" ID="{76F3872B-95C3-4644-A23A-647A0EF9A819}" ShortID="563125815">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_04" ID="{169EEC44-273C-41FD-B2C5-0C74340E804F}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_04.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="637630785"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_04" ID="{169EEC44-273C-41FD-B2C5-0C74340E804F}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_05" ID="{6BB2A335-49DF-4C99-8B5F-ADC8A232377E}" ShortID="548148612">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_05" ID="{80A85110-9E15-4446-BA88-C5C6EFAC40F8}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_05.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="810738657"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_05" ID="{80A85110-9E15-4446-BA88-C5C6EFAC40F8}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_06" ID="{D145F8A2-21E4-436A-851A-FC9A9A80178C}" ShortID="41643465">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_06" ID="{024CA4F3-BB78-403A-8A0E-C6A524A475C7}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_06.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="42664739"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_06" ID="{024CA4F3-BB78-403A-8A0E-C6A524A475C7}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_07" ID="{EF76B0BC-F9F0-4D9E-8299-0EA02572FDDD}" ShortID="167868811">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_07" ID="{63993620-AA1C-46DC-BE19-965A28D2604F}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_07.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="915985365"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_07" ID="{63993620-AA1C-46DC-BE19-965A28D2604F}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_08" ID="{10017FEB-E921-4A58-B1A0-5F36031B58C3}" ShortID="786910861">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_08" ID="{11C12AE6-6D06-4414-B702-7442CE1D3909}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_08.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="847381128"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_08" ID="{11C12AE6-6D06-4414-B702-7442CE1D3909}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_09" ID="{E2CC706D-EFA0-4C2E-8F5D-DAB24CAA334E}" ShortID="516653145">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_09" ID="{32110A8C-011D-4D09-A67D-D17FCA590713}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_09.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="547231889"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_09" ID="{32110A8C-011D-4D09-A67D-D17FCA590713}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_10" ID="{EB393A40-73FF-4035-858F-5C2172FBA470}" ShortID="833123073">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_10" ID="{094B7347-494B-49E1-A63E-F6CBCDEA0554}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_10.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="631298206"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_10" ID="{094B7347-494B-49E1-A63E-F6CBCDEA0554}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_11" ID="{B509DA25-1F6D-4176-B395-E4092F543C36}" ShortID="892496166">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_11" ID="{D5A99F41-AB4D-4050-BBC8-92BD4B7576AA}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_11.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="212078101"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_11" ID="{D5A99F41-AB4D-4050-BBC8-92BD4B7576AA}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_12" ID="{C17639F2-41C0-4D11-9C8F-AF144C9499A0}" ShortID="520156282">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_12" ID="{635D9206-A78B-4B38-8683-FED8642F738F}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_12.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="28393134"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_12" ID="{635D9206-A78B-4B38-8683-FED8642F738F}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Long_13" ID="{0BE298A2-7641-4216-8AB6-E6299433686E}" ShortID="20933803">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Long_13" ID="{C12348AA-45F1-4372-BAEA-F332C326A04B}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Long_13.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="188062315"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Long_13" ID="{C12348AA-45F1-4372-BAEA-F332C326A04B}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+										</RandomSequenceContainer>
 									</ChildrenList>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="DEN_FS_Running" ID="{A1CD9EAF-43F7-4D33-B454-D0E7232F4D6D}" ShortID="277776040">
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_FS_WaterRunning" ID="{26DBAD36-F374-4EB2-89AE-28F3B3A1A5BF}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_FS_GrassRunning" ID="{A1CD9EAF-43F7-4D33-B454-D0E7232F4D6D}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_MAT_Grass" ID="{2F79CA3B-E6EB-4E78-85B2-D8B2A6B5F135}"/>
+												<ItemList>
+													<ItemRef Name="DEN_FS_GrassRunning" ID="{A1CD9EAF-43F7-4D33-B454-D0E7232F4D6D}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_MAT_Water" ID="{5300E24B-846B-43CC-9363-2E004CAF7D9E}"/>
+												<ItemList>
+													<ItemRef Name="DEN_FS_WaterRunning" ID="{26DBAD36-F374-4EB2-89AE-28F3B3A1A5BF}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="DEN_FS_Walking" ID="{F0AFC1C6-986E-4B70-8A4B-C118F600EEEF}" ShortID="692037791">
 									<PropertyList>
-										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
 										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="DEN_SW_MAT_Grass" ID="{2F79CA3B-E6EB-4E78-85B2-D8B2A6B5F135}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
 										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="DEN_SW_Material" ID="{84DB9935-FED4-46C1-9555-401867A243B7}" WorkUnitID="{72BFEBD3-43FF-4AAB-A8E3-A2D69F99B246}"/>
+										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="DEN_SFX_Footsteps_Short_01" ID="{3AB62EDD-4D4A-4BE6-922C-76FF2F8ADC37}" ShortID="534761148">
+										<RandomSequenceContainer Name="DEN_FS_GrassWalking" ID="{A71FEA59-A763-493A-8E94-D2E6026DA24E}" ShortID="641713212">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="Priority" Type="int16">
+													<ValueList>
+														<Value>30</Value>
+													</ValueList>
+												</Property>
+												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="FoostepsAttenuation" ID="{FCCCA6D7-75B0-446C-BFA5-B3B6F4E48078}" WorkUnitID="{4D8EE58E-8CFA-4860-A69D-33BF5CF8C67A}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="FootstepsConversion" ID="{04277475-1B92-46D0-8D18-EC8AF6EA2104}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="DEN_SFX_Footsteps_Long_01" ID="{B8260777-C947-44DB-8588-4CCCCB0D688E}" ShortID="1062459563">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_01" ID="{6CB4FAB6-E160-4022-8064-508EDC8F28C2}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="587179653"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_01" ID="{6CB4FAB6-E160-4022-8064-508EDC8F28C2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_02" ID="{E2F9E388-98AA-4F4E-9B7B-9468CACF689A}" ShortID="70022486">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_02" ID="{0A6C0871-74FC-4F33-AF7C-D11C11BC011B}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="756801821"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_02" ID="{0A6C0871-74FC-4F33-AF7C-D11C11BC011B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_03" ID="{A16B5734-7D93-45E4-B412-1314E2178DD7}" ShortID="855255830">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_03" ID="{59921C98-8666-4212-977D-307ABCA83EFC}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="849976495"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_03" ID="{59921C98-8666-4212-977D-307ABCA83EFC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_04" ID="{76F3872B-95C3-4644-A23A-647A0EF9A819}" ShortID="563125815">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_04" ID="{169EEC44-273C-41FD-B2C5-0C74340E804F}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="637630785"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_04" ID="{169EEC44-273C-41FD-B2C5-0C74340E804F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_05" ID="{6BB2A335-49DF-4C99-8B5F-ADC8A232377E}" ShortID="548148612">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_05" ID="{80A85110-9E15-4446-BA88-C5C6EFAC40F8}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="810738657"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_05" ID="{80A85110-9E15-4446-BA88-C5C6EFAC40F8}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_06" ID="{D145F8A2-21E4-436A-851A-FC9A9A80178C}" ShortID="41643465">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_06" ID="{024CA4F3-BB78-403A-8A0E-C6A524A475C7}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="42664739"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_06" ID="{024CA4F3-BB78-403A-8A0E-C6A524A475C7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_07" ID="{EF76B0BC-F9F0-4D9E-8299-0EA02572FDDD}" ShortID="167868811">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_07" ID="{63993620-AA1C-46DC-BE19-965A28D2604F}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_07.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="915985365"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_07" ID="{63993620-AA1C-46DC-BE19-965A28D2604F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_08" ID="{10017FEB-E921-4A58-B1A0-5F36031B58C3}" ShortID="786910861">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_08" ID="{11C12AE6-6D06-4414-B702-7442CE1D3909}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_08.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="847381128"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_08" ID="{11C12AE6-6D06-4414-B702-7442CE1D3909}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_09" ID="{E2CC706D-EFA0-4C2E-8F5D-DAB24CAA334E}" ShortID="516653145">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_09" ID="{32110A8C-011D-4D09-A67D-D17FCA590713}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_09.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="547231889"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_09" ID="{32110A8C-011D-4D09-A67D-D17FCA590713}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_10" ID="{EB393A40-73FF-4035-858F-5C2172FBA470}" ShortID="833123073">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_10" ID="{094B7347-494B-49E1-A63E-F6CBCDEA0554}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_10.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="631298206"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_10" ID="{094B7347-494B-49E1-A63E-F6CBCDEA0554}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_11" ID="{B509DA25-1F6D-4176-B395-E4092F543C36}" ShortID="892496166">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_11" ID="{D5A99F41-AB4D-4050-BBC8-92BD4B7576AA}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_11.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="212078101"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_11" ID="{D5A99F41-AB4D-4050-BBC8-92BD4B7576AA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_12" ID="{C17639F2-41C0-4D11-9C8F-AF144C9499A0}" ShortID="520156282">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_12" ID="{635D9206-A78B-4B38-8683-FED8642F738F}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_12.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="28393134"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_12" ID="{635D9206-A78B-4B38-8683-FED8642F738F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Long_13" ID="{0BE298A2-7641-4216-8AB6-E6299433686E}" ShortID="20933803">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Long_13" ID="{C12348AA-45F1-4372-BAEA-F332C326A04B}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Long_13.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="188062315"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Long_13" ID="{C12348AA-45F1-4372-BAEA-F332C326A04B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{A1F31EF4-E616-467A-B146-238DC97B4BE3}"/>
+											</PositioningInfo>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="DEN_FS_WaterWalking" ID="{D821FE78-F4CC-4193-AEFE-9FB57B4FE32B}" ShortID="46328982">
+											<PropertyList>
+												<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
@@ -4128,284 +4760,254 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_01" ID="{41A58E3A-46E9-4D25-997F-142A72140B85}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_01.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="1013704900"/>
-													</MediaIDList>
-												</AudioFileSource>
+												<Sound Name="DEN_SFX_Footsteps_Water_01" ID="{99D8C0C7-AFB3-4F8F-9176-9376A8FFF50F}" ShortID="297757425">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_01" ID="{41584AC5-8029-4BB1-8CF7-43D5BF9412EE}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="346286787"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_01" ID="{41584AC5-8029-4BB1-8CF7-43D5BF9412EE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_02" ID="{460CE8A6-64FD-43DD-9A52-AF35825A8677}" ShortID="998360614">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_02" ID="{14D7E554-AAE2-43DE-BC57-1ADC85EB3606}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="634348727"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_02" ID="{14D7E554-AAE2-43DE-BC57-1ADC85EB3606}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_03" ID="{C5715162-2E3E-457D-8AD0-D125A0A7D157}" ShortID="508632831">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_03" ID="{BF02D61C-56D0-49C6-98D2-0B7310E8C023}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="429239445"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_03" ID="{BF02D61C-56D0-49C6-98D2-0B7310E8C023}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_04" ID="{3DE03332-51EC-4A17-BDF1-B30DE2F331C6}" ShortID="609259660">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_04" ID="{1165E179-615D-4E39-889D-C1B252638BB0}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="209437140"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_04" ID="{1165E179-615D-4E39-889D-C1B252638BB0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_05" ID="{C3A2AAE2-DEFE-42BB-920A-A468459493D6}" ShortID="876449033">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_05" ID="{FA9754CF-A0A7-420A-8F42-569AFC6FDBB1}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="990710183"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_05" ID="{FA9754CF-A0A7-420A-8F42-569AFC6FDBB1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_06" ID="{912A1B9C-864C-442C-9A36-8AD25468C2E6}" ShortID="40632075">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_06" ID="{09F7FA3E-C0DD-403D-BF38-4F031FF7476F}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="486923290"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_06" ID="{09F7FA3E-C0DD-403D-BF38-4F031FF7476F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_07" ID="{D2F54D5F-EA77-4CAD-8A3F-84A718ADF0B4}" ShortID="470653859">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_07" ID="{27FEA148-4CFD-4C29-BF54-54A7FF86A6EA}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_07.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="579309475"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_07" ID="{27FEA148-4CFD-4C29-BF54-54A7FF86A6EA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_08" ID="{6A20248C-3BE7-4248-8B9D-9AC87A81CB69}" ShortID="354790058">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_08" ID="{FE005DB6-5849-422F-AC10-14C9893E1A30}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_08.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="189568007"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_08" ID="{FE005DB6-5849-422F-AC10-14C9893E1A30}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_09" ID="{F1B9C9B3-D07A-4444-B295-361C7BC7C8DB}" ShortID="660989223">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_09" ID="{34807E28-3FD6-4817-8EF4-B52A6BE1F065}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_09.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="180219570"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_09" ID="{34807E28-3FD6-4817-8EF4-B52A6BE1F065}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="DEN_SFX_Footsteps_Water_10" ID="{DC213316-F088-4C2D-93C6-2518C3FCD85B}" ShortID="309392523">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DEN_SFX_Footsteps_Water_10" ID="{F1F464A9-A8F8-4A83-BD0C-AAAD14AE0855}">
+															<Language>SFX</Language>
+															<AudioFile>DEN_SFX_Footsteps_Water_10.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="663979054"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="DEN_SFX_Footsteps_Water_10" ID="{F1F464A9-A8F8-4A83-BD0C-AAAD14AE0855}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_01" ID="{41A58E3A-46E9-4D25-997F-142A72140B85}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_02" ID="{17ADED13-A3C5-451B-A6EA-9AAE98C2FF18}" ShortID="1052105643">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_02" ID="{4889AB01-8A95-4DBB-875C-F38AEFFBB275}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_02.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="826922015"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_02" ID="{4889AB01-8A95-4DBB-875C-F38AEFFBB275}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_03" ID="{48D62C92-0F0B-4D6C-8F9D-1008193F293D}" ShortID="72424022">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_03" ID="{23D73021-61B4-4CF4-9F8B-F335142870C2}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_03.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="300165023"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_03" ID="{23D73021-61B4-4CF4-9F8B-F335142870C2}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_04" ID="{72F5BFF7-2B77-4B73-B4B8-926BDCBB5D4F}" ShortID="88392293">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_04" ID="{0669E4D5-D4CC-44C2-9502-CFF462F17419}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_04.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="222722659"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_04" ID="{0669E4D5-D4CC-44C2-9502-CFF462F17419}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_05" ID="{51D5C723-069B-4099-B292-BAC61A53CC34}" ShortID="1041041297">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_05" ID="{AF55CCE6-2782-4705-84EA-F9E145DDD132}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_05.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="233464838"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_05" ID="{AF55CCE6-2782-4705-84EA-F9E145DDD132}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_06" ID="{D5C42BDD-CC37-4359-8D0F-BD124FDCCCD8}" ShortID="448799601">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_06" ID="{01A73E11-8097-434D-88C7-44A4EC2617F9}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_06.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="1063901351"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_06" ID="{01A73E11-8097-434D-88C7-44A4EC2617F9}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_07" ID="{3E6D01F6-3D68-402C-BF14-2F8ACB29ACD5}" ShortID="456887984">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_07" ID="{F9BF808C-5883-414D-84EE-A26E6FA33F3F}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_07.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="501334488"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_07" ID="{F9BF808C-5883-414D-84EE-A26E6FA33F3F}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_08" ID="{1B032ABB-BA20-40DE-9CF0-B0879BFE2430}" ShortID="282559903">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_08" ID="{A11A43EB-7D87-4AA6-94CE-D3046AFF772F}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_08.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="396074710"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_08" ID="{A11A43EB-7D87-4AA6-94CE-D3046AFF772F}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_09" ID="{6C5316DD-C247-4B92-892A-26057F15C8FE}" ShortID="94750741">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_09" ID="{1B6EB84B-422E-4C9B-BA1F-925D4C7EB250}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_09.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="375483292"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_09" ID="{1B6EB84B-422E-4C9B-BA1F-925D4C7EB250}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_10" ID="{AEFFF9E0-7469-4F97-A423-A527A11672D8}" ShortID="805820238">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_10" ID="{31989B20-A69A-4AAB-B6EE-E1921D63A6E9}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_10.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="361229653"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_10" ID="{31989B20-A69A-4AAB-B6EE-E1921D63A6E9}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_11" ID="{48B5E448-4C48-4F04-8E37-0D87A5A616CC}" ShortID="474351388">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_11" ID="{EB865895-9925-42FD-88F6-8D0F2E939A36}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_11.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="424552174"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_11" ID="{EB865895-9925-42FD-88F6-8D0F2E939A36}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_12" ID="{3F93350A-940F-44C6-BA42-738804E350C9}" ShortID="933524865">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_12" ID="{7CAF8F74-DF23-418F-8FB3-43E63B8341F0}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_12.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="511506814"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_12" ID="{7CAF8F74-DF23-418F-8FB3-43E63B8341F0}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="DEN_SFX_Footsteps_Short_13" ID="{EE3FEB24-F8A1-46B1-99AF-1C1046A3D9C6}" ShortID="748220710">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{201E5267-FE3C-4443-8BE9-E0C91B703B85}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5CA1607A-7042-41F9-8993-6401500B44B9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="DEN_SFX_Footsteps_Short_13" ID="{7CC5A996-B089-4D48-8E7F-4FDC58680253}">
-													<Language>SFX</Language>
-													<AudioFile>DEN_SFX_Footsteps_Short_13.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="951379162"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="DEN_SFX_Footsteps_Short_13" ID="{7CC5A996-B089-4D48-8E7F-4FDC58680253}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+										</RandomSequenceContainer>
 									</ChildrenList>
-								</RandomSequenceContainer>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_FS_GrassWalking" ID="{A71FEA59-A763-493A-8E94-D2E6026DA24E}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="DEN_FS_WaterWalking" ID="{D821FE78-F4CC-4193-AEFE-9FB57B4FE32B}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_MAT_Grass" ID="{2F79CA3B-E6EB-4E78-85B2-D8B2A6B5F135}"/>
+												<ItemList>
+													<ItemRef Name="DEN_FS_GrassWalking" ID="{A71FEA59-A763-493A-8E94-D2E6026DA24E}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="DEN_SW_MAT_Water" ID="{5300E24B-846B-43CC-9363-2E004CAF7D9E}"/>
+												<ItemList>
+													<ItemRef Name="DEN_FS_WaterWalking" ID="{D821FE78-F4CC-4193-AEFE-9FB57B4FE32B}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
 							</ChildrenList>
 							<ObjectLists>
 								<ObjectList Name="Effects">
@@ -4431,26 +5033,12 @@
 							<GroupingInfo>
 								<GroupingBehaviorList>
 									<GroupingBehavior>
-										<ItemRef Name="DEN_FS_Walking" ID="{A71FEA59-A763-493A-8E94-D2E6026DA24E}"/>
+										<ItemRef Name="DEN_FS_Walking" ID="{F0AFC1C6-986E-4B70-8A4B-C118F600EEEF}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
-										<ItemRef Name="DEN_FS_Running" ID="{A1CD9EAF-43F7-4D33-B454-D0E7232F4D6D}"/>
+										<ItemRef Name="DEN_FS_Running" ID="{A9B695CE-DA3B-407C-BA71-88A0972011FA}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
-								<GroupingList>
-									<Grouping>
-										<SwitchRef Name="DEN_SW_FS_Walking" ID="{03D9483C-E2FC-45DA-BE7F-13D6F4A7F087}"/>
-										<ItemList>
-											<ItemRef Name="DEN_FS_Walking" ID="{A71FEA59-A763-493A-8E94-D2E6026DA24E}"/>
-										</ItemList>
-									</Grouping>
-									<Grouping>
-										<SwitchRef Name="DEN_SW_FS_Running" ID="{16812A59-0E29-479C-B766-92E10BA27360}"/>
-										<ItemList>
-											<ItemRef Name="DEN_FS_Running" ID="{A1CD9EAF-43F7-4D33-B454-D0E7232F4D6D}"/>
-										</ItemList>
-									</Grouping>
-								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
 						<RandomSequenceContainer Name="DEN_MM_Scratch" ID="{9CEE40A4-A255-4C09-BAF6-D6D832FD7C9C}" ShortID="542426329">
@@ -4714,6 +5302,8 @@
 				<ActorMixer Name="DEN_Tuto" ID="{9F41A229-9982-40B5-932C-6E91E0027242}" ShortID="949723139">
 					<PropertyList>
 						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="Color" Type="int16" Value="8"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 					</PropertyList>
 					<ReferenceList>
