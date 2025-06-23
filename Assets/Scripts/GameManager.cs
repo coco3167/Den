@@ -81,6 +81,11 @@ public class GameManager : MonoBehaviour, IGameStateListener
         Cursor.visible = false;
     }
 
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
+
     public void OnGameReady(object sender, EventArgs eventArgs)
     {
         IsPaused = false;

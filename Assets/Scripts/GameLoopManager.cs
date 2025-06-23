@@ -56,6 +56,11 @@ public class GameLoopManager : MonoBehaviour, IPausable
         gameStateListeners.ForEach(x => GameEnded += x.OnGameEnded);
     }
 
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
+
     public void OnGameLoopReady()
     {
         m_animator.SetTrigger(StartGame);
