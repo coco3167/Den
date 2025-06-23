@@ -80,7 +80,7 @@ public class GameLoopManager : MonoBehaviour, IPausable
 
         blackBackground.gameObject.SetActive(true);
         AudioManager.Instance.ResetEndMusic();
-        blackBackground.DOColor(Color.black, 5).OnComplete(() => SceneManager.LoadScene("Credits", LoadSceneMode.Single));
+        blackBackground.DOColor(Color.white, 5).OnComplete(() => SceneManager.LoadScene("Credits", LoadSceneMode.Single));
 
         //introManager.LoopReset();
         //StartCoroutine(RestartCoroutine());
