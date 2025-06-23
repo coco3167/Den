@@ -97,6 +97,8 @@ public class Branch : MonoBehaviour
 
         //Leave if moved enough
         distanceMoved += movementIntensity * movementMagnitude * Time.deltaTime;
+        if (solidity == 0)
+            distanceMoved = 0;
 
         float localPosMagnitude = Mathf.Abs(transform.localPosition.x) + Mathf.Abs(transform.localPosition.y) + Mathf.Abs(transform.localPosition.z);
         if (distanceMoved > distanceToLeave && localPosMagnitude < 5)

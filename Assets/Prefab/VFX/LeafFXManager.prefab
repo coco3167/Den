@@ -148,6 +148,14 @@ PrefabInstance:
       value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 4638804905312149001, guid: 682fbce8ac888974ebc354a93148adad, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638804905312149001, guid: 682fbce8ac888974ebc354a93148adad, type: 3}
+      propertyPath: InitialModule.startSizeZ.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638804905312149001, guid: 682fbce8ac888974ebc354a93148adad, type: 3}
       propertyPath: VelocityModule.speedModifier.scalar
       value: 6.41
       objectReference: {fileID: 0}
@@ -273,6 +281,14 @@ PrefabInstance:
     - target: {fileID: 3030560738936623075, guid: a235a6d092fdf7d4991e8565f648b065, type: 3}
       propertyPath: NoiseModule.scrollSpeed.scalar
       value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030560738936623075, guid: a235a6d092fdf7d4991e8565f648b065, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030560738936623075, guid: a235a6d092fdf7d4991e8565f648b065, type: 3}
+      propertyPath: InitialModule.startSizeZ.scalar
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4795971373449751700, guid: a235a6d092fdf7d4991e8565f648b065, type: 3}
       propertyPath: m_LocalScale.x

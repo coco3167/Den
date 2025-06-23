@@ -8,6 +8,8 @@ public class MouseUI : MonoBehaviour, IPausable
     [SerializeField, ChildGameObjectsOnly] private RectTransform rectTransform;
     [SerializeField, ChildGameObjectsOnly] private RawImage rawImage;
     [SerializeField] private MouseManager mouseManager;
+    [SerializeField] private bool m_groundedMode;
+    [SerializeField] private IntroManager introManager;
 
     private Camera m_camera;
     private Vector2 m_viewportSize;
@@ -21,11 +23,21 @@ public class MouseUI : MonoBehaviour, IPausable
     private void Update()
     {
         m_viewportSize = new Vector2(m_camera.scaledPixelWidth, m_camera.scaledPixelHeight);
-        rectTransform.position = m_camera.WorldToViewportPoint(mouseManager.GetRawWorldMousePosition()) * m_viewportSize;
+        if (m_groundedMode)
+        {
+            rectTransform.position = m_camera.WorldToViewportPoint(mouseManager.GetRawWorldMousePosition()) * m_viewportSize;
+        }
+        else
+        {
+            rawImage.rectTransform.position = Input.mousePosition;
+        }
+
+        m_groundedMode = !GameManager.Instance.IsPaused && introManager.step == 5;
     }
 
     public void OnGamePaused(object sender, EventArgs eventArgs)
     {
-        rawImage.enabled = !GameManager.Instance.IsPaused;
+        // rawImage.enabled = !GameManager.Instance.IsPaused;
+        
     }
 }
