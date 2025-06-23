@@ -320,7 +320,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &47600681683681239
 MonoBehaviour:
@@ -360,6 +360,8 @@ MonoBehaviour:
   rectTransform: {fileID: 6680997557674217371}
   rawImage: {fileID: 1322657489160868574}
   mouseManager: {fileID: 751927112402875643}
+  m_groundedMode: 0
+  introManager: {fileID: 0}
 --- !u!1001 &4096834319455209820
 PrefabInstance:
   m_ObjectHideFlags: 0
