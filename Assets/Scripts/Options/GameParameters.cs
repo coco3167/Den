@@ -8,5 +8,6 @@ namespace Options
         public static float JoystickSensitivity = 4f;
         public static float TimeScale = 1f;
         public static AgentDynamicParameter CursorMode;
+        public static bool IsOutline;
     }
 }

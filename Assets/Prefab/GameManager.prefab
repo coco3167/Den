@@ -250,6 +250,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6836968198750542637}
     m_Modifications:
+    - target: {fileID: 369050697528560137, guid: 102b9e843805211418420d99704bcb15, type: 3}
+      propertyPath: baseMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: cbb88dbedb253e3498a6a7055b96da3e, type: 2}
+    - target: {fileID: 369050697528560137, guid: 102b9e843805211418420d99704bcb15, type: 3}
+      propertyPath: outlineMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: dd7c0b3186c148b47bc7340c525acfb2, type: 2}
     - target: {fileID: 775690876167187258, guid: 102b9e843805211418420d99704bcb15, type: 3}
       propertyPath: gameManager
       value: 
@@ -527,8 +535,7 @@ PrefabInstance:
       propertyPath: m_Carve
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6608997158377805304, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 53463628672602507, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}
     - {fileID: 6842288381820720830, guid: 72cf03dcdbda3654fb80612c08e3ca5e, type: 3}

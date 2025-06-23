@@ -30,6 +30,8 @@ namespace SmartObjects_AI.Agent
         private Quaternion m_goalRotation;
         private Transform m_transformMovementAgent;
 
+        public SkinnedMeshRenderer skinnedMeshRenderer;
+
         private void Awake()
         {
             m_animator = GetComponent<Animator>();

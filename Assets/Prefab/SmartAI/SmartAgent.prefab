@@ -1316,7 +1316,7 @@ PrefabInstance:
     - target: {fileID: 2914711257572162290, guid: b1bf72a13d453ab4a857b3a9c08675bf, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 35f57d4b6bf28464d9a1f3e88e1ae65a, type: 2}
+      objectReference: {fileID: 2100000, guid: cbb88dbedb253e3498a6a7055b96da3e, type: 2}
     - target: {fileID: 3279623472932704170, guid: b1bf72a13d453ab4a857b3a9c08675bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -1.178779
@@ -1706,6 +1706,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2837605042875370695}
   m_SourcePrefab: {fileID: 100100000, guid: b1bf72a13d453ab4a857b3a9c08675bf, type: 3}
+--- !u!137 &1113436048465647795 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2914711257572162290, guid: b1bf72a13d453ab4a857b3a9c08675bf, type: 3}
+  m_PrefabInstance: {fileID: 2810415895971848769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2344725178497238442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1bf72a13d453ab4a857b3a9c08675bf, type: 3}
@@ -1755,6 +1760,7 @@ MonoBehaviour:
   rotationLerpSpeed: 10
   minFearWalk: 20
   m_currentLookingObject: {fileID: 0}
+  skinnedMeshRenderer: {fileID: 1113436048465647795}
 --- !u!114 &5174432466894157646
 MonoBehaviour:
   m_ObjectHideFlags: 0
