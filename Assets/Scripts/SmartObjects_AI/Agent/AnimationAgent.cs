@@ -13,10 +13,12 @@ namespace SmartObjects_AI.Agent
         private static readonly int FinishFast = Animator.StringToHash("FinishFast");
         private static readonly int SkipStart = Animator.StringToHash("SkipStart");
         private static readonly int SkipEnd = Animator.StringToHash("SkipEnd");
+        private static readonly int FearWalk = Animator.StringToHash("FearWalk");
 
         [SerializeField] private SmartAgent smartAgent;
         [SerializeField] private MovementAgent movementAgent;
         [SerializeField] private float rotationLerpSpeed = 10;
+        [SerializeField] private float minFearWalk = 10;
 
         private Animator m_animator;
 
@@ -28,6 +30,8 @@ namespace SmartObjects_AI.Agent
         private Quaternion m_goalRotation;
         private Transform m_transformMovementAgent;
 
+        public SkinnedMeshRenderer skinnedMeshRenderer;
+
         private void Awake()
         {
             m_animator = GetComponent<Animator>();
@@ -37,6 +41,7 @@ namespace SmartObjects_AI.Agent
         private void Update()
         {
             m_animator.SetFloat(Speed, movementAgent.GetSpeed());
+            m_animator.SetBool(FearWalk, smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear) >= minFearWalk);
 
             if (IsAnimationReady())
             {
@@ -64,7 +69,7 @@ namespace SmartObjects_AI.Agent
 
         public void SwitchAnimator(SmartObjectData data, Transform lookingObject)
         {
-            m_animator.runtimeAnimatorController = data.animatorController;
+            m_animator.runtimeAnimatorController = data.GetAnimator();
             m_startedAnimation = true;
 
             if (data.shouldLookAtObject)
@@ -86,6 +91,7 @@ namespace SmartObjects_AI.Agent
         public void FinishUseAnimation(bool shouldEnd, bool shouldInterrupt)
         {
             m_startedAnimation = false;
+            
             m_animator.SetBool(FinishUse, shouldEnd);
 
             if (shouldEnd && shouldInterrupt)

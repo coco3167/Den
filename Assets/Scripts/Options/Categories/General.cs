@@ -10,6 +10,8 @@ namespace Options.Categories
     {
         [SerializeField] private Toggle godMode;
         [SerializeField] private TMP_Dropdown cursorMode;
+        [SerializeField] private GameObject cursorModeGameObject;
+        [SerializeField] private Button quit;
         
         [Title("Pop Up")]
         [SerializeField] private GameObject popUp;
@@ -25,16 +27,19 @@ namespace Options.Categories
             
             godMode.onValueChanged.AddListener(OnGodModeToggle);
             cursorMode.onValueChanged.AddListener(OnCursorMode);
+            quit.onClick.AddListener(Quit);
             
             apply.onClick.AddListener(OnGodModeApply);
             back.onClick.AddListener(OnGodModeBack);
             
+            cursorModeGameObject.SetActive(false);
             popUp.SetActive(false);
         }
 
         private void OnGodModeToggle(bool value)
         {
             cursorMode.interactable = false;
+            cursorModeGameObject.SetActive(false);
             GameParameters.CursorMode = AgentDynamicParameter.Tension;
 
             if (value)
@@ -47,14 +52,21 @@ namespace Options.Categories
         {
             cursorMode.interactable = true;
             GameParameters.CursorMode = m_cursorModeParameter;
+            cursorModeGameObject.SetActive(true);
             godMode.isOn = true;
             popUp.SetActive(false);
         }
 
         private void OnGodModeBack()
         {
+            cursorModeGameObject.SetActive(false);
             godMode.isOn = false;
             popUp.SetActive(false);
+        }
+
+        private void Quit()
+        {
+            Application.Quit();
         }
 
         private void OnCursorMode(int value)

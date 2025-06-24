@@ -12,7 +12,7 @@ namespace Audio
         {
             if (stateMood == _currentMoodState)
             {
-                Debug.Log("Mood is already set to " + stateMood);
+                //Debug.Log("Mood is already set to " + stateMood);
                 return;
             }
 
@@ -24,7 +24,7 @@ namespace Audio
 
             AudioManager.Instance.gameStateMoodVisualization[stateMood].SetValue();
 
-            Debug.Log("Mood has been set to " + stateMood);
+            //Debug.Log("Mood has been set to " + stateMood);
             _currentMoodState = stateMood;
         }
 
@@ -33,7 +33,7 @@ namespace Audio
         {
             if (newAudioState == _currentAudioState)
             {
-                Debug.Log("Audio state is already set to " + newAudioState);
+                //Debug.Log("Audio state is already set to " + newAudioState);
                 return;
             }
 
@@ -45,14 +45,14 @@ namespace Audio
 
             AudioManager.Instance.audioState[newAudioState].SetValue();
 
-            Debug.Log("Audio state has been set to " + newAudioState);
+            //Debug.Log("Audio state has been set to " + newAudioState);
             _currentAudioState = newAudioState;
         }
         public static void SetWwiseMixPreset(WwiseMixPreset newMixPreset)
         {
             if (newMixPreset == _currentMixPreset)
             {
-                Debug.Log("MixPreset is already set to " + newMixPreset);
+                //Debug.Log("MixPreset is already set to " + newMixPreset);
                 return;
             }
 
@@ -64,7 +64,7 @@ namespace Audio
 
             AudioManager.Instance.mixPresets[newMixPreset].SetValue();
 
-            Debug.Log("MixPreset has been set to " + newMixPreset);
+            //Debug.Log("MixPreset has been set to " + newMixPreset);
             _currentMixPreset = newMixPreset;
         }
         public static WwiseMoodState GetCurrentMoodState()

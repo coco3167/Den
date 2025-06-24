@@ -19,6 +19,8 @@ public class Proc_Look : MonoBehaviour /*, IGameStateListener*/
     public GameObject selfHead;
     public NavMeshAgent agent;
     public MultiAimConstraint[] aimConstraints;
+    public AnimationClip[] unaffectedAnimations;
+    public Animator animator;
 
     public Vector3 scores;
     private Vector3 smoothScores;
@@ -73,9 +75,10 @@ public class Proc_Look : MonoBehaviour /*, IGameStateListener*/
 
 
         //calculate Aim Score
-        scores.x = Mathf.Clamp((mouseRange - Vector3.Distance(mouseAura.position, selfHead.transform.position))*BehindFactor(mouseAura.position), 0, 999);
+        scores.x = Mathf.Clamp((mouseRange - Vector3.Distance(mouseAura.position, selfHead.transform.position)) * BehindFactor(mouseAura.position), 0, 999);
         scores.y = Mathf.Clamp((socialRange - Vector3.Distance(nearestHead, selfHead.transform.position)), 0, 999);
-        scores.z = Mathf.Clamp(Vector3.Distance(agent.transform.position, destinationTarget.position), 0, 1);
+        // scores.z = Mathf.Clamp(Vector3.Distance(agent.transform.position, destinationTarget.position), 0, 1);
+        scores.z = 0;
 
         float sum = scores.x + scores.y + scores.z;
         if (sum > 1)
@@ -83,13 +86,15 @@ public class Proc_Look : MonoBehaviour /*, IGameStateListener*/
             scores /= sum;
         }
 
+        
         smoothScores = Vector3.Lerp(smoothScores, scores, Time.deltaTime * smoothSpeed);
+        smoothScores *= isAnimationAffected() ? 0 : 1;
         UpdateConstraints(smoothScores);
     }
 
     void UpdateConstraints(Vector3 newRatio)
     {
-        
+
 
 
         foreach (MultiAimConstraint aimConstraint in aimConstraints)
@@ -106,10 +111,25 @@ public class Proc_Look : MonoBehaviour /*, IGameStateListener*/
 
     float BehindFactor(Vector3 targetPos)
     {
-        Vector3 toTarget = (targetPos - transform.position).normalized;                                         
+        Vector3 toTarget = (targetPos - transform.position).normalized;
         float dot = Vector3.Dot(transform.forward, toTarget); // -1 (behind) to 1 (in front)                        <--
-        
+
         return Mathf.Clamp01((dot + 1f) / 2f); // Remap from [-1,1] to [0,1]                                        <-- Full chat GPT ça
+
+    }
+
+    bool isAnimationAffected()
+    {
+        AnimatorClipInfo[] animatorClipInfo = animator.GetCurrentAnimatorClipInfo(0);
+        bool unaffected = false;
         
+        foreach (AnimationClip clip in unaffectedAnimations)
+        {
+            if (animatorClipInfo[0].clip.name == clip.name)
+            {
+                unaffected = true;
+            }
+        }
+        return unaffected;
     }
 }

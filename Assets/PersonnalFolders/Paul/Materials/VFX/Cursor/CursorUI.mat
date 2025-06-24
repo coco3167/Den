@@ -43,7 +43,9 @@ Material:
     m_Floats:
     - _ColorMask: 15
     - _Density: 200
+    - _IsStatic: 1
     - _NoiseSharpness: 0.513
+    - _StaticFrequency: 0
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -56,11 +58,13 @@ Material:
     - _finalStep: 0.25
     - _floor: 0.577
     - _movement: 2.08
+    - _movement: 1.31
     - _noiseScale: 2.3
     - _noiseStep: 0.597
     - _radius: 0.072
     - _randomness: 0
-    - _range: 1.6713524e-21
+    - _range: 0.09714555
+    - _range: 0.011263644
     - _step: 0.059
     - _tiling: -13.4
     - _zoom: 1.2

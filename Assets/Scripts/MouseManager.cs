@@ -7,6 +7,8 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     [SerializeField] private Rigidbody mouseRigidBody;
     [SerializeField] private LayerMask terrainLayerMask;
     [SerializeField] private Material UIcursorMat;
+    [SerializeField] private Material tutoArrowsMat;
+    [SerializeField] private GameObject mouseAura;
 
     private Camera m_camera;
     private Vector2 m_otherMoveValue;
@@ -39,7 +41,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
 
     public void OnGameReady(object sender, EventArgs eventArgs)
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
         Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
         mouseRigidBody.MovePosition(new Vector3(1,1,-3));
     }
@@ -103,9 +105,29 @@ public class MouseManager : MonoBehaviour, IGameStateListener
         return mouseRigidBody.linearVelocity.magnitude;
     }
 
+    public GameObject GetMouseAura()
+    {
+        return mouseAura;
+    }
+
     public void UpdateCursorMaterial()
     {
+
         float newRange = Mathf.Lerp(UIcursorMat.GetFloat("_range"), MouseVelocity() / 10, Time.deltaTime * 5);
-        UIcursorMat.SetFloat("_range", Mathf.Clamp(newRange,0,1));
+        UIcursorMat.SetFloat("_range", Mathf.Clamp(newRange, 0, 1));
+
+        
+        if (MouseVelocity() > 0)
+        {
+
+            float newAlpha = Mathf.Lerp(tutoArrowsMat.GetFloat("_Alpha"), 0, Time.deltaTime * 2);
+            tutoArrowsMat.SetFloat("_Alpha", newAlpha);
+
+        }
+        else
+        {
+            float newAlpha = Mathf.Lerp(tutoArrowsMat.GetFloat("_Alpha"), 1, Time.deltaTime * 0.5f);
+            tutoArrowsMat.SetFloat("_Alpha", newAlpha);
+        }
     }
 }

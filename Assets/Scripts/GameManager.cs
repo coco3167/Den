@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
+using Options;
 using Sinj;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
@@ -11,6 +13,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows.WebCam;
 
 [RequireComponent(typeof(PlayerInput))]
 public class GameManager : MonoBehaviour, IGameStateListener
@@ -77,6 +80,13 @@ public class GameManager : MonoBehaviour, IGameStateListener
         //IsPaused = true;
 
         //m_playerInput.enabled = false;
+
+        Cursor.visible = false;
+    }
+
+    private void OnDestroy()
+    {
+        Instance = null;
     }
 
     public void OnGameReady(object sender, EventArgs eventArgs)
@@ -105,12 +115,12 @@ public class GameManager : MonoBehaviour, IGameStateListener
         if (IsPaused)
         {
             AudioManager.Instance.PauseAmbience();
-            AudioManager.Instance.StopCursorMoveSound(AudioManager.Instance.MouseManifestation);
+            AudioManager.Instance.StopCursorMoveSound(mouseManager.GetMouseAura());
         }
         else
         {
             AudioManager.Instance.ResumeAmbience();
-            AudioManager.Instance.StartCursorMoveSound(AudioManager.Instance.MouseManifestation);
+            AudioManager.Instance.StartCursorMoveSound(mouseManager.GetMouseAura());
         }
 
         GamePaused?.Invoke(this, EventArgs.Empty);
@@ -132,7 +142,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
         {
             OnPause(callbackContext);
         }
-        GameLoopManager.Instance.OnGameLoopEnded(true);
+        GameLoopManager.Instance.OnGameLoopEnded(AgentDynamicParameter.Curiosity, true);
     }
 
     public void HandlePallier(AgentDynamicParameter parameter, int value)
@@ -161,12 +171,25 @@ public class GameManager : MonoBehaviour, IGameStateListener
             mouseManager.OnOtherMoveEnd();
     }
 
+	public void OnSensiChanged(InputAction.CallbackContext callbackContext)
+    {
+        if(!callbackContext.performed)
+            return;
+        
+        GameParameters.SensitivityChange(callbackContext.ReadValue<float>());
+    }
+
     public void InfluencedByMouse(bool value)
     {
         mouseManager.IsUsed = value;
         sinjManager.InfluencedByMouse(value);
     }
 
+    public void ResetEmotionPalliers()
+    {
+        foreach (var key in m_currentPalier.Keys.ToList())
+            m_currentPalier[key] = 0;
+    }
 
     public Camera GetCamera()
     {
@@ -187,14 +210,16 @@ public class GameManager : MonoBehaviour, IGameStateListener
         if (m_currentPalier[parameter] >= 100)
         {
             InfluencedByMouse(false);
-            Invoke(nameof(CallGameLoopEnd), timeBeforeRealEnd);
+            StartCoroutine(CallGameLoopEnd(parameter));
             AudioManager.Instance.PlayEndMusic();
         }
     }
 
-    private void CallGameLoopEnd()
+    // ReSharper disable Unity.PerformanceAnalysis
+    private IEnumerator CallGameLoopEnd(AgentDynamicParameter parameter)
     {
-        GameLoopManager.Instance.OnGameLoopEnded();
+        yield return new WaitForSeconds(timeBeforeRealEnd);
+        GameLoopManager.Instance.OnGameLoopEnded(parameter);
     }
 
     // #region EventArgs

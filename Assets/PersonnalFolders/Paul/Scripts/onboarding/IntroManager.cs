@@ -7,10 +7,12 @@ using UnityEngine.UI;
 
 public class IntroManager : MonoBehaviour
 {
+    [SerializeField] private SymbolManager symbolManager;
+    
     [Header("General")]
-    [Range(1, 5)]
+    [Range(1, 6)]
     public int step;
-    private string[] stepNames = { "black screen", "fade", "onboarding", "title pause", "game" };
+    private string[] stepNames = { "black screen", "fade", "onboarding", "title pause", "symbol appearing", "game" };
 
     /*
     step 1 = black screen
@@ -20,7 +22,7 @@ public class IntroManager : MonoBehaviour
     step 5 = game (blur fading)
     */
     public string currentStep;
-    
+
 
     [Header("Scripts")]
     public BranchesManager branchesManager;
@@ -69,7 +71,7 @@ public class IntroManager : MonoBehaviour
         titleMat.SetFloat("_MAIN", 0.5f);
 
         // mainCamera.transform.position = cameraSpots[0].position;
-        AudioManager.Instance.InitializeForState(GameState.Blackscreen); 
+        AudioManager.Instance.InitializeForState(GameState.Blackscreen);
     }
 
     // Update is called once per frame
@@ -82,7 +84,7 @@ public class IntroManager : MonoBehaviour
 
 
         // Cursor.lockState = step == 5 ? CursorLockMode.Locked : CursorLockMode.None;
-        uiCursor.SetActive(step == 5);
+        // uiCursor.SetActive(step == 5);
 
         branchesManager.transform.position = mainCamera.transform.position;
         branchesManager.transform.rotation = mainCamera.transform.rotation;
@@ -159,14 +161,23 @@ public class IntroManager : MonoBehaviour
                     GameLoopManager.Instance.OnGameLoopReady();
                 }
                 break;
-
+            
             case 5:
-                titleReveal = false;
-                if (!cameraUp)
+                symbolManager.Appear();
+                if (symbolManager.hasAppeared)
                 {
-                    mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, cameraSpots[1].position, cameraMoveSpeed * Time.deltaTime);
-                    mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, cameraSpots[1].rotation, cameraMoveSpeed * Time.deltaTime);
+                    step = 6;
                 }
+
+                break;
+
+            case 6:
+                titleReveal = false;
+                // if (!cameraUp)
+                // {
+                //     mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, cameraSpots[1].position, cameraMoveSpeed * Time.deltaTime);
+                //     mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, cameraSpots[1].rotation, cameraMoveSpeed * Time.deltaTime);
+                // }
                 sinjManager.InfluencedByMouse(true);
                 mouseManager.IsUsed = true;
                 AudioManager.Instance.SetGameStateGameplay();
@@ -177,19 +188,19 @@ public class IntroManager : MonoBehaviour
                 break;
         }
 
-        if (step != 5)
+        if (step < 5)
         {
-            if (cameraUp)
-            {
-                mainCamera.transform.position = cameraSpots[0].position;
-                mainCamera.transform.rotation = cameraSpots[0].rotation;
-            }
+            // if (cameraUp)
+            // {
+            //     mainCamera.transform.position = cameraSpots[0].position;
+            //     mainCamera.transform.rotation = cameraSpots[0].rotation;
+            // }
 
             dofVolume.weight = Mathf.Lerp(dofVolume.weight, 1, Time.deltaTime * dofSpeed);
             Cursor.lockState = CursorLockMode.Confined;
         }
 
-        
+
     }
 
     public void LoopReset()
@@ -198,8 +209,12 @@ public class IntroManager : MonoBehaviour
         coverAnimation = true;
         sinjManager.InfluencedByMouse(false);
         mouseManager.IsUsed = false;
+
+        GameManager.Instance.ResetEmotionPalliers();
+
+        AudioManager.Instance.ResetEndMusic();
     }
-    
+
     public void OnDestroy()
     {
         titleMat.SetFloat("_MAIN", .5f);

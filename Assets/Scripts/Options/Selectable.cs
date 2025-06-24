@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -38,6 +39,11 @@ namespace Options
         {
             if(!m_selected)
                 selectedFlowers.OnSelect(false);
+        }
+
+        private void OnDestroy()
+        {
+            _selectables.Remove(this);
         }
     }
 }

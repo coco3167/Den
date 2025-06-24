@@ -1,0 +1,209 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpperBody
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/IK_Foot.L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/IK_Foot.L/PoleTarget_tigh_L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/IK_Foot.R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/IK_Foot.R/PoleTarget_tigh_R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_L/hip2_L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_L/hip2_L/tigh_L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_L/hip2_L/tigh_L/hips_fur_Down.L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_L/hip2_L/tigh_L/hips_fur_Side.L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_L/hip2_L/tigh_L/hips_fur_Up.L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_L/hip2_L/tigh_L/tibia_L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_L/hip2_L/tigh_L/tibia_L/ankle_L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_L/hip2_L/tigh_L/tibia_L/ankle_L/foot.L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_L/hip2_L/tigh_L/tibia_L/ankle_L/foot.L/toes.L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_R/hip2_R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_R/hip2_R/tigh_R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_R/hip2_R/tigh_R/hips_fur_Down.R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_R/hip2_R/tigh_R/hips_fur_Side.R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_R/hip2_R/tigh_R/hips_fur_Up.R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_R/hip2_R/tigh_R/tibia_R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_R/hip2_R/tigh_R/tibia_R/ankle_R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_R/hip2_R/tigh_R/tibia_R/ankle_R/foot.R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/hip1_R/hip2_R/tigh_R/tibia_R/ankle_R/foot.R/toes.R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/IK_hip2_L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/IK_hip2_R
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/ROOT/spine1
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_L
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_L/biceps_L
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_L/biceps_L/forearm_L
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_L/biceps_L/forearm_L/wrist_L
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_L/biceps_L/forearm_L/wrist_L/finger_L
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_L/biceps_L/forearm_L/wrist_L/finger_L/finger_L.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_L/biceps_L/forearm_L/wrist_L/IK_Hand.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_L/biceps_L/forearm_L/wrist_L/thumb_L
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_L/biceps_L/forearm_L/wrist_L/thumb_L/thumb_L.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_R
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_R/biceps_R
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_R/biceps_R/forearm_R
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_R/biceps_R/forearm_R/wrist_R
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_R/biceps_R/forearm_R/wrist_R/finger_R
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_R/biceps_R/forearm_R/wrist_R/finger_R/finger_R.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_R/biceps_R/forearm_R/wrist_R/IK_Hand.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_R/biceps_R/forearm_R/wrist_R/thumb_R
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/clavicle_R/biceps_R/forearm_R/wrist_R/thumb_R/thumb_R.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/neck
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/neck/head
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/neck/head/ears1_L
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/neck/head/ears1_L/ears2_L
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/neck/head/ears1_R
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/neck/head/ears1_R/ears2_R
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/neck/head/mouse
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/neck/head/mouse_deform.L
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/neck/head/mouse_deform.R
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/neck/head/sourcils
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/spine1/spine2/spine1=3/spine4/neck.Deform
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/IK_petal.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/IK_petal.001/IK_petal
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_1_A
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_1_A/petal_1_B
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_1_A.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_1_A.001/petal_1_B.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_2_A
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_2_A/petal_2_B
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_2_A.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_2_A.001/petal_2_B.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_3_A
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_3_A/petal_3_B
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_3_A.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_3_A.001/petal_3_B.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_4_A
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_4_A/petal_4_B
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_4_A.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_4_A.001/petal_4_B.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_5_A
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_5_A/petal_5_B
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_5_A.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/petal_5_A.001/petal_5_B.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/pistil_1
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/ROOT/tile1/tile2/tile3/tile4/tile5/tile6/pistil_1/pistil_2
+    m_Weight: 1
+  - m_Path: Armature/ROOT.Master/target_knees.L
+    m_Weight: 0
+  - m_Path: Armature/ROOT.Master/target_knees.R
+    m_Weight: 0
+  - m_Path: Momo_Flower
+    m_Weight: 0
+  - m_Path: Momo_LD
+    m_Weight: 0
+  - m_Path: Momo_Tail_BaseLeaf
+    m_Weight: 0
+  - m_Path: Momo_Tail_SideLeaf
+    m_Weight: 0

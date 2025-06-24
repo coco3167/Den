@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,6 +63,13 @@ namespace Audio
         Anger_2,
         Anger_3,
     }
+    public enum WwiseNeutralSwitch
+    {
+        Neutral_0,
+        Neutral_1,
+        Neutral_2,
+        Neutral_3,
+    }
     public enum WwiseReactionMoodSwitch
     {
         CuriositySwitch,
@@ -84,6 +91,12 @@ namespace Audio
         TitleReveal,
         Gameplay
     }
+    public enum WwiseSurfaceSwitch
+    {
+        Grass,
+        Water
+    }
+
     [RequireComponent(typeof(AkGameObj))]
     public class AudioManager : MonoBehaviour, IGameStateListener, IReloadable
     {
@@ -115,10 +128,14 @@ namespace Audio
         [SerializeField] private SerializedDictionary<WwiseCuriositySwitch, Switch> moodCuriosity;
         [SerializeField] private SerializedDictionary<WwiseFearSwitch, Switch> moodFear;
         [SerializeField] private SerializedDictionary<WwiseAngerSwitch, Switch> moodAnger;
+        [SerializeField] private SerializedDictionary<WwiseNeutralSwitch, Switch> moodNeutral;
+
 
         [SerializeField, ReadOnly] private WwiseCuriositySwitch currentCuriositySwitch;
         [SerializeField, ReadOnly] private WwiseFearSwitch currentFearSwitch;
         [SerializeField, ReadOnly] private WwiseAngerSwitch currentAngerSwitch;
+        [SerializeField, ReadOnly] private WwiseNeutralSwitch currentNeutralSwitch;
+
 
         [Title("Game State Mood Variables")][ReadOnly, SerializeField, HideLabel] private bool switchReactionMoodSeparator;
         [SerializeField] public SerializedDictionary<WwiseReactionMoodSwitch, Switch> switchReactionMood;
@@ -158,11 +175,14 @@ namespace Audio
             { AgentDynamicParameter.Fear, 0 },
         };
         private uint cursorMovePlayingId = 0;
-        [SerializeField] private GameObject mouseManifestation;
-        public GameObject MouseManifestation => mouseManifestation;
+        //[SerializeField] private GameObject mouseManifestation;
+        //public GameObject MouseManifestation => mouseManifestation;
         [SerializeField] public AK.Wwise.RTPC DEN_GP_TutoMove;
         [SerializeField] public AK.Wwise.RTPC DEN_GP_TutoStep;
 
+        [Title("Footstep Surface Switch")]
+        [SerializeField]
+        private SerializedDictionary<WwiseSurfaceSwitch, Switch> DEN_SW_Material;
 
         [Title("Wwise Events")]
         [FoldoutGroup("Wwise UI Events")]
@@ -244,6 +264,7 @@ namespace Audio
 
         private bool hasPlayedIntroMusic = false;
         private bool hasPlayedEndMusic = false;
+        private bool allowEndMusic = false;    // ← new!
 
         private struct SavedRTPC
         {
@@ -287,9 +308,13 @@ namespace Audio
         }
         private void FixedUpdate()
         {
+            // If no cursor sound, dont get cursor speed (maybe broken my bad)
+            if (cursorMovePlayingId == 0)
+                return;
+
             // Call cursor sound
             float speed = GameManager.Instance.GetMouseManager().MouseVelocity();
-            AudioManager.Instance.UpdateCursorSpeed(speed, mouseManifestation);
+            Instance.UpdateCursorSpeed(speed, GameManager.Instance.GetMouseManager().GetMouseAura());
         }
 
         public void PlayEmotionSteps(AgentDynamicParameter parameter, int pallierReached)
@@ -330,20 +355,32 @@ namespace Audio
 
         public void PlayEndMusic()
         {
-            if (!hasPlayedEndMusic)
+            if (!hasPlayedEndMusic && allowEndMusic)
             {
                 MusicEnd.Post(GameManager.Instance.GetCamera().gameObject);
                 hasPlayedEndMusic = true;
             }
         }
-
-        public void ReloadEndMusic()
+        public void ResetEndMusic()
         {
-            if (hasPlayedEndMusic)
-            {
-                hasPlayedEndMusic = false;
-            }
+            // kill the old music instance immediately
+            MusicEnd?.ExecuteAction(
+                GameManager.Instance.GetCamera().gameObject,
+                AkActionOnEventType.AkActionOnEventType_Stop,
+                0,
+                AkCurveInterpolation.AkCurveInterpolation_Linear
+            );
+            hasPlayedEndMusic = false;
+            allowEndMusic = false;   // ← clear the gate
         }
+
+        public void SetFootstepSurface(WwiseSurfaceSwitch surface, GameObject target)
+        {
+            var emitter = target.GetComponentInChildren<AkGameObj>()?.gameObject ?? target;
+
+            DEN_SW_Material[surface].SetValue(emitter);
+        }
+
         #region Tools
         private void Initialize()
         {
@@ -375,7 +412,7 @@ namespace Audio
                 foreach (Bank bank in Soundbanks)
                 {
                     bank.Load();
-                    Debug.Log("Soundbanks have been loaded.");
+                    //Debug.Log("Soundbanks have been loaded.");
                 }
             }
             else
@@ -395,7 +432,7 @@ namespace Audio
                 if (bankToUnload != null)
                 {
                     bankToUnload.Unload();
-                    Debug.Log($"Soundbank '{bankName}' has been unloaded.");
+                    //Debug.Log($"Soundbank '{bankName}' has been unloaded.");
                 }
                 else
                 {
@@ -416,7 +453,7 @@ namespace Audio
 
             if (Mathf.Approximately(clampedValue, currentGameParametersValues[emotionStateRtpc]))
             {
-                Debug.Log($"{emotionStateRtpc.ToString()} value is already set to {clampedValue}");
+                //Debug.Log($"{emotionStateRtpc.ToString()} value is already set to {clampedValue}");
                 return;
             }
             if (!target.GetComponent<AkGameObj>())
@@ -426,7 +463,7 @@ namespace Audio
 
             emotionRTPC.SetValue(target, clampedValue);
 
-            Debug.Log($"{emotionStateRtpc} value has been set to {clampedValue}");
+            //Debug.Log($"{emotionStateRtpc} value has been set to {clampedValue}");
             currentGameParametersValues[emotionStateRtpc] = clampedValue;
         }
         private WwiseEmotionStateRTPC TranslateSinjAgentEmotionToAudioManagerEmotion(AgentDynamicParameter parameter)
@@ -477,7 +514,7 @@ namespace Audio
         public void UpdateMoodAndRTPCs()
         {
             AgentDynamicParameter dominantMood = GetDominantMood();
-            Debug.Log($"[AudioManager] Dominant mood: {dominantMood}, palliers: Curiosity={emotionPalliers[AgentDynamicParameter.Curiosity]}, Anger={emotionPalliers[AgentDynamicParameter.Aggression]}, Fear={emotionPalliers[AgentDynamicParameter.Fear]}");
+            //Debug.Log($"[AudioManager] Dominant mood: {dominantMood}, palliers: Curiosity={emotionPalliers[AgentDynamicParameter.Curiosity]}, Anger={emotionPalliers[AgentDynamicParameter.Aggression]}, Fear={emotionPalliers[AgentDynamicParameter.Fear]}");
 
             // Set the mood state
             WwiseMoodState moodState = dominantMood switch
@@ -488,6 +525,7 @@ namespace Audio
                 _ => WwiseMoodState.NeutralState
             };
             WwiseStateManager.SetWwiseMoodState(moodState);
+            currentMoodState = moodState;
 
             // Set RTPCs for each emotion
             foreach (var kv in emotionPalliers)
@@ -496,10 +534,21 @@ namespace Audio
                 SetWwiseEmotionRTPC(kv.Key, gameObject, kv.Value);
             }
 
-            // Set Neutral RTPC to the highest pallier reached (times interval)
             int maxPallier = emotionPalliers.Values.Max();
-            float neutralValue = maxPallier; // pas *25 ici
-            SetWwiseEmotionRTPC(AgentDynamicParameter.Neutral, gameObject, neutralValue);
+            float neutralVal = maxPallier;              // e.g. 0, 25, 50, 75, 100
+            SetWwiseEmotionRTPC(AgentDynamicParameter.Neutral, gameObject, neutralVal);
+
+            // 2) Map that neutralVal to one of your four switch entries:
+            if (neutralVal >= 75) currentNeutralSwitch = WwiseNeutralSwitch.Neutral_3;
+            else if (neutralVal >= 50) currentNeutralSwitch = WwiseNeutralSwitch.Neutral_2;
+            else if (neutralVal >= 25) currentNeutralSwitch = WwiseNeutralSwitch.Neutral_1;
+            else currentNeutralSwitch = WwiseNeutralSwitch.Neutral_0;
+
+            // 3) If we’re actually in NeutralState, apply that switch:
+            if (currentMoodState == WwiseMoodState.NeutralState)
+            {
+                moodNeutral[currentNeutralSwitch].SetValue(this.gameObject);
+            }
         }
 
         #endregion Mood
@@ -561,12 +610,12 @@ namespace Audio
         #region Cycles
         public void OnGameReady(object sender, EventArgs eventArgs)
         {
-            StartCursorMoveSound(mouseManifestation);
+            StartCursorMoveSound(GameManager.Instance.GetMouseManager().GetMouseAura());
         }
 
         public void OnGameEnded(object sender, EventArgs eventArgs)
         {
-            StopCursorMoveSound(mouseManifestation);
+            StopCursorMoveSound(GameManager.Instance.GetMouseManager().GetMouseAura());
         }
 
         public void Reload()
@@ -597,12 +646,14 @@ namespace Audio
             WwiseStateManager.SetWwiseMixPreset(WwiseMixPreset.Regular);
 
             // Neutral RTPC to 75 and tutorial step to 0
-            SetWwiseEmotionRTPC(AgentDynamicParameter.Neutral, gameObject, 75f);
+            SetWwiseEmotionRTPC(AgentDynamicParameter.Neutral, gameObject, 74f);
             SetGlobalRTPCValue(DEN_GP_TutoStep, 0f);
             StartCoroutine(FadeRTPCVolume(SFXVolume, 8f, 5f, 1f));
 
             hasPlayedIntroMusic = false;
+
             hasPlayedEndMusic = false;
+            allowEndMusic = false;
         }
 
         public void SetGameStateBranches(int branchesLeft, int totalBranches)
@@ -613,7 +664,7 @@ namespace Audio
             float progress = 1f - (float)branchesLeft / totalBranches;
 
             // Map to neutral RTPC [75->0] and tutorial step [0->100]
-            float neutralValue = Mathf.Lerp(75f, 0f, progress);
+            float neutralValue = Mathf.Lerp(74f, 0f, progress);
             float stepValue = Mathf.Lerp(0f, 100f, progress);
 
             SetWwiseEmotionRTPC(AgentDynamicParameter.Neutral, gameObject, neutralValue);
@@ -637,7 +688,8 @@ namespace Audio
         {
             // Fade ambience from current (5) back to 8 over 1 second
             StartCoroutine(FadeRTPCVolume(AmbienceVolume, 5f, 8f, 1f));
-
+            //ReloadEndMusic();
+            allowEndMusic = true;
         }
 
         private IEnumerator FadeRTPCVolume(RTPC rtpc, float from, float to, float duration)

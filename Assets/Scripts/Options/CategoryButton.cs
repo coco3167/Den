@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Audio;
 using UnityEngine;
@@ -66,6 +67,11 @@ namespace Options
         public void OnSelect(BaseEventData eventData)
         {
             AudioManager.Instance.Move.Post(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            _categoryButtons.Remove(this);
         }
     }
 }

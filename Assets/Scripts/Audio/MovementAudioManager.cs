@@ -3,14 +3,28 @@ using UnityEngine;
 
 public class MovementAudioManager : MonoBehaviour
 {
+    private GameObject _wwiseEmitter;
+
+    private void Awake()
+    {
+        // Cache the GameObject that actually has the AkGameObj
+        var ak = GetComponentInChildren<AkGameObj>();
+        if (ak == null)
+            Debug.LogError($"[{name}] No AkGameObj found in children!");
+        else
+            _wwiseEmitter = ak.gameObject;
+    }
     public void PlayFootstepWalk()
     {
-        AudioManager.Instance.FootstepWalk.Post(this.gameObject);
+        // Post on the emitter (or fallback to root if something’s wrong)
+        var target = _wwiseEmitter ?? this.gameObject;
+        AudioManager.Instance.FootstepWalk.Post(target);
     }
 
     public void PlayFootstepRun()
     {
-        AudioManager.Instance.FootstepRun.Post(this.gameObject);
+        var target = _wwiseEmitter ?? this.gameObject;
+        AudioManager.Instance.FootstepRun.Post(target);
     }
 
     public void PlaySit()
