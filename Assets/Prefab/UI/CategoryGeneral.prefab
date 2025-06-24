@@ -820,6 +820,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5417573978950570923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4680996382415989484, guid: f67f118750704a844abe4ed4bd4e3b45, type: 3}
+  m_PrefabInstance: {fileID: 853761691479226695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3017373181284354741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1314,6 +1319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   godMode: {fileID: 4025016898585292599}
   cursorMode: {fileID: 1930851296505927345}
+  cursorModeGameObject: {fileID: 5417573978950570923}
   quit: {fileID: 9109873140183890358}
   popUp: {fileID: 1539568816464582651}
   apply: {fileID: 7232605682520733787}
