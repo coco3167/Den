@@ -10,6 +10,7 @@ namespace Options.Categories
     {
         [SerializeField] private Toggle godMode;
         [SerializeField] private TMP_Dropdown cursorMode;
+        [SerializeField] private Button quit;
         
         [Title("Pop Up")]
         [SerializeField] private GameObject popUp;
@@ -25,6 +26,7 @@ namespace Options.Categories
             
             godMode.onValueChanged.AddListener(OnGodModeToggle);
             cursorMode.onValueChanged.AddListener(OnCursorMode);
+            quit.onClick.AddListener(Quit);
             
             apply.onClick.AddListener(OnGodModeApply);
             back.onClick.AddListener(OnGodModeBack);
@@ -55,6 +57,11 @@ namespace Options.Categories
         {
             godMode.isOn = false;
             popUp.SetActive(false);
+        }
+
+        private void Quit()
+        {
+            Application.Quit();
         }
 
         private void OnCursorMode(int value)
