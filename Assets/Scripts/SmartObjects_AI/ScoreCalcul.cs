@@ -34,7 +34,7 @@ namespace SmartObjects_AI
         {
             base.CalculateScore(smartAgent, smartObject);
             
-            m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger)/10;
+            m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger)/10 * smartObject.GetDynamicParameter(SmartObjectParameter.Usage)/100;
             
             return p_usingCapacity * m_hunger * p_distanceCoefficient;
         }
@@ -72,7 +72,7 @@ namespace SmartObjects_AI
             //     return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity)) * Math.Max(p_distanceCoefficient, 1/m_mousePlayerProximity);
             // }
             
-            return 10 / m_mousePlayerProximity * smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity);
+            return 1 / m_mousePlayerProximity * smartAgent.GetDynamicParameter(AgentDynamicParameter.Curiosity);
         }
     }
     

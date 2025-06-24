@@ -173,11 +173,11 @@ public class IntroManager : MonoBehaviour
 
             case 6:
                 titleReveal = false;
-                if (!cameraUp)
-                {
-                    mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, cameraSpots[1].position, cameraMoveSpeed * Time.deltaTime);
-                    mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, cameraSpots[1].rotation, cameraMoveSpeed * Time.deltaTime);
-                }
+                // if (!cameraUp)
+                // {
+                //     mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, cameraSpots[1].position, cameraMoveSpeed * Time.deltaTime);
+                //     mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, cameraSpots[1].rotation, cameraMoveSpeed * Time.deltaTime);
+                // }
                 sinjManager.InfluencedByMouse(true);
                 mouseManager.IsUsed = true;
                 AudioManager.Instance.SetGameStateGameplay();
@@ -190,11 +190,11 @@ public class IntroManager : MonoBehaviour
 
         if (step < 5)
         {
-            if (cameraUp)
-            {
-                mainCamera.transform.position = cameraSpots[0].position;
-                mainCamera.transform.rotation = cameraSpots[0].rotation;
-            }
+            // if (cameraUp)
+            // {
+            //     mainCamera.transform.position = cameraSpots[0].position;
+            //     mainCamera.transform.rotation = cameraSpots[0].rotation;
+            // }
 
             dofVolume.weight = Mathf.Lerp(dofVolume.weight, 1, Time.deltaTime * dofSpeed);
             Cursor.lockState = CursorLockMode.Confined;
