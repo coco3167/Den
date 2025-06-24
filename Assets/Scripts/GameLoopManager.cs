@@ -4,6 +4,7 @@ using System.Linq;
 using Audio;
 using DG.Tweening;
 using Sirenix.Utilities;
+using SmartObjects_AI.Agent;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class GameLoopManager : MonoBehaviour, IPausable
     [SerializeField] private AnimationClip loopAnim;
     [SerializeField] private IntroManager introManager;
     [SerializeField] private RawImage blackBackground;
+    [SerializeField] private SymbolManager symbolManager;
 
     private Animator m_animator;
     private Tween m_tween;
@@ -70,17 +72,17 @@ public class GameLoopManager : MonoBehaviour, IPausable
         m_tween.Play();
     }
 
-    public void OnGameLoopEnded(bool manual = false)
+    public void OnGameLoopEnded(AgentDynamicParameter parameter, bool manual = false)
     {
         if (manual)
             m_animator.SetTrigger(EndGame);
-
+        
         GameEnded?.Invoke(null, EventArgs.Empty);
         m_tween.Kill();
 
         blackBackground.gameObject.SetActive(true);
         AudioManager.Instance.ResetEndMusic();
-        blackBackground.DOColor(Color.white, 5).OnComplete(() => SceneManager.LoadScene("Credits", LoadSceneMode.Single));
+        blackBackground.DOColor(Color.white, 5).OnComplete(() => symbolManager.LastAppearance(parameter)).Play();
 
         //introManager.LoopReset();
         //StartCoroutine(RestartCoroutine());
@@ -102,7 +104,6 @@ public class GameLoopManager : MonoBehaviour, IPausable
 
         while (introManager.step < 3)
         {
-            Debug.Log(introManager.step);
             yield return endOfFrame;
         }
 

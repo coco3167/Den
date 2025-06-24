@@ -110,6 +110,7 @@ MonoBehaviour:
   loopAnim: {fileID: 7400000, guid: fa9ec7af47f00e64bb90ffe2985b875f, type: 2}
   introManager: {fileID: 5088332857326388813}
   blackBackground: {fileID: 8147532879166632086}
+  symbolManager: {fileID: 2570949111245219548}
 --- !u!114 &806879179260966156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,6 +765,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7460971846164452987}
     - target: {fileID: 127909422867365065, guid: d3b4a75294b32b747859c1bab13205d2, type: 3}
+      propertyPath: symbolManager
+      value: 
+      objectReference: {fileID: 2570949111245219548}
+    - target: {fileID: 127909422867365065, guid: d3b4a75294b32b747859c1bab13205d2, type: 3}
       propertyPath: titleFadeSpeed
       value: 1.5
       objectReference: {fileID: 0}
@@ -915,6 +920,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7760871011127067525, guid: 63a5ad5240591494abcb379330851677, type: 3}
+      propertyPath: blinkingCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760871011127067525, guid: 63a5ad5240591494abcb379330851677, type: 3}
+      propertyPath: timeAfterStinger
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760871011127067525, guid: 63a5ad5240591494abcb379330851677, type: 3}
+      propertyPath: blinkingTotalTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -925,6 +942,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5341689992374127026, guid: 63a5ad5240591494abcb379330851677, type: 3}
   m_PrefabInstance: {fileID: 5195464607056766297}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2570949111245219548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7760871011127067525, guid: 63a5ad5240591494abcb379330851677, type: 3}
+  m_PrefabInstance: {fileID: 5195464607056766297}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5f1aee7f852984bbb30af0cfd36175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7918968499061432960
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -34,8 +34,8 @@ public class MouseUI : MonoBehaviour, IPausable
             rawImage.rectTransform.position = Input.mousePosition;
         }
 
-        m_groundedMode = !GameManager.Instance.IsPaused && introManager.step == 5;
-        tutoArrows.SetActive(introManager.step != 5);
+        m_groundedMode = !GameManager.Instance.IsPaused && introManager.step == 6;
+        tutoArrows.SetActive(introManager.step != 6);
     }
 
     public void OnGamePaused(object sender, EventArgs eventArgs)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
@@ -141,7 +142,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
         {
             OnPause(callbackContext);
         }
-        GameLoopManager.Instance.OnGameLoopEnded(true);
+        GameLoopManager.Instance.OnGameLoopEnded(AgentDynamicParameter.Curiosity, true);
     }
 
     public void HandlePallier(AgentDynamicParameter parameter, int value)
@@ -211,14 +212,16 @@ public class GameManager : MonoBehaviour, IGameStateListener
         if (m_currentPalier[parameter] >= 100)
         {
             InfluencedByMouse(false);
-            Invoke(nameof(CallGameLoopEnd), timeBeforeRealEnd);
+            StartCoroutine(CallGameLoopEnd(parameter));
             AudioManager.Instance.PlayEndMusic();
         }
     }
 
-    private void CallGameLoopEnd()
+    // ReSharper disable Unity.PerformanceAnalysis
+    private IEnumerator CallGameLoopEnd(AgentDynamicParameter parameter)
     {
-        GameLoopManager.Instance.OnGameLoopEnded();
+        yield return new WaitForSeconds(timeBeforeRealEnd);
+        GameLoopManager.Instance.OnGameLoopEnded(parameter);
     }
 
     // #region EventArgs

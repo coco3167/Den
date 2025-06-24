@@ -7,10 +7,12 @@ using UnityEngine.UI;
 
 public class IntroManager : MonoBehaviour
 {
+    [SerializeField] private SymbolManager symbolManager;
+    
     [Header("General")]
-    [Range(1, 5)]
+    [Range(1, 6)]
     public int step;
-    private string[] stepNames = { "black screen", "fade", "onboarding", "title pause", "game" };
+    private string[] stepNames = { "black screen", "fade", "onboarding", "title pause", "symbol appearing", "game" };
 
     /*
     step 1 = black screen
@@ -159,8 +161,17 @@ public class IntroManager : MonoBehaviour
                     GameLoopManager.Instance.OnGameLoopReady();
                 }
                 break;
-
+            
             case 5:
+                symbolManager.Appear();
+                if (symbolManager.hasAppeared)
+                {
+                    step = 6;
+                }
+
+                break;
+
+            case 6:
                 titleReveal = false;
                 if (!cameraUp)
                 {
@@ -177,7 +188,7 @@ public class IntroManager : MonoBehaviour
                 break;
         }
 
-        if (step != 5)
+        if (step < 5)
         {
             if (cameraUp)
             {
