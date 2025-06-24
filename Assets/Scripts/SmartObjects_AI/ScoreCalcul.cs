@@ -34,7 +34,7 @@ namespace SmartObjects_AI
         {
             base.CalculateScore(smartAgent, smartObject);
             
-            m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger)/10;
+            m_hunger = smartAgent.GetDynamicParameter(AgentDynamicParameter.Hunger)/10 * smartObject.GetDynamicParameter(SmartObjectParameter.Usage)/100;
             
             return p_usingCapacity * m_hunger * p_distanceCoefficient;
         }
