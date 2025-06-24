@@ -7,6 +7,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     [SerializeField] private Rigidbody mouseRigidBody;
     [SerializeField] private LayerMask terrainLayerMask;
     [SerializeField] private Material UIcursorMat;
+    [SerializeField] private Material tutoArrowsMat;
 
     private Camera m_camera;
     private Vector2 m_otherMoveValue;
@@ -105,7 +106,22 @@ public class MouseManager : MonoBehaviour, IGameStateListener
 
     public void UpdateCursorMaterial()
     {
+
         float newRange = Mathf.Lerp(UIcursorMat.GetFloat("_range"), MouseVelocity() / 10, Time.deltaTime * 5);
-        UIcursorMat.SetFloat("_range", Mathf.Clamp(newRange,0,1));
+        UIcursorMat.SetFloat("_range", Mathf.Clamp(newRange, 0, 1));
+
+        
+        if (MouseVelocity() > 0)
+        {
+
+            float newAlpha = Mathf.Lerp(tutoArrowsMat.GetFloat("_Alpha"), 0, Time.deltaTime * 2);
+            tutoArrowsMat.SetFloat("_Alpha", newAlpha);
+
+        }
+        else
+        {
+            float newAlpha = Mathf.Lerp(tutoArrowsMat.GetFloat("_Alpha"), 1, Time.deltaTime * 0.5f);
+            tutoArrowsMat.SetFloat("_Alpha", newAlpha);
+        }
     }
 }

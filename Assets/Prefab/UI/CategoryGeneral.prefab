@@ -155,10 +155,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4430791561759508046}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0}
+  m_AnchorMin: {x: 0.1, y: 0.2}
   m_AnchorMax: {x: 0.9, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1541193762271860721
 CanvasRenderer:
@@ -188,10 +188,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'God mode is an acessibility feature that alters the core experience of
-    the game.
-
-    Activate it with great judgement'
+  m_text: '"Automatic Mode" is an accessibility feature that may spoil the free exploration
+    of the game. We do NOT recommend enabling it for your first playthroughs. Activate
+    it with great judgment.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 259287eadb896644cb34549b7cfe779a, type: 2}
   m_sharedMaterial: {fileID: 6091432188919319449, guid: 259287eadb896644cb34549b7cfe779a, type: 2}
@@ -360,7 +359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7230105815487525079, guid: 19b944d1f8245aa49801c3edb7395f79, type: 3}
       propertyPath: m_fontSize
-      value: 33.65
+      value: 66.95
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2692879952368769676, guid: 19b944d1f8245aa49801c3edb7395f79, type: 3}
@@ -497,7 +496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1230301534007472118, guid: f67f118750704a844abe4ed4bd4e3b45, type: 3}
       propertyPath: m_Options.m_Options.Array.data[2].m_Text
-      value: Aggression
+      value: Agonisty
       objectReference: {fileID: 0}
     - target: {fileID: 1230301534007472118, guid: f67f118750704a844abe4ed4bd4e3b45, type: 3}
       propertyPath: m_Options.m_Options.Array.data[3].m_Text
@@ -582,7 +581,7 @@ PrefabInstance:
       objectReference: {fileID: 1930851296505927345}
     - target: {fileID: 2288812061088206360, guid: 9cb8726bc8891af4597574010c9a67e3, type: 3}
       propertyPath: m_text
-      value: GodMode
+      value: Automatic Mode
       objectReference: {fileID: 0}
     - target: {fileID: 2288812061088206360, guid: 9cb8726bc8891af4597574010c9a67e3, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1156,7 +1155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7230105815487525079, guid: 19b944d1f8245aa49801c3edb7395f79, type: 3}
       propertyPath: m_fontSize
-      value: 33.65
+      value: 66.95
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2692879952368769676, guid: 19b944d1f8245aa49801c3edb7395f79, type: 3}

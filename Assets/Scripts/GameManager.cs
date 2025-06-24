@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
+using Options;
 using Sinj;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
@@ -11,6 +12,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows.WebCam;
 
 [RequireComponent(typeof(PlayerInput))]
 public class GameManager : MonoBehaviour, IGameStateListener
@@ -166,6 +168,16 @@ public class GameManager : MonoBehaviour, IGameStateListener
             mouseManager.OnOtherMoveStart(callbackContext.ReadValue<Vector2>());
         else if (callbackContext.canceled)
             mouseManager.OnOtherMoveEnd();
+    }
+
+	public void OnSensiChanged(InputAction.CallbackContext callbackContext)
+    {
+        if(!callbackContext.performed)
+            return;
+		Debug.Log(callbackContext.ReadValue<float>());
+		Debug.Log("test");
+        
+        GameParameters.SensitivityChange(callbackContext.ReadValue<float>());
     }
 
     public void InfluencedByMouse(bool value)
