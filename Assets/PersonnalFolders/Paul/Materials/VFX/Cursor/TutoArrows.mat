@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CursorUI
-  m_Shader: {fileID: -6465566751694194690, guid: 3c9f7e549fd292f429444ac01db7d10f, type: 3}
+  m_Name: TutoArrows
+  m_Shader: {fileID: -6465566751694194690, guid: 8bbd93bb5716b9b47b13c5f5674191ac, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -42,10 +42,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _ColorMask: 15
-    - _Density: 200
-    - _IsStatic: 1
-    - _NoiseSharpness: 0.513
-    - _StaticFrequency: 0
+    - _Density: 20
+    - _IsStatic: 0
+    - _StaticFrequency: 2
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -53,23 +52,13 @@ Material:
     - _StencilWriteMask: 255
     - _UIMaskSoftnessX: 1
     - _UIMaskSoftnessY: 1
-    - _alpha: 1
-    - _centerRadius: 8.6
-    - _finalStep: 0.25
-    - _floor: 0.577
-    - _movement: 2.08
-    - _movement: 1.31
-    - _noiseScale: 2.3
-    - _noiseStep: 0.597
-    - _radius: 0.072
-    - _randomness: 0
-    - _range: 0.09714555
-    - _range: 0.011263644
-    - _step: 0.059
-    - _tiling: -13.4
-    - _zoom: 1.2
+    - _alpha: 0
+    - _floor: 0
+    - _movement: 0
+    - _noiseScale: 0
+    - _radius: 0
+    - _range: 0.0001
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
-    - _Range: {r: 0.15, g: 0.26, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

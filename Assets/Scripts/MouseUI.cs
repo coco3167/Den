@@ -10,6 +10,8 @@ public class MouseUI : MonoBehaviour, IPausable
     [SerializeField] private MouseManager mouseManager;
     [SerializeField] private bool m_groundedMode;
     [SerializeField] private IntroManager introManager;
+    [SerializeField] private GameObject tutoArrows;
+
 
     private Camera m_camera;
     private Vector2 m_viewportSize;
@@ -33,6 +35,7 @@ public class MouseUI : MonoBehaviour, IPausable
         }
 
         m_groundedMode = !GameManager.Instance.IsPaused && introManager.step == 5;
+        tutoArrows.SetActive(introManager.step != 5);
     }
 
     public void OnGamePaused(object sender, EventArgs eventArgs)
