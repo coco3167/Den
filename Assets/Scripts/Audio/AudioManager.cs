@@ -175,8 +175,8 @@ namespace Audio
             { AgentDynamicParameter.Fear, 0 },
         };
         private uint cursorMovePlayingId = 0;
-        [SerializeField] private GameObject mouseManifestation;
-        public GameObject MouseManifestation => mouseManifestation;
+        //[SerializeField] private GameObject mouseManifestation;
+        //public GameObject MouseManifestation => mouseManifestation;
         [SerializeField] public AK.Wwise.RTPC DEN_GP_TutoMove;
         [SerializeField] public AK.Wwise.RTPC DEN_GP_TutoStep;
 
@@ -314,7 +314,7 @@ namespace Audio
 
             // Call cursor sound
             float speed = GameManager.Instance.GetMouseManager().MouseVelocity();
-            Instance.UpdateCursorSpeed(speed, mouseManifestation);
+            Instance.UpdateCursorSpeed(speed, GameManager.Instance.GetMouseManager().GetMouseAura());
         }
 
         public void PlayEmotionSteps(AgentDynamicParameter parameter, int pallierReached)
@@ -610,12 +610,12 @@ namespace Audio
         #region Cycles
         public void OnGameReady(object sender, EventArgs eventArgs)
         {
-            StartCursorMoveSound(mouseManifestation);
+            StartCursorMoveSound(GameManager.Instance.GetMouseManager().GetMouseAura());
         }
 
         public void OnGameEnded(object sender, EventArgs eventArgs)
         {
-            StopCursorMoveSound(mouseManifestation);
+            StopCursorMoveSound(GameManager.Instance.GetMouseManager().GetMouseAura());
         }
 
         public void Reload()

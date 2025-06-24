@@ -8,6 +8,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     [SerializeField] private LayerMask terrainLayerMask;
     [SerializeField] private Material UIcursorMat;
     [SerializeField] private Material tutoArrowsMat;
+    [SerializeField] private GameObject mouseAura;
 
     private Camera m_camera;
     private Vector2 m_otherMoveValue;
@@ -102,6 +103,11 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     public float MouseVelocity()
     {
         return mouseRigidBody.linearVelocity.magnitude;
+    }
+
+    public GameObject GetMouseAura()
+    {
+        return mouseAura;
     }
 
     public void UpdateCursorMaterial()

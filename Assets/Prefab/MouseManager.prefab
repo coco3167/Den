@@ -169,6 +169,7 @@ MonoBehaviour:
     m_Bits: 64
   UIcursorMat: {fileID: 0}
   tutoArrowsMat: {fileID: 0}
+  mouseAura: {fileID: 3924363854570299226}
 --- !u!114 &7716068617890067336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,6 +573,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c4bec92dbfebe469ec42417e144f81, type: 3}
+--- !u!1 &3924363854570299226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4685431194478554758, guid: f8c4bec92dbfebe469ec42417e144f81, type: 3}
+  m_PrefabInstance: {fileID: 8607464084396716508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6098359858912395061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2581234395899711209, guid: f8c4bec92dbfebe469ec42417e144f81, type: 3}

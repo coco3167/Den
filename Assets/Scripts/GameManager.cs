@@ -115,12 +115,12 @@ public class GameManager : MonoBehaviour, IGameStateListener
         if (IsPaused)
         {
             AudioManager.Instance.PauseAmbience();
-            AudioManager.Instance.StopCursorMoveSound(AudioManager.Instance.MouseManifestation);
+            AudioManager.Instance.StopCursorMoveSound(mouseManager.GetMouseAura());
         }
         else
         {
             AudioManager.Instance.ResumeAmbience();
-            AudioManager.Instance.StartCursorMoveSound(AudioManager.Instance.MouseManifestation);
+            AudioManager.Instance.StartCursorMoveSound(mouseManager.GetMouseAura());
         }
 
         GamePaused?.Invoke(this, EventArgs.Empty);
@@ -175,8 +175,6 @@ public class GameManager : MonoBehaviour, IGameStateListener
     {
         if(!callbackContext.performed)
             return;
-		Debug.Log(callbackContext.ReadValue<float>());
-		Debug.Log("test");
         
         GameParameters.SensitivityChange(callbackContext.ReadValue<float>());
     }
