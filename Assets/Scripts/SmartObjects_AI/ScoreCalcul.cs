@@ -18,6 +18,11 @@ namespace SmartObjects_AI
             p_worldParameters = GameManager.Instance.worldParameters;
         }
 
+        public virtual void Update(float jumpscareValue)
+        {
+            //
+        }
+
         public virtual float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             p_usingCapacity = !smartObject.IsUsing(smartAgent) && !smartObject.HasRoomForUse() ? 0 : 1;
@@ -56,6 +61,7 @@ namespace SmartObjects_AI
     
     public class FleePointCuriosity : BaseScoreCalcul
     {
+        [SerializeField] private float proximityDecal;
         private float m_mousePlayerProximity;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
@@ -64,7 +70,7 @@ namespace SmartObjects_AI
                 return 0;
             
             
-            m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
+            m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position) + proximityDecal;
             m_mousePlayerProximity *= m_mousePlayerProximity;
             
             // if (smartAgent.IsGoing(smartObject))
@@ -91,7 +97,7 @@ namespace SmartObjects_AI
             
             if (smartAgent.IsGoing(smartObject))
             {
-                return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression)) * Math.Max(p_distanceCoefficient, 1/m_mousePlayerProximity);
+                return Math.Max(10, smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression)) * Math.Max(p_distanceCoefficient, 1/m_mousePlayerProximity);
             }
             
             return 10 / m_mousePlayerProximity;
@@ -102,7 +108,13 @@ namespace SmartObjects_AI
     {
         [SerializeField] private AgentDynamicParameter parameter;
         
-        private float m_mousePlayerProximity, m_usageCoeff, m_emotion;
+        private float m_mousePlayerProximity, m_emotion, m_usageCoeff;
+
+        public override void Update(float jumpscareValue)
+        {
+            m_usageCoeff = jumpscareValue > 90 ? 1.1f : 0;
+        }
+
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             if (!smartAgent.IsOwner(smartObject))
@@ -126,9 +138,9 @@ namespace SmartObjects_AI
                     break;
             }
 
-            m_usageCoeff = smartObject.GetDynamicParameter(SmartObjectParameter.Usage) > 90 ? 1.1f : 0;
+            m_emotion = Math.Max(10, m_emotion);
             
-            return 10 * m_usageCoeff * m_emotion / m_mousePlayerProximity;
+            return m_usageCoeff * m_emotion / m_mousePlayerProximity;
         }
     }
 
@@ -147,7 +159,7 @@ namespace SmartObjects_AI
 
             m_dirtiness = smartObject.GetDynamicParameter(SmartObjectParameter.Dirtiness) / 10;
             m_worldCuriosity = GameManager.Instance.worldParameters.AgentGlobalParameters[AgentDynamicParameter.Curiosity];
-            m_worldCuriosity = m_worldCuriosity > 25 ? m_worldCuriosity/50 : 0;
+            m_worldCuriosity = m_worldCuriosity > 25 ? m_worldCuriosity/25 : 0;
 
             return p_usingCapacity * m_dirtiness * p_distanceCoefficient * m_worldCuriosity;
         }
@@ -174,6 +186,8 @@ namespace SmartObjects_AI
 
     public class HideoutScore : BaseScoreCalcul
     {
+        
+
         private float m_agentFear;
         private float m_worldFear;
         
@@ -185,7 +199,12 @@ namespace SmartObjects_AI
             m_agentFear = Math.Max(smartAgent.GetDynamicParameter(AgentDynamicParameter.UsableFear), smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear)) / 10;
             m_worldFear = GameManager.Instance.worldParameters.AgentGlobalParameters[AgentDynamicParameter.Fear];
 
-            return p_usingCapacity * m_agentFear * p_distanceCoefficient * m_worldFear/10;
+            if (smartAgent.IsGoing(smartObject))
+            {
+                p_distanceCoefficient *= 5;
+            }
+
+            return p_usingCapacity * m_agentFear * p_distanceCoefficient * (m_worldFear*0.8f+10) / 10;
         }
     }
 

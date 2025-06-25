@@ -17,11 +17,25 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     private Vector3 m_movementNewPos;
     private RaycastHit m_hit;
 
+    private Vector3 m_minPos, m_maxPos;
+
     [NonSerialized] public bool IsUsed = true;
 
     private void Awake()
     {
         m_camera = GameManager.Instance.GetCamera();
+
+        // Ray minRay = m_camera.ViewportPointToRay(new Vector3(0, .8f, m_camera.nearClipPlane));
+        // Ray maxRay = m_camera.ViewportPointToRay(new Vector3(1, 0, m_camera.nearClipPlane));
+        //
+        // Physics.Raycast(minRay, out RaycastHit minRayHit);
+        // Physics.Raycast(maxRay, out RaycastHit maxRayHit);
+        //
+        // m_minPos = minRayHit.point;
+        // m_maxPos = maxRayHit.point;
+        //
+        // Debug.Log(m_minPos);
+        // Debug.Log(m_maxPos);
     }
 
     private void FixedUpdate()
@@ -31,7 +45,6 @@ public class MouseManager : MonoBehaviour, IGameStateListener
 
         if (m_isOtherMoving)
             MoveRigidBody(m_otherMoveValue);
-            
     }
 
     private void Update()
@@ -41,7 +54,6 @@ public class MouseManager : MonoBehaviour, IGameStateListener
 
     public void OnGameReady(object sender, EventArgs eventArgs)
     {
-        
         Mouse.current.WarpCursorPosition(m_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0f)));
         mouseRigidBody.MovePosition(new Vector3(1,1,-3));
     }
@@ -80,13 +92,18 @@ public class MouseManager : MonoBehaviour, IGameStateListener
             return;
         m_movementNewPos.y = m_hit.point.y + mouseRigidBody.transform.localScale.y / 2;
 
+        // m_movementNewPos = new Vector3(
+        //     Math.Clamp(m_movementNewPos.x, m_minPos.x, m_maxPos.x),
+        //     Math.Clamp(m_movementNewPos.y, m_minPos.y, m_maxPos.y),
+        //     Math.Clamp(m_movementNewPos.z, m_minPos.z, m_maxPos.z));
+
         mouseRigidBody.MovePosition(m_movementNewPos);
     }
 
     public float ObjectDistanceToMouse(Vector3 otherPos)
     {
         if (!IsUsed)
-            return float.MaxValue;
+            return 10000;
         return (otherPos - mouseRigidBody.position).sqrMagnitude;
     }
 

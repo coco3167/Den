@@ -25,8 +25,6 @@ public class OutlineMomo : MonoBehaviour, IPausable, IGameStateListener
         if(GameManager.Instance.IsPaused)
             return;
         
-        Debug.Log(m_skinnedMeshRenderers.Count);
-
         foreach (SkinnedMeshRenderer skinnedMeshRenderer in m_skinnedMeshRenderers)
         {
             skinnedMeshRenderer.material = Options.GameParameters.IsOutline ? outlineMaterial : baseMaterial;

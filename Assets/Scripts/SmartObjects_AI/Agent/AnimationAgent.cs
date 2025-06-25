@@ -57,6 +57,11 @@ namespace SmartObjects_AI.Agent
             m_locationToLookAt.y = 0;
             m_goalRotation = Quaternion.LookRotation(m_locationToLookAt, transform.up);
             m_transformMovementAgent.rotation = Quaternion.Lerp(m_transformMovementAgent.rotation, m_goalRotation, rotationLerpSpeed*Time.deltaTime);
+
+            if (Quaternion.Angle(m_transformMovementAgent.rotation, m_goalRotation) < .1f)
+            {
+                m_currentLookingObject = null;
+            }
         }
 
         private void OnDrawGizmos()
@@ -88,13 +93,13 @@ namespace SmartObjects_AI.Agent
                 movementAgent.StopAgent();
         }
 
-        public void FinishUseAnimation(bool shouldEnd, bool shouldInterrupt)
+        public void FinishUseAnimation(bool shouldEnd, bool shouldInterrupt, bool inInterruptable)
         {
             m_startedAnimation = false;
             
             m_animator.SetBool(FinishUse, shouldEnd);
 
-            if (shouldEnd && shouldInterrupt)
+            if (shouldEnd && shouldInterrupt && !inInterruptable)
             {
                 m_animator.SetBool(FinishFast, true);
                 m_animator.SetBool(SkipEnd, true);

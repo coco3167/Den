@@ -70,13 +70,14 @@ public class SymbolManager : MonoBehaviour
         
         m_appear = DOTween.Sequence();
         
-        m_appear.Append(m_baseColorImage.DOColor(Color.black, apparitionTime/2));
-        m_appear.Append(baseCircle.DOAnchorPos(m_anchoredPosition, apparitionTime/2))
+        m_appear
+            .Append(m_baseColorImage.DOColor(Color.black, apparitionTime/2))
+            .Append(baseCircle.DOAnchorPos(m_anchoredPosition, apparitionTime/2))
             .Join(baseCircle.DOAnchorMax(m_anchorMax, apparitionTime/2))
             .Join(baseCircle.DOAnchorMin(m_anchorMin, apparitionTime/2))
-            .Join(baseCircle.DOSizeDelta(m_sizeDelta, apparitionTime/2));
-        m_appear.OnComplete(() => hasAppeared = true);
-        m_appear.Play();
+            .Join(baseCircle.DOSizeDelta(m_sizeDelta, apparitionTime/2))
+            .OnComplete(() => hasAppeared = true)
+            .Play();
     }
 
     public void LastAppearance(AgentDynamicParameter parameter)

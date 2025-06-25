@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
 using DebugHUD;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -29,7 +30,7 @@ namespace SmartObjects_AI.Agent
         // Score and SmartObjects
         private SmartObject[] m_smartObjects;
         private SmartObject[] m_smartObjectsOwning;
-        private SmartObject m_currentSmartObject;
+        [SerializeField, ReadOnly] private SmartObject m_currentSmartObject;
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
         private KeyValuePair<SmartObject, float> m_smartObjectToUse;
 
@@ -128,11 +129,11 @@ namespace SmartObjects_AI.Agent
             m_movementAgent.SetDestination(m_currentSmartObject.usingPoint, m_currentSmartObject.ShouldRun());
             if (m_currentSmartObject.IsUsing(this) && !m_movementAgent.IsCloseToDestination())
             {
-                animationAgent.FinishUseAnimation(true, false);
+                animationAgent.FinishUseAnimation(true, false, false);
                 m_currentSmartObject.FinishUse(this);
             }
 
-            animationAgent.FinishUseAnimation(!(isStillSameObject && m_movementAgent.IsCloseToDestination()), smartObjectToUse.ShouldInterrupt());
+            animationAgent.FinishUseAnimation(!(isStillSameObject && m_movementAgent.IsCloseToDestination()), smartObjectToUse.ShouldInterrupt(), m_currentSmartObject.IsInInterruptable());
 
             if (m_movementAgent.IsCloseToDestination())
             {
@@ -190,8 +191,9 @@ namespace SmartObjects_AI.Agent
         public void SnapToPoint(Vector3 position)
         {
             m_movementAgent.Activate(false);
-            transform.position = new Vector3(Random.Range(-.1f, .1f), 0, Random.Range(-.1f, .1f)) + position;
+            transform.position = new Vector3(Random.Range(-.2f, .2f), 0, Random.Range(-.2f, .2f)) + position;
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, Random.Range(0, 360), transform.rotation.eulerAngles.z));
+            transform.DOScale(0.1f, 2).From().Play();
         }
 
         public void SetStoppingDistance(float distance)

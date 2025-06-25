@@ -83,6 +83,8 @@ public class GameLoopManager : MonoBehaviour, IPausable
         blackBackground.gameObject.SetActive(true);
         AudioManager.Instance.ResetEndMusic();
         blackBackground.DOColor(Color.white, 5).OnComplete(() => symbolManager.LastAppearance(parameter)).Play();
+        
+        AudioManager.Instance.StopCursorMoveSound(GameManager.Instance.GetMouseManager().GetMouseAura());
 
         //introManager.LoopReset();
         //StartCoroutine(RestartCoroutine());

@@ -28,6 +28,7 @@ namespace SmartObjects_AI
         [field: SerializeField] public bool shouldSkipStart { get; private set; } = false;
         [field: SerializeField] public bool shouldSkipEnd { get; private set; } = false;
         [field: SerializeField] public bool shouldInterruptNext { get; private set; } = false;
+        [field: SerializeField] public bool inInterruptable { get; private set; } = false;
         
         [Title("Dictionnaries")]
         [field : SerializeField] public SerializedDictionary<SmartObjectParameter, float> dynamicParametersEffect { get; private set; }
@@ -37,6 +38,11 @@ namespace SmartObjects_AI
         public void Init()
         {
             scoreCalculation.Init();
+        }
+
+        public void Update(float jumpscareValue)
+        {
+            scoreCalculation.Update(jumpscareValue);
         }
 
         public bool IsRest()
