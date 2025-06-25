@@ -18,6 +18,11 @@ namespace SmartObjects_AI
             p_worldParameters = GameManager.Instance.worldParameters;
         }
 
+        public virtual void Update(float jumpscareValue)
+        {
+            //
+        }
+
         public virtual float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             p_usingCapacity = !smartObject.IsUsing(smartAgent) && !smartObject.HasRoomForUse() ? 0 : 1;
@@ -103,7 +108,13 @@ namespace SmartObjects_AI
     {
         [SerializeField] private AgentDynamicParameter parameter;
         
-        private float m_mousePlayerProximity, m_usageCoeff, m_emotion;
+        private float m_mousePlayerProximity, m_emotion, m_usageCoeff;
+
+        public override void Update(float jumpscareValue)
+        {
+            m_usageCoeff = jumpscareValue > 90 ? 1.1f : 0;
+        }
+
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
             if (!smartAgent.IsOwner(smartObject))
@@ -128,7 +139,6 @@ namespace SmartObjects_AI
             }
 
             m_emotion = Math.Max(10, m_emotion);
-            m_usageCoeff = JumpscareManager.Value > 90 ? 1.1f : 0;
             
             return m_usageCoeff * m_emotion / m_mousePlayerProximity;
         }

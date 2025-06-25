@@ -40,6 +40,11 @@ namespace SmartObjects_AI
             scoreCalculation.Init();
         }
 
+        public void Update(float jumpscareValue)
+        {
+            scoreCalculation.Update(jumpscareValue);
+        }
+
         public bool IsRest()
         {
             return scoreCalculation.GetType() == typeof(RestScore);

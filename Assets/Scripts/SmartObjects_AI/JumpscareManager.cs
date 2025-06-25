@@ -1,5 +1,7 @@
+using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SmartObjects_AI
 {
@@ -7,7 +9,7 @@ namespace SmartObjects_AI
     {
         [SerializeField] private SmartObject[] jumpscares;
     
-        public static float Value;
+        [NonSerialized] public float Value;
 
         private void Update()
         {

@@ -30,7 +30,7 @@ namespace SmartObjects_AI.Agent
         // Score and SmartObjects
         private SmartObject[] m_smartObjects;
         private SmartObject[] m_smartObjectsOwning;
-        private SmartObject m_currentSmartObject;
+        [SerializeField, ReadOnly] private SmartObject m_currentSmartObject;
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
         private KeyValuePair<SmartObject, float> m_smartObjectToUse;
 
