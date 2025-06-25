@@ -2423,6 +2423,35 @@
 					<PositioningInfo>
 						<Panner Name="" ID="{8D6B07CC-C490-4D28-82B5-858D153F44B9}"/>
 					</PositioningInfo>
+					<ObjectLists>
+						<ObjectList Name="Effects">
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{D1E5CE8B-AED0-4370-91DE-6357E4688568}" ShortID="1043279917">
+										<ReferenceList>
+											<Reference Name="Effect">
+												<Custom>
+													<Effect Name="Parametric EQ (Custom)" ID="{F2FFAC96-C4A5-4E2B-B24D-31ABBEE4E3F8}" ShortID="1023176653" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+														<PropertyList>
+															<Property Name="FilterTypeBand1" Type="int32" Value="6"/>
+															<Property Name="FrequencyBand1" Type="Real32" Value="425"/>
+															<Property Name="FrequencyBand2" Type="Real32" Value="2846"/>
+															<Property Name="FrequencyBand3" Type="Real32" Value="7954"/>
+															<Property Name="GainBand1" Type="Real32" Value="-6"/>
+															<Property Name="GainBand2" Type="Real32" Value="6"/>
+															<Property Name="GainBand3" Type="Real32" Value="6"/>
+															<Property Name="ProcessLFE" Type="bool" Value="False"/>
+															<Property Name="QFactorBand1" Type="Real32" Value="5"/>
+														</PropertyList>
+													</Effect>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
 				</ActorMixer>
 				<ActorMixer Name="DEN_Portals" ID="{13456E35-9D1D-48C9-9AF7-6EDD75499FFC}" ShortID="727508847">
 					<PropertyList>

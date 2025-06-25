@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{671A689C-0EBB-43DC-8CA0-6EA413CBC6E5}",
     "Language": "SFX",
-    "Hash": "{61DD341F-A316-80A7-6FB1-0491C381BED6}",
+    "Hash": "{A84E3020-FF27-8272-C525-228784F370FB}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_Soundbank",
     "ShortName": "Main_Soundbank",
     "Path": "Main_Soundbank.bnk",
@@ -1984,6 +1984,14 @@
        "GUID": "{C17729E7-6DBE-404A-8C59-8504F5523158}",
        "LibName": "Wwise Parametric EQ",
        "LibId": "6881283"
+      },
+      {
+       "Id": "1023176653",
+       "Name": "Parametric EQ (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\DEN_Crea_Barks\\[Effect Slot [0]: (Parametric EQ)]\\Parametric EQ (Custom)",
+       "GUID": "{F2FFAC96-C4A5-4E2B-B24D-31ABBEE4E3F8}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
       }
      ]
     },
@@ -2471,7 +2479,14 @@
          {
           "Id": "203985488"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        },
        {
         "SwitchValue": {
@@ -2485,7 +2500,14 @@
          {
           "Id": "923599935"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        },
        {
         "SwitchValue": {
@@ -2499,7 +2521,14 @@
          {
           "Id": "26191170"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        }
       ]
      },
@@ -2535,7 +2564,14 @@
          {
           "Id": "26191170"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        },
        {
         "SwitchValue": {
@@ -2549,7 +2585,14 @@
          {
           "Id": "203985488"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        },
        {
         "SwitchValue": {
@@ -2563,7 +2606,14 @@
          {
           "Id": "923599935"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        }
       ]
      },
@@ -2599,7 +2649,14 @@
          {
           "Id": "26191170"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        },
        {
         "SwitchValue": {
@@ -2613,7 +2670,14 @@
          {
           "Id": "203985488"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        },
        {
         "SwitchValue": {
@@ -2627,7 +2691,14 @@
          {
           "Id": "923599935"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        }
       ]
      },
@@ -2655,6 +2726,13 @@
         "Id": "330886286"
        }
       ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1023176653"
+        }
+       ]
+      },
       "AuxBusRefs": [
        {
         "Id": "348963605",
@@ -2689,6 +2767,13 @@
         "Id": "935043819"
        }
       ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1023176653"
+        }
+       ]
+      },
       "AuxBusRefs": [
        {
         "Id": "348963605",
@@ -2717,6 +2802,13 @@
         "Id": "415148642"
        }
       ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1023176653"
+        }
+       ]
+      },
       "AuxBusRefs": [
        {
         "Id": "348963605",
@@ -2754,6 +2846,13 @@
         "Id": "908293361"
        }
       ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1023176653"
+        }
+       ]
+      },
       "AuxBusRefs": [
        {
         "Id": "348963605",
@@ -2791,6 +2890,13 @@
         "Id": "980938806"
        }
       ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1023176653"
+        }
+       ]
+      },
       "AuxBusRefs": [
        {
         "Id": "348963605",
@@ -2845,7 +2951,14 @@
          {
           "Id": "758279794"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        },
        {
         "SwitchValue": {
@@ -2871,7 +2984,14 @@
          {
           "Id": "1008562838"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        },
        {
         "SwitchValue": {
@@ -2897,7 +3017,14 @@
          {
           "Id": "984376535"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        },
        {
         "SwitchValue": {
@@ -2923,7 +3050,14 @@
          {
           "Id": "1049917503"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1023176653"
+          }
+         ]
+        }
        }
       ]
      },
@@ -2948,6 +3082,13 @@
         "Id": "834929320"
        }
       ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1023176653"
+        }
+       ]
+      },
       "AuxBusRefs": [
        {
         "Id": "348963605",
@@ -3017,6 +3158,13 @@
         "Id": "918325066"
        }
       ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1023176653"
+        }
+       ]
+      },
       "AuxBusRefs": [
        {
         "Id": "348963605",
@@ -3048,6 +3196,13 @@
         "Id": "796228657"
        }
       ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1023176653"
+        }
+       ]
+      },
       "AuxBusRefs": [
        {
         "Id": "348963605",
@@ -3076,6 +3231,13 @@
         "Id": "724066786"
        }
       ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1023176653"
+        }
+       ]
+      },
       "AuxBusRefs": [
        {
         "Id": "348963605",
@@ -4179,7 +4341,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_Tuto\\Play_DEN_Tuto_BranchBreaking",
       "GUID": "{3F676F78-4EE7-4019-8755-6F4DE5E8036E}",
       "Color": "10",
-      "MaxAttenuation": "15",
+      "MaxAttenuation": "50",
       "DurationType": "OneShot",
       "DurationMin": "1.4687419",
       "DurationMax": "1.896845",
@@ -4201,7 +4363,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_Tuto\\Play_DEN_Tuto_BranchGone",
       "GUID": "{2091A159-0E6E-49A3-8E17-FE07B329C688}",
       "Color": "10",
-      "MaxAttenuation": "15",
+      "MaxAttenuation": "50",
       "DurationType": "OneShot",
       "DurationMin": "0.85",
       "DurationMax": "0.85",
@@ -4223,7 +4385,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\DEN_Events_SFX\\DEN_EV_SFX_Tuto\\Play_DEN_Tuto_BranchMove",
       "GUID": "{069F145A-757D-4480-BB30-74F9FEF726FE}",
       "Color": "10",
-      "MaxAttenuation": "15",
+      "MaxAttenuation": "50",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -6855,6 +7017,6 @@
     ]
    }
   ],
-  "FileHash": "{A584D3F5-224F-D784-32E4-FC890C4889B9}"
+  "FileHash": "{07FA9E6E-B54C-2953-0EB2-C9A1F4C1D320}"
  }
 }
