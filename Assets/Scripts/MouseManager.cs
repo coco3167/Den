@@ -103,7 +103,7 @@ public class MouseManager : MonoBehaviour, IGameStateListener
     public float ObjectDistanceToMouse(Vector3 otherPos)
     {
         if (!IsUsed)
-            return float.MaxValue;
+            return 10000;
         return (otherPos - mouseRigidBody.position).sqrMagnitude;
     }
 
