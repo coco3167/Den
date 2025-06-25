@@ -76,12 +76,16 @@ namespace SmartObjects_AI
             return data.scoreCalculation.CalculateScore(smartAgent, this);
         }
 
+        public void StartGoing(SmartAgent agent)
+        {
+            agent.SetStoppingDistance(data.stoppingDistance);
+        }
+
         public void StartUse(SmartAgent agent)
         {
             m_startedUseList.Add(agent);
             
             agent.animationAgent.SwitchAnimator(data, lookingPoint);
-            agent.SetStoppingDistance(data.stoppingDistance);
 
             if (data.wwiseEvent.IsValid())
                 data.wwiseEvent.Post(agent.gameObject);

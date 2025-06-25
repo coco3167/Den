@@ -1,4 +1,9 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using SmartObjects_AI.Agent;
 using TMPro;
 using UnityEngine;
@@ -14,14 +19,21 @@ namespace Options.Categories
         [SerializeField] private GameObject cursorModeGameObject;
         [SerializeField] private Toggle closeCaptionning;
         [SerializeField] private Button quit;
+        [SerializeField] private Button secret;
         
         [Title("Pop Up")]
         [SerializeField] private GameObject popUp;
         [SerializeField] private Button apply;
         [SerializeField] private Button back;
+        
+        [Title("Secret")]
+        [SerializeField] private RectTransform[] secrets;
+        [SerializeField] private float lerpAmount, maxDistance;
 
         private AgentDynamicParameter m_cursorModeParameter = AgentDynamicParameter.Tension;
         private Navigation m_godNavigation, m_closeCaptionNavigation;
+
+        private Coroutine m_secretCoroutine;
 
         private void Awake()
         {
@@ -32,6 +44,7 @@ namespace Options.Categories
             cursorMode.onValueChanged.AddListener(OnCursorMode);
             closeCaptionning.onValueChanged.AddListener(OnCloseCaptionningToggle);
             quit.onClick.AddListener(Quit);
+            secret.onClick.AddListener(Secret);
             
             apply.onClick.AddListener(OnGodModeApply);
             back.onClick.AddListener(OnGodModeBack);
@@ -46,6 +59,11 @@ namespace Options.Categories
             m_closeCaptionNavigation = closeCaptionning.navigation;
             m_closeCaptionNavigation.selectOnUp = godMode;
             closeCaptionning.navigation = m_closeCaptionNavigation;
+        }
+
+        private void OnEnable()
+        {
+            secrets.ForEach(x => x.pivot = new Vector2(2, 0.5f));
         }
 
         private void OnGodModeToggle(bool value)
@@ -101,6 +119,26 @@ namespace Options.Categories
         private void Quit()
         {
             Application.Quit();
+        }
+
+        private void Secret()
+        {
+            if(m_secretCoroutine != null)
+                StopCoroutine(m_secretCoroutine);
+            m_secretCoroutine = StartCoroutine(SecretTween());
+            //secrets.ForEach(x => x.DOPivot(new Vector2(0, 0.5f), duration).Play());
+        }
+
+        private IEnumerator SecretTween()
+        {
+            Vector2 result = new Vector2(0, 0.5f);
+            while (Vector2.Distance(secrets[0].pivot, result) > .1f)
+            {            
+                secrets.ForEach(x => x.pivot = Vector2.Lerp(x.pivot, result, .3f));
+                yield return new WaitForEndOfFrame();
+            }
+
+            secrets.ForEach(x => x.pivot = result);
         }
 
         private void OnCursorMode(int value)
