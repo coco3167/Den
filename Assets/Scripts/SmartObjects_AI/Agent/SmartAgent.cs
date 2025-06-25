@@ -129,11 +129,11 @@ namespace SmartObjects_AI.Agent
             m_movementAgent.SetDestination(m_currentSmartObject.usingPoint, m_currentSmartObject.ShouldRun());
             if (m_currentSmartObject.IsUsing(this) && !m_movementAgent.IsCloseToDestination())
             {
-                animationAgent.FinishUseAnimation(true, false);
+                animationAgent.FinishUseAnimation(true, false, false);
                 m_currentSmartObject.FinishUse(this);
             }
 
-            animationAgent.FinishUseAnimation(!(isStillSameObject && m_movementAgent.IsCloseToDestination()), smartObjectToUse.ShouldInterrupt());
+            animationAgent.FinishUseAnimation(!(isStillSameObject && m_movementAgent.IsCloseToDestination()), smartObjectToUse.ShouldInterrupt(), m_currentSmartObject.IsInInterruptable());
 
             if (m_movementAgent.IsCloseToDestination())
             {

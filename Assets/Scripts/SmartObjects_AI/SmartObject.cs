@@ -127,6 +127,11 @@ namespace SmartObjects_AI
             return data.shouldInterruptNext;
         }
 
+        public bool IsInInterruptable()
+        {
+            return data.inInterruptable;
+        }
+
         /// <summary>
         /// Calculate how much the distance affects the agent want to use the object
         /// </summary>

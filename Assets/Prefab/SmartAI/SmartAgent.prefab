@@ -2108,7 +2108,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6239030797025450240, guid: 5543f0786476b3141bde77a04964005a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5528877658628190419}
+    - targetCorrespondingSourceObject: {fileID: 6239030797025450240, guid: 5543f0786476b3141bde77a04964005a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5431837319587425303}
   m_SourcePrefab: {fileID: 100100000, guid: 5543f0786476b3141bde77a04964005a, type: 3}
+--- !u!114 &177623626456387422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8575047228937180028, guid: 5543f0786476b3141bde77a04964005a, type: 3}
+  m_PrefabInstance: {fileID: 8464440436136205346}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585847727706686754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873ecba2b6d54196bf419f27087cd2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2379071668512018142 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6085368776231162620, guid: 5543f0786476b3141bde77a04964005a, type: 3}
@@ -2163,6 +2177,22 @@ MonoBehaviour:
       Value: 0
   dynamicParameters:
     _serializedList: []
+--- !u!114 &5431837319587425303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585847727706686754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f980d58bc39d84a4ea0b5eefb9282960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpscares:
+  - {fileID: 5528877658628190419}
+  - {fileID: 2896923848430138502}
+  - {fileID: 177623626456387422}
 --- !u!4 &8165868323457240554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 298722205277180360, guid: 5543f0786476b3141bde77a04964005a, type: 3}

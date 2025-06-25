@@ -127,9 +127,10 @@ namespace SmartObjects_AI
                     break;
             }
 
-            m_usageCoeff = smartObject.GetDynamicParameter(SmartObjectParameter.Usage) > 90 ? 1.1f : 0;
+            m_emotion = Math.Max(10, m_emotion);
+            m_usageCoeff = JumpscareManager.Value > 90 ? 1.1f : 0;
             
-            return 10 * m_usageCoeff * m_emotion / m_mousePlayerProximity;
+            return m_usageCoeff * m_emotion / m_mousePlayerProximity;
         }
     }
 
