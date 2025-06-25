@@ -48,8 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3d6e4e028b3024588f130ac127ba4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smartAgent: {fileID: 2636891235096447983, guid: ac537ed5e4f58e24e9a3d6c9fc1057f8, type: 3}
-  sinjCount: 2
   mouseAgents: []
   emotionsMin:
     _serializedList:
@@ -74,13 +72,13 @@ MonoBehaviour:
   emotionsDecrease:
     _serializedList:
     - Key: 0
-      Value: 10
+      Value: 7
     - Key: 1
-      Value: 5
+      Value: 10
     - Key: 2
-      Value: 5
+      Value: 10
     - Key: 3
-      Value: 5
+      Value: 15
   emotionsTransmissionCurve:
     _serializedList:
     - Key: 1
@@ -95,7 +93,7 @@ MonoBehaviour:
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
-          outWeight: 0
+          outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
           value: 1
@@ -103,7 +101,7 @@ MonoBehaviour:
           outSlope: 1
           tangentMode: 34
           weightedMode: 0
-          inWeight: 0
+          inWeight: 0.33333334
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -115,20 +113,29 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 1
-          outSlope: 1
+          inSlope: 4.2013636
+          outSlope: 4.2013636
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
-          outWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.05790185
+          value: 0.24326673
+          inSlope: 2.0618355
+          outSlope: 2.0618355
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.4662556
+          outWeight: 0.20331818
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 1
-          tangentMode: 34
+          value: 0.9983097
+          inSlope: 0.044058353
+          outSlope: 0.044058353
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0
+          inWeight: 0.3657462
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -140,26 +147,26 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 1
-          outSlope: 1
+          inSlope: 4.5
+          outSlope: 4.5
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
-          outWeight: 0
+          outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 1
+          value: 4.5
+          inSlope: 4.5
+          outSlope: 4.5
           tangentMode: 34
           weightedMode: 0
-          inWeight: 0
+          inWeight: 0.33333334
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
   mouseManager: {fileID: 0}
-  emotionStampTime: 0
+  emotionStampTime: 15
 --- !u!114 &369050697528560137
 MonoBehaviour:
   m_ObjectHideFlags: 0
