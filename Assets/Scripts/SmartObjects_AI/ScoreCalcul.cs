@@ -56,6 +56,7 @@ namespace SmartObjects_AI
     
     public class FleePointCuriosity : BaseScoreCalcul
     {
+        [SerializeField] private float proximityDecal;
         private float m_mousePlayerProximity;
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
@@ -64,7 +65,7 @@ namespace SmartObjects_AI
                 return 0;
             
             
-            m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position);
+            m_mousePlayerProximity = p_mouseManager.ObjectDistanceToMouse(smartAgent.transform.position) + proximityDecal;
             m_mousePlayerProximity *= m_mousePlayerProximity;
             
             // if (smartAgent.IsGoing(smartObject))
@@ -91,7 +92,7 @@ namespace SmartObjects_AI
             
             if (smartAgent.IsGoing(smartObject))
             {
-                return Math.Max(1, smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression)) * Math.Max(p_distanceCoefficient, 1/m_mousePlayerProximity);
+                return Math.Max(10, smartAgent.GetDynamicParameter(AgentDynamicParameter.Aggression)) * Math.Max(p_distanceCoefficient, 1/m_mousePlayerProximity);
             }
             
             return 10 / m_mousePlayerProximity;

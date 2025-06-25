@@ -10,7 +10,7 @@ public class IntroManager : MonoBehaviour
     [SerializeField] private SymbolManager symbolManager;
     
     [Header("General")]
-    [Range(1, 6)]
+    [Range(1, 7)]
     public int step;
     private string[] stepNames = { "black screen", "fade", "onboarding", "title pause", "title disappearing", "symbol appearing", "game" };
 
