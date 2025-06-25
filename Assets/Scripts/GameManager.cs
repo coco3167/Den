@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
+using AYellowpaper.SerializedCollections;
 using Options;
 using Sinj;
 using Sirenix.OdinInspector;
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
 
     [SerializeField] public WorldParameters worldParameters;
 
-    [SerializeField] private float timeBeforeRealEnd = 5;
+    [SerializeField] private SerializedDictionary<AgentDynamicParameter, float> timeBeforeRealEnd;
 
     // Palier
     private readonly Dictionary<AgentDynamicParameter, WwiseMoodState> m_palierMoodState = new()
@@ -218,7 +219,7 @@ public class GameManager : MonoBehaviour, IGameStateListener
     // ReSharper disable Unity.PerformanceAnalysis
     private IEnumerator CallGameLoopEnd(AgentDynamicParameter parameter)
     {
-        yield return new WaitForSeconds(timeBeforeRealEnd);
+        yield return new WaitForSeconds(timeBeforeRealEnd[parameter]);
         GameLoopManager.Instance.OnGameLoopEnded(parameter);
     }
 
