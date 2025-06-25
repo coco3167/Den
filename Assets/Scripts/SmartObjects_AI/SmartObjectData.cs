@@ -40,10 +40,10 @@ namespace SmartObjects_AI
             scoreCalculation.Init();
         }
 
-        public void Update(float jumpscareValue)
-        {
-            scoreCalculation.Update(jumpscareValue);
-        }
+        // public void JumpscareUpdate(float jumpscareValue)
+        // {
+        //     scoreCalculation.JumpScareUpdate(jumpscareValue);
+        // }
 
         public bool IsRest()
         {

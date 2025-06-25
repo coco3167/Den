@@ -18,10 +18,10 @@ namespace SmartObjects_AI
             p_worldParameters = GameManager.Instance.worldParameters;
         }
 
-        public virtual void Update(float jumpscareValue)
-        {
-            //
-        }
+        // public virtual void JumpScareUpdate(float jumpscareValue)
+        // {
+        //     //
+        // }
 
         public virtual float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
@@ -110,10 +110,10 @@ namespace SmartObjects_AI
         
         private float m_mousePlayerProximity, m_emotion, m_usageCoeff;
 
-        public override void Update(float jumpscareValue)
-        {
-            m_usageCoeff = jumpscareValue > 90 ? 1.1f : 0;
-        }
+        // public override void JumpScareUpdate(float jumpscareValue)
+        // {
+        //     m_usageCoeff = jumpscareValue > 90 ? 1.1f : 0;
+        // }
 
         public override float CalculateScore(SmartAgent smartAgent, SmartObject smartObject)
         {
@@ -138,6 +138,7 @@ namespace SmartObjects_AI
                     break;
             }
 
+            m_usageCoeff = smartObject.GetDynamicParameter(SmartObjectParameter.Usage) > 90 ? 1.1f : 0;
             m_emotion = Math.Max(10, m_emotion);
             
             return m_usageCoeff * m_emotion / m_mousePlayerProximity;

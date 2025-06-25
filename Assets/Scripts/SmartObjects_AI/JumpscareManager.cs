@@ -8,9 +8,7 @@ namespace SmartObjects_AI
     public class JumpscareManager : MonoBehaviour
     {
         [SerializeField] private SmartObject[] jumpscares;
-    
-        [NonSerialized] public float Value;
-
+        
         private void Awake()
         {
             jumpscares.ForEach(x => x.JumpscareManager = this);
@@ -27,6 +25,7 @@ namespace SmartObjects_AI
             //     .GetDynamicParameter(SmartObjectParameter.Usage);
 
             float usage = 100;
+            //int loop = 0;
             foreach (SmartObject smartObject in jumpscares)
             {
                 float objectUsage = smartObject.GetDynamicParameter(SmartObjectParameter.Usage);
@@ -34,9 +33,11 @@ namespace SmartObjects_AI
                 {
                     usage = objectUsage;
                 }
+                //Debug.Log($"{objectUsage} | {loop}");
+                //loop++;
             }
 
-            Value = usage;
+            jumpscares.ForEach(x => x.SetDynamicParameter(SmartObjectParameter.Usage, usage));
         }
     }
 }

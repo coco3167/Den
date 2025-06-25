@@ -49,13 +49,13 @@ namespace SmartObjects_AI
             }
         }
 
-        private void Update()
-        {
-            if (JumpscareManager)
-            {
-                data.Update(JumpscareManager.Value);
-            }
-        }
+        // private void Update()
+        // {
+        //     if (JumpscareManager)
+        //     {
+        //         data.JumpscareUpdate(JumpscareManager.Value);
+        //     }
+        // }
 
         public void Reload()
         {
