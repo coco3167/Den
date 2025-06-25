@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using SmartObjects_AI.Agent;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Options.Categories
@@ -11,6 +12,7 @@ namespace Options.Categories
         [SerializeField] private Toggle godMode;
         [SerializeField] private TMP_Dropdown cursorMode;
         [SerializeField] private GameObject cursorModeGameObject;
+        [SerializeField] private Toggle closeCaptionning;
         [SerializeField] private Button quit;
         
         [Title("Pop Up")]
@@ -19,6 +21,7 @@ namespace Options.Categories
         [SerializeField] private Button back;
 
         private AgentDynamicParameter m_cursorModeParameter = AgentDynamicParameter.Tension;
+        private Navigation m_godNavigation, m_closeCaptionNavigation;
 
         private void Awake()
         {
@@ -27,6 +30,7 @@ namespace Options.Categories
             
             godMode.onValueChanged.AddListener(OnGodModeToggle);
             cursorMode.onValueChanged.AddListener(OnCursorMode);
+            closeCaptionning.onValueChanged.AddListener(OnCloseCaptionningToggle);
             quit.onClick.AddListener(Quit);
             
             apply.onClick.AddListener(OnGodModeApply);
@@ -34,6 +38,14 @@ namespace Options.Categories
             
             cursorModeGameObject.SetActive(false);
             popUp.SetActive(false);
+
+            m_godNavigation = godMode.navigation;
+            m_godNavigation.selectOnDown = closeCaptionning;
+            godMode.navigation = m_godNavigation;
+
+            m_closeCaptionNavigation = closeCaptionning.navigation;
+            m_closeCaptionNavigation.selectOnUp = godMode;
+            closeCaptionning.navigation = m_closeCaptionNavigation;
         }
 
         private void OnGodModeToggle(bool value)
@@ -42,9 +54,16 @@ namespace Options.Categories
             cursorModeGameObject.SetActive(false);
             GameParameters.CursorMode = AgentDynamicParameter.Tension;
 
+            m_godNavigation.selectOnDown = closeCaptionning;
+            godMode.navigation = m_godNavigation;
+
+            m_closeCaptionNavigation.selectOnUp = godMode;
+            closeCaptionning.navigation = m_closeCaptionNavigation;
+            
             if (value)
             {
                 popUp.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(back.gameObject);
             }
         }
 
@@ -55,6 +74,14 @@ namespace Options.Categories
             cursorModeGameObject.SetActive(true);
             godMode.isOn = true;
             popUp.SetActive(false);
+            
+            m_godNavigation.selectOnDown = cursorMode;
+            godMode.navigation = m_godNavigation;
+
+            m_closeCaptionNavigation.selectOnUp = cursorMode;
+            closeCaptionning.navigation = m_closeCaptionNavigation;
+            
+            EventSystem.current.SetSelectedGameObject(cursorMode.gameObject);
         }
 
         private void OnGodModeBack()
@@ -62,6 +89,13 @@ namespace Options.Categories
             cursorModeGameObject.SetActive(false);
             godMode.isOn = false;
             popUp.SetActive(false);
+            
+            EventSystem.current.SetSelectedGameObject(godMode.gameObject);
+        }
+
+        private void OnCloseCaptionningToggle(bool value)
+        {
+            GameParameters.HasCloseCaptions = value;
         }
 
         private void Quit()
