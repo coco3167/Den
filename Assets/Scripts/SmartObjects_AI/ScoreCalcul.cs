@@ -147,7 +147,7 @@ namespace SmartObjects_AI
 
             m_dirtiness = smartObject.GetDynamicParameter(SmartObjectParameter.Dirtiness) / 10;
             m_worldCuriosity = GameManager.Instance.worldParameters.AgentGlobalParameters[AgentDynamicParameter.Curiosity];
-            m_worldCuriosity = m_worldCuriosity > 25 ? m_worldCuriosity/50 : 0;
+            m_worldCuriosity = m_worldCuriosity > 25 ? m_worldCuriosity/25 : 0;
 
             return p_usingCapacity * m_dirtiness * p_distanceCoefficient * m_worldCuriosity;
         }
@@ -174,6 +174,8 @@ namespace SmartObjects_AI
 
     public class HideoutScore : BaseScoreCalcul
     {
+        
+
         private float m_agentFear;
         private float m_worldFear;
         
@@ -185,7 +187,12 @@ namespace SmartObjects_AI
             m_agentFear = Math.Max(smartAgent.GetDynamicParameter(AgentDynamicParameter.UsableFear), smartAgent.GetDynamicParameter(AgentDynamicParameter.Fear)) / 10;
             m_worldFear = GameManager.Instance.worldParameters.AgentGlobalParameters[AgentDynamicParameter.Fear];
 
-            return p_usingCapacity * m_agentFear * p_distanceCoefficient * m_worldFear/10;
+            if (smartAgent.IsGoing(smartObject))
+            {
+                p_distanceCoefficient *= 5;
+            }
+
+            return p_usingCapacity * m_agentFear * p_distanceCoefficient * (m_worldFear*0.8f+10) / 10;
         }
     }
 
