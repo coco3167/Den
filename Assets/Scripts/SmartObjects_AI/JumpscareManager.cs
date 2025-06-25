@@ -18,13 +18,25 @@ namespace SmartObjects_AI
 
         private void Update()
         {
-            Value = jumpscares
-                .Aggregate(
-                    (x, y) =>
-                        x.GetDynamicParameter(SmartObjectParameter.Usage) <
-                        y.GetDynamicParameter(SmartObjectParameter.Usage) 
-                            ? x : y)
-                .GetDynamicParameter(SmartObjectParameter.Usage);
+            // Value = jumpscares
+            //     .Aggregate(
+            //         (x, y) =>
+            //             x.GetDynamicParameter(SmartObjectParameter.Usage) >
+            //             y.GetDynamicParameter(SmartObjectParameter.Usage) 
+            //                 ? x : y)
+            //     .GetDynamicParameter(SmartObjectParameter.Usage);
+
+            float usage = 100;
+            foreach (SmartObject smartObject in jumpscares)
+            {
+                float objectUsage = smartObject.GetDynamicParameter(SmartObjectParameter.Usage);
+                if (objectUsage < usage)
+                {
+                    usage = objectUsage;
+                }
+            }
+
+            Value = usage;
         }
     }
 }
