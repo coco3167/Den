@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
+using Sirenix.Utilities;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace SmartObjects_AI
 {
@@ -11,14 +11,19 @@ namespace SmartObjects_AI
     
         [NonSerialized] public float Value;
 
+        private void Awake()
+        {
+            jumpscares.ForEach(x => x.JumpscareManager = this);
+        }
+
         private void Update()
         {
             Value = jumpscares
                 .Aggregate(
                     (x, y) =>
-                    x.GetDynamicParameter(SmartObjectParameter.Usage) <
-                    y.GetDynamicParameter(SmartObjectParameter.Usage) 
-                        ? x : y)
+                        x.GetDynamicParameter(SmartObjectParameter.Usage) <
+                        y.GetDynamicParameter(SmartObjectParameter.Usage) 
+                            ? x : y)
                 .GetDynamicParameter(SmartObjectParameter.Usage);
         }
     }

@@ -17,7 +17,7 @@ namespace SmartObjects_AI
         [field: SerializeField] public Transform lookingPoint { get; private set; }
         [SerializeField] private bool shouldSnapToLookingPoint;
         [SerializeField] private SmartObjectData data;
-        [SerializeField] private JumpscareManager jumpscareManager;
+        [NonSerialized] public JumpscareManager JumpscareManager;
 
         [SerializeField] private SerializedDictionary<SmartObjectParameter, float> dynamicParametersStartValue;
         [SerializeField, ReadOnly] private SerializedDictionary<SmartObjectParameter, float> dynamicParameters = new();
@@ -51,9 +51,9 @@ namespace SmartObjects_AI
 
         private void Update()
         {
-            if (jumpscareManager)
+            if (JumpscareManager)
             {
-                data.Update(jumpscareManager.Value);
+                data.Update(JumpscareManager.Value);
             }
         }
 

@@ -90,6 +90,7 @@ MonoBehaviour:
       Value: 5
   dynamicParameters:
     _serializedList: []
+  m_currentSmartObject: {fileID: 0}
 --- !u!114 &9153177029880401511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +191,7 @@ MonoBehaviour:
   <lookingPoint>k__BackingField: {fileID: 0}
   shouldSnapToLookingPoint: 0
   data: {fileID: 11400000, guid: 76e5fb779e50d6f4191f22c5aad227d3, type: 2}
+  jumpscareManager: {fileID: 0}
   dynamicParametersStartValue:
     _serializedList: []
   dynamicParameters:
@@ -288,6 +290,7 @@ MonoBehaviour:
   <lookingPoint>k__BackingField: {fileID: 0}
   shouldSnapToLookingPoint: 0
   data: {fileID: 11400000, guid: 06999d1dfff7af34583266cc16ae59b3, type: 2}
+  jumpscareManager: {fileID: 0}
   dynamicParametersStartValue:
     _serializedList: []
   dynamicParameters:
@@ -2110,7 +2113,7 @@ PrefabInstance:
       addedObject: {fileID: 5528877658628190419}
     - targetCorrespondingSourceObject: {fileID: 6239030797025450240, guid: 5543f0786476b3141bde77a04964005a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5431837319587425303}
+      addedObject: {fileID: 3854412075393034197}
   m_SourcePrefab: {fileID: 100100000, guid: 5543f0786476b3141bde77a04964005a, type: 3}
 --- !u!114 &177623626456387422 stripped
 MonoBehaviour:
@@ -2149,6 +2152,7 @@ MonoBehaviour:
   <lookingPoint>k__BackingField: {fileID: 0}
   shouldSnapToLookingPoint: 0
   data: {fileID: 11400000, guid: 5970c891c6a1dfd4e83de7683ad4f684, type: 2}
+  jumpscareManager: {fileID: 0}
   dynamicParametersStartValue:
     _serializedList:
     - Key: 0
@@ -2171,13 +2175,14 @@ MonoBehaviour:
   <lookingPoint>k__BackingField: {fileID: 0}
   shouldSnapToLookingPoint: 0
   data: {fileID: 11400000, guid: 8bbe668dd93a66c43babfc9bcd70b423, type: 2}
+  jumpscareManager: {fileID: 0}
   dynamicParametersStartValue:
     _serializedList:
     - Key: 0
       Value: 0
   dynamicParameters:
     _serializedList: []
---- !u!114 &5431837319587425303
+--- !u!114 &3854412075393034197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2190,9 +2195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpscares:
-  - {fileID: 5528877658628190419}
-  - {fileID: 2896923848430138502}
   - {fileID: 177623626456387422}
+  - {fileID: 2896923848430138502}
+  - {fileID: 5528877658628190419}
 --- !u!4 &8165868323457240554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 298722205277180360, guid: 5543f0786476b3141bde77a04964005a, type: 3}
