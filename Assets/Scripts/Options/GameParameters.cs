@@ -10,6 +10,7 @@ namespace Options
         public static float TimeScale = 1f;
         public static AgentDynamicParameter CursorMode;
         public static bool IsOutline;
+        public static bool HasCloseCaptions;
 
         public static void SensitivityChange(float value)
         {
