@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
 using DebugHUD;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -190,8 +191,9 @@ namespace SmartObjects_AI.Agent
         public void SnapToPoint(Vector3 position)
         {
             m_movementAgent.Activate(false);
-            transform.position = new Vector3(Random.Range(-.1f, .1f), 0, Random.Range(-.1f, .1f)) + position;
+            transform.position = new Vector3(Random.Range(-.2f, .2f), 0, Random.Range(-.2f, .2f)) + position;
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, Random.Range(0, 360), transform.rotation.eulerAngles.z));
+            transform.DOScale(0.1f, 2).From().Play();
         }
 
         public void SetStoppingDistance(float distance)
