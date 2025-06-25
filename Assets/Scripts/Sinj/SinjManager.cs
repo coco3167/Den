@@ -13,8 +13,6 @@ namespace Sinj
     public class SinjManager : MonoBehaviour, IDebugDisplayAble, IReloadable
     {
         [Title("Sinjs")]
-        [SerializeField, AssetsOnly, AssetSelector(Paths = "Assets/Prefab")] private GameObject smartAgent;
-        [SerializeField, Range(0,10)] private int sinjCount;
         [SerializeField, ReadOnly] public List<MouseAgent> mouseAgents = new();
 
         [Title("Emotions")]
@@ -37,9 +35,9 @@ namespace Sinj
         {
             m_worldParameters = GameManager.Instance.worldParameters;
             
-            for (int loop = 0; loop < sinjCount; loop++)
+            for (int loop = 0; loop < transform.childCount; loop++)
             {
-                mouseAgents.Add(Instantiate(smartAgent, transform).GetComponent<MouseAgent>());
+                mouseAgents.Add(transform.GetChild(loop).GetComponent<MouseAgent>());
                 mouseAgents[loop].Init(mouseManager);
                 
                 //Being instanced in runtime they arent picked by GameManager at Awake
@@ -160,7 +158,7 @@ namespace Sinj
                 return;
 
             value /= 100;
-            m_worldParameters.AgentGlobalParameters[parameter] += curve.Evaluate(value)*Time.deltaTime/sinjCount;
+            m_worldParameters.AgentGlobalParameters[parameter] += curve.Evaluate(value)*Time.deltaTime/transform.childCount;
 
             GameManager.Instance.HandlePallier(parameter, (int)m_worldParameters.AgentGlobalParameters[parameter]);
         }
