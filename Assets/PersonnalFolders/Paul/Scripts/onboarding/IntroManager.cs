@@ -72,6 +72,7 @@ public class IntroManager : MonoBehaviour
 
         // mainCamera.transform.position = cameraSpots[0].position;
         AudioManager.Instance.InitializeForState(GameState.Blackscreen);
+        AudioManager.Instance.StopCursorMoveSound(GameManager.Instance.GetMouseManager().GetMouseAura());
     }
 
     // Update is called once per frame
@@ -178,6 +179,7 @@ public class IntroManager : MonoBehaviour
                 {
                     step++;
                     GameLoopManager.Instance.OnGameLoopReady();
+                    AudioManager.Instance.StartCursorMoveSound(GameManager.Instance.GetMouseManager().GetMouseAura());
                 }
 
                 break;
