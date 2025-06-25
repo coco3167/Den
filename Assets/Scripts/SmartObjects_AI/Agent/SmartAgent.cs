@@ -144,6 +144,10 @@ namespace SmartObjects_AI.Agent
                 else if (m_currentSmartObject.IsUsing(this))
                     m_currentSmartObject.Use(this);
             }
+            else
+            {
+                m_currentSmartObject.StartGoing(this);
+            }
         }
 
         private void SearchForSmartObject()
