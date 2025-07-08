@@ -93,13 +93,13 @@ namespace SmartObjects_AI.Agent
                 movementAgent.StopAgent();
         }
 
-        public void FinishUseAnimation(bool shouldEnd, bool shouldInterrupt)
+        public void FinishUseAnimation(bool shouldEnd, bool shouldInterrupt, bool inInterruptable)
         {
             m_startedAnimation = false;
             
             m_animator.SetBool(FinishUse, shouldEnd);
 
-            if (shouldEnd && shouldInterrupt)
+            if (shouldEnd && shouldInterrupt && !inInterruptable)
             {
                 m_animator.SetBool(FinishFast, true);
                 m_animator.SetBool(SkipEnd, true);

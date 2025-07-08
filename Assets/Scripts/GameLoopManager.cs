@@ -72,6 +72,18 @@ public class GameLoopManager : MonoBehaviour, IPausable
         m_tween.Play();
     }
 
+    public void OnNeutralGameLoopEnded()
+    {
+        GameEnded?.Invoke(null, EventArgs.Empty);
+        m_tween.Kill();
+
+        blackBackground.gameObject.SetActive(true);
+        AudioManager.Instance.ResetEndMusic();
+        blackBackground.DOColor(Color.white, 5).OnComplete(() => symbolManager.LastAppearance(AgentDynamicParameter.Tension)).Play();
+        
+        AudioManager.Instance.StopCursorMoveSound(GameManager.Instance.GetMouseManager().GetMouseAura());
+    }
+
     public void OnGameLoopEnded(AgentDynamicParameter parameter, bool manual = false)
     {
         if (manual)
@@ -83,6 +95,8 @@ public class GameLoopManager : MonoBehaviour, IPausable
         blackBackground.gameObject.SetActive(true);
         AudioManager.Instance.ResetEndMusic();
         blackBackground.DOColor(Color.white, 5).OnComplete(() => symbolManager.LastAppearance(parameter)).Play();
+        
+        AudioManager.Instance.StopCursorMoveSound(GameManager.Instance.GetMouseManager().GetMouseAura());
 
         //introManager.LoopReset();
         //StartCoroutine(RestartCoroutine());

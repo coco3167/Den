@@ -10,9 +10,9 @@ public class IntroManager : MonoBehaviour
     [SerializeField] private SymbolManager symbolManager;
     
     [Header("General")]
-    [Range(1, 6)]
+    [Range(1, 7)]
     public int step;
-    private string[] stepNames = { "black screen", "fade", "onboarding", "title pause", "symbol appearing", "game" };
+    private string[] stepNames = { "black screen", "fade", "onboarding", "title pause", "title disappearing", "symbol appearing", "game" };
 
     /*
     step 1 = black screen
@@ -72,6 +72,7 @@ public class IntroManager : MonoBehaviour
 
         // mainCamera.transform.position = cameraSpots[0].position;
         AudioManager.Instance.InitializeForState(GameState.Blackscreen);
+        AudioManager.Instance.StopCursorMoveSound(GameManager.Instance.GetMouseManager().GetMouseAura());
     }
 
     // Update is called once per frame
@@ -158,20 +159,32 @@ public class IntroManager : MonoBehaviour
                 if (titleDelay < 0)
                 {
                     step = 5;
-                    GameLoopManager.Instance.OnGameLoopReady();
                 }
                 break;
             
             case 5:
+                titleMAIN = Mathf.Lerp(titleMat.GetFloat("_MAIN"), 0, Time.deltaTime * titleFadeSpeed);
+                titleMat.SetFloat("_MAIN", titleMAIN);
+
+                if (titleMAIN < .01f)
+                {
+                    titleMat.SetFloat("_MAIN", titleMAIN);
+                    step++;
+                }
+                break;
+            
+            case 6:
                 symbolManager.Appear();
                 if (symbolManager.hasAppeared)
                 {
-                    step = 6;
+                    step++;
+                    GameLoopManager.Instance.OnGameLoopReady();
+                    AudioManager.Instance.StartCursorMoveSound(GameManager.Instance.GetMouseManager().GetMouseAura());
                 }
 
                 break;
 
-            case 6:
+            case 7:
                 titleReveal = false;
                 // if (!cameraUp)
                 // {
@@ -183,8 +196,7 @@ public class IntroManager : MonoBehaviour
                 AudioManager.Instance.SetGameStateGameplay();
                 dofVolume.weight = Mathf.Lerp(dofVolume.weight, 0, Time.deltaTime * dofSpeed);
 
-                titleMAIN = Mathf.Lerp(titleMat.GetFloat("_MAIN"), 0, Time.deltaTime * titleFadeSpeed);
-                titleMat.SetFloat("_MAIN", titleMAIN);
+                
                 break;
         }
 

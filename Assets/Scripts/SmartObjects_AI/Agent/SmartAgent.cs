@@ -30,7 +30,7 @@ namespace SmartObjects_AI.Agent
         // Score and SmartObjects
         private SmartObject[] m_smartObjects;
         private SmartObject[] m_smartObjectsOwning;
-        private SmartObject m_currentSmartObject;
+        [SerializeField, ReadOnly] private SmartObject m_currentSmartObject;
         private Dictionary<SmartObject, float> m_smartObjectScore = new();
         private KeyValuePair<SmartObject, float> m_smartObjectToUse;
 
@@ -129,11 +129,11 @@ namespace SmartObjects_AI.Agent
             m_movementAgent.SetDestination(m_currentSmartObject.usingPoint, m_currentSmartObject.ShouldRun());
             if (m_currentSmartObject.IsUsing(this) && !m_movementAgent.IsCloseToDestination())
             {
-                animationAgent.FinishUseAnimation(true, false);
+                animationAgent.FinishUseAnimation(true, false, false);
                 m_currentSmartObject.FinishUse(this);
             }
 
-            animationAgent.FinishUseAnimation(!(isStillSameObject && m_movementAgent.IsCloseToDestination()), smartObjectToUse.ShouldInterrupt());
+            animationAgent.FinishUseAnimation(!(isStillSameObject && m_movementAgent.IsCloseToDestination()), smartObjectToUse.ShouldInterrupt(), m_currentSmartObject.IsInInterruptable());
 
             if (m_movementAgent.IsCloseToDestination())
             {
@@ -143,6 +143,10 @@ namespace SmartObjects_AI.Agent
                 }
                 else if (m_currentSmartObject.IsUsing(this))
                     m_currentSmartObject.Use(this);
+            }
+            else
+            {
+                m_currentSmartObject.StartGoing(this);
             }
         }
 
